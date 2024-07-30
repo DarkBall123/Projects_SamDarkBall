@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="DJI_Mavic">
+  <Package name="DJI_Mavic">
+    <Container name="DJI_Mavic_container">
+      <Key ID="STR_mavic_fligtMode">
+        <Original>N Mode</Original>
+        <English>N Mode</English>
+        <Russian>Режим N</Russian>
+      </Key>
+	  <Key ID="STR_mavic_flightStatus_Flight">
+        <Original>In Flight</Original>
+        <English>In Flight</English>
+        <Russian>В Полете</Russian>
+      </Key>
+	  <Key ID="STR_mavic_flightStatus_Ground">
+        <Original>On Ground</Original>
+        <English>On Ground</English>
+        <Russian>На Земле</Russian>
+      </Key>
+	  <Key ID="STR_mavic_meters">
+        <Original>m</Original>
+        <English>m</English>
+        <Russian>м</Russian>
+      </Key>
+	  <Key ID="STR_mavic_metersSeconds">
+        <Original>m/s</Original>
+        <English>m/s</English>
+        <Russian>м/с</Russian>
+      </Key>
+	  <Key ID="STR_mavic_dropMessage">
+        <Original>Bottom auxiliary light on</Original>
+        <English>Bottom auxiliary light on</English>
+        <Russian>Нижняя подсветка вкл</Russian>
+      </Key>
+    </Container>
+  </Package>
+</Project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="DJI_Mavic">
+  <Package name="DJI_Mavic">
+    <Container name="DJI_Mavic_container">
+      <Key ID="STR_orion_KornetD">
+        <Original>Kornet-D</Original>
+        <English>Kornet-D</English>
+        <Russian>Корнет-Д</Russian>
+      </Key>
+	  <Key ID="STR_orion_KAB50">
+        <Original>KAB50-L</Original>
+        <English>KAB50-L</English>
+        <Russian>КАБ-50Л</Russian>
+      </Key>
+	  <Key ID="STR_orion_KAB20">
+        <Original>3x KAB20-L</Original>
+        <English>3x KAB20-L</English>
+        <Russian>3x КАБ-20Л</Russian>
+      </Key>
+	  <Key ID="STR_orion_Laser">
+        <Original>Laser</Original>
+        <English>Laser</English>
+        <Russian>ЛЦУ</Russian>
+      </Key>
+	  <Key ID="STR_orion_meters">
+        <Original>m</Original>
+        <English>m</English>
+        <Russian>м</Russian>
+      </Key>
+    </Container>
+  </Package>
+</Project>

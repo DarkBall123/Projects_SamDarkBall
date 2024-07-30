@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="DJI_Mavic">
+  <Package name="DJI_Mavic">
+    <Container name="AK603_container">
+      <Key ID="STR_AK603_MTK_2">
+        <Original>M T K  2</Original>
+        <English>M T K  2</English>
+        <Russian>М Т К  2</Russian>
+      </Key>
+	  <Key ID="STR_AK603_CA">
+        <Original>CA</Original>
+        <English>CA</English>
+        <Russian>КУ</Russian>
+      </Key>
+	  <Key ID="STR_AK603_EA">
+        <Original>EA</Original>
+        <English>EA</English>
+        <Russian>УМ</Russian>
+      </Key>
+    </Container>
+  </Package>
+</Project>

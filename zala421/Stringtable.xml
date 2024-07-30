@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Zala421">
+  <Package name="Zala421">
+    <Container name="Zala421_container">
+      <Key ID="STR_zala421_squareX">
+        <Original>SQ X</Original>
+        <English>SQ X</English>
+        <Russian>КВ X</Russian>
+      </Key>
+      <Key ID="STR_zala421_squareY">
+        <Original>SQ Y</Original>
+        <English>SQ Y</English>
+        <Russian>КВ Y</Russian>
+      </Key>
+      <Key ID="STR_zala421_laser">
+        <Original>LASER</Original>
+        <English>LASER</English>
+        <Russian>ЛАЗЕР</Russian>
+      </Key>
+      <Key ID="STR_zala421_on">
+        <Original>ON</Original>
+        <English>ON</English>
+        <Russian>ВКЛ</Russian>
+      </Key>
+      <Key ID="STR_zala421_off">
+        <Original>OFF</Original>
+        <English>OFF</English>
+        <Russian>ВЫКЛ</Russian>
+      </Key>
+      <Key ID="STR_zala421_speed">
+        <Original>SPD</Original>
+        <English>SPD</English>
+        <Russian>СКОР</Russian>
+      </Key>
+      <Key ID="STR_zala421_altitude">
+        <Original>ALT</Original>
+        <English>ALT</English>
+        <Russian>ВЫС</Russian>
+      </Key>
+      <Key ID="STR_zala421_course">
+        <Original>CRS</Original>
+        <English>CRS</English>
+        <Russian>КУРС</Russian>
+      </Key>
+      <Key ID="STR_zala421_t">
+        <Original>T</Original>
+        <English>T</English>
+        <Russian>Т</Russian>
+      </Key>
+	  <Key ID="STR_zala421_square">
+        <Original>SQUARE</Original>
+        <English>SQUARE</English>
+        <Russian>КВАДРАТ</Russian>
+      </Key>
+      <Key ID="STR_zala421_fuel">
+        <Original>FUEL</Original>
+        <English>FUEL</English>
+        <Russian>ТОПЛИВО</Russian>
+      </Key>
+      <Key ID="STR_zala421_condition">
+        <Original>CONDITION</Original>
+        <English>CONDITION</English>
+        <Russian>СОСТОЯНИЕ</Russian>
+      </Key>
+      <Key ID="STR_zala421_controllable">
+        <Original>CONTROLLABLE</Original>
+        <English>CONTROLLABLE</English>
+        <Russian>УПРАВЛЯЕМЫЙ</Russian>
+      </Key>
+      <Key ID="STR_zala421_damaged">
+        <Original>DAMAGED</Original>
+        <English>DAMAGED</English>
+        <Russian>ПОВРЕЖДЕН</Russian>
+      </Key>
+      <Key ID="STR_zala421_speed">
+        <Original>SPEED</Original>
+        <English>SPEED</English>
+        <Russian>СКОРОСТЬ</Russian>
+      </Key>
+      <Key ID="STR_zala421_pitch">
+        <Original>PITCH</Original>
+        <English>PITCH</English>
+        <Russian>ТАНГАЖ</Russian>
+      </Key>
+    </Container>
+  </Package>
+</Project>

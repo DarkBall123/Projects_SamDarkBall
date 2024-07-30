@@ -1,0 +1,14 @@
+class CfgFunctions
+{
+	class DB
+	{
+		class orlan
+		{
+            file = "\lk_orlan\functions";
+
+			class init_launcher_tripod {};
+			class handleAnim {};
+			class setAngleOfAttack {};
+		};
+	};
+};
