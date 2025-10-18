@@ -1,26 +1,30 @@
 addMissionEventHandler ["EachFrame", {
-	private _player = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
-	private _uav = getConnectedUAV _player;
+        private _operator = call DB_fnc_fpv_getOperator;
+        private _uav = [_operator] call DB_fnc_fpv_getControlledUAV;
 
-	private _currentBattery = fuel _uav;
+        if (isNull _uav) exitWith {
+                removeMissionEventHandler ["EachFrame", _thisEventHandler];
+        };
 
-	private _controlPicture = uiNameSpace getVariable ["ArmaFPV_BatteryPicture", controlNull];
-	private _controlText = uiNameSpace getVariable ["ArmaFPV_BatteryText", controlNull];
-	private _picture = "";
+        private _batteryLevel = (fuel _uav) max 0;
+        private _picture = [
+                _batteryLevel,
+                [
+                        [0.75, "\\ArmaFPV\\pictures\\A100.paa"],
+                        [0.5, "\\ArmaFPV\\pictures\\A75.paa"],
+                        [0.25, "\\ArmaFPV\\pictures\\A50.paa"],
+                        [0.01, "\\ArmaFPV\\pictures\\A25.paa"]
+                ],
+                "\\ArmaFPV\\pictures\\A0.paa"
+        ] call DB_fnc_fpv_selectGaugeTexture;
 
-	switch (true) do {
-    	case (_currentBattery > 0.75): { _picture = "\ArmaFPV\pictures\A100.paa" };
-    	case (_currentBattery > 0.5): { _picture = "\ArmaFPV\pictures\A75.paa" };
-    	case (_currentBattery > 0.25): { _picture = "\ArmaFPV\pictures\A50.paa" };
-    	case (_currentBattery > 0): { _picture = "\ArmaFPV\pictures\A25.paa" };
-    	case (_currentBattery <= 0): { _picture = "\ArmaFPV\pictures\A0.paa" };
-    	default { _picture = "\ArmaFPV\pictures\A75.paa" };
-	};
+        private _controlPicture = uiNamespace getVariable ["ArmaFPV_BatteryPicture", controlNull];
+        private _controlText = uiNamespace getVariable ["ArmaFPV_BatteryText", controlNull];
 
-	_controlPicture ctrlSetText _picture;
-	_controlText ctrlSetText str(round(_currentBattery * 100));
+        _controlPicture ctrlSetText _picture;
+        _controlText ctrlSetText str (round (_batteryLevel * 100));
 
-	if !(missionNamespace getVariable ["ArmaFPV_isControl", false]) exitWith {
-    	removeMissionEventHandler ["EachFrame", _thisEventHandler];
-	};
+        if !(missionNamespace getVariable ["ArmaFPV_isControl", false]) exitWith {
+                removeMissionEventHandler ["EachFrame", _thisEventHandler];
+        };
 }];

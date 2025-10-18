@@ -151,7 +151,21 @@ class CfgVehicles
 		{
 			"Compartment2"
 		};
-		class HitPoints: HitPoints
+		class UserActions
+		{
+			class DB_FPV_Disassemble
+			{
+				displayName = "Put in inventory";
+				priority=0.5;
+				radius=7;
+				position="";
+				showWindow=0;
+				onlyForPlayer=1;
+				condition = "[this] call DB_fnc_fpv_canDisassemble";
+				statement = "[this, player] call DB_fnc_fpv_addDroneToInventory";
+			};
+		};
+                class HitPoints: HitPoints
 		{
 			class HitHull: HitHull
 			{

@@ -29,6 +29,7 @@ class CfgPatches
 #include "includes\ArmaFPV_interface.hpp"
 #include "includes\CfgAmmo.hpp"
 #include "includes\CfgFontFamilies.hpp"
+#include "includes\CfgMagazines.hpp"
 #include "includes\CfgFunctions.hpp"
 #include "includes\CfgVehicles.hpp"
 #include "includes\Extended_PreInit_EventHandlers.hpp"

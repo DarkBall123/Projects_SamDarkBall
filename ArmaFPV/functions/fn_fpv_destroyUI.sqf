@@ -3,7 +3,7 @@ private _delEffects = {
 
 	_layer cutText ["", "PLAIN"];
 
-	private _ppEffect = missionNameSpace getVariable ["DB_fpv_ppEffect", []];
+	private _ppEffect = missionNamespace getVariable ["DB_fpv_ppEffect", []];
 		
 	if (_ppEffect isNotEqualTo []) then {
 		{
