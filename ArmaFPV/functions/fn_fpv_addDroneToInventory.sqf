@@ -5,10 +5,17 @@ if (isNull _uav || {isNull _player}) exitWith {};
 private _itemType = "";
 private _uavType = typeOf _uav;
 
-if (_uavType find "_AP" > -1) then {
-        _itemType = "Item_Crocus_AP";
-} else {
-        if (_uavType find "_AT" > -1) then {
+switch (true) do {
+        case (_uavType find "_AP_TI" > -1): {
+                _itemType = "Item_Crocus_AP_TI";
+        };
+        case (_uavType find "_AT_TI" > -1): {
+                _itemType = "Item_Crocus_AT_TI";
+        };
+        case (_uavType find "_AP" > -1): {
+                _itemType = "Item_Crocus_AP";
+        };
+        case (_uavType find "_AT" > -1): {
                 _itemType = "Item_Crocus_AT";
         };
 };

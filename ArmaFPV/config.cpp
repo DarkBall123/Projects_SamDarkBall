@@ -13,15 +13,33 @@ class CfgPatches
 			"cba_settings"
 		};
 		requiredVersion=0.1;
-		units[]=
-		{
-			"O_Crocus_AT",
-			"O_Crocus_AP",
-			"B_Crocus_AT",
-			"B_Crocus_AP",
-			"I_Crocus_AT",
-			"I_Crocus_AP"
-		};
+                units[]=
+                {
+                        "O_Crocus_AT",
+                        "O_Crocus_AP",
+                        "O_Crocus_AT_TI",
+                        "O_Crocus_AP_TI",
+                        "O_Crocus_AT_Bag",
+                        "O_Crocus_AP_Bag",
+                        "O_Crocus_AT_TI_Bag",
+                        "O_Crocus_AP_TI_Bag",
+                        "B_Crocus_AT",
+                        "B_Crocus_AP",
+                        "B_Crocus_AT_TI",
+                        "B_Crocus_AP_TI",
+                        "B_Crocus_AT_Bag",
+                        "B_Crocus_AP_Bag",
+                        "B_Crocus_AT_TI_Bag",
+                        "B_Crocus_AP_TI_Bag",
+                        "I_Crocus_AT",
+                        "I_Crocus_AP",
+                        "I_Crocus_AT_TI",
+                        "I_Crocus_AP_TI",
+                        "I_Crocus_AT_Bag",
+                        "I_Crocus_AP_Bag",
+                        "I_Crocus_AT_TI_Bag",
+                        "I_Crocus_AP_TI_Bag"
+                };
 		weapons[]={};
 	};
 };

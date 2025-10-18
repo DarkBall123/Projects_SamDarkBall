@@ -19,4 +19,14 @@ class CfgMagazines
                 displayName = "Crocus AP";
                 descriptionShort = "Crocus FPV drone with anti-personnel charge";
         };
+        class Item_Crocus_AT_TI: Item_Crocus_AT
+        {
+                displayName = "Crocus AT (TI)";
+                descriptionShort = "Crocus FPV drone with anti-tank charge and thermal optics";
+        };
+        class Item_Crocus_AP_TI: Item_Crocus_AP
+        {
+                displayName = "Crocus AP (TI)";
+                descriptionShort = "Crocus FPV drone with anti-personnel charge and thermal optics";
+        };
 };

@@ -1,7 +1,9 @@
 params ["_uav"];
 
 if (isNull _uav) exitWith {};
-if !(typeOf _uav in ["O_Crocus_AT", "O_Crocus_AP", "B_Crocus_AT", "B_Crocus_AP", "I_Crocus_AT", "I_Crocus_AP"]) exitWIth {};
+private _supportedClasses = call DB_fnc_fpv_getDroneClasses;
+
+if !(typeOf _uav in _supportedClasses) exitWith {};
 
 cutText ["", "PLAIN"];
 

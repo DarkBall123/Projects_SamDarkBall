@@ -1,6 +1,6 @@
 params ["_unit", "_container", "_item"];
 
-if !(_item in ["Item_Crocus_AT", "Item_Crocus_AP"]) exitWith {};
+if !(_item in ["Item_Crocus_AT", "Item_Crocus_AP", "Item_Crocus_AT_TI", "Item_Crocus_AP_TI"]) exitWith {};
 if ((typeOf _container) != "GroundWeaponHolder") exitWith {};
 
 private _sidePrefix = switch (side _unit) do {
@@ -12,7 +12,13 @@ private _sidePrefix = switch (side _unit) do {
 
 if (_sidePrefix isEqualTo "") exitWith {};
 
-private _variant = if (_item == "Item_Crocus_AP") then {"Crocus_AP"} else {"Crocus_AT"};
+private _variant = switch (_item) do {
+        case "Item_Crocus_AP": {"Crocus_AP"};
+        case "Item_Crocus_AT": {"Crocus_AT"};
+        case "Item_Crocus_AP_TI": {"Crocus_AP_TI"};
+        case "Item_Crocus_AT_TI": {"Crocus_AT_TI"};
+        default {"Crocus_AT"};
+};
 private _uavClass = format ["%1_%2", _sidePrefix, _variant];
 
 if !(isClass (configFile >> "CfgVehicles" >> _uavClass)) exitWith {};

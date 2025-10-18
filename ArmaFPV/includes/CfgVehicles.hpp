@@ -40,8 +40,8 @@ class CfgVehicles
 		class ViewPilot;
 		class Components;
 	};
-	class drone_base_F: Helicopter_Base_F
-	{
+        class drone_base_F: Helicopter_Base_F
+        {
 		features="Randomization: No						<br />Camo selections: 1 - the whole body						<br />Script door sources: None						<br />Script animations: None						<br />Executed scripts: None						<br />Firing from vehicles: No						<br />Slingload: No						<br />Cargo proxy indexes: None";
 		author="$Sam";
 		mapSize=4;
@@ -464,11 +464,32 @@ class CfgVehicles
 				effect="ExhaustsEffectDrone";
 			};
 		};
-		class Library
-		{
-			libTextDesc="$STR_A3_CfgVehicles_UAV_01_base_Library0";
-		};
-	};
+                class Library
+                {
+                        libTextDesc="$STR_A3_CfgVehicles_UAV_01_base_Library0";
+                };
+        };
+        class drone_base_TI_F: drone_base_F
+        {
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+        };
 	class O_Crocus_AT: drone_base_F
 	{
 		author="$Sam";
@@ -635,8 +656,8 @@ class CfgVehicles
 			};
 		};
 	};
-	class O_Crocus_AP: O_Crocus_AT
-	{
+        class O_Crocus_AP: O_Crocus_AT
+        {
 		author="$Sam";
 		_generalMacro="O_Crocus_AP";
 		scopeCurator=2;
@@ -781,17 +802,75 @@ class CfgVehicles
 			};
 			displayName="";
 		};
-		class EventHandlers
-		{
-			class ArmaFPV
-			{
-				hit="_this call DB_fnc_fpv_onDestroy";
-				init="(_this # 0) spawn DB_fnc_fpv_droneInit;";
-			};
-		};
-	};
-	class B_Crocus_AT: drone_base_F
-	{
+                class EventHandlers
+                {
+                        class ArmaFPV
+                        {
+                                hit="_this call DB_fnc_fpv_onDestroy";
+                                init="(_this # 0) spawn DB_fnc_fpv_droneInit;";
+                        };
+                };
+        };
+        class O_Crocus_AT_TI: O_Crocus_AT
+        {
+                displayName="Crocus AT (TI)";
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class assembleInfo: assembleInfo
+                {
+                        dissasembleTo[]=
+                        {
+                                "O_Crocus_AT_TI_Bag"
+                        };
+                };
+        };
+        class O_Crocus_AP_TI: O_Crocus_AP
+        {
+                displayName="Crocus AP (TI)";
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class assembleInfo: assembleInfo
+                {
+                        dissasembleTo[]=
+                        {
+                                "O_Crocus_AP_TI_Bag"
+                        };
+                };
+        };
+        class B_Crocus_AT: drone_base_F
+        {
 		author="$Sam";
 		class SimpleObject
 		{
@@ -956,8 +1035,8 @@ class CfgVehicles
 			};
 		};
 	};
-	class B_Crocus_AP: B_Crocus_AT
-	{
+        class B_Crocus_AP: B_Crocus_AT
+        {
 		author="$Sam";
 		_generalMacro="B_Crocus_AP";
 		scopeCurator=2;
@@ -1102,17 +1181,75 @@ class CfgVehicles
 			};
 			displayName="";
 		};
-		class EventHandlers
-		{
-			class ArmaFPV
-			{
-				hit="_this call DB_fnc_fpv_onDestroy";
-				init="(_this # 0) spawn DB_fnc_fpv_droneInit;";
-			};
-		};
-	};
-	class I_Crocus_AT: drone_base_F
-	{
+                class EventHandlers
+                {
+                        class ArmaFPV
+                        {
+                                hit="_this call DB_fnc_fpv_onDestroy";
+                                init="(_this # 0) spawn DB_fnc_fpv_droneInit;";
+                        };
+                };
+        };
+        class B_Crocus_AT_TI: B_Crocus_AT
+        {
+                displayName="Crocus AT (TI)";
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class assembleInfo: assembleInfo
+                {
+                        dissasembleTo[]=
+                        {
+                                "B_Crocus_AT_TI_Bag"
+                        };
+                };
+        };
+        class B_Crocus_AP_TI: B_Crocus_AP
+        {
+                displayName="Crocus AP (TI)";
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class assembleInfo: assembleInfo
+                {
+                        dissasembleTo[]=
+                        {
+                                "B_Crocus_AP_TI_Bag"
+                        };
+                };
+        };
+        class I_Crocus_AT: drone_base_F
+        {
 		author="$Sam";
 		class SimpleObject
 		{
@@ -1277,8 +1414,8 @@ class CfgVehicles
 			};
 		};
 	};
-	class I_Crocus_AP: I_Crocus_AT
-	{
+        class I_Crocus_AP: I_Crocus_AT
+        {
 		author="$Sam";
 		_generalMacro="I_Crocus_AP";
 		scopeCurator=2;
@@ -1423,16 +1560,74 @@ class CfgVehicles
 			};
 			displayName="";
 		};
-		class EventHandlers
-		{
-			class ArmaFPV
-			{
-				hit="_this call DB_fnc_fpv_onDestroy";
-				init="(_this # 0) spawn DB_fnc_fpv_droneInit;";
-			};
-		};
-	};
-	class Land_SatelliteAntenna_01_F;
+                class EventHandlers
+                {
+                        class ArmaFPV
+                        {
+                                hit="_this call DB_fnc_fpv_onDestroy";
+                                init="(_this # 0) spawn DB_fnc_fpv_droneInit;";
+                        };
+                };
+        };
+        class I_Crocus_AT_TI: I_Crocus_AT
+        {
+                displayName="Crocus AT (TI)";
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class assembleInfo: assembleInfo
+                {
+                        dissasembleTo[]=
+                        {
+                                "I_Crocus_AT_TI_Bag"
+                        };
+                };
+        };
+        class I_Crocus_AP_TI: I_Crocus_AP
+        {
+                displayName="Crocus AP (TI)";
+                class ViewPilot: ViewPilot
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class Viewoptics: Viewoptics
+                {
+                        visionMode[]=
+                        {
+                                "Ti",
+                                "Normal"
+                        };
+                        thermalMode[]={0,1,6};
+                };
+                class assembleInfo: assembleInfo
+                {
+                        dissasembleTo[]=
+                        {
+                                "I_Crocus_AP_TI_Bag"
+                        };
+                };
+        };
+        class Land_SatelliteAntenna_01_F;
 	class FPV_Retranslator: Land_SatelliteAntenna_01_F
 	{
 		scope=2;
@@ -1455,21 +1650,39 @@ class CfgVehicles
 			primary=1;
 		};
 	};
-	class O_Crocus_AP_Bag: B_UAV_01_backpack_F
-	{
-		scope=2;
-		scopeCurator=2;
-		displayName="Crocus AP Bag OPFOR";
-		author="DarkBall";
-		class assembleInfo
-		{
-			assembleTo="O_Crocus_AP";
-			base="";
-			displayName="Crocus AP";
-			dissasembleTo[]={};
-			primary=1;
-		};
-	};
+        class O_Crocus_AP_Bag: B_UAV_01_backpack_F
+        {
+                scope=2;
+                scopeCurator=2;
+                displayName="Crocus AP Bag OPFOR";
+                author="DarkBall";
+                class assembleInfo
+                {
+                        assembleTo="O_Crocus_AP";
+                        base="";
+                        displayName="Crocus AP";
+                        dissasembleTo[]={};
+                        primary=1;
+                };
+        };
+        class O_Crocus_AT_TI_Bag: O_Crocus_AT_Bag
+        {
+                displayName="Crocus AT (TI) Bag OPFOR";
+                class assembleInfo: assembleInfo
+                {
+                        assembleTo="O_Crocus_AT_TI";
+                        displayName="Crocus AT (TI)";
+                };
+        };
+        class O_Crocus_AP_TI_Bag: O_Crocus_AP_Bag
+        {
+                displayName="Crocus AP (TI) Bag OPFOR";
+                class assembleInfo: assembleInfo
+                {
+                        assembleTo="O_Crocus_AP_TI";
+                        displayName="Crocus AP (TI)";
+                };
+        };
 	class B_Crocus_AT_Bag: B_UAV_01_backpack_F
 	{
 		scope=2;
@@ -1485,21 +1698,39 @@ class CfgVehicles
 			primary=1;
 		};
 	};
-	class B_Crocus_AP_Bag: B_UAV_01_backpack_F
-	{
-		scope=2;
-		scopeCurator=2;
-		displayName="Crocus AP Bag BLUFOR";
-		author="DarkBall";
-		class assembleInfo
-		{
-			assembleTo="B_Crocus_AP";
-			base="";
-			displayName="Crocus AP";
-			dissasembleTo[]={};
-			primary=1;
-		};
-	};
+        class B_Crocus_AP_Bag: B_UAV_01_backpack_F
+        {
+                scope=2;
+                scopeCurator=2;
+                displayName="Crocus AP Bag BLUFOR";
+                author="DarkBall";
+                class assembleInfo
+                {
+                        assembleTo="B_Crocus_AP";
+                        base="";
+                        displayName="Crocus AP";
+                        dissasembleTo[]={};
+                        primary=1;
+                };
+        };
+        class B_Crocus_AT_TI_Bag: B_Crocus_AT_Bag
+        {
+                displayName="Crocus AT (TI) Bag BLUFOR";
+                class assembleInfo: assembleInfo
+                {
+                        assembleTo="B_Crocus_AT_TI";
+                        displayName="Crocus AT (TI)";
+                };
+        };
+        class B_Crocus_AP_TI_Bag: B_Crocus_AP_Bag
+        {
+                displayName="Crocus AP (TI) Bag BLUFOR";
+                class assembleInfo: assembleInfo
+                {
+                        assembleTo="B_Crocus_AP_TI";
+                        displayName="Crocus AP (TI)";
+                };
+        };
 	class I_Crocus_AT_Bag: B_UAV_01_backpack_F
 	{
 		scope=2;
@@ -1515,19 +1746,37 @@ class CfgVehicles
 			primary=1;
 		};
 	};
-	class I_Crocus_AP_Bag: B_UAV_01_backpack_F
-	{
-		scope=2;
-		scopeCurator=2;
-		displayName="Crocus AP Bag IND";
-		author="DarkBall";
-		class assembleInfo
-		{
-			assembleTo="I_Crocus_AP";
-			base="";
-			displayName="Crocus AP";
-			dissasembleTo[]={};
-			primary=1;
-		};
-	};
+        class I_Crocus_AP_Bag: B_UAV_01_backpack_F
+        {
+                scope=2;
+                scopeCurator=2;
+                displayName="Crocus AP Bag IND";
+                author="DarkBall";
+                class assembleInfo
+                {
+                        assembleTo="I_Crocus_AP";
+                        base="";
+                        displayName="Crocus AP";
+                        dissasembleTo[]={};
+                        primary=1;
+                };
+        };
+        class I_Crocus_AT_TI_Bag: I_Crocus_AT_Bag
+        {
+                displayName="Crocus AT (TI) Bag IND";
+                class assembleInfo: assembleInfo
+                {
+                        assembleTo="I_Crocus_AT_TI";
+                        displayName="Crocus AT (TI)";
+                };
+        };
+        class I_Crocus_AP_TI_Bag: I_Crocus_AP_Bag
+        {
+                displayName="Crocus AP (TI) Bag IND";
+                class assembleInfo: assembleInfo
+                {
+                        assembleTo="I_Crocus_AP_TI";
+                        displayName="Crocus AP (TI)";
+                };
+        };
 };
