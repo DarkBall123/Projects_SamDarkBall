@@ -9,9 +9,13 @@
 #include "\ArmaFPV\script_macros.hpp"
 
 private _loopInterval = GETMVAR(DB_fpv_signalUpdateInterval, FPV_SIGNAL_UPDATE_INTERVAL);
+private _ppfxInterval = GETMVAR(DB_fpv_ppfxUpdateInterval, FPV_PPFX_UPDATE_INTERVAL);
 private _state = [
 	diag_tickTime,
-	1
+	1,
+	diag_tickTime,
+	-1,
+	false
 ];
 
 call DB_fnc_fpv_ppfx_start;
@@ -23,7 +27,7 @@ if (_prevPfh >= 0) then {
 
 private _pfhId = [{
 	_this params ["_args", "_handle"];
-	_args params ["_loopInterval", "_state"];
+	_args params ["_loopInterval", "_ppfxInterval", "_state"];
 
 	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
 	private _uav = getConnectedUAV _player;
@@ -36,7 +40,11 @@ private _pfhId = [{
 	private _now = diag_tickTime;
 	private _lastUpdate = _state # 0;
 	private _signal = _state # 1;
+	private _lastPpfxUpdate = _state # 2;
+	private _lastJammerBroadcast = _state # 3;
+	private _lastJammerActive = _state # 4;
 	private _doUpdate = (_now - _lastUpdate) >= _loopInterval;
+	private _doPpfxUpdate = (_now - _lastPpfxUpdate) >= _ppfxInterval;
 
 	private _altitude = (getPosATL _uav) select 2;
 	private _controlPicture = GETUVAR(ArmaFPV_SignalPicture, controlNull);
@@ -53,37 +61,51 @@ private _pfhId = [{
 	private _vPointerRight = GETUVAR(ArmaFPV_VPointerRight, controlNull);
 	private _altText = GETUVAR(ArmaFPV_AltText, controlNull);
 	private _rightText = GETUVAR(ArmaFPV_RightText, controlNull);
-	private _distText = GETUVAR(ArmaFPV_DistText, controlNull);
+	private _distText = GETUVAR(ArmaFPV_DefaultText, controlNull);
 	private _heading = (round (getDir _uav)) mod 360;
 	private _distance = _player distance _uav;
 	private _speedMs = vectorMagnitude (velocity _uav);
 	private _speedDisplay = round (_speedMs / FPV_SPEED_SCALE);
 
-	if (_doUpdate) then {
+	private _inJammer = GETMVAR(DB_timeInJammerZone, 0) > 0;
+	private _doJammerBroadcast = (_inJammer != _lastJammerActive) || { (_now - _lastJammerBroadcast) >= _loopInterval };
+	if (_doJammerBroadcast) then {
+		_uav setVariable ["DB_fpv_jammerClientActive", _inJammer, true];
+		_uav setVariable ["DB_fpv_jammerClientUpdate", _now, true];
+		if (_inJammer) then {
+			_uav setVariable ["DB_fpv_lastJammerContact", _now, true];
+		};
+		_state set [3, _now];
+		_state set [4, _inJammer];
+	};
+
+	if (_doUpdate || _doPpfxUpdate) then {
 		_signal = [_player, _uav] call DB_fnc_fpv_getSignal;
-		_state set [0, _now];
 		_state set [1, _signal];
+		if (_doUpdate) then { _state set [0, _now]; };
+		if (_doPpfxUpdate) then { _state set [2, _now]; };
 
-		private _picture = "";
-		switch (true) do {
-			case (_signal > 0.75): { _picture = "\ArmaFPV\pictures\100.paa"; };
-			case (_signal > 0.5): { _picture = "\ArmaFPV\pictures\75.paa"; };
-			case (_signal > 0.25): { _picture = "\ArmaFPV\pictures\50.paa"; };
-			case (_signal > 0): { _picture = "\ArmaFPV\pictures\25.paa"; };
-			case (_signal <= 0): { _picture = "\ArmaFPV\pictures\0.paa"; };
-			default { _picture = "\ArmaFPV\pictures\100.paa"; };
-		};
+		if (_doUpdate) then {
+			private _picture = "";
+			switch (true) do {
+				case (_signal > 0.75): { _picture = "\ArmaFPV\pictures\100.paa"; };
+				case (_signal > 0.5): { _picture = "\ArmaFPV\pictures\75.paa"; };
+				case (_signal > 0.25): { _picture = "\ArmaFPV\pictures\50.paa"; };
+				case (_signal > 0): { _picture = "\ArmaFPV\pictures\25.paa"; };
+				case (_signal <= 0): { _picture = "\ArmaFPV\pictures\0.paa"; };
+				default { _picture = "\ArmaFPV\pictures\100.paa"; };
+			};
 
-		if (!isNull _controlPicture) then {
-			_controlPicture ctrlSetText _picture;
-		};
+			if (!isNull _controlPicture) then {
+				_controlPicture ctrlSetText _picture;
+			};
 
-		if (!isNull _controlText) then {
-			_controlText ctrlSetText str(round(_signal * 100));
+			if (!isNull _controlText) then {
+				_controlText ctrlSetText str(round(_signal * 100));
+			};
 		};
 
 		private _maxDistance = GETMVAR(FPV_MaxFlightDistance, 4000);
-		private _inJammer = GETMVAR(DB_timeInJammerZone, 0) > 0;
 		private _obstacles = GETMVAR(DB_fpv_signal_obstacles, 0);
 		private _terrainMask = GETMVAR(DB_fpv_signal_terrainMask, 0);
 
@@ -98,6 +120,21 @@ private _pfhId = [{
 
 		[_signal, _context] call DB_fnc_fpv_ppfx_setInput;
 	};
+
+	private _jammerLowTime = _uav getVariable ["DB_fpv_jammerLowTime", 0];
+	private _isLost = _uav getVariable ["DB_fpv_isUAVsignalLost", false];
+
+	if (_inJammer && { _signal <= FPV_SIGNAL_LOSS_THRESHOLD } && { !_isLost }) then {
+		_jammerLowTime = _jammerLowTime + diag_deltaTime;
+		if (_jammerLowTime >= FPV_SIGNAL_LOSS_DURATION) then {
+			[_player, _uav] call DB_fnc_fpv_onSignalLost;
+			_jammerLowTime = 0;
+		};
+	} else {
+		_jammerLowTime = 0;
+	};
+
+	_uav setVariable ["DB_fpv_jammerLowTime", _jammerLowTime];
 
 	if (!isNull _headingText) then {
 		private _hTxt = if (_heading < 10) then {
@@ -181,6 +218,6 @@ private _pfhId = [{
 		_vPointerRight ctrlSetPosition [_ptrPos # 0, _yPos, _ptrW, _ptrH];
 		_vPointerRight ctrlCommit 0;
 	};
-}, 0, [_loopInterval, _state]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_loopInterval, _ppfxInterval, _state]] call CBA_fnc_addPerFrameHandler;
 
 SETMVAR(DB_fpv_signalPFH, _pfhId);
