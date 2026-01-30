@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup HEMTT
+        uses: arma-actions/hemtt@v1
+
+      - name: Build
+        run: hemtt build --release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: .hemttout/**
