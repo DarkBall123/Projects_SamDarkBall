@@ -60,6 +60,9 @@ private _pfhId = [{
 
 		if (!_wasControl) then {
 			SETMVAR(ArmaFPV_isControl, true);
+			call DB_fnc_fpv_handleSignal;
+			call DB_fnc_fpv_handleBattery;
+			call DB_fnc_fpv_handleTime;
 		};
 
 		if (_uiActive) then {
@@ -83,8 +86,9 @@ private _pfhId = [{
 				call DB_fnc_fpv_createDialog;
 			};
 		} else {
-			if (!_uiMissing) then {
-				call DB_fnc_fpv_destroyUI;
+			private _ppfxActive = GETMVAR(DB_fpv_ppfx_active, false);
+			if (!_uiMissing || { _ppfxActive }) then {
+				true call DB_fnc_fpv_destroyUI;
 			};
 			if (_hudApplied) then {
 				private _savedHud = GETMVAR(ArmaFPV_savedHUD, []);
@@ -97,7 +101,7 @@ private _pfhId = [{
 	} else {
 		if (_wasControl) then {
 			SETMVAR(ArmaFPV_isControl, false);
-			call DB_fnc_fpv_destroyUI;
+			true call DB_fnc_fpv_destroyUI;
 			private _savedHud = GETMVAR(ArmaFPV_savedHUD, []);
 			if ((count _savedHud) == 11) then {
 				showHUD _savedHud;
