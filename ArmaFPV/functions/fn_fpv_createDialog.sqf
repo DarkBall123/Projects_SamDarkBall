@@ -14,6 +14,3 @@ _layer cutRsc ["ArmaFPV_Dialog", "PLAIN"];
 SETMVAR(DB_FPV_Layer_ID, _layer);
 
 call DB_fnc_fpv_handleSettings;
-call DB_fnc_fpv_handleBattery;
-call DB_fnc_fpv_handleSignal;
-call DB_fnc_fpv_handleTime;
