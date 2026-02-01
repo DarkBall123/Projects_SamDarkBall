@@ -59,22 +59,22 @@ private _nextState = _state;
 
 switch (_state) do {
 	case "CLEAN": {
-		if (_q < 0.85 - _hysteresis) then { _nextState = "MINOR"; };
+		if (_q < 0.90 - _hysteresis) then { _nextState = "MINOR"; };
 	};
 	case "MINOR": {
-		if (_q >= 0.85 + _hysteresis) then { _nextState = "CLEAN"; };
-		if (_q < 0.65 - _hysteresis) then { _nextState = "MED"; };
+		if (_q >= 0.90 + _hysteresis) then { _nextState = "CLEAN"; };
+		if (_q < 0.70 - _hysteresis) then { _nextState = "MED"; };
 	};
 	case "MED": {
-		if (_q >= 0.65 + _hysteresis) then { _nextState = "MINOR"; };
-		if (_q < 0.40 - _hysteresis) then { _nextState = "SEVERE"; };
+		if (_q >= 0.70 + _hysteresis) then { _nextState = "MINOR"; };
+		if (_q < 0.50 - _hysteresis) then { _nextState = "SEVERE"; };
 	};
 	case "SEVERE": {
-		if (_q >= 0.40 + _hysteresis) then { _nextState = "MED"; };
-		if (_q < 0.15 - _hysteresis) then { _nextState = "LOST"; };
+		if (_q >= 0.50 + _hysteresis) then { _nextState = "MED"; };
+		if (_q < 0.25 - _hysteresis) then { _nextState = "LOST"; };
 	};
 	case "LOST": {
-		if (_q >= 0.15 + _hysteresis) then { _nextState = "SEVERE"; };
+		if (_q >= 0.25 + _hysteresis) then { _nextState = "SEVERE"; };
 	};
 	default { _nextState = "CLEAN"; };
 };
@@ -96,21 +96,21 @@ private _smoothstepInv = {
 
 private _severity = 1 - _q;
 private _lowAltImpact = _lowAltFactor * _severity;
-private _noiseWeight = [_q, 0.95, 0.35] call _smoothstepInv;
+private _noiseWeight = [_q, 0.95, 0.30] call _smoothstepInv;
 private _blurWeight = _severity ^ 1.7;
 private _aberrWeight = _severity ^ 2.2;
 
 private _envBoost = 1;
 if (_altAGL < 20 && { _q < 0.5 }) then { _envBoost = _envBoost * 1.25; };
-if (_inJammer) then { _envBoost = _envBoost * 1.35; };
+if (_inJammer) then { _envBoost = _envBoost * 1.55; };
 if (_jammerFactor > 0) then { _envBoost = _envBoost * (1 + (_jammerFactor min 1) * 0.8); };
-if (_obstacles > 0) then { _envBoost = _envBoost * (1 + (0.03 * (_obstacles min 10))); };
-if (_terrainMask > 0) then { _envBoost = _envBoost * (1 + (_terrainMask min 1) * 0.4); };
+if (_obstacles > 0) then { _envBoost = _envBoost * (1 + (0.04 * (_obstacles min 10))); };
+if (_terrainMask > 0) then { _envBoost = _envBoost * (1 + (_terrainMask min 1) * 0.55); };
 if (_maxDistance > 0) then { _envBoost = _envBoost * (1 + ((_distance / _maxDistance) min 1) * 0.25); };
 
-_noiseWeight = _noiseWeight * 1.1;
-_blurWeight = _blurWeight * 0.6;
-_aberrWeight = _aberrWeight * 0.9;
+_noiseWeight = _noiseWeight * 1.35;
+_blurWeight = _blurWeight * 0.8;
+_aberrWeight = _aberrWeight * 1.1;
 
 private _envScale = (_severity max 0) min 1;
 _noiseWeight = (_noiseWeight * (1 + ((_envBoost - 1) * _envScale))) min 1;
@@ -134,13 +134,13 @@ if (_glitchType != "" && { _now >= _glitchEnd }) then {
 };
 
 if (_glitchType isEqualTo "") then {
-	private _chanceBase = 0.01 + (_severity ^ 2) * 0.35;
+private _chanceBase = 0.02 + (_severity ^ 2) * 0.45;
 	if (_altAGL < 20) then { _chanceBase = _chanceBase + (0.03 * _severity); };
 	if (_lowAltImpact > 0) then { _chanceBase = _chanceBase + (_lowAltImpact * 0.08); };
 	if (_inJammer) then { _chanceBase = _chanceBase + 0.06; };
 	if (_obstacles > 0) then { _chanceBase = _chanceBase + 0.02; };
 	if (_severity > 0.6) then { _chanceBase = _chanceBase + 0.04; };
-	private _chance = _chanceBase * _dt;
+private _chance = _chanceBase * _dt;
 
 	if ((random 1) < _chance) then {
 		private _types = ["LINE_TEAR", "COLOR_SHIFT", "BLACK_PULSE"];
@@ -189,7 +189,7 @@ switch (_glitchType) do {
 	default {};
 };
 
-private _commitTime = if (_glitchType isEqualTo "") then { 0.03 } else { 0 };
+private _commitTime = if (_glitchType isEqualTo "") then { 0.01 } else { 0 };
 
 private _analogBase = 0.06;
 private _drift = (sin (_now * 2.1) * 0.03 + sin (_now * 0.7) * 0.015) * _severity;
@@ -212,6 +212,12 @@ if (_lowAltFactor > 0.25) then {
 	private _microWave = ((sin (_now * _microHz * 6.283) + 1) * 0.5);
 	private _microAmp = 0.04 + ((1 - _q) * 0.06);
 	_microFlicker = _microWave * _microAmp;
+};
+if (_severity > 0.25) then {
+	private _randFlicker = (random 1) < (0.18 * _dt) * (0.4 + _severity);
+	if (_randFlicker) then {
+		_microFlicker = _microFlicker + (0.06 + (random 0.08) * _severity);
+	};
 };
 
 private _finalBlackout = (_blackout max _flickerBlackout max _microFlicker) min 0.55;

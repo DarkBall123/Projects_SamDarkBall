@@ -32,7 +32,7 @@ private _pfhId = [{
 	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
 	private _uav = getConnectedUAV _player;
 
-	if (isNull _player || { isNull _uav } || { !(GETMVAR(ArmaFPV_isControl, false)) }) exitWith {
+	if (isNull _player || { isNull _uav } || { !(GETMVAR(ArmaFPV_isControl, false)) } || { cameraView != "GUNNER" }) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
 		SETMVAR(DB_fpv_signalPFH, -1);
 		call DB_fnc_fpv_ppfx_stop;

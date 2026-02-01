@@ -16,11 +16,11 @@ if (isNil "DB_fpv_ppfx_input") then {
 };
 
 if (isNil "DB_fpv_ppfx_hysteresis") then {
-	SETMVAR(DB_fpv_ppfx_hysteresis, 0.05);
+	SETMVAR(DB_fpv_ppfx_hysteresis, 0.03);
 };
 
 if (isNil "DB_fpv_ppfx_minStateTime") then {
-	SETMVAR(DB_fpv_ppfx_minStateTime, 0.4);
+	SETMVAR(DB_fpv_ppfx_minStateTime, 0.2);
 };
 
 if (isNil "DB_fpv_ppfx_priorityBase") then {

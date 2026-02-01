@@ -39,8 +39,8 @@ private _pfhId = [{
 		SETMVAR(DB_fpv_lastUav, _uav);
 	};
 
-	private _controlActive = (_uavType in _droneTypes) && { cameraOn isEqualTo _uav } && { cameraView in ["GUNNER", "EXTERNAL"] };
-	private _uiActive = _controlActive && { cameraView == "GUNNER" };
+	private _controlActive = (_uavType in _droneTypes) && { cameraOn isEqualTo _uav } && { cameraView isEqualTo "GUNNER" };
+	private _uiActive = _controlActive;
 	private _wasControl = GETMVAR(ArmaFPV_isControl, false);
 	private _uiMissing = isNull GETUVAR(ArmaFPV_SignalPicture, controlNull);
 	private _hudApplied = GETMVAR(ArmaFPV_hudApplied, false);
