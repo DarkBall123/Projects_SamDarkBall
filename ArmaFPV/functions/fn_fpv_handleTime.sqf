@@ -36,6 +36,7 @@ private _pfhId = [{
 
 	if (isNull _uav) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
+		SETMVAR(DB_fpv_timePFH, -1);
 	};
 
 	private _timeElapsed = time - _startTime;
@@ -58,6 +59,7 @@ private _pfhId = [{
 	if !(GETMVAR(ArmaFPV_isControl, false)) exitWith {
 		_uav setVariable ["DB_fpv_savedTime", _timeElapsed, true];
 		[_handle] call CBA_fnc_removePerFrameHandler;
+		SETMVAR(DB_fpv_timePFH, -1);
 	};
 }, 0, [_state]] call CBA_fnc_addPerFrameHandler;
 

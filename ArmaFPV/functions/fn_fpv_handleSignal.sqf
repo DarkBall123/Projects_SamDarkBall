@@ -34,6 +34,7 @@ private _pfhId = [{
 
 	if (isNull _player || { isNull _uav } || { !(GETMVAR(ArmaFPV_isControl, false)) }) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
+		SETMVAR(DB_fpv_signalPFH, -1);
 		call DB_fnc_fpv_ppfx_stop;
 	};
 

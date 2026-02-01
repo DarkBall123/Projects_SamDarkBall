@@ -20,6 +20,7 @@ private _pfhId = [{
 
 	if (isNull _player || { isNull _uav }) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
+		SETMVAR(DB_fpv_batteryPFH, -1);
 	};
 
 	private _currentBattery = fuel _uav;
@@ -69,6 +70,7 @@ private _pfhId = [{
 
 	if !(GETMVAR(ArmaFPV_isControl, false)) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
+		SETMVAR(DB_fpv_batteryPFH, -1);
 	};
 }, 0, []] call CBA_fnc_addPerFrameHandler;
 
