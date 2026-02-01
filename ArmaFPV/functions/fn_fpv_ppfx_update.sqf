@@ -26,8 +26,13 @@ private _fxInvert = GETMVAR(DB_fpv_ppfx_fxInvert, -1);
 private _fxRadial = GETMVAR(DB_fpv_ppfx_fxRadial, -1);
 private _fxWet = GETMVAR(DB_fpv_ppfx_fxWet, -1);
 
-private _q = GETMVAR(DB_fpv_ppfx_input, 1);
-_q = (_q max 0) min 1;
+private _qRaw = GETMVAR(DB_fpv_ppfx_input, 1);
+_qRaw = (_qRaw max 0) min 1;
+private _qSmooth = GETMVAR(DB_fpv_ppfx_qSmooth, _qRaw);
+private _alpha = (_dt * 8) min 1;
+_qSmooth = _qSmooth + ((_qRaw - _qSmooth) * _alpha);
+SETMVAR(DB_fpv_ppfx_qSmooth, _qSmooth);
+private _q = _qSmooth;
 
 private _context = missionNamespace getVariable ["DB_fpv_ppfx_context", []];
 private _getCtx = {
@@ -59,22 +64,22 @@ private _nextState = _state;
 
 switch (_state) do {
 	case "CLEAN": {
-		if (_q < 0.90 - _hysteresis) then { _nextState = "MINOR"; };
+		if (_q < 0.80 - _hysteresis) then { _nextState = "MINOR"; };
 	};
 	case "MINOR": {
-		if (_q >= 0.90 + _hysteresis) then { _nextState = "CLEAN"; };
-		if (_q < 0.70 - _hysteresis) then { _nextState = "MED"; };
+		if (_q >= 0.80 + _hysteresis) then { _nextState = "CLEAN"; };
+		if (_q < 0.60 - _hysteresis) then { _nextState = "MED"; };
 	};
 	case "MED": {
-		if (_q >= 0.70 + _hysteresis) then { _nextState = "MINOR"; };
-		if (_q < 0.50 - _hysteresis) then { _nextState = "SEVERE"; };
+		if (_q >= 0.60 + _hysteresis) then { _nextState = "MINOR"; };
+		if (_q < 0.40 - _hysteresis) then { _nextState = "SEVERE"; };
 	};
 	case "SEVERE": {
-		if (_q >= 0.50 + _hysteresis) then { _nextState = "MED"; };
-		if (_q < 0.25 - _hysteresis) then { _nextState = "LOST"; };
+		if (_q >= 0.40 + _hysteresis) then { _nextState = "MED"; };
+		if (_q < 0.20 - _hysteresis) then { _nextState = "LOST"; };
 	};
 	case "LOST": {
-		if (_q >= 0.25 + _hysteresis) then { _nextState = "SEVERE"; };
+		if (_q >= 0.20 + _hysteresis) then { _nextState = "SEVERE"; };
 	};
 	default { _nextState = "CLEAN"; };
 };
@@ -189,7 +194,7 @@ switch (_glitchType) do {
 	default {};
 };
 
-private _commitTime = if (_glitchType isEqualTo "") then { 0.01 } else { 0 };
+private _commitTime = if (_glitchType isEqualTo "") then { 0.02 } else { 0 };
 
 private _analogBase = 0.06;
 private _drift = (sin (_now * 2.1) * 0.03 + sin (_now * 0.7) * 0.015) * _severity;

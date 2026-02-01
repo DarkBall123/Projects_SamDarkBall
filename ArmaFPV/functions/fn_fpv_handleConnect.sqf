@@ -94,7 +94,7 @@ private _pfhId = [{
 			};
 		} else {
 			if (!_uiMissing) then {
-				[true] call DB_fnc_fpv_destroyUI;
+				true call DB_fnc_fpv_destroyUI;
 			};
 			if (_hudApplied) then {
 				private _savedHud = GETMVAR(ArmaFPV_savedHUD, []);

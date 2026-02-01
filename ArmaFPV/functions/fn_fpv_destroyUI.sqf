@@ -8,10 +8,9 @@
 
 #include "\ArmaFPV\script_macros.hpp"
 
-params ["_keepPpfx"];
-if (isNil "_keepPpfx") then {
-	_keepPpfx = false;
-};
+params [
+	["_keepPpfx", false, [false]]
+];
 
 private _clearEffects = {
 	params ["_keepPpfx"];
