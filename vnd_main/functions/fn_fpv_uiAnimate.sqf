@@ -47,16 +47,15 @@ private _eh = addMissionEventHandler [
 		private _pitch  = round _pitchD;
 
 		private _fuel   = fuel _uav;
-		private _fuelDrop = (_lastFuel - _fuel) max 0;
 		_lastFuel = _fuel;
 
 		private _curr = 30 + (_spd * 0.15);
 		_curr = _curr max 0 min 120;
 		_mahUsed = _mahUsed + ((_curr * _dt) / 3600) * 1000;
 
-		_uav setVariable ["vnd_mahUsed", _mahUsed, true];
-		_uav setVariable ["vnd_time",   _t,        true];
-		_uav setVariable ["vnd_lastFuel", _lastFuel];
+		_uav setVariable ["vnd_mahUsed", _mahUsed, false];
+		_uav setVariable ["vnd_time",   _t,        false];
+		_uav setVariable ["vnd_lastFuel", _lastFuel, false];
 
 		private _perc = round (_fuel * 100);
 		private _v1   = (_fuel * 24) toFixed 1;

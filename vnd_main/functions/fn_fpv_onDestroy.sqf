@@ -1,6 +1,8 @@
 params ["_uav"];
 
 if (isNull _uav) exitWith {};
+if (_uav getVariable ["vnd_destroyHandled", false]) exitWith {};
+_uav setVariable ["vnd_destroyHandled", true, true];
 
 private _dronesArray = missionNamespace getVariable ["DB_vnd_fpv_dronesArray", []];
 if !(typeOf _uav in _dronesArray) exitWith {};
@@ -31,10 +33,16 @@ if (_uavType find "at" > -1) then {
 	};
 };
 
-if (local _killer) then {
-	_killer setCaptive false;
-} else {
-	[_killer, false] remoteExec ["setCaptive", 2];
+if (_missileType isEqualTo "") exitWith {
+    deleteVehicle _uav;
+};
+
+if !(isNull _killer) then {
+    if (local _killer) then {
+        _killer setCaptive false;
+    } else {
+        [_killer, false] remoteExecCall ["setCaptive", _killer];
+    };
 };
 
 private _missile = createVehicle [_missileType, _uav modelToWorld [0,0,0]];

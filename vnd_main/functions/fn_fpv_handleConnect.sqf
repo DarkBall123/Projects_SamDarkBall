@@ -10,7 +10,12 @@
 
             [_uav] call DB_vnd_fnc_fpv_createDialog;
 
-            _uav setCaptive !(missionNamespace getVariable ["vnd_allowBotsShoot", true]);
+            private _makeCaptive = !(missionNamespace getVariable ["vnd_allowBotsShoot", true]);
+            if (local _uav) then {
+                _uav setCaptive _makeCaptive;
+            } else {
+                [_uav, _makeCaptive] remoteExecCall ["setCaptive", _uav];
+            };
 
             waitUntil {
                 !(typeOf (getConnectedUAV _pl) in _drones) ||
@@ -20,6 +25,14 @@
 
             missionNamespace setVariable ["vnd_isControl", false];
             call DB_vnd_fnc_fpv_destroyUI;
+
+            if !(isNull _uav) then {
+                if (local _uav) then {
+                    _uav setCaptive false;
+                } else {
+                    [_uav, false] remoteExecCall ["setCaptive", _uav];
+                };
+            };
         };
 
         sleep 0.1;
