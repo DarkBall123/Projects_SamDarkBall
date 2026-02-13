@@ -52,14 +52,18 @@ _missile setVectorDirAndUp [vectorDir _uav, vectorUp _uav];
 
 deleteVehicle _uav;
 
-[
-	{
-		_this params ["_missile", "_shotParents"];
-		(getShotParents _missile) isEqualTo _shotParents
-	},
-	{
-		_this params ["_missile"];
-		triggerAmmo _missile
-	},
-	[_missile, [_killer, _instigator]]
-] call CBA_fnc_waitUntilAndExecute;
+if (isNil "CBA_fnc_waitUntilAndExecute" || { isNil "cba_common_waitUntilAndExecArray" }) then {
+    triggerAmmo _missile;
+} else {
+    [
+        {
+            _this params ["_missile", "_shotParents"];
+            (getShotParents _missile) isEqualTo _shotParents
+        },
+        {
+            _this params ["_missile"];
+            triggerAmmo _missile
+        },
+        [_missile, [_killer, _instigator]]
+    ] call CBA_fnc_waitUntilAndExecute;
+};
