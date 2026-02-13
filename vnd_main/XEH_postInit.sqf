@@ -15,4 +15,43 @@ if (hasInterface) then {
         ] call CBA_fnc_addPerFrameHandler;
         SETMVAR(vnd_fiberPFH, _fiberPfh);
     };
+
+    private _registerPutEh = {
+        params ["_unit"];
+        if (isNull _unit) exitWith {};
+
+        private _oldId = _unit getVariable ["vnd_playerPutID", -1];
+        if (_oldId >= 0) then {
+            _unit removeEventHandler ["Put", _oldId];
+        };
+
+        if !(isPlayer _unit) exitWith {};
+
+        private _newId = _unit addEventHandler ["Put", {
+            _this call DB_vnd_fnc_fpv_createUavOnItemCheck;
+        }];
+        _unit setVariable ["vnd_playerPutID", _newId];
+    };
+
+    [player] call _registerPutEh;
+
+    if !(GETMVAR(vnd_putEhPlayerEventAdded, false)) then {
+        SETMVAR(vnd_putEhPlayerEventAdded, true);
+
+        ["loadout", {
+            params ["_unit"];
+            if (isNull _unit) exitWith {};
+
+            private _oldId = _unit getVariable ["vnd_playerPutID", -1];
+            if (_oldId >= 0) then {
+                _unit removeEventHandler ["Put", _oldId];
+            };
+            if !(isPlayer _unit) exitWith {};
+
+            private _newId = _unit addEventHandler ["Put", {
+                _this call DB_vnd_fnc_fpv_createUavOnItemCheck;
+            }];
+            _unit setVariable ["vnd_playerPutID", _newId];
+        }] call CBA_fnc_addPlayerEventHandler;
+    };
 };

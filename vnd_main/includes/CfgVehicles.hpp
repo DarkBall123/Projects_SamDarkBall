@@ -350,6 +350,22 @@ class CfgVehicles
 				init = "(_this # 0) spawn DB_vnd_fnc_fpv_droneInit;";
 			};
 		};
+
+		class UserActions
+		{
+			class DisassembleUAV
+			{
+				displayName = "Put in inventory";
+				priority = 0.5;
+				radius = 7;
+				position = "";
+				showWindow = 0;
+				onlyForPlayer = 1;
+				icon = "";
+				condition = "[this] call DB_vnd_fnc_fpv_canDisassembly";
+				statement = "[this, player] call DB_vnd_fnc_fpv_addUavToInventory";
+			};
+		};
 	};
 
 	// ================== BAG MACROS ==================

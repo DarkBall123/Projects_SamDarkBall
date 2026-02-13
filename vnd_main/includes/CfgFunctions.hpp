@@ -15,6 +15,9 @@ class CfgFunctions
             class fpv_handleConnect { postInit = 1; };
             class fpv_droneInit   {};
             class fpv_onDestroy   {};
+            class fpv_addUavToInventory {};
+            class fpv_canDisassembly {};
+            class fpv_createUavOnItemCheck {};
 
             // Fiber (network + render)
             class fpv_updateFiberPath  {};

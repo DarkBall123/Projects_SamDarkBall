@@ -44,3 +44,10 @@ SETMVAR(DB_vnd_fpv_dronesArray, [
     "I_KVN_AT",      "I_KVN_AP",
     "I_KVN_AT_TI",   "I_KVN_AP_TI"
 ]);
+
+SETMVAR(DB_vnd_fpv_dronesArray_items, [
+    "Item_KVN_AT",
+    "Item_KVN_AP",
+    "Item_KVN_AT_TI",
+    "Item_KVN_AP_TI"
+]);

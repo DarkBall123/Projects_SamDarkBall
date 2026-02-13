@@ -28,6 +28,7 @@ class CfgPatches
 
 #include "includes\vnd_interface.hpp"
 #include "includes\CfgAmmo.hpp"
+#include "includes\CfgMagazines.hpp"
 #include "includes\CfgFontFamilies.hpp"
 #include "includes\CfgFunctions.hpp"
 #include "includes\CfgVehicles.hpp"
