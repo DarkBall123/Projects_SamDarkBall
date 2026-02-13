@@ -1,14 +1,10 @@
-#define FIBER_SEG_NEAR      1.0
-#define FIBER_SEG_MID       2.0
-#define FIBER_SEG_FAR       4.0
-#define FIBER_SEG_NEAR_DIST 60
-#define FIBER_SEG_MID_DIST  180
+#include "\vnd_main\script_macros.hpp"
 
 params ["_nodes"];
 if ((count _nodes) < 2) exitWith {};
 
 private _clr    = [1,1,1,0.05];
-private _observer = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+private _observer = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
 if (isNull _observer) then {
     _observer = player;
 };
@@ -25,12 +21,12 @@ for "_s" from 0 to ((count _nodes) - 2) do
     private _mid = _a vectorAdd (_delta vectorMultiply 0.5);
     private _viewDist = _observer distance _mid;
 
-    private _segLen = FIBER_SEG_FAR;
-    if (_viewDist <= FIBER_SEG_NEAR_DIST) then {
-        _segLen = FIBER_SEG_NEAR;
+    private _segLen = VND_FIBER_SEG_FAR;
+    if (_viewDist <= VND_FIBER_SEG_NEAR_DIST) then {
+        _segLen = VND_FIBER_SEG_NEAR;
     } else {
-        if (_viewDist <= FIBER_SEG_MID_DIST) then {
-            _segLen = FIBER_SEG_MID;
+        if (_viewDist <= VND_FIBER_SEG_MID_DIST) then {
+            _segLen = VND_FIBER_SEG_MID;
         };
     };
 

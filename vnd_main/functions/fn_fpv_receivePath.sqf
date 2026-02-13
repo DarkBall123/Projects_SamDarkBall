@@ -1,3 +1,5 @@
+#include "\vnd_main\script_macros.hpp"
+
 params ["_uav", ["_payload", [], [[]]]];
 if (isNull _uav) exitWith {};
 

@@ -1,21 +1,19 @@
+#include "\vnd_main\script_macros.hpp"
+
 params ["_uav"];
 
 if (isNull _uav) exitWith {};
 if (_uav getVariable ["vnd_destroyHandled", false]) exitWith {};
 _uav setVariable ["vnd_destroyHandled", true, true];
 
-private _dronesArray = missionNamespace getVariable ["DB_vnd_fpv_dronesArray", []];
+private _dronesArray = GETMVAR(DB_vnd_fpv_dronesArray, []);
 if !(typeOf _uav in _dronesArray) exitWith {};
 
 private _path = _uav getVariable ["vnd_fiber_path", []];
 if !(_path isEqualTo []) then {
-    private _ttl = missionNamespace getVariable ["vnd_fiberTTL", 60];
-	private _now = time;
-	missionNamespace setVariable [
-		"vnd_deadFibers",
-		(missionNamespace getVariable ["vnd_deadFibers", []]) + [[_path, _now + _ttl, _now]],
-		true
-	];
+    private _ttl = GETMVAR(vnd_fiberTTL, 60);
+    private _now = time;
+    SETMVAR_PUBLIC(vnd_deadFibers, (GETMVAR(vnd_deadFibers, [])) + [[_path, _now + _ttl, _now]]);
 };
 
 cutText ["", "PLAIN"];

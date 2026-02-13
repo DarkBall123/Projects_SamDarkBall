@@ -1,3 +1,5 @@
+#include "\vnd_main\script_macros.hpp"
+
 if ((hasInterface && isServer) || (serverCommandAvailable "#kick")) then {
     [
         "vnd_allowBotsShoot",                              // setting variable
@@ -34,11 +36,11 @@ if ((hasInterface && isServer) || (serverCommandAvailable "#kick")) then {
 ["vnd_fiberTTL", "SLIDER",   ["Dead‑fiber lifetime (s)",   "0 = disabled"], "Fiber-Optic FPV", [0, 120, 60, 0], 0] call CBA_fnc_addSetting;
 
 
-missionNamespace setVariable ["DB_vnd_fpv_dronesArray", [ 
+SETMVAR(DB_vnd_fpv_dronesArray, [
     "O_KVN_AT",      "O_KVN_AP",
     "O_KVN_AT_TI",   "O_KVN_AP_TI",
     "B_KVN_AT",      "B_KVN_AP",
     "B_KVN_AT_TI",   "B_KVN_AP_TI",
     "I_KVN_AT",      "I_KVN_AP",
     "I_KVN_AT_TI",   "I_KVN_AP_TI"
-]];
+]);

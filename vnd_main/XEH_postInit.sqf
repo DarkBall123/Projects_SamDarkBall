@@ -1,19 +1,18 @@
-#define FIBER_TICK_INTERVAL 0.05
+#include "\vnd_main\script_macros.hpp"
 
 if (hasInterface) then {
-    if !(isNil "vnd_fiberEH") then {
-        removeMissionEventHandler ["Draw3D", vnd_fiberEH];
-        vnd_fiberEH = nil;
+    private _legacyEh = GETMVAR(vnd_fiberEH, -1);
+    if (_legacyEh >= 0) then {
+        removeMissionEventHandler ["Draw3D", _legacyEh];
+        SETMVAR(vnd_fiberEH, -1);
     };
 
-    if (isNil "vnd_fiberPFH") then {
-        vnd_fiberPFH = -1;
-    };
-
-    if (vnd_fiberPFH < 0) then {
-        vnd_fiberPFH = [
+    private _fiberPfh = GETMVAR(vnd_fiberPFH, -1);
+    if (_fiberPfh < 0) then {
+        _fiberPfh = [
             { [] call DB_vnd_fnc_fpv_fiberTick },
-            FIBER_TICK_INTERVAL
+            VND_FIBER_TICK_INTERVAL
         ] call CBA_fnc_addPerFrameHandler;
+        SETMVAR(vnd_fiberPFH, _fiberPfh);
     };
 };

@@ -2,6 +2,8 @@
 #define MARGIN    0.05
 #define MAX_RAY   120
 
+#include "\vnd_main\script_macros.hpp"
+
 params ["_path", "_dt"];
 if (_path isEqualTo [] || _dt <= 0) exitWith { _path };
 

@@ -1,13 +1,9 @@
-#define FIBER_ANCHOR_DIST       1.5
-#define FIBER_MAX_SPOOL         200
-#define FIBER_GRAVITY_INTERVAL  0.10
-#define FIBER_SYNC_INTERVAL     0.20
-#define FIBER_SNAPSHOT_INTERVAL 2.0
+#include "\vnd_main\script_macros.hpp"
 
 params ["_uav"];
 if (isNull _uav) exitWith {};
 
-private _dArr = missionNamespace getVariable ["DB_vnd_fpv_dronesArray", []];
+private _dArr = GETMVAR(DB_vnd_fpv_dronesArray, []);
 if !(typeOf _uav in _dArr) exitWith {};
 
 private _recalcPathLen = {
@@ -39,13 +35,13 @@ if (_path isEqualTo []) then {
 
 private _last = _path # ((count _path) - 1);
 private _lastToUav = _last distance _uavPos;
-if (_lastToUav > FIBER_ANCHOR_DIST) then {
+if (_lastToUav > VND_FIBER_ANCHOR_DIST) then {
     _path pushBack _uavPos;
     _fiberLen = _fiberLen + _lastToUav;
     _syncAppend pushBack _uavPos;
 };
 
-while { _fiberLen > FIBER_MAX_SPOOL && { count _path > 1 } } do {
+while { _fiberLen > VND_FIBER_MAX_SPOOL && { count _path > 1 } } do {
     private _first = _path # 0;
     private _second = _path # 1;
     _fiberLen = _fiberLen - (_first distance _second);
@@ -60,7 +56,7 @@ if (_fiberLen < 0) then {
 
 private _lastSag = _uav getVariable ["vnd_lastSag", 0];
 private _sagDt = _now - _lastSag;
-if (_sagDt >= FIBER_GRAVITY_INTERVAL) then {
+if (_sagDt >= VND_FIBER_GRAVITY_INTERVAL) then {
     _path = [_path, _sagDt] call DB_vnd_fnc_fpv_applyGravity;
     _uav setVariable ["vnd_lastSag", _now];
 };
@@ -69,7 +65,7 @@ _uav setVariable ["vnd_fiber_path", _path, false];
 _uav setVariable ["vnd_fiber_len", _fiberLen, false];
 
 private _lastSnapshot = _uav getVariable ["vnd_lastSnapshotSync", 0];
-if ((_now - _lastSnapshot) >= FIBER_SNAPSHOT_INTERVAL) then {
+if ((_now - _lastSnapshot) >= VND_FIBER_SNAPSHOT_INTERVAL) then {
     [_uav, ["snapshot", +_path]] remoteExecCall ["DB_vnd_fnc_fpv_receivePath", -clientOwner, _uav];
     _uav setVariable ["vnd_lastSnapshotSync", _now];
     _uav setVariable ["vnd_lastSync", _now];
@@ -77,7 +73,7 @@ if ((_now - _lastSnapshot) >= FIBER_SNAPSHOT_INTERVAL) then {
     _syncAppend = [];
 } else {
     private _lastSync = _uav getVariable ["vnd_lastSync", 0];
-    if ((_now - _lastSync) >= FIBER_SYNC_INTERVAL && { _syncTrim > 0 || { count _syncAppend > 0 } }) then {
+    if ((_now - _lastSync) >= VND_FIBER_SYNC_INTERVAL && { _syncTrim > 0 || { count _syncAppend > 0 } }) then {
         [_uav, ["delta", _syncTrim, +_syncAppend]] remoteExecCall ["DB_vnd_fnc_fpv_receivePath", -clientOwner, _uav];
         _uav setVariable ["vnd_lastSync", _now];
         _syncTrim = 0;

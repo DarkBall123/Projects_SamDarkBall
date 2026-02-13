@@ -1,13 +1,16 @@
-#define FIBER_DRAW_DISTANCE 450
+#include "\vnd_main\script_macros.hpp"
 
-if (isNil "vnd_renderEH") then
+if (!hasInterface) exitWith {};
+
+private _renderEh = GETMVAR(vnd_renderEH, -1);
+if (_renderEh < 0) then
 {
-    vnd_renderEH = addMissionEventHandler ["Draw3D",
+    _renderEh = addMissionEventHandler ["Draw3D",
     {
-        if !(missionNamespace getVariable ["vnd_showFiber", true]) exitWith {};
+        if !(GETMVAR(vnd_showFiber, true)) exitWith {};
 
-        private _dClasses = missionNamespace getVariable ["DB_vnd_fpv_dronesArray", []];
-        private _pl = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+        private _dClasses = GETMVAR(DB_vnd_fpv_dronesArray, []);
+        private _pl = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
         if (isNull _pl) then {
             _pl = player;
         };
@@ -16,7 +19,7 @@ if (isNil "vnd_renderEH") then
 
         {
             if (typeOf _x in _dClasses) then {
-                if (_x != _controlledUav && { _pl distance _x > FIBER_DRAW_DISTANCE }) then {
+                if (_x != _controlledUav && { _pl distance _x > VND_FIBER_DRAW_DISTANCE }) then {
                     continue;
                 };
 
@@ -30,7 +33,7 @@ if (isNil "vnd_renderEH") then
         } forEach allUnitsUAV;
 
 
-        private _dead = missionNamespace getVariable ["vnd_deadFibers", []];
+        private _dead = GETMVAR(vnd_deadFibers, []);
         private _newDead = [];
 
         {
@@ -49,6 +52,8 @@ if (isNil "vnd_renderEH") then
             };
         } forEach _dead;
 
-        missionNamespace setVariable ["vnd_deadFibers", _newDead, false];
+        SETMVAR(vnd_deadFibers, _newDead);
     }];
+
+    SETMVAR(vnd_renderEH, _renderEh);
 };
