@@ -100,52 +100,17 @@ private _tick = {
     };
 };
 
-private _canUseCbaPfh = !(
-    isNil "CBA_fnc_addPerFrameHandler"
-    || { isNil "CBA_fnc_removePerFrameHandler" }
-    || { isNil "cba_common_perFrameHandlerArray" }
-    || { isNil "cba_common_PFHhandles" }
-);
-
-if (_canUseCbaPfh) then {
-    private _prevFallback = GETMVAR(vnd_connectFallbackThread, scriptNull);
-    if !(scriptDone _prevFallback) then {
-        terminate _prevFallback;
-    };
-    SETMVAR(vnd_connectFallbackThread, scriptNull);
-
-    private _prevPfh = GETMVAR(vnd_connectPFH, -1);
-    if (_prevPfh >= 0) then {
-        [_prevPfh] call CBA_fnc_removePerFrameHandler;
-    };
-
-    private _pfhId = [_tick, _loopInterval, [_controlGracePeriod]] call CBA_fnc_addPerFrameHandler;
-    SETMVAR(vnd_connectPFH, _pfhId);
-} else {
-    private _prevPfh = GETMVAR(vnd_connectPFH, -1);
-    if (_prevPfh >= 0 && { !(isNil "CBA_fnc_removePerFrameHandler") } && { !(isNil "cba_common_perFrameHandlerArray") }) then {
-        [_prevPfh] call CBA_fnc_removePerFrameHandler;
-    };
-    SETMVAR(vnd_connectPFH, -1);
-
-    private _prevFallback = GETMVAR(vnd_connectFallbackThread, scriptNull);
-    if !(scriptDone _prevFallback) then {
-        terminate _prevFallback;
-    };
-
-    private _fallbackThread = [_tick, _controlGracePeriod, _loopInterval] spawn {
-        params ["_tick", "_controlGracePeriod", "_loopInterval"];
-        while {true} do {
-            [[_controlGracePeriod], -1] call _tick;
-            sleep _loopInterval;
-        };
-    };
-    SETMVAR(vnd_connectFallbackThread, _fallbackThread);
+private _prevPfh = GETMVAR(vnd_connectPFH, -1);
+if (_prevPfh >= 0) then {
+    [_prevPfh] call CBA_fnc_removePerFrameHandler;
 };
 
-if (isNil "CBA_fnc_waitUntilAndExecute" || { isNil "cba_common_waitUntilAndExecArray" }) then {
-    [] spawn {
-        waitUntil { !isNull findDisplay 46 };
+private _pfhId = [_tick, _loopInterval, [_controlGracePeriod]] call CBA_fnc_addPerFrameHandler;
+SETMVAR(vnd_connectPFH, _pfhId);
+
+[
+    { !isNull findDisplay 46 },
+    {
         if (GETMVAR(vnd_keyEHAdded, false)) exitWith {};
         SETMVAR(vnd_keyEHAdded, true);
 
@@ -160,26 +125,6 @@ if (isNil "CBA_fnc_waitUntilAndExecute" || { isNil "cba_common_waitUntilAndExecA
 
             _handled
         }];
-    };
-} else {
-    [
-        { !isNull findDisplay 46 },
-        {
-            if (GETMVAR(vnd_keyEHAdded, false)) exitWith {};
-            SETMVAR(vnd_keyEHAdded, true);
-
-            findDisplay 46 displayAddEventHandler ["KeyDown", {
-                private _handled = false;
-
-                if (GETMVAR(vnd_isControl, false)) then {
-                    if (inputAction "showMap" > 0) then {
-                        _handled = true;
-                    };
-                };
-
-                _handled
-            }];
-        },
-        []
-    ] call CBA_fnc_waitUntilAndExecute;
-};
+    },
+    []
+] call CBA_fnc_waitUntilAndExecute;

@@ -5,7 +5,7 @@
 Static SQF/CBA pattern tests for vnd_main.
 
 Purpose:
-- catch risky CBA usage (PFH/waitUntil calls without readiness guards)
+- enforce pure CBA usage (no legacy CBA internals/guard hacks in SQF)
 - enforce forbidden SQF constructs in this repo (`scopeName`, `breakOut`)
 - verify CBA addon dependencies in config.cpp
 """
@@ -76,58 +76,29 @@ def check_forbidden_constructs(root: Path, addon_dir: Path) -> List[Finding]:
     return findings
 
 
-def check_cba_guards(root: Path, addon_dir: Path) -> List[Finding]:
+def check_no_legacy_cba_constructs(root: Path, addon_dir: Path) -> List[Finding]:
     findings: List[Finding] = []
 
-    pfh_guard_tokens = [
-        'isNil "CBA_fnc_addPerFrameHandler"',
-        'isNil "cba_common_perFrameHandlerArray"',
-        'isNil "cba_common_PFHhandles"',
+    legacy_tokens = [
+        "cba_common_perFrameHandlerArray",
+        "cba_common_PFHhandles",
+        "cba_common_waitUntilAndExecArray",
     ]
-    remove_pfh_guard_tokens = [
-        'isNil "CBA_fnc_removePerFrameHandler"',
-        'isNil "cba_common_perFrameHandlerArray"',
-    ]
-    wait_guard_tokens = [
-        'isNil "CBA_fnc_waitUntilAndExecute"',
-        'isNil "cba_common_waitUntilAndExecArray"',
-    ]
+    legacy_isnil_re = re.compile(r'isNil\s+"CBA_fnc_[^"]+"')
 
     for path in iter_sqf_files(root, addon_dir):
-        text = path.read_text(encoding="utf-8", errors="replace")
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        for idx, raw in enumerate(lines, start=1):
+            clean = raw.strip()
+            if clean.startswith("//"):
+                continue
 
-        if "CBA_fnc_addPerFrameHandler" in text:
-            missing = [t for t in pfh_guard_tokens if t not in text]
-            if missing:
-                findings.append(
-                    Finding(
-                        path,
-                        find_line(text, "CBA_fnc_addPerFrameHandler"),
-                        f"missing CBA PFH readiness guard token(s): {', '.join(missing)}",
-                    )
-                )
+            for token in legacy_tokens:
+                if token in raw:
+                    findings.append(Finding(path, idx, f"legacy CBA internal token found: `{token}`"))
 
-        if "CBA_fnc_removePerFrameHandler" in text:
-            missing = [t for t in remove_pfh_guard_tokens if t not in text]
-            if missing:
-                findings.append(
-                    Finding(
-                        path,
-                        find_line(text, "CBA_fnc_removePerFrameHandler"),
-                        f"missing CBA removePFH guard token(s): {', '.join(missing)}",
-                    )
-                )
-
-        if "CBA_fnc_waitUntilAndExecute" in text:
-            missing = [t for t in wait_guard_tokens if t not in text]
-            if missing:
-                findings.append(
-                    Finding(
-                        path,
-                        find_line(text, "CBA_fnc_waitUntilAndExecute"),
-                        f"missing CBA waitUntil guard token(s): {', '.join(missing)}",
-                    )
-                )
+            if legacy_isnil_re.search(raw):
+                findings.append(Finding(path, idx, "legacy `isNil \"CBA_fnc_*\"` guard found; use direct CBA call"))
 
     return findings
 
@@ -175,7 +146,7 @@ def main() -> int:
 
     findings: List[Finding] = []
     findings.extend(check_forbidden_constructs(root, addon_dir))
-    findings.extend(check_cba_guards(root, addon_dir))
+    findings.extend(check_no_legacy_cba_constructs(root, addon_dir))
     findings.extend(check_required_addons(root, addon_dir))
 
     if findings:
