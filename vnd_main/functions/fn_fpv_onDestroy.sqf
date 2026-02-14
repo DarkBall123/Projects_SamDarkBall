@@ -3,20 +3,11 @@
 params ["_uav"];
 
 if (isNull _uav) exitWith {};
+if !(local _uav) exitWith {};
 if (_uav getVariable ["vnd_destroyHandled", false]) exitWith {};
-_uav setVariable ["vnd_destroyHandled", true, true];
 
 private _dronesArray = GETMVAR(DB_vnd_fpv_dronesArray, []);
 if !(typeOf _uav in _dronesArray) exitWith {};
-
-private _path = _uav getVariable ["vnd_fiber_path", []];
-if !(_path isEqualTo []) then {
-    private _ttl = GETMVAR(vnd_fiberTTL, 60);
-    private _now = time;
-    SETMVAR_PUBLIC(vnd_deadFibers, (GETMVAR(vnd_deadFibers, [])) + [[_path, _now + _ttl, _now]]);
-};
-
-cutText ["", "PLAIN"];
 
 private _killer     = driver _uav;
 private _instigator = (UAVControl _uav) # 0;
@@ -34,6 +25,17 @@ if (_uavType find "at" > -1) then {
 if (_missileType isEqualTo "") exitWith {
     deleteVehicle _uav;
 };
+
+_uav setVariable ["vnd_destroyHandled", true, false];
+
+private _path = _uav getVariable ["vnd_fiber_path", []];
+if !(_path isEqualTo []) then {
+    private _ttl = GETMVAR(vnd_fiberTTL, 60);
+    private _now = time;
+    SETMVAR_PUBLIC(vnd_deadFibers, (GETMVAR(vnd_deadFibers, [])) + [[_path, _now + _ttl, _now]]);
+};
+
+cutText ["", "PLAIN"];
 
 if !(isNull _killer) then {
     if (local _killer) then {
