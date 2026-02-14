@@ -4,6 +4,7 @@
 ```bash
 python3 tools/sqf_validator.py --config tools/ci_config.json
 python3 tools/config_style_checker.py --config tools/ci_config.json
+python3 tools/sqf_cba_patterns_test.py --root . --addon vnd_main
 ```
 
 Tuning

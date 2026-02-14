@@ -2,12 +2,7 @@
 
 if (!hasInterface) exitWith {};
 
-private _prevPfh = GETMVAR(vnd_connectPFH, -1);
-if (_prevPfh >= 0) then {
-    [_prevPfh] call CBA_fnc_removePerFrameHandler;
-};
-
-private _pfhId = [{
+private _connectStep = {
     private _pl = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
     if (isNull _pl) then {
         _pl = player;
@@ -64,9 +59,50 @@ private _pfhId = [{
             SETMVAR(vnd_lastControlUav, objNull);
         };
     };
-}, VND_CONNECT_LOOP_INTERVAL] call CBA_fnc_addPerFrameHandler;
+};
 
-SETMVAR(vnd_connectPFH, _pfhId);
+private _canUseCbaPfh = !(
+    isNil "CBA_fnc_addPerFrameHandler"
+    || { isNil "CBA_fnc_removePerFrameHandler" }
+    || { isNil "cba_common_perFrameHandlerArray" }
+    || { isNil "cba_common_PFHhandles" }
+);
+
+if (_canUseCbaPfh) then {
+    private _prevFallback = GETMVAR(vnd_connectFallbackThread, scriptNull);
+    if !(scriptDone _prevFallback) then {
+        terminate _prevFallback;
+    };
+    SETMVAR(vnd_connectFallbackThread, scriptNull);
+
+    private _prevPfh = GETMVAR(vnd_connectPFH, -1);
+    if (_prevPfh >= 0) then {
+        [_prevPfh] call CBA_fnc_removePerFrameHandler;
+    };
+
+    private _pfhId = [_connectStep, VND_CONNECT_LOOP_INTERVAL] call CBA_fnc_addPerFrameHandler;
+    SETMVAR(vnd_connectPFH, _pfhId);
+} else {
+    private _prevPfh = GETMVAR(vnd_connectPFH, -1);
+    if (_prevPfh >= 0 && { !(isNil "CBA_fnc_removePerFrameHandler") } && { !(isNil "cba_common_perFrameHandlerArray") }) then {
+        [_prevPfh] call CBA_fnc_removePerFrameHandler;
+    };
+    SETMVAR(vnd_connectPFH, -1);
+
+    private _prevFallback = GETMVAR(vnd_connectFallbackThread, scriptNull);
+    if !(scriptDone _prevFallback) then {
+        terminate _prevFallback;
+    };
+
+    private _fallbackThread = [_connectStep] spawn {
+        params ["_connectStep"];
+        while {true} do {
+            call _connectStep;
+            sleep VND_CONNECT_LOOP_INTERVAL;
+        };
+    };
+    SETMVAR(vnd_connectFallbackThread, _fallbackThread);
+};
 
 if (isNil "CBA_fnc_waitUntilAndExecute" || { isNil "cba_common_waitUntilAndExecArray" }) then {
     [] spawn {
