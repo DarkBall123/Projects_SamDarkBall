@@ -54,7 +54,11 @@ if (_fiberLen < 0) then {
     _fiberLen = [_path] call _recalcPathLen;
 };
 
-private _lastSag = _uav getVariable ["vnd_lastSag", 0];
+private _lastSag = _uav getVariable ["vnd_lastSag", _now];
+if (_lastSag <= 0) then {
+    _lastSag = _now;
+    _uav setVariable ["vnd_lastSag", _now, false];
+};
 private _sagDt = _now - _lastSag;
 if (_sagDt >= VND_FIBER_GRAVITY_INTERVAL) then {
     _path = [_path, _sagDt] call DB_vnd_fnc_fpv_applyGravity;

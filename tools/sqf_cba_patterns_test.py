@@ -72,7 +72,8 @@ def check_forbidden_constructs(root: Path, addon_dir: Path) -> List[Finding]:
                 continue
             for pat in forbidden_patterns:
                 if pat.search(raw):
-                    findings.append(Finding(path, idx, f"forbidden SQF construct `{pat.pattern.strip('\\\\b')}` found"))
+                    pattern_name = pat.pattern.replace(r"\b", "").strip()
+                    findings.append(Finding(path, idx, f"forbidden SQF construct `{pattern_name}` found"))
     return findings
 
 
