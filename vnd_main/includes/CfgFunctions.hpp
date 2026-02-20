@@ -12,7 +12,7 @@ class CfgFunctions
             class fpv_uiAnimate  {};
 
             // Logic
-            class fpv_handleConnect { postInit = 1; };
+            class fpv_handleConnect {};
             class fpv_droneInit   {};
             class fpv_onDestroy   {};
             class fpv_addUavToInventory {};

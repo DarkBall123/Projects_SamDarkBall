@@ -7,13 +7,27 @@ if (hasInterface) then {
         SETMVAR(vnd_fiberEH, -1);
     };
 
-    private _fiberPfh = GETMVAR(vnd_fiberPFH, -1);
-    if (_fiberPfh < 0) then {
-        _fiberPfh = [
-            { [] call DB_vnd_fnc_fpv_fiberTick },
-            VND_FIBER_TICK_INTERVAL
-        ] call CBA_fnc_addPerFrameHandler;
-        SETMVAR(vnd_fiberPFH, _fiberPfh);
+    if !(GETMVAR(vnd_fiberInitQueued, false)) then {
+        SETMVAR(vnd_fiberInitQueued, true);
+
+        [] spawn {
+            waitUntil { time > 0 };
+
+            private _fiberPfh = GETMVAR(vnd_fiberPFH, -1);
+            if (_fiberPfh >= 0) exitWith {};
+
+            private _newPfh = -1;
+            _newPfh = [
+                { [] call DB_vnd_fnc_fpv_fiberTick },
+                VND_FIBER_TICK_INTERVAL
+            ] call CBA_fnc_addPerFrameHandler;
+
+            if (_newPfh isEqualType 0 && { _newPfh >= 0 }) then {
+                SETMVAR(vnd_fiberPFH, _newPfh);
+            } else {
+                diag_log "[vnd_main] failed to register fiber PFH";
+            };
+        };
     };
 
     private _registerPutEh = {
@@ -53,5 +67,14 @@ if (hasInterface) then {
             }];
             _unit setVariable ["vnd_playerPutID", _newId];
         }] call CBA_fnc_addPlayerEventHandler;
+    };
+
+    if !(GETMVAR(vnd_connectInitQueued, false)) then {
+        SETMVAR(vnd_connectInitQueued, true);
+
+        [] spawn {
+            waitUntil { time > 0 };
+            [] call DB_vnd_fnc_fpv_handleConnect;
+        };
     };
 };

@@ -105,7 +105,13 @@ if (_prevPfh >= 0) then {
     [_prevPfh] call CBA_fnc_removePerFrameHandler;
 };
 
-private _pfhId = [_tick, _loopInterval, [_controlGracePeriod]] call CBA_fnc_addPerFrameHandler;
+private _pfhId = -1;
+_pfhId = [_tick, _loopInterval, [_controlGracePeriod]] call CBA_fnc_addPerFrameHandler;
+
+if !(_pfhId isEqualType 0) exitWith {
+    diag_log "[vnd_main] failed to register connect PFH";
+};
+
 SETMVAR(vnd_connectPFH, _pfhId);
 
 [
