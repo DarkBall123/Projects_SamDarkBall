@@ -32,7 +32,9 @@ private _path = _uav getVariable ["vnd_fiber_path", []];
 if !(_path isEqualTo []) then {
     private _ttl = GETMVAR(vnd_fiberTTL, 60);
     private _now = time;
-    SETMVAR_PUBLIC(vnd_deadFibers, (GETMVAR(vnd_deadFibers, [])) + [[_path, _now + _ttl, _now]]);
+    private _deadFibers = +GETMVAR(vnd_deadFibers, []);
+    _deadFibers pushBack [_path, _now + _ttl, _now];
+    SETMVAR_PUBLIC(vnd_deadFibers, _deadFibers);
 };
 
 cutText ["", "PLAIN"];
