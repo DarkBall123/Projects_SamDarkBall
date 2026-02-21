@@ -21,6 +21,7 @@ uiNamespace setVariable ["_zoomStatus", false];
 uiNamespace setVariable ["_itemLock", false];
 uiNamespace setVariable ["DB_isSlewing", false];
 uiNamespace setVariable ["lancet_mouseStick", [0, 0]];
+uiNamespace setVariable ["lancet_mouseStickSmoothed", [0, 0]];
 
 //Current projectile for manual detonation
 uiNamespace setVariable ["lancet_currentProjectile", _projectile];
@@ -49,7 +50,7 @@ private _zoomCursorScale = 0.55;
 private _manualVectorDist = 1200;
 private _cursorRangeX = 0.18;
 private _cursorRangeY = 0.18;
-private _guideTick = 0.04;
+private _guideTick = 0.02;
 private _nextGuideAt = 0;
 
 //Fast cleanup when the missile dies
@@ -119,11 +120,11 @@ while {alive _projectile and dialog} do {
 			_targetOffset = [0,0,0]; 
 		};
 
-		private _isAutoSlewing = uiNamespace getVariable ["DB_isSlewing", false];
-		if (!_isAutoSlewing) then {
-			private _nowTick = diag_tickTime;
-			private _dt = _nowTick - _lastControlUpdate;
-			_lastControlUpdate = _nowTick;
+			private _isAutoSlewing = uiNamespace getVariable ["DB_isSlewing", false];
+			if (!_isAutoSlewing) then {
+				private _nowTick = diag_tickTime;
+				private _dt = _nowTick - _lastControlUpdate;
+				_lastControlUpdate = _nowTick;
 
 				private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
 				private _zoomEnabled = uiNamespace getVariable ["_zoomStatus", false];
@@ -137,20 +138,28 @@ while {alive _projectile and dialog} do {
 			private _stickX = (_stick # 0) * _spring;
 			private _stickY = (_stick # 1) * _spring;
 
-			if (abs _stickX < 0.002) then { _stickX = 0; };
-			if (abs _stickY < 0.002) then { _stickY = 0; };
+				if (abs _stickX < 0.002) then { _stickX = 0; };
+				if (abs _stickY < 0.002) then { _stickY = 0; };
 
-			_stick = [_stickX, _stickY];
-			uiNamespace setVariable ["lancet_mouseStick", _stick];
+				_stick = [_stickX, _stickY];
+				uiNamespace setVariable ["lancet_mouseStick", _stick];
 
-			private _seekerLock = uiNamespace getVariable ["DB_seeker_lock", controlNull];
-			if !(isNull _seekerLock) then {
+				private _smoothedStick = uiNamespace getVariable ["lancet_mouseStickSmoothed", [0, 0]];
+				private _smoothRate = if (_zoomEnabled) then {6} else {10};
+				private _smoothAlpha = (_dt * _smoothRate) max 0 min 1;
+				private _ctrlX = (_smoothedStick # 0) + ((_stickX - (_smoothedStick # 0)) * _smoothAlpha);
+				private _ctrlY = (_smoothedStick # 1) + ((_stickY - (_smoothedStick # 1)) * _smoothAlpha);
+				_smoothedStick = [_ctrlX, _ctrlY];
+				uiNamespace setVariable ["lancet_mouseStickSmoothed", _smoothedStick];
+
+				private _seekerLock = uiNamespace getVariable ["DB_seeker_lock", controlNull];
+				if !(isNull _seekerLock) then {
 					private _lockPos = ctrlPosition _seekerLock;
 					private _lockW = _lockPos # 2;
 					private _lockH = _lockPos # 3;
 
-					private _newX = (0.5 - (_lockW / 2)) + (_stickX * _cursorRangeX * _cursorScale);
-					private _newY = (0.5 - (_lockH / 2)) - (_stickY * _cursorRangeY * _cursorScale);
+					private _newX = (0.5 - (_lockW / 2)) + (_ctrlX * _cursorRangeX * _cursorScale);
+					private _newY = (0.5 - (_lockH / 2)) - (_ctrlY * _cursorRangeY * _cursorScale);
 
 				private _halfW = _lockW / 2;
 				private _halfH = _lockH / 2;
@@ -161,12 +170,12 @@ while {alive _projectile and dialog} do {
 				_seekerLock ctrlCommit 0;
 			};
 
-			if (time >= _nextGuideAt) then {
+				if (time >= _nextGuideAt) then {
 					_posProj = AGLTOASL positionCameraToWorld [0,0,0];
 					private _dirAndUp = [
 						[vectorDir _projectile, vectorUp _projectile],
-						-_stickX * _steerYawRate * _steerScale * _dt,
-						_stickY * _steerPitchRate * _steerScale * _dt,
+						-_ctrlX * _steerYawRate * _steerScale * _dt,
+						-_ctrlY * _steerPitchRate * _steerScale * _dt,
 						0
 					] call BIS_fnc_transformVectorDirAndUp;
 				private _manualDir = vectorNormalized (_dirAndUp # 0);
@@ -190,8 +199,8 @@ while {alive _projectile and dialog} do {
 					uiNamespace setVariable ["_itemLock", !(isNull _target)];
 
 					private _angleFac = (1 - abs((vectorDir _projectile) vectorCos _v));
-					_timeManouver = [_projectile, 0.10 + (_angleFac * 0.10), 0.22] call lancet_fnc_manouverTime;
-					[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
+					_timeManouver = [_projectile, 0.16 + (_angleFac * 0.18), 0.34] call lancet_fnc_manouverTime;
+					[_projectile, _v, _timeManouver, _dt] call lancet_fnc_handleGuidance;
 
 				_nextGuideAt = time + _guideTick;
 			};

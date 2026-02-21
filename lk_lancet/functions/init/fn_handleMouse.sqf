@@ -23,10 +23,10 @@ if ((uiNamespace getVariable ["isSlewing", false]) || {uiNamespace getVariable [
 
 private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
 private _zoomEnabled = uiNamespace getVariable ["_zoomStatus", false];
-private _zoomInputScale = if (_zoomEnabled) then {0.45} else {1};
+private _zoomInputScale = if (_zoomEnabled) then {0.35} else {1};
 
-private _xSens = 0.95;
-private _ySens = 0.85;
+private _xSens = 0.65;
+private _ySens = 0.60;
 
 private _nextX = (_stick # 0) + (_xDelta * _xSens * _zoomInputScale);
 private _nextY = (_stick # 1) - (_yDelta * _ySens * _zoomInputScale);
