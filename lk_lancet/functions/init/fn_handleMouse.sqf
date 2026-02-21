@@ -3,7 +3,7 @@
 #define GRID_W( num ) ( num * ( pixelGridNoUIScale * pixelW * 2 ))
 #define GRID_H( num ) ( num * ( pixelGridNoUIScale * pixelH * 2 ))
 
-params ["_display"];
+params [["_display", displayNull], ["_xDelta", 0], ["_yDelta", 0]];
 
 private _lockPicture = uiNamespace getVariable ["DB_seeker_lock", controlNull];
 
@@ -19,15 +19,17 @@ if (isNull _lockPicture) then {
     uiNamespace setVariable ["DB_seeker_lock", _lockPicture];
 };
 
-if (uiNamespace getVariable ["isSlewing", false]) exitWith {};
+if ((uiNamespace getVariable ["isSlewing", false]) || {uiNamespace getVariable ["DB_isSlewing", false]}) exitWith {};
 
-getMousePosition params ["_x", "_y"];
+private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
 
-private _lockWidth = (ctrlPosition _lockPicture # 2) / 2;
-private _lockHeight = (ctrlPosition _lockPicture # 3)/ 2;
+private _xSens = 5.0;
+private _ySens = 5.0;
 
-_x = _x max (safeZoneX + _lockWidth) min (safeZoneX + safeZoneW - _lockWidth);
-_y = _y max (safeZoneY + _lockHeight) min (safeZoneY + safeZoneH - _lockHeight);
+private _nextX = (_stick # 0) + (_xDelta * _xSens);
+private _nextY = (_stick # 1) - (_yDelta * _ySens);
 
-_lockPicture ctrlSetPosition [_x - _lockWidth, _y - _lockHeight];
-_lockPicture ctrlCommit 0.0;
+_nextX = _nextX max -1 min 1;
+_nextY = _nextY max -1 min 1;
+
+uiNamespace setVariable ["lancet_mouseStick", [_nextX, _nextY]];

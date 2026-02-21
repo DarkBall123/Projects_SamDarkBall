@@ -12,9 +12,6 @@ private _camera = [_projectile, 2.0] call lancet_fnc_camCreate; // 2.0 def
 //Create dialog
 private _diag = createDialog ["lancet_seeker", true];
 
-//Detect clicks
-uiNamespace setVariable ["mouseClick", false];
-
 //Change FOV / thermals / autolock
 uiNamespace setVariable ["isSlewing", false];
 uiNamespace setVariable ["_mainCamera", _camera];
@@ -23,6 +20,7 @@ uiNamespace setVariable ["_autoLockState", true];
 uiNamespace setVariable ["_zoomStatus", false];
 uiNamespace setVariable ["_itemLock", false];
 uiNamespace setVariable ["DB_isSlewing", false];
+uiNamespace setVariable ["lancet_mouseStick", [0, 0]];
 
 //Current projectile for manual detonation
 uiNamespace setVariable ["lancet_currentProjectile", _projectile];
@@ -41,6 +39,15 @@ private _crtlSize = []; //Size of the control thing
 private _wordToScreenPos = []; //Position on the screen of the current target
 private _targetOffset = [0,0,0]; //Offset from target center 
 private _targetArr = []; 
+
+private _lastControlUpdate = diag_tickTime;
+private _returnRate = 2.6;
+private _controlToScreenX = 0.25;
+private _controlToScreenY = 0.25;
+private _cursorRangeX = 0.18;
+private _cursorRangeY = 0.18;
+private _guideTick = 0.04;
+private _nextGuideAt = 0;
 
 //Fast cleanup when the missile dies
 _projectile setVariable ["_projAttachedCamera", _camera, true];
@@ -101,14 +108,88 @@ _targetCursor ctrlShow false;
 
 //Main loop
 while {alive _projectile and dialog} do {
-	if(time - _timeCheck > 0.1) then {
+	if(time - _timeCheck > _guideTick) then {
 		_targetEnabled = uiNamespace getVariable ["_autoLockState", true];
 
 		if(!_targetEnabled) then {
 			_target = objNull;
 			_targetOffset = [0,0,0]; 
 		};
-		
+
+		private _isAutoSlewing = uiNamespace getVariable ["DB_isSlewing", false];
+		if (!_isAutoSlewing) then {
+			private _nowTick = diag_tickTime;
+			private _dt = _nowTick - _lastControlUpdate;
+			_lastControlUpdate = _nowTick;
+
+			private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
+			private _spring = 1 - (_returnRate * _dt);
+			if (_spring < 0) then {
+				_spring = 0;
+			};
+
+			private _stickX = (_stick # 0) * _spring;
+			private _stickY = (_stick # 1) * _spring;
+
+			if (abs _stickX < 0.002) then { _stickX = 0; };
+			if (abs _stickY < 0.002) then { _stickY = 0; };
+
+			_stick = [_stickX, _stickY];
+			uiNamespace setVariable ["lancet_mouseStick", _stick];
+
+			private _seekerLock = uiNamespace getVariable ["DB_seeker_lock", controlNull];
+			if !(isNull _seekerLock) then {
+				private _lockPos = ctrlPosition _seekerLock;
+				private _lockW = _lockPos # 2;
+				private _lockH = _lockPos # 3;
+
+				private _newX = (0.5 - (_lockW / 2)) + (_stickX * _cursorRangeX);
+				private _newY = (0.5 - (_lockH / 2)) - (_stickY * _cursorRangeY);
+
+				private _halfW = _lockW / 2;
+				private _halfH = _lockH / 2;
+				_newX = _newX max (safeZoneX + _halfW) min (safeZoneX + safeZoneW - _halfW);
+				_newY = _newY max (safeZoneY + _halfH) min (safeZoneY + safeZoneH - _halfH);
+
+				_seekerLock ctrlSetPosition [_newX, _newY, _lockW, _lockH];
+				_seekerLock ctrlCommit 0;
+			};
+
+			if (time >= _nextGuideAt) then {
+				_posProj = AGLTOASL positionCameraToWorld [0,0,0];
+				private _aimPoint = [
+					(0.5 + (_stickX * _controlToScreenX)) max 0 min 1,
+					(0.5 - (_stickY * _controlToScreenY)) max 0 min 1
+				];
+				_posWorld = AGLTOASL screenToWorld _aimPoint;
+				if !(_posWorld isEqualType [] && {count _posWorld == 3}) then {
+					_nextGuideAt = time + _guideTick;
+				} else {
+					_v = _posWorld vectorDiff _posProj;
+
+					if(_targetEnabled) then {
+						_targetArr = [_projectile, _v] call lancet_fnc_findTarget;
+						_target = _targetArr # 0;
+						_targetOffset = _targetArr # 1;
+						if(!isNull _target) then {
+							_v = ((getPosASL _target) vectorAdd _targetOffset) vectorDiff _posProj;
+						};
+					} else {
+						_target = objNull;
+						_targetOffset = [0,0,0];
+					};
+
+					uiNamespace setVariable ["_itemLock", !(isNull _target)];
+
+					private _angleFac = (1 - abs((vectorDir _projectile) vectorCos _v));
+					_timeManouver = [_projectile, 0.08 + (_angleFac * 0.10), 0.20] call lancet_fnc_manouverTime;
+					[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
+
+					_nextGuideAt = time + _guideTick;
+				};
+			};
+		};
+			
 		//Target cursor
 		if(ctrlShown _targetCursor) then {
 			_crtlSize = (ctrlPosition _targetCursor) # 3;
@@ -134,72 +215,13 @@ while {alive _projectile and dialog} do {
 				_targetCursor ctrlShow false;
 			};
 			
-			uiNamespace setVariable ["_itemLock", ctrlShown _targetCursor];
-		};
+				uiNamespace setVariable ["_itemLock", !(isNull _target)];
+			};
 
 		_timeCheck = time;
 	};
 
-	//Has clicked
-	if(uiNamespace getVariable ["mouseClick", false]) then {
-		uiNamespace setVariable ['mouseClick', false];
-		_target = objNull;
-		_targetOffset = [0,0,0]; 
-		_projectile setMissileTarget objNull;
-
-		//_posProj = getPosASL _projectile;	
-		_posProj = AGLTOASL positionCameraToWorld [0,0,0];	
-		_posWorld = AGLTOASL screenToWorld getMousePosition;
-		_v = _posWorld vectorDiff _posProj; 
-
-		if(_targetEnabled) then {
-			_targetArr = [_projectile, _v] call lancet_fnc_findTarget;
-			_target 		= _targetArr # 0;
-			_targetOffset 	= _targetArr # 1;
-			//More accurate
-			if(!isNull _target) then {
-				_v = ((getPosASL _target) vectorAdd _targetOffset) vectorDiff _posProj; 
-			};
-		};
-
-		//Manouver time based on speed
-		_angleFac = (1 - abs((vectorDir _projectile) vectorCos _v)); //high deviation means longer manouvers
-		_timeManouver = [_projectile, 0.5 + _angleFac, 1] call lancet_fnc_manouverTime;
-	
-		//Crosshair
-		[_diag, _crosshair, _timeManouver, nil, true]  spawn lancet_fnc_centerCursor;
-
-		//Moves the missile
-		[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
-
-
-		//Finally show the cursor
-		//_targetCursor ctrlShow _targetEnabled;
-	} else {
-		//If the missile has a target it will keep tracking it
-		if(!isNull _target and _targetEnabled) then {
-			//_projectile setMissileTarget _target; //Some projectiles allow handoff
-			_posProj = AGLTOASL positionCameraToWorld [0,0,0];	
-			_v = (getPosASL _target vectorAdd _targetOffset) vectorDiff _posProj; 
-
-			_timeManouver = 0.3;
-			/*
-			Disabled because it would make switching targets hard when on final
-			_wordToScreenPos = (worldToScreen ((ASLTOAGL getposASl _target) vectorAdd _targetOffset)); 
-			//If the target is in the screen move the cursor over it
-			if(count _wordToScreenPos > 0) then {
-				_crtlSize = (ctrlPosition _crosshair) # 3;
-				_crossTarget = _wordToScreenPos vectorDiff [_crtlSize/2, _crtlSize/2];
-				_crossTarget vectorAdd [random [-0.2, 0, 0.2], random [-0.15, 0, 0.15]];
-				[_diag, _crosshair, _timeManouver, _crossTarget]  spawn lancet_fnc_centerCursor;	
-			};
-			*/
-			[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
-			sleep (_timeManouver - 0.1);
-		};
-	};
-
-	sleep 0.1;
+	sleep 0.01;
 };
 
 //If we closed the dialog while the missile is still alive, it will auto track the target, if any

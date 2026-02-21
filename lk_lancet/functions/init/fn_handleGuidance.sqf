@@ -1,5 +1,9 @@
 params["_projectile", "_v", "_timeManouver"];
 
+if (isNull _projectile) exitWith {};
+if !(_projectile getVariable ["lancet_guidanceReady", true]) exitWith {};
+_projectile setVariable ["lancet_guidanceReady", false];
+
 //Projectile 
 private _posProj 	= getPosASL _projectile;	
 private _vUpProj 	= vectorUp _projectile;
@@ -12,12 +16,6 @@ private _localUpVector = _v vectorCrossProduct _sideVector;
 //Up vector at the target  - technically not needed to normalize the vectors
 private _vDirTgt = vectorNormalized _v;
 private _vUpTgt = vectorNormalized _localUpVector;
-
-//Handle going upward
-private _diff = [0.5, 0.5] vectorDiff getMousePosition;
-if((_diff # 1) > 0.3) then {
-	_vDirTgt set [2, _vDirTgt # 2 + (_diff # 1 * 0.5)];
-};
 
 //Handle moving the mission
 private _id = ["lancet_handleMissileRot", "onEachFrame", {
@@ -34,3 +32,4 @@ waitUntil {
 	!(alive _projectile) or (time - _timeZero) > _timeManouver
 };
 [_id, "onEachFrame"] call BIS_fnc_removeStackedEventHandler;
+_projectile setVariable ["lancet_guidanceReady", true];
