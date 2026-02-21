@@ -38,10 +38,15 @@ if (local _uav && { local _container }) then {
 
 private _cargo = magazinesAmmoCargo _container;
 private _newCargo = [];
+private _removedOne = false;
 {
     private _magClass = _x # 0;
     private _magAmmo = _x # 1;
-    if !(_magClass isEqualTo _item) then {
+
+    // Each Put event consumes exactly one dropped item; keep other identical mags in holder.
+    if (!_removedOne && { _magClass isEqualTo _item }) then {
+        _removedOne = true;
+    } else {
         _newCargo pushBack [_magClass, _magAmmo];
     };
 } forEach _cargo;

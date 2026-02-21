@@ -176,10 +176,8 @@ while {alive _projectile and dialog} do {
 
 				private _newX = (0.5 - (_lockW / 2)) + (_ctrlX * _cursorRangeX * _cursorScale);
 				private _newY = (0.5 - (_lockH / 2)) - (_ctrlY * _cursorRangeY * _cursorScale);
-				private _halfW = _lockW / 2;
-				private _halfH = _lockH / 2;
-				_newX = _newX max (safeZoneX + _halfW) min (safeZoneX + safeZoneW - _halfW);
-				_newY = _newY max (safeZoneY + _halfH) min (safeZoneY + safeZoneH - _halfH);
+				_newX = _newX max safeZoneX min (safeZoneX + safeZoneW - _lockW);
+				_newY = _newY max safeZoneY min (safeZoneY + safeZoneH - _lockH);
 
 				_seekerLock ctrlSetPosition [_newX, _newY, _lockW, _lockH];
 				_seekerLock ctrlCommit 0;
