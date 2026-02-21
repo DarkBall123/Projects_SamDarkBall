@@ -22,12 +22,14 @@ if (isNull _lockPicture) then {
 if ((uiNamespace getVariable ["isSlewing", false]) || {uiNamespace getVariable ["DB_isSlewing", false]}) exitWith {};
 
 private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
+private _zoomEnabled = uiNamespace getVariable ["_zoomStatus", false];
+private _zoomInputScale = if (_zoomEnabled) then {0.45} else {1};
 
-private _xSens = 1.35;
-private _ySens = 1.20;
+private _xSens = 0.95;
+private _ySens = 0.85;
 
-private _nextX = (_stick # 0) + (_xDelta * _xSens);
-private _nextY = (_stick # 1) - (_yDelta * _ySens);
+private _nextX = (_stick # 0) + (_xDelta * _xSens * _zoomInputScale);
+private _nextY = (_stick # 1) - (_yDelta * _ySens * _zoomInputScale);
 
 _nextX = _nextX max -1 min 1;
 _nextY = _nextY max -1 min 1;

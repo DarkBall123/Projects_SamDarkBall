@@ -42,8 +42,10 @@ private _targetArr = [];
 
 private _lastControlUpdate = diag_tickTime;
 private _returnRate = 2.6;
-private _steerYawRate = 85;
-private _steerPitchRate = 75;
+private _steerYawRate = 55;
+private _steerPitchRate = 50;
+private _zoomSteerScale = 0.45;
+private _zoomCursorScale = 0.55;
 private _manualVectorDist = 1200;
 private _cursorRangeX = 0.18;
 private _cursorRangeY = 0.18;
@@ -123,11 +125,14 @@ while {alive _projectile and dialog} do {
 			private _dt = _nowTick - _lastControlUpdate;
 			_lastControlUpdate = _nowTick;
 
-			private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
-			private _spring = 1 - (_returnRate * _dt);
-			if (_spring < 0) then {
-				_spring = 0;
-			};
+				private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
+				private _zoomEnabled = uiNamespace getVariable ["_zoomStatus", false];
+				private _steerScale = if (_zoomEnabled) then {_zoomSteerScale} else {1};
+				private _cursorScale = if (_zoomEnabled) then {_zoomCursorScale} else {1};
+				private _spring = 1 - (_returnRate * _dt);
+				if (_spring < 0) then {
+					_spring = 0;
+				};
 
 			private _stickX = (_stick # 0) * _spring;
 			private _stickY = (_stick # 1) * _spring;
@@ -140,12 +145,12 @@ while {alive _projectile and dialog} do {
 
 			private _seekerLock = uiNamespace getVariable ["DB_seeker_lock", controlNull];
 			if !(isNull _seekerLock) then {
-				private _lockPos = ctrlPosition _seekerLock;
-				private _lockW = _lockPos # 2;
-				private _lockH = _lockPos # 3;
+					private _lockPos = ctrlPosition _seekerLock;
+					private _lockW = _lockPos # 2;
+					private _lockH = _lockPos # 3;
 
-				private _newX = (0.5 - (_lockW / 2)) + (_stickX * _cursorRangeX);
-				private _newY = (0.5 - (_lockH / 2)) - (_stickY * _cursorRangeY);
+					private _newX = (0.5 - (_lockW / 2)) + (_stickX * _cursorRangeX * _cursorScale);
+					private _newY = (0.5 - (_lockH / 2)) - (_stickY * _cursorRangeY * _cursorScale);
 
 				private _halfW = _lockW / 2;
 				private _halfH = _lockH / 2;
@@ -157,13 +162,13 @@ while {alive _projectile and dialog} do {
 			};
 
 			if (time >= _nextGuideAt) then {
-				_posProj = AGLTOASL positionCameraToWorld [0,0,0];
-				private _dirAndUp = [
-					[vectorDir _projectile, vectorUp _projectile],
-					_stickX * _steerYawRate * _dt,
-					_stickY * _steerPitchRate * _dt,
-					0
-				] call BIS_fnc_transformVectorDirAndUp;
+					_posProj = AGLTOASL positionCameraToWorld [0,0,0];
+					private _dirAndUp = [
+						[vectorDir _projectile, vectorUp _projectile],
+						-_stickX * _steerYawRate * _steerScale * _dt,
+						_stickY * _steerPitchRate * _steerScale * _dt,
+						0
+					] call BIS_fnc_transformVectorDirAndUp;
 				private _manualDir = vectorNormalized (_dirAndUp # 0);
 
 				_v = _manualDir vectorMultiply _manualVectorDist;
@@ -182,11 +187,11 @@ while {alive _projectile and dialog} do {
 					_targetOffset = [0,0,0];
 				};
 
-				uiNamespace setVariable ["_itemLock", !(isNull _target)];
+					uiNamespace setVariable ["_itemLock", !(isNull _target)];
 
-				private _angleFac = (1 - abs((vectorDir _projectile) vectorCos _v));
-				_timeManouver = [_projectile, 0.06 + (_angleFac * 0.08), 0.16] call lancet_fnc_manouverTime;
-				[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
+					private _angleFac = (1 - abs((vectorDir _projectile) vectorCos _v));
+					_timeManouver = [_projectile, 0.10 + (_angleFac * 0.10), 0.22] call lancet_fnc_manouverTime;
+					[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
 
 				_nextGuideAt = time + _guideTick;
 			};
