@@ -171,13 +171,19 @@ while {alive _projectile and dialog} do {
 			};
 
 				if (time >= _nextGuideAt) then {
-					_posProj = AGLTOASL positionCameraToWorld [0,0,0];
-					private _dirAndUp = [
-						[vectorDir _projectile, vectorUp _projectile],
-						-_ctrlX * _steerYawRate * _steerScale * _dt,
-						-_ctrlY * _steerPitchRate * _steerScale * _dt,
-						0
-					] call BIS_fnc_transformVectorDirAndUp;
+						_posProj = AGLTOASL positionCameraToWorld [0,0,0];
+						private _absX = abs _ctrlX;
+						private _absY = abs _ctrlY;
+						private _yawAssist = (1 - (_absY * 0.85)) max 0.12;
+						private _pitchAssist = (1 - (_absX * 0.45)) max 0.35;
+						private _yawCmd = _ctrlX * _yawAssist;
+						private _pitchCmd = _ctrlY * _pitchAssist;
+						private _dirAndUp = [
+							[vectorDir _projectile, vectorUp _projectile],
+							-_yawCmd * _steerYawRate * _steerScale * _dt,
+							_pitchCmd * _steerPitchRate * _steerScale * _dt,
+							0
+						] call BIS_fnc_transformVectorDirAndUp;
 				private _manualDir = vectorNormalized (_dirAndUp # 0);
 
 				_v = _manualDir vectorMultiply _manualVectorDist;
