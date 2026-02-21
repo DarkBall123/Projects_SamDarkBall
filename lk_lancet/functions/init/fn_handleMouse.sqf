@@ -23,8 +23,8 @@ if ((uiNamespace getVariable ["isSlewing", false]) || {uiNamespace getVariable [
 
 private _stick = uiNamespace getVariable ["lancet_mouseStick", [0, 0]];
 
-private _xSens = 5.0;
-private _ySens = 5.0;
+private _xSens = 1.35;
+private _ySens = 1.20;
 
 private _nextX = (_stick # 0) + (_xDelta * _xSens);
 private _nextY = (_stick # 1) - (_yDelta * _ySens);

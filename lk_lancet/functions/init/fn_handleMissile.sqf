@@ -42,8 +42,9 @@ private _targetArr = [];
 
 private _lastControlUpdate = diag_tickTime;
 private _returnRate = 2.6;
-private _controlToScreenX = 0.25;
-private _controlToScreenY = 0.25;
+private _steerYawRate = 85;
+private _steerPitchRate = 75;
+private _manualVectorDist = 1200;
 private _cursorRangeX = 0.18;
 private _cursorRangeY = 0.18;
 private _guideTick = 0.04;
@@ -157,36 +158,37 @@ while {alive _projectile and dialog} do {
 
 			if (time >= _nextGuideAt) then {
 				_posProj = AGLTOASL positionCameraToWorld [0,0,0];
-				private _aimPoint = [
-					(0.5 + (_stickX * _controlToScreenX)) max 0 min 1,
-					(0.5 - (_stickY * _controlToScreenY)) max 0 min 1
-				];
-				_posWorld = AGLTOASL screenToWorld _aimPoint;
-				if !(_posWorld isEqualType [] && {count _posWorld == 3}) then {
-					_nextGuideAt = time + _guideTick;
-				} else {
-					_v = _posWorld vectorDiff _posProj;
+				private _dirAndUp = [
+					[vectorDir _projectile, vectorUp _projectile],
+					_stickX * _steerYawRate * _dt,
+					_stickY * _steerPitchRate * _dt,
+					0
+				] call BIS_fnc_transformVectorDirAndUp;
+				private _manualDir = vectorNormalized (_dirAndUp # 0);
 
-					if(_targetEnabled) then {
-						_targetArr = [_projectile, _v] call lancet_fnc_findTarget;
-						_target = _targetArr # 0;
-						_targetOffset = _targetArr # 1;
-						if(!isNull _target) then {
-							_v = ((getPosASL _target) vectorAdd _targetOffset) vectorDiff _posProj;
-						};
-					} else {
-						_target = objNull;
-						_targetOffset = [0,0,0];
+				_v = _manualDir vectorMultiply _manualVectorDist;
+				_posWorld = _posProj vectorAdd _v;
+
+				if(_targetEnabled) then {
+					_targetArr = [_projectile, _v] call lancet_fnc_findTarget;
+					_target = _targetArr # 0;
+					_targetOffset = _targetArr # 1;
+					if(!isNull _target) then {
+						_v = ((getPosASL _target) vectorAdd _targetOffset) vectorDiff _posProj;
+						_posWorld = _posProj vectorAdd _v;
 					};
-
-					uiNamespace setVariable ["_itemLock", !(isNull _target)];
-
-					private _angleFac = (1 - abs((vectorDir _projectile) vectorCos _v));
-					_timeManouver = [_projectile, 0.08 + (_angleFac * 0.10), 0.20] call lancet_fnc_manouverTime;
-					[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
-
-					_nextGuideAt = time + _guideTick;
+				} else {
+					_target = objNull;
+					_targetOffset = [0,0,0];
 				};
+
+				uiNamespace setVariable ["_itemLock", !(isNull _target)];
+
+				private _angleFac = (1 - abs((vectorDir _projectile) vectorCos _v));
+				_timeManouver = [_projectile, 0.06 + (_angleFac * 0.08), 0.16] call lancet_fnc_manouverTime;
+				[_projectile, _v, _timeManouver] spawn lancet_fnc_handleGuidance;
+
+				_nextGuideAt = time + _guideTick;
 			};
 		};
 			
@@ -211,10 +213,10 @@ while {alive _projectile and dialog} do {
 				_crossTarget deleteAt 2;
 				_targetCursor ctrlSetPosition _crossTarget;
 				_targetCursor ctrlCommit 0;
-			} else {
-				_targetCursor ctrlShow false;
-			};
-			
+				} else {
+					_targetCursor ctrlShow false;
+				};
+
 				uiNamespace setVariable ["_itemLock", !(isNull _target)];
 			};
 
