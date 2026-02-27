@@ -95,8 +95,8 @@ class CfgVehicles
 		washDownStrength="0.25f";
 		killFriendlyExpCoef=0;
 		accuracy=1.5;
-		camouflage=0.2;
-		audible=0.1;
+		camouflage=0.08;
+		audible=0.04;
 		armor=0.5;
 		cost=20000;
 		altFullForce=1000;
@@ -135,10 +135,10 @@ class CfgVehicles
 		backRotorSpeed=7;
 		tailBladeVertical=0;
 		radarTarget=0;
-		radarTargetSize=0.02;
-		visualTargetSize=0.05;
+		radarTargetSize=0.01;
+		visualTargetSize=0.03;
 		irTarget=0;
-		irTargetSize=0.01;
+		irTargetSize=0.005;
 		lockDetectionSystem=0;
 		incomingMissileDetectionSystem=0;
 		weapons[]={};
