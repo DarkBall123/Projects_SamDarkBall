@@ -16,6 +16,28 @@ if (isNull _uav) exitWith {};
 private _droneTypes = GETMVAR(DB_fpv_droneTypes, FPV_DRONE_TYPES);
 if !(typeOf _uav in _droneTypes) exitWith {};
 
+if (hasInterface) then {
+	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
+	if (isNull _player) then { _player = player; };
+	private _connectedUav = if (!isNull _player) then { getConnectedUAV _player } else { objNull };
+	private _lastUav = GETMVAR(DB_fpv_lastUav, objNull);
+	private _isCurrentFpv = (_connectedUav isEqualTo _uav) || { cameraOn isEqualTo _uav } || { _lastUav isEqualTo _uav };
+
+	if (_isCurrentFpv) then {
+		SETMVAR(ArmaFPV_isControl, false);
+		SETMVAR(DB_fpv_controlGraceUntil, -1);
+		SETMVAR(DB_fpv_lastUav, objNull);
+		SETMVAR(DB_timeInJammerZone, 0);
+		SETMVAR(DB_fpv_ppfx_input, 1);
+		private _ppfxContext = [];
+		SETMVAR(DB_fpv_ppfx_context, _ppfxContext);
+		SETMVAR(DB_fpv_ppfx_prevQ, 1);
+		private _ppfxGlitch = [];
+		SETMVAR(DB_fpv_ppfx_glitch, _ppfxGlitch);
+		call DB_fnc_fpv_destroyUI;
+	};
+};
+
 cutText ["", "PLAIN"];
 
 private _killer = driver _uav;

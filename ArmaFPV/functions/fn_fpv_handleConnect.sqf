@@ -34,6 +34,13 @@ private _pfhId = [{
 	if (!isNull _lastUav && { _uav isNotEqualTo _lastUav }) then {
 		_lastUav setVariable ["DB_jammer_customUavBehavior", false, true];
 		SETMVAR(DB_fpv_controlGraceUntil, -1);
+		SETMVAR(DB_timeInJammerZone, 0);
+		SETMVAR(DB_fpv_ppfx_input, 1);
+		private _ppfxContext = [];
+		SETMVAR(DB_fpv_ppfx_context, _ppfxContext);
+		SETMVAR(DB_fpv_ppfx_prevQ, 1);
+		private _ppfxGlitch = [];
+		SETMVAR(DB_fpv_ppfx_glitch, _ppfxGlitch);
 	};
 
 	if (isNull _uav) then {

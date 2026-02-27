@@ -101,3 +101,8 @@ SETMVAR(DB_fpv_ppfx_prevQ, 1);
 SETMVAR(DB_fpv_ppfx_lastDropGlitch, -1);
 private _ppfxGlitch = [];
 SETMVAR(DB_fpv_ppfx_glitch, _ppfxGlitch);
+SETMVAR(DB_fpv_ppfx_input, 1);
+private _ppfxContext = [];
+SETMVAR(DB_fpv_ppfx_context, _ppfxContext);
+SETMVAR(DB_fpv_ppfx_state, "CLEAN");
+SETMVAR(DB_fpv_ppfx_stateSince, diag_tickTime);
