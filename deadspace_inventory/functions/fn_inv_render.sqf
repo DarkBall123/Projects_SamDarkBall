@@ -16,8 +16,13 @@ if (isNull _source || {isNull _anchor}) exitWith {
     call DB_dsi_fnc_inv_close;
 };
 
+private _unit = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+if (isNull _unit) then {
+    _unit = player;
+};
+
 private _maxDistance = 4.5;
-private _distanceToSource = player distance _source;
+private _distanceToSource = _unit distance _source;
 if (_distanceToSource > _maxDistance) exitWith {
     call DB_dsi_fnc_inv_close;
 };

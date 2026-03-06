@@ -1,7 +1,10 @@
 params [["_target", objNull, [objNull]]];
 
 if (isNull _target) then {
-    _target = player;
+    _target = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+    if (isNull _target) then {
+        _target = player;
+    };
 };
 
 private _context = [_target] call DB_dsi_fnc_inv_buildContext;

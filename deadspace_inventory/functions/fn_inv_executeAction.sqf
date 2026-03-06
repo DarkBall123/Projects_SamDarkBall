@@ -16,25 +16,30 @@ _payload params [
 if !(_actionType isEqualTo "seat") exitWith { false };
 if (isNull _vehicle) exitWith { false };
 
+private _unit = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+if (isNull _unit) then {
+    _unit = player;
+};
+
 call DB_dsi_fnc_inv_close;
 
 private _handled = true;
 
 switch (_role) do {
     case "driver": {
-        player action ["GetInDriver", _vehicle];
+        _unit action ["GetInDriver", _vehicle];
     };
     case "commander": {
-        player action ["GetInCommander", _vehicle];
+        _unit action ["GetInCommander", _vehicle];
     };
     case "gunner": {
-        player action ["GetInGunner", _vehicle];
+        _unit action ["GetInGunner", _vehicle];
     };
     case "cargo": {
-        player action ["GetInCargo", _vehicle, _cargoActionIndex];
+        _unit action ["GetInCargo", _vehicle, _cargoActionIndex];
     };
     case "turret": {
-        [_vehicle, player, ["turret", _turretPath]] call BIS_fnc_moveIn;
+        [_vehicle, _unit, ["turret", _turretPath]] call BIS_fnc_moveIn;
     };
     default {
         _handled = false;

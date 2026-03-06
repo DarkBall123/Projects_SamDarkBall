@@ -2,6 +2,10 @@ params ["_vehicle"];
 
 private _panels = [];
 private _seatEntries = [];
+private _unit = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+if (isNull _unit) then {
+    _unit = player;
+};
 
 {
     _x params ["_roleFilter", "_defaultLabel", "_iconPath"];
@@ -14,7 +18,7 @@ private _seatEntries = [];
 
         if (
             isNull _occupant &&
-            {isNull _assignedUnit || {_assignedUnit isEqualTo player}} &&
+            {isNull _assignedUnit || {_assignedUnit isEqualTo _unit}} &&
             {!(_normalizedRole isEqualTo "turret" && {_personTurret})}
         ) then {
             private _seatLabel = _defaultLabel;

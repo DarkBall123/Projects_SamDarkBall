@@ -15,13 +15,17 @@ private _panel = _panels param [uiNamespace getVariable ["DB_dsi_panelIndex", 0]
 if (_panel isEqualTo []) exitWith { false };
 
 private _panelType = _panel # 0;
+private _requester = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player];
+if (isNull _requester) then {
+    _requester = player;
+};
 
-if !([player, _entry] call DB_dsi_fnc_inv_canAddEntry) exitWith {
+if !([_requester, _entry] call DB_dsi_fnc_inv_canAddEntry) exitWith {
     hintSilent "No space";
     false
 };
 
-["DB_dsi_commitTransfer", [player, _source, _panelType, _entry], _source] call CBA_fnc_targetEvent;
+["DB_dsi_commitTransfer", [_requester, _source, _panelType, _entry], _source] call CBA_fnc_targetEvent;
 
 [
     { call DB_dsi_fnc_inv_refresh },
