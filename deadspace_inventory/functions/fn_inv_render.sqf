@@ -85,8 +85,8 @@ private _cellW = 0.072 * _safeWidth * _layoutScale;
 private _cellH = 0.094 * _safeHeight * _layoutScale;
 private _gapX = 0.006 * _safeWidth * _layoutScale;
 private _gapY = 0.009 * _safeHeight * _layoutScale;
-private _tabW = 0.034 * _safeWidth * _layoutScale;
-private _tabH = 0.046 * _safeHeight * _layoutScale;
+private _tabW = 0.042 * _safeWidth * _layoutScale;
+private _tabH = 0.060 * _safeHeight * _layoutScale;
 private _columns = 2;
 private _rows = 3;
 private _gridW = (_columns * _cellW) + ((_columns - 1) * _gapX);
@@ -110,7 +110,7 @@ _originY = (_originY max _safeTop) min ((_safeTop + _safeHeight) - _layoutH);
 private _gridX = _originX + _tabW + _gapX;
 private _gridY = _originY + _headerH + (0.012 * _safeHeight * _layoutScale);
 private _footerY = _gridY + _gridH + (0.010 * _safeHeight * _layoutScale);
-private _cursorIcon = "\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa";
+private _cursorIcon = "\a3\ui_f\data\igui\cfg\holdactions\progress\progress_24_ca.paa";
 private _pulse = 0.76 + (0.12 * abs (sin (diag_tickTime * 6)));
 private _isTexturePath = {
     params ["_value"];
@@ -225,7 +225,7 @@ _footerCtrl ctrlSetPosition [_gridX, _footerY, _gridW, _footerH];
 _footerCtrl ctrlCommit 0;
 
 _cursorCtrl ctrlShow true;
-private _cursorSize = 0.016 * _safeHeight;
+private _cursorSize = 0.028 * _safeHeight;
 _cursorCtrl ctrlSetPosition [
     (_screenCenter # 0) - (_cursorSize * 0.5),
     (_screenCenter # 1) - (_cursorSize * 0.5),
@@ -233,7 +233,7 @@ _cursorCtrl ctrlSetPosition [
     _cursorSize
 ];
 _cursorCtrl ctrlSetStructuredText parseText format [
-    "<t align='center'><img image='%1' color='#D44747' size='0.92'/></t>",
+    "<t align='center'><img image='%1' color='#D44747' size='1.10'/></t>",
     _cursorIcon
 ];
 _cursorCtrl ctrlCommit 0;
@@ -246,7 +246,7 @@ _inputCtrl ctrlSetBackgroundColor [0, 0, 0, 0];
 _inputCtrl ctrlCommit 0;
 
 private _tabCtrls = uiNamespace getVariable ["DB_dsi_tabCtrls", []];
-if ((_tabCtrls findIf { (count _x) != 2 }) >= 0) then {
+if ((_tabCtrls findIf { (count _x) != 3 }) >= 0) then {
     {
         {
             ctrlDelete _x;
@@ -259,6 +259,7 @@ if ((_tabCtrls findIf { (count _x) != 2 }) >= 0) then {
 for "_i" from count _tabCtrls to (count _panels - 1) do {
     _tabCtrls pushBack [
         _display ctrlCreate ["RscText", -1],
+        _display ctrlCreate ["RscStructuredText", -1],
         _display ctrlCreate ["RscStructuredText", -1]
     ];
 };
@@ -287,7 +288,7 @@ uiNamespace setVariable ["DB_dsi_entryCtrls", _entryCtrls];
 private _optionRecords = [];
 
 {
-    _x params ["_bgCtrl", "_textCtrl"];
+    _x params ["_bgCtrl", "_iconCtrl", "_labelCtrl"];
 
     if (_forEachIndex < count _panels) then {
         private _tabX = _originX;
@@ -306,21 +307,32 @@ private _optionRecords = [];
         _bgCtrl ctrlSetBackgroundColor _tabBg;
         _bgCtrl ctrlCommit 0;
 
-        _textCtrl ctrlShow true;
-        _textCtrl ctrlSetPosition [_tabX, _tabY, _tabW, _tabH];
-        if ([_tabIcon] call _isTexturePath) then {
-            _textCtrl ctrlSetStructuredText parseText format [
-                "<t align='center'><img image='%1' size='1.18'/></t>",
-                _tabIcon
-            ];
-        } else {
-            _textCtrl ctrlSetStructuredText parseText format [
-                "<t align='center' font='PuristaSemibold' size='0.90' color='%2'>%1</t>",
-                toUpper _tabIcon,
-                if (_isActive) then { "#FFFFFF" } else { "#D8D8D8" }
-            ];
-        };
-        _textCtrl ctrlCommit 0;
+        _iconCtrl ctrlShow true;
+        _iconCtrl ctrlSetPosition [
+            _tabX + (_tabW * 0.08),
+            _tabY + (_tabH * 0.04),
+            _tabW * 0.84,
+            _tabH * 0.50
+        ];
+        _iconCtrl ctrlSetStructuredText parseText format [
+            "<t align='center'><img image='%1' size='1.28'/></t>",
+            _tabIcon
+        ];
+        _iconCtrl ctrlCommit 0;
+
+        _labelCtrl ctrlShow true;
+        _labelCtrl ctrlSetPosition [
+            _tabX + (_tabW * 0.04),
+            _tabY + (_tabH * 0.62),
+            _tabW * 0.92,
+            _tabH * 0.16
+        ];
+        _labelCtrl ctrlSetStructuredText parseText format [
+            "<t align='center' font='PuristaSemibold' size='0.42' color='%2'>%1</t>",
+            toUpper (_tabData # 2),
+            if (_isActive) then { "#FFFFFF" } else { "#C8C8C8" }
+        ];
+        _labelCtrl ctrlCommit 0;
 
         _optionRecords pushBack [
             ["panel", _forEachIndex, _tabData # 2],
@@ -329,7 +341,8 @@ private _optionRecords = [];
         ];
     } else {
         _bgCtrl ctrlShow false;
-        _textCtrl ctrlShow false;
+        _iconCtrl ctrlShow false;
+        _labelCtrl ctrlShow false;
     };
 } forEach _tabCtrls;
 

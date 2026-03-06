@@ -39,7 +39,7 @@ if (isNull _unit) then {
 
             _seatEntries pushBack [
                 "action",
-                ["seat", _vehicle, _normalizedRole, _forEachIndex, _turretPath, _personTurret],
+                ["seat", _vehicle, _normalizedRole, _cargoIndex, _turretPath, _personTurret],
                 _seatIndex,
                 _iconPath,
                 _seatLabel
@@ -55,13 +55,13 @@ if (isNull _unit) then {
 ];
 
 if !(_seatEntries isEqualTo []) then {
-    _panels pushBack ["seats", "S", "Seats", _seatEntries];
+    _panels pushBack ["seats", "\a3\ui_f\data\igui\cfg\actions\getindriver_ca.paa", "Seats", _seatEntries];
 };
 
 private _cargoPanels = [_vehicle] call DB_dsi_fnc_inv_buildCargoPanel;
 if !(_cargoPanels isEqualTo []) then {
     private _cargoPanel = +(_cargoPanels # 0);
-    _cargoPanel set [1, "C"];
+    _cargoPanel set [1, "\a3\ui_f\data\igui\cfg\actions\gear_ca.paa"];
     _cargoPanel set [2, "Cargo"];
     _panels pushBack _cargoPanel;
 };

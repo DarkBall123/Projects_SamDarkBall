@@ -9,7 +9,7 @@ _payload params [
     ["_actionType", "", [""]],
     ["_vehicle", objNull, [objNull]],
     ["_role", "", [""]],
-    ["_cargoActionIndex", 0, [0]],
+    ["_cargoIndex", -1, [0]],
     ["_turretPath", [], [[]]]
 ];
 
@@ -23,23 +23,31 @@ if (isNull _unit) then {
 
 call DB_dsi_fnc_inv_close;
 
+if !(isNull objectParent _unit) then {
+    moveOut _unit;
+};
+
 private _handled = true;
 
 switch (_role) do {
     case "driver": {
-        _unit action ["GetInDriver", _vehicle];
+        _unit moveInDriver _vehicle;
     };
     case "commander": {
-        _unit action ["GetInCommander", _vehicle];
+        _unit moveInCommander _vehicle;
     };
     case "gunner": {
-        _unit action ["GetInGunner", _vehicle];
+        _unit moveInGunner _vehicle;
     };
     case "cargo": {
-        _unit action ["GetInCargo", _vehicle, _cargoActionIndex];
+        if (_cargoIndex >= 0) then {
+            _unit moveInCargo [_vehicle, _cargoIndex, false];
+        } else {
+            _unit moveInCargo _vehicle;
+        };
     };
     case "turret": {
-        [_vehicle, _unit, ["turret", _turretPath]] call BIS_fnc_moveIn;
+        _unit moveInTurret [_vehicle, _turretPath];
     };
     default {
         _handled = false;
