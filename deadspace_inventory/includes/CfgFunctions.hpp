@@ -21,6 +21,7 @@ class CfgFunctions
             class inv_dropEntryNearUnit {};
             class inv_findTarget {};
             class inv_getClassData {};
+            class inv_getPageSize {};
             class inv_handleKeyDown {};
             class inv_handleMouseButtonDown {};
             class inv_handleMouseZChanged {};

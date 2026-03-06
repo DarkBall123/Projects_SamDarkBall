@@ -45,7 +45,7 @@ if (_anchorScreen isEqualTo []) exitWith {
 
 private _pageIndex = uiNamespace getVariable ["DB_dsi_pageIndex", 0];
 private _entries = _panel # 3;
-private _pageSize = 6;
+private _pageSize = call DB_dsi_fnc_inv_getPageSize;
 private _pageCount = ((ceil ((count _entries) / _pageSize)) max 1);
 private _maxPage = _pageCount - 1;
 if (_pageIndex > _maxPage) then {

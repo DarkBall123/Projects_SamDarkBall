@@ -8,7 +8,7 @@ private _panel = _panels param [uiNamespace getVariable ["DB_dsi_panelIndex", 0]
 if (_panel isEqualTo []) exitWith {};
 
 private _entries = _panel # 3;
-private _pageSize = 12;
+private _pageSize = call DB_dsi_fnc_inv_getPageSize;
 private _pageCount = ((ceil ((count _entries) / _pageSize)) max 1);
 private _maxPage = _pageCount - 1;
 

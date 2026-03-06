@@ -26,7 +26,7 @@ if (_newIndex < 0) then {
 uiNamespace setVariable ["DB_dsi_panelIndex", _newIndex];
 
 private _entries = (_newPanels # _newIndex) # 3;
-private _pageSize = 12;
+private _pageSize = call DB_dsi_fnc_inv_getPageSize;
 private _pageCount = ((ceil ((count _entries) / _pageSize)) max 1);
 private _maxPage = _pageCount - 1;
 private _pageIndex = (uiNamespace getVariable ["DB_dsi_pageIndex", 0]) min (_maxPage max 0);
