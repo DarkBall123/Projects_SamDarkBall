@@ -14,3 +14,5 @@ if (!isNull _lastUnit && {_oldId >= 0}) then {
 private _newId = _unit addEventHandler ["InventoryOpened", { _this call DB_dsi_fnc_inv_onInventoryOpened }];
 _unit setVariable ["DB_dsi_inventoryEH_id", _newId];
 missionNamespace setVariable ["DB_dsi_inventoryEH_unit", _unit];
+
+call DB_dsi_fnc_inv_updateSafetyAction;

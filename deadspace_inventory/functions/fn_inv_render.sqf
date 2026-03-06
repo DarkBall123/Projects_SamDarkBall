@@ -16,8 +16,9 @@ if (isNull _source || {isNull _anchor}) exitWith {
     call DB_dsi_fnc_inv_close;
 };
 
+private _maxDistance = 4.5;
 private _distanceToSource = player distance _source;
-if (_distanceToSource > 6.5) exitWith {
+if (_distanceToSource > _maxDistance) exitWith {
     call DB_dsi_fnc_inv_close;
 };
 
@@ -42,7 +43,7 @@ private _screenCenter = [
 ];
 
 private _anchorPos = if (_anchor isKindOf "CAManBase") then {
-    _anchor modelToWorldVisual [0, 0.04, 1.28]
+    _anchor modelToWorldVisual [0.06, 0.04, 1.20]
 } else {
     _anchor modelToWorldVisual (boundingCenter _anchor)
 };
@@ -72,40 +73,55 @@ if (_pageIndex > _maxPage) then {
     uiNamespace setVariable ["DB_dsi_pageIndex", _pageIndex];
 };
 
-private _layoutScale = linearConversion [1, 6.5, _distanceToSource, 1, 0.72, true];
-private _headerH = 0.040 * _safeHeight * _layoutScale;
-private _footerH = 0.026 * _safeHeight * _layoutScale;
-private _cellW = 0.058 * _safeWidth * _layoutScale;
-private _cellH = 0.084 * _safeHeight * _layoutScale;
-private _gapX = 0.008 * _safeWidth * _layoutScale;
-private _gapY = 0.010 * _safeHeight * _layoutScale;
-private _tabW = 0.032 * _safeWidth * _layoutScale;
-private _tabH = 0.041 * _safeHeight * _layoutScale;
+private _layoutScale = linearConversion [0.8, _maxDistance, _distanceToSource, 1.02, 0.60, true];
+private _headerH = 0.036 * _safeHeight * _layoutScale;
+private _footerH = 0.060 * _safeHeight * _layoutScale;
+private _cellW = 0.072 * _safeWidth * _layoutScale;
+private _cellH = 0.094 * _safeHeight * _layoutScale;
+private _gapX = 0.006 * _safeWidth * _layoutScale;
+private _gapY = 0.009 * _safeHeight * _layoutScale;
+private _tabW = 0.034 * _safeWidth * _layoutScale;
+private _tabH = 0.046 * _safeHeight * _layoutScale;
 private _columns = 2;
 private _rows = 3;
 private _gridW = (_columns * _cellW) + ((_columns - 1) * _gapX);
 private _gridH = (_rows * _cellH) + ((_rows - 1) * _gapY);
 private _layoutW = _tabW + _gapX + _gridW;
-private _layoutH = _headerH + (0.014 * _safeHeight * _layoutScale) + _gridH + (0.010 * _safeHeight * _layoutScale) + _footerH;
-private _backdropPaddingX = 0.006 * _safeWidth * _layoutScale;
-private _backdropPaddingY = 0.006 * _safeHeight * _layoutScale;
-private _sideOffset = 0.040 * _safeWidth;
+private _layoutH = _headerH + (0.012 * _safeHeight * _layoutScale) + _gridH + (0.010 * _safeHeight * _layoutScale) + _footerH;
+private _backdropPaddingX = 0.007 * _safeWidth * _layoutScale;
+private _backdropPaddingY = 0.008 * _safeHeight * _layoutScale;
+private _sideOffset = 0.024 * _safeWidth;
 private _openRight = (_anchorScreen # 0) < (_screenCenter # 0);
 private _originX = if (_openRight) then {
     (_anchorScreen # 0) + _sideOffset
 } else {
     (_anchorScreen # 0) - _layoutW - _sideOffset
 };
-private _originY = (_anchorScreen # 1) - (_layoutH * 0.30);
+private _originY = (_anchorScreen # 1) - (_layoutH * 0.26);
 
 _originX = (_originX max _safeLeft) min ((_safeLeft + _safeWidth) - _layoutW);
 _originY = (_originY max _safeTop) min ((_safeTop + _safeHeight) - _layoutH);
 
 private _gridX = _originX + _tabW + _gapX;
-private _gridY = _originY + _headerH + (0.014 * _safeHeight * _layoutScale);
+private _gridY = _originY + _headerH + (0.012 * _safeHeight * _layoutScale);
 private _footerY = _gridY + _gridH + (0.010 * _safeHeight * _layoutScale);
 private _cursorIcon = "\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa";
-private _pulse = 0.58 + (0.18 * abs (sin (diag_tickTime * 240)));
+private _pulse = 0.76 + (0.12 * abs (sin (diag_tickTime * 6)));
+private _isTexturePath = {
+    params ["_value"];
+
+    if (_value isEqualTo "") exitWith { false };
+
+    private _normalized = toLowerANSI _value;
+
+    (_normalized find "#(") isEqualTo 0 ||
+    {(_normalized find "\") >= 0} ||
+    {(_normalized find "/") >= 0} ||
+    {(_normalized find ".paa") >= 0} ||
+    {(_normalized find ".pac") >= 0} ||
+    {(_normalized find ".jpg") >= 0} ||
+    {(_normalized find ".jpeg") >= 0}
+};
 
 private _headerCtrls = uiNamespace getVariable ["DB_dsi_headerCtrls", []];
 if ((count _headerCtrls) != 10) then {
@@ -158,41 +174,44 @@ _panelBgCtrl ctrlSetPosition [
     _layoutW + (_backdropPaddingX * 2),
     _layoutH + (_backdropPaddingY * 2)
 ];
-_panelBgCtrl ctrlSetBackgroundColor [0, 0, 0, 0.20];
+_panelBgCtrl ctrlSetBackgroundColor [0, 0, 0, 0.30];
 _panelBgCtrl ctrlCommit 0;
 
 _accentCtrl ctrlShow true;
-_accentCtrl ctrlSetPosition [_gridX, _originY, _gridW, 0.003 * _safeHeight];
-_accentCtrl ctrlSetBackgroundColor [0.92, 0.24, 0.24, 0.84];
+_accentCtrl ctrlSetPosition [_gridX, _originY, _gridW, 0.0024 * _safeHeight];
+_accentCtrl ctrlSetBackgroundColor [0.88, 0.22, 0.22, 0.88];
 _accentCtrl ctrlCommit 0;
 
 _iconBgCtrl ctrlShow true;
 _iconBgCtrl ctrlSetPosition [_originX, _originY, _tabW, _headerH];
-_iconBgCtrl ctrlSetBackgroundColor [0, 0, 0, 0.68];
+_iconBgCtrl ctrlSetBackgroundColor [0.02, 0.02, 0.02, 0.86];
 _iconBgCtrl ctrlCommit 0;
 
 _iconCtrl ctrlShow true;
-_iconCtrl ctrlSetPosition [_originX, _originY, _tabW, _headerH];
+_iconCtrl ctrlSetPosition [_originX + (_tabW * 0.06), _originY + (_headerH * 0.05), _tabW * 0.88, _headerH * 0.90];
 _iconCtrl ctrlSetStructuredText parseText format [
-    "<t align='center'><img image='%1' size='1.05'/></t>",
+    "<t align='center'><img image='%1' size='1.22'/></t>",
     _sourceIcon
 ];
 _iconCtrl ctrlCommit 0;
 
 _titleCtrl ctrlShow true;
-_titleCtrl ctrlSetPosition [_gridX, _originY + (0.004 * _safeHeight * _layoutScale), _gridW * 0.72, _headerH];
+_titleCtrl ctrlSetPosition [_gridX, _originY + (0.002 * _safeHeight * _layoutScale), _gridW * 0.76, _headerH * 0.82];
 _titleCtrl ctrlSetStructuredText parseText format [
-    "<t font='PuristaMedium' size='0.84' color='#F0F0F0'>%1</t>",
+    "<t font='PuristaSemibold' size='0.76' color='#F1F1F1'>%1</t>",
     toUpper _sourceLabel
 ];
 _titleCtrl ctrlCommit 0;
 
 _metaCtrl ctrlShow true;
-_metaCtrl ctrlSetPosition [_gridX + (_gridW * 0.72), _originY + (0.004 * _safeHeight * _layoutScale), _gridW * 0.28, _headerH];
+_metaCtrl ctrlSetPosition [_gridX + (_gridW * 0.76), _originY + (0.002 * _safeHeight * _layoutScale), _gridW * 0.24, _headerH * 0.82];
 _metaCtrl ctrlSetStructuredText parseText format [
-    "<t align='right' font='PuristaLight' size='0.70' color='#D2D2D2'>PAGE %1/%2</t>",
-    _pageIndex + 1,
-    _pageCount
+    "<t align='right' font='PuristaLight' size='0.62' color='#CFCFCF'>%1</t>",
+    if (_pageCount > 1) then {
+        format ["PAGE %1/%2", _pageIndex + 1, _pageCount]
+    } else {
+        (_panel # 2)
+    }
 ];
 _metaCtrl ctrlCommit 0;
 
@@ -201,7 +220,7 @@ _footerCtrl ctrlSetPosition [_gridX, _footerY, _gridW, _footerH];
 _footerCtrl ctrlCommit 0;
 
 _cursorCtrl ctrlShow true;
-private _cursorSize = 0.028 * _safeWidth;
+private _cursorSize = 0.016 * _safeHeight;
 _cursorCtrl ctrlSetPosition [
     (_screenCenter # 0) - (_cursorSize * 0.5),
     (_screenCenter # 1) - (_cursorSize * 0.5),
@@ -209,7 +228,7 @@ _cursorCtrl ctrlSetPosition [
     _cursorSize
 ];
 _cursorCtrl ctrlSetStructuredText parseText format [
-    "<t align='center'><img image='%1' color='#D44747' size='0.86'/></t>",
+    "<t align='center'><img image='%1' color='#D44747' size='0.92'/></t>",
     _cursorIcon
 ];
 _cursorCtrl ctrlCommit 0;
@@ -222,6 +241,16 @@ _inputCtrl ctrlSetBackgroundColor [0, 0, 0, 0];
 _inputCtrl ctrlCommit 0;
 
 private _tabCtrls = uiNamespace getVariable ["DB_dsi_tabCtrls", []];
+if ((_tabCtrls findIf { (count _x) != 2 }) >= 0) then {
+    {
+        {
+            ctrlDelete _x;
+        } forEach _x;
+    } forEach _tabCtrls;
+
+    _tabCtrls = [];
+};
+
 for "_i" from count _tabCtrls to (count _panels - 1) do {
     _tabCtrls pushBack [
         _display ctrlCreate ["RscText", -1],
@@ -231,9 +260,20 @@ for "_i" from count _tabCtrls to (count _panels - 1) do {
 uiNamespace setVariable ["DB_dsi_tabCtrls", _tabCtrls];
 
 private _entryCtrls = uiNamespace getVariable ["DB_dsi_entryCtrls", []];
+if ((_entryCtrls findIf { (count _x) != 3 }) >= 0) then {
+    {
+        {
+            ctrlDelete _x;
+        } forEach _x;
+    } forEach _entryCtrls;
+
+    _entryCtrls = [];
+};
+
 for "_i" from count _entryCtrls to (_pageSize - 1) do {
     _entryCtrls pushBack [
         _display ctrlCreate ["RscText", -1],
+        _display ctrlCreate ["RscStructuredText", -1],
         _display ctrlCreate ["RscStructuredText", -1]
     ];
 };
@@ -250,22 +290,31 @@ private _optionRecords = [];
         private _tabData = _panels # _forEachIndex;
         private _tabIcon = _tabData # 1;
         private _isActive = _forEachIndex isEqualTo _panelIndex;
+        private _tabBg = if (_isActive) then {
+            [0.56, 0.11, 0.11, 0.72]
+        } else {
+            [0.03, 0.03, 0.03, 0.74]
+        };
 
         _bgCtrl ctrlShow true;
         _bgCtrl ctrlSetPosition [_tabX, _tabY, _tabW, _tabH];
-        if (_isActive) then {
-            _bgCtrl ctrlSetBackgroundColor [0.72, 0.14, 0.14, 0.42];
-        } else {
-            _bgCtrl ctrlSetBackgroundColor [0, 0, 0, 0.58];
-        };
+        _bgCtrl ctrlSetBackgroundColor _tabBg;
         _bgCtrl ctrlCommit 0;
 
         _textCtrl ctrlShow true;
         _textCtrl ctrlSetPosition [_tabX, _tabY, _tabW, _tabH];
-        _textCtrl ctrlSetStructuredText parseText format [
-            "<t align='center'><img image='%1' size='0.94'/></t>",
-            _tabIcon
-        ];
+        if ([_tabIcon] call _isTexturePath) then {
+            _textCtrl ctrlSetStructuredText parseText format [
+                "<t align='center'><img image='%1' size='1.18'/></t>",
+                _tabIcon
+            ];
+        } else {
+            _textCtrl ctrlSetStructuredText parseText format [
+                "<t align='center' font='PuristaSemibold' size='0.90' color='%2'>%1</t>",
+                toUpper _tabIcon,
+                if (_isActive) then { "#FFFFFF" } else { "#D8D8D8" }
+            ];
+        };
         _textCtrl ctrlCommit 0;
 
         _optionRecords pushBack [
@@ -282,30 +331,57 @@ private _optionRecords = [];
 private _visibleEntries = _entries select [_pageIndex * _pageSize, _pageSize];
 
 {
-    _x params ["_bgCtrl", "_textCtrl"];
+    _x params ["_bgCtrl", "_iconCtrl", "_badgeCtrl"];
 
     if (_forEachIndex < count _visibleEntries) then {
         private _entry = _visibleEntries # _forEachIndex;
-        _entry params ["", "", "_count", "_entryIcon", "_entryLabel"];
+        _entry params ["_entryType", "", "_count", "_entryIcon", "_entryLabel"];
 
         private _col = _forEachIndex mod _columns;
         private _row = floor (_forEachIndex / _columns);
         private _xPos = _gridX + (_col * (_cellW + _gapX));
         private _yPos = _gridY + (_row * (_cellH + _gapY));
+        private _bgColor = if (_entryType isEqualTo "action") then {
+            [0.04, 0.04, 0.04, 0.82]
+        } else {
+            [0.02, 0.02, 0.02, 0.74]
+        };
 
         _bgCtrl ctrlShow true;
         _bgCtrl ctrlSetPosition [_xPos, _yPos, _cellW, _cellH];
-        _bgCtrl ctrlSetBackgroundColor [0, 0, 0, 0.64];
+        _bgCtrl ctrlSetBackgroundColor _bgColor;
         _bgCtrl ctrlCommit 0;
 
-        _textCtrl ctrlShow true;
-        _textCtrl ctrlSetPosition [_xPos, _yPos, _cellW, _cellH];
-        _textCtrl ctrlSetStructuredText parseText format [
-            "<t align='center'><img image='%1' size='1.18'/></t><br/><t align='right' font='PuristaSemibold' size='0.70' color='#F4F4F4'>x%2</t>",
-            _entryIcon,
-            _count
+        _iconCtrl ctrlShow true;
+        _iconCtrl ctrlSetPosition [
+            _xPos + (_cellW * 0.10),
+            _yPos + (_cellH * 0.08),
+            _cellW * 0.80,
+            _cellH * 0.68
         ];
-        _textCtrl ctrlCommit 0;
+        _iconCtrl ctrlSetStructuredText parseText format [
+            "<t align='center'><img image='%1' size='%2'/></t>",
+            _entryIcon,
+            if (_entryType isEqualTo "action") then { 1.46 } else { 1.32 }
+        ];
+        _iconCtrl ctrlCommit 0;
+
+        _badgeCtrl ctrlShow true;
+        _badgeCtrl ctrlSetPosition [
+            _xPos + (_cellW * 0.08),
+            _yPos + (_cellH * 0.72),
+            _cellW * 0.84,
+            _cellH * 0.18
+        ];
+        _badgeCtrl ctrlSetStructuredText parseText format [
+            "<t align='right' font='PuristaSemibold' size='0.58' color='#F0F0F0'>%1</t>",
+            if (_entryType isEqualTo "action") then {
+                if (_count > 0) then { str _count } else { "" }
+            } else {
+                format ["x%1", _count]
+            }
+        ];
+        _badgeCtrl ctrlCommit 0;
 
         _optionRecords pushBack [
             ["entry", _entry, _entryLabel],
@@ -314,13 +390,14 @@ private _visibleEntries = _entries select [_pageIndex * _pageSize, _pageSize];
         ];
     } else {
         _bgCtrl ctrlShow false;
-        _textCtrl ctrlShow false;
+        _iconCtrl ctrlShow false;
+        _badgeCtrl ctrlShow false;
     };
 } forEach _entryCtrls;
 
 private _selectedIndex = -1;
 private _selectedDistance = 1e9;
-private _selectionRadius = 0.095 * _safeWidth;
+private _selectionRadius = ((_cellW min _cellH) * 0.58) max (0.020 * _safeWidth);
 
 {
     _x params ["", "_optionPos"];
@@ -349,32 +426,43 @@ if (_selectedIndex >= 0) then {
     _selectionCtrl ctrlSetStructuredText parseText format [
         "<t align='center'><img image='%1' color='#E04D4D' size='%2'/></t>",
         _cursorIcon,
-        0.88 + _pulse
+        _pulse
     ];
     _selectionCtrl ctrlCommit 0;
 
+    private _actionHint = "LMB / SPACE TAKE";
+    if (_kind isEqualTo "panel") then {
+        _actionHint = "LMB / SPACE SWITCH";
+    } else {
+        private _entryType = _payload # 0;
+        if (_entryType isEqualTo "action") then {
+            _actionHint = "LMB / SPACE ENTER";
+        };
+    };
+
     _footerCtrl ctrlSetStructuredText parseText format [
-        "<t font='PuristaLight' size='0.72' color='#F4F4F4'>%1  |  LMB / SPACE TAKE  |  TAB SWITCH</t>",
-        toUpper _selectedLabel
+        "<t font='PuristaSemibold' size='0.62' color='#F0F0F0'>%1</t><br/><t font='PuristaLight' size='0.50' color='#C7C7C7'>%2  |  TAB PANELS  |  WHEEL PAGES</t>",
+        toUpper _selectedLabel,
+        _actionHint
     ];
     _footerCtrl ctrlCommit 0;
 
     if (_kind isEqualTo "panel") then {
         private _selectedTab = (_tabCtrls # _payload) # 0;
-        _selectedTab ctrlSetBackgroundColor [0.82, 0.18, 0.18, 0.54];
+        _selectedTab ctrlSetBackgroundColor [0.80, 0.18, 0.18, 0.82];
         _selectedTab ctrlCommit 0;
     } else {
         private _tabCount = count _panels;
         private _entryIndex = _selectedIndex - _tabCount;
         if (_entryIndex >= 0 && {_entryIndex < count _entryCtrls}) then {
             private _selectedEntry = (_entryCtrls # _entryIndex) # 0;
-            _selectedEntry ctrlSetBackgroundColor [0.68, 0.14, 0.14, 0.40];
+            _selectedEntry ctrlSetBackgroundColor [0.36, 0.07, 0.07, 0.86];
             _selectedEntry ctrlCommit 0;
         };
     };
 } else {
     uiNamespace setVariable ["DB_dsi_selectedOption", []];
     _selectionCtrl ctrlShow false;
-    _footerCtrl ctrlSetStructuredText parseText "<t font='PuristaLight' size='0.72' color='#D6D6D6'>CENTER ON SLOT  |  LMB / SPACE TAKE  |  TAB SWITCH</t>";
+    _footerCtrl ctrlSetStructuredText parseText "<t font='PuristaSemibold' size='0.58' color='#E0E0E0'>ALIGN RETICLE TO SLOT</t><br/><t font='PuristaLight' size='0.50' color='#BFBFBF'>LMB / SPACE SELECT  |  TAB PANELS  |  WHEEL PAGES</t>";
     _footerCtrl ctrlCommit 0;
 };

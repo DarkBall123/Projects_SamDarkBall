@@ -13,12 +13,14 @@ class CfgFunctions
             class inv_buildCargoPanel {};
             class inv_buildContext {};
             class inv_buildUnitPanels {};
+            class inv_buildVehiclePanels {};
             class inv_canAddEntry {};
             class inv_changePage {};
             class inv_cleanupOverlay {};
             class inv_close {};
             class inv_commitTransfer {};
             class inv_dropEntryNearUnit {};
+            class inv_executeAction {};
             class inv_findTarget {};
             class inv_getClassData {};
             class inv_handleKeyDown {};
@@ -37,6 +39,7 @@ class CfgFunctions
             class inv_setPanel {};
             class inv_stackList {};
             class inv_toggle {};
+            class inv_updateSafetyAction {};
         };
     };
 };

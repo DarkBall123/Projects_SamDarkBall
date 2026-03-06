@@ -7,5 +7,6 @@ uiNamespace setVariable ["DB_dsi_pageIndex", 0];
 uiNamespace setVariable ["DB_dsi_selectedOption", []];
 
 call DB_dsi_fnc_inv_cleanupOverlay;
+call DB_dsi_fnc_inv_updateSafetyAction;
 
 true

@@ -2,6 +2,10 @@ params [["_entry", [], [[]]]];
 
 if (_entry isEqualTo []) exitWith { false };
 
+if ((_entry # 0) isEqualTo "action") exitWith {
+    [_entry] call DB_dsi_fnc_inv_executeAction
+};
+
 private _context = uiNamespace getVariable ["DB_dsi_context", []];
 if (_context isEqualTo []) exitWith { false };
 
