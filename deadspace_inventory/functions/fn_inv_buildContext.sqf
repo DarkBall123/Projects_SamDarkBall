@@ -21,4 +21,18 @@ private _panels = if (_source isKindOf "CAManBase") then {
 
 if (_panels isEqualTo []) exitWith { [] };
 
+if ((_sourceIcon find "#(") isEqualTo 0) then {
+    private _primaryPanel = _panels param [0, []];
+    private _panelIcon = _primaryPanel param [1, ""];
+    private _panelEntries = _primaryPanel param [3, []];
+
+    if !(_panelIcon isEqualTo "") then {
+        _sourceIcon = _panelIcon;
+    } else {
+        if !(_panelEntries isEqualTo []) then {
+            _sourceIcon = (_panelEntries # 0) param [3, _sourceIcon];
+        };
+    };
+};
+
 [_source, _source, _sourceIcon, _sourceLabel, _panels]

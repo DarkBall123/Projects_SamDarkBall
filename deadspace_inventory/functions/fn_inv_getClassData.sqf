@@ -3,6 +3,21 @@ params [["_className", "", [""]]];
 private _cfg = configNull;
 private _icon = "";
 private _label = _className;
+private _isTexturePath = {
+    params ["_value"];
+
+    if (_value isEqualTo "") exitWith { false };
+
+    private _normalized = toLowerANSI _value;
+
+    (_normalized find "#(") isEqualTo 0 ||
+    {(_normalized find "\") >= 0} ||
+    {(_normalized find "/") >= 0} ||
+    {(_normalized find ".paa") >= 0} ||
+    {(_normalized find ".pac") >= 0} ||
+    {(_normalized find ".jpg") >= 0} ||
+    {(_normalized find ".jpeg") >= 0}
+};
 
 private _cfgWeapon = configFile >> "CfgWeapons" >> _className;
 private _cfgMagazine = configFile >> "CfgMagazines" >> _className;
@@ -24,6 +39,10 @@ if (isClass _cfg) then {
     _icon = getText (_cfg >> "picture");
     if (_icon isEqualTo "") then {
         _icon = getText (_cfg >> "icon");
+    };
+
+    if !([_icon] call _isTexturePath) then {
+        _icon = "";
     };
 
     private _displayName = getText (_cfg >> "displayName");
