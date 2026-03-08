@@ -183,30 +183,6 @@ diag_log text format
     if (isNull _inputCapture) then {false} else {ctrlEnabled _inputCapture}
 ];
 
-private _syncMouseFire =
-{
-    params ["_display", "_isDown"];
-
-    private _state = GET_UIVAR(DB_RUI_STATE_VAR, []);
-    if (_state isEqualTo []) exitWith
-    {
-        false
-    };
-
-    private _input = +(_state # DB_RUI_S_INPUT);
-    _input set [DB_RUI_IN_FIRE, _isDown];
-    _state set [DB_RUI_S_INPUT, _input];
-    SET_UIVAR(DB_RUI_STATE_VAR, _state);
-
-    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
-    if (!isNull _capture) then
-    {
-        ctrlSetFocus _capture;
-    };
-
-    true
-};
-
 private _keyDownEh = _display displayAddEventHandler ["KeyDown",
 {
     params ["_display", "_dikCode", "_shift", "_ctrlKey", "_alt"];
@@ -227,7 +203,7 @@ private _mouseDownEh = _display displayAddEventHandler ["MouseButtonDown",
         false
     };
 
-    [_display, true] call _syncMouseFire
+    [_display, true] call DB_fnc_rui_setMouseFire
 }];
 
 private _mouseUpEh = _display displayAddEventHandler ["MouseButtonUp",
@@ -238,7 +214,7 @@ private _mouseUpEh = _display displayAddEventHandler ["MouseButtonUp",
         false
     };
 
-    [_display, false] call _syncMouseFire
+    [_display, false] call DB_fnc_rui_setMouseFire
 }];
 
 private _mouseMovingEh = _display displayAddEventHandler ["MouseMoving",

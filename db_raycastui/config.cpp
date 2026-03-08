@@ -30,6 +30,7 @@ class CfgFunctions
             class rui_tick { file = "\db_raycastui\functions\fn_tick.sqf"; };
             class rui_handleKeyEvent { file = "\db_raycastui\functions\fn_handleKeyEvent.sqf"; };
             class rui_handleInput { file = "\db_raycastui\functions\fn_handleInput.sqf"; };
+            class rui_setMouseFire { file = "\db_raycastui\functions\fn_setMouseFire.sqf"; };
             class rui_movePlayer { file = "\db_raycastui\functions\fn_movePlayer.sqf"; };
             class rui_isBlocked { file = "\db_raycastui\functions\fn_isBlocked.sqf"; };
             class rui_castRay { file = "\db_raycastui\functions\fn_castRay.sqf"; };
