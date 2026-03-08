@@ -20,13 +20,13 @@ convert_file() {
 for wall in brick tech stone; do
   convert_file \
     "${ROOT_DIR}/data/walls/${wall}/${wall}.png" \
-    "${ROOT_DIR}/data/walls/${wall}/paa/${wall}.paa"
+    "${ROOT_DIR}/data/walls/${wall}/${wall}.paa"
 
   while IFS= read -r slice_path; do
     slice_name="$(basename "${slice_path%.jpg}")"
     convert_file \
       "$slice_path" \
-      "${ROOT_DIR}/data/walls/${wall}/paa/${slice_name}.paa"
+      "${ROOT_DIR}/data/walls/${wall}/jpg/${slice_name}.paa"
   done < <(find "${ROOT_DIR}/data/walls/${wall}/jpg" -name 'slice_*.jpg' | sort)
 done
 

@@ -82,7 +82,7 @@ class DB_RaycastUIDialog
         class WeaponPicture : DB_RUI_RscPicture
         {
             idc = DB_RUI_IDC_WEAPON;
-            text = "\db_raycastui\data\ui\weapon\blaster.jpg";
+            text = "\db_raycastui\data\ui\weapon\blaster.paa";
             x = DB_RUI_X + (DB_RUI_W * 0.32);
             y = DB_RUI_Y + (DB_RUI_H * 0.72);
             w = DB_RUI_W * 0.36;
@@ -194,7 +194,7 @@ class DB_RaycastUIDialog
         class LogoCard : DB_RUI_RscPicture
         {
             idc = DB_RUI_IDC_LOGO;
-            text = "\db_raycastui\data\ui\logo\doomcard.jpg";
+            text = "\db_raycastui\data\ui\logo\doomcard.paa";
             x = DB_RUI_X + (DB_RUI_W * 0.78);
             y = DB_RUI_Y + (DB_RUI_H * 0.03);
             w = DB_RUI_W * 0.18;

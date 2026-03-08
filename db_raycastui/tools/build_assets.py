@@ -17,7 +17,7 @@ WALLS = {
 }
 
 UI_ASSETS = {
-    ROOT / "data" / "ui" / "weapon" / "blaster.svg": (ROOT / "data" / "ui" / "weapon" / "blaster.png", ROOT / "data" / "ui" / "weapon" / "blaster.jpg", (640, 320)),
+    ROOT / "data" / "ui" / "weapon" / "blaster.svg": (ROOT / "data" / "ui" / "weapon" / "blaster.png", ROOT / "data" / "ui" / "weapon" / "blaster.jpg", (512, 256)),
     ROOT / "data" / "ui" / "logo" / "doomcard.svg": (ROOT / "data" / "ui" / "logo" / "doomcard.png", ROOT / "data" / "ui" / "logo" / "doomcard.jpg", (1024, 256)),
 }
 

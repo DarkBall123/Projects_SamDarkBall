@@ -42,10 +42,12 @@ python3 db_raycastui/tools/build_assets.py
 Что делает скрипт:
 
 - рендерит `SVG -> PNG`
-- делает runtime `JPG`
+- делает source/runtime `JPG`
 - режет стены на `64` вертикальных runtime-слайса
 
-`ImageToPAA` в текущем окружении не найден, поэтому репозиторий держит рабочий `SVG -> PNG -> JPG/slices` пайплайн.
+Текущий runtime addon уже настроен на `.paa`.
+
+`JPG` и `PNG` в репозитории остаются как исходники и промежуточные файлы для пересборки.
 
 Если у тебя установлен Arma 3 Tools, можно отдельно прогнать helper:
 
@@ -53,4 +55,8 @@ python3 db_raycastui/tools/build_assets.py
 IMAGE_TO_PAA=/path/to/ImageToPAA.exe ./db_raycastui/tools/build_paa.sh
 ```
 
-Скрипт сложит `.paa`-версии в `data/**/paa/`.
+Скрипт положит `.paa` прямо рядом с runtime-ассетами addon:
+
+- `data/ui/**/*.paa`
+- `data/walls/<type>/<type>.paa`
+- `data/walls/<type>/jpg/slice_XX.paa`
