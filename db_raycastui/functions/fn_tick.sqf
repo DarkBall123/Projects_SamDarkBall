@@ -12,9 +12,25 @@ if !(_state # DB_RUI_S_RUNNING) exitWith
 };
 
 private _display = _state # DB_RUI_S_DISPLAY;
+if (isNull _display) then
+{
+    _display = findDisplay DB_RUI_IDD;
+    if (!isNull _display) then
+    {
+        _state set [DB_RUI_S_DISPLAY, _display];
+    };
+};
+
 if (isNull _display) exitWith
 {
     [] call DB_fnc_rui_stopGame;
+};
+
+showCursor false;
+private _inputCapture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
+if (!isNull _inputCapture) then
+{
+    ctrlSetFocus _inputCapture;
 };
 
 private _stats = +(_state # DB_RUI_S_STATS);

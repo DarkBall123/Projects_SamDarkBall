@@ -42,10 +42,30 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_WEAPON_STRIP;
             x = DB_RUI_X;
-            y = DB_RUI_Y + (DB_RUI_H * 0.74);
+            y = DB_RUI_Y + (DB_RUI_H * 0.76);
             w = DB_RUI_W;
-            h = DB_RUI_H * 0.26;
-            colorBackground[] = {0.03, 0.03, 0.03, 0.92};
+            h = DB_RUI_H * 0.24;
+            colorBackground[] = {0.02, 0.02, 0.03, 0.90};
+        };
+
+        class MapPlate : DB_RUI_RscText
+        {
+            idc = -1;
+            x = DB_RUI_X + (DB_RUI_W * 0.018);
+            y = DB_RUI_Y + (DB_RUI_H * 0.02);
+            w = DB_RUI_W * 0.24;
+            h = DB_RUI_H * 0.072;
+            colorBackground[] = {0.02, 0.02, 0.02, 0.28};
+        };
+
+        class HelpPlate : DB_RUI_RscText
+        {
+            idc = -1;
+            x = DB_RUI_X + (DB_RUI_W * 0.735);
+            y = DB_RUI_Y + (DB_RUI_H * 0.765);
+            w = DB_RUI_W * 0.23;
+            h = DB_RUI_H * 0.15;
+            colorBackground[] = {0.02, 0.02, 0.02, 0.24};
         };
 
         class DebugBackground : DB_RUI_RscText
@@ -55,7 +75,7 @@ class DB_RaycastUIDialog
             y = DB_RUI_Y + (DB_RUI_H * 0.02);
             w = DB_RUI_W * 0.27;
             h = DB_RUI_H * 0.20;
-            colorBackground[] = {0, 0, 0, 0.72};
+            colorBackground[] = {0, 0, 0, 0};
         };
     };
 
@@ -83,10 +103,10 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_WEAPON;
             text = "\db_raycastui\data\ui\weapon\blaster.paa";
-            x = DB_RUI_X + (DB_RUI_W * 0.32);
-            y = DB_RUI_Y + (DB_RUI_H * 0.72);
-            w = DB_RUI_W * 0.36;
-            h = DB_RUI_H * 0.27;
+            x = DB_RUI_X + (DB_RUI_W * 0.335);
+            y = DB_RUI_Y + (DB_RUI_H * 0.735);
+            w = DB_RUI_W * 0.33;
+            h = DB_RUI_H * 0.24;
         };
 
         class HPText : DB_RUI_RscStructuredText
@@ -115,8 +135,8 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_MAP;
             size = DB_RUI_TEXT_SIZE_SMALL;
-            x = DB_RUI_X + (DB_RUI_W * 0.025);
-            y = DB_RUI_Y + (DB_RUI_H * 0.03);
+            x = DB_RUI_X + (DB_RUI_W * 0.028);
+            y = DB_RUI_Y + (DB_RUI_H * 0.032);
             w = DB_RUI_W * 0.24;
             h = DB_RUI_H * 0.06;
             text = "CRIMSON FOUNDRY";
@@ -126,9 +146,9 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_HELP;
             size = DB_RUI_TEXT_SIZE_SMALL;
-            x = DB_RUI_X + (DB_RUI_W * 0.72);
-            y = DB_RUI_Y + (DB_RUI_H * 0.78);
-            w = DB_RUI_W * 0.24;
+            x = DB_RUI_X + (DB_RUI_W * 0.742);
+            y = DB_RUI_Y + (DB_RUI_H * 0.782);
+            w = DB_RUI_W * 0.21;
             h = DB_RUI_H * 0.14;
             text = "W/S move<br/>A/D turn<br/>SPACE/LMB fire<br/>R restart | X/Esc exit";
             class Attributes
@@ -195,10 +215,20 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_LOGO;
             text = "\db_raycastui\data\ui\logo\doomcard.paa";
-            x = DB_RUI_X + (DB_RUI_W * 0.78);
-            y = DB_RUI_Y + (DB_RUI_H * 0.03);
-            w = DB_RUI_W * 0.18;
-            h = DB_RUI_H * 0.08;
+            x = DB_RUI_X + (DB_RUI_W * 0.785);
+            y = DB_RUI_Y + (DB_RUI_H * 0.028);
+            w = DB_RUI_W * 0.17;
+            h = DB_RUI_H * 0.075;
+        };
+
+        class InputCapture : DB_RUI_RscEditReadOnly
+        {
+            idc = DB_RUI_IDC_INPUT_CAPTURE;
+            x = -10;
+            y = -10;
+            w = pixelW;
+            h = pixelH;
+            text = " ";
         };
     };
 };

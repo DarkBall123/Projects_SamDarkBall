@@ -50,6 +50,7 @@ private _settings =
 private _worldGroup = _display displayCtrl DB_RUI_IDC_WORLD_GROUP;
 private _spriteGroup = _display displayCtrl DB_RUI_IDC_SPRITE_GROUP;
 private _weaponCtrl = _display displayCtrl DB_RUI_IDC_WEAPON;
+private _inputCapture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
 private _hudCtrls =
 [
     _display displayCtrl DB_RUI_IDC_HP,
@@ -136,11 +137,17 @@ private _state =
     diag_tickTime + 14,
     "blood",
     "grate",
-    [-1, -1, -1, -1],
-    _wallCache
+    [-1, -1, -1, -1, -1],
+    _wallCache,
+    -1
 ];
 
 _state = [_state] call DB_fnc_rui_resetRun;
+
+private _debugBg = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_BG;
+private _debugText = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_TEXT;
+_debugBg ctrlShow false;
+_debugText ctrlShow false;
 
 private _keyDownEh = _display displayAddEventHandler ["KeyDown",
 {
@@ -201,7 +208,7 @@ private _keyDownEh = _display displayAddEventHandler ["KeyDown",
                         };
                         case DIK_ESCAPE:
                         {
-                            _handled = false;
+                            [] call DB_fnc_rui_stopGame;
                         };
                         default
                         {
@@ -299,6 +306,13 @@ private _mouseDownEh = _display displayAddEventHandler ["MouseButtonDown",
     _input set [DB_RUI_IN_FIRE, true];
     _state set [DB_RUI_S_INPUT, _input];
     SET_UIVAR(DB_RUI_STATE_VAR, _state);
+
+    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
+    if (!isNull _capture) then
+    {
+        ctrlSetFocus _capture;
+    };
+
     true
 }];
 
@@ -321,18 +335,48 @@ private _mouseUpEh = _display displayAddEventHandler ["MouseButtonUp",
     _input set [DB_RUI_IN_FIRE, false];
     _state set [DB_RUI_S_INPUT, _input];
     SET_UIVAR(DB_RUI_STATE_VAR, _state);
+
+    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
+    if (!isNull _capture) then
+    {
+        ctrlSetFocus _capture;
+    };
+
     true
 }];
 
-_state set [DB_RUI_S_INPUT_EHS, [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh]];
+private _mouseMovingEh = _display displayAddEventHandler ["MouseMoving",
+{
+    params ["_display"];
+
+    showCursor false;
+
+    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
+    if (!isNull _capture) then
+    {
+        ctrlSetFocus _capture;
+    };
+
+    false
+}];
 
 showCursor false;
+if (!isNull _inputCapture) then
+{
+    ctrlSetFocus _inputCapture;
+};
+
+_state set [DB_RUI_S_INPUT_EHS, [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh]];
+
+private _frameEh = addMissionEventHandler ["EachFrame",
+{
+    call DB_fnc_rui_tick;
+}];
+
+_state set [DB_RUI_S_FRAME_EH, _frameEh];
 SET_UIVAR(DB_RUI_DISPLAY_VAR, _display);
 SET_UIVAR(DB_RUI_STATE_VAR, _state);
 
-onEachFrame
-{
-    call DB_fnc_rui_tick;
-};
+call DB_fnc_rui_tick;
 
 true

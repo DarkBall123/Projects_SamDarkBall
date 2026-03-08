@@ -73,3 +73,28 @@ class DB_RUI_RscControlsGroupNoScrollbars
     {
     };
 };
+
+class DB_RUI_RscEditReadOnly
+{
+    access = 0;
+    type = 2;
+    idc = -1;
+    style = 0;
+    x = 0;
+    y = 0;
+    h = 0.04;
+    w = 0.1;
+    text = " ";
+    font = "PuristaMedium";
+    sizeEx = 0.03;
+    shadow = 0;
+    autocomplete = "";
+    canModify = 0;
+    colorText[] = {0, 0, 0, 0};
+    colorSelection[] = {0, 0, 0, 0};
+    colorTextSelection[] = {0, 0, 0, 0};
+    colorDisabled[] = {0, 0, 0, 0};
+    colorBackground[] = {0, 0, 0, 0};
+    colorFocused[] = {0, 0, 0, 0};
+    colorBorder[] = {0, 0, 0, 0};
+};

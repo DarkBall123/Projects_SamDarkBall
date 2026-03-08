@@ -25,6 +25,7 @@ if !(_settings # DB_RUI_CFG_DEBUG) exitWith
 
 _debugBg ctrlShow true;
 _debugText ctrlShow true;
+_debugBg ctrlSetBackgroundColor [0, 0, 0, 0.72];
 
 private _player = _state # DB_RUI_S_PLAYER;
 private _stats = _state # DB_RUI_S_STATS;
