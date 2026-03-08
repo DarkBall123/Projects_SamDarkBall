@@ -1,0 +1,155 @@
+#ifndef DB_RAYCASTUI_SCRIPT_COMPONENT_HPP
+#define DB_RAYCASTUI_SCRIPT_COMPONENT_HPP
+
+#define GET_UIVAR(KEY,DEFAULT) (uiNamespace getVariable [KEY, DEFAULT])
+#define SET_UIVAR(KEY,VALUE) (uiNamespace setVariable [KEY, VALUE])
+
+#define DB_RUI_DISPLAY_VAR "DB_RUI_Display"
+#define DB_RUI_STATE_VAR "DB_RUI_State"
+
+#define DB_RUI_X safeZoneX
+#define DB_RUI_Y safeZoneY
+#define DB_RUI_W safeZoneW
+#define DB_RUI_H safeZoneH
+
+#define DB_RUI_IDD 880000
+#define DB_RUI_IDC_CEILING 880001
+#define DB_RUI_IDC_FLOOR 880002
+#define DB_RUI_IDC_BACKDROP 880003
+#define DB_RUI_IDC_WORLD_GROUP 880100
+#define DB_RUI_IDC_SPRITE_GROUP 880101
+#define DB_RUI_IDC_WEAPON_STRIP 880102
+#define DB_RUI_IDC_WEAPON 880103
+#define DB_RUI_IDC_HP 880104
+#define DB_RUI_IDC_AMMO 880105
+#define DB_RUI_IDC_MAP 880106
+#define DB_RUI_IDC_HELP 880107
+#define DB_RUI_IDC_OUTCOME 880108
+#define DB_RUI_IDC_CROSS_H 880109
+#define DB_RUI_IDC_CROSS_V 880110
+#define DB_RUI_IDC_DEBUG_BG 880111
+#define DB_RUI_IDC_DEBUG_TEXT 880112
+#define DB_RUI_IDC_LOGO 880113
+
+#define DB_RUI_QUALITY_LOW 96
+#define DB_RUI_QUALITY_MEDIUM 128
+#define DB_RUI_QUALITY_HIGH 160
+#define DB_RUI_SLICE_COUNT 64
+#define DB_RUI_MAX_SPRITES 16
+#define DB_RUI_CLEAR_TEXTURE "#(argb,8,8,3)color(0,0,0,0)"
+#define DB_RUI_WHITE_TEXTURE "#(argb,8,8,3)color(1,1,1,1)"
+
+#define DB_RUI_DIFFERENCE_EPSILON 0.0001
+
+#define DB_RUI_S_RUNNING 0
+#define DB_RUI_S_DISPLAY 1
+#define DB_RUI_S_SETTINGS 2
+#define DB_RUI_S_MAP_ID 3
+#define DB_RUI_S_MAP_NAME 4
+#define DB_RUI_S_GRID 5
+#define DB_RUI_S_WIDTH 6
+#define DB_RUI_S_HEIGHT 7
+#define DB_RUI_S_PLAYER 8
+#define DB_RUI_S_INPUT 9
+#define DB_RUI_S_ZBUFFER 10
+#define DB_RUI_S_WALL_CTRLS 11
+#define DB_RUI_S_SPRITE_POOL 12
+#define DB_RUI_S_WEAPON_CTRL 13
+#define DB_RUI_S_HUD_CTRLS 14
+#define DB_RUI_S_ENEMIES 15
+#define DB_RUI_S_PICKUPS 16
+#define DB_RUI_S_STATS 17
+#define DB_RUI_S_OUTCOME 18
+#define DB_RUI_S_HELP_UNTIL 19
+#define DB_RUI_S_SKY_STYLE 20
+#define DB_RUI_S_FLOOR_STYLE 21
+#define DB_RUI_S_INPUT_EHS 22
+#define DB_RUI_S_WALL_CACHE 23
+
+#define DB_RUI_CFG_QUALITY_NAME 0
+#define DB_RUI_CFG_COLUMNS 1
+#define DB_RUI_CFG_COLUMN_W 2
+#define DB_RUI_CFG_FOV 3
+#define DB_RUI_CFG_PROJ_SCALE 4
+#define DB_RUI_CFG_MOVE_SPEED 5
+#define DB_RUI_CFG_TURN_SPEED 6
+#define DB_RUI_CFG_DEBUG 7
+#define DB_RUI_CFG_VIEW_DISTANCE 8
+#define DB_RUI_CFG_MAX_SPRITES 9
+
+#define DB_RUI_P_X 0
+#define DB_RUI_P_Y 1
+#define DB_RUI_P_DIR 2
+#define DB_RUI_P_HP 3
+#define DB_RUI_P_AMMO 4
+#define DB_RUI_P_NEXT_FIRE 5
+#define DB_RUI_P_FLASH_UNTIL 6
+
+#define DB_RUI_IN_FORWARD 0
+#define DB_RUI_IN_BACK 1
+#define DB_RUI_IN_TURN_LEFT 2
+#define DB_RUI_IN_TURN_RIGHT 3
+#define DB_RUI_IN_FIRE 4
+#define DB_RUI_IN_RESTART 5
+
+#define DB_RUI_STATS_LAST_TICK 0
+#define DB_RUI_STATS_DELTA 1
+#define DB_RUI_STATS_FRAME_MS 2
+#define DB_RUI_STATS_RAY_MS 3
+#define DB_RUI_STATS_FPS 4
+
+#define DB_RUI_HUD_HP 0
+#define DB_RUI_HUD_AMMO 1
+#define DB_RUI_HUD_MAP 2
+#define DB_RUI_HUD_HELP 3
+#define DB_RUI_HUD_OUTCOME 4
+#define DB_RUI_HUD_CROSS_H 5
+#define DB_RUI_HUD_CROSS_V 6
+#define DB_RUI_HUD_DEBUG_BG 7
+#define DB_RUI_HUD_DEBUG_TEXT 8
+#define DB_RUI_HUD_CEILING 9
+#define DB_RUI_HUD_FLOOR 10
+#define DB_RUI_HUD_WEAPON_STRIP 11
+#define DB_RUI_HUD_LOGO 12
+
+#define DB_RUI_E_TYPE 0
+#define DB_RUI_E_X 1
+#define DB_RUI_E_Y 2
+#define DB_RUI_E_HP 3
+#define DB_RUI_E_STATE 4
+#define DB_RUI_E_DIR 5
+#define DB_RUI_E_SPEED 6
+#define DB_RUI_E_ATTACK_RANGE 7
+#define DB_RUI_E_AGGRO_RANGE 8
+#define DB_RUI_E_ANIM_FRAME 9
+#define DB_RUI_E_ALIVE 10
+#define DB_RUI_E_NEXT_ATTACK 11
+
+#define DB_RUI_PK_TYPE 0
+#define DB_RUI_PK_X 1
+#define DB_RUI_PK_Y 2
+#define DB_RUI_PK_VALUE 3
+#define DB_RUI_PK_ALIVE 4
+
+#define DB_RUI_EH_KEYDOWN 0
+#define DB_RUI_EH_KEYUP 1
+#define DB_RUI_EH_MOUSEDOWN 2
+#define DB_RUI_EH_MOUSEUP 3
+
+#define DIK_ESCAPE 1
+#define DIK_Q 16
+#define DIK_W 17
+#define DIK_E 18
+#define DIK_R 19
+#define DIK_A 30
+#define DIK_S 31
+#define DIK_D 32
+#define DIK_X 45
+#define DIK_SPACE 57
+#define DIK_F1 59
+#define DIK_UP 200
+#define DIK_LEFT 203
+#define DIK_RIGHT 205
+#define DIK_DOWN 208
+
+#endif
