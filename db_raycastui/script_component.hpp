@@ -32,7 +32,6 @@
 #define DB_RUI_IDC_CROSS_V 880110
 #define DB_RUI_IDC_DEBUG_BG 880111
 #define DB_RUI_IDC_DEBUG_TEXT 880112
-#define DB_RUI_IDC_LOGO 880113
 #define DB_RUI_IDC_INPUT_CAPTURE 880114
 
 #define DB_RUI_QUALITY_LOW 96
@@ -43,6 +42,16 @@
 #define DB_RUI_CLEAR_TEXTURE "#(argb,8,8,3)color(0,0,0,0)"
 #define DB_RUI_WHITE_TEXTURE "#(argb,8,8,3)color(1,1,1,1)"
 #define DB_RUI_HELP_TEXT "W/S move<br/>A/D turn<br/>SPACE or LMB fire<br/>E reload | Q or 1/2 switch<br/>R restart run<br/>F1 debug | X or Esc exit"
+
+#define DB_RUI_TX_WPN_PISTOL "\db_raycastui\data\ui\weapon\blaster.paa"
+#define DB_RUI_TX_WPN_PISTOL_FIRE "\db_raycastui\data\ui\weapon\blaster_fire.paa"
+#define DB_RUI_TX_WPN_SHOTGUN "\db_raycastui\data\ui\weapon\shotgun.paa"
+#define DB_RUI_TX_WPN_SHOTGUN_FIRE "\db_raycastui\data\ui\weapon\shotgun_fire.paa"
+#define DB_RUI_TX_WPN_SHOTGUN_RELOAD "\db_raycastui\data\ui\weapon\shotgun_reload.paa"
+
+#define DB_RUI_TX_ENEMY_IDLE "\db_raycastui\data\sprites\enemies\imp_idle.paa"
+#define DB_RUI_TX_ENEMY_ATTACK "\db_raycastui\data\sprites\enemies\imp_attack.paa"
+#define DB_RUI_TX_ENEMY_HURT "\db_raycastui\data\sprites\enemies\imp_hurt.paa"
 
 #define DB_RUI_DIFFERENCE_EPSILON 0.0001
 
@@ -69,6 +78,7 @@
 
 #define DB_RUI_SND_PISTOL "DB_RUI_PistolShot"
 #define DB_RUI_SND_SHOTGUN "DB_RUI_ShotgunShot"
+#define DB_RUI_SND_MONSTER_IDLE "DB_RUI_MonsterIdle"
 #define DB_RUI_SND_MONSTER_ATTACK "DB_RUI_MonsterAttack"
 #define DB_RUI_SND_MONSTER_HURT "DB_RUI_MonsterHurt"
 #define DB_RUI_SND_MONSTER_DIE "DB_RUI_MonsterDie"
@@ -152,7 +162,6 @@
 #define DB_RUI_HUD_CEILING 9
 #define DB_RUI_HUD_FLOOR 10
 #define DB_RUI_HUD_WEAPON_STRIP 11
-#define DB_RUI_HUD_LOGO 12
 
 #define DB_RUI_E_TYPE 0
 #define DB_RUI_E_X 1

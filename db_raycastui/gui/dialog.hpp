@@ -107,7 +107,7 @@ class DB_RaycastUIDialog
         class WeaponPicture : DB_RUI_RscPicture
         {
             idc = DB_RUI_IDC_WEAPON;
-            text = "\db_raycastui\data\ui\weapon\blaster.paa";
+            text = DB_RUI_TX_WPN_PISTOL;
             x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(46) * 0.5);
             y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(12.5);
             w = DB_RUI_GRID_W(46);
@@ -214,16 +214,6 @@ class DB_RaycastUIDialog
             w = DB_RUI_GRID_W(34);
             h = DB_RUI_GRID_H(15.5);
             text = "";
-        };
-
-        class LogoCard : DB_RUI_RscPicture
-        {
-            idc = DB_RUI_IDC_LOGO;
-            text = "\db_raycastui\data\ui\logo\doomcard.paa";
-            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(29);
-            y = safeZoneY + DB_RUI_GRID_H(2);
-            w = DB_RUI_GRID_W(27);
-            h = DB_RUI_GRID_H(7);
         };
 
         class InputCapture : DB_RUI_RscEditReadOnly

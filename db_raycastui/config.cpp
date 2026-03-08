@@ -56,6 +56,7 @@ class CfgSounds
     {
         DB_RUI_PistolShot,
         DB_RUI_ShotgunShot,
+        DB_RUI_MonsterIdle,
         DB_RUI_MonsterAttack,
         DB_RUI_MonsterHurt,
         DB_RUI_MonsterDie
@@ -72,6 +73,13 @@ class CfgSounds
     {
         name = "DB_RUI_ShotgunShot";
         sound[] = {"\db_raycastui\data\sfx\shotgun_shot.ogg", 1.4, 1, 60};
+        titles[] = {};
+    };
+
+    class DB_RUI_MonsterIdle
+    {
+        name = "DB_RUI_MonsterIdle";
+        sound[] = {"\db_raycastui\data\sfx\monster_idle.ogg", 0.85, 1, 30};
         titles[] = {};
     };
 

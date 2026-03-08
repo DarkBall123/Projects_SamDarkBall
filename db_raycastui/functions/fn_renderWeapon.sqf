@@ -36,11 +36,11 @@ private _layout = switch (_weaponId) do
 _layout params ["_baseX", "_baseY", "_width", "_height"];
 private _texture = if (_weaponId == DB_RUI_WPN_SHOTGUN) then
 {
-    "\db_raycastui\data\ui\weapon\shotgun.paa"
+    DB_RUI_TX_WPN_SHOTGUN
 }
 else
 {
-    "\db_raycastui\data\ui\weapon\blaster.paa"
+    DB_RUI_TX_WPN_PISTOL
 };
 private _bobX = 0;
 private _bobY = 0;
@@ -57,13 +57,13 @@ switch (_weaponId) do
     {
         if (_reloadState == DB_RUI_RELOAD_SHOTGUN) then
         {
-            _texture = "\db_raycastui\data\ui\weapon\shotgun_reload.paa";
+            _texture = DB_RUI_TX_WPN_SHOTGUN_RELOAD;
             _baseY = _baseY + (DB_RUI_H * 0.03);
         };
 
         if (_flashActive) then
         {
-            _texture = "\db_raycastui\data\ui\weapon\shotgun_fire.paa";
+            _texture = DB_RUI_TX_WPN_SHOTGUN_FIRE;
             _baseY = _baseY - (DB_RUI_H * 0.018);
             _baseX = _baseX - (DB_RUI_W * 0.010);
         };
@@ -72,7 +72,7 @@ switch (_weaponId) do
     {
         if (_flashActive) then
         {
-            _texture = "\db_raycastui\data\ui\weapon\blaster_fire.paa";
+            _texture = DB_RUI_TX_WPN_PISTOL_FIRE;
             _baseY = _baseY - (DB_RUI_H * 0.012);
             _baseX = _baseX - (DB_RUI_W * 0.006);
         };

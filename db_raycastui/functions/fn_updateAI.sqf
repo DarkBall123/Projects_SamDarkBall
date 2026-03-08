@@ -45,6 +45,11 @@ private _enemies = +(_state # DB_RUI_S_ENEMIES);
         {
             if (_hasLOS || {_distance <= (_x # DB_RUI_E_AGGRO_RANGE)}) then
             {
+                if (_hasLOS && {_distance <= ((_x # DB_RUI_E_AGGRO_RANGE) * 0.9)}) then
+                {
+                    [DB_RUI_SND_MONSTER_IDLE, 0.72, 0.94 + (random 0.12), "monster_idle", 1.60] call DB_fnc_rui_playSound;
+                };
+
                 private _speed = (_x # DB_RUI_E_SPEED) * _delta;
                 private _moveX = (_dx / (_distance max 0.001)) * _speed;
                 private _moveY = (_dy / (_distance max 0.001)) * _speed;

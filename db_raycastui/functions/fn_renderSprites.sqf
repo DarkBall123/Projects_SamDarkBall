@@ -46,7 +46,7 @@ private _sprites = [];
             {
                 private _screenCenter = (DB_RUI_W * 0.5) + ((_relative / (_fov * 0.5)) * (DB_RUI_W * 0.5));
                 private _height = (_projectionScale * 0.88) / _depth;
-                private _width = _height * 0.70;
+                private _width = _height * 1.04;
                 _sprites pushBack [_depth, "enemy", _screenCenter, _height, _width, _x];
             };
         };
@@ -129,35 +129,32 @@ for "_index" from 0 to (_visibleCount - 1) do
         if (_kind isEqualTo "enemy") then
         {
             private _stateName = _data # DB_RUI_E_STATE;
-            private _bodyColor = [0.66, 0.12, 0.08, 0.96];
-            private _headColor = [0.88, 0.72, 0.56, 0.96];
-            private _eyeColor = [1, 0.92, 0.36, 1];
-            private _accentColor = [0.22, 0.22, 0.22, 0.95];
+            private _texture = DB_RUI_TX_ENEMY_IDLE;
+            private _bob = abs (sin ((_data # DB_RUI_E_ANIM_FRAME) * 55));
+            private _spriteHeight = (_height * 1.18) min (DB_RUI_H * 1.12);
+            private _spriteWidth = (_spriteHeight * 0.88) min (DB_RUI_W * 0.28);
+            private _spriteLeft = _screenCenter - (_spriteWidth * 0.5);
+            private _spriteTop = (DB_RUI_H * 0.5) - (_spriteHeight * 0.54) + (DB_RUI_H * 0.05) + (_bob * (DB_RUI_H * 0.006));
 
             if (_stateName isEqualTo "attack") then
             {
-                _bodyColor = [0.90, 0.20, 0.10, 0.98];
+                _texture = DB_RUI_TX_ENEMY_ATTACK;
             };
 
             if (_stateName isEqualTo "hurt") then
             {
-                _accentColor = [1, 1, 1, 1];
+                _texture = DB_RUI_TX_ENEMY_HURT;
             };
 
-            _main ctrlSetBackgroundColor _bodyColor;
-            _main ctrlSetPosition [_left + (_width * 0.28), _top + (_height * 0.36), _width * 0.44, _height * 0.42];
+            _main ctrlSetText _texture;
+            _main ctrlSetTextColor [1, 1, 1, 1];
+            _main ctrlSetPosition [_spriteLeft, _spriteTop, _spriteWidth, _spriteHeight];
 
-            _second ctrlSetBackgroundColor _headColor;
-            _second ctrlSetPosition [_left + (_width * 0.33), _top + (_height * 0.14), _width * 0.34, _height * 0.18];
-
-            _third ctrlSetBackgroundColor _eyeColor;
-            _third ctrlSetPosition [_left + (_width * 0.39), _top + (_height * 0.20), _width * 0.05, _height * 0.03];
-
-            _fourth ctrlSetBackgroundColor _eyeColor;
-            _fourth ctrlSetPosition [_left + (_width * 0.56), _top + (_height * 0.20), _width * 0.05, _height * 0.03];
-
-            _fifth ctrlSetBackgroundColor _accentColor;
-            _fifth ctrlSetPosition [_left + (_width * 0.30), _top + (_height * 0.58), _width * 0.40, _height * 0.05];
+            {
+                _x ctrlSetPosition [0, 0, 0, 0];
+                _x ctrlShow false;
+            }
+            forEach [_second, _third, _fourth, _fifth];
         }
         else
         {
@@ -171,7 +168,8 @@ for "_index" from 0 to (_visibleCount - 1) do
                 _accentColor = [0.96, 0.96, 0.96, 1];
             };
 
-            _main ctrlSetBackgroundColor _bodyColor;
+            _main ctrlSetText DB_RUI_WHITE_TEXTURE;
+            _main ctrlSetTextColor _bodyColor;
             _main ctrlSetPosition [_left + (_width * 0.20), _top + (_height * 0.28), _width * 0.60, _height * 0.44];
 
             if (_pickupType isEqualTo "medkit") then

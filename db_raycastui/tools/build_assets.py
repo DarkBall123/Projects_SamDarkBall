@@ -25,6 +25,12 @@ UI_ASSETS = {
     ROOT / "data" / "ui" / "logo" / "doomcard.svg": (ROOT / "data" / "ui" / "logo" / "doomcard.png", ROOT / "data" / "ui" / "logo" / "doomcard.jpg", (1024, 256)),
 }
 
+SPRITE_ASSETS = {
+    ROOT / "data" / "sprites" / "enemies" / "imp_idle.svg": (ROOT / "data" / "sprites" / "enemies" / "imp_idle.png", ROOT / "data" / "sprites" / "enemies" / "imp_idle.jpg", (512, 512)),
+    ROOT / "data" / "sprites" / "enemies" / "imp_attack.svg": (ROOT / "data" / "sprites" / "enemies" / "imp_attack.png", ROOT / "data" / "sprites" / "enemies" / "imp_attack.jpg", (512, 512)),
+    ROOT / "data" / "sprites" / "enemies" / "imp_hurt.svg": (ROOT / "data" / "sprites" / "enemies" / "imp_hurt.png", ROOT / "data" / "sprites" / "enemies" / "imp_hurt.jpg", (512, 512)),
+}
+
 
 def run(command: list[str]) -> None:
     subprocess.run(command, check=True)
@@ -62,8 +68,8 @@ def build_wall_set(wall_name: str, wall_dir: Path, slice_count: int) -> None:
         crop.save(slices_dir / f"slice_{index:02d}.jpg", quality=95)
 
 
-def build_ui_assets() -> None:
-    for svg_path, (png_path, jpg_path, size) in UI_ASSETS.items():
+def build_bitmap_assets(asset_map: dict[Path, tuple[Path, Path, tuple[int, int]]]) -> None:
+    for svg_path, (png_path, jpg_path, size) in asset_map.items():
         width, height = size
         render_svg(svg_path, png_path, width, height)
         png_to_jpg(png_path, jpg_path, (5, 5, 5))
@@ -77,7 +83,8 @@ def main() -> None:
     for wall_name, wall_dir in WALLS.items():
         build_wall_set(wall_name, wall_dir, args.slice_count)
 
-    build_ui_assets()
+    build_bitmap_assets(UI_ASSETS)
+    build_bitmap_assets(SPRITE_ASSETS)
 
 
 if __name__ == "__main__":

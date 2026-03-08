@@ -53,3 +53,15 @@ convert_file \
 convert_file \
   "${ROOT_DIR}/data/ui/logo/doomcard.jpg" \
   "${ROOT_DIR}/data/ui/logo/doomcard.paa"
+
+convert_file \
+  "${ROOT_DIR}/data/sprites/enemies/imp_idle.png" \
+  "${ROOT_DIR}/data/sprites/enemies/imp_idle.paa"
+
+convert_file \
+  "${ROOT_DIR}/data/sprites/enemies/imp_attack.png" \
+  "${ROOT_DIR}/data/sprites/enemies/imp_attack.paa"
+
+convert_file \
+  "${ROOT_DIR}/data/sprites/enemies/imp_hurt.png" \
+  "${ROOT_DIR}/data/sprites/enemies/imp_hurt.paa"

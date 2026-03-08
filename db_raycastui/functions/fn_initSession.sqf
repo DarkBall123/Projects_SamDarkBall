@@ -63,8 +63,7 @@ private _hudCtrls =
     _display displayCtrl DB_RUI_IDC_DEBUG_TEXT,
     _display displayCtrl DB_RUI_IDC_CEILING,
     _display displayCtrl DB_RUI_IDC_FLOOR,
-    _display displayCtrl DB_RUI_IDC_WEAPON_STRIP,
-    _display displayCtrl DB_RUI_IDC_LOGO
+    _display displayCtrl DB_RUI_IDC_WEAPON_STRIP
 ];
 
 private _resetCtrl =
@@ -87,16 +86,19 @@ for "_index" from 0 to (_columnCount - 1) do
 private _spritePool = [];
 for "_slot" from 0 to (DB_RUI_MAX_SPRITES - 1) do
 {
-    private _slotCtrls = [];
-    for "_part" from 0 to 4 do
-    {
-        private _ctrl = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
-        [_ctrl] call _resetCtrl;
-        _ctrl ctrlShow false;
-        _slotCtrls pushBack _ctrl;
-    };
+    private _main = _display ctrlCreate ["DB_RUI_RscPicture", -1, _spriteGroup];
+    private _second = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
+    private _third = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
+    private _fourth = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
+    private _fifth = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
 
-    _spritePool pushBack _slotCtrls;
+    {
+        [_x] call _resetCtrl;
+        _x ctrlShow false;
+    }
+    forEach [_main, _second, _third, _fourth, _fifth];
+
+    _spritePool pushBack [_main, _second, _third, _fourth, _fifth];
 };
 
 private _buildWallSet =
