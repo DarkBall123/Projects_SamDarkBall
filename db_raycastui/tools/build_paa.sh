@@ -35,5 +35,21 @@ convert_file \
   "${ROOT_DIR}/data/ui/weapon/blaster.paa"
 
 convert_file \
+  "${ROOT_DIR}/data/ui/weapon/blaster_fire.jpg" \
+  "${ROOT_DIR}/data/ui/weapon/blaster_fire.paa"
+
+convert_file \
+  "${ROOT_DIR}/data/ui/weapon/shotgun.jpg" \
+  "${ROOT_DIR}/data/ui/weapon/shotgun.paa"
+
+convert_file \
+  "${ROOT_DIR}/data/ui/weapon/shotgun_fire.jpg" \
+  "${ROOT_DIR}/data/ui/weapon/shotgun_fire.paa"
+
+convert_file \
+  "${ROOT_DIR}/data/ui/weapon/shotgun_reload.jpg" \
+  "${ROOT_DIR}/data/ui/weapon/shotgun_reload.paa"
+
+convert_file \
   "${ROOT_DIR}/data/ui/logo/doomcard.jpg" \
   "${ROOT_DIR}/data/ui/logo/doomcard.paa"

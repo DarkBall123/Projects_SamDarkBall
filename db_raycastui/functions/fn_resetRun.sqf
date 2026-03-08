@@ -16,6 +16,8 @@ if (_state isEqualTo []) exitWith
     []
 };
 
+uiNamespace setVariable [DB_RUI_SOUND_COOLDOWNS_VAR, createHashMap];
+
 private _mapData = [(_state # DB_RUI_S_MAP_ID)] call DB_fnc_rui_loadMap;
 _mapData params
 [
@@ -46,7 +48,23 @@ private _pickups = [];
 }
 forEach _pickupSpawns;
 
-private _player = [_spawnX, _spawnY, _spawnDir, 100, 18, 0, 0];
+private _player =
+[
+    _spawnX,
+    _spawnY,
+    _spawnDir,
+    DB_RUI_PLAYER_MAX_HP,
+    DB_RUI_START_RESERVE_AMMO,
+    0,
+    0,
+    DB_RUI_WPN_PISTOL,
+    DB_RUI_PISTOL_CLIP_SIZE,
+    DB_RUI_SHOTGUN_CHAMBER_SIZE,
+    0,
+    DB_RUI_RELOAD_NONE,
+    0,
+    true
+];
 private _columnCount = (_state # DB_RUI_S_SETTINGS) # DB_RUI_CFG_COLUMNS;
 private _zBuffer = [];
 _zBuffer resize _columnCount;
@@ -65,7 +83,7 @@ _state set [DB_RUI_S_HELP_UNTIL, diag_tickTime + 14];
 _state set [DB_RUI_S_SKY_STYLE, _skyStyle];
 _state set [DB_RUI_S_FLOOR_STYLE, _floorStyle];
 
-private _input = [false, false, false, false, false, false];
+private _input = [false, false, false, false, false, false, false, false];
 _state set [DB_RUI_S_INPUT, _input];
 
 private _stats = _state # DB_RUI_S_STATS;

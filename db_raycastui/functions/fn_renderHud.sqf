@@ -21,20 +21,30 @@ private _helpCtrl = _hud # DB_RUI_HUD_HELP;
 private _outcomeCtrl = _hud # DB_RUI_HUD_OUTCOME;
 private _crossH = _hud # DB_RUI_HUD_CROSS_H;
 private _crossV = _hud # DB_RUI_HUD_CROSS_V;
+private _weaponInfo = [_player] call DB_fnc_rui_getWeaponInfo;
+_weaponInfo params ["_weaponName", "_clipText", "_reserveText", "_isReloading"];
+private _reloadLabel = if (_isReloading) then {"<br/><t size='0.8' color='#E6B861'>RELOADING</t>"} else {""};
 
 _hpCtrl ctrlSetStructuredText parseText format ["<t shadow='1'>HP %1</t>", round (_player # DB_RUI_P_HP)];
-_ammoCtrl ctrlSetStructuredText parseText format ["<t shadow='1'>AMMO %1</t>", round (_player # DB_RUI_P_AMMO)];
+_ammoCtrl ctrlSetStructuredText parseText format ["<t shadow='1'>%1 %2 | %3%4</t>", _weaponName, _clipText, _reserveText, _reloadLabel];
 _mapCtrl ctrlSetStructuredText parseText format ["<t shadow='1'>%1<br/><t size='0.8'>QUALITY %2</t></t>", _state # DB_RUI_S_MAP_NAME, (_settings # DB_RUI_CFG_QUALITY_NAME)];
 
-private _helpText = "W/S move<br/>A/D turn<br/>SPACE or LMB fire<br/>R restart run<br/>F1 debug | X or Esc exit";
 private _outcome = _state # DB_RUI_S_OUTCOME;
 
 if (_outcome isEqualTo "") then
 {
     _outcomeCtrl ctrlSetStructuredText parseText "";
-    _helpCtrl ctrlSetStructuredText parseText format ["<t align='right'>%1</t>", _helpText];
-    _crossH ctrlSetBackgroundColor [0.95, 0.92, 0.72, 1];
-    _crossV ctrlSetBackgroundColor [0.95, 0.92, 0.72, 1];
+    _helpCtrl ctrlSetStructuredText parseText format ["<t align='right'>%1</t>", DB_RUI_HELP_TEXT];
+    if ((_player # DB_RUI_P_FLASH_UNTIL) > diag_tickTime) then
+    {
+        _crossH ctrlSetBackgroundColor [1, 0.82, 0.42, 1];
+        _crossV ctrlSetBackgroundColor [1, 0.82, 0.42, 1];
+    }
+    else
+    {
+        _crossH ctrlSetBackgroundColor [0.95, 0.92, 0.72, 1];
+        _crossV ctrlSetBackgroundColor [0.95, 0.92, 0.72, 1];
+    };
 }
 else
 {
@@ -55,7 +65,7 @@ else
     };
 
     _outcomeCtrl ctrlSetStructuredText parseText format ["<t align='center'>%1</t>", _outcomeText];
-    _helpCtrl ctrlSetStructuredText parseText format ["<t align='right'>%1</t>", _helpText];
+    _helpCtrl ctrlSetStructuredText parseText format ["<t align='right'>%1</t>", DB_RUI_HELP_TEXT];
     _crossH ctrlSetBackgroundColor [0.78, 0.22, 0.18, 1];
     _crossV ctrlSetBackgroundColor [0.78, 0.22, 0.18, 1];
 };

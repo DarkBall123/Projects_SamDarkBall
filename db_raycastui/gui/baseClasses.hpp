@@ -7,12 +7,12 @@ class DB_RUI_RscText
     linespacing = 1;
     x = 0;
     y = 0;
-    h = 0.037;
-    w = 0.3;
+    h = DB_RUI_GRID_H(2);
+    w = DB_RUI_GRID_W(10);
     text = "";
     shadow = 1;
     font = "PuristaMedium";
-    SizeEx = 0.035;
+    SizeEx = DB_RUI_TEXT_SIZE_MEDIUM;
     colorBackground[] = {0, 0, 0, 0};
     colorText[] = {1, 1, 1, 1};
 };
@@ -33,10 +33,10 @@ class DB_RUI_RscStructuredText
     style = 0;
     x = 0;
     y = 0;
-    h = 0.035;
-    w = 0.1;
+    h = DB_RUI_GRID_H(2);
+    w = DB_RUI_GRID_W(10);
     text = "";
-    size = 0.035;
+    size = DB_RUI_TEXT_SIZE_MEDIUM;
     shadow = 1;
     colorBackground[] = {0, 0, 0, 0};
     class Attributes
@@ -82,11 +82,11 @@ class DB_RUI_RscEditReadOnly
     style = 0;
     x = 0;
     y = 0;
-    h = 0.04;
-    w = 0.1;
+    h = DB_RUI_GRID_H(2);
+    w = DB_RUI_GRID_W(8);
     text = " ";
     font = "PuristaMedium";
-    sizeEx = 0.03;
+    sizeEx = DB_RUI_TEXT_SIZE_SMALL;
     shadow = 0;
     autocomplete = "";
     canModify = 0;

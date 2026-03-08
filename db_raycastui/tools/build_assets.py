@@ -18,6 +18,10 @@ WALLS = {
 
 UI_ASSETS = {
     ROOT / "data" / "ui" / "weapon" / "blaster.svg": (ROOT / "data" / "ui" / "weapon" / "blaster.png", ROOT / "data" / "ui" / "weapon" / "blaster.jpg", (512, 256)),
+    ROOT / "data" / "ui" / "weapon" / "blaster_fire.svg": (ROOT / "data" / "ui" / "weapon" / "blaster_fire.png", ROOT / "data" / "ui" / "weapon" / "blaster_fire.jpg", (512, 256)),
+    ROOT / "data" / "ui" / "weapon" / "shotgun.svg": (ROOT / "data" / "ui" / "weapon" / "shotgun.png", ROOT / "data" / "ui" / "weapon" / "shotgun.jpg", (1024, 512)),
+    ROOT / "data" / "ui" / "weapon" / "shotgun_fire.svg": (ROOT / "data" / "ui" / "weapon" / "shotgun_fire.png", ROOT / "data" / "ui" / "weapon" / "shotgun_fire.jpg", (1024, 512)),
+    ROOT / "data" / "ui" / "weapon" / "shotgun_reload.svg": (ROOT / "data" / "ui" / "weapon" / "shotgun_reload.png", ROOT / "data" / "ui" / "weapon" / "shotgun_reload.jpg", (1024, 512)),
     ROOT / "data" / "ui" / "logo" / "doomcard.svg": (ROOT / "data" / "ui" / "logo" / "doomcard.png", ROOT / "data" / "ui" / "logo" / "doomcard.jpg", (1024, 256)),
 }
 

@@ -18,24 +18,7 @@ private _player = +(_state # DB_RUI_S_PLAYER);
 private _stats = _state # DB_RUI_S_STATS;
 private _delta = _stats # DB_RUI_STATS_DELTA;
 private _now = diag_tickTime;
-private _grid = _state # DB_RUI_S_GRID;
-private _width = _state # DB_RUI_S_WIDTH;
-private _height = _state # DB_RUI_S_HEIGHT;
 private _enemies = +(_state # DB_RUI_S_ENEMIES);
-
-private _isBlocked =
-{
-    params ["_testX", "_testY"];
-    private _cellX = floor _testX;
-    private _cellY = floor _testY;
-
-    if ((_cellX < 0) || {_cellX >= _width} || {_cellY < 0} || {_cellY >= _height}) exitWith
-    {
-        true
-    };
-
-    ((_grid # _cellY) # _cellX) > 0
-};
 
 {
     if (_x # DB_RUI_E_ALIVE) then
@@ -46,17 +29,17 @@ private _isBlocked =
         private _dy = (_player # DB_RUI_P_Y) - _enemyY;
         private _distance = sqrt ((_dx * _dx) + (_dy * _dy));
         private _angleTo = ((_dy atan2 _dx) + 360) % 360;
-        private _trace = [_state, _angleTo, _distance + 0.05, false] call DB_fnc_rui_castRay;
-        private _hasLOS = ((_trace # 2) + 0.08) >= _distance;
+        private _hasLOS = [_state, _angleTo, _distance] call DB_fnc_rui_hasLineOfSight;
 
         _x set [DB_RUI_E_DIR, _angleTo];
         _x set [DB_RUI_E_ANIM_FRAME, (_x # DB_RUI_E_ANIM_FRAME) + (_delta * 6)];
 
         if (_hasLOS && {_distance <= (_x # DB_RUI_E_ATTACK_RANGE)} && {_now >= (_x # DB_RUI_E_NEXT_ATTACK)}) then
         {
-            _player set [DB_RUI_P_HP, (_player # DB_RUI_P_HP) - 12];
-            _x set [DB_RUI_E_NEXT_ATTACK, _now + 0.9];
+            _player set [DB_RUI_P_HP, (_player # DB_RUI_P_HP) - DB_RUI_ENEMY_MELEE_DAMAGE];
+            _x set [DB_RUI_E_NEXT_ATTACK, _now + DB_RUI_ENEMY_MELEE_COOLDOWN];
             _x set [DB_RUI_E_STATE, "attack"];
+            [DB_RUI_SND_MONSTER_ATTACK, 0.92, 0.92 + (random 0.14), "monster_attack", 0.12] call DB_fnc_rui_playSound;
         }
         else
         {
@@ -65,18 +48,17 @@ private _isBlocked =
                 private _speed = (_x # DB_RUI_E_SPEED) * _delta;
                 private _moveX = (_dx / (_distance max 0.001)) * _speed;
                 private _moveY = (_dy / (_distance max 0.001)) * _speed;
-                private _radius = 0.16;
 
                 private _tryX = _enemyX + _moveX;
-                private _checkX = _tryX + (_radius * (if (_moveX >= 0) then {1} else {-1}));
-                if !([_checkX, _enemyY] call _isBlocked) then
+                private _checkX = _tryX + (DB_RUI_ENEMY_RADIUS * (if (_moveX >= 0) then {1} else {-1}));
+                if !([_state, _checkX, _enemyY] call DB_fnc_rui_isBlocked) then
                 {
                     _x set [DB_RUI_E_X, _tryX];
                 };
 
                 private _tryY = (_x # DB_RUI_E_Y) + _moveY;
-                private _checkY = _tryY + (_radius * (if (_moveY >= 0) then {1} else {-1}));
-                if !([(_x # DB_RUI_E_X), _checkY] call _isBlocked) then
+                private _checkY = _tryY + (DB_RUI_ENEMY_RADIUS * (if (_moveY >= 0) then {1} else {-1}));
+                if !([_state, (_x # DB_RUI_E_X), _checkY] call DB_fnc_rui_isBlocked) then
                 {
                     _x set [DB_RUI_E_Y, _tryY];
                 };

@@ -32,14 +32,13 @@ private _columnCount = switch (_qualityName) do
     };
 };
 
-private _columnWidth = DB_RUI_W / _columnCount;
 private _settings =
 [
     _qualityName,
     _columnCount,
-    _columnWidth,
+    (DB_RUI_W / _columnCount),
     65,
-    DB_RUI_H * 0.92,
+    (DB_RUI_H * 0.92),
     2.85,
     135,
     _debug,
@@ -68,50 +67,64 @@ private _hudCtrls =
     _display displayCtrl DB_RUI_IDC_LOGO
 ];
 
+private _resetCtrl =
+{
+    params ["_ctrl"];
+    _ctrl ctrlSetPosition [0, 0, 0, 0];
+    _ctrl ctrlCommit 0;
+};
+
 private _wallCtrls = [];
 for "_index" from 0 to (_columnCount - 1) do
 {
     private _ctrl = _display ctrlCreate ["DB_RUI_RscPicture", -1, _worldGroup];
     _ctrl ctrlSetText DB_RUI_CLEAR_TEXTURE;
     _ctrl ctrlSetTextColor [1, 1, 1, 1];
-    _ctrl ctrlSetPosition [0, 0, 0, 0];
-    _ctrl ctrlCommit 0;
+    [_ctrl] call _resetCtrl;
     _wallCtrls pushBack _ctrl;
 };
 
 private _spritePool = [];
 for "_slot" from 0 to (DB_RUI_MAX_SPRITES - 1) do
 {
-    private _main = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
-    private _second = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
-    private _third = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
-    private _fourth = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
-    private _fifth = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
-
+    private _slotCtrls = [];
+    for "_part" from 0 to 4 do
     {
-        _x ctrlSetPosition [0, 0, 0, 0];
-        _x ctrlCommit 0;
-        _x ctrlShow false;
-    }
-    forEach [_main, _second, _third, _fourth, _fifth];
-
-    _spritePool pushBack [_main, _second, _third, _fourth, _fifth];
-};
-
-private _wallCache = [[], [], [], []];
-{
-    private _folder = _x;
-    private _paths = [];
-
-    for "_slice" from 0 to (DB_RUI_SLICE_COUNT - 1) do
-    {
-        private _suffix = if (_slice < 10) then {format ["0%1", _slice]} else {str _slice};
-        _paths pushBack format ["\db_raycastui\data\walls\%1\jpg\slice_%2.paa", _folder, _suffix];
+        private _ctrl = _display ctrlCreate ["DB_RUI_RscText", -1, _spriteGroup];
+        [_ctrl] call _resetCtrl;
+        _ctrl ctrlShow false;
+        _slotCtrls pushBack _ctrl;
     };
 
-    _wallCache set [_forEachIndex + 1, _paths];
-}
-forEach ["brick", "tech", "stone"];
+    _spritePool pushBack _slotCtrls;
+};
+
+private _buildWallSet =
+{
+    params ["_folder"];
+
+    private _paths = [];
+    for "_slice" from 0 to (DB_RUI_SLICE_COUNT - 1) do
+    {
+        _paths pushBack format
+        [
+            "\db_raycastui\data\walls\%1\jpg\slice_%2%3.paa",
+            _folder,
+            if (_slice < 10) then {"0"} else {""},
+            _slice
+        ];
+    };
+
+    _paths
+};
+
+private _wallCache =
+[
+    [],
+    ["brick"] call _buildWallSet,
+    ["tech"] call _buildWallSet,
+    ["stone"] call _buildWallSet
+];
 
 private _state =
 [
@@ -123,8 +136,8 @@ private _state =
     [],
     0,
     0,
-    [0, 0, 0, 100, 16, 0, 0],
-    [false, false, false, false, false, false],
+    [],
+    [],
     [],
     _wallCtrls,
     _spritePool,
@@ -134,7 +147,7 @@ private _state =
     [],
     [diag_tickTime, 0.016, 16, 0, 60],
     "",
-    diag_tickTime + 14,
+    (diag_tickTime + 14),
     "blood",
     "grate",
     [-1, -1, -1, -1, -1, -1, -1, -1, -1],
@@ -145,6 +158,7 @@ private _state =
 _state = [_state] call DB_fnc_rui_resetRun;
 uiNamespace setVariable [DB_RUI_KEY_GATE_VAR, [-1, -1, -1]];
 uiNamespace setVariable [DB_RUI_FOCUS_TRACE_VAR, -999];
+uiNamespace setVariable [DB_RUI_SOUND_COOLDOWNS_VAR, createHashMap];
 
 private _debugBg = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_BG;
 private _debugText = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_TEXT;
@@ -169,6 +183,30 @@ diag_log text format
     if (isNull _inputCapture) then {false} else {ctrlEnabled _inputCapture}
 ];
 
+private _syncMouseFire =
+{
+    params ["_display", "_isDown"];
+
+    private _state = GET_UIVAR(DB_RUI_STATE_VAR, []);
+    if (_state isEqualTo []) exitWith
+    {
+        false
+    };
+
+    private _input = +(_state # DB_RUI_S_INPUT);
+    _input set [DB_RUI_IN_FIRE, _isDown];
+    _state set [DB_RUI_S_INPUT, _input];
+    SET_UIVAR(DB_RUI_STATE_VAR, _state);
+
+    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
+    if (!isNull _capture) then
+    {
+        ctrlSetFocus _capture;
+    };
+
+    true
+};
+
 private _keyDownEh = _display displayAddEventHandler ["KeyDown",
 {
     params ["_display", "_dikCode", "_shift", "_ctrlKey", "_alt"];
@@ -184,59 +222,23 @@ private _keyUpEh = _display displayAddEventHandler ["KeyUp",
 private _mouseDownEh = _display displayAddEventHandler ["MouseButtonDown",
 {
     params ["_display", "_button"];
-
     if (_button != 0) exitWith
     {
         false
     };
 
-    private _state = GET_UIVAR(DB_RUI_STATE_VAR, []);
-    if (_state isEqualTo []) exitWith
-    {
-        false
-    };
-
-    private _input = +(_state # DB_RUI_S_INPUT);
-    _input set [DB_RUI_IN_FIRE, true];
-    _state set [DB_RUI_S_INPUT, _input];
-    SET_UIVAR(DB_RUI_STATE_VAR, _state);
-
-    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
-    if (!isNull _capture) then
-    {
-        ctrlSetFocus _capture;
-    };
-
-    true
+    [_display, true] call _syncMouseFire
 }];
 
 private _mouseUpEh = _display displayAddEventHandler ["MouseButtonUp",
 {
     params ["_display", "_button"];
-
     if (_button != 0) exitWith
     {
         false
     };
 
-    private _state = GET_UIVAR(DB_RUI_STATE_VAR, []);
-    if (_state isEqualTo []) exitWith
-    {
-        false
-    };
-
-    private _input = +(_state # DB_RUI_S_INPUT);
-    _input set [DB_RUI_IN_FIRE, false];
-    _state set [DB_RUI_S_INPUT, _input];
-    SET_UIVAR(DB_RUI_STATE_VAR, _state);
-
-    private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
-    if (!isNull _capture) then
-    {
-        ctrlSetFocus _capture;
-    };
-
-    true
+    [_display, false] call _syncMouseFire
 }];
 
 private _mouseMovingEh = _display displayAddEventHandler ["MouseMoving",
@@ -282,10 +284,7 @@ if (!isNull _inputCapture) then
         params ["_ctrl"];
         diag_log text format ["[DB_RUI] inputCapture killFocus idc=%1", ctrlIDC _ctrl];
     }];
-};
 
-if (!isNull _inputCapture) then
-{
     ctrlSetFocus _inputCapture;
     _inputCapture ctrlSetTextSelection [0, 0];
 };

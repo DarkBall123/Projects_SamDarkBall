@@ -17,9 +17,6 @@ if !((_state # DB_RUI_S_OUTCOME) isEqualTo "") exitWith
 private _settings = _state # DB_RUI_S_SETTINGS;
 private _player = +(_state # DB_RUI_S_PLAYER);
 private _input = _state # DB_RUI_S_INPUT;
-private _grid = _state # DB_RUI_S_GRID;
-private _width = _state # DB_RUI_S_WIDTH;
-private _height = _state # DB_RUI_S_HEIGHT;
 private _stats = _state # DB_RUI_S_STATS;
 private _delta = _stats # DB_RUI_STATS_DELTA;
 
@@ -48,40 +45,25 @@ if (_input # DB_RUI_IN_TURN_LEFT) then
 private _dir = (_player # DB_RUI_P_DIR) + (_turnAxis * ((_settings # DB_RUI_CFG_TURN_SPEED) * _delta));
 _dir = ((_dir % 360) + 360) % 360;
 
-private _moveDistance = (_settings # DB_RUI_CFG_MOVE_SPEED) * _delta * _moveAxis;
-private _stepX = (cos _dir) * _moveDistance;
-private _stepY = (sin _dir) * _moveDistance;
-
 private _playerX = _player # DB_RUI_P_X;
 private _playerY = _player # DB_RUI_P_Y;
-private _radius = 0.18;
-
-private _isBlocked =
-{
-    params ["_testX", "_testY"];
-    private _cellX = floor _testX;
-    private _cellY = floor _testY;
-
-    if ((_cellX < 0) || {_cellX >= _width} || {_cellY < 0} || {_cellY >= _height}) exitWith
-    {
-        true
-    };
-
-    ((_grid # _cellY) # _cellX) > 0
-};
 
 if (_moveAxis != 0) then
 {
+    private _moveDistance = (_settings # DB_RUI_CFG_MOVE_SPEED) * _delta * _moveAxis;
+    private _stepX = (cos _dir) * _moveDistance;
+    private _stepY = (sin _dir) * _moveDistance;
+
     private _nextX = _playerX + _stepX;
-    private _checkX = _nextX + (_radius * (if (_stepX >= 0) then {1} else {-1}));
-    if !([_checkX, _playerY] call _isBlocked) then
+    private _checkX = _nextX + (DB_RUI_PLAYER_RADIUS * (if (_stepX >= 0) then {1} else {-1}));
+    if !([_state, _checkX, _playerY] call DB_fnc_rui_isBlocked) then
     {
         _playerX = _nextX;
     };
 
     private _nextY = _playerY + _stepY;
-    private _checkY = _nextY + (_radius * (if (_stepY >= 0) then {1} else {-1}));
-    if !([_playerX, _checkY] call _isBlocked) then
+    private _checkY = _nextY + (DB_RUI_PLAYER_RADIUS * (if (_stepY >= 0) then {1} else {-1}));
+    if !([_state, _playerX, _checkY] call DB_fnc_rui_isBlocked) then
     {
         _playerY = _nextY;
     };
@@ -94,17 +76,17 @@ private _pickups = +(_state # DB_RUI_S_PICKUPS);
     {
         private _dx = (_pickup # DB_RUI_PK_X) - _playerX;
         private _dy = (_pickup # DB_RUI_PK_Y) - _playerY;
-        if (((_dx * _dx) + (_dy * _dy)) <= 0.40) then
+        if (((_dx * _dx) + (_dy * _dy)) <= DB_RUI_PICKUP_RADIUS_SQR) then
         {
             switch (_pickup # DB_RUI_PK_TYPE) do
             {
                 case "medkit":
                 {
-                    _player set [DB_RUI_P_HP, ((_player # DB_RUI_P_HP) + (_pickup # DB_RUI_PK_VALUE)) min 100];
+                    _player set [DB_RUI_P_HP, ((_player # DB_RUI_P_HP) + (_pickup # DB_RUI_PK_VALUE)) min DB_RUI_PLAYER_MAX_HP];
                 };
                 default
                 {
-                    _player set [DB_RUI_P_AMMO, ((_player # DB_RUI_P_AMMO) + (_pickup # DB_RUI_PK_VALUE)) min 99];
+                    _player set [DB_RUI_P_AMMO, ((_player # DB_RUI_P_AMMO) + (_pickup # DB_RUI_PK_VALUE)) min DB_RUI_PLAYER_MAX_RESERVE_AMMO];
                 };
             };
 

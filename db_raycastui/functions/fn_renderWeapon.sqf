@@ -16,33 +16,92 @@ private _player = _state # DB_RUI_S_PLAYER;
 private _input = _state # DB_RUI_S_INPUT;
 private _outcome = _state # DB_RUI_S_OUTCOME;
 private _time = diag_tickTime;
+private _weaponId = _player # DB_RUI_P_WEAPON;
+private _flashActive = _time < (_player # DB_RUI_P_FLASH_UNTIL);
+private _reloadState = _player # DB_RUI_P_RELOAD_STATE;
+private _switching = _time < (_player # DB_RUI_P_SWITCH_UNTIL);
 
-private _baseX = DB_RUI_W * 0.32;
-private _baseY = DB_RUI_H * 0.72;
-private _bobStrength = 0;
-
-if ((_input # DB_RUI_IN_FORWARD) || {_input # DB_RUI_IN_BACK}) then
+private _layout = switch (_weaponId) do
 {
-    _bobStrength = (sin (_time * 520)) * (DB_RUI_W * 0.004);
+    case DB_RUI_WPN_SHOTGUN:
+    {
+        [DB_RUI_W * 0.27, DB_RUI_H * 0.64, DB_RUI_W * 0.46, DB_RUI_H * 0.33]
+    };
+    default
+    {
+        [DB_RUI_W * 0.34, DB_RUI_H * 0.69, DB_RUI_W * 0.32, DB_RUI_H * 0.26]
+    };
 };
 
-private _kick = 0;
-if (_time < (_player # DB_RUI_P_FLASH_UNTIL)) then
+_layout params ["_baseX", "_baseY", "_width", "_height"];
+private _texture = if (_weaponId == DB_RUI_WPN_SHOTGUN) then
 {
-    _kick = DB_RUI_H * 0.012;
-    _weaponCtrl ctrlSetTextColor [1, 1, 1, 1];
+    "\db_raycastui\data\ui\weapon\shotgun.paa"
 }
 else
 {
-    _weaponCtrl ctrlSetTextColor [0.92, 0.92, 0.92, 1];
+    "\db_raycastui\data\ui\weapon\blaster.paa"
+};
+private _bobX = 0;
+private _bobY = 0;
+
+if ((_input # DB_RUI_IN_FORWARD) || {_input # DB_RUI_IN_BACK}) then
+{
+    _bobX = (sin (_time * 460)) * (DB_RUI_W * 0.0045);
+    _bobY = abs (cos (_time * 460)) * (DB_RUI_H * 0.010);
+};
+
+switch (_weaponId) do
+{
+    case DB_RUI_WPN_SHOTGUN:
+    {
+        if (_reloadState == DB_RUI_RELOAD_SHOTGUN) then
+        {
+            _texture = "\db_raycastui\data\ui\weapon\shotgun_reload.paa";
+            _baseY = _baseY + (DB_RUI_H * 0.03);
+        };
+
+        if (_flashActive) then
+        {
+            _texture = "\db_raycastui\data\ui\weapon\shotgun_fire.paa";
+            _baseY = _baseY - (DB_RUI_H * 0.018);
+            _baseX = _baseX - (DB_RUI_W * 0.010);
+        };
+    };
+    default
+    {
+        if (_flashActive) then
+        {
+            _texture = "\db_raycastui\data\ui\weapon\blaster_fire.paa";
+            _baseY = _baseY - (DB_RUI_H * 0.012);
+            _baseX = _baseX - (DB_RUI_W * 0.006);
+        };
+
+        if (_reloadState == DB_RUI_RELOAD_PISTOL) then
+        {
+            _baseY = _baseY + (DB_RUI_H * 0.045);
+            _bobX = _bobX - (DB_RUI_W * 0.012);
+        };
+    };
+};
+
+if (_switching) then
+{
+    _baseY = _baseY + (DB_RUI_H * 0.06);
 };
 
 if !(_outcome isEqualTo "") then
 {
-    _baseY = DB_RUI_H * 0.76;
+    _baseY = _baseY + (DB_RUI_H * 0.05);
+    _weaponCtrl ctrlSetTextColor [0.62, 0.62, 0.62, 0.92];
+}
+else
+{
+    _weaponCtrl ctrlSetTextColor (if (_flashActive) then {[1, 1, 1, 1]} else {[0.96, 0.96, 0.96, 1]});
 };
 
-_weaponCtrl ctrlSetPosition [_baseX + _bobStrength, _baseY - _kick, DB_RUI_W * 0.36, DB_RUI_H * 0.27];
+_weaponCtrl ctrlSetText _texture;
+_weaponCtrl ctrlSetPosition [_baseX + _bobX, _baseY + _bobY, _width, _height];
 _weaponCtrl ctrlCommit 0;
 
 _state

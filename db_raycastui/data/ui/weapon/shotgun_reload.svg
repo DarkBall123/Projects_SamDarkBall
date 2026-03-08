@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="384" viewBox="0 0 768 384">
+  <g transform="translate(88 72)">
+    <path d="M72 222 L124 174 L246 150 L392 150 L520 126 L562 126 L586 144 L570 160 L606 182 L612 208 L590 228 L560 232 L516 246 L462 246 L434 266 L388 266 L340 238 L216 238 L176 262 L126 262 L104 232 L78 232 Z" fill="#402513"/>
+    <path d="M86 214 L134 178 L250 156 L390 156 L510 134 L548 134 L564 146 L552 158 L584 176 L590 202 L572 218 L544 220 L500 232 L452 232 L428 250 L392 250 L350 226 L220 226 L182 248 L138 248 L120 224 L92 224 Z" fill="#6c3f18"/>
+    <rect x="286" y="162" width="214" height="20" rx="10" fill="#87919b"/>
+    <rect x="470" y="168" width="116" height="12" rx="6" fill="#b4bcc3"/>
+    <rect x="216" y="186" width="158" height="22" rx="10" fill="#512d17"/>
+    <rect x="228" y="192" width="130" height="10" rx="5" fill="#d0a35d"/>
+    <path d="M138 246 L184 246 L222 304 L154 304 L132 278 Z" fill="#261815"/>
+    <path d="M150 186 L202 170 L232 170 L226 208 L162 214 Z" fill="#2a1a15"/>
+    <rect x="408" y="154" width="42" height="28" rx="8" fill="#41484f"/>
+    <rect x="362" y="190" width="42" height="12" rx="6" fill="#291813"/>
+    <path d="M390 140 L410 124 L426 140 L420 160 L394 160 Z" fill="#d9a84f"/>
+  </g>
+</svg>

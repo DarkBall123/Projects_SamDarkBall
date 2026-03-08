@@ -30,6 +30,8 @@ _debugBg ctrlSetBackgroundColor [0, 0, 0, 0.72];
 private _player = _state # DB_RUI_S_PLAYER;
 private _stats = _state # DB_RUI_S_STATS;
 private _aliveEnemies = count ((_state # DB_RUI_S_ENEMIES) select {_x # DB_RUI_E_ALIVE});
+private _weaponInfo = [_player] call DB_fnc_rui_getWeaponInfo;
+_weaponInfo params ["_weaponText", "_clipText", "_reserveText"];
 private _fpsText = (_stats # DB_RUI_STATS_FPS) toFixed 1;
 private _frameText = (_stats # DB_RUI_STATS_FRAME_MS) toFixed 2;
 private _rayText = (_stats # DB_RUI_STATS_RAY_MS) toFixed 2;
@@ -38,13 +40,16 @@ private _posYText = (_player # DB_RUI_P_Y) toFixed 2;
 private _dirText = (_player # DB_RUI_P_DIR) toFixed 1;
 private _text = format
 [
-    "<t shadow='1'>FPS %1<br/>FRAME %2 ms<br/>RAY %3 ms<br/>POS %4 / %5<br/>DIR %6<br/>ENEMIES %7<br/>COLUMNS %8<br/>QUALITY %9</t>",
+    "<t shadow='1'>FPS %1<br/>FRAME %2 ms<br/>RAY %3 ms<br/>POS %4 / %5<br/>DIR %6<br/>WEAPON %7 (%8|%9)<br/>ENEMIES %10<br/>COLUMNS %11<br/>QUALITY %12</t>",
     _fpsText,
     _frameText,
     _rayText,
     _posXText,
     _posYText,
     _dirText,
+    _weaponText,
+    _clipText,
+    _reserveText,
     _aliveEnemies,
     _settings # DB_RUI_CFG_COLUMNS,
     _settings # DB_RUI_CFG_QUALITY_NAME

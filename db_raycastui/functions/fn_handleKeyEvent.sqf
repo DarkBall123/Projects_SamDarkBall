@@ -28,122 +28,181 @@ uiNamespace setVariable [DB_RUI_KEY_GATE_VAR, [diag_frameNo, _dikCode, _marker]]
 
 private _input = +(_state # DB_RUI_S_INPUT);
 private _settings = +(_state # DB_RUI_S_SETTINGS);
+private _player = +(_state # DB_RUI_S_PLAYER);
 private _handled = true;
 private _recognized = true;
+private _now = diag_tickTime;
 
-if (_isDown) then
+private _setInputFlag =
 {
-    if (_dikCode in [DIK_W, DIK_UP]) then
+    params ["_flag"];
+    _input set [_flag, _isDown];
+};
+
+private _selectWeapon =
+{
+    params ["_weaponId"];
+
+    if ((_player # DB_RUI_P_RELOAD_STATE) != DB_RUI_RELOAD_NONE) exitWith
     {
-        _input set [DB_RUI_IN_FORWARD, true];
+        false
+    };
+
+    if (_now < (_player # DB_RUI_P_SWITCH_UNTIL)) exitWith
+    {
+        false
+    };
+
+    if ((_weaponId == DB_RUI_WPN_SHOTGUN) && {!(_player # DB_RUI_P_HAS_SHOTGUN)}) exitWith
+    {
+        false
+    };
+
+    if ((_player # DB_RUI_P_WEAPON) == _weaponId) exitWith
+    {
+        false
+    };
+
+    _player set [DB_RUI_P_WEAPON, _weaponId];
+    _player set [DB_RUI_P_SWITCH_UNTIL, _now + DB_RUI_SWITCH_TIME];
+    _player set [DB_RUI_P_NEXT_FIRE, (_player # DB_RUI_P_NEXT_FIRE) max (_now + DB_RUI_SWITCH_TIME)];
+    true
+};
+
+private _toggleWeapon =
+{
+    private _targetWeapon = if ((_player # DB_RUI_P_WEAPON) == DB_RUI_WPN_PISTOL) then
+    {
+        DB_RUI_WPN_SHOTGUN
     }
     else
     {
-        if (_dikCode in [DIK_S, DIK_DOWN]) then
+        DB_RUI_WPN_PISTOL
+    };
+
+    [_targetWeapon] call _selectWeapon
+};
+
+switch true do
+{
+    case (_dikCode in [DIK_W, DIK_UP]):
+    {
+        [DB_RUI_IN_FORWARD] call _setInputFlag;
+    };
+    case (_dikCode in [DIK_S, DIK_DOWN]):
+    {
+        [DB_RUI_IN_BACK] call _setInputFlag;
+    };
+    case (_dikCode in [DIK_A, DIK_LEFT]):
+    {
+        [DB_RUI_IN_TURN_LEFT] call _setInputFlag;
+    };
+    case (_dikCode in [DIK_D, DIK_RIGHT]):
+    {
+        [DB_RUI_IN_TURN_RIGHT] call _setInputFlag;
+    };
+    default
+    {
+        if (_isDown) then
         {
-            _input set [DB_RUI_IN_BACK, true];
-        }
-        else
-        {
-            if (_dikCode in [DIK_A, DIK_LEFT]) then
+            switch (_dikCode) do
             {
-                _input set [DB_RUI_IN_TURN_LEFT, true];
-            }
-            else
-            {
-                if (_dikCode in [DIK_D, DIK_RIGHT]) then
+                case DIK_Q:
                 {
-                    _input set [DB_RUI_IN_TURN_RIGHT, true];
-                }
-                else
-                {
-                    switch (_dikCode) do
+                    if (call _toggleWeapon) then
                     {
-                        case DIK_SPACE:
-                        {
-                            _input set [DB_RUI_IN_FIRE, true];
-                        };
-                        case DIK_R:
-                        {
-                            _input set [DB_RUI_IN_RESTART, true];
-                        };
-                        case DIK_F1:
-                        {
-                            _settings set [DB_RUI_CFG_DEBUG, !(_settings # DB_RUI_CFG_DEBUG)];
-                            _state set [DB_RUI_S_SETTINGS, _settings];
-                        };
-                        case DIK_X:
-                        {
-                            diag_log text "[DB_RUI] KeyDown requested stopGame via X";
-                            [] call DB_fnc_rui_stopGame;
-                        };
-                        case DIK_ESCAPE:
-                        {
-                            diag_log text "[DB_RUI] KeyDown requested stopGame via Escape";
-                            [] call DB_fnc_rui_stopGame;
-                        };
-                        default
-                        {
-                            _recognized = false;
-                            _handled = false;
-                        };
+                        _input set [DB_RUI_IN_SWITCH, true];
                     };
                 };
+                case DIK_1:
+                {
+                    if ([DB_RUI_WPN_PISTOL] call _selectWeapon) then
+                    {
+                        _input set [DB_RUI_IN_SWITCH, true];
+                    };
+                };
+                case DIK_2:
+                {
+                    if ([DB_RUI_WPN_SHOTGUN] call _selectWeapon) then
+                    {
+                        _input set [DB_RUI_IN_SWITCH, true];
+                    };
+                };
+                case DIK_SPACE:
+                {
+                    _input set [DB_RUI_IN_FIRE, true];
+                };
+                case DIK_E:
+                {
+                    _input set [DB_RUI_IN_RELOAD, true];
+                };
+                case DIK_R:
+                {
+                    _input set [DB_RUI_IN_RESTART, true];
+                };
+                case DIK_F1:
+                {
+                    _settings set [DB_RUI_CFG_DEBUG, !(_settings # DB_RUI_CFG_DEBUG)];
+                    _state set [DB_RUI_S_SETTINGS, _settings];
+                };
+                case DIK_X:
+                {
+                    diag_log text "[DB_RUI] KeyDown requested stopGame via X";
+                    [] call DB_fnc_rui_stopGame;
+                };
+                case DIK_ESCAPE:
+                {
+                    diag_log text "[DB_RUI] KeyDown requested stopGame via Escape";
+                    [] call DB_fnc_rui_stopGame;
+                };
+                default
+                {
+                    _recognized = false;
+                    _handled = false;
+                };
             };
-        };
-    };
-}
-else
-{
-    if (_dikCode in [DIK_W, DIK_UP]) then
-    {
-        _input set [DB_RUI_IN_FORWARD, false];
-    }
-    else
-    {
-        if (_dikCode in [DIK_S, DIK_DOWN]) then
-        {
-            _input set [DB_RUI_IN_BACK, false];
         }
         else
         {
-            if (_dikCode in [DIK_A, DIK_LEFT]) then
+            switch (_dikCode) do
             {
-                _input set [DB_RUI_IN_TURN_LEFT, false];
-            }
-            else
-            {
-                if (_dikCode in [DIK_D, DIK_RIGHT]) then
+                case DIK_Q:
                 {
-                    _input set [DB_RUI_IN_TURN_RIGHT, false];
-                }
-                else
+                    _input set [DB_RUI_IN_SWITCH, false];
+                };
+                case DIK_1:
                 {
-                    switch (_dikCode) do
-                    {
-                        case DIK_SPACE:
-                        {
-                            _input set [DB_RUI_IN_FIRE, false];
-                        };
-                        case DIK_R:
-                        {
-                            _input set [DB_RUI_IN_RESTART, false];
-                        };
-                        case DIK_F1:
-                        {
-                        };
-                        case DIK_X:
-                        {
-                        };
-                        case DIK_ESCAPE:
-                        {
-                        };
-                        default
-                        {
-                            _recognized = false;
-                            _handled = false;
-                        };
-                    };
+                    _input set [DB_RUI_IN_SWITCH, false];
+                };
+                case DIK_2:
+                {
+                    _input set [DB_RUI_IN_SWITCH, false];
+                };
+                case DIK_SPACE:
+                {
+                    _input set [DB_RUI_IN_FIRE, false];
+                };
+                case DIK_E:
+                {
+                    _input set [DB_RUI_IN_RELOAD, false];
+                };
+                case DIK_R:
+                {
+                    _input set [DB_RUI_IN_RESTART, false];
+                };
+                case DIK_F1:
+                {
+                };
+                case DIK_X:
+                {
+                };
+                case DIK_ESCAPE:
+                {
+                };
+                default
+                {
+                    _recognized = false;
+                    _handled = false;
                 };
             };
         };
@@ -151,12 +210,14 @@ else
 };
 
 _state set [DB_RUI_S_INPUT, _input];
+_state set [DB_RUI_S_PLAYER, _player];
 SET_UIVAR(DB_RUI_STATE_VAR, _state);
 
 if (_recognized) then
 {
     private _display = _state # DB_RUI_S_DISPLAY;
     private _focusedIDC = -1;
+
     if (!isNull _display) then
     {
         private _focused = focusedCtrl _display;

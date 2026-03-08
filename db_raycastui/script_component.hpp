@@ -8,6 +8,7 @@
 #define DB_RUI_STATE_VAR "DB_RUI_State"
 #define DB_RUI_KEY_GATE_VAR "DB_RUI_KeyGate"
 #define DB_RUI_FOCUS_TRACE_VAR "DB_RUI_FocusTrace"
+#define DB_RUI_SOUND_COOLDOWNS_VAR "DB_RUI_SoundCooldowns"
 
 #define DB_RUI_X safeZoneX
 #define DB_RUI_Y safeZoneY
@@ -41,8 +42,36 @@
 #define DB_RUI_MAX_SPRITES 16
 #define DB_RUI_CLEAR_TEXTURE "#(argb,8,8,3)color(0,0,0,0)"
 #define DB_RUI_WHITE_TEXTURE "#(argb,8,8,3)color(1,1,1,1)"
+#define DB_RUI_HELP_TEXT "W/S move<br/>A/D turn<br/>SPACE or LMB fire<br/>E reload | Q or 1/2 switch<br/>R restart run<br/>F1 debug | X or Esc exit"
 
 #define DB_RUI_DIFFERENCE_EPSILON 0.0001
+
+#define DB_RUI_SWITCH_TIME 0.22
+#define DB_RUI_LOS_TRACE_EXTRA 0.05
+#define DB_RUI_LOS_PADDING 0.08
+#define DB_RUI_PLAYER_RADIUS 0.18
+#define DB_RUI_ENEMY_RADIUS 0.16
+#define DB_RUI_PICKUP_RADIUS_SQR 0.40
+#define DB_RUI_PLAYER_MAX_HP 100
+#define DB_RUI_PLAYER_MAX_RESERVE_AMMO 99
+#define DB_RUI_START_RESERVE_AMMO 24
+#define DB_RUI_PISTOL_FIRE_COOLDOWN 0.21
+#define DB_RUI_PISTOL_FLASH_TIME 0.08
+#define DB_RUI_PISTOL_RELOAD_TIME 1.05
+#define DB_RUI_PISTOL_DAMAGE 30
+#define DB_RUI_PISTOL_AIM_LIMIT 6.0
+#define DB_RUI_SHOTGUN_FIRE_COOLDOWN 0.72
+#define DB_RUI_SHOTGUN_FLASH_TIME 0.14
+#define DB_RUI_SHOTGUN_RELOAD_TIME 0.46
+#define DB_RUI_SHOTGUN_AIM_LIMIT 14.0
+#define DB_RUI_ENEMY_MELEE_DAMAGE 12
+#define DB_RUI_ENEMY_MELEE_COOLDOWN 0.9
+
+#define DB_RUI_SND_PISTOL "DB_RUI_PistolShot"
+#define DB_RUI_SND_SHOTGUN "DB_RUI_ShotgunShot"
+#define DB_RUI_SND_MONSTER_ATTACK "DB_RUI_MonsterAttack"
+#define DB_RUI_SND_MONSTER_HURT "DB_RUI_MonsterHurt"
+#define DB_RUI_SND_MONSTER_DIE "DB_RUI_MonsterDie"
 
 #define DB_RUI_S_RUNNING 0
 #define DB_RUI_S_DISPLAY 1
@@ -88,6 +117,13 @@
 #define DB_RUI_P_AMMO 4
 #define DB_RUI_P_NEXT_FIRE 5
 #define DB_RUI_P_FLASH_UNTIL 6
+#define DB_RUI_P_WEAPON 7
+#define DB_RUI_P_PISTOL_CLIP 8
+#define DB_RUI_P_SHOTGUN_LOADED 9
+#define DB_RUI_P_RELOAD_UNTIL 10
+#define DB_RUI_P_RELOAD_STATE 11
+#define DB_RUI_P_SWITCH_UNTIL 12
+#define DB_RUI_P_HAS_SHOTGUN 13
 
 #define DB_RUI_IN_FORWARD 0
 #define DB_RUI_IN_BACK 1
@@ -95,6 +131,8 @@
 #define DB_RUI_IN_TURN_RIGHT 3
 #define DB_RUI_IN_FIRE 4
 #define DB_RUI_IN_RESTART 5
+#define DB_RUI_IN_RELOAD 6
+#define DB_RUI_IN_SWITCH 7
 
 #define DB_RUI_STATS_LAST_TICK 0
 #define DB_RUI_STATS_DELTA 1
@@ -145,6 +183,18 @@
 #define DB_RUI_EH_CTRL_SETFOCUS 7
 #define DB_RUI_EH_CTRL_KILLFOCUS 8
 
+#define DB_RUI_WPN_PISTOL 0
+#define DB_RUI_WPN_SHOTGUN 1
+
+#define DB_RUI_RELOAD_NONE 0
+#define DB_RUI_RELOAD_PISTOL 1
+#define DB_RUI_RELOAD_SHOTGUN 2
+
+#define DB_RUI_PISTOL_CLIP_SIZE 12
+#define DB_RUI_SHOTGUN_CHAMBER_SIZE 1
+
+#define DIK_1 2
+#define DIK_2 3
 #define DIK_ESCAPE 1
 #define DIK_Q 16
 #define DIK_W 17
