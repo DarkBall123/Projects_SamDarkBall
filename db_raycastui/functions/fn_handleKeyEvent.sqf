@@ -18,13 +18,13 @@ if (_state isEqualTo []) exitWith
 };
 
 private _marker = if (_isDown) then {1} else {0};
-private _gate = GET_UIVAR(DB_RUI_KEY_GATE_VAR, [-1, -1, -1]);
+private _gate = uiNamespace getVariable [DB_RUI_KEY_GATE_VAR, [-1, -1, -1]];
 if (((_gate # 0) == diag_frameNo) && {(_gate # 1) == _dikCode} && {(_gate # 2) == _marker}) exitWith
 {
     true
 };
 
-SET_UIVAR(DB_RUI_KEY_GATE_VAR, [diag_frameNo, _dikCode, _marker]);
+uiNamespace setVariable [DB_RUI_KEY_GATE_VAR, [diag_frameNo, _dikCode, _marker]];
 
 private _input = +(_state # DB_RUI_S_INPUT);
 private _settings = +(_state # DB_RUI_S_SETTINGS);

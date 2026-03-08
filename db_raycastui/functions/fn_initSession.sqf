@@ -143,8 +143,8 @@ private _state =
 ];
 
 _state = [_state] call DB_fnc_rui_resetRun;
-SET_UIVAR(DB_RUI_KEY_GATE_VAR, [-1, -1, -1]);
-SET_UIVAR(DB_RUI_FOCUS_TRACE_VAR, -999);
+uiNamespace setVariable [DB_RUI_KEY_GATE_VAR, [-1, -1, -1]];
+uiNamespace setVariable [DB_RUI_FOCUS_TRACE_VAR, -999];
 
 private _debugBg = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_BG;
 private _debugText = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_TEXT;
