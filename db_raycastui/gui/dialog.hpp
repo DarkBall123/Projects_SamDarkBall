@@ -224,10 +224,10 @@ class DB_RaycastUIDialog
         class InputCapture : DB_RUI_RscEditReadOnly
         {
             idc = DB_RUI_IDC_INPUT_CAPTURE;
-            x = -10;
-            y = -10;
-            w = pixelW;
-            h = pixelH;
+            x = DB_RUI_X + pixelW;
+            y = DB_RUI_Y + pixelH;
+            w = pixelW * 4;
+            h = pixelH * 4;
             text = " ";
         };
     };

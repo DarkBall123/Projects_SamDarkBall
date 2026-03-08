@@ -28,6 +28,7 @@ class CfgFunctions
             class rui_initSession { file = "\db_raycastui\functions\fn_initSession.sqf"; };
             class rui_shutdownSession { file = "\db_raycastui\functions\fn_shutdownSession.sqf"; };
             class rui_tick { file = "\db_raycastui\functions\fn_tick.sqf"; };
+            class rui_handleKeyEvent { file = "\db_raycastui\functions\fn_handleKeyEvent.sqf"; };
             class rui_handleInput { file = "\db_raycastui\functions\fn_handleInput.sqf"; };
             class rui_movePlayer { file = "\db_raycastui\functions\fn_movePlayer.sqf"; };
             class rui_castRay { file = "\db_raycastui\functions\fn_castRay.sqf"; };

@@ -137,154 +137,48 @@ private _state =
     diag_tickTime + 14,
     "blood",
     "grate",
-    [-1, -1, -1, -1, -1],
+    [-1, -1, -1, -1, -1, -1, -1, -1, -1],
     _wallCache,
     -1
 ];
 
 _state = [_state] call DB_fnc_rui_resetRun;
+SET_UIVAR(DB_RUI_KEY_GATE_VAR, [-1, -1, -1]);
+SET_UIVAR(DB_RUI_FOCUS_TRACE_VAR, -999);
 
 private _debugBg = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_BG;
 private _debugText = (_state # DB_RUI_S_HUD_CTRLS) # DB_RUI_HUD_DEBUG_TEXT;
 _debugBg ctrlShow false;
 _debugText ctrlShow false;
 
+if (!isNull _inputCapture) then
+{
+    _inputCapture ctrlEnable true;
+    _inputCapture ctrlSetText " ";
+    _inputCapture ctrlSetTextSelection [0, 0];
+};
+
+diag_log text format
+[
+    "[DB_RUI] initSession map=%1 quality=%2 debug=%3 displayIDD=%4 inputIDC=%5 inputEnabled=%6",
+    toLower _mapId,
+    _qualityName,
+    _debug,
+    DB_RUI_IDD,
+    if (isNull _inputCapture) then {-1} else {ctrlIDC _inputCapture},
+    if (isNull _inputCapture) then {false} else {ctrlEnabled _inputCapture}
+];
+
 private _keyDownEh = _display displayAddEventHandler ["KeyDown",
 {
-    params ["_display", "_dikCode"];
-
-    private _state = GET_UIVAR(DB_RUI_STATE_VAR, []);
-    if (_state isEqualTo []) exitWith
-    {
-        false
-    };
-
-    private _input = +(_state # DB_RUI_S_INPUT);
-    private _settings = _state # DB_RUI_S_SETTINGS;
-    private _handled = true;
-
-    if (_dikCode in [DIK_W, DIK_UP]) then
-    {
-        _input set [DB_RUI_IN_FORWARD, true];
-    }
-    else
-    {
-        if (_dikCode in [DIK_S, DIK_DOWN]) then
-        {
-            _input set [DB_RUI_IN_BACK, true];
-        }
-        else
-        {
-            if (_dikCode in [DIK_A, DIK_LEFT]) then
-            {
-                _input set [DB_RUI_IN_TURN_LEFT, true];
-            }
-            else
-            {
-                if (_dikCode in [DIK_D, DIK_RIGHT]) then
-                {
-                    _input set [DB_RUI_IN_TURN_RIGHT, true];
-                }
-                else
-                {
-                    switch (_dikCode) do
-                    {
-                        case DIK_SPACE:
-                        {
-                            _input set [DB_RUI_IN_FIRE, true];
-                        };
-                        case DIK_R:
-                        {
-                            _input set [DB_RUI_IN_RESTART, true];
-                        };
-                        case DIK_F1:
-                        {
-                            _settings set [DB_RUI_CFG_DEBUG, !(_settings # DB_RUI_CFG_DEBUG)];
-                            _state set [DB_RUI_S_SETTINGS, _settings];
-                        };
-                        case DIK_X:
-                        {
-                            [] call DB_fnc_rui_stopGame;
-                        };
-                        case DIK_ESCAPE:
-                        {
-                            [] call DB_fnc_rui_stopGame;
-                        };
-                        default
-                        {
-                            _handled = false;
-                        };
-                    };
-                };
-            };
-        };
-    };
-
-    _state set [DB_RUI_S_INPUT, _input];
-    SET_UIVAR(DB_RUI_STATE_VAR, _state);
-    _handled
+    params ["_display", "_dikCode", "_shift", "_ctrlKey", "_alt"];
+    [_display, _dikCode, true, _shift, _ctrlKey, _alt] call DB_fnc_rui_handleKeyEvent
 }];
 
 private _keyUpEh = _display displayAddEventHandler ["KeyUp",
 {
-    params ["_display", "_dikCode"];
-
-    private _state = GET_UIVAR(DB_RUI_STATE_VAR, []);
-    if (_state isEqualTo []) exitWith
-    {
-        false
-    };
-
-    private _input = +(_state # DB_RUI_S_INPUT);
-    private _handled = true;
-
-    if (_dikCode in [DIK_W, DIK_UP]) then
-    {
-        _input set [DB_RUI_IN_FORWARD, false];
-    }
-    else
-    {
-        if (_dikCode in [DIK_S, DIK_DOWN]) then
-        {
-            _input set [DB_RUI_IN_BACK, false];
-        }
-        else
-        {
-            if (_dikCode in [DIK_A, DIK_LEFT]) then
-            {
-                _input set [DB_RUI_IN_TURN_LEFT, false];
-            }
-            else
-            {
-                if (_dikCode in [DIK_D, DIK_RIGHT]) then
-                {
-                    _input set [DB_RUI_IN_TURN_RIGHT, false];
-                }
-                else
-                {
-                    switch (_dikCode) do
-                    {
-                        case DIK_SPACE:
-                        {
-                            _input set [DB_RUI_IN_FIRE, false];
-                        };
-                        case DIK_R:
-                        {
-                            _input set [DB_RUI_IN_RESTART, false];
-                        };
-                        default
-                        {
-                            _handled = false;
-                        };
-                    };
-                };
-            };
-        };
-    };
-
-    _state set [DB_RUI_S_INPUT, _input];
-    SET_UIVAR(DB_RUI_STATE_VAR, _state);
-    _handled
+    params ["_display", "_dikCode", "_shift", "_ctrlKey", "_alt"];
+    [_display, _dikCode, false, _shift, _ctrlKey, _alt] call DB_fnc_rui_handleKeyEvent
 }];
 
 private _mouseDownEh = _display displayAddEventHandler ["MouseButtonDown",
@@ -349,8 +243,6 @@ private _mouseMovingEh = _display displayAddEventHandler ["MouseMoving",
 {
     params ["_display"];
 
-    showCursor false;
-
     private _capture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
     if (!isNull _capture) then
     {
@@ -360,13 +252,45 @@ private _mouseMovingEh = _display displayAddEventHandler ["MouseMoving",
     false
 }];
 
-showCursor false;
+private _ctrlKeyDownEh = -1;
+private _ctrlKeyUpEh = -1;
+private _ctrlSetFocusEh = -1;
+private _ctrlKillFocusEh = -1;
+
+if (!isNull _inputCapture) then
+{
+    _ctrlKeyDownEh = _inputCapture ctrlAddEventHandler ["KeyDown",
+    {
+        params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt"];
+        [_ctrl, _dikCode, true, _shift, _ctrlKey, _alt] call DB_fnc_rui_handleKeyEvent
+    }];
+
+    _ctrlKeyUpEh = _inputCapture ctrlAddEventHandler ["KeyUp",
+    {
+        params ["_ctrl", "_dikCode", "_shift", "_ctrlKey", "_alt"];
+        [_ctrl, _dikCode, false, _shift, _ctrlKey, _alt] call DB_fnc_rui_handleKeyEvent
+    }];
+
+    _ctrlSetFocusEh = _inputCapture ctrlAddEventHandler ["SetFocus",
+    {
+        params ["_ctrl"];
+        diag_log text format ["[DB_RUI] inputCapture setFocus idc=%1", ctrlIDC _ctrl];
+    }];
+
+    _ctrlKillFocusEh = _inputCapture ctrlAddEventHandler ["KillFocus",
+    {
+        params ["_ctrl"];
+        diag_log text format ["[DB_RUI] inputCapture killFocus idc=%1", ctrlIDC _ctrl];
+    }];
+};
+
 if (!isNull _inputCapture) then
 {
     ctrlSetFocus _inputCapture;
+    _inputCapture ctrlSetTextSelection [0, 0];
 };
 
-_state set [DB_RUI_S_INPUT_EHS, [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh]];
+_state set [DB_RUI_S_INPUT_EHS, [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh, _ctrlKeyDownEh, _ctrlKeyUpEh, _ctrlSetFocusEh, _ctrlKillFocusEh]];
 
 private _frameEh = addMissionEventHandler ["EachFrame",
 {
@@ -376,6 +300,14 @@ private _frameEh = addMissionEventHandler ["EachFrame",
 _state set [DB_RUI_S_FRAME_EH, _frameEh];
 SET_UIVAR(DB_RUI_DISPLAY_VAR, _display);
 SET_UIVAR(DB_RUI_STATE_VAR, _state);
+
+diag_log text format
+[
+    "[DB_RUI] initSession handlers display=%1 control=%2 frame=%3",
+    [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh],
+    [_ctrlKeyDownEh, _ctrlKeyUpEh, _ctrlSetFocusEh, _ctrlKillFocusEh],
+    _frameEh
+];
 
 call DB_fnc_rui_tick;
 

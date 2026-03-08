@@ -6,6 +6,8 @@
 
 #define DB_RUI_DISPLAY_VAR "DB_RUI_Display"
 #define DB_RUI_STATE_VAR "DB_RUI_State"
+#define DB_RUI_KEY_GATE_VAR "DB_RUI_KeyGate"
+#define DB_RUI_FOCUS_TRACE_VAR "DB_RUI_FocusTrace"
 
 #define DB_RUI_X safeZoneX
 #define DB_RUI_Y safeZoneY
@@ -138,6 +140,10 @@
 #define DB_RUI_EH_MOUSEDOWN 2
 #define DB_RUI_EH_MOUSEUP 3
 #define DB_RUI_EH_MOUSEMOVING 4
+#define DB_RUI_EH_CTRL_KEYDOWN 5
+#define DB_RUI_EH_CTRL_KEYUP 6
+#define DB_RUI_EH_CTRL_SETFOCUS 7
+#define DB_RUI_EH_CTRL_KILLFOCUS 8
 
 #define DIK_ESCAPE 1
 #define DIK_Q 16

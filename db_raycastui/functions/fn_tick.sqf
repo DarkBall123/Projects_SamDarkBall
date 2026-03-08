@@ -26,11 +26,33 @@ if (isNull _display) exitWith
     [] call DB_fnc_rui_stopGame;
 };
 
-showCursor false;
 private _inputCapture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
+private _focusedIDC = -1;
+private _focusedCtrl = focusedCtrl _display;
+if (!isNull _focusedCtrl) then
+{
+    _focusedIDC = ctrlIDC _focusedCtrl;
+};
+
+private _lastFocusedIDC = GET_UIVAR(DB_RUI_FOCUS_TRACE_VAR, -999);
+if (_focusedIDC != _lastFocusedIDC) then
+{
+    diag_log text format ["[DB_RUI] focus changed to IDC %1", _focusedIDC];
+    SET_UIVAR(DB_RUI_FOCUS_TRACE_VAR, _focusedIDC);
+};
+
 if (!isNull _inputCapture) then
 {
-    ctrlSetFocus _inputCapture;
+    if (_focusedCtrl != _inputCapture) then
+    {
+        if (_focusedIDC != _lastFocusedIDC) then
+        {
+            diag_log text format ["[DB_RUI] tick restoring focus from IDC %1 to input capture", _focusedIDC];
+        };
+
+        ctrlSetFocus _inputCapture;
+        _inputCapture ctrlSetTextSelection [0, 0];
+    };
 };
 
 private _stats = +(_state # DB_RUI_S_STATS);
