@@ -52,7 +52,7 @@ private _isBlocked =
         _x set [DB_RUI_E_DIR, _angleTo];
         _x set [DB_RUI_E_ANIM_FRAME, (_x # DB_RUI_E_ANIM_FRAME) + (_delta * 6)];
 
-        if ((_distance <= (_x # DB_RUI_E_ATTACK_RANGE)) && {_now >= (_x # DB_RUI_E_NEXT_ATTACK)}) then
+        if (_hasLOS && {_distance <= (_x # DB_RUI_E_ATTACK_RANGE)} && {_now >= (_x # DB_RUI_E_NEXT_ATTACK)}) then
         {
             _player set [DB_RUI_P_HP, (_player # DB_RUI_P_HP) - 12];
             _x set [DB_RUI_E_NEXT_ATTACK, _now + 0.9];
