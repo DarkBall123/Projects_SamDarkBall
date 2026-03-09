@@ -2,6 +2,8 @@
 #define DB_RUI_BOTTOM_Y (safeZoneY + safeZoneH)
 #define DB_RUI_CENTER_X (safeZoneX + (safeZoneW * 0.5))
 #define DB_RUI_CENTER_Y (safeZoneY + (safeZoneH * 0.5))
+#define DB_RUI_STATUS_H DB_RUI_GRID_H(15.2)
+#define DB_RUI_STATUS_Y (DB_RUI_BOTTOM_Y - DB_RUI_STATUS_H)
 
 class DB_RaycastUIDialog
 {
@@ -43,14 +45,14 @@ class DB_RaycastUIDialog
             colorBackground[] = {0.09, 0.09, 0.09, 1};
         };
 
-        class WeaponStrip : DB_RUI_RscText
+        class StatusBar : DB_RUI_RscPicture
         {
-            idc = DB_RUI_IDC_WEAPON_STRIP;
+            idc = DB_RUI_IDC_STATUS_BAR;
+            text = DB_RUI_TX_STATUS_BAR;
             x = safeZoneX;
-            y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(14);
+            y = DB_RUI_STATUS_Y;
             w = safeZoneW;
-            h = DB_RUI_GRID_H(14);
-            colorBackground[] = {0.02, 0.02, 0.03, 0.90};
+            h = DB_RUI_STATUS_H;
         };
 
         class MapPlate : DB_RUI_RscText
@@ -58,19 +60,19 @@ class DB_RaycastUIDialog
             idc = -1;
             x = safeZoneX + DB_RUI_GRID_W(2);
             y = safeZoneY + DB_RUI_GRID_H(2);
-            w = DB_RUI_GRID_W(34);
-            h = DB_RUI_GRID_H(6);
-            colorBackground[] = {0.02, 0.02, 0.02, 0.28};
+            w = DB_RUI_GRID_W(28);
+            h = DB_RUI_GRID_H(5.2);
+            colorBackground[] = {0.07, 0.03, 0.03, 0.40};
         };
 
         class HelpPlate : DB_RUI_RscText
         {
             idc = -1;
-            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(32);
-            y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(15);
-            w = DB_RUI_GRID_W(30);
-            h = DB_RUI_GRID_H(13);
-            colorBackground[] = {0.02, 0.02, 0.02, 0.24};
+            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(26);
+            y = safeZoneY + DB_RUI_GRID_H(2);
+            w = DB_RUI_GRID_W(24);
+            h = DB_RUI_GRID_H(8.5);
+            colorBackground[] = {0.07, 0.03, 0.03, 0.36};
         };
 
         class DebugBackground : DB_RUI_RscText
@@ -109,31 +111,74 @@ class DB_RaycastUIDialog
             idc = DB_RUI_IDC_WEAPON;
             text = DB_RUI_TX_WPN_PISTOL;
             x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(46) * 0.5);
-            y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(12.5);
+            y = DB_RUI_STATUS_Y - DB_RUI_GRID_H(7.6);
             w = DB_RUI_GRID_W(46);
             h = DB_RUI_GRID_H(11);
-        };
-
-        class HPText : DB_RUI_RscStructuredText
-        {
-            idc = DB_RUI_IDC_HP;
-            size = DB_RUI_TEXT_SIZE_MEDIUM;
-            x = safeZoneX + DB_RUI_GRID_W(3);
-            y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(9.5);
-            w = DB_RUI_GRID_W(18);
-            h = DB_RUI_GRID_H(2.4);
-            text = "HP 100";
         };
 
         class AmmoText : DB_RUI_RscStructuredText
         {
             idc = DB_RUI_IDC_AMMO;
+            size = DB_RUI_TEXT_SIZE_LARGE;
+            x = safeZoneX + DB_RUI_GRID_W(1.8);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
+            w = DB_RUI_GRID_W(15.0);
+            h = DB_RUI_GRID_H(11.6);
+            text = "AMMO";
+        };
+
+        class HPText : DB_RUI_RscStructuredText
+        {
+            idc = DB_RUI_IDC_HP;
+            size = DB_RUI_TEXT_SIZE_LARGE;
+            x = safeZoneX + DB_RUI_GRID_W(16.8);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
+            w = DB_RUI_GRID_W(15.2);
+            h = DB_RUI_GRID_H(11.6);
+            text = "HEALTH";
+        };
+
+        class ArmsText : DB_RUI_RscStructuredText
+        {
+            idc = DB_RUI_IDC_ARMS;
             size = DB_RUI_TEXT_SIZE_MEDIUM;
-            x = safeZoneX + DB_RUI_GRID_W(3);
-            y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(6.4);
-            w = DB_RUI_GRID_W(24);
-            h = DB_RUI_GRID_H(3.0);
-            text = "PISTOL 12 | 24";
+            x = DB_RUI_CENTER_X - DB_RUI_GRID_W(12.8);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.2);
+            w = DB_RUI_GRID_W(7.4);
+            h = DB_RUI_GRID_H(10.8);
+            text = "ARMS";
+        };
+
+        class FacePicture : DB_RUI_RscPicture
+        {
+            idc = DB_RUI_IDC_FACE;
+            text = DB_RUI_TX_FACE_IDLE;
+            x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(10.8) * 0.5);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
+            w = DB_RUI_GRID_W(10.8);
+            h = DB_RUI_GRID_H(12.2);
+        };
+
+        class ArmorText : DB_RUI_RscStructuredText
+        {
+            idc = DB_RUI_IDC_ARMOR;
+            size = DB_RUI_TEXT_SIZE_LARGE;
+            x = DB_RUI_CENTER_X + DB_RUI_GRID_W(4.2);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
+            w = DB_RUI_GRID_W(15.2);
+            h = DB_RUI_GRID_H(11.6);
+            text = "ARMOR";
+        };
+
+        class AmmoTableText : DB_RUI_RscStructuredText
+        {
+            idc = DB_RUI_IDC_AMMO_TABLE;
+            size = DB_RUI_TEXT_SIZE_SMALL;
+            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(16.5);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.2);
+            w = DB_RUI_GRID_W(14.4);
+            h = DB_RUI_GRID_H(10.8);
+            text = "BULL";
         };
 
         class MapText : DB_RUI_RscStructuredText
@@ -142,8 +187,8 @@ class DB_RaycastUIDialog
             size = DB_RUI_TEXT_SIZE_SMALL;
             x = safeZoneX + DB_RUI_GRID_W(3);
             y = safeZoneY + DB_RUI_GRID_H(2.7);
-            w = DB_RUI_GRID_W(32);
-            h = DB_RUI_GRID_H(3.2);
+            w = DB_RUI_GRID_W(26);
+            h = DB_RUI_GRID_H(2.8);
             text = "CRIMSON FOUNDRY";
         };
 
@@ -151,14 +196,14 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_HELP;
             size = DB_RUI_TEXT_SIZE_SMALL;
-            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(31);
-            y = DB_RUI_BOTTOM_Y - DB_RUI_GRID_H(13);
-            w = DB_RUI_GRID_W(28);
-            h = DB_RUI_GRID_H(10.5);
+            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(25);
+            y = safeZoneY + DB_RUI_GRID_H(2.8);
+            w = DB_RUI_GRID_W(22.5);
+            h = DB_RUI_GRID_H(7.2);
             text = DB_RUI_HELP_TEXT;
             class Attributes
             {
-                font = "PuristaMedium";
+                font = "EtelkaMonospacePro";
                 color = "#F2E7BF";
                 align = "right";
                 valign = "top";
@@ -232,3 +277,5 @@ class DB_RaycastUIDialog
 #undef DB_RUI_BOTTOM_Y
 #undef DB_RUI_CENTER_X
 #undef DB_RUI_CENTER_Y
+#undef DB_RUI_STATUS_H
+#undef DB_RUI_STATUS_Y

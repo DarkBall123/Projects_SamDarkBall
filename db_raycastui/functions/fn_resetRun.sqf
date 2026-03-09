@@ -78,6 +78,7 @@ _state set [DB_RUI_S_PLAYER, _player];
 _state set [DB_RUI_S_ZBUFFER, _zBuffer];
 _state set [DB_RUI_S_ENEMIES, _enemies];
 _state set [DB_RUI_S_PICKUPS, _pickups];
+_state set [DB_RUI_S_PROJECTILES, []];
 _state set [DB_RUI_S_OUTCOME, ""];
 _state set [DB_RUI_S_HELP_UNTIL, diag_tickTime + 14];
 _state set [DB_RUI_S_SKY_STYLE, _skyStyle];
@@ -94,7 +95,8 @@ _state set [DB_RUI_S_STATS, _stats];
 private _hud = _state # DB_RUI_S_HUD_CTRLS;
 private _ceilingCtrl = _hud # DB_RUI_HUD_CEILING;
 private _floorCtrl = _hud # DB_RUI_HUD_FLOOR;
-private _weaponStrip = _hud # DB_RUI_HUD_WEAPON_STRIP;
+private _statusBarCtrl = _hud # DB_RUI_HUD_STATUS_BAR;
+private _faceCtrl = _hud # DB_RUI_HUD_FACE;
 private _outcomeCtrl = _hud # DB_RUI_HUD_OUTCOME;
 
 private _skyColor = switch (_skyStyle) do
@@ -111,6 +113,10 @@ private _skyColor = switch (_skyStyle) do
 
 private _floorColor = switch (_floorStyle) do
 {
+    case "crucible":
+    {
+        [0.17, 0.10, 0.07, 1]
+    };
     case "stone":
     {
         [0.11, 0.11, 0.13, 1]
@@ -123,7 +129,9 @@ private _floorColor = switch (_floorStyle) do
 
 _ceilingCtrl ctrlSetBackgroundColor _skyColor;
 _floorCtrl ctrlSetBackgroundColor _floorColor;
-_weaponStrip ctrlSetBackgroundColor [0.03, 0.03, 0.03, 0.92];
+_statusBarCtrl ctrlSetText DB_RUI_TX_STATUS_BAR;
+_statusBarCtrl ctrlSetTextColor [1, 1, 1, 1];
+_faceCtrl ctrlSetText DB_RUI_TX_FACE_IDLE;
 _outcomeCtrl ctrlSetStructuredText parseText "";
 
 {

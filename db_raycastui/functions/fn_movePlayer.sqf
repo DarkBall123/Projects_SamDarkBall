@@ -70,6 +70,7 @@ if (_moveAxis != 0) then
 };
 
 private _pickups = +(_state # DB_RUI_S_PICKUPS);
+private _aliveEnemies = count ((_state # DB_RUI_S_ENEMIES) select {_x # DB_RUI_E_ALIVE});
 {
     private _pickup = _x;
     if (_pickup # DB_RUI_PK_ALIVE) then
@@ -80,18 +81,28 @@ private _pickups = +(_state # DB_RUI_S_PICKUPS);
         {
             switch (_pickup # DB_RUI_PK_TYPE) do
             {
+                case "exit":
+                {
+                    if (_aliveEnemies == 0) then
+                    {
+                        _pickup set [DB_RUI_PK_ALIVE, false];
+                        _pickups set [_forEachIndex, _pickup];
+                        _state set [DB_RUI_S_OUTCOME, "won"];
+                    };
+                };
                 case "medkit":
                 {
                     _player set [DB_RUI_P_HP, ((_player # DB_RUI_P_HP) + (_pickup # DB_RUI_PK_VALUE)) min DB_RUI_PLAYER_MAX_HP];
+                    _pickup set [DB_RUI_PK_ALIVE, false];
+                    _pickups set [_forEachIndex, _pickup];
                 };
                 default
                 {
                     _player set [DB_RUI_P_AMMO, ((_player # DB_RUI_P_AMMO) + (_pickup # DB_RUI_PK_VALUE)) min DB_RUI_PLAYER_MAX_RESERVE_AMMO];
+                    _pickup set [DB_RUI_PK_ALIVE, false];
+                    _pickups set [_forEachIndex, _pickup];
                 };
             };
-
-            _pickup set [DB_RUI_PK_ALIVE, false];
-            _pickups set [_forEachIndex, _pickup];
         };
     };
 }

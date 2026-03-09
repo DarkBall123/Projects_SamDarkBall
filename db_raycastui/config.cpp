@@ -41,7 +41,9 @@ class CfgFunctions
             class rui_renderHud { file = "\db_raycastui\functions\fn_renderHud.sqf"; };
             class rui_getWeaponInfo { file = "\db_raycastui\functions\fn_getWeaponInfo.sqf"; };
             class rui_playSound { file = "\db_raycastui\functions\fn_playSound.sqf"; };
+            class rui_spawnProjectile { file = "\db_raycastui\functions\fn_spawnProjectile.sqf"; };
             class rui_updateAI { file = "\db_raycastui\functions\fn_updateAI.sqf"; };
+            class rui_updateProjectiles { file = "\db_raycastui\functions\fn_updateProjectiles.sqf"; };
             class rui_fireWeapon { file = "\db_raycastui\functions\fn_fireWeapon.sqf"; };
             class rui_loadMap { file = "\db_raycastui\functions\fn_loadMap.sqf"; };
             class rui_resetRun { file = "\db_raycastui\functions\fn_resetRun.sqf"; };

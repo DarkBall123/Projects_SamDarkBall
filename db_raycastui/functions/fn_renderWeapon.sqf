@@ -20,16 +20,17 @@ private _weaponId = _player # DB_RUI_P_WEAPON;
 private _flashActive = _time < (_player # DB_RUI_P_FLASH_UNTIL);
 private _reloadState = _player # DB_RUI_P_RELOAD_STATE;
 private _switching = _time < (_player # DB_RUI_P_SWITCH_UNTIL);
+private _statusTop = DB_RUI_H - (DB_RUI_H * 0.19);
 
 private _layout = switch (_weaponId) do
 {
     case DB_RUI_WPN_SHOTGUN:
     {
-        [DB_RUI_W * 0.27, DB_RUI_H * 0.64, DB_RUI_W * 0.46, DB_RUI_H * 0.33]
+        [DB_RUI_W * 0.285, _statusTop - (DB_RUI_H * 0.24), DB_RUI_W * 0.43, DB_RUI_H * 0.29]
     };
     default
     {
-        [DB_RUI_W * 0.34, DB_RUI_H * 0.69, DB_RUI_W * 0.32, DB_RUI_H * 0.26]
+        [DB_RUI_W * 0.365, _statusTop - (DB_RUI_H * 0.18), DB_RUI_W * 0.27, DB_RUI_H * 0.20]
     };
 };
 

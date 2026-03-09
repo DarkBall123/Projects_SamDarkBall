@@ -63,7 +63,11 @@ private _hudCtrls =
     _display displayCtrl DB_RUI_IDC_DEBUG_TEXT,
     _display displayCtrl DB_RUI_IDC_CEILING,
     _display displayCtrl DB_RUI_IDC_FLOOR,
-    _display displayCtrl DB_RUI_IDC_WEAPON_STRIP
+    _display displayCtrl DB_RUI_IDC_STATUS_BAR,
+    _display displayCtrl DB_RUI_IDC_FACE,
+    _display displayCtrl DB_RUI_IDC_ARMOR,
+    _display displayCtrl DB_RUI_IDC_ARMS,
+    _display displayCtrl DB_RUI_IDC_AMMO_TABLE
 ];
 
 private _resetCtrl =
@@ -110,7 +114,7 @@ private _buildWallSet =
     {
         _paths pushBack format
         [
-            "\db_raycastui\data\walls\%1\jpg\slice_%2%3.paa",
+            "\db_raycastui\data\walls\%1\jpg\slice_%2%3.jpg",
             _folder,
             if (_slice < 10) then {"0"} else {""},
             _slice
@@ -154,7 +158,8 @@ private _state =
     "grate",
     [-1, -1, -1, -1, -1, -1, -1, -1, -1],
     _wallCache,
-    -1
+    -1,
+    []
 ];
 
 _state = [_state] call DB_fnc_rui_resetRun;
