@@ -62,6 +62,18 @@ else
 _size params ["_mapWidth", "_mapHeight"];
 _spawn params ["_spawnX", "_spawnY", "_spawnDir"];
 
+diag_log text format
+[
+    "[DB_RUI] resetRun map=%1 size=%2x%3 gridRows=%4 floorRows=%5 enemies=%6 pickups=%7",
+    _mapName,
+    _mapWidth,
+    _mapHeight,
+    count _grid,
+    count _floorGrid,
+    count _enemySpawns,
+    count _pickupSpawns
+];
+
 if (_floorGrid isEqualTo []) then
 {
     private _defaultFloor = switch (_floorStyle) do
