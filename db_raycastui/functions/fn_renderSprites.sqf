@@ -19,32 +19,8 @@ private _zBuffer = _state # DB_RUI_S_ZBUFFER;
 private _colW = _settings # DB_RUI_CFG_COLUMN_W;
 private _columns = _settings # DB_RUI_CFG_COLUMNS;
 private _pool = _state # DB_RUI_S_SPRITE_POOL;
-private _mapWidth = _state # DB_RUI_S_WIDTH;
-private _mapHeight = _state # DB_RUI_S_HEIGHT;
-private _floorHeightGrid = _state # DB_RUI_S_FLOOR_HEIGHT_GRID;
 private _aliveEnemies = count ((_state # DB_RUI_S_ENEMIES) select {_x # DB_RUI_E_ALIVE});
 private _exitUnlocked = (_aliveEnemies == 0);
-private _playerFloorHeight = _state # DB_RUI_S_CAMERA_FLOOR;
-private _cameraZ = _playerFloorHeight + DB_RUI_CAMERA_EYE_HEIGHT;
-private _horizonY = DB_RUI_H * 0.5;
-
-private _getFloorHeightAt =
-{
-    params ["_worldX", "_worldY"];
-
-    private _tileX = floor _worldX;
-    private _tileY = floor _worldY;
-
-    if !(_floorHeightGrid isEqualTo []) then
-    {
-        if ((_tileX >= 0) && {_tileX < _mapWidth} && {_tileY >= 0} && {_tileY < _mapHeight}) exitWith
-        {
-            (_floorHeightGrid # _tileY) # _tileX
-        };
-    };
-
-    DB_RUI_FLOOR_HEIGHT_DEFAULT
-};
 
 {
     {
@@ -73,9 +49,7 @@ private _sprites = [];
                 private _screenCenter = (DB_RUI_W * 0.5) + ((_relative / (_fov * 0.5)) * (DB_RUI_W * 0.5));
                 private _height = (_projectionScale * 0.88) / _depth;
                 private _width = _height * 1.04;
-                private _floorHeight = [(_x # DB_RUI_E_X), (_x # DB_RUI_E_Y)] call _getFloorHeightAt;
-                private _screenY = _horizonY - (((_floorHeight - _cameraZ) * _projectionScale) / _depth);
-                _sprites pushBack [_depth, "enemy", _screenCenter, _height, _width, _x, _screenY];
+                _sprites pushBack [_depth, "enemy", _screenCenter, _height, _width, _x];
             };
         };
     };
@@ -106,10 +80,7 @@ forEach (_state # DB_RUI_S_ENEMIES);
                     _width = _height * 0.42;
                 };
 
-                private _floorHeight = [(_x # DB_RUI_PK_X), (_x # DB_RUI_PK_Y)] call _getFloorHeightAt;
-                private _anchorZ = _floorHeight + (if ((_x # DB_RUI_PK_TYPE) isEqualTo "exit") then {0.02} else {0.10});
-                private _screenY = _horizonY - (((_anchorZ - _cameraZ) * _projectionScale) / _depth);
-                _sprites pushBack [_depth, "pickup", _screenCenter, _height, _width, _x, _screenY];
+                _sprites pushBack [_depth, "pickup", _screenCenter, _height, _width, _x];
             };
         };
     };
@@ -137,10 +108,7 @@ forEach (_state # DB_RUI_S_PICKUPS);
             private _screenCenter = (DB_RUI_W * 0.5) + ((_relative / (_fov * 0.5)) * (DB_RUI_W * 0.5));
             private _height = (_projectionScale * _scale) / _depth;
             private _width = _height;
-            private _floorHeight = [(_x # DB_RUI_PR_X), (_x # DB_RUI_PR_Y)] call _getFloorHeightAt;
-            private _anchorZ = _floorHeight + (if ((_x # DB_RUI_PR_STATE) isEqualTo DB_RUI_PROJECTILE_BURST) then {0.22} else {0.36});
-            private _screenY = _horizonY - (((_anchorZ - _cameraZ) * _projectionScale) / _depth);
-            _sprites pushBack [_depth, "projectile", _screenCenter, _height, _width, _x, _screenY];
+            _sprites pushBack [_depth, "projectile", _screenCenter, _height, _width, _x];
         };
     };
 }
@@ -159,17 +127,9 @@ for "_index" from 0 to (_visibleCount - 1) do
     private _height = (_sprite # 3) min (DB_RUI_H * 1.10);
     private _width = (_sprite # 4) min (DB_RUI_W * 0.25);
     private _data = _sprite # 5;
-    private _screenY = _sprite # 6;
 
     private _left = _screenCenter - (_width * 0.5);
-    private _top = if (_kind isEqualTo "projectile") then
-    {
-        _screenY - (_height * 0.5)
-    }
-    else
-    {
-        _screenY - _height
-    };
+    private _top = (DB_RUI_H * 0.5) - (_height * 0.5);
 
     private _startColumn = ((floor (_left / _colW)) max 0) min (_columns - 1);
     private _endColumn = ((ceil ((_left + _width) / _colW)) max 0) min (_columns - 1);
@@ -185,6 +145,12 @@ for "_index" from 0 to (_visibleCount - 1) do
 
     if (_visible) then
     {
+        _top = _top + (DB_RUI_H * 0.06);
+        if (_kind isEqualTo "pickup") then
+        {
+            _top = _top + (DB_RUI_H * 0.11);
+        };
+
         private _main = _slot # 0;
         private _second = _slot # 1;
         private _third = _slot # 2;
@@ -204,7 +170,7 @@ for "_index" from 0 to (_visibleCount - 1) do
             private _spriteHeight = (_height * 1.18) min (DB_RUI_H * 1.12);
             private _spriteWidth = (_spriteHeight * 0.88) min (DB_RUI_W * 0.28);
             private _spriteLeft = _screenCenter - (_spriteWidth * 0.5);
-            private _spriteTop = (_screenY - (_spriteHeight * 0.98)) + (_bob * (DB_RUI_H * 0.006));
+            private _spriteTop = (DB_RUI_H * 0.5) - (_spriteHeight * 0.54) + (DB_RUI_H * 0.05) + (_bob * (DB_RUI_H * 0.006));
 
             if (_stateName isEqualTo "attack") then
             {
@@ -236,7 +202,7 @@ for "_index" from 0 to (_visibleCount - 1) do
                 private _spriteHeight = (_height * (if (_isBurst) then {1.26} else {0.96})) min (DB_RUI_H * 0.20);
                 private _spriteWidth = _spriteHeight;
                 private _spriteLeft = _screenCenter - (_spriteWidth * 0.5);
-                private _spriteTop = _screenY - (_spriteHeight * 0.5);
+                private _spriteTop = (DB_RUI_H * 0.5) - (_spriteHeight * 0.58) + (DB_RUI_H * 0.05);
 
                 if (_animIndex isEqualTo 1) then
                 {
@@ -275,7 +241,7 @@ for "_index" from 0 to (_visibleCount - 1) do
                     private _portalHeight = (_height * 1.02) min (DB_RUI_H * 0.38);
                     private _portalWidth = _portalHeight * 0.46;
                     private _portalLeft = _screenCenter - (_portalWidth * 0.5);
-                    private _portalTop = _screenY - (_portalHeight * 0.92);
+                    private _portalTop = (DB_RUI_H * 0.5) - (_portalHeight * 0.48) + (DB_RUI_H * 0.08);
                     private _portalAlpha = if (_exitUnlocked) then {1} else {0.38};
 
                     _main ctrlSetText DB_RUI_TX_EXIT_PORTAL;

@@ -155,16 +155,6 @@ for "_index" from 0 to (_columnCount - 1) do
     _wallCtrls pushBack _ctrl;
 };
 
-private _stepCtrls = [];
-for "_index" from 0 to (_columnCount - 1) do
-{
-    private _ctrl = _display ctrlCreate ["DB_RUI_RscText", -1, _worldGroup];
-    _ctrl ctrlSetBackgroundColor [0, 0, 0, 0];
-    [_ctrl] call _resetCtrl;
-    _ctrl ctrlShow false;
-    _stepCtrls pushBack _ctrl;
-};
-
 private _spritePool = [];
 for "_slot" from 0 to (DB_RUI_MAX_SPRITES - 1) do
 {
@@ -242,10 +232,7 @@ private _state =
     -1,
     [],
     _floorMeta,
-    [],
-    [],
-    _stepCtrls,
-    0
+    []
 ];
 
 _state = [_state] call DB_fnc_rui_resetRun;
