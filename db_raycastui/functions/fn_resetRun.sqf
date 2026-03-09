@@ -19,6 +19,14 @@ if (_state isEqualTo []) exitWith
 uiNamespace setVariable [DB_RUI_SOUND_COOLDOWNS_VAR, createHashMap];
 
 private _mapData = [(_state # DB_RUI_S_MAP_ID)] call DB_fnc_rui_loadMap;
+if !(_mapData isEqualType []) then
+{
+    diag_log text format ["[DB_RUI] resetRun invalid mapData type=%1", typeName _mapData];
+    _mapData = [];
+};
+
+diag_log text format ["[DB_RUI] resetRun mapDataCount=%1", count _mapData];
+
 private _mapName = "";
 private _size = [0, 0];
 private _grid = [];
@@ -31,32 +39,26 @@ private _floorStyle = "crucible";
 
 if ((count _mapData) >= 9) then
 {
-    _mapData params
-    [
-        "_mapName",
-        "_size",
-        "_grid",
-        "_floorGrid",
-        "_spawn",
-        "_enemySpawns",
-        "_pickupSpawns",
-        "_skyStyle",
-        "_floorStyle"
-    ];
+    _mapName = _mapData param [0, "", [""]];
+    _size = _mapData param [1, [0, 0], [[]], [2]];
+    _grid = _mapData param [2, [], [[]]];
+    _floorGrid = _mapData param [3, [], [[]]];
+    _spawn = _mapData param [4, [1.5, 1.5, 0], [[]], [3]];
+    _enemySpawns = _mapData param [5, [], [[]]];
+    _pickupSpawns = _mapData param [6, [], [[]]];
+    _skyStyle = _mapData param [7, "ember", [""]];
+    _floorStyle = _mapData param [8, "crucible", [""]];
 }
 else
 {
-    _mapData params
-    [
-        "_mapName",
-        "_size",
-        "_grid",
-        "_spawn",
-        "_enemySpawns",
-        "_pickupSpawns",
-        "_skyStyle",
-        "_floorStyle"
-    ];
+    _mapName = _mapData param [0, "", [""]];
+    _size = _mapData param [1, [0, 0], [[]], [2]];
+    _grid = _mapData param [2, [], [[]]];
+    _spawn = _mapData param [3, [1.5, 1.5, 0], [[]], [3]];
+    _enemySpawns = _mapData param [4, [], [[]]];
+    _pickupSpawns = _mapData param [5, [], [[]]];
+    _skyStyle = _mapData param [6, "ember", [""]];
+    _floorStyle = _mapData param [7, "crucible", [""]];
 };
 
 _size params ["_mapWidth", "_mapHeight"];
