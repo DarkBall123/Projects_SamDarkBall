@@ -1,7 +1,7 @@
 #include "\db_raycastui\script_component.hpp"
 
 params [
-    ["_source", controlNull],
+    ["_source", displayNull, [displayNull, controlNull]],
     ["_dikCode", -1, [0]],
     ["_isDown", true, [true]],
     ["_shift", false, [true]],

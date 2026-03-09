@@ -127,6 +127,8 @@ private _moveEnemy =
             _x set [DB_RUI_E_ALIVE, false];
             _x set [DB_RUI_E_STATE, "dead"];
         };
+
+        _enemies set [_forEachIndex, _x];
     };
 }
 forEach _enemies;
