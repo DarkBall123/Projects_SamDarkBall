@@ -2,6 +2,11 @@
 #define DB_RUI_BOTTOM_Y (safeZoneY + safeZoneH)
 #define DB_RUI_CENTER_X (safeZoneX + (safeZoneW * 0.5))
 #define DB_RUI_CENTER_Y (safeZoneY + (safeZoneH * 0.5))
+#define DB_RUI_SAFE_W_UNITS (safeZoneW / (pixelGridNoUIScale * pixelW * 2))
+#define DB_RUI_SAFE_H_UNITS (safeZoneH / (pixelGridNoUIScale * pixelH * 2))
+#define DB_RUI_SAFE_W DB_RUI_GRID_W(DB_RUI_SAFE_W_UNITS)
+#define DB_RUI_SAFE_H DB_RUI_GRID_H(DB_RUI_SAFE_H_UNITS)
+#define DB_RUI_SAFE_HALF_H DB_RUI_GRID_H(DB_RUI_SAFE_H_UNITS * 0.5)
 #define DB_RUI_STATUS_H DB_RUI_GRID_H(15.2)
 #define DB_RUI_STATUS_Y (DB_RUI_BOTTOM_Y - DB_RUI_STATUS_H)
 
@@ -20,8 +25,8 @@ class DB_RaycastUIDialog
             idc = DB_RUI_IDC_BACKDROP;
             x = safeZoneX;
             y = safeZoneY;
-            w = safeZoneW;
-            h = safeZoneH;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_H;
             colorBackground[] = {0, 0, 0, 1};
         };
 
@@ -30,8 +35,8 @@ class DB_RaycastUIDialog
             idc = DB_RUI_IDC_CEILING;
             x = safeZoneX;
             y = safeZoneY;
-            w = safeZoneW;
-            h = safeZoneH * 0.50;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_HALF_H;
             colorBackground[] = {0.22, 0.08, 0.08, 1};
         };
 
@@ -39,9 +44,9 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_FLOOR;
             x = safeZoneX;
-            y = safeZoneY + (safeZoneH * 0.50);
-            w = safeZoneW;
-            h = safeZoneH * 0.50;
+            y = safeZoneY + DB_RUI_SAFE_HALF_H;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_HALF_H;
             colorBackground[] = {0.09, 0.09, 0.09, 1};
         };
 
@@ -51,7 +56,7 @@ class DB_RaycastUIDialog
             text = DB_RUI_TX_STATUS_BAR;
             x = safeZoneX;
             y = DB_RUI_STATUS_Y;
-            w = safeZoneW;
+            w = DB_RUI_SAFE_W;
             h = DB_RUI_STATUS_H;
         };
 
@@ -93,8 +98,8 @@ class DB_RaycastUIDialog
             idc = DB_RUI_IDC_WORLD_GROUP;
             x = safeZoneX;
             y = safeZoneY;
-            w = safeZoneW;
-            h = safeZoneH;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_H;
         };
 
         class SpriteLayer : DB_RUI_RscControlsGroupNoScrollbars
@@ -102,8 +107,8 @@ class DB_RaycastUIDialog
             idc = DB_RUI_IDC_SPRITE_GROUP;
             x = safeZoneX;
             y = safeZoneY;
-            w = safeZoneW;
-            h = safeZoneH;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_H;
         };
 
         class WeaponPicture : DB_RUI_RscPicture

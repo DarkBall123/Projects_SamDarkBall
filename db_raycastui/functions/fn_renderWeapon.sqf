@@ -20,17 +20,17 @@ private _weaponId = _player # DB_RUI_P_WEAPON;
 private _flashActive = _time < (_player # DB_RUI_P_FLASH_UNTIL);
 private _reloadState = _player # DB_RUI_P_RELOAD_STATE;
 private _switching = _time < (_player # DB_RUI_P_SWITCH_UNTIL);
-private _statusTop = DB_RUI_H - (DB_RUI_H * 0.19);
+private _statusTop = DB_RUI_H - (DB_RUI_H * 0.235);
 
 private _layout = switch (_weaponId) do
 {
     case DB_RUI_WPN_SHOTGUN:
     {
-        [DB_RUI_W * 0.285, _statusTop - (DB_RUI_H * 0.24), DB_RUI_W * 0.43, DB_RUI_H * 0.29]
+        [DB_RUI_W * 0.335, _statusTop - (DB_RUI_H * 0.185), DB_RUI_W * 0.33, DB_RUI_H * 0.205]
     };
     default
     {
-        [DB_RUI_W * 0.365, _statusTop - (DB_RUI_H * 0.18), DB_RUI_W * 0.27, DB_RUI_H * 0.20]
+        [DB_RUI_W * 0.395, _statusTop - (DB_RUI_H * 0.135), DB_RUI_W * 0.21, DB_RUI_H * 0.155]
     };
 };
 
@@ -59,14 +59,14 @@ switch (_weaponId) do
         if (_reloadState == DB_RUI_RELOAD_SHOTGUN) then
         {
             _texture = DB_RUI_TX_WPN_SHOTGUN_RELOAD;
-            _baseY = _baseY + (DB_RUI_H * 0.03);
+            _baseY = _baseY + (DB_RUI_H * 0.02);
         };
 
         if (_flashActive) then
         {
             _texture = DB_RUI_TX_WPN_SHOTGUN_FIRE;
-            _baseY = _baseY - (DB_RUI_H * 0.018);
-            _baseX = _baseX - (DB_RUI_W * 0.010);
+            _baseY = _baseY - (DB_RUI_H * 0.012);
+            _baseX = _baseX - (DB_RUI_W * 0.006);
         };
     };
     default
@@ -74,14 +74,14 @@ switch (_weaponId) do
         if (_flashActive) then
         {
             _texture = DB_RUI_TX_WPN_PISTOL_FIRE;
-            _baseY = _baseY - (DB_RUI_H * 0.012);
-            _baseX = _baseX - (DB_RUI_W * 0.006);
+            _baseY = _baseY - (DB_RUI_H * 0.010);
+            _baseX = _baseX - (DB_RUI_W * 0.004);
         };
 
         if (_reloadState == DB_RUI_RELOAD_PISTOL) then
         {
-            _baseY = _baseY + (DB_RUI_H * 0.045);
-            _bobX = _bobX - (DB_RUI_W * 0.012);
+            _baseY = _baseY + (DB_RUI_H * 0.032);
+            _bobX = _bobX - (DB_RUI_W * 0.008);
         };
     };
 };
