@@ -14,6 +14,7 @@ if (_state isEqualTo []) exitWith
 private _settings = _state # DB_RUI_S_SETTINGS;
 private _player = _state # DB_RUI_S_PLAYER;
 private _wallCtrls = _state # DB_RUI_S_WALL_CTRLS;
+private _stepCtrls = _state # DB_RUI_S_STEP_CTRLS;
 private _wallCache = _state # DB_RUI_S_WALL_CACHE;
 private _columns = _settings # DB_RUI_CFG_COLUMNS;
 private _colW = _settings # DB_RUI_CFG_COLUMN_W;
@@ -25,19 +26,8 @@ private _floorHeightGrid = _state # DB_RUI_S_FLOOR_HEIGHT_GRID;
 private _rayStart = diag_tickTime;
 
 private _zBuffer = +(_state # DB_RUI_S_ZBUFFER);
-private _playerTileX = floor (_player # DB_RUI_P_X);
-private _playerTileY = floor (_player # DB_RUI_P_Y);
-private _playerFloorHeight = DB_RUI_FLOOR_HEIGHT_DEFAULT;
 private _horizonY = DB_RUI_H * 0.5;
-
-if !(_floorHeightGrid isEqualTo []) then
-{
-    if ((_playerTileX >= 0) && {_playerTileX < _mapWidth} && {_playerTileY >= 0} && {_playerTileY < _mapHeight}) then
-    {
-        _playerFloorHeight = (_floorHeightGrid # _playerTileY) # _playerTileX;
-    };
-};
-
+private _playerFloorHeight = _state # DB_RUI_S_CAMERA_FLOOR;
 private _cameraZ = _playerFloorHeight + DB_RUI_CAMERA_EYE_HEIGHT;
 private _getFloorHeightAt =
 {
@@ -57,6 +47,7 @@ private _getFloorHeightAt =
 for "_column" from 0 to (_columns - 1) do
 {
     private _ctrl = _wallCtrls # _column;
+    private _stepCtrl = _stepCtrls # _column;
     private _cameraX = ((2 * (_column + 0.5)) / _columns) - 1;
     private _rayAngle = (_player # DB_RUI_P_DIR) + (_cameraX * (_fov * 0.5));
     private _ray = [_state, _rayAngle, _settings # DB_RUI_CFG_VIEW_DISTANCE, true] call DB_fnc_rui_castRay;
@@ -69,6 +60,9 @@ for "_column" from 0 to (_columns - 1) do
     private _hitTileY = _ray # 8;
     private _stepX = _ray # 9;
     private _stepY = _ray # 10;
+    private _stepDistance = _ray # 11;
+    private _stepNearHeight = _ray # 12;
+    private _stepFarHeight = _ray # 13;
 
     if ((_wallType <= 0) || {_wallType > 3}) then
     {
@@ -113,6 +107,40 @@ for "_column" from 0 to (_columns - 1) do
     _ctrl ctrlSetTextColor [_brightness, _brightness, _brightness, 1];
     _ctrl ctrlSetPosition [(_column * _colW), _lineTop, _colW + pixelW, _lineHeight];
     _ctrl ctrlCommit 0;
+
+    _stepCtrl ctrlShow false;
+    _stepCtrl ctrlSetPosition [0, 0, 0, 0];
+    _stepCtrl ctrlCommit 0;
+
+    if (_stepDistance > 0) then
+    {
+        private _stepDistanceSafe = _stepDistance max 0.10;
+        private _stepTopWorld = _stepNearHeight max _stepFarHeight;
+        private _stepBottomWorld = _stepNearHeight min _stepFarHeight;
+        private _stepTop = _horizonY - (((_stepTopWorld - _cameraZ) * _projectionScale) / _stepDistanceSafe);
+        private _stepBottom = _horizonY - (((_stepBottomWorld - _cameraZ) * _projectionScale) / _stepDistanceSafe);
+        private _stepHeight = (_stepBottom - _stepTop) max (pixelH * 2);
+        private _stepShade = (0.34 - (_stepDistanceSafe * 0.012)) max 0.12;
+        private _stepAlpha = 0.94;
+
+        if (_stepFarHeight < _stepNearHeight) then
+        {
+            _stepShade = _stepShade * 0.92;
+        };
+
+        if (_stepBottom < _stepTop) then
+        {
+            private _swap = _stepTop;
+            _stepTop = _stepBottom;
+            _stepBottom = _swap;
+            _stepHeight = (_stepBottom - _stepTop) max (pixelH * 2);
+        };
+
+        _stepCtrl ctrlShow true;
+        _stepCtrl ctrlSetBackgroundColor [_stepShade, _stepShade * 0.92, _stepShade * 0.88, _stepAlpha];
+        _stepCtrl ctrlSetPosition [(_column * _colW), _stepTop, _colW + pixelW, (_stepHeight min (DB_RUI_H * 1.30))];
+        _stepCtrl ctrlCommit 0;
+    };
 
     _zBuffer set [_column, _distanceSafe];
 };

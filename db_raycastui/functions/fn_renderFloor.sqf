@@ -43,19 +43,8 @@ private _projectionScale = _settings # DB_RUI_CFG_PROJ_SCALE;
 private _playerX = _player # DB_RUI_P_X;
 private _playerY = _player # DB_RUI_P_Y;
 private _playerDir = _player # DB_RUI_P_DIR;
-private _playerTileX = floor _playerX;
-private _playerTileY = floor _playerY;
 private _time = diag_tickTime;
-private _playerFloorHeight = DB_RUI_FLOOR_HEIGHT_DEFAULT;
-
-if !(_floorHeightGrid isEqualTo []) then
-{
-    if ((_playerTileX >= 0) && {_playerTileX < _mapWidth} && {_playerTileY >= 0} && {_playerTileY < _mapHeight}) then
-    {
-        _playerFloorHeight = (_floorHeightGrid # _playerTileY) # _playerTileX;
-    };
-};
-
+private _playerFloorHeight = _state # DB_RUI_S_CAMERA_FLOOR;
 private _cameraZ = _playerFloorHeight + DB_RUI_CAMERA_EYE_HEIGHT;
 
 private _voidColor = switch (_state # DB_RUI_S_FLOOR_STYLE) do
@@ -302,34 +291,7 @@ for "_row" from 0 to (_rows - 1) do
                         {
                             private _flow = 0.5 + (0.5 * ((sin ((_worldX * 170) + (_time * 240))) * (cos ((_worldY * 145) - (_time * 175)))));
                             private _pulse = 0.5 + (0.5 * sin (((_worldX + _worldY) * 210) + (_time * 420)));
-                            private _rimFactor = 0;
-                            private _wallDelta = 0;
-
-                            if (_higherLeft && {_fracX < _rimBand}) then
-                            {
-                                _rimFactor = _rimFactor max ((_rimBand - _fracX) / _rimBand);
-                                _wallDelta = _wallDelta max (_leftHeight - _floorHeight);
-                            };
-
-                            if (_higherRight && {_fracX > (1 - _rimBand)}) then
-                            {
-                                _rimFactor = _rimFactor max ((_fracX - (1 - _rimBand)) / _rimBand);
-                                _wallDelta = _wallDelta max (_rightHeight - _floorHeight);
-                            };
-
-                            if (_higherUp && {_fracY < _rimBand}) then
-                            {
-                                _rimFactor = _rimFactor max ((_rimBand - _fracY) / _rimBand);
-                                _wallDelta = _wallDelta max (_upHeight - _floorHeight);
-                            };
-
-                            if (_higherDown && {_fracY > (1 - _rimBand)}) then
-                            {
-                                _rimFactor = _rimFactor max ((_fracY - (1 - _rimBand)) / _rimBand);
-                                _wallDelta = _wallDelta max (_downHeight - _floorHeight);
-                            };
-
-                            private _lavaColor =
+                            _tileColor =
                             [
                                 ((0.44 + (_flow * 0.26) + (_pulse * 0.18)) * _shade) min 1,
                                 ((0.07 + (_flow * 0.18) + (_pulse * 0.11)) * _shade) min 1,
@@ -337,61 +299,17 @@ for "_row" from 0 to (_rows - 1) do
                                 (_alpha + 0.06) min 1
                             ];
 
-                            if ((_rimFactor > 0) && {_wallDelta > 0.05}) then
+                            if (_higherLeft || {_higherRight} || {_higherUp} || {_higherDown}) then
                             {
-                                private _wallShade = (_shade * (0.28 + (_rimFactor * 0.34))) max 0.10;
-                                private _wallColor =
-                                [
-                                    ((0.13 + (_flow * 0.04)) * _wallShade) min 1,
-                                    ((0.09 + (_pulse * 0.03)) * _wallShade) min 1,
-                                    ((0.08 + (_pulse * 0.02)) * _wallShade) min 1,
-                                    (_alpha + 0.03) min 1
-                                ];
-                                private _dropRows = ceil (((_wallDelta * _projectionScale) / (_distance max 0.40)) / _cellH);
-                                private _surfaceIndex = 0;
-                                _dropRows = (_dropRows max 1) min ((_rows - 1) - _row);
-                                _surfaceIndex = (((_row + _dropRows) min (_rows - 1)) * _cols) + _column;
-                                [_bufferIndex, _wallColor, 3] call _setCellColor;
-                                [_surfaceIndex, _lavaColor, 4] call _setCellColor;
-                                _priority = 0;
-                            }
-                            else
-                            {
-                                _tileColor = _lavaColor;
+                                _tileColor set [0, ((_tileColor # 0) * 0.88) min 1];
+                                _tileColor set [1, ((_tileColor # 1) * 0.92) min 1];
                             };
                         };
                         case DB_RUI_FLOOR_SLIME:
                         {
                             private _flow = 0.5 + (0.5 * ((sin ((_worldX * 155) + (_time * 210))) * (cos ((_worldY * 132) - (_time * 160)))));
                             private _pulse = 0.5 + (0.5 * sin (((_worldX + _worldY) * 185) + (_time * 320)));
-                            private _rimFactor = 0;
-                            private _wallDelta = 0;
-
-                            if (_higherLeft && {_fracX < _rimBand}) then
-                            {
-                                _rimFactor = _rimFactor max ((_rimBand - _fracX) / _rimBand);
-                                _wallDelta = _wallDelta max (_leftHeight - _floorHeight);
-                            };
-
-                            if (_higherRight && {_fracX > (1 - _rimBand)}) then
-                            {
-                                _rimFactor = _rimFactor max ((_fracX - (1 - _rimBand)) / _rimBand);
-                                _wallDelta = _wallDelta max (_rightHeight - _floorHeight);
-                            };
-
-                            if (_higherUp && {_fracY < _rimBand}) then
-                            {
-                                _rimFactor = _rimFactor max ((_rimBand - _fracY) / _rimBand);
-                                _wallDelta = _wallDelta max (_upHeight - _floorHeight);
-                            };
-
-                            if (_higherDown && {_fracY > (1 - _rimBand)}) then
-                            {
-                                _rimFactor = _rimFactor max ((_fracY - (1 - _rimBand)) / _rimBand);
-                                _wallDelta = _wallDelta max (_downHeight - _floorHeight);
-                            };
-
-                            private _slimeColor =
+                            _tileColor =
                             [
                                 ((0.05 + (_flow * 0.04)) * _shade) min 1,
                                 ((0.34 + (_flow * 0.18) + (_pulse * 0.09)) * _shade) min 1,
@@ -399,27 +317,10 @@ for "_row" from 0 to (_rows - 1) do
                                 (_alpha + 0.08) min 1
                             ];
 
-                            if ((_rimFactor > 0) && {_wallDelta > 0.05}) then
+                            if (_higherLeft || {_higherRight} || {_higherUp} || {_higherDown}) then
                             {
-                                private _wallShade = (_shade * (0.30 + (_rimFactor * 0.34))) max 0.10;
-                                private _wallColor =
-                                [
-                                    ((0.09 + (_flow * 0.03)) * _wallShade) min 1,
-                                    ((0.12 + (_pulse * 0.04)) * _wallShade) min 1,
-                                    ((0.08 + (_pulse * 0.02)) * _wallShade) min 1,
-                                    (_alpha + 0.03) min 1
-                                ];
-                                private _dropRows = ceil (((_wallDelta * _projectionScale) / (_distance max 0.40)) / _cellH);
-                                private _surfaceIndex = 0;
-                                _dropRows = (_dropRows max 1) min ((_rows - 1) - _row);
-                                _surfaceIndex = (((_row + _dropRows) min (_rows - 1)) * _cols) + _column;
-                                [_bufferIndex, _wallColor, 3] call _setCellColor;
-                                [_surfaceIndex, _slimeColor, 4] call _setCellColor;
-                                _priority = 0;
-                            }
-                            else
-                            {
-                                _tileColor = _slimeColor;
+                                _tileColor set [1, ((_tileColor # 1) * 0.90) min 1];
+                                _tileColor set [2, ((_tileColor # 2) * 0.94) min 1];
                             };
                         };
                         default

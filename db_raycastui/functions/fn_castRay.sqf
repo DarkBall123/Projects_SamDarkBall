@@ -9,10 +9,11 @@ params [
 
 if (_state isEqualTo []) exitWith
 {
-    [false, 0, _maxDistance, _maxDistance, 0, 0, 0, -1, -1, 0, 0]
+    [false, 0, _maxDistance, _maxDistance, 0, 0, 0, -1, -1, 0, 0, -1, 0, 0]
 };
 
 private _grid = _state # DB_RUI_S_GRID;
+private _floorHeightGrid = _state # DB_RUI_S_FLOOR_HEIGHT_GRID;
 private _width = _state # DB_RUI_S_WIDTH;
 private _height = _state # DB_RUI_S_HEIGHT;
 private _player = _state # DB_RUI_S_PLAYER;
@@ -59,9 +60,26 @@ private _hit = false;
 private _side = 0;
 private _wallType = 0;
 private _rawDistance = _maxDistance;
+private _prevTileX = _mapX;
+private _prevTileY = _mapY;
+private _prevFloorHeight = DB_RUI_FLOOR_HEIGHT_DEFAULT;
+private _stepDistance = -1;
+private _stepNearHeight = DB_RUI_FLOOR_HEIGHT_DEFAULT;
+private _stepFarHeight = DB_RUI_FLOOR_HEIGHT_DEFAULT;
+
+if !(_floorHeightGrid isEqualTo []) then
+{
+    if ((_mapX >= 0) && {_mapX < _width} && {_mapY >= 0} && {_mapY < _height}) then
+    {
+        _prevFloorHeight = (_floorHeightGrid # _mapY) # _mapX;
+    };
+};
 
 for "_step" from 0 to 128 do
 {
+    _prevTileX = _mapX;
+    _prevTileY = _mapY;
+
     if (_sideDistX < _sideDistY) then
     {
         _sideDistX = _sideDistX + _deltaDistX;
@@ -110,6 +128,20 @@ for "_step" from 0 to 128 do
     {
         _wallType = (_grid # _mapY) # _mapX;
         _hit = _wallType > 0;
+
+        if (!_hit && {_stepDistance < 0} && !(_floorHeightGrid isEqualTo []) && {_prevTileX >= 0} && {_prevTileX < _width} && {_prevTileY >= 0} && {_prevTileY < _height}) then
+        {
+            private _nextFloorHeight = (_floorHeightGrid # _mapY) # _mapX;
+
+            if (abs (_nextFloorHeight - _prevFloorHeight) > 0.05) then
+            {
+                _stepDistance = _rawDistance;
+                _stepNearHeight = _prevFloorHeight;
+                _stepFarHeight = _nextFloorHeight;
+            };
+
+            _prevFloorHeight = _nextFloorHeight;
+        };
     };
 
     if (_hit) exitWith {};
@@ -117,7 +149,7 @@ for "_step" from 0 to 128 do
 
 if (!_hit) exitWith
 {
-    [false, 0, _maxDistance, _maxDistance, _side, 0, 0, _mapX, _mapY, _stepX, _stepY]
+    [false, 0, _maxDistance, _maxDistance, _side, 0, 0, _mapX, _mapY, _stepX, _stepY, _stepDistance, _stepNearHeight, _stepFarHeight]
 };
 
 private _wallCoord = 0;
@@ -144,4 +176,4 @@ else
     _rawDistance max 0.01
 };
 
-[true, _wallType, _rawDistance, _perpendicularDistance, _side, _wallCoord, _texIndex, _mapX, _mapY, _stepX, _stepY]
+[true, _wallType, _rawDistance, _perpendicularDistance, _side, _wallCoord, _texIndex, _mapX, _mapY, _stepX, _stepY, _stepDistance, _stepNearHeight, _stepFarHeight]

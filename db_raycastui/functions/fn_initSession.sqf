@@ -155,6 +155,16 @@ for "_index" from 0 to (_columnCount - 1) do
     _wallCtrls pushBack _ctrl;
 };
 
+private _stepCtrls = [];
+for "_index" from 0 to (_columnCount - 1) do
+{
+    private _ctrl = _display ctrlCreate ["DB_RUI_RscText", -1, _worldGroup];
+    _ctrl ctrlSetBackgroundColor [0, 0, 0, 0];
+    [_ctrl] call _resetCtrl;
+    _ctrl ctrlShow false;
+    _stepCtrls pushBack _ctrl;
+};
+
 private _spritePool = [];
 for "_slot" from 0 to (DB_RUI_MAX_SPRITES - 1) do
 {
@@ -233,7 +243,8 @@ private _state =
     [],
     _floorMeta,
     [],
-    []
+    _stepCtrls,
+    0
 ];
 
 _state = [_state] call DB_fnc_rui_resetRun;
@@ -348,7 +359,7 @@ if (!isNull _inputCapture) then
 
 _state set [DB_RUI_S_INPUT_EHS, [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh, _ctrlKeyDownEh, _ctrlKeyUpEh, _ctrlSetFocusEh, _ctrlKillFocusEh]];
 
-private _frameEh = addMissionEventHandler ["Draw3D",
+private _frameEh = addMissionEventHandler ["EachFrame",
 {
     call DB_fnc_rui_tick;
 }];
@@ -359,7 +370,7 @@ SET_UIVAR(DB_RUI_STATE_VAR, _state);
 
 diag_log text format
 [
-    "[DB_RUI] initSession handlers display=%1 control=%2 tick=%3 mode=Draw3D",
+    "[DB_RUI] initSession handlers display=%1 control=%2 tick=%3 mode=EachFrame",
     [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh],
     [_ctrlKeyDownEh, _ctrlKeyUpEh, _ctrlSetFocusEh, _ctrlKillFocusEh],
     _frameEh

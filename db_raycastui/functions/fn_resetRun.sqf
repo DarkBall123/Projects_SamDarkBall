@@ -65,6 +65,9 @@ else
 _size params ["_mapWidth", "_mapHeight"];
 _spawn params ["_spawnX", "_spawnY", "_spawnDir"];
 
+private _spawnTileX = floor _spawnX;
+private _spawnTileY = floor _spawnY;
+
 diag_log text format
 [
     "[DB_RUI] resetRun map=%1 size=%2x%3 gridRows=%4 floorRows=%5 enemies=%6 pickups=%7",
@@ -163,6 +166,7 @@ _state set [DB_RUI_S_SKY_STYLE, _skyStyle];
 _state set [DB_RUI_S_FLOOR_STYLE, _floorStyle];
 _state set [DB_RUI_S_FLOOR_GRID, _floorGrid];
 _state set [DB_RUI_S_FLOOR_HEIGHT_GRID, _floorHeightGrid];
+_state set [DB_RUI_S_CAMERA_FLOOR, if ((_spawnTileX >= 0) && {_spawnTileX < _mapWidth} && {_spawnTileY >= 0} && {_spawnTileY < _mapHeight}) then {(_floorHeightGrid # _spawnTileY) # _spawnTileX} else {DB_RUI_FLOOR_HEIGHT_DEFAULT}];
 
 private _input = [false, false, false, false, false, false, false, false];
 _state set [DB_RUI_S_INPUT, _input];
@@ -236,5 +240,12 @@ if !(_floorMeta isEqualTo []) then
     forEach _x;
 }
 forEach (_state # DB_RUI_S_SPRITE_POOL);
+
+{
+    _x ctrlShow false;
+    _x ctrlSetPosition [0, 0, 0, 0];
+    _x ctrlCommit 0;
+}
+forEach (_state # DB_RUI_S_STEP_CTRLS);
 
 _state

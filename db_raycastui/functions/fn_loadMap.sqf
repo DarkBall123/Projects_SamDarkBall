@@ -4,6 +4,8 @@ params [
     ["_mapId", "demo_01", [""]]
 ];
 
+private _mapKey = toLower _mapId;
+
 private _demo01 =
 [
     "SUNKEN GANTRY",
@@ -106,6 +108,65 @@ private _demo01 =
     "stone"
 ];
 
-diag_log text format ["[DB_RUI] loadMap builtin map=%1", toLower _mapId];
+private _demo02 =
+[
+    "TECHNOGEN RUINS",
+    [16, 16],
+    [
+        [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+        [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+        [2,0,1,1,1,1,0,3,3,3,0,1,1,1,0,2],
+        [2,0,1,0,0,1,0,3,0,3,0,1,0,1,0,2],
+        [2,0,1,0,0,1,0,3,0,3,0,1,0,1,0,2],
+        [2,0,1,0,0,0,0,0,0,3,0,0,0,1,0,2],
+        [2,0,1,1,1,1,0,2,0,3,3,3,0,1,0,2],
+        [2,0,0,0,0,1,0,2,0,0,0,3,0,0,0,2],
+        [2,0,3,3,0,1,0,2,2,2,0,3,3,3,0,2],
+        [2,0,3,0,0,1,0,0,0,2,0,0,0,3,0,2],
+        [2,0,3,0,0,1,1,1,0,2,2,2,0,3,0,2],
+        [2,0,3,0,0,0,0,1,0,0,0,2,0,3,0,2],
+        [2,0,3,3,3,3,0,1,1,1,0,2,0,3,0,2],
+        [2,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2],
+        [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+        [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+    ],
+    [2.5, 13.5, 270],
+    [
+        ["grunt", 5.5, 3.5],
+        ["grunt", 8.5, 6.5],
+        ["grunt", 12.5, 8.5],
+        ["grunt", 3.5, 10.5],
+        ["grunt", 12.5, 12.5]
+    ],
+    [
+        ["ammo", 6.5, 8.5, 10],
+        ["ammo", 12.5, 5.5, 10],
+        ["medkit", 9.5, 3.5, 25],
+        ["medkit", 2.5, 6.5, 25]
+    ],
+    "ember",
+    "stone"
+];
 
-+_demo01
+private _selectedKey = _mapKey;
+private _selectedMap = switch (_mapKey) do
+{
+    case "demo_02":
+    {
+        +_demo02
+    };
+    default
+    {
+        +_demo01
+    };
+};
+
+if !(_mapKey in ["demo_01", "demo_02"]) then
+{
+    _selectedKey = "demo_01";
+    diag_log text format ["[DB_RUI] loadMap unknown map=%1 fallback=demo_01", _mapKey];
+};
+
+diag_log text format ["[DB_RUI] loadMap builtin request=%1 resolved=%2", _mapKey, _selectedKey];
+
+_selectedMap

@@ -67,11 +67,39 @@ _state = [_state] call DB_fnc_rui_handleInput;
 _state = [_state] call DB_fnc_rui_movePlayer;
 _state = [_state] call DB_fnc_rui_updateAI;
 _state = [_state] call DB_fnc_rui_updateProjectiles;
+
+private _player = _state # DB_RUI_S_PLAYER;
+private _floorHeightGrid = _state # DB_RUI_S_FLOOR_HEIGHT_GRID;
+private _mapWidth = _state # DB_RUI_S_WIDTH;
+private _mapHeight = _state # DB_RUI_S_HEIGHT;
+private _targetCameraFloor = _state # DB_RUI_S_CAMERA_FLOOR;
+private _tileX = floor (_player # DB_RUI_P_X);
+private _tileY = floor (_player # DB_RUI_P_Y);
+
+if !(_floorHeightGrid isEqualTo []) then
+{
+    if ((_tileX >= 0) && {_tileX < _mapWidth} && {_tileY >= 0} && {_tileY < _mapHeight}) then
+    {
+        _targetCameraFloor = (_floorHeightGrid # _tileY) # _tileX;
+    };
+};
+
+private _cameraFloor = _state # DB_RUI_S_CAMERA_FLOOR;
+private _cameraLerp = (_delta * 10) min 1;
+_cameraFloor = _cameraFloor + ((_targetCameraFloor - _cameraFloor) * _cameraLerp);
+
+if (abs (_targetCameraFloor - _cameraFloor) < 0.01) then
+{
+    _cameraFloor = _targetCameraFloor;
+};
+
+_state set [DB_RUI_S_CAMERA_FLOOR, _cameraFloor];
+
 private _floorFrameDivisor = switch ((_state # DB_RUI_S_SETTINGS) # DB_RUI_CFG_QUALITY_NAME) do
 {
     case "LOW":
     {
-        3
+        2
     };
     case "HIGH":
     {
@@ -79,7 +107,7 @@ private _floorFrameDivisor = switch ((_state # DB_RUI_S_SETTINGS) # DB_RUI_CFG_Q
     };
     default
     {
-        2
+        1
     };
 };
 

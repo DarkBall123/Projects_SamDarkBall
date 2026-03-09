@@ -24,21 +24,9 @@ private _mapHeight = _state # DB_RUI_S_HEIGHT;
 private _floorHeightGrid = _state # DB_RUI_S_FLOOR_HEIGHT_GRID;
 private _aliveEnemies = count ((_state # DB_RUI_S_ENEMIES) select {_x # DB_RUI_E_ALIVE});
 private _exitUnlocked = (_aliveEnemies == 0);
-private _playerTileX = floor (_player # DB_RUI_P_X);
-private _playerTileY = floor (_player # DB_RUI_P_Y);
-private _playerFloorHeight = DB_RUI_FLOOR_HEIGHT_DEFAULT;
-private _cameraZ = DB_RUI_CAMERA_EYE_HEIGHT;
+private _playerFloorHeight = _state # DB_RUI_S_CAMERA_FLOOR;
+private _cameraZ = _playerFloorHeight + DB_RUI_CAMERA_EYE_HEIGHT;
 private _horizonY = DB_RUI_H * 0.5;
-
-if !(_floorHeightGrid isEqualTo []) then
-{
-    if ((_playerTileX >= 0) && {_playerTileX < _mapWidth} && {_playerTileY >= 0} && {_playerTileY < _mapHeight}) then
-    {
-        _playerFloorHeight = (_floorHeightGrid # _playerTileY) # _playerTileX;
-    };
-};
-
-_cameraZ = _playerFloorHeight + DB_RUI_CAMERA_EYE_HEIGHT;
 
 private _getFloorHeightAt =
 {
