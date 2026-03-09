@@ -26,11 +26,11 @@ private _layout = switch (_weaponId) do
 {
     case DB_RUI_WPN_SHOTGUN:
     {
-        [DB_RUI_X + (DB_RUI_W * 0.330), _screenBottom - (DB_RUI_H * 0.334), DB_RUI_W * 0.340, DB_RUI_H * 0.320]
+        [DB_RUI_X + (DB_RUI_W * 0.322), _screenBottom - (DB_RUI_H * 0.342), DB_RUI_W * 0.356, DB_RUI_H * 0.336]
     };
     default
     {
-        [DB_RUI_X + (DB_RUI_W * 0.390), _screenBottom - (DB_RUI_H * 0.266), DB_RUI_W * 0.220, DB_RUI_H * 0.230]
+        [DB_RUI_X + (DB_RUI_W * 0.384), _screenBottom - (DB_RUI_H * 0.274), DB_RUI_W * 0.232, DB_RUI_H * 0.242]
     };
 };
 

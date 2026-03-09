@@ -67,7 +67,27 @@ _state = [_state] call DB_fnc_rui_handleInput;
 _state = [_state] call DB_fnc_rui_movePlayer;
 _state = [_state] call DB_fnc_rui_updateAI;
 _state = [_state] call DB_fnc_rui_updateProjectiles;
-_state = [_state] call DB_fnc_rui_renderFloor;
+private _floorFrameDivisor = switch ((_state # DB_RUI_S_SETTINGS) # DB_RUI_CFG_QUALITY_NAME) do
+{
+    case "LOW":
+    {
+        3
+    };
+    case "HIGH":
+    {
+        1
+    };
+    default
+    {
+        2
+    };
+};
+
+if ((_floorFrameDivisor <= 1) || {((diag_frameNo mod _floorFrameDivisor) isEqualTo 0)}) then
+{
+    _state = [_state] call DB_fnc_rui_renderFloor;
+};
+
 _state = [_state] call DB_fnc_rui_renderWalls;
 _state = [_state] call DB_fnc_rui_renderSprites;
 _state = [_state] call DB_fnc_rui_renderWeapon;

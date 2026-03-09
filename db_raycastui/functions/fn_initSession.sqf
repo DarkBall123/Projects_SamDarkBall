@@ -82,15 +82,15 @@ private _floorColumns = switch (_qualityName) do
 {
     case "LOW":
     {
-        30
+        28
     };
     case "HIGH":
     {
-        48
+        46
     };
     default
     {
-        38
+        34
     };
 };
 
@@ -98,15 +98,15 @@ private _floorRows = switch (_qualityName) do
 {
     case "LOW":
     {
-        20
+        18
     };
     case "HIGH":
     {
-        32
+        30
     };
     default
     {
-        28
+        24
     };
 };
 
@@ -347,7 +347,7 @@ if (!isNull _inputCapture) then
 
 _state set [DB_RUI_S_INPUT_EHS, [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh, _ctrlKeyDownEh, _ctrlKeyUpEh, _ctrlSetFocusEh, _ctrlKillFocusEh]];
 
-private _frameEh = addMissionEventHandler ["EachFrame",
+private _frameEh = addMissionEventHandler ["Draw3D",
 {
     call DB_fnc_rui_tick;
 }];
@@ -358,7 +358,7 @@ SET_UIVAR(DB_RUI_STATE_VAR, _state);
 
 diag_log text format
 [
-    "[DB_RUI] initSession handlers display=%1 control=%2 frame=%3",
+    "[DB_RUI] initSession handlers display=%1 control=%2 tick=%3 mode=Draw3D",
     [_keyDownEh, _keyUpEh, _mouseDownEh, _mouseUpEh, _mouseMovingEh],
     [_ctrlKeyDownEh, _ctrlKeyUpEh, _ctrlSetFocusEh, _ctrlKillFocusEh],
     _frameEh

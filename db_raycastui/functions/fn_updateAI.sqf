@@ -19,6 +19,35 @@ private _stats = _state # DB_RUI_S_STATS;
 private _delta = _stats # DB_RUI_STATS_DELTA;
 private _now = diag_tickTime;
 private _enemies = +(_state # DB_RUI_S_ENEMIES);
+private _floorGrid = _state # DB_RUI_S_FLOOR_GRID;
+private _isEnemyWalkBlocked =
+{
+    params ["_testX", "_testY"];
+
+    if ([_state, _testX, _testY] call DB_fnc_rui_isBlocked) exitWith
+    {
+        true
+    };
+
+    if (_floorGrid isEqualTo []) exitWith
+    {
+        false
+    };
+
+    private _cellX = floor _testX;
+    private _cellY = floor _testY;
+    private _width = _state # DB_RUI_S_WIDTH;
+    private _height = _state # DB_RUI_S_HEIGHT;
+
+    if ((_cellX < 0) || {_cellX >= _width} || {_cellY < 0} || {_cellY >= _height}) exitWith
+    {
+        true
+    };
+
+    private _floorType = ((_floorGrid # _cellY) # _cellX);
+    (_floorType isEqualTo DB_RUI_FLOOR_LAVA) || {_floorType isEqualTo DB_RUI_FLOOR_SLIME}
+};
+
 private _moveEnemy =
 {
     params ["_enemy", "_distance", "_dx", "_dy"];
@@ -31,14 +60,14 @@ private _moveEnemy =
 
     private _tryX = _enemyX + _moveX;
     private _checkX = _tryX + (DB_RUI_ENEMY_RADIUS * (if (_moveX >= 0) then {1} else {-1}));
-    if !([_state, _checkX, _enemyY] call DB_fnc_rui_isBlocked) then
+    if !([_checkX, _enemyY] call _isEnemyWalkBlocked) then
     {
         _enemy set [DB_RUI_E_X, _tryX];
     };
 
     private _tryY = (_enemy # DB_RUI_E_Y) + _moveY;
     private _checkY = _tryY + (DB_RUI_ENEMY_RADIUS * (if (_moveY >= 0) then {1} else {-1}));
-    if !([_state, (_enemy # DB_RUI_E_X), _checkY] call DB_fnc_rui_isBlocked) then
+    if !([(_enemy # DB_RUI_E_X), _checkY] call _isEnemyWalkBlocked) then
     {
         _enemy set [DB_RUI_E_Y, _tryY];
     };

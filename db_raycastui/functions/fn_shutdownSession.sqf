@@ -61,7 +61,7 @@ if (!isNull _display) then
 private _frameEh = _state # DB_RUI_S_FRAME_EH;
 if ((_frameEh isEqualType 0) && {_frameEh >= 0}) then
 {
-    removeMissionEventHandler ["EachFrame", _frameEh];
+    removeMissionEventHandler ["Draw3D", _frameEh];
 };
 
 SET_UIVAR(DB_RUI_STATE_VAR, nil);

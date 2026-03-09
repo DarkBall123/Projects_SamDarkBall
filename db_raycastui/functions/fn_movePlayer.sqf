@@ -113,9 +113,15 @@ if !(_floorGrid isEqualTo []) then
 {
     private _cellX = (floor _playerX) max 0 min ((_state # DB_RUI_S_WIDTH) - 1);
     private _cellY = (floor _playerY) max 0 min ((_state # DB_RUI_S_HEIGHT) - 1);
-    if (((_floorGrid # _cellY) # _cellX) isEqualTo DB_RUI_FLOOR_LAVA) then
+    private _floorType = ((_floorGrid # _cellY) # _cellX);
+    if (_floorType isEqualTo DB_RUI_FLOOR_LAVA) then
     {
         _player set [DB_RUI_P_HP, (_player # DB_RUI_P_HP) - (DB_RUI_LAVA_DAMAGE_PER_SEC * _delta)];
+    };
+
+    if (_floorType isEqualTo DB_RUI_FLOOR_SLIME) then
+    {
+        _player set [DB_RUI_P_HP, (_player # DB_RUI_P_HP) - (DB_RUI_SLIME_DAMAGE_PER_SEC * _delta)];
     };
 };
 
