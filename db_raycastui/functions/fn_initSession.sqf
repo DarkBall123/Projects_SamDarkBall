@@ -114,7 +114,7 @@ private _buildWallSet =
     {
         _paths pushBack format
         [
-            "\db_raycastui\data\walls\%1\jpg\slice_%2%3.jpg",
+            "\db_raycastui\data\walls\%1\jpg\slice_%2%3.paa",
             _folder,
             if (_slice < 10) then {"0"} else {""},
             _slice
