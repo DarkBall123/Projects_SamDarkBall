@@ -1,3 +1,6 @@
 # Local docs and agent instructions
 /docs/
 /AGENTS.md
+/db_raycastui/**/*.jpg
+/db_raycastui/**/*.png
+/db_raycastui/**/*.svg

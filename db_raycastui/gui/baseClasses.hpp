@@ -1,0 +1,100 @@
+class DB_RUI_RscText
+{
+    access = 0;
+    type = 0;
+    idc = -1;
+    style = 0;
+    linespacing = 1;
+    x = 0;
+    y = 0;
+    h = DB_RUI_GRID_H(2);
+    w = DB_RUI_GRID_W(10);
+    text = "";
+    shadow = 1;
+    font = "PuristaMedium";
+    SizeEx = DB_RUI_TEXT_SIZE_MEDIUM;
+    colorBackground[] = {0, 0, 0, 0};
+    colorText[] = {1, 1, 1, 1};
+};
+
+class DB_RUI_RscPicture : DB_RUI_RscText
+{
+    style = 48;
+    font = "TahomaB";
+    SizeEx = 0;
+    lineSpacing = 0;
+};
+
+class DB_RUI_RscStructuredText
+{
+    access = 0;
+    type = 13;
+    idc = -1;
+    style = 0;
+    x = 0;
+    y = 0;
+    h = DB_RUI_GRID_H(2);
+    w = DB_RUI_GRID_W(10);
+    text = "";
+    size = DB_RUI_TEXT_SIZE_MEDIUM;
+    shadow = 1;
+    colorBackground[] = {0, 0, 0, 0};
+    class Attributes
+    {
+        font = "PuristaMedium";
+        color = "#F2E7BF";
+        align = "left";
+        valign = "top";
+        shadow = 1;
+    };
+};
+
+class DB_RUI_RscControlsGroupNoScrollbars
+{
+    access = 0;
+    type = 15;
+    idc = -1;
+    style = 16;
+    x = 0;
+    y = 0;
+    w = 1;
+    h = 1;
+    shadow = 0;
+    class VScrollbar
+    {
+        width = 0;
+        autoScrollEnabled = 0;
+    };
+    class HScrollbar
+    {
+        height = 0;
+    };
+    class controls
+    {
+    };
+};
+
+class DB_RUI_RscEditReadOnly
+{
+    access = 0;
+    type = 2;
+    idc = -1;
+    style = 0;
+    x = 0;
+    y = 0;
+    h = DB_RUI_GRID_H(2);
+    w = DB_RUI_GRID_W(8);
+    text = " ";
+    font = "PuristaMedium";
+    sizeEx = DB_RUI_TEXT_SIZE_SMALL;
+    shadow = 0;
+    autocomplete = "";
+    canModify = 0;
+    colorText[] = {0, 0, 0, 0};
+    colorSelection[] = {0, 0, 0, 0};
+    colorTextSelection[] = {0, 0, 0, 0};
+    colorDisabled[] = {0, 0, 0, 0};
+    colorBackground[] = {0, 0, 0, 0};
+    colorFocused[] = {0, 0, 0, 0};
+    colorBorder[] = {0, 0, 0, 0};
+};

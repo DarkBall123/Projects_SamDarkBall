@@ -1,0 +1,285 @@
+#ifndef DB_RAYCASTUI_SCRIPT_COMPONENT_HPP
+#define DB_RAYCASTUI_SCRIPT_COMPONENT_HPP
+
+#define GET_UIVAR(KEY,DEFAULT) (uiNamespace getVariable [KEY, DEFAULT])
+#define SET_UIVAR(KEY,VALUE) (uiNamespace setVariable [KEY, VALUE])
+
+#define DB_RUI_DISPLAY_VAR "DB_RUI_Display"
+#define DB_RUI_STATE_VAR "DB_RUI_State"
+#define DB_RUI_KEY_GATE_VAR "DB_RUI_KeyGate"
+#define DB_RUI_FOCUS_TRACE_VAR "DB_RUI_FocusTrace"
+#define DB_RUI_SOUND_COOLDOWNS_VAR "DB_RUI_SoundCooldowns"
+
+#define DB_RUI_X safeZoneX
+#define DB_RUI_Y safeZoneY
+#define DB_RUI_W safeZoneW
+#define DB_RUI_H safeZoneH
+
+#define DB_RUI_IDD 880000
+#define DB_RUI_IDC_CEILING 880001
+#define DB_RUI_IDC_FLOOR 880002
+#define DB_RUI_IDC_BACKDROP 880003
+#define DB_RUI_IDC_FLOOR_GROUP 880004
+#define DB_RUI_IDC_WORLD_GROUP 880100
+#define DB_RUI_IDC_SPRITE_GROUP 880101
+#define DB_RUI_IDC_STATUS_BAR 880102
+#define DB_RUI_IDC_WEAPON 880103
+#define DB_RUI_IDC_HP 880104
+#define DB_RUI_IDC_AMMO 880105
+#define DB_RUI_IDC_MAP 880106
+#define DB_RUI_IDC_HELP 880107
+#define DB_RUI_IDC_OUTCOME 880108
+#define DB_RUI_IDC_CROSS_H 880109
+#define DB_RUI_IDC_CROSS_V 880110
+#define DB_RUI_IDC_DEBUG_BG 880111
+#define DB_RUI_IDC_DEBUG_TEXT 880112
+#define DB_RUI_IDC_FACE 880113
+#define DB_RUI_IDC_INPUT_CAPTURE 880114
+#define DB_RUI_IDC_ARMOR 880115
+#define DB_RUI_IDC_ARMS 880116
+#define DB_RUI_IDC_AMMO_TABLE 880117
+
+#define DB_RUI_QUALITY_LOW 96
+#define DB_RUI_QUALITY_MEDIUM 128
+#define DB_RUI_QUALITY_HIGH 160
+#define DB_RUI_SLICE_COUNT 64
+#define DB_RUI_MAX_SPRITES 24
+#define DB_RUI_CLEAR_TEXTURE "#(argb,8,8,3)color(0,0,0,0)"
+#define DB_RUI_WHITE_TEXTURE "#(argb,8,8,3)color(1,1,1,1)"
+#define DB_RUI_HELP_TEXT "W/S move<br/>A/D turn<br/>SPACE or LMB fire<br/>E reload | Q or 1/2 switch<br/>R restart run<br/>F1 debug | X or Esc exit"
+
+#define DB_RUI_TX_WPN_PISTOL "\db_raycastui\data\ui\weapon\blaster.paa"
+#define DB_RUI_TX_WPN_PISTOL_FIRE "\db_raycastui\data\ui\weapon\blaster_fire.paa"
+#define DB_RUI_TX_WPN_SHOTGUN "\db_raycastui\data\ui\weapon\shotgun.paa"
+#define DB_RUI_TX_WPN_SHOTGUN_FIRE "\db_raycastui\data\ui\weapon\shotgun_fire.paa"
+#define DB_RUI_TX_WPN_SHOTGUN_RELOAD "\db_raycastui\data\ui\weapon\shotgun_reload.paa"
+
+#define DB_RUI_TX_ENEMY_IDLE "\db_raycastui\data\sprites\enemies\imp_idle.paa"
+#define DB_RUI_TX_ENEMY_ATTACK "\db_raycastui\data\sprites\enemies\imp_attack.paa"
+#define DB_RUI_TX_ENEMY_HURT "\db_raycastui\data\sprites\enemies\imp_hurt.paa"
+#define DB_RUI_TX_FIREBALL_0 "\db_raycastui\data\sprites\projectiles\fireball_0.paa"
+#define DB_RUI_TX_FIREBALL_1 "\db_raycastui\data\sprites\projectiles\fireball_1.paa"
+#define DB_RUI_TX_FIREBALL_2 "\db_raycastui\data\sprites\projectiles\fireball_2.paa"
+#define DB_RUI_TX_EXIT_PORTAL "\db_raycastui\data\sprites\pickups\exit_portal.paa"
+#define DB_RUI_TX_STATUS_BAR "\db_raycastui\data\ui\status\statusbar.paa"
+#define DB_RUI_TX_FACE_IDLE "\db_raycastui\data\ui\status\face_idle.paa"
+#define DB_RUI_TX_FACE_ALERT "\db_raycastui\data\ui\status\face_alert.paa"
+#define DB_RUI_TX_FACE_HURT "\db_raycastui\data\ui\status\face_hurt.paa"
+#define DB_RUI_TX_FACE_DEAD "\db_raycastui\data\ui\status\face_dead.paa"
+
+#define DB_RUI_DIFFERENCE_EPSILON 0.0001
+
+#define DB_RUI_SWITCH_TIME 0.22
+#define DB_RUI_LOS_TRACE_EXTRA 0.05
+#define DB_RUI_LOS_PADDING 0.08
+#define DB_RUI_PLAYER_RADIUS 0.18
+#define DB_RUI_ENEMY_RADIUS 0.16
+#define DB_RUI_PICKUP_RADIUS_SQR 0.40
+#define DB_RUI_PLAYER_MAX_HP 100
+#define DB_RUI_PLAYER_MAX_RESERVE_AMMO 99
+#define DB_RUI_START_RESERVE_AMMO 24
+#define DB_RUI_PISTOL_FIRE_COOLDOWN 0.21
+#define DB_RUI_PISTOL_FLASH_TIME 0.08
+#define DB_RUI_PISTOL_RELOAD_TIME 1.05
+#define DB_RUI_PISTOL_DAMAGE 30
+#define DB_RUI_PISTOL_AIM_LIMIT 6.0
+#define DB_RUI_SHOTGUN_FIRE_COOLDOWN 0.72
+#define DB_RUI_SHOTGUN_FLASH_TIME 0.14
+#define DB_RUI_SHOTGUN_RELOAD_TIME 0.46
+#define DB_RUI_SHOTGUN_AIM_LIMIT 14.0
+#define DB_RUI_ENEMY_FIREBALL_MIN_RANGE 1.25
+#define DB_RUI_ENEMY_FIREBALL_RANGE 7.20
+#define DB_RUI_ENEMY_FIREBALL_COOLDOWN 1.45
+#define DB_RUI_FIREBALL_SPEED 4.30
+#define DB_RUI_FIREBALL_DAMAGE 15
+#define DB_RUI_FIREBALL_RADIUS 0.12
+#define DB_RUI_FIREBALL_HIT_RADIUS_SQR 0.10
+#define DB_RUI_FIREBALL_LIFETIME 4.20
+#define DB_RUI_FIREBALL_BURST_TIME 0.12
+#define DB_RUI_ENEMY_MELEE_DAMAGE 12
+#define DB_RUI_ENEMY_MELEE_COOLDOWN 0.9
+#define DB_RUI_LAVA_DAMAGE_PER_SEC 18
+#define DB_RUI_SLIME_DAMAGE_PER_SEC 38
+#define DB_RUI_LAVA_RIM_BAND 0.20
+
+#define DB_RUI_SND_PISTOL "DB_RUI_PistolShot"
+#define DB_RUI_SND_SHOTGUN "DB_RUI_ShotgunShot"
+#define DB_RUI_SND_MONSTER_IDLE "DB_RUI_MonsterIdle"
+#define DB_RUI_SND_MONSTER_ATTACK "DB_RUI_MonsterAttack"
+#define DB_RUI_SND_MONSTER_HURT "DB_RUI_MonsterHurt"
+#define DB_RUI_SND_MONSTER_DIE "DB_RUI_MonsterDie"
+
+#define DB_RUI_S_RUNNING 0
+#define DB_RUI_S_DISPLAY 1
+#define DB_RUI_S_SETTINGS 2
+#define DB_RUI_S_MAP_ID 3
+#define DB_RUI_S_MAP_NAME 4
+#define DB_RUI_S_GRID 5
+#define DB_RUI_S_WIDTH 6
+#define DB_RUI_S_HEIGHT 7
+#define DB_RUI_S_PLAYER 8
+#define DB_RUI_S_INPUT 9
+#define DB_RUI_S_ZBUFFER 10
+#define DB_RUI_S_WALL_CTRLS 11
+#define DB_RUI_S_SPRITE_POOL 12
+#define DB_RUI_S_WEAPON_CTRL 13
+#define DB_RUI_S_HUD_CTRLS 14
+#define DB_RUI_S_ENEMIES 15
+#define DB_RUI_S_PICKUPS 16
+#define DB_RUI_S_STATS 17
+#define DB_RUI_S_OUTCOME 18
+#define DB_RUI_S_HELP_UNTIL 19
+#define DB_RUI_S_SKY_STYLE 20
+#define DB_RUI_S_FLOOR_STYLE 21
+#define DB_RUI_S_INPUT_EHS 22
+#define DB_RUI_S_WALL_CACHE 23
+#define DB_RUI_S_FRAME_EH 24
+#define DB_RUI_S_PROJECTILES 25
+#define DB_RUI_S_FLOOR_META 26
+#define DB_RUI_S_FLOOR_GRID 27
+
+#define DB_RUI_CFG_QUALITY_NAME 0
+#define DB_RUI_CFG_COLUMNS 1
+#define DB_RUI_CFG_COLUMN_W 2
+#define DB_RUI_CFG_FOV 3
+#define DB_RUI_CFG_PROJ_SCALE 4
+#define DB_RUI_CFG_MOVE_SPEED 5
+#define DB_RUI_CFG_TURN_SPEED 6
+#define DB_RUI_CFG_DEBUG 7
+#define DB_RUI_CFG_VIEW_DISTANCE 8
+#define DB_RUI_CFG_MAX_SPRITES 9
+
+#define DB_RUI_FLOOR_VOID 0
+#define DB_RUI_FLOOR_METAL 1
+#define DB_RUI_FLOOR_STONE 2
+#define DB_RUI_FLOOR_LAVA 3
+#define DB_RUI_FLOOR_GRATE 4
+#define DB_RUI_FLOOR_SLIME 5
+
+#define DB_RUI_FM_GROUP 0
+#define DB_RUI_FM_CTRLS 1
+#define DB_RUI_FM_COLS 2
+#define DB_RUI_FM_ROWS 3
+#define DB_RUI_FM_CELL_W 4
+#define DB_RUI_FM_CELL_H 5
+
+#define DB_RUI_P_X 0
+#define DB_RUI_P_Y 1
+#define DB_RUI_P_DIR 2
+#define DB_RUI_P_HP 3
+#define DB_RUI_P_AMMO 4
+#define DB_RUI_P_NEXT_FIRE 5
+#define DB_RUI_P_FLASH_UNTIL 6
+#define DB_RUI_P_WEAPON 7
+#define DB_RUI_P_PISTOL_CLIP 8
+#define DB_RUI_P_SHOTGUN_LOADED 9
+#define DB_RUI_P_RELOAD_UNTIL 10
+#define DB_RUI_P_RELOAD_STATE 11
+#define DB_RUI_P_SWITCH_UNTIL 12
+#define DB_RUI_P_HAS_SHOTGUN 13
+
+#define DB_RUI_IN_FORWARD 0
+#define DB_RUI_IN_BACK 1
+#define DB_RUI_IN_TURN_LEFT 2
+#define DB_RUI_IN_TURN_RIGHT 3
+#define DB_RUI_IN_FIRE 4
+#define DB_RUI_IN_RESTART 5
+#define DB_RUI_IN_RELOAD 6
+#define DB_RUI_IN_SWITCH 7
+
+#define DB_RUI_STATS_LAST_TICK 0
+#define DB_RUI_STATS_DELTA 1
+#define DB_RUI_STATS_FRAME_MS 2
+#define DB_RUI_STATS_RAY_MS 3
+#define DB_RUI_STATS_FPS 4
+
+#define DB_RUI_HUD_HP 0
+#define DB_RUI_HUD_AMMO 1
+#define DB_RUI_HUD_MAP 2
+#define DB_RUI_HUD_HELP 3
+#define DB_RUI_HUD_OUTCOME 4
+#define DB_RUI_HUD_CROSS_H 5
+#define DB_RUI_HUD_CROSS_V 6
+#define DB_RUI_HUD_DEBUG_BG 7
+#define DB_RUI_HUD_DEBUG_TEXT 8
+#define DB_RUI_HUD_CEILING 9
+#define DB_RUI_HUD_FLOOR 10
+#define DB_RUI_HUD_STATUS_BAR 11
+#define DB_RUI_HUD_FACE 12
+#define DB_RUI_HUD_ARMOR 13
+#define DB_RUI_HUD_ARMS 14
+#define DB_RUI_HUD_AMMO_TABLE 15
+
+#define DB_RUI_E_TYPE 0
+#define DB_RUI_E_X 1
+#define DB_RUI_E_Y 2
+#define DB_RUI_E_HP 3
+#define DB_RUI_E_STATE 4
+#define DB_RUI_E_DIR 5
+#define DB_RUI_E_SPEED 6
+#define DB_RUI_E_ATTACK_RANGE 7
+#define DB_RUI_E_AGGRO_RANGE 8
+#define DB_RUI_E_ANIM_FRAME 9
+#define DB_RUI_E_ALIVE 10
+#define DB_RUI_E_NEXT_ATTACK 11
+
+#define DB_RUI_PK_TYPE 0
+#define DB_RUI_PK_X 1
+#define DB_RUI_PK_Y 2
+#define DB_RUI_PK_VALUE 3
+#define DB_RUI_PK_ALIVE 4
+
+#define DB_RUI_PR_TYPE 0
+#define DB_RUI_PR_X 1
+#define DB_RUI_PR_Y 2
+#define DB_RUI_PR_DIR 3
+#define DB_RUI_PR_SPEED 4
+#define DB_RUI_PR_DAMAGE 5
+#define DB_RUI_PR_LIFE_UNTIL 6
+#define DB_RUI_PR_STATE 7
+#define DB_RUI_PR_ANIM 8
+#define DB_RUI_PR_OWNER 9
+
+#define DB_RUI_PROJECTILE_FIREBALL "fireball"
+#define DB_RUI_PROJECTILE_FLY "fly"
+#define DB_RUI_PROJECTILE_BURST "burst"
+
+#define DB_RUI_EH_KEYDOWN 0
+#define DB_RUI_EH_KEYUP 1
+#define DB_RUI_EH_MOUSEDOWN 2
+#define DB_RUI_EH_MOUSEUP 3
+#define DB_RUI_EH_MOUSEMOVING 4
+#define DB_RUI_EH_CTRL_KEYDOWN 5
+#define DB_RUI_EH_CTRL_KEYUP 6
+#define DB_RUI_EH_CTRL_SETFOCUS 7
+#define DB_RUI_EH_CTRL_KILLFOCUS 8
+
+#define DB_RUI_WPN_PISTOL 0
+#define DB_RUI_WPN_SHOTGUN 1
+
+#define DB_RUI_RELOAD_NONE 0
+#define DB_RUI_RELOAD_PISTOL 1
+#define DB_RUI_RELOAD_SHOTGUN 2
+
+#define DB_RUI_PISTOL_CLIP_SIZE 12
+#define DB_RUI_SHOTGUN_CHAMBER_SIZE 1
+
+#define DIK_1 2
+#define DIK_2 3
+#define DIK_ESCAPE 1
+#define DIK_Q 16
+#define DIK_W 17
+#define DIK_E 18
+#define DIK_R 19
+#define DIK_A 30
+#define DIK_S 31
+#define DIK_D 32
+#define DIK_X 45
+#define DIK_SPACE 57
+#define DIK_F1 59
+#define DIK_UP 200
+#define DIK_LEFT 203
+#define DIK_RIGHT 205
+#define DIK_DOWN 208
+
+#endif
