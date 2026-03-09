@@ -48,6 +48,7 @@ private _settings =
 
 private _worldGroup = _display displayCtrl DB_RUI_IDC_WORLD_GROUP;
 private _spriteGroup = _display displayCtrl DB_RUI_IDC_SPRITE_GROUP;
+private _floorGroup = _display displayCtrl DB_RUI_IDC_FLOOR_GROUP;
 private _weaponCtrl = _display displayCtrl DB_RUI_IDC_WEAPON;
 private _inputCapture = _display displayCtrl DB_RUI_IDC_INPUT_CAPTURE;
 private _hudCtrls =
@@ -76,6 +77,73 @@ private _resetCtrl =
     _ctrl ctrlSetPosition [0, 0, 0, 0];
     _ctrl ctrlCommit 0;
 };
+
+private _floorColumns = switch (_qualityName) do
+{
+    case "LOW":
+    {
+        30
+    };
+    case "HIGH":
+    {
+        48
+    };
+    default
+    {
+        38
+    };
+};
+
+private _floorRows = switch (_qualityName) do
+{
+    case "LOW":
+    {
+        18
+    };
+    case "HIGH":
+    {
+        26
+    };
+    default
+    {
+        22
+    };
+};
+
+private _floorCellW = DB_RUI_W / _floorColumns;
+private _floorCellH = (DB_RUI_H * 0.5) / _floorRows;
+private _floorCtrls = [];
+
+if (!isNull _floorGroup) then
+{
+    for "_row" from 0 to (_floorRows - 1) do
+    {
+        for "_column" from 0 to (_floorColumns - 1) do
+        {
+            private _ctrl = _display ctrlCreate ["DB_RUI_RscText", -1, _floorGroup];
+            _ctrl ctrlSetBackgroundColor [0, 0, 0, 0];
+            _ctrl ctrlSetPosition
+            [
+                (_column * _floorCellW),
+                (_row * _floorCellH),
+                _floorCellW + pixelW,
+                _floorCellH + pixelH
+            ];
+            _ctrl ctrlCommit 0;
+            _floorCtrls pushBack _ctrl;
+        };
+    };
+};
+
+private _floorMeta =
+[
+    _floorGroup,
+    _floorCtrls,
+    _floorColumns,
+    _floorRows,
+    _floorCellW,
+    _floorCellH
+];
 
 private _wallCtrls = [];
 for "_index" from 0 to (_columnCount - 1) do
@@ -162,6 +230,8 @@ private _state =
     [-1, -1, -1, -1, -1, -1, -1, -1, -1],
     _wallCache,
     -1,
+    [],
+    _floorMeta,
     []
 ];
 

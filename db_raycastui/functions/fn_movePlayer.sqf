@@ -108,6 +108,17 @@ private _aliveEnemies = count ((_state # DB_RUI_S_ENEMIES) select {_x # DB_RUI_E
 }
 forEach _pickups;
 
+private _floorGrid = _state # DB_RUI_S_FLOOR_GRID;
+if !(_floorGrid isEqualTo []) then
+{
+    private _cellX = (floor _playerX) max 0 min ((_state # DB_RUI_S_WIDTH) - 1);
+    private _cellY = (floor _playerY) max 0 min ((_state # DB_RUI_S_HEIGHT) - 1);
+    if (((_floorGrid # _cellY) # _cellX) isEqualTo DB_RUI_FLOOR_LAVA) then
+    {
+        _player set [DB_RUI_P_HP, (_player # DB_RUI_P_HP) - (DB_RUI_LAVA_DAMAGE_PER_SEC * _delta)];
+    };
+};
+
 _player set [DB_RUI_P_X, _playerX];
 _player set [DB_RUI_P_Y, _playerY];
 _player set [DB_RUI_P_DIR, _dir];

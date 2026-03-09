@@ -67,6 +67,7 @@ _state = [_state] call DB_fnc_rui_handleInput;
 _state = [_state] call DB_fnc_rui_movePlayer;
 _state = [_state] call DB_fnc_rui_updateAI;
 _state = [_state] call DB_fnc_rui_updateProjectiles;
+_state = [_state] call DB_fnc_rui_renderFloor;
 _state = [_state] call DB_fnc_rui_renderWalls;
 _state = [_state] call DB_fnc_rui_renderSprites;
 _state = [_state] call DB_fnc_rui_renderWeapon;

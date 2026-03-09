@@ -35,6 +35,7 @@ class CfgFunctions
             class rui_isBlocked { file = "\db_raycastui\functions\fn_isBlocked.sqf"; };
             class rui_castRay { file = "\db_raycastui\functions\fn_castRay.sqf"; };
             class rui_hasLineOfSight { file = "\db_raycastui\functions\fn_hasLineOfSight.sqf"; };
+            class rui_renderFloor { file = "\db_raycastui\functions\fn_renderFloor.sqf"; };
             class rui_renderWalls { file = "\db_raycastui\functions\fn_renderWalls.sqf"; };
             class rui_renderSprites { file = "\db_raycastui\functions\fn_renderSprites.sqf"; };
             class rui_renderWeapon { file = "\db_raycastui\functions\fn_renderWeapon.sqf"; };

@@ -19,20 +19,73 @@ if (_state isEqualTo []) exitWith
 uiNamespace setVariable [DB_RUI_SOUND_COOLDOWNS_VAR, createHashMap];
 
 private _mapData = [(_state # DB_RUI_S_MAP_ID)] call DB_fnc_rui_loadMap;
-_mapData params
-[
-    "_mapName",
-    "_size",
-    "_grid",
-    "_spawn",
-    "_enemySpawns",
-    "_pickupSpawns",
-    "_skyStyle",
-    "_floorStyle"
-];
+private _mapName = "";
+private _size = [0, 0];
+private _grid = [];
+private _floorGrid = [];
+private _spawn = [1.5, 1.5, 0];
+private _enemySpawns = [];
+private _pickupSpawns = [];
+private _skyStyle = "ember";
+private _floorStyle = "crucible";
+
+if ((count _mapData) >= 9) then
+{
+    _mapData params
+    [
+        "_mapName",
+        "_size",
+        "_grid",
+        "_floorGrid",
+        "_spawn",
+        "_enemySpawns",
+        "_pickupSpawns",
+        "_skyStyle",
+        "_floorStyle"
+    ];
+}
+else
+{
+    _mapData params
+    [
+        "_mapName",
+        "_size",
+        "_grid",
+        "_spawn",
+        "_enemySpawns",
+        "_pickupSpawns",
+        "_skyStyle",
+        "_floorStyle"
+    ];
+};
 
 _size params ["_mapWidth", "_mapHeight"];
 _spawn params ["_spawnX", "_spawnY", "_spawnDir"];
+
+if (_floorGrid isEqualTo []) then
+{
+    private _defaultFloor = switch (_floorStyle) do
+    {
+        case "stone":
+        {
+            DB_RUI_FLOOR_STONE
+        };
+        default
+        {
+            DB_RUI_FLOOR_METAL
+        };
+    };
+
+    {
+        private _floorRow = [];
+        {
+            _floorRow pushBack (if (_x > 0) then {DB_RUI_FLOOR_VOID} else {_defaultFloor});
+        }
+        forEach _x;
+        _floorGrid pushBack _floorRow;
+    }
+    forEach _grid;
+};
 
 private _enemies = [];
 {
@@ -83,6 +136,7 @@ _state set [DB_RUI_S_OUTCOME, ""];
 _state set [DB_RUI_S_HELP_UNTIL, diag_tickTime + 14];
 _state set [DB_RUI_S_SKY_STYLE, _skyStyle];
 _state set [DB_RUI_S_FLOOR_STYLE, _floorStyle];
+_state set [DB_RUI_S_FLOOR_GRID, _floorGrid];
 
 private _input = [false, false, false, false, false, false, false, false];
 _state set [DB_RUI_S_INPUT, _input];
@@ -97,7 +151,9 @@ private _ceilingCtrl = _hud # DB_RUI_HUD_CEILING;
 private _floorCtrl = _hud # DB_RUI_HUD_FLOOR;
 private _statusBarCtrl = _hud # DB_RUI_HUD_STATUS_BAR;
 private _faceCtrl = _hud # DB_RUI_HUD_FACE;
+private _armsCtrl = _hud # DB_RUI_HUD_ARMS;
 private _outcomeCtrl = _hud # DB_RUI_HUD_OUTCOME;
+private _floorMeta = _state # DB_RUI_S_FLOOR_META;
 
 private _skyColor = switch (_skyStyle) do
 {
@@ -131,8 +187,19 @@ _ceilingCtrl ctrlSetBackgroundColor _skyColor;
 _floorCtrl ctrlSetBackgroundColor _floorColor;
 _statusBarCtrl ctrlSetText DB_RUI_TX_STATUS_BAR;
 _statusBarCtrl ctrlSetTextColor [1, 1, 1, 1];
+_statusBarCtrl ctrlShow false;
 _faceCtrl ctrlSetText DB_RUI_TX_FACE_IDLE;
+_faceCtrl ctrlShow false;
+_armsCtrl ctrlShow false;
 _outcomeCtrl ctrlSetStructuredText parseText "";
+
+if !(_floorMeta isEqualTo []) then
+{
+    {
+        _x ctrlSetBackgroundColor [0, 0, 0, 0];
+    }
+    forEach (_floorMeta # DB_RUI_FM_CTRLS);
+};
 
 {
     {
