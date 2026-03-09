@@ -9,7 +9,7 @@ params [
 
 if (_state isEqualTo []) exitWith
 {
-    [false, 0, _maxDistance, _maxDistance, 0, 0, 0, -1, -1]
+    [false, 0, _maxDistance, _maxDistance, 0, 0, 0, -1, -1, 0, 0]
 };
 
 private _grid = _state # DB_RUI_S_GRID;
@@ -117,7 +117,7 @@ for "_step" from 0 to 128 do
 
 if (!_hit) exitWith
 {
-    [false, 0, _maxDistance, _maxDistance, _side, 0, 0, _mapX, _mapY]
+    [false, 0, _maxDistance, _maxDistance, _side, 0, 0, _mapX, _mapY, _stepX, _stepY]
 };
 
 private _wallCoord = 0;
@@ -144,4 +144,4 @@ else
     _rawDistance max 0.01
 };
 
-[true, _wallType, _rawDistance, _perpendicularDistance, _side, _wallCoord, _texIndex, _mapX, _mapY]
+[true, _wallType, _rawDistance, _perpendicularDistance, _side, _wallCoord, _texIndex, _mapX, _mapY, _stepX, _stepY]

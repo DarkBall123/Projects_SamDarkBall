@@ -232,6 +232,7 @@ private _state =
     -1,
     [],
     _floorMeta,
+    [],
     []
 ];
 

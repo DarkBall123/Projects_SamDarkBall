@@ -31,6 +31,7 @@ private _mapName = "";
 private _size = [0, 0];
 private _grid = [];
 private _floorGrid = [];
+private _floorHeightGrid = [];
 private _spawn = [1.5, 1.5, 0];
 private _enemySpawns = [];
 private _pickupSpawns = [];
@@ -101,6 +102,16 @@ if (_floorGrid isEqualTo []) then
     forEach _grid;
 };
 
+{
+    private _heightRow = [];
+    {
+        _heightRow pushBack DB_RUI_GET_FLOOR_HEIGHT(_x);
+    }
+    forEach _x;
+    _floorHeightGrid pushBack _heightRow;
+}
+forEach _floorGrid;
+
 private _enemies = [];
 {
     _x params ["_type", "_enemyX", "_enemyY"];
@@ -151,6 +162,7 @@ _state set [DB_RUI_S_HELP_UNTIL, diag_tickTime + 14];
 _state set [DB_RUI_S_SKY_STYLE, _skyStyle];
 _state set [DB_RUI_S_FLOOR_STYLE, _floorStyle];
 _state set [DB_RUI_S_FLOOR_GRID, _floorGrid];
+_state set [DB_RUI_S_FLOOR_HEIGHT_GRID, _floorHeightGrid];
 
 private _input = [false, false, false, false, false, false, false, false];
 _state set [DB_RUI_S_INPUT, _input];
