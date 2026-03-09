@@ -50,6 +50,24 @@ class DB_RaycastUIDialog
             colorBackground[] = {0.09, 0.09, 0.09, 1};
         };
 
+        class WorldLayer : DB_RUI_RscControlsGroupNoScrollbars
+        {
+            idc = DB_RUI_IDC_WORLD_GROUP;
+            x = safeZoneX;
+            y = safeZoneY;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_H;
+        };
+
+        class SpriteLayer : DB_RUI_RscControlsGroupNoScrollbars
+        {
+            idc = DB_RUI_IDC_SPRITE_GROUP;
+            x = safeZoneX;
+            y = safeZoneY;
+            w = DB_RUI_SAFE_W;
+            h = DB_RUI_SAFE_H;
+        };
+
         class StatusBar : DB_RUI_RscPicture
         {
             idc = DB_RUI_IDC_STATUS_BAR;
@@ -93,24 +111,6 @@ class DB_RaycastUIDialog
 
     class controls
     {
-        class WorldLayer : DB_RUI_RscControlsGroupNoScrollbars
-        {
-            idc = DB_RUI_IDC_WORLD_GROUP;
-            x = safeZoneX;
-            y = safeZoneY;
-            w = DB_RUI_SAFE_W;
-            h = DB_RUI_SAFE_H;
-        };
-
-        class SpriteLayer : DB_RUI_RscControlsGroupNoScrollbars
-        {
-            idc = DB_RUI_IDC_SPRITE_GROUP;
-            x = safeZoneX;
-            y = safeZoneY;
-            w = DB_RUI_SAFE_W;
-            h = DB_RUI_SAFE_H;
-        };
-
         class WeaponPicture : DB_RUI_RscPicture
         {
             idc = DB_RUI_IDC_WEAPON;

@@ -111,7 +111,7 @@ private _slot7 = [7, false, false] call _weaponSlotMarkup;
 
 _armsCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center'><t font='EtelkaMonospaceProBold' size='0.46'>%1&nbsp;&nbsp;%2&nbsp;&nbsp;%3<br/>%4&nbsp;&nbsp;%5&nbsp;&nbsp;%6</t><br/><t %7 size='0.30' color='#DDD4C6'>ARMS</t></t>",
+    "<t align='center'><t font='EtelkaMonospaceProBold' size='0.46'>%1 %2 %3<br/>%4 %5 %6</t><br/><t %7 size='0.30' color='#DDD4C6'>ARMS</t></t>",
     _slot2,
     _slot3,
     _slot4,
