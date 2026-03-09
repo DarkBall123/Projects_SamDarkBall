@@ -105,26 +105,6 @@ private _demo01 =
     "crucible"
 ];
 
-private _mapIdLower = toLower _mapId;
-private _path = "\db_raycastui\data\maps\demo_01.sqf";
-private _mapData = [];
+diag_log text format ["[DB_RUI] loadMap builtin map=%1", toLower _mapId];
 
-if (fileExists _path) then
-{
-    private _loadedMap = call compileFinal preprocessFileLineNumbers _path;
-    if !(isNil "_loadedMap") then
-    {
-        if (_loadedMap isEqualType []) then
-        {
-            _mapData = _loadedMap;
-        };
-    };
-};
-
-if ((count _mapData) < 8) then
-{
-    diag_log text format ["[DB_RUI] loadMap fallback used map=%1 path=%2", _mapIdLower, _path];
-    _mapData = +_demo01;
-};
-
-_mapData
++_demo01
