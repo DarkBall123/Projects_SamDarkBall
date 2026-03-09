@@ -63,7 +63,7 @@ private _labelStyle = "font='PuristaSemibold' shadow='1'";
 
 _ammoCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center'><t %1 size='2.05' color='#D31912'>%2</t><br/><t %3 size='0.60' color='#DDD4C6'>AMMO</t></t>",
+    "<t align='center'><t %1 size='1.08' color='#D31912'>%2</t><br/><t %3 size='0.36' color='#DDD4C6'>AMMO</t></t>",
     _bigNumberStyle,
     _ammoValue,
     _labelStyle
@@ -71,7 +71,7 @@ _ammoCtrl ctrlSetStructuredText parseText format
 
 _hpCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center'><t %1 size='2.05' color='#D31912'>%2%%</t><br/><t %3 size='0.60' color='#DDD4C6'>HEALTH</t></t>",
+    "<t align='center'><t %1 size='1.08' color='#D31912'>%2%%</t><br/><t %3 size='0.36' color='#DDD4C6'>HEALTH</t></t>",
     _bigNumberStyle,
     _hpValue,
     _labelStyle
@@ -79,7 +79,7 @@ _hpCtrl ctrlSetStructuredText parseText format
 
 _armorCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center'><t %1 size='2.05' color='#D31912'>%2%%</t><br/><t %3 size='0.60' color='#DDD4C6'>ARMOR</t></t>",
+    "<t align='center'><t %1 size='1.08' color='#D31912'>%2%%</t><br/><t %3 size='0.36' color='#DDD4C6'>ARMOR</t></t>",
     _bigNumberStyle,
     _armorValue,
     _labelStyle
@@ -111,7 +111,7 @@ private _slot7 = [7, false, false] call _weaponSlotMarkup;
 
 _armsCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center'><t font='EtelkaMonospaceProBold' size='0.76'>%1&nbsp;&nbsp;%2&nbsp;&nbsp;%3<br/>%4&nbsp;&nbsp;%5&nbsp;&nbsp;%6</t><br/><t %7 size='0.52' color='#DDD4C6'>ARMS</t></t>",
+    "<t align='center'><t font='EtelkaMonospaceProBold' size='0.46'>%1&nbsp;&nbsp;%2&nbsp;&nbsp;%3<br/>%4&nbsp;&nbsp;%5&nbsp;&nbsp;%6</t><br/><t %7 size='0.30' color='#DDD4C6'>ARMS</t></t>",
     _slot2,
     _slot3,
     _slot4,
@@ -123,7 +123,7 @@ _armsCtrl ctrlSetStructuredText parseText format
 
 _ammoTableCtrl ctrlSetStructuredText parseText format
 [
-    "<t font='EtelkaMonospaceProBold' size='0.68' shadow='1' color='#D2CCC1'>BULL <t color='#F1D14B'>%1</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>200</t><br/>SHEL <t color='#F1D14B'>%2</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>50</t><br/>RCKT <t color='#F1D14B'>%3</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>50</t><br/>CELL <t color='#F1D14B'>%4</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>300</t></t>",
+    "<t font='EtelkaMonospaceProBold' size='0.40' shadow='1' color='#D2CCC1'>BULL <t color='#F1D14B'>%1</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>200</t><br/>SHEL <t color='#F1D14B'>%2</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>50</t><br/>RCKT <t color='#F1D14B'>%3</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>50</t><br/>CELL <t color='#F1D14B'>%4</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>300</t></t>",
     _pistolPool,
     _shellPool,
     _rocketPool,

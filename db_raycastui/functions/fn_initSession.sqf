@@ -110,16 +110,9 @@ private _buildWallSet =
     params ["_folder"];
 
     private _paths = [];
-    for "_slice" from 0 to (DB_RUI_SLICE_COUNT - 1) do
-    {
-        _paths pushBack format
-        [
-            "\db_raycastui\data\walls\%1\jpg\slice_%2%3.paa",
-            _folder,
-            if (_slice < 10) then {"0"} else {""},
-            _slice
-        ];
-    };
+    private _basePath = format ["\db_raycastui\data\walls\%1\%1.paa", _folder];
+    _paths resize DB_RUI_SLICE_COUNT;
+    _paths = _paths apply {_basePath};
 
     _paths
 };
