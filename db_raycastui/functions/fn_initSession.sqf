@@ -243,6 +243,7 @@ private _state =
     [],
     _floorMeta,
     [],
+    [],
     _stepCtrls,
     0
 ];
