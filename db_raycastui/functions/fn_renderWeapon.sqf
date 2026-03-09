@@ -29,11 +29,11 @@ private _layout = switch (_weaponId) do
 {
     case DB_RUI_WPN_SHOTGUN:
     {
-        [_statusX + (_statusW * 0.355), _statusY - (_statusH * 0.90), _statusW * 0.22, _statusH * 1.10]
+        [_statusX + (_statusW * 0.401), _statusY - (_statusH * 1.42), _statusW * 0.15, _statusH * 1.24]
     };
     default
     {
-        [_statusX + (_statusW * 0.418), _statusY - (_statusH * 0.72), _statusW * 0.11, _statusH * 0.96]
+        [_statusX + (_statusW * 0.446), _statusY - (_statusH * 1.05), _statusW * 0.072, _statusH * 0.92]
     };
 };
 
@@ -62,14 +62,14 @@ switch (_weaponId) do
         if (_reloadState == DB_RUI_RELOAD_SHOTGUN) then
         {
             _texture = DB_RUI_TX_WPN_SHOTGUN_RELOAD;
-            _baseY = _baseY + (_statusH * 0.10);
+            _baseY = _baseY + (_statusH * 0.12);
         };
 
         if (_flashActive) then
         {
             _texture = DB_RUI_TX_WPN_SHOTGUN_FIRE;
-            _baseY = _baseY - (_statusH * 0.07);
-            _baseX = _baseX - (_statusW * 0.004);
+            _baseY = _baseY - (_statusH * 0.08);
+            _baseX = _baseX - (_statusW * 0.003);
         };
     };
     default
@@ -77,26 +77,26 @@ switch (_weaponId) do
         if (_flashActive) then
         {
             _texture = DB_RUI_TX_WPN_PISTOL_FIRE;
-            _baseY = _baseY - (_statusH * 0.05);
-            _baseX = _baseX - (_statusW * 0.002);
+            _baseY = _baseY - (_statusH * 0.06);
+            _baseX = _baseX - (_statusW * 0.0015);
         };
 
         if (_reloadState == DB_RUI_RELOAD_PISTOL) then
         {
-            _baseY = _baseY + (_statusH * 0.18);
-            _bobX = _bobX - (_statusW * 0.004);
+            _baseY = _baseY + (_statusH * 0.16);
+            _bobX = _bobX - (_statusW * 0.003);
         };
     };
 };
 
 if (_switching) then
 {
-    _baseY = _baseY + (_statusH * 0.34);
+    _baseY = _baseY + (_statusH * 0.26);
 };
 
 if !(_outcome isEqualTo "") then
 {
-    _baseY = _baseY + (_statusH * 0.26);
+    _baseY = _baseY + (_statusH * 0.18);
     _weaponCtrl ctrlSetTextColor [0.62, 0.62, 0.62, 0.92];
 }
 else
