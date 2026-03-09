@@ -15,22 +15,25 @@ private _weaponCtrl = _state # DB_RUI_S_WEAPON_CTRL;
 private _player = _state # DB_RUI_S_PLAYER;
 private _input = _state # DB_RUI_S_INPUT;
 private _outcome = _state # DB_RUI_S_OUTCOME;
+private _hudCtrls = _state # DB_RUI_S_HUD_CTRLS;
 private _time = diag_tickTime;
 private _weaponId = _player # DB_RUI_P_WEAPON;
 private _flashActive = _time < (_player # DB_RUI_P_FLASH_UNTIL);
 private _reloadState = _player # DB_RUI_P_RELOAD_STATE;
 private _switching = _time < (_player # DB_RUI_P_SWITCH_UNTIL);
-private _statusTop = DB_RUI_H - (DB_RUI_H * 0.245);
+private _statusBarCtrl = _hudCtrls # DB_RUI_HUD_STATUS_BAR;
+private _statusBarPos = ctrlPosition _statusBarCtrl;
+_statusBarPos params ["_statusX", "_statusY", "_statusW", "_statusH"];
 
 private _layout = switch (_weaponId) do
 {
     case DB_RUI_WPN_SHOTGUN:
     {
-        [DB_RUI_W * 0.355, _statusTop - (DB_RUI_H * 0.155), DB_RUI_W * 0.29, DB_RUI_H * 0.17]
+        [_statusX + (_statusW * 0.355), _statusY - (_statusH * 0.90), _statusW * 0.22, _statusH * 1.10]
     };
     default
     {
-        [DB_RUI_W * 0.410, _statusTop - (DB_RUI_H * 0.110), DB_RUI_W * 0.18, DB_RUI_H * 0.13]
+        [_statusX + (_statusW * 0.418), _statusY - (_statusH * 0.72), _statusW * 0.11, _statusH * 0.96]
     };
 };
 
@@ -59,14 +62,14 @@ switch (_weaponId) do
         if (_reloadState == DB_RUI_RELOAD_SHOTGUN) then
         {
             _texture = DB_RUI_TX_WPN_SHOTGUN_RELOAD;
-            _baseY = _baseY + (DB_RUI_H * 0.015);
+            _baseY = _baseY + (_statusH * 0.10);
         };
 
         if (_flashActive) then
         {
             _texture = DB_RUI_TX_WPN_SHOTGUN_FIRE;
-            _baseY = _baseY - (DB_RUI_H * 0.010);
-            _baseX = _baseX - (DB_RUI_W * 0.004);
+            _baseY = _baseY - (_statusH * 0.07);
+            _baseX = _baseX - (_statusW * 0.004);
         };
     };
     default
@@ -74,26 +77,26 @@ switch (_weaponId) do
         if (_flashActive) then
         {
             _texture = DB_RUI_TX_WPN_PISTOL_FIRE;
-            _baseY = _baseY - (DB_RUI_H * 0.008);
-            _baseX = _baseX - (DB_RUI_W * 0.003);
+            _baseY = _baseY - (_statusH * 0.05);
+            _baseX = _baseX - (_statusW * 0.002);
         };
 
         if (_reloadState == DB_RUI_RELOAD_PISTOL) then
         {
-            _baseY = _baseY + (DB_RUI_H * 0.022);
-            _bobX = _bobX - (DB_RUI_W * 0.006);
+            _baseY = _baseY + (_statusH * 0.18);
+            _bobX = _bobX - (_statusW * 0.004);
         };
     };
 };
 
 if (_switching) then
 {
-    _baseY = _baseY + (DB_RUI_H * 0.06);
+    _baseY = _baseY + (_statusH * 0.34);
 };
 
 if !(_outcome isEqualTo "") then
 {
-    _baseY = _baseY + (DB_RUI_H * 0.05);
+    _baseY = _baseY + (_statusH * 0.26);
     _weaponCtrl ctrlSetTextColor [0.62, 0.62, 0.62, 0.92];
 }
 else

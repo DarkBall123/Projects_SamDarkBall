@@ -7,7 +7,7 @@
 #define DB_RUI_SAFE_W DB_RUI_GRID_W(DB_RUI_SAFE_W_UNITS)
 #define DB_RUI_SAFE_H DB_RUI_GRID_H(DB_RUI_SAFE_H_UNITS)
 #define DB_RUI_SAFE_HALF_H DB_RUI_GRID_H(DB_RUI_SAFE_H_UNITS * 0.5)
-#define DB_RUI_STATUS_H DB_RUI_GRID_H(15.2)
+#define DB_RUI_STATUS_H DB_RUI_GRID_H(11.0)
 #define DB_RUI_STATUS_Y (DB_RUI_BOTTOM_Y - DB_RUI_STATUS_H)
 
 class DB_RaycastUIDialog
@@ -115,20 +115,20 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_WEAPON;
             text = DB_RUI_TX_WPN_PISTOL;
-            x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(46) * 0.5);
-            y = DB_RUI_STATUS_Y - DB_RUI_GRID_H(7.6);
-            w = DB_RUI_GRID_W(46);
-            h = DB_RUI_GRID_H(11);
+            x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(34) * 0.5);
+            y = DB_RUI_STATUS_Y - DB_RUI_GRID_H(5.8);
+            w = DB_RUI_GRID_W(34);
+            h = DB_RUI_GRID_H(8.2);
         };
 
         class AmmoText : DB_RUI_RscStructuredText
         {
             idc = DB_RUI_IDC_AMMO;
             size = DB_RUI_TEXT_SIZE_LARGE;
-            x = safeZoneX + DB_RUI_GRID_W(1.8);
-            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
-            w = DB_RUI_GRID_W(15.0);
-            h = DB_RUI_GRID_H(11.6);
+            x = safeZoneX + DB_RUI_GRID_W(2.4);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(0.5);
+            w = DB_RUI_GRID_W(11.2);
+            h = DB_RUI_GRID_H(8.8);
             text = "AMMO";
         };
 
@@ -136,10 +136,10 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_HP;
             size = DB_RUI_TEXT_SIZE_LARGE;
-            x = safeZoneX + DB_RUI_GRID_W(16.8);
-            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
-            w = DB_RUI_GRID_W(15.2);
-            h = DB_RUI_GRID_H(11.6);
+            x = safeZoneX + DB_RUI_GRID_W(14.0);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(0.5);
+            w = DB_RUI_GRID_W(11.6);
+            h = DB_RUI_GRID_H(8.8);
             text = "HEALTH";
         };
 
@@ -147,10 +147,10 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_ARMS;
             size = DB_RUI_TEXT_SIZE_MEDIUM;
-            x = DB_RUI_CENTER_X - DB_RUI_GRID_W(12.8);
-            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.2);
-            w = DB_RUI_GRID_W(7.4);
-            h = DB_RUI_GRID_H(10.8);
+            x = DB_RUI_CENTER_X - DB_RUI_GRID_W(8.9);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(0.8);
+            w = DB_RUI_GRID_W(3.8);
+            h = DB_RUI_GRID_H(7.6);
             text = "ARMS";
         };
 
@@ -158,20 +158,20 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_FACE;
             text = DB_RUI_TX_FACE_IDLE;
-            x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(10.8) * 0.5);
-            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
-            w = DB_RUI_GRID_W(10.8);
-            h = DB_RUI_GRID_H(12.2);
+            x = DB_RUI_CENTER_X - (DB_RUI_GRID_W(8.8) * 0.5);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(0.55);
+            w = DB_RUI_GRID_W(8.8);
+            h = DB_RUI_GRID_H(9.6);
         };
 
         class ArmorText : DB_RUI_RscStructuredText
         {
             idc = DB_RUI_IDC_ARMOR;
             size = DB_RUI_TEXT_SIZE_LARGE;
-            x = DB_RUI_CENTER_X + DB_RUI_GRID_W(4.2);
-            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.0);
-            w = DB_RUI_GRID_W(15.2);
-            h = DB_RUI_GRID_H(11.6);
+            x = DB_RUI_CENTER_X + DB_RUI_GRID_W(5.0);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(0.5);
+            w = DB_RUI_GRID_W(11.2);
+            h = DB_RUI_GRID_H(8.8);
             text = "ARMOR";
         };
 
@@ -179,10 +179,10 @@ class DB_RaycastUIDialog
         {
             idc = DB_RUI_IDC_AMMO_TABLE;
             size = DB_RUI_TEXT_SIZE_SMALL;
-            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(16.5);
-            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(1.2);
-            w = DB_RUI_GRID_W(14.4);
-            h = DB_RUI_GRID_H(10.8);
+            x = DB_RUI_RIGHT_X - DB_RUI_GRID_W(10.4);
+            y = DB_RUI_STATUS_Y + DB_RUI_GRID_H(0.9);
+            w = DB_RUI_GRID_W(7.8);
+            h = DB_RUI_GRID_H(7.4);
             text = "BULL";
         };
 
