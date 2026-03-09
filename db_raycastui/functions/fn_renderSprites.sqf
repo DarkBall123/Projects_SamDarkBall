@@ -44,7 +44,7 @@ private _sprites = [];
 
         if ((abs _relative) < (_fov * 0.65)) then
         {
-            if (_depth > 0.15) then
+            if ((_depth > 0.15) && {[_state, _angleTo, _distance, 0.02] call DB_fnc_rui_hasLineOfSight}) then
             {
                 private _screenCenter = (DB_RUI_W * 0.5) + ((_relative / (_fov * 0.5)) * (DB_RUI_W * 0.5));
                 private _height = (_projectionScale * 0.88) / _depth;
@@ -68,7 +68,7 @@ forEach (_state # DB_RUI_S_ENEMIES);
 
         if ((abs _relative) < (_fov * 0.70)) then
         {
-            if (_depth > 0.12) then
+            if ((_depth > 0.12) && {[_state, _angleTo, _distance, 0.02] call DB_fnc_rui_hasLineOfSight}) then
             {
                 private _screenCenter = (DB_RUI_W * 0.5) + ((_relative / (_fov * 0.5)) * (DB_RUI_W * 0.5));
                 private _height = (_projectionScale * 0.42) / _depth;
@@ -103,7 +103,7 @@ forEach (_state # DB_RUI_S_PICKUPS);
 
     if ((abs _relative) < (_fov * 0.72)) then
     {
-        if (_depth > 0.10) then
+        if ((_depth > 0.10) && {[_state, _angleTo, _distance, 0.01] call DB_fnc_rui_hasLineOfSight}) then
         {
             private _screenCenter = (DB_RUI_W * 0.5) + ((_relative / (_fov * 0.5)) * (DB_RUI_W * 0.5));
             private _height = (_projectionScale * _scale) / _depth;

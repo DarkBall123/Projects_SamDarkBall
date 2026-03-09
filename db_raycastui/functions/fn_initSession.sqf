@@ -98,15 +98,15 @@ private _floorRows = switch (_qualityName) do
 {
     case "LOW":
     {
-        18
+        20
     };
     case "HIGH":
     {
-        26
+        32
     };
     default
     {
-        22
+        28
     };
 };
 

@@ -66,7 +66,29 @@ private _rayDirX0 = cos _leftAngle;
 private _rayDirY0 = sin _leftAngle;
 private _rayDirX1 = cos _rightAngle;
 private _rayDirY1 = sin _rightAngle;
-private _ctrlIndex = 0;
+private _cellCount = _rows * _cols;
+private _colorBuffer = [];
+private _priorityBuffer = [];
+
+_colorBuffer resize _cellCount;
+_priorityBuffer resize _cellCount;
+
+for "_index" from 0 to (_cellCount - 1) do
+{
+    _colorBuffer set [_index, +_voidColor];
+    _priorityBuffer set [_index, 0];
+};
+
+private _setCellColor =
+{
+    params ["_index", "_color", "_priority"];
+
+    if ((_index >= 0) && {_index < _cellCount} && {_priority >= (_priorityBuffer # _index)}) then
+    {
+        _colorBuffer set [_index, +_color];
+        _priorityBuffer set [_index, _priority];
+    };
+};
 
 for "_row" from 0 to (_rows - 1) do
 {
@@ -81,8 +103,8 @@ for "_row" from 0 to (_rows - 1) do
 
     for "_column" from 0 to (_cols - 1) do
     {
-        private _ctrl = _ctrls # _ctrlIndex;
-        _ctrlIndex = _ctrlIndex + 1;
+        private _bufferIndex = (_row * _cols) + _column;
+        private _writeDefault = true;
 
         private _tileColor = +_voidColor;
         _tileColor set [3, _alpha];
@@ -99,6 +121,31 @@ for "_row" from 0 to (_rows - 1) do
                 private _fracX = _worldX - _tileX;
                 private _fracY = _worldY - _tileY;
                 private _edgeDist = ((_fracX min (1 - _fracX)) min (_fracY min (1 - _fracY)));
+                private _lavaBand = DB_RUI_LAVA_RIM_BAND;
+                private _nearLeft = false;
+                private _nearRight = false;
+                private _nearUp = false;
+                private _nearDown = false;
+
+                if (_tileX > 0) then
+                {
+                    _nearLeft = (((_floorGrid # _tileY) # (_tileX - 1)) isEqualTo DB_RUI_FLOOR_LAVA);
+                };
+
+                if (_tileX < (_mapWidth - 1)) then
+                {
+                    _nearRight = (((_floorGrid # _tileY) # (_tileX + 1)) isEqualTo DB_RUI_FLOOR_LAVA);
+                };
+
+                if (_tileY > 0) then
+                {
+                    _nearUp = (((_floorGrid # (_tileY - 1)) # _tileX) isEqualTo DB_RUI_FLOOR_LAVA);
+                };
+
+                if (_tileY < (_mapHeight - 1)) then
+                {
+                    _nearDown = (((_floorGrid # (_tileY + 1)) # _tileX) isEqualTo DB_RUI_FLOOR_LAVA);
+                };
 
                 switch (_floorType) do
                 {
@@ -131,53 +178,73 @@ for "_row" from 0 to (_rows - 1) do
                     {
                         private _flow = 0.5 + (0.5 * ((sin ((_worldX * 170) + (_time * 240))) * (cos ((_worldY * 145) - (_time * 175)))));
                         private _pulse = 0.5 + (0.5 * sin (((_worldX + _worldY) * 210) + (_time * 420)));
-                        private _crust = 1;
-                        private _lavaEdge = false;
-
-                        if (_tileX > 0) then
-                        {
-                            if (((_floorGrid # _tileY) # (_tileX - 1)) != DB_RUI_FLOOR_LAVA) then
-                            {
-                                _lavaEdge = true;
-                            };
-                        };
-
-                        if (!_lavaEdge && {_tileX < (_mapWidth - 1)}) then
-                        {
-                            if (((_floorGrid # _tileY) # (_tileX + 1)) != DB_RUI_FLOOR_LAVA) then
-                            {
-                                _lavaEdge = true;
-                            };
-                        };
-
-                        if (!_lavaEdge && {_tileY > 0}) then
-                        {
-                            if (((_floorGrid # (_tileY - 1)) # _tileX) != DB_RUI_FLOOR_LAVA) then
-                            {
-                                _lavaEdge = true;
-                            };
-                        };
-
-                        if (!_lavaEdge && {_tileY < (_mapHeight - 1)}) then
-                        {
-                            if (((_floorGrid # (_tileY + 1)) # _tileX) != DB_RUI_FLOOR_LAVA) then
-                            {
-                                _lavaEdge = true;
-                            };
-                        };
-
-                        if (_lavaEdge && {_edgeDist < 0.18}) then
-                        {
-                            _crust = 0.42 + (_edgeDist * 2.5);
-                        };
-
-                        _tileColor =
+                        private _rimFactor = 0;
+                        private _dropRows = ceil (((DB_RUI_LAVA_PIT_DEPTH * _projectionScale) / (_rowDistance max 0.75)) / _cellH);
+                        private _shadowColor =
                         [
-                            ((0.42 + (_flow * 0.27) + (_pulse * 0.16)) * _shade * _crust) min 1,
-                            ((0.05 + (_flow * 0.18) + (_pulse * 0.10)) * _shade * _crust) min 1,
-                            ((0.01 + (_flow * 0.05)) * _shade * _crust) min 1,
-                            (_alpha + 0.04) min 1
+                            ((0.03 + (_pulse * 0.02)) * _shade) min 1,
+                            ((0.01 + (_flow * 0.01)) * _shade) min 1,
+                            ((0.01 + (_flow * 0.01)) * _shade) min 1,
+                            (_alpha + 0.02) min 1
                         ];
+
+                        if ((_tileX > 0) && {!(((_floorGrid # _tileY) # (_tileX - 1)) isEqualTo DB_RUI_FLOOR_LAVA)} && {_fracX < _lavaBand}) then
+                        {
+                            _rimFactor = _rimFactor max ((_lavaBand - _fracX) / _lavaBand);
+                        };
+
+                        if ((_tileX < (_mapWidth - 1)) && {!(((_floorGrid # _tileY) # (_tileX + 1)) isEqualTo DB_RUI_FLOOR_LAVA)} && {_fracX > (1 - _lavaBand)}) then
+                        {
+                            _rimFactor = _rimFactor max ((_fracX - (1 - _lavaBand)) / _lavaBand);
+                        };
+
+                        if ((_tileY > 0) && {!(((_floorGrid # (_tileY - 1)) # _tileX) isEqualTo DB_RUI_FLOOR_LAVA)} && {_fracY < _lavaBand}) then
+                        {
+                            _rimFactor = _rimFactor max ((_lavaBand - _fracY) / _lavaBand);
+                        };
+
+                        if ((_tileY < (_mapHeight - 1)) && {!(((_floorGrid # (_tileY + 1)) # _tileX) isEqualTo DB_RUI_FLOOR_LAVA)} && {_fracY > (1 - _lavaBand)}) then
+                        {
+                            _rimFactor = _rimFactor max ((_fracY - (1 - _lavaBand)) / _lavaBand);
+                        };
+
+                        _dropRows = (_dropRows max 1) min ((_rows - 1) - _row);
+
+                        private _pitWallColor = if (_rimFactor > 0) then
+                        {
+                            private _wallShade = (_shade * (0.32 + (_rimFactor * 0.34))) max 0.10;
+                            [
+                                ((0.22 + (_flow * 0.08)) * _wallShade) min 1,
+                                ((0.08 + (_pulse * 0.04)) * _wallShade) min 1,
+                                ((0.03 + (_pulse * 0.02)) * _wallShade) min 1,
+                                (_alpha + 0.03) min 1
+                            ]
+                        }
+                        else
+                        {
+                            _shadowColor
+                        };
+
+                        private _lavaColor =
+                        [
+                            ((0.44 + (_flow * 0.26) + (_pulse * 0.18)) * _shade) min 1,
+                            ((0.07 + (_flow * 0.18) + (_pulse * 0.11)) * _shade) min 1,
+                            ((0.01 + (_flow * 0.05)) * _shade) min 1,
+                            (_alpha + 0.06) min 1
+                        ];
+
+                        [_bufferIndex, _pitWallColor, 2] call _setCellColor;
+                        if (_dropRows > 0) then
+                        {
+                            private _lavaIndex = (((_row + _dropRows) min (_rows - 1)) * _cols) + _column;
+                            [_lavaIndex, _lavaColor, 3] call _setCellColor;
+                        }
+                        else
+                        {
+                            [_bufferIndex, _lavaColor, 3] call _setCellColor;
+                        };
+
+                        _writeDefault = false;
                     };
                     case DB_RUI_FLOOR_GRATE:
                     {
@@ -215,13 +282,54 @@ for "_row" from 0 to (_rows - 1) do
                     {
                     };
                 };
+
+                if (_writeDefault) then
+                {
+                    private _rimFactor = 0;
+
+                    if (_nearLeft && {_fracX < _lavaBand}) then
+                    {
+                        _rimFactor = _rimFactor max ((_lavaBand - _fracX) / _lavaBand);
+                    };
+
+                    if (_nearRight && {_fracX > (1 - _lavaBand)}) then
+                    {
+                        _rimFactor = _rimFactor max ((_fracX - (1 - _lavaBand)) / _lavaBand);
+                    };
+
+                    if (_nearUp && {_fracY < _lavaBand}) then
+                    {
+                        _rimFactor = _rimFactor max ((_lavaBand - _fracY) / _lavaBand);
+                    };
+
+                    if (_nearDown && {_fracY > (1 - _lavaBand)}) then
+                    {
+                        _rimFactor = _rimFactor max ((_fracY - (1 - _lavaBand)) / _lavaBand);
+                    };
+
+                    if (_rimFactor > 0) then
+                    {
+                        _tileColor set [0, (((_tileColor # 0) * (1 - (_rimFactor * 0.24))) + (_rimFactor * 0.08 * _shade)) min 1];
+                        _tileColor set [1, ((_tileColor # 1) * (1 - (_rimFactor * 0.30))) min 1];
+                        _tileColor set [2, ((_tileColor # 2) * (1 - (_rimFactor * 0.42))) min 1];
+                    };
+                };
             };
         };
 
-        _ctrl ctrlSetBackgroundColor _tileColor;
+        if (_writeDefault) then
+        {
+            [_bufferIndex, _tileColor, 1] call _setCellColor;
+        };
+
         _worldX = _worldX + _stepX;
         _worldY = _worldY + _stepY;
     };
+};
+
+for "_index" from 0 to (_cellCount - 1) do
+{
+    (_ctrls # _index) ctrlSetBackgroundColor (_colorBuffer # _index);
 };
 
 _state

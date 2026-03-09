@@ -98,7 +98,7 @@ class DB_RaycastUIDialog
             x = DB_RUI_LEFT_PANEL_X;
             y = DB_RUI_SIDE_PANEL_Y;
             w = DB_RUI_LEFT_PANEL_W;
-            h = DB_RUI_GRID_H(7.8);
+            h = DB_RUI_GRID_H(8.4);
             colorBackground[] = {0.02, 0.02, 0.03, 0.54};
         };
 
@@ -108,7 +108,7 @@ class DB_RaycastUIDialog
             x = DB_RUI_RIGHT_PANEL_X;
             y = DB_RUI_SIDE_PANEL_Y;
             w = DB_RUI_RIGHT_PANEL_W;
-            h = DB_RUI_GRID_H(7.8);
+            h = DB_RUI_GRID_H(8.4);
             colorBackground[] = {0.02, 0.02, 0.03, 0.54};
         };
 
@@ -214,9 +214,9 @@ class DB_RaycastUIDialog
             idc = DB_RUI_IDC_AMMO_TABLE;
             size = DB_RUI_TEXT_SIZE_SMALL;
             x = DB_RUI_RIGHT_PANEL_X + DB_RUI_GRID_W(1.1);
-            y = DB_RUI_SIDE_PANEL_Y + DB_RUI_GRID_H(3.3);
+            y = DB_RUI_SIDE_PANEL_Y + DB_RUI_GRID_H(3.0);
             w = DB_RUI_RIGHT_PANEL_W - DB_RUI_GRID_W(2.2);
-            h = DB_RUI_GRID_H(3.6);
+            h = DB_RUI_GRID_H(4.6);
             text = "BULL";
         };
 

@@ -25,6 +25,7 @@ private _faceCtrl = _hud # DB_RUI_HUD_FACE;
 private _armorCtrl = _hud # DB_RUI_HUD_ARMOR;
 private _armsCtrl = _hud # DB_RUI_HUD_ARMS;
 private _ammoTableCtrl = _hud # DB_RUI_HUD_AMMO_TABLE;
+private _statusBarCtrl = _hud # DB_RUI_HUD_STATUS_BAR;
 private _weaponInfo = [_player] call DB_fnc_rui_getWeaponInfo;
 _weaponInfo params ["_weaponName", "_clipText", "_reserveText", "_isReloading"];
 
@@ -38,92 +39,50 @@ private _cellPool = 0;
 private _ammoValue = if ((_player # DB_RUI_P_WEAPON) == DB_RUI_WPN_SHOTGUN) then {_shellPool} else {_pistolPool};
 private _aliveEnemies = count ((_state # DB_RUI_S_ENEMIES) select {_x # DB_RUI_E_ALIVE});
 private _hasExitGoal = (((_state # DB_RUI_S_PICKUPS) findIf {(_x # DB_RUI_PK_TYPE) isEqualTo "exit"}) >= 0);
-private _faceTexture = DB_RUI_TX_FACE_IDLE;
 private _flashActive = ((_player # DB_RUI_P_FLASH_UNTIL) > diag_tickTime);
 
-if (_flashActive) then
-{
-    _faceTexture = DB_RUI_TX_FACE_ALERT;
-};
-
-if (_hpValue < 35) then
-{
-    _faceTexture = DB_RUI_TX_FACE_HURT;
-};
-
-if ((_state # DB_RUI_S_OUTCOME) isEqualTo "lost") then
-{
-    _faceTexture = DB_RUI_TX_FACE_DEAD;
-};
-
-_faceCtrl ctrlSetText _faceTexture;
+_statusBarCtrl ctrlShow false;
+_faceCtrl ctrlShow false;
+_armsCtrl ctrlShow false;
 
 private _bigNumberStyle = "font='EtelkaMonospaceProBold' shadow='1'";
 private _labelStyle = "font='PuristaSemibold' shadow='1'";
+private _ammoColor = "#F2E7BF";
+private _healthColor = if (_hpValue < 35) then {"#FF8A5B"} else {"#F2E7BF"};
+private _armorColor = "#D8E6F4";
 
 _ammoCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center' valign='middle'><t %1 size='0.66' color='#D31912'>%2</t><br/><t %3 size='0.20' color='#DDD4C6'>AMMO</t></t>",
+    "<t align='left' valign='middle'><t %3 size='0.18' color='#CDBE96'>AMMO</t><br/><t %1 size='0.62' color='%4'>%2</t></t>",
     _bigNumberStyle,
     _ammoValue,
-    _labelStyle
+    _labelStyle,
+    _ammoColor
 ];
 
 _hpCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center' valign='middle'><t %1 size='0.66' color='#D31912'>%2%%</t><br/><t %3 size='0.20' color='#DDD4C6'>HEALTH</t></t>",
+    "<t align='left' valign='middle'><t %3 size='0.18' color='#CDBE96'>HEALTH</t><br/><t %1 size='0.62' color='%4'>%2%%</t></t>",
     _bigNumberStyle,
     _hpValue,
-    _labelStyle
+    _labelStyle,
+    _healthColor
 ];
 
 _armorCtrl ctrlSetStructuredText parseText format
 [
-    "<t align='center' valign='middle'><t %1 size='0.70' color='#D31912'>%2%%</t><br/><t %3 size='0.22' color='#DDD4C6'>ARMOR</t></t>",
+    "<t align='left' valign='middle'><t %3 size='0.18' color='#CDBE96'>ARMOR</t><br/><t %1 size='0.62' color='%4'>%2%%</t></t>",
     _bigNumberStyle,
     _armorValue,
-    _labelStyle
+    _labelStyle,
+    _armorColor
 ];
 
-private _weaponSlotMarkup =
-{
-    params ["_slot", "_isOwned", "_isActive"];
-
-    private _color = "#59544D";
-    if (_isOwned) then
-    {
-        _color = "#D8D2B8";
-    };
-    if (_isActive) then
-    {
-        _color = "#F4D44C";
-    };
-
-    format ["<t color='%1'>%2</t>", _color, _slot]
-};
-
-private _slot2 = [2, true, ((_player # DB_RUI_P_WEAPON) == DB_RUI_WPN_PISTOL)] call _weaponSlotMarkup;
-private _slot3 = [3, (_player # DB_RUI_P_HAS_SHOTGUN), ((_player # DB_RUI_P_WEAPON) == DB_RUI_WPN_SHOTGUN)] call _weaponSlotMarkup;
-private _slot4 = [4, false, false] call _weaponSlotMarkup;
-private _slot5 = [5, false, false] call _weaponSlotMarkup;
-private _slot6 = [6, false, false] call _weaponSlotMarkup;
-private _slot7 = [7, false, false] call _weaponSlotMarkup;
-
-_armsCtrl ctrlSetStructuredText parseText format
-[
-    "<t align='center' valign='middle'><t font='EtelkaMonospaceProBold' size='0.20'>%1 %2 %3<br/>%4 %5 %6</t><br/><t %7 size='0.16' color='#DDD4C6'>ARMS</t></t>",
-    _slot2,
-    _slot3,
-    _slot4,
-    _slot5,
-    _slot6,
-    _slot7,
-    _labelStyle
-];
+_armsCtrl ctrlSetStructuredText parseText "";
 
 _ammoTableCtrl ctrlSetStructuredText parseText format
 [
-    "<t font='EtelkaMonospaceProBold' size='0.24' shadow='1' color='#D2CCC1'>BULL <t color='#F1D14B'>%1</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>200</t><br/>SHEL <t color='#F1D14B'>%2</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>50</t><br/>RCKT <t color='#F1D14B'>%3</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>50</t><br/>CELL <t color='#F1D14B'>%4</t> <t color='#8C8579'>/</t> <t color='#E6E0CC'>300</t></t>",
+    "<t align='left' font='EtelkaMonospaceProBold' size='0.25' shadow='1' color='#CDBE96'>RESERVES</t><br/><t align='left' font='EtelkaMonospaceProBold' size='0.31' shadow='1' color='#E9E1CC'>BULL  <t color='#F2E7BF'>%1</t> <t color='#8C8579'>/</t> 200<br/>SHEL  <t color='#F2E7BF'>%2</t> <t color='#8C8579'>/</t> 50<br/>RCKT  <t color='#F2E7BF'>%3</t> <t color='#8C8579'>/</t> 50<br/>CELL  <t color='#F2E7BF'>%4</t> <t color='#8C8579'>/</t> 300</t>",
     _pistolPool,
     _shellPool,
     _rocketPool,
