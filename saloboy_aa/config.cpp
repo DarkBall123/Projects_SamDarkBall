@@ -129,6 +129,7 @@ class CfgWeapons
 		baseWeapon = "saloboy_pistol_aa";
 		displayName = "Saloboy T50 AA";
 		descriptionShort = "Saloboy pistol with guided anti-air round";
+		handAnim[] = {};
 		type = 2;
 		magazines[] =
 		{
