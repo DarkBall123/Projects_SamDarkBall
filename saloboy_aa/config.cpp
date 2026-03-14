@@ -13,7 +13,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] =
 		{
-			"saloboy_aa_launcher"
+			"saloboy_pistol_aa"
 		};
 	};
 };
@@ -26,10 +26,11 @@ class CfgAmmo
 		class Components;
 	};
 
-	class saloboy_aa_missile: M_Titan_AA
+	class saloboy_aa_bullet: M_Titan_AA
 	{
 		author = "Sam";
 		model = "\saloboy\mag_saloboy.p3d";
+		weaponType = "Default";
 		soundFly[] =
 		{
 			"",
@@ -45,19 +46,16 @@ class CfgAmmo
 
 class CfgMagazines
 {
-	class Titan_AA;
+	class 1x_saloboy_12mm;
 
-	class 1Rnd_saloboy_aa: Titan_AA
+	class 1x_saloboy_12mm_aa: 1x_saloboy_12mm
 	{
 		author = "Sam";
 		scope = 2;
 		scopeArsenal = 2;
-		ammo = "saloboy_aa_missile";
-		displayName = "Saloboy AA Missile";
-		displayNameShort = "Saloboy AA";
-		descriptionShort = "Titan AA missile logic with Saloboy projectile visuals";
-		picture = "\saloboy\mag_saloboy.paa";
-		model = "\saloboy\mag_saloboy.p3d";
+		ammo = "saloboy_aa_bullet";
+		displayName = "50 BMG AA";
+		descriptionShort = "Guided anti-air round for Saloboy";
 		initSpeed = 30;
 		maxLeadSpeed = 400;
 	};
@@ -65,60 +63,33 @@ class CfgMagazines
 
 class CfgWeapons
 {
-	class launch_O_Titan_F;
+	class saloboy_pistol;
 
-	class saloboy_aa_launcher: launch_O_Titan_F
+	class saloboy_pistol_aa: saloboy_pistol
 	{
 		author = "Sam";
 		scope = 2;
 		scopeArsenal = 2;
-		baseWeapon = "saloboy_aa_launcher";
-		displayName = "Saloboy AA";
-		descriptionShort = "Titan AA launcher built on the Saloboy model";
-		model = "\saloboy\saloboy.p3d";
-		picture = "\saloboy\saloboy.paa";
+		baseWeapon = "saloboy_pistol_aa";
+		displayName = "Saloboy T50 AA";
+		descriptionShort = "Saloboy pistol with guided anti-air round";
 		magazines[] =
 		{
-			"1Rnd_saloboy_aa"
+			"1x_saloboy_12mm_aa"
 		};
 		magazineWell[] = {};
-		shotPos = "";
-		shotEnd = "";
-		drySound[] =
-		{
-			"",
-			1,
-			1,
-			1
-		};
-		reloadMagazineSound[] =
-		{
-			"",
-			1,
-			1,
-			1
-		};
-		lockingTargetSound[] =
-		{
-			"",
-			1,
-			1
-		};
-		lockedTargetSound[] =
-		{
-			"",
-			1,
-			1
-		};
+		canLock = 2;
+		lockAcquire = 1;
+		weaponLockSystem = 2;
 
-		class GunParticles
+		class Single: Single
 		{
-			class FirstEffect
-			{
-				directionName = "konec hlavne";
-				effectName = "";
-				positionName = "usti hlavne";
-			};
+			minRange = 500;
+			minRangeProbab = 0.8;
+			midRange = 3000;
+			midRangeProbab = 0.95;
+			maxRange = 6400;
+			maxRangeProbab = 0.95;
 		};
 	};
 };
