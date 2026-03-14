@@ -1,3 +1,4 @@
+class SensorTemplateIR;
 class CfgPatches
 {
 	class sam_saloboy_aa
@@ -8,6 +9,7 @@ class CfgPatches
 		requiredAddons[] =
 		{
 			"A3_Weapons_F_Launchers_Titan",
+			"A3_Data_F_AoW_Loadorder",
 			"sam_saloboy"
 		};
 		units[] = {};
@@ -30,7 +32,29 @@ class CfgAmmo
 	{
 		author = "Sam";
 		model = "\saloboy\mag_saloboy.p3d";
-		weaponType = "Default";
+		weaponType = "mGun";
+		airLock = 2;
+		irLock = 1;
+		cmImmunity = 0.98;
+		proximityExplosionDistance = 8;
+		hit = 80;
+		indirectHit = 40;
+		indirectHitRange = 30;
+		maneuvrability = 34;
+		maxSpeed = 500;
+		thrust = 392;
+		thrustTime = 4.5;
+		timeToLive = 20;
+		trackLead = 0.85000002;
+		trackOversteer = 0.94999999;
+		sideAirFriction = 0.079999998;
+		maxControlRange = 6400;
+		missileLockMaxDistance = 6400;
+		missileLockMinDistance = 500;
+		missileLockMaxSpeed = 400;
+		missileLockCone = 15;
+		missileKeepLockedCone = 70;
+		weaponLockSystem = "2 + 16";
 		soundFly[] =
 		{
 			"",
@@ -41,6 +65,37 @@ class CfgAmmo
 		effectsMissileInit = "";
 		effectsSmoke = "";
 		muzzleEffect = "";
+
+		class Components: Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					class IRSensorComponent: SensorTemplateIR
+					{
+						class AirTarget
+						{
+							minRange = 500;
+							maxRange = 6400;
+						};
+
+						class GroundTarget
+						{
+							minRange = 500;
+							maxRange = 1000;
+						};
+
+						angleRangeHorizontal = 45;
+						angleRangeVertical = 45;
+						minTrackableSpeed = 0;
+						maxTrackableSpeed = 400;
+						minTrackableATL = 10;
+						maxTrackableATL = 4500;
+					};
+				};
+			};
+		};
 	};
 };
 
@@ -61,17 +116,11 @@ class CfgMagazines
 	};
 };
 
-class Mode_SemiAuto;
-class MuzzleSlot;
 class CfgWeapons
 {
-	class Pistol;
-	class Pistol_Base_F: Pistol
-	{
-		class WeaponSlotsInfo;
-	};
+	class saloboy_pistol;
 
-	class saloboy_pistol_aa: Pistol_Base_F
+	class saloboy_pistol_aa: saloboy_pistol
 	{
 		author = "Sam";
 		scope = 2;
@@ -80,23 +129,7 @@ class CfgWeapons
 		baseWeapon = "saloboy_pistol_aa";
 		displayName = "Saloboy T50 AA";
 		descriptionShort = "Saloboy pistol with guided anti-air round";
-		model = "\saloboy\saloboy.p3d";
-		picture = "\saloboy\saloboy.paa";
-		handAnim[] =
-		{
-			"OFP2_ManSkeleton"
-		};
-		reloadAction = "GestureReloadPistol";
-		recoil = "recoil_gm6";
-		inertia = 0.1;
-		aimTransitionSpeed = 1.6;
-		dexterity = 1.9;
-		maxZeroing = 100;
-		modes[] =
-		{
-			"Single"
-		};
-		weaponInfoType = "RscWeaponZeroing";
+		type = 2;
 		magazines[] =
 		{
 			"1x_saloboy_12mm_aa"
@@ -104,171 +137,15 @@ class CfgWeapons
 		magazineWell[] = {};
 		canLock = 2;
 		lockAcquire = 1;
+		weaponLockDelay = 5.4000001;
 		weaponLockSystem = 2;
-		reloadMagazineSound[] =
-		{
-			"\saloboy\saloboy_reload.wav",
-			1,
-			1,
-			10
-		};
-
-		class Single: Mode_SemiAuto
-		{
-			sounds[] =
-			{
-				"StandardSound"
-			};
-			reloadTime = 0.059999999;
-			dispersion = 0.00118;
-			recoil = "recoil_single_gm6";
-			recoilProne = "recoil_single_prone_gm6";
-			minRange = 500;
-			minRangeProbab = 0.8;
-			midRange = 3000;
-			midRangeProbab = 0.95;
-			maxRange = 6400;
-			maxRangeProbab = 0.95;
-
-			class BaseSoundModeType
-			{
-				closure1[] =
-				{
-					"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_closure_01",
-					0.22387211,
-					1,
-					10
-				};
-				closure2[] =
-				{
-					"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_closure_02",
-					0.22387211,
-					1.2,
-					10
-				};
-				soundClosure[] =
-				{
-					"closure1",
-					0.5,
-					"closure2",
-					0.5
-				};
-			};
-
-			class StandardSound: BaseSoundModeType
-			{
-				class SoundTails
-				{
-					class TailInterior
-					{
-						sound[] =
-						{
-							"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_tail_interior",
-							1,
-							1,
-							1200
-						};
-						frequency = 1;
-						volume = "interior";
-					};
-					class TailTrees
-					{
-						sound[] =
-						{
-							"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_tail_trees",
-							1,
-							1,
-							1200
-						};
-						frequency = 1;
-						volume = "(1-interior/1.4)*trees";
-					};
-					class TailForest
-					{
-						sound[] =
-						{
-							"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_tail_forest",
-							1,
-							1,
-							1200
-						};
-						frequency = 1;
-						volume = "(1-interior/1.4)*forest";
-					};
-					class TailMeadows
-					{
-						sound[] =
-						{
-							"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_tail_meadows",
-							1,
-							1,
-							1200
-						};
-						frequency = 1;
-						volume = "(1-interior/1.4)*(meadows/2 max sea/2)";
-					};
-					class TailHouses
-					{
-						sound[] =
-						{
-							"A3\Sounds_F\arsenal\weapons\LongRangeRifles\GM6_Lynx\GM6_tail_houses",
-							1,
-							1,
-							1200
-						};
-						frequency = 1;
-						volume = "(1-interior/1.4)*houses";
-					};
-				};
-				begin1[] =
-				{
-					"\saloboy\saloboy_fire.wav",
-					1.9810717,
-					1,
-					1000
-				};
-				begin2[] =
-				{
-					"\saloboy\saloboy_fire.wav",
-					1.9810717,
-					1,
-					10000
-				};
-				begin3[] =
-				{
-					"\saloboy\saloboy_fire.wav",
-					1.9810717,
-					1,
-					10000
-				};
-				soundBegin[] =
-				{
-					"begin1",
-					0.33000001,
-					"begin2",
-					0.33000001,
-					"begin3",
-					0.34
-				};
-			};
-		};
-
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			mass = 4;
-
-			class CowsSlot
-			{
-			};
-
-			class MuzzleSlot
-			{
-			};
-		};
-
-		class ItemInfo
-		{
-			priority = 2;
-		};
+		aiRateOfFire = 7;
+		aiRateOfFireDistance = 3500;
+		minRange = 500;
+		minRangeProbab = 0.80000001;
+		midRange = 3000;
+		midRangeProbab = 0.94999999;
+		maxRange = 6400;
+		maxRangeProbab = 0.94999999;
 	};
 };
