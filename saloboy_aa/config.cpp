@@ -9,6 +9,7 @@ class CfgPatches
 		requiredAddons[] =
 		{
 			"A3_Weapons_F_Launchers_Titan",
+			"A3_Weapons_F_Pistols_P07",
 			"A3_Data_F_AoW_Loadorder",
 			"sam_saloboy"
 		};
@@ -118,9 +119,9 @@ class CfgMagazines
 
 class CfgWeapons
 {
-	class saloboy_pistol;
+	class hgun_P07_F;
 
-	class saloboy_pistol_aa: saloboy_pistol
+	class saloboy_pistol_aa: hgun_P07_F
 	{
 		author = "Sam";
 		scope = 2;
@@ -129,6 +130,8 @@ class CfgWeapons
 		baseWeapon = "saloboy_pistol_aa";
 		displayName = "Saloboy T50 AA";
 		descriptionShort = "Saloboy pistol with guided anti-air round";
+		model = "\saloboy\saloboy.p3d";
+		picture = "\saloboy\saloboy.paa";
 		handAnim[] = {};
 		type = 2;
 		magazines[] =
@@ -140,6 +143,13 @@ class CfgWeapons
 		lockAcquire = 1;
 		weaponLockDelay = 5.4000001;
 		weaponLockSystem = 2;
+		reloadMagazineSound[] =
+		{
+			"\saloboy\saloboy_reload.wav",
+			1,
+			1,
+			10
+		};
 		aiRateOfFire = 7;
 		aiRateOfFireDistance = 3500;
 		minRange = 500;
