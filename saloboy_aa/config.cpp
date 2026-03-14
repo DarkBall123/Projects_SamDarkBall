@@ -63,7 +63,10 @@ class CfgMagazines
 
 class CfgWeapons
 {
-	class saloboy_pistol;
+	class saloboy_pistol
+	{
+		class Single;
+	};
 
 	class saloboy_pistol_aa: saloboy_pistol
 	{
