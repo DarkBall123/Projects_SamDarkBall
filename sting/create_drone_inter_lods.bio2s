@@ -58,6 +58,7 @@ _createAxisFromSelection =
 
 _sourcePath = this@0;
 _targetPath = _sourcePath;
+console = openStandardIO;
 
 if ((count this) > 1) then
 {
@@ -74,7 +75,6 @@ else
 	_baseObjects = getObjects _p3d;
 	_base = _baseObjects @ 0;
 
-	console = openStandardIO;
 	echo ("Source: " + _sourcePath);
 
 	[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
