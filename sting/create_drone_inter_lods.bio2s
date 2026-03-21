@@ -9,7 +9,7 @@ _LANDCONTACT_X = 0.10;
 _LANDCONTACT_Y = 0.10;
 _LANDCONTACT_Z = -0.02;
 _VISUAL_TEXTURE = "\sting\mat0_co.paa";
-_VISUAL_MATERIAL = "";
+_VISUAL_MATERIAL = "\sting\sting.rvmat";
 
 _deleteLevelsByResolution =
 {
@@ -221,6 +221,7 @@ try
 		};
 
 		[_base] call _applyVisualMaterial;
+		_base setProperty ["LODNoShadows", "1"];
 		_logFile << "Updated base visual LOD and rewrote face materials" << eoln;
 
 		_geom = addLevel _p3d;
@@ -228,13 +229,6 @@ try
 		_p3d setResolution _RES_GEOMETRY;
 		_geom setProperty ["autocenter", 0];
 		_logFile << "Created Geometry LOD" << eoln;
-
-		_shadow = addLevel _p3d;
-		_p3d setResolution _RES_SHADOW;
-		_shadow setProperty ["autocenter", 0];
-		_shadow setProperty ["sbsource", "shadowvolume"];
-		_shadow setProperty ["prefershadowvolume", 1];
-		_logFile << "Created empty ShadowVolume LOD" << eoln;
 
 		_mem = addLevel _p3d;
 		_p3d setResolution _RES_MEMORY;
