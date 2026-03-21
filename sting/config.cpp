@@ -121,6 +121,24 @@ class CfgVehicles
 		model = QSTING(drone_inter.p3d);
 		icon = QSTING_UI(drononmap.paa);
 		picture = QSTING_UI(drononmap.paa);
+		hiddenSelections[] =
+		{
+			"body_0",
+			"camera_0",
+			"vint1_0",
+			"vint2_0",
+			"vint3_0",
+			"vint4_0"
+		};
+		hiddenSelectionsTextures[] =
+		{
+			QSTING(mat0_co.paa),
+			QSTING(mat0_co.paa),
+			QSTING(mat0_co.paa),
+			QSTING(mat0_co.paa),
+			QSTING(mat0_co.paa),
+			QSTING(mat0_co.paa)
+		};
 		class Reflectors
 		{
 		};

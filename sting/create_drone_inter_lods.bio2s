@@ -5,7 +5,7 @@ _AXIS_HALF_LEN = 0.10;
 _CAM_DIR_LEN = 0.25;
 _MODEL_SCALE = 0.0833333;
 _VISUAL_TEXTURE = "\sting\mat0_co.paa";
-_VISUAL_MATERIAL = "\sting\sting.rvmat";
+_VISUAL_MATERIAL = "";
 
 _deleteLevelsByResolution =
 {
