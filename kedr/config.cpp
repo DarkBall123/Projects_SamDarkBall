@@ -58,13 +58,13 @@ class CfgAmmo
         effectsMissileInit = "";
         effectsSmoke = "";
         muzzleEffect = "";
-        CraterEffects = "AAMissileCrater";
-        explosionEffects = "AAMissileExplosion";
-        SoundSetExplosion[] = {"RocketsHeavy_Exp_SoundSet", "RocketsHeavy_Tail_SoundSet", "Explosion_Debris_SoundSet"};
-        soundHit1[] = {"A3\\Sounds_F\\arsenal\\weapons\\Launchers\\Titan\\Explosion_titan_missile_01", 2.51189, 1, 1900};
-        soundHit2[] = {"A3\\Sounds_F\\arsenal\\weapons\\Launchers\\Titan\\Explosion_titan_missile_02", 2.51189, 1, 1900};
-        soundHit3[] = {"A3\\Sounds_F\\arsenal\\weapons\\Launchers\\Titan\\Explosion_titan_missile_03", 2.51189, 1, 1900};
-        multiSoundHit[] = {"soundHit1", 0.34, "soundHit2", 0.33, "soundHit3", 0.33};
+        CraterEffects = "";
+        explosionEffects = "";
+        SoundSetExplosion[] = {};
+        soundHit1[] = {"", 0, 1};
+        soundHit2[] = {"", 0, 1};
+        soundHit3[] = {"", 0, 1};
+        multiSoundHit[] = {"soundHit1", 1};
 
         class Components: Components
         {
