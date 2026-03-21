@@ -32,7 +32,7 @@ _createAxisFromSelection =
 	_axisName = _this@3;
 
 	_sel = _srcObj loadSelection _selectionName;
-	if (_sel == nil) then
+	if (isnil "_sel") then
 	{
 		echo ("Missing selection: " + _selectionName);
 	}
