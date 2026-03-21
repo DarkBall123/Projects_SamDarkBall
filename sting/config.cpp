@@ -2,6 +2,7 @@
 #define QSTING(P) QSTR(\sting\P)
 #define QSTING_SOUND(P) QSTR(\sting\sounds\P)
 #define QSTING_UI(P) QSTR(\sting\ui\P)
+#define QARMAFPV(P) QSTR(\ArmaFPV\P)
 
 class SensorTemplatePassiveRadar;
 class SensorTemplateAntiRadiation;
@@ -32,7 +33,8 @@ class CfgPatches
 		{
 			"A3_Data_F_AoW_Loadorder",
 			"A3_Data_F",
-			"A3_Drones_F"
+			"A3_Drones_F",
+			"ArmaFPV_Data"
 		};
 		requiredVersion = 0.1;
 		units[] =
@@ -93,8 +95,8 @@ class CfgVehicles
 		memoryPointDriverOptics = "pip_pilot_pos";
 		memoryPointsGetInDriver = "pos_driver";
 		memoryPointsGetInDriverDir = "pos_driver_dir";
-		driverOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
-		GunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
+		driverOpticsModel = QARMAFPV(lancet_hud.p3d);
+		GunnerOpticsModel = QARMAFPV(lancet_hud.p3d);
 		driverForceOptics = 1;
 		driverCanSee = 31 + 32;
 		forceHideDriver = 0;
@@ -148,17 +150,17 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 190;
+		maxSpeed = 360;
 		precision = 15;
-		steerAheadSimul = 0.5;
-		steerAheadPlan = 0.7;
-		predictTurnPlan = 2;
-		predictTurnSimul = 1.5;
-		liftForceCoef = 1.8;
-		cyclicAsideForceCoef = 0.85;
-		cyclicForwardForceCoef = 0.55;
-		bodyFrictionCoef = 1.05;
-		backRotorForceCoef = 3.5;
+		steerAheadSimul = 0.8;
+		steerAheadPlan = 1;
+		predictTurnPlan = 2.8;
+		predictTurnSimul = 2.2;
+		liftForceCoef = 3.1;
+		cyclicAsideForceCoef = 0.45;
+		cyclicForwardForceCoef = 0.85;
+		bodyFrictionCoef = 0.55;
+		backRotorForceCoef = 4.8;
 		fuelCapacity = 8.5;
 		maxFordingDepth = 0.3;
 		threat[] = {0,0,0};
@@ -278,7 +280,7 @@ class CfgVehicles
 						"TI"
 					};
 					thermalMode[] = {0,1};
-					gunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
+					gunnerOpticsModel = QARMAFPV(lancet_hud.p3d);
 					opticsPPEffects[] =
 					{
 						"OpticsCHAbera2",
@@ -291,7 +293,7 @@ class CfgVehicles
 					initFov = 0.25;
 					minFov = 0.25;
 					maxFov = 0.25;
-					gunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+					gunnerOpticsModel = QARMAFPV(lancet_hud.p3d);
 				};
 				class Narrow: Wide
 				{
@@ -299,7 +301,7 @@ class CfgVehicles
 					initFov = 0.08;
 					minFov = 0.08;
 					maxFov = 0.08;
-					gunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+					gunnerOpticsModel = QARMAFPV(lancet_hud.p3d);
 				};
 				showMiniMapInOptics = 1;
 				showUAVViewInOptics = 0;
