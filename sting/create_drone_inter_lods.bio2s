@@ -3,7 +3,7 @@ _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
 _AXIS_HALF_LEN = 0.10;
 _CAM_DIR_LEN = 0.25;
-_MODEL_SCALE = 0.0833333;
+_MODEL_SCALE = 0.0277778;
 _VISUAL_TEXTURE = "\sting\mat0_co.paa";
 _VISUAL_MATERIAL = "";
 
@@ -95,6 +95,24 @@ _createPointSelection =
 	_memObj save (_sel as _selectionName);
 
 	echo ("Created point " + _selectionName + ": " + str _point);
+};
+
+_buildDirectionPoint =
+{
+	private ["_origin","_target","_dir","_dirLen"];
+
+	_origin = _this@0;
+	_target = _this@1;
+
+	_dir = _target - _origin;
+	_dirLen = [0,0,0] distance _dir;
+	if (_dirLen < 0.001) then
+	{
+		_dir = [0,1,0];
+		_dirLen = 1;
+	};
+
+	_target + (_dir * (_CAM_DIR_LEN / _dirLen))
 };
 
 _scaleObject =
@@ -204,18 +222,12 @@ try
 
 		if !(isnil "_cameraCenter") then
 		{
-			[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
+			_cameraDirPoint = [_bodyCenter, _cameraCenter] call _buildDirectionPoint;
 
-			_cameraDir = _cameraCenter - _bodyCenter;
-			_cameraDirLen = [0,0,0] distance _cameraDir;
-			if (_cameraDirLen < 0.001) then
-			{
-				_cameraDir = [0,1,0];
-				_cameraDirLen = 1;
-			};
-
-			_cameraDirPoint = _cameraCenter + (_cameraDir * (_CAM_DIR_LEN / _cameraDirLen));
 			[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
+			[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
+			[_mem, _cameraCenter, "pos_pilotcamera"] call _createPointSelection;
+			[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
 			_logFile << "Created camera points" << eoln;
 		};
 

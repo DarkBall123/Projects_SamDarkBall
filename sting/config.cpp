@@ -81,16 +81,16 @@ class CfgVehicles
 		displayName = "Sting UAV";
 		editorSubcategory = "EdSubcat_Drones";
 		isUav = 1;
-		uavCameraDriverPos = "pip_pilot_pos";
-		uavCameraDriverDir = "pip_pilot_dir";
-		uavCameraGunnerPos = "";
-		uavCameraGunnerDir = "";
+		uavCameraDriverPos = "pos_pilotcamera";
+		uavCameraDriverDir = "pos_pilotcamera_dir";
+		uavCameraGunnerPos = "pos_pilotcamera";
+		uavCameraGunnerDir = "pos_pilotcamera_dir";
 		extCameraPosition[] = {0,-0.25,-2.35};
 		extCameraParams[] = {0.93,10,30,0.25,1,10,30,0,1};
 		formationX = 10;
 		formationZ = 10;
 		memoryPointTaskMarker = "TaskMarker_1_pos";
-		memoryPointDriverOptics = "pip_pilot_pos";
+		memoryPointDriverOptics = "pos_pilotcamera";
 		driverOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
 		GunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
 		driverForceOptics = 1;
@@ -259,6 +259,13 @@ class CfgVehicles
 		class Turrets
 		{
 		};
+		class EventHandlers
+		{
+			class Sting
+			{
+				init = "(_this # 0) engineOn true;";
+			};
+		};
 		attenuationEffectType = "OpenHeliAttenuation";
 		soundGetIn[] = {"", 1, 1};
 		soundGetOut[] = {"", 1, 1, 50};
@@ -268,6 +275,15 @@ class CfgVehicles
 		soundEngineOnExt[] = {QSTING_SOUND(quad_start_full_01.wav), 0.56234133, 1, 200};
 		soundEngineOffInt[] = {QSTING_SOUND(quad_stop_full_int.wav), 0.56234133, 1};
 		soundEngineOffExt[] = {QSTING_SOUND(quad_stop_full_01.wav), 0.56234133, 1, 200};
+		class Exhausts
+		{
+			class Exhaust_1
+			{
+				position = "pos_pilotcamera";
+				direction = "pos_pilotcamera_dir";
+				effect = "ExhaustsEffectDrone";
+			};
+		};
 		class Sounds
 		{
 			class Engine
