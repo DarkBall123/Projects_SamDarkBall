@@ -339,6 +339,7 @@ _addBoxComponent =
 	};
 
 	_start = countPoints _obj;
+	echo ("AddBox start " + _selectionName + " bounds=" + str _bounds);
 	_obj addPoint [_min @ 0, _min @ 1, _min @ 2];
 	_obj addPoint [_max @ 0, _min @ 1, _min @ 2];
 	_obj addPoint [_max @ 0, _max @ 1, _min @ 2];
@@ -363,8 +364,11 @@ _addBoxComponent =
 	while {_i < (count _faceDefs)} do
 	{
 		_faceVertices = _faceDefs @ _i;
+		echo ("AddBox face " + _selectionName + " step=" + str _i + " verts=" + str _faceVertices);
 		_faceIndex = face addFace _obj;
+		echo ("AddBox faceIndex " + _selectionName + " step=" + str _i + " idx=" + str _faceIndex);
 		(_obj face _faceIndex) setVertices _faceVertices;
+		echo ("AddBox setVertices " + _selectionName + " step=" + str _i);
 		_faceIndices set [count _faceIndices, _faceIndex];
 		_i = _i + 1;
 	};
@@ -388,6 +392,7 @@ _createBoxedSupportLod =
 	_lod = addLevel _p3d;
 	_p3d setResolution _resolution;
 	_lod setProperty ["autocenter", 0];
+	echo ("CreateBoxedSupportLod resolution=" + str _resolution);
 
 	_bodyMin = _bodyBounds @ 0;
 	_bodyMax = _bodyBounds @ 1;
@@ -435,6 +440,7 @@ _createBoxedSupportLod =
 	};
 
 	[_lod, _bodyBoxBounds, "Component01"] call _addBoxComponent;
+	echo ("CreateBoxedSupportLod body component done resolution=" + str _resolution);
 
 	if ((count _rotorBoundsList) == 4) then
 	{
@@ -456,6 +462,7 @@ _createBoxedSupportLod =
 			_motorBounds = [_motorCenter, _motorHalfX, _motorHalfY, _motorHalfZ] call _makeBoundsFromCenter;
 			_componentName = "Component0" + str (_i + 2);
 			[_lod, _motorBounds, _componentName] call _addBoxComponent;
+			echo ("CreateBoxedSupportLod motor component done " + _componentName);
 			_i = _i + 1;
 		};
 	};
@@ -664,8 +671,12 @@ try
 			};
 			_logFile << "Updated visual LODs and rewrote face materials" << eoln;
 
+			echo "Step: get body bounds";
 			_bodyBounds = [_base, "body_0"] call _getSelectionBounds;
+			echo ("Step: body bounds=" + str _bodyBounds);
+			echo "Step: get visual bounds";
 			_visualBounds = [_base] call _getObjectBounds;
+			echo ("Step: visual bounds=" + str _visualBounds);
 			if (isnil "_bodyBounds") then
 			{
 				_bodyBounds = _visualBounds;
@@ -678,9 +689,14 @@ try
 			}
 			else
 			{
+				echo "Step: center body bounds";
 				_bodyCenter = [_bodyBounds] call _centerOfBounds;
+				echo ("Step: body center=" + str _bodyCenter);
+				echo "Step: collect rotor bounds";
 				_rotorBoundsList = [_base] call _collectRotorBounds;
+				echo ("Step: rotor bounds count=" + str (count _rotorBoundsList));
 
+				echo "Step: build Geometry LOD";
 				_geom = [_p3d, _RES_GEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_geom setProperty ["canocclude", 0];
 				_geom setProperty ["canbeoccluded", 1];
@@ -688,14 +704,17 @@ try
 				_logFile << "Created simplified Geometry LOD" << eoln;
 				_logFile << "Geometry mass assignment skipped in script; set mass manually in Object Builder" << eoln;
 
+				echo "Step: build Geometry PhysX LOD";
 				_geomPhys = [_p3d, _RES_GEOMETRYPHYS, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_geomPhys setProperty ["autocenter", 0];
 				_logFile << "Created simplified Geometry PhysX LOD" << eoln;
 
+				echo "Step: build ViewGeometry LOD";
 				_viewGeom = [_p3d, _RES_VIEWGEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_viewGeom setProperty ["autocenter", 0];
 				_logFile << "Created simplified ViewGeometry LOD" << eoln;
 
+				echo "Step: build FireGeometry LOD";
 				_fireGeom = [_p3d, _RES_FIREGEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_fireGeom setProperty ["autocenter", 0];
 				_logFile << "Created simplified FireGeometry LOD" << eoln;
