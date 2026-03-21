@@ -103,6 +103,7 @@ class CfgVehicles
 		unitInfoTypeRTD = "RscUnitInfoParachute";
 		driverWeaponsInfoType = "RscOptics_Offroad_01";
 		getInRadius = 0;
+		preciseGetInOut = 1;
 		damageEffect = "UAVDestructionEffects";
 		damageTexDelay = 0.5;
 		dustEffect = "UAVDust";
@@ -330,7 +331,7 @@ class CfgVehicles
 		{
 			class Sting
 			{
-				init = "_veh = _this # 0; if (local _veh) then {if ((count crew _veh) isEqualTo 0) then {createVehicleCrew _veh;}; _veh engineOn true; [_veh] spawn {params [""_veh""]; uiSleep 0.25; diag_log format [""[sting] %1 crew=%2 hasPilotCamera=%3 pilotCamPos=%4 pilotCamDir=%5 UAVControl=%6"", typeOf _veh, count crew _veh, hasPilotCamera _veh, getPilotCameraPosition _veh, getPilotCameraDirection _veh, UAVControl _veh];};};";
+				init = "_veh = _this # 0; if (local _veh) then {if ((count crew _veh) isEqualTo 0) then {createVehicleCrew _veh;}; _veh engineOn true; [_veh] spawn {params [""_veh""]; uiSleep 0.25; diag_log format [""[sting] %1 crew=%2 driver=%3 driverVehicle=%4 hasPilotCamera=%5 pilotCamPos=%6 pilotCamDir=%7 pipPos=%8 pilotPos=%9 driverPos=%10 UAVControl=%11"", typeOf _veh, count crew _veh, driver _veh, vehicle (driver _veh), hasPilotCamera _veh, getPilotCameraPosition _veh, getPilotCameraDirection _veh, _veh selectionPosition [""pip_pilot_pos"", ""Memory""], _veh selectionPosition [""pos_pilotcamera"", ""Memory""], _veh selectionPosition [""pos_driver"", ""Memory""], UAVControl _veh];};};";
 			};
 		};
 		attenuationEffectType = "OpenHeliAttenuation";

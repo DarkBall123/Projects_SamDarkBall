@@ -141,6 +141,20 @@ _buildDirectionPoint =
 	_target + (_dir * (_CAM_DIR_LEN / _dirLen))
 };
 
+_offsetPoint =
+{
+	private ["_point","_offset"];
+
+	_point = _this@0;
+	_offset = _this@1;
+
+	[
+		(_point @ 0) + (_offset @ 0),
+		(_point @ 1) + (_offset @ 1),
+		(_point @ 2) + (_offset @ 2)
+	]
+};
+
 _scaleObject =
 {
 	private ["_obj","_scaleFactor","_op"];
@@ -294,6 +308,24 @@ try
 				_bodyCenter = [0,0,0];
 			};
 
+			_cameraPoint = _cameraCenter;
+			if (isnil "_cameraPoint") then
+			{
+				_cameraPoint = [_bodyCenter, [0,0.12,0.03]] call _offsetPoint;
+				_logFile << "Camera selection missing, using fallback point" << eoln;
+			}
+			else
+			{
+				_cameraDistance = _bodyCenter distance _cameraPoint;
+				if (_cameraDistance < 0.02) then
+				{
+					_cameraPoint = [_bodyCenter, [0,0.12,0.03]] call _offsetPoint;
+					_logFile << "Camera selection too close to body center, using fallback point" << eoln;
+				};
+			};
+
+			_driverPoint = [_bodyCenter, [0,0.02,0.02]] call _offsetPoint;
+
 			_land = addLevel _p3d;
 			_p3d setResolution _RES_LANDCONTACT;
 			_land setProperty ["autocenter", 0];
@@ -306,18 +338,15 @@ try
 			[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
 			_logFile << "Created rotor axes" << eoln;
 
-			if !(isnil "_cameraCenter") then
-			{
-				_cameraDirPoint = [_bodyCenter, _cameraCenter] call _buildDirectionPoint;
+			_cameraDirPoint = [_bodyCenter, _cameraPoint] call _buildDirectionPoint;
 
-				[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
-				[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
-				[_mem, _cameraCenter, "pos_pilotcamera"] call _createPointSelection;
-				[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
-				[_mem, _bodyCenter, "pos_driver"] call _createPointSelection;
-				[_mem, _cameraDirPoint, "pos_driver_dir"] call _createPointSelection;
-				_logFile << "Created camera points" << eoln;
-			};
+			[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
+			[_mem, _cameraPoint, "pip_pilot_pos"] call _createPointSelection;
+			[_mem, _cameraPoint, "pos_pilotcamera"] call _createPointSelection;
+			[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
+			[_mem, _driverPoint, "pos_driver"] call _createPointSelection;
+			[_mem, _cameraDirPoint, "pos_driver_dir"] call _createPointSelection;
+			_logFile << "Created camera points" << eoln;
 
 			[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
 			_logFile << "Created task marker point" << eoln;
