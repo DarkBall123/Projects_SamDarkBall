@@ -30,15 +30,17 @@ class CfgAmmo
         model = "kedr\model\kedr_missile.p3d";
         airlock = 2;
         cmimmunity = 0.98;
-        proximityExplosionDistance = 8;
+        proximityExplosionDistance = 0;
+        fuseDistance = 0;
         hit = 80;
-        indirecthit = 40;
-        indirecthitrange = 30;
+        indirecthit = 0;
+        indirecthitrange = 0;
+        explosive = 0;
         irlock = 1;
         maneuvrability = 34;
-        maxspeed = 100;
-        thrust = 200;
-        thrusttime = 20;
+        maxspeed = 60;
+        thrust = 90;
+        thrusttime = 8;
         timetolive = 20;
         tracklead = 0.85;
         trackoversteer = 0.95;
@@ -55,6 +57,13 @@ class CfgAmmo
         effectsMissileInit = "";
         effectsSmoke = "";
         muzzleEffect = "";
+        CraterEffects = "";
+        explosionEffects = "";
+        SoundSetExplosion[] = {};
+        soundHit1[] = {"", 0, 1};
+        soundHit2[] = {"", 0, 1};
+        soundHit3[] = {"", 0, 1};
+        multiSoundHit[] = {"soundHit1", 1};
 
         class Components: Components
         {
@@ -90,7 +99,7 @@ class CfgMagazines
         displayNameShort = "KEDR UAV 1x";
         picture = "\kedr\ui\mag.paa";
         descriptionShort = "Three-band optical seeker";
-        initspeed = 30;
+        initspeed = 10;
         maxleadspeed = 400;
     };
 };
