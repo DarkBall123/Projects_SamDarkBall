@@ -39,8 +39,8 @@ class CfgAmmo
         explosive = 1;
         irlock = 1;
         maneuvrability = 34;
-        maxspeed = 36;
-        thrust = 42;
+        maxspeed = 48;
+        thrust = 60;
         thrusttime = 4;
         timetolive = 20;
         tracklead = 0.85;
@@ -153,7 +153,7 @@ class CfgMagazines
         displayNameShort = "KEDR UAV 1x";
         picture = "\kedr\ui\mag.paa";
         descriptionShort = "Three-band optical seeker";
-        initspeed = 5;
+        initspeed = 6;
         maxleadspeed = 400;
     };
 };
