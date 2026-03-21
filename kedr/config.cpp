@@ -88,7 +88,7 @@ class CfgMagazines
         model = "kedr\mag\kedr_mag.p3d";        
         displayname = "KEDR UAV 1x";
         displayNameShort = "KEDR UAV 1x";
-        picture = "\kedr\ui\MAG.paa";
+        picture = "\kedr\ui\mag.paa";
         descriptionShort = "Three-band optical seeker";
         initspeed = 30;
         maxleadspeed = 400;
@@ -108,7 +108,7 @@ class CfgWeapons
         modelOptics = "";                   
         useModelOptics = 0;  
         handAnim[] = {"OFP2_ManSkeleton", "\kedr\ani\kedr.rtm"};
-        picture = "\kedr\ui\BODY.paa";
+        picture = "\kedr\ui\body.paa";
         magazines[] = {"kedr_mag"};
         magazineWell[] = {};
 
