@@ -177,6 +177,29 @@ _createLandContactPoints =
 	};
 };
 
+_collectRotorBounds =
+{
+	private ["_srcObj","_rotorNames","_rotorBoundsList","_i","_rotorName","_rotorBounds"];
+
+	_srcObj = _this@0;
+	_rotorNames = ["vint1_0","vint2_0","vint3_0","vint4_0"];
+	_rotorBoundsList = [];
+	_i = 0;
+
+	while {_i < (count _rotorNames)} do
+	{
+		_rotorName = _rotorNames @ _i;
+		_rotorBounds = [_srcObj, _rotorName] call _getSelectionBounds;
+		if !(isnil "_rotorBounds") then
+		{
+			_rotorBoundsList set [count _rotorBoundsList, _rotorBounds];
+		};
+		_i = _i + 1;
+	};
+
+	_rotorBoundsList
+};
+
 _getBoundsFromPointIndices =
 {
 	private ["_obj","_pointIndices","_point","_min","_max","_i"];
@@ -283,6 +306,161 @@ _stripFaceRenderData =
 	_obj = _this@0;
 	_op = "_face = _this face _x; _face setTexture """"; _face setMaterial """";";
 	_obj forEachFace ["true", _op];
+};
+
+_makeBoundsFromCenter =
+{
+	private ["_center","_halfX","_halfY","_halfZ"];
+
+	_center = _this@0;
+	_halfX = _this@1;
+	_halfY = _this@2;
+	_halfZ = _this@3;
+
+	[
+		[(_center @ 0) - _halfX, (_center @ 1) - _halfY, (_center @ 2) - _halfZ],
+		[(_center @ 0) + _halfX, (_center @ 1) + _halfY, (_center @ 2) + _halfZ]
+	]
+};
+
+_addBoxComponent =
+{
+	private ["_obj","_bounds","_selectionName","_min","_max","_start","_faceDefs","_faceIndices","_faceIndex","_faceVertices","_i","_sel"];
+
+	_obj = _this@0;
+	_bounds = _this@1;
+	_selectionName = _this@2;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+
+	if (((_max @ 0) <= (_min @ 0)) || ((_max @ 1) <= (_min @ 1)) || ((_max @ 2) <= (_min @ 2))) exitWith
+	{
+		echo ("Skipped invalid box component " + _selectionName + ": " + str _bounds);
+	};
+
+	_start = countPoints _obj;
+	_obj addPoint [_min @ 0, _min @ 1, _min @ 2];
+	_obj addPoint [_max @ 0, _min @ 1, _min @ 2];
+	_obj addPoint [_max @ 0, _max @ 1, _min @ 2];
+	_obj addPoint [_min @ 0, _max @ 1, _min @ 2];
+	_obj addPoint [_min @ 0, _min @ 1, _max @ 2];
+	_obj addPoint [_max @ 0, _min @ 1, _max @ 2];
+	_obj addPoint [_max @ 0, _max @ 1, _max @ 2];
+	_obj addPoint [_min @ 0, _max @ 1, _max @ 2];
+
+	_faceDefs =
+	[
+		[_start + 0, _start + 3, _start + 2, _start + 1],
+		[_start + 4, _start + 5, _start + 6, _start + 7],
+		[_start + 0, _start + 1, _start + 5, _start + 4],
+		[_start + 1, _start + 2, _start + 6, _start + 5],
+		[_start + 2, _start + 3, _start + 7, _start + 6],
+		[_start + 3, _start + 0, _start + 4, _start + 7]
+	];
+	_faceIndices = [];
+	_i = 0;
+
+	while {_i < (count _faceDefs)} do
+	{
+		_faceVertices = _faceDefs @ _i;
+		_faceIndex = face addFace _obj;
+		(_obj face _faceIndex) setVertices _faceVertices;
+		_faceIndices set [count _faceIndices, _faceIndex];
+		_i = _i + 1;
+	};
+
+	_sel = newSelection _obj;
+	_sel selectFaces _faceIndices;
+	selectPointsFromFaces _sel;
+	_obj save (_sel as _selectionName);
+	echo ("Created box component " + _selectionName + ": " + str _bounds);
+};
+
+_createBoxedSupportLod =
+{
+	private ["_p3d","_resolution","_bodyBounds","_rotorBoundsList","_lod","_bodyMin","_bodyMax","_bodySizeX","_bodySizeY","_bodySizeZ","_rotorMinX","_rotorMaxX","_rotorMinY","_rotorMaxY","_rotorCenter","_rotorBounds","_i","_rotorSpanX","_rotorSpanY","_bodyBoxMinY","_bodyBoxMaxY","_bodyBoxMaxZ","_bodyBoxBounds","_motorHalfX","_motorHalfY","_motorHalfZ","_motorCenterZ","_componentName","_motorCenter","_motorBounds"];
+
+	_p3d = _this@0;
+	_resolution = _this@1;
+	_bodyBounds = _this@2;
+	_rotorBoundsList = _this@3;
+
+	_lod = addLevel _p3d;
+	_p3d setResolution _resolution;
+	_lod setProperty ["autocenter", 0];
+
+	_bodyMin = _bodyBounds @ 0;
+	_bodyMax = _bodyBounds @ 1;
+	_bodySizeX = (_bodyMax @ 0) - (_bodyMin @ 0);
+	_bodySizeY = (_bodyMax @ 1) - (_bodyMin @ 1);
+	_bodySizeZ = (_bodyMax @ 2) - (_bodyMin @ 2);
+
+	_bodyBoxBounds = _bodyBounds;
+
+	if ((count _rotorBoundsList) == 4) then
+	{
+		_rotorCenter = [(_rotorBoundsList @ 0)] call _centerOfBounds;
+		_rotorMinX = _rotorCenter @ 0;
+		_rotorMaxX = _rotorCenter @ 0;
+		_rotorMinY = _rotorCenter @ 1;
+		_rotorMaxY = _rotorCenter @ 1;
+		_i = 1;
+
+		while {_i < (count _rotorBoundsList)} do
+		{
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			if ((_rotorCenter @ 0) < _rotorMinX) then {_rotorMinX = _rotorCenter @ 0;};
+			if ((_rotorCenter @ 0) > _rotorMaxX) then {_rotorMaxX = _rotorCenter @ 0;};
+			if ((_rotorCenter @ 1) < _rotorMinY) then {_rotorMinY = _rotorCenter @ 1;};
+			if ((_rotorCenter @ 1) > _rotorMaxY) then {_rotorMaxY = _rotorCenter @ 1;};
+			_i = _i + 1;
+		};
+
+		_rotorSpanX = _rotorMaxX - _rotorMinX;
+		_rotorSpanY = _rotorMaxY - _rotorMinY;
+		_bodyBoxMinY = _rotorMinY - (_rotorSpanY * 0.10);
+		_bodyBoxMaxY = _rotorMaxY + (_rotorSpanY * 0.10);
+		_bodyBoxMaxZ = (_bodyMin @ 2) + (_bodySizeZ * 0.72);
+
+		if (_bodyBoxMinY < (_bodyMin @ 1)) then {_bodyBoxMinY = _bodyMin @ 1;};
+		if (_bodyBoxMaxY > (_bodyMax @ 1)) then {_bodyBoxMaxY = _bodyMax @ 1;};
+		if (_bodyBoxMaxZ <= (_bodyMin @ 2)) then {_bodyBoxMaxZ = (_bodyMin @ 2) + 0.04;};
+
+		_bodyBoxBounds =
+		[
+			[_bodyMin @ 0, _bodyBoxMinY, _bodyMin @ 2],
+			[_bodyMax @ 0, _bodyBoxMaxY, _bodyBoxMaxZ]
+		];
+	};
+
+	[_lod, _bodyBoxBounds, "Component01"] call _addBoxComponent;
+
+	if ((count _rotorBoundsList) == 4) then
+	{
+		_motorHalfX = _bodySizeX * 0.12;
+		_motorHalfY = _bodySizeY * 0.12;
+		_motorHalfZ = _bodySizeZ * 0.18;
+		_motorCenterZ = (_bodyMin @ 2) + (_bodySizeZ * 0.45);
+
+		if (_motorHalfX < 0.015) then {_motorHalfX = 0.015;};
+		if (_motorHalfY < 0.015) then {_motorHalfY = 0.015;};
+		if (_motorHalfZ < 0.015) then {_motorHalfZ = 0.015;};
+
+		_i = 0;
+		while {_i < (count _rotorBoundsList)} do
+		{
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			_motorCenter = [_rotorCenter @ 0, _rotorCenter @ 1, _motorCenterZ];
+			_motorBounds = [_motorCenter, _motorHalfX, _motorHalfY, _motorHalfZ] call _makeBoundsFromCenter;
+			_componentName = "Component0" + str (_i + 2);
+			[_lod, _motorBounds, _componentName] call _addBoxComponent;
+			_i = _i + 1;
+		};
+	};
+
+	_lod
 };
 
 _createSupportLodFromBase =
@@ -503,24 +681,26 @@ try
 			else
 			{
 				_bodyCenter = [_bodyBounds] call _centerOfBounds;
-				_geom = [_p3d, _base, _RES_GEOMETRY, "Component01", _GEOMETRY_TOTAL_MASS, true] call _createSupportLodFromBase;
+				_rotorBoundsList = [_base] call _collectRotorBounds;
+
+				_geom = [_p3d, _RES_GEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_geom setProperty ["canocclude", 0];
 				_geom setProperty ["canbeoccluded", 1];
 				_geom setProperty ["forcenotalpha", 1];
-				_logFile << "Created Geometry LOD" << eoln;
+				_logFile << "Created simplified Geometry LOD" << eoln;
 				_logFile << "Geometry mass assignment skipped in script; set mass manually in Object Builder" << eoln;
 
-				_geomPhys = [_p3d, _base, _RES_GEOMETRYPHYS, "Component01", 0, true] call _createSupportLodFromBase;
+				_geomPhys = [_p3d, _RES_GEOMETRYPHYS, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_geomPhys setProperty ["autocenter", 0];
-				_logFile << "Created Geometry PhysX LOD" << eoln;
+				_logFile << "Created simplified Geometry PhysX LOD" << eoln;
 
-				_viewGeom = [_p3d, _base, _RES_VIEWGEOMETRY, "Component01", 0, true] call _createSupportLodFromBase;
+				_viewGeom = [_p3d, _RES_VIEWGEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_viewGeom setProperty ["autocenter", 0];
-				_logFile << "Created ViewGeometry LOD" << eoln;
+				_logFile << "Created simplified ViewGeometry LOD" << eoln;
 
-				_fireGeom = [_p3d, _base, _RES_FIREGEOMETRY, "Component01", 0, true] call _createSupportLodFromBase;
+				_fireGeom = [_p3d, _RES_FIREGEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
 				_fireGeom setProperty ["autocenter", 0];
-				_logFile << "Created FireGeometry LOD" << eoln;
+				_logFile << "Created simplified FireGeometry LOD" << eoln;
 
 				_mem = addLevel _p3d;
 				_p3d setResolution _RES_MEMORY;
