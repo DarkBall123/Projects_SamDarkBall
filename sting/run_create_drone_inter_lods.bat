@@ -28,7 +28,7 @@ exit /b 1
 
 :run_script
 pushd "%OB%"
-echo Rebuilding %INPUT_P3D% with scale 0.25 and forced \sting material paths
+echo Rebuilding %INPUT_P3D% with target scale 0.0833333 and forced \sting material paths
 O2Script.exe -a "%SCRIPT_DIR%create_drone_inter_lods.bio2s" "%INPUT_P3D%"
 popd
 

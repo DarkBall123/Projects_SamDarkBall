@@ -3,8 +3,8 @@ _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
 _AXIS_HALF_LEN = 0.10;
 _CAM_DIR_LEN = 0.25;
-_MODEL_SCALE = 0.25;
-_VISUAL_TEXTURE = "\sting\mat0_c.jpg.paa";
+_MODEL_SCALE = 0.0833333;
+_VISUAL_TEXTURE = "\sting\mat0_co.paa";
 _VISUAL_MATERIAL = "\sting\sting.rvmat";
 
 _deleteLevelsByResolution =
@@ -99,10 +99,11 @@ _createPointSelection =
 
 _scaleObject =
 {
-	private ["_obj","_op"];
+	private ["_obj","_scaleFactor","_op"];
 
 	_obj = _this@0;
-	_op = "_vector = _this getPoint _x; _this setPoint [_x, _vector * " + str _MODEL_SCALE + "];";
+	_scaleFactor = _this@1;
+	_op = "_vector = _this getPoint _x; _this setPoint [_x, _vector * " + str _scaleFactor + "];";
 	_obj forEachPoint ["true", _op];
 };
 
@@ -152,11 +153,22 @@ try
 		_logFile << "Deleted old Memory/Geometry/ShadowVolume LODs" << eoln;
 
 		_existingScale = _base getProperty "sting_scale_applied";
+		_existingScaleValue = 1;
+		if (_existingScale != "") then
+		{
+			_existingScaleValue = call compile _existingScale;
+			if (_existingScaleValue <= 0) then
+			{
+				_existingScaleValue = 1;
+			};
+		};
+
 		if (_existingScale != (str _MODEL_SCALE)) then
 		{
-			[_base] call _scaleObject;
+			_rescaleFactor = _MODEL_SCALE / _existingScaleValue;
+			[_base, _rescaleFactor] call _scaleObject;
 			_base setProperty ["sting_scale_applied", _MODEL_SCALE];
-			_logFile << "Applied model scale" << eoln;
+			_logFile << "Applied model scale factor: " << str _rescaleFactor << eoln;
 		}
 		else
 		{
