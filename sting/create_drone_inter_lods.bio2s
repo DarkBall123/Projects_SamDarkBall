@@ -1,5 +1,3 @@
-#include "std\lodNames.inc"
-
 _RES_GEOMETRY = 1e13;
 _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
