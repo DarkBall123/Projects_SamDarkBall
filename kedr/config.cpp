@@ -48,7 +48,7 @@ class CfgAmmo
         simulationStep = 0.001;
         maxcontrolrange = 6400;
         missileLockMaxDistance = 6400;
-        missileLockMinDistance = 500;
+        missileLockMinDistance = 25;
         missileLockMaxSpeed = 400;
         missileLockCone = 15;
         missileKeepLockedCone = 75;
@@ -69,7 +69,7 @@ class CfgAmmo
                     {
                         class AirTarget
                         {
-                            minRange = 100;
+                            minRange = 25;
                             maxRange = 2000;
                             objectDistanceLimitCoef = -1;
                             viewDistanceLimitCoef = 1;
@@ -163,7 +163,7 @@ class CfgWeapons
             dispersion = 0.002;
             aiRateOfFire = 7;
             aiRateOfFireDistance = 3500;
-            minRange = 500;
+            minRange = 25;
             minRangeProbab = 0.8;
             midRange = 3000;
             midRangeProbab = 0.95;
