@@ -58,50 +58,90 @@ _createAxisFromSelection =
 
 _sourcePath = this@0;
 _targetPath = _sourcePath;
+_result = "Script started";
 console = openStandardIO;
+_logPath = _sourcePath + ".o2log.txt";
+deleteFile _logPath;
+_logFile = openFile [_logPath, 2];
 
 if ((count this) > 1) then
 {
 	_targetPath = this@1;
 };
 
-_p3d = newLODObject;
-if !(_p3d loadP3D _sourcePath) then
+try
 {
-	echo ("Failed to load P3D: " + _sourcePath);
-}
-else
-{
+	_logFile << "Source: " << _sourcePath << eoln;
+	_logFile << "Target: " << _targetPath << eoln;
+	echo ("Source: " + _sourcePath);
+
+	_p3d = newLODObject;
+	if !(_p3d loadP3D _sourcePath) then
+	{
+		_result = "Failed to load P3D: " + _sourcePath;
+		_logFile << _result << eoln;
+		echo _result;
+	}
+	else
+	{
+		_result = "Loaded P3D";
+		_logFile << _result << eoln;
+
 	_baseObjects = getObjects _p3d;
 	_base = _baseObjects @ 0;
+	_logFile << "Level count: " << str (count _baseObjects) << eoln;
 
 	echo ("Source: " + _sourcePath);
 
 	[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
 	[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
 	[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
+	_logFile << "Deleted old special LODs" << eoln;
 
 	_geom = addLevel _p3d;
 	_geom := _base;
 	_p3d setResolution _RES_GEOMETRY;
 	_geom setProperty ["autocenter", 0];
 	echo "Created Geometry LOD";
+	_logFile << "Created Geometry LOD" << eoln;
 
 	_shadow = addLevel _p3d;
 	_shadow := _base;
 	_p3d setResolution _RES_SHADOW;
 	echo "Created ShadowVolume LOD";
+	_logFile << "Created ShadowVolume LOD" << eoln;
 
 	_mem = addLevel _p3d;
 	_p3d setResolution _RES_MEMORY;
 	_mem setProperty ["autocenter", 0];
 	echo "Created Memory LOD";
+	_logFile << "Created Memory LOD" << eoln;
 
 	[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
 	[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
 	[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
 	[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
+	_logFile << "Created rotor axes" << eoln;
 
-	save (_p3d as _targetPath);
-	echo ("Saved: " + _targetPath);
+	if (save (_p3d as _targetPath)) then
+	{
+		_result = "Saved: " + _targetPath;
+		_logFile << _result << eoln;
+		echo _result;
+	}
+	else
+	{
+		_result = "Save failed: " + _targetPath;
+		_logFile << _result << eoln;
+		echo _result;
+	};
+	};
+}
+catch
+{
+	_result = "Exception: " + str _exception;
+	_logFile << _result << eoln;
+	echo _result;
 };
+
+_result
