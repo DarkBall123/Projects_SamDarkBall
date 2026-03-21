@@ -29,7 +29,7 @@ class CfgAmmo
     {
         model = "kedr\model\kedr_missile.p3d";
         airlock = 2;
-        cmimmunity = 0.98;
+        cmimmunity = 1;
         proximityExplosionDistance = 0;
         fuseDistance = 0;
         hit = 80;
@@ -129,7 +129,7 @@ class CfgWeapons
             };
         };
         
-        cmImmunity = 0.5;
+        cmImmunity = 1;
         canLock = 2;
         lockAcquire = 1;
         weaponLockDelay = 5.4;
