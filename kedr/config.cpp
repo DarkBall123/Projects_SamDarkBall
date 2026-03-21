@@ -1,4 +1,5 @@
 class SensorTemplateIR;
+class SensorTemplateActiveRadar;
 
 class CfgPatches
 {
@@ -36,11 +37,11 @@ class CfgAmmo
         indirecthit = 0;
         indirecthitrange = 0;
         explosive = 0;
-        irlock = 1;
+        irlock = 0;
         maneuvrability = 34;
-        maxspeed = 60;
-        thrust = 90;
-        thrusttime = 8;
+        maxspeed = 30;
+        thrust = 35;
+        thrusttime = 4;
         timetolive = 20;
         tracklead = 0.85;
         trackoversteer = 0.95;
@@ -51,7 +52,7 @@ class CfgAmmo
         missileLockMaxSpeed = 400;
         missileLockCone = 15;
         missileKeepLockedCone = 70;
-        weaponLockSystem = "2 + 16";
+        weaponLockSystem = "8 + 16";
         soundFly[] = {"", 0.13, 1};
         effectsMissile = "EmptyEffect";
         effectsMissileInit = "";
@@ -71,10 +72,23 @@ class CfgAmmo
             {
                 class Components
                 {
-                    class IRSensorComponent: SensorTemplateIR
+                    class ActiveRadarSensorComponent: SensorTemplateActiveRadar
                     {
-                        class AirTarget { minRange = 100; maxRange = 2000; };
-                        class GroundTarget { minRange = 100; maxRange = 2000; };
+                        class AirTarget
+                        {
+                            minRange = 100;
+                            maxRange = 2000;
+                            objectDistanceLimitCoef = -1;
+                            viewDistanceLimitCoef = 1;
+                        };
+                        class GroundTarget
+                        {
+                            minRange = 0;
+                            maxRange = 0;
+                            objectDistanceLimitCoef = 1;
+                            viewDistanceLimitCoef = 1;
+                        };
+                        typeRecognitionDistance = 2000;
                         angleRangeHorizontal = 45;
                         angleRangeVertical = 45;
                         minTrackableSpeed = 0;
@@ -99,7 +113,7 @@ class CfgMagazines
         displayNameShort = "KEDR UAV 1x";
         picture = "\kedr\ui\mag.paa";
         descriptionShort = "Three-band optical seeker";
-        initspeed = 10;
+        initspeed = 4;
         maxleadspeed = 400;
     };
 };
@@ -133,7 +147,7 @@ class CfgWeapons
         canLock = 2;
         lockAcquire = 1;
         weaponLockDelay = 5.4;
-        weaponLockSystem = 2;
+        weaponLockSystem = 8;
 
         lockingTargetSound[] = {"kedr\files\1.ogg", 1, 1};
         lockedTargetSound[] = {"kedr\files\2.ogg", 1, 2.5};
