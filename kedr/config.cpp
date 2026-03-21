@@ -1,5 +1,4 @@
 class SensorTemplateIR;
-class SensorTemplateActiveRadar;
 
 class CfgPatches
 {
@@ -37,22 +36,23 @@ class CfgAmmo
         indirecthit = 0;
         indirecthitrange = 0;
         explosive = 0;
-        irlock = 0;
+        irlock = 1;
         maneuvrability = 34;
         maxspeed = 30;
         thrust = 35;
         thrusttime = 4;
         timetolive = 20;
-        tracklead = 0.85;
-        trackoversteer = 0.95;
+        tracklead = 1;
+        trackoversteer = 1;
         sideairfriction = 0.08;
+        simulationStep = 0.001;
         maxcontrolrange = 6400;
         missileLockMaxDistance = 6400;
         missileLockMinDistance = 500;
         missileLockMaxSpeed = 400;
         missileLockCone = 15;
-        missileKeepLockedCone = 70;
-        weaponLockSystem = "8 + 16";
+        missileKeepLockedCone = 75;
+        weaponLockSystem = "2 + 16";
         soundFly[] = {"", 0.13, 1};
         effectsMissile = "EmptyEffect";
         effectsMissileInit = "";
@@ -72,7 +72,7 @@ class CfgAmmo
             {
                 class Components
                 {
-                    class ActiveRadarSensorComponent: SensorTemplateActiveRadar
+                    class IRSensorComponent: SensorTemplateIR
                     {
                         class AirTarget
                         {
@@ -88,7 +88,6 @@ class CfgAmmo
                             objectDistanceLimitCoef = 1;
                             viewDistanceLimitCoef = 1;
                         };
-                        typeRecognitionDistance = 2000;
                         angleRangeHorizontal = 45;
                         angleRangeVertical = 45;
                         minTrackableSpeed = 0;
@@ -147,7 +146,7 @@ class CfgWeapons
         canLock = 2;
         lockAcquire = 1;
         weaponLockDelay = 5.4;
-        weaponLockSystem = 8;
+        weaponLockSystem = 2;
 
         lockingTargetSound[] = {"kedr\files\1.ogg", 1, 1};
         lockedTargetSound[] = {"kedr\files\2.ogg", 1, 2.5};
