@@ -231,26 +231,6 @@ _createSelectionFromAllFaces =
 	_obj save (_sel as _selectionName);
 };
 
-_setUniformPointMass =
-{
-	private ["_obj","_totalMass","_pointCount","_pointMass","_i"];
-
-	_obj = _this@0;
-	_totalMass = _this@1;
-	_pointCount = countPoints _obj;
-
-	if (_pointCount <= 0) exitWith {};
-
-	_pointMass = _totalMass / _pointCount;
-	_i = 0;
-
-	while {_i < _pointCount} do
-	{
-		_obj setPointMass [_i, _pointMass];
-		_i = _i + 1;
-	};
-};
-
 _stripFaceRenderData =
 {
 	private ["_obj","_op"];
@@ -285,11 +265,6 @@ _createSupportLodFromBase =
 	if (_stripRenderData) then
 	{
 		[_lod] call _stripFaceRenderData;
-	};
-
-	if (_totalMass > 0) then
-	{
-		[_lod, _totalMass] call _setUniformPointMass;
 	};
 
 	_lod
@@ -488,6 +463,7 @@ try
 				_geom setProperty ["canbeoccluded", 1];
 				_geom setProperty ["forcenotalpha", 1];
 				_logFile << "Created Geometry LOD" << eoln;
+				_logFile << "Geometry mass assignment skipped in script; set mass manually in Object Builder" << eoln;
 
 				_geomPhys = [_p3d, _base, _RES_GEOMETRYPHYS, "Component01", 0, true] call _createSupportLodFromBase;
 				_geomPhys setProperty ["autocenter", 0];
