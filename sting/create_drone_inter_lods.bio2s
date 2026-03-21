@@ -125,20 +125,10 @@ _createLandContactPoints =
 
 _buildDirectionPoint =
 {
-	private ["_origin","_target","_dir","_dirLen"];
+	private ["_target"];
 
-	_origin = _this@0;
 	_target = _this@1;
-
-	_dir = _target - _origin;
-	_dirLen = [0,0,0] distance _dir;
-	if (_dirLen < 0.001) then
-	{
-		_dir = [0,1,0];
-		_dirLen = 1;
-	};
-
-	_target + (_dir * (_CAM_DIR_LEN / _dirLen))
+	[_target, [0,_CAM_DIR_LEN,0]] call _offsetPoint
 };
 
 _offsetPoint =
@@ -153,6 +143,19 @@ _offsetPoint =
 		(_point @ 1) + (_offset @ 1),
 		(_point @ 2) + (_offset @ 2)
 	]
+};
+
+_distanceSqBetweenPoints =
+{
+	private ["_pointA","_pointB","_dx","_dy","_dz"];
+
+	_pointA = _this@0;
+	_pointB = _this@1;
+	_dx = (_pointA @ 0) - (_pointB @ 0);
+	_dy = (_pointA @ 1) - (_pointB @ 1);
+	_dz = (_pointA @ 2) - (_pointB @ 2);
+
+	(_dx * _dx) + (_dy * _dy) + (_dz * _dz)
 };
 
 _scaleObject =
@@ -316,8 +319,8 @@ try
 			}
 			else
 			{
-				_cameraDistance = _bodyCenter distance _cameraPoint;
-				if (_cameraDistance < 0.02) then
+				_cameraDistanceSq = [_bodyCenter, _cameraPoint] call _distanceSqBetweenPoints;
+				if (_cameraDistanceSq < 0.0004) then
 				{
 					_cameraPoint = [_bodyCenter, [0,0.12,0.03]] call _offsetPoint;
 					_logFile << "Camera selection too close to body center, using fallback point" << eoln;
