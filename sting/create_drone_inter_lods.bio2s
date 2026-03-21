@@ -308,100 +308,156 @@ _stripFaceRenderData =
 	_obj forEachFace ["true", _op];
 };
 
-_buildFaceMapForSelections =
+_makeBoundsFromCenter =
 {
-	private ["_obj","_selectionNames","_allFaces","_faceMap","_i","_selectionName","_sel","_selectedFaces","_selectedPoints","_tmpSel","_j","_faceIndex"];
+	private ["_center","_halfX","_halfY","_halfZ"];
 
-	_obj = _this@0;
-	_selectionNames = _this@1;
-	_allFaces = _this@2;
-	_faceMap = [];
-	_i = 0;
+	_center = _this@0;
+	_halfX = _this@1;
+	_halfY = _this@2;
+	_halfZ = _this@3;
 
-	while {_i < (count _allFaces)} do
-	{
-		_faceMap set [_allFaces @ _i, 0];
-		_i = _i + 1;
-	};
-
-	_i = 0;
-	while {_i < (count _selectionNames)} do
-	{
-		_selectionName = _selectionNames @ _i;
-		_sel = _obj loadSelection _selectionName;
-		if !(isnil "_sel") then
-		{
-			_selectedPoints = getSelectedPoints _sel;
-			_tmpSel = newSelection _obj;
-			_tmpSel selectPoints _selectedPoints;
-			selectFacesFromPoints _tmpSel;
-			_selectedFaces = getSelectedFaces _tmpSel;
-			_j = 0;
-			while {_j < (count _selectedFaces)} do
-			{
-				_faceIndex = _selectedFaces @ _j;
-				_faceMap set [_faceIndex, 1];
-				_j = _j + 1;
-			};
-		};
-		_i = _i + 1;
-	};
-
-	_faceMap
+	[
+		[(_center @ 0) - _halfX, (_center @ 1) - _halfY, (_center @ 2) - _halfZ],
+		[(_center @ 0) + _halfX, (_center @ 1) + _halfY, (_center @ 2) + _halfZ]
+	]
 };
 
-_createSupportLodFromSelections =
+_addBoxComponent =
 {
-	private ["_p3d","_base","_resolution","_keepSelections","_stripRenderData","_lod","_keepFaceMap","_allFaces","_deleteFaces","_i","_faceIndex","_sel"];
+	private ["_obj","_bounds","_selectionName","_min","_max","_start","_faceDefs","_faceIndices","_faceIndex","_faceVertices","_i","_sel"];
+
+	_obj = _this@0;
+	_bounds = _this@1;
+	_selectionName = _this@2;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+
+	if (((_max @ 0) <= (_min @ 0)) || ((_max @ 1) <= (_min @ 1)) || ((_max @ 2) <= (_min @ 2))) exitWith
+	{
+		echo ("Skipped invalid box component " + _selectionName + ": " + str _bounds);
+	};
+
+	_start = countPoints _obj;
+	_obj addPoint [_min @ 0, _min @ 1, _min @ 2];
+	_obj addPoint [_max @ 0, _min @ 1, _min @ 2];
+	_obj addPoint [_max @ 0, _max @ 1, _min @ 2];
+	_obj addPoint [_min @ 0, _max @ 1, _min @ 2];
+	_obj addPoint [_min @ 0, _min @ 1, _max @ 2];
+	_obj addPoint [_max @ 0, _min @ 1, _max @ 2];
+	_obj addPoint [_max @ 0, _max @ 1, _max @ 2];
+	_obj addPoint [_min @ 0, _max @ 1, _max @ 2];
+
+	_faceDefs =
+	[
+		[_start + 0, _start + 3, _start + 2, _start + 1],
+		[_start + 4, _start + 5, _start + 6, _start + 7],
+		[_start + 0, _start + 1, _start + 5, _start + 4],
+		[_start + 1, _start + 2, _start + 6, _start + 5],
+		[_start + 2, _start + 3, _start + 7, _start + 6],
+		[_start + 3, _start + 0, _start + 4, _start + 7]
+	];
+	_faceIndices = [];
+	_i = 0;
+
+	while {_i < (count _faceDefs)} do
+	{
+		_faceVertices = _faceDefs @ _i;
+		_faceIndex = face addFace _obj;
+		(_obj face _faceIndex) setVertices _faceVertices;
+		_faceIndices set [count _faceIndices, _faceIndex];
+		_i = _i + 1;
+	};
+
+	_sel = newSelection _obj;
+	_sel selectFaces _faceIndices;
+	selectPointsFromFaces _sel;
+	_obj save (_sel as _selectionName);
+	echo ("Created box component " + _selectionName + ": " + str _bounds);
+};
+
+_createBoxedSupportLod =
+{
+	private ["_p3d","_resolution","_bodyBounds","_rotorBoundsList","_lod","_bodyMin","_bodyMax","_bodySizeX","_bodySizeY","_bodySizeZ","_rotorMinX","_rotorMaxX","_rotorMinY","_rotorMaxY","_rotorCenter","_rotorBounds","_i","_rotorSpanX","_rotorSpanY","_bodyBoxMinY","_bodyBoxMaxY","_bodyBoxMaxZ","_bodyBoxBounds","_motorHalfX","_motorHalfY","_motorHalfZ","_motorCenterZ","_componentName","_motorCenter","_motorBounds"];
 
 	_p3d = _this@0;
-	_base = _this@1;
-	_resolution = _this@2;
-	_keepSelections = _this@3;
-	_stripRenderData = _this@4;
+	_resolution = _this@1;
+	_bodyBounds = _this@2;
+	_rotorBoundsList = _this@3;
 
 	_lod = addLevel _p3d;
-	_lod := _base;
 	_p3d setResolution _resolution;
 	_lod setProperty ["autocenter", 0];
 
-	_allFaces = [];
-	_lod forEachFace ["true", "_allFaces set [count _allFaces, _x];"];
-	_keepFaceMap = [_lod, _keepSelections, _allFaces] call _buildFaceMapForSelections;
+	_bodyMin = _bodyBounds @ 0;
+	_bodyMax = _bodyBounds @ 1;
+	_bodySizeX = (_bodyMax @ 0) - (_bodyMin @ 0);
+	_bodySizeY = (_bodyMax @ 1) - (_bodyMin @ 1);
+	_bodySizeZ = (_bodyMax @ 2) - (_bodyMin @ 2);
 
-	if ((count _allFaces) > 0) then
+	_bodyBoxBounds = _bodyBounds;
+
+	if ((count _rotorBoundsList) == 4) then
 	{
-		_deleteFaces = [];
-		_i = 0;
+		_rotorCenter = [(_rotorBoundsList @ 0)] call _centerOfBounds;
+		_rotorMinX = _rotorCenter @ 0;
+		_rotorMaxX = _rotorCenter @ 0;
+		_rotorMinY = _rotorCenter @ 1;
+		_rotorMaxY = _rotorCenter @ 1;
+		_i = 1;
 
-		while {_i < (count _allFaces)} do
+		while {_i < (count _rotorBoundsList)} do
 		{
-			_faceIndex = _allFaces @ _i;
-			if ((_keepFaceMap @ _faceIndex) != 1) then
-			{
-				_deleteFaces set [count _deleteFaces, _faceIndex];
-			};
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			if ((_rotorCenter @ 0) < _rotorMinX) then {_rotorMinX = _rotorCenter @ 0;};
+			if ((_rotorCenter @ 0) > _rotorMaxX) then {_rotorMaxX = _rotorCenter @ 0;};
+			if ((_rotorCenter @ 1) < _rotorMinY) then {_rotorMinY = _rotorCenter @ 1;};
+			if ((_rotorCenter @ 1) > _rotorMaxY) then {_rotorMaxY = _rotorCenter @ 1;};
 			_i = _i + 1;
 		};
 
-		if ((count _deleteFaces) > 0) then
+		_rotorSpanX = _rotorMaxX - _rotorMinX;
+		_rotorSpanY = _rotorMaxY - _rotorMinY;
+		_bodyBoxMinY = _rotorMinY - (_rotorSpanY * 0.10);
+		_bodyBoxMaxY = _rotorMaxY + (_rotorSpanY * 0.10);
+		_bodyBoxMaxZ = (_bodyMin @ 2) + (_bodySizeZ * 0.72);
+
+		if (_bodyBoxMinY < (_bodyMin @ 1)) then {_bodyBoxMinY = _bodyMin @ 1;};
+		if (_bodyBoxMaxY > (_bodyMax @ 1)) then {_bodyBoxMaxY = _bodyMax @ 1;};
+		if (_bodyBoxMaxZ <= (_bodyMin @ 2)) then {_bodyBoxMaxZ = (_bodyMin @ 2) + 0.04;};
+
+		_bodyBoxBounds =
+		[
+			[_bodyMin @ 0, _bodyBoxMinY, _bodyMin @ 2],
+			[_bodyMax @ 0, _bodyBoxMaxY, _bodyBoxMaxZ]
+		];
+	};
+
+	[_lod, _bodyBoxBounds, "Component01"] call _addBoxComponent;
+
+	if ((count _rotorBoundsList) == 4) then
+	{
+		_motorHalfX = _bodySizeX * 0.12;
+		_motorHalfY = _bodySizeY * 0.12;
+		_motorHalfZ = _bodySizeZ * 0.18;
+		_motorCenterZ = (_bodyMin @ 2) + (_bodySizeZ * 0.45);
+
+		if (_motorHalfX < 0.015) then {_motorHalfX = 0.015;};
+		if (_motorHalfY < 0.015) then {_motorHalfY = 0.015;};
+		if (_motorHalfZ < 0.015) then {_motorHalfZ = 0.015;};
+
+		_i = 0;
+		while {_i < (count _rotorBoundsList)} do
 		{
-			_sel = newSelection _lod;
-			_sel selectFaces _deleteFaces;
-			selectPointsFromFaces _sel;
-			deleteSelected _sel;
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			_motorCenter = [_rotorCenter @ 0, _rotorCenter @ 1, _motorCenterZ];
+			_motorBounds = [_motorCenter, _motorHalfX, _motorHalfY, _motorHalfZ] call _makeBoundsFromCenter;
+			_componentName = "Component0" + str (_i + 2);
+			[_lod, _motorBounds, _componentName] call _addBoxComponent;
+			_i = _i + 1;
 		};
-	};
-
-	if (_lod checkSelectionName "Component01") then
-	{
-		_lod deleteSelection "Component01";
-	};
-	[_lod, "Component01"] call _createSelectionFromAllFaces;
-
-	if (_stripRenderData) then
-	{
-		[_lod] call _stripFaceRenderData;
 	};
 
 	_lod
@@ -502,9 +558,7 @@ _isVisualResolution =
 _sourcePath = this@0;
 _result = "Script started";
 console = openStandardIO;
-_logPath = _sourcePath + ".o2log.txt";
-deleteFile _logPath;
-_logFile = openFile [_logPath, 2];
+_logFile = console;
 
 try
 {
@@ -529,10 +583,14 @@ try
 		_baseObjects = getObjects _p3d;
 		_logFile << "Level count: " << str (count _baseObjects) << eoln;
 
+		[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
+		[_p3d, _RES_GEOMETRYPHYS] call _deleteLevelsByResolution;
+		[_p3d, _RES_VIEWGEOMETRY] call _deleteLevelsByResolution;
+		[_p3d, _RES_FIREGEOMETRY] call _deleteLevelsByResolution;
 		[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
 		[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
 		[_p3d, _RES_LANDCONTACT] call _deleteLevelsByResolution;
-		_logFile << "Deleted old Memory/ShadowVolume/LandContact LODs" << eoln;
+		_logFile << "Deleted old Geometry/GeometryPhysX/ViewGeometry/FireGeometry/Memory/ShadowVolume/LandContact LODs" << eoln;
 
 		_lodObjects = getObjects _p3d;
 		_lodResolutions = getResolutions _p3d;
@@ -621,7 +679,26 @@ try
 			else
 			{
 				_bodyCenter = [_bodyBounds] call _centerOfBounds;
-				_logFile << "Preserved Geometry/GeometryPhysX/ViewGeometry/FireGeometry LODs for manual Object Builder editing" << eoln;
+				_rotorBoundsList = [_base] call _collectRotorBounds;
+
+				_geom = [_p3d, _RES_GEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
+				_geom setProperty ["canocclude", 0];
+				_geom setProperty ["canbeoccluded", 1];
+				_geom setProperty ["forcenotalpha", 1];
+				_logFile << "Created simplified Geometry LOD" << eoln;
+				_logFile << "Geometry mass assignment skipped in script; set mass manually in Object Builder" << eoln;
+
+				_geomPhys = [_p3d, _RES_GEOMETRYPHYS, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
+				_geomPhys setProperty ["autocenter", 0];
+				_logFile << "Created simplified Geometry PhysX LOD" << eoln;
+
+				_viewGeom = [_p3d, _RES_VIEWGEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
+				_viewGeom setProperty ["autocenter", 0];
+				_logFile << "Created simplified ViewGeometry LOD" << eoln;
+
+				_fireGeom = [_p3d, _RES_FIREGEOMETRY, _bodyBounds, _rotorBoundsList] call _createBoxedSupportLod;
+				_fireGeom setProperty ["autocenter", 0];
+				_logFile << "Created simplified FireGeometry LOD" << eoln;
 
 				_mem = addLevel _p3d;
 				_p3d setResolution _RES_MEMORY;
