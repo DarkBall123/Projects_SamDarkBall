@@ -784,6 +784,10 @@ try
 
 		_templateP3d = nil;
 		_templateReady = false;
+		_templateGeom = nil;
+		_templateGeomPhys = nil;
+		_templateViewGeom = nil;
+		_templateFireGeom = nil;
 		if (_templatePath != "") then
 		{
 			_templateP3d = newLODObject;
@@ -804,16 +808,19 @@ try
 				_templateViewGeom = [_templateP3d, _RES_VIEWGEOMETRY] call _getLodObjectByResolution;
 				_templateFireGeom = [_templateP3d, _RES_FIREGEOMETRY] call _getLodObjectByResolution;
 
-				if ((isnil "_templateViewGeom") && !(isnil "_templateGeom")) then
+				if !(isnil "_templateGeom") then
 				{
-					_templateViewGeom = _templateGeom;
-					_logFile << "Template ViewGeometry missing, using Geometry as fallback" << eoln;
-				};
+					if (isnil "_templateViewGeom") then
+					{
+						_templateViewGeom = _templateGeom;
+						_logFile << "Template ViewGeometry missing, using Geometry as fallback" << eoln;
+					};
 
-				if ((isnil "_templateFireGeom") && !(isnil "_templateGeom")) then
-				{
-					_templateFireGeom = _templateGeom;
-					_logFile << "Template FireGeometry missing, using Geometry as fallback" << eoln;
+					if (isnil "_templateFireGeom") then
+					{
+						_templateFireGeom = _templateGeom;
+						_logFile << "Template FireGeometry missing, using Geometry as fallback" << eoln;
+					};
 				};
 
 				if ((isnil "_templateGeom") || (isnil "_templateGeomPhys") || (isnil "_templateViewGeom") || (isnil "_templateFireGeom")) then
