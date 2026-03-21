@@ -256,7 +256,7 @@ _stripFaceRenderData =
 	private ["_obj","_op"];
 
 	_obj = _this@0;
-	_op = "_face = _this face _x; _face setTexture \"\"; _face setMaterial \"\";";
+	_op = "_face = _this face _x; _face setTexture """"; _face setMaterial """";";
 	_obj forEachFace ["true", _op];
 };
 
