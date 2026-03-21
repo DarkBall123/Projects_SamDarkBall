@@ -42,10 +42,9 @@ class CfgAmmo
         thrust = 35;
         thrusttime = 4;
         timetolive = 20;
-        tracklead = 1;
-        trackoversteer = 1;
+        tracklead = 0.85;
+        trackoversteer = 0.95;
         sideairfriction = 0.08;
-        simulationStep = 0.001;
         maxcontrolrange = 6400;
         missileLockMaxDistance = 6400;
         missileLockMinDistance = 25;
@@ -125,6 +124,8 @@ class CfgWeapons
         handAnim[] = {"OFP2_ManSkeleton", "\kedr\ani\kedr.rtm"};
         picture = "\kedr\ui\body.paa";
         magazines[] = {"kedr_mag"};
+        shotPos = "";
+        shotEnd = "";
         magazineWell[] = {};
 
         class GunParticles
