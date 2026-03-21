@@ -529,14 +529,10 @@ try
 		_baseObjects = getObjects _p3d;
 		_logFile << "Level count: " << str (count _baseObjects) << eoln;
 
-		[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
-		[_p3d, _RES_GEOMETRYPHYS] call _deleteLevelsByResolution;
-		[_p3d, _RES_VIEWGEOMETRY] call _deleteLevelsByResolution;
-		[_p3d, _RES_FIREGEOMETRY] call _deleteLevelsByResolution;
 		[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
 		[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
 		[_p3d, _RES_LANDCONTACT] call _deleteLevelsByResolution;
-		_logFile << "Deleted old Geometry/GeometryPhysX/ViewGeometry/FireGeometry/Memory/ShadowVolume/LandContact LODs" << eoln;
+		_logFile << "Deleted old Memory/ShadowVolume/LandContact LODs" << eoln;
 
 		_lodObjects = getObjects _p3d;
 		_lodResolutions = getResolutions _p3d;
@@ -625,31 +621,7 @@ try
 			else
 			{
 				_bodyCenter = [_bodyBounds] call _centerOfBounds;
-				_rotorBoundsList = [_base] call _collectRotorBounds;
-				_keepMainSelections = ["body_0"];
-				if ((count _rotorBoundsList) == 4) then
-				{
-					_keepMainSelections = ["body_0","vint1_0","vint2_0","vint3_0","vint4_0"];
-				};
-
-				_geom = [_p3d, _base, _RES_GEOMETRY, _keepMainSelections, true] call _createSupportLodFromSelections;
-				_geom setProperty ["canocclude", 0];
-				_geom setProperty ["canbeoccluded", 1];
-				_geom setProperty ["forcenotalpha", 1];
-				_logFile << "Created filtered Geometry LOD" << eoln;
-				_logFile << "Geometry mass assignment skipped in script; set mass manually in Object Builder" << eoln;
-
-				_geomPhys = [_p3d, _base, _RES_GEOMETRYPHYS, ["body_0"], true] call _createSupportLodFromSelections;
-				_geomPhys setProperty ["autocenter", 0];
-				_logFile << "Created filtered Geometry PhysX LOD" << eoln;
-
-				_viewGeom = [_p3d, _base, _RES_VIEWGEOMETRY, _keepMainSelections, true] call _createSupportLodFromSelections;
-				_viewGeom setProperty ["autocenter", 0];
-				_logFile << "Created filtered ViewGeometry LOD" << eoln;
-
-				_fireGeom = [_p3d, _base, _RES_FIREGEOMETRY, _keepMainSelections, true] call _createSupportLodFromSelections;
-				_fireGeom setProperty ["autocenter", 0];
-				_logFile << "Created filtered FireGeometry LOD" << eoln;
+				_logFile << "Preserved Geometry/GeometryPhysX/ViewGeometry/FireGeometry LODs for manual Object Builder editing" << eoln;
 
 				_mem = addLevel _p3d;
 				_p3d setResolution _RES_MEMORY;
