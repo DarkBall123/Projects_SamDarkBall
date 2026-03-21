@@ -200,27 +200,6 @@ _collectRotorBounds =
 	_rotorBoundsList
 };
 
-_containsValue =
-{
-	private ["_values","_value","_i","_found"];
-
-	_values = _this@0;
-	_value = _this@1;
-	_found = false;
-	_i = 0;
-
-	while {(!_found) && (_i < (count _values))} do
-	{
-		if ((_values @ _i) == _value) then
-		{
-			_found = true;
-		};
-		_i = _i + 1;
-	};
-
-	_found
-};
-
 _getBoundsFromPointIndices =
 {
 	private ["_obj","_pointIndices","_point","_min","_max","_i"];
@@ -329,15 +308,23 @@ _stripFaceRenderData =
 	_obj forEachFace ["true", _op];
 };
 
-_collectFacesForSelections =
+_buildFaceMapForSelections =
 {
-	private ["_obj","_selectionNames","_faces","_i","_selectionName","_sel","_selectedFaces","_selectedPoints","_tmpSel","_j","_faceIndex"];
+	private ["_obj","_selectionNames","_allFaces","_faceMap","_i","_selectionName","_sel","_selectedFaces","_selectedPoints","_tmpSel","_j","_faceIndex"];
 
 	_obj = _this@0;
 	_selectionNames = _this@1;
-	_faces = [];
+	_allFaces = _this@2;
+	_faceMap = [];
 	_i = 0;
 
+	while {_i < (count _allFaces)} do
+	{
+		_faceMap set [_allFaces @ _i, 0];
+		_i = _i + 1;
+	};
+
+	_i = 0;
 	while {_i < (count _selectionNames)} do
 	{
 		_selectionName = _selectionNames @ _i;
@@ -353,22 +340,19 @@ _collectFacesForSelections =
 			while {_j < (count _selectedFaces)} do
 			{
 				_faceIndex = _selectedFaces @ _j;
-				if !([_faces, _faceIndex] call _containsValue) then
-				{
-					_faces set [count _faces, _faceIndex];
-				};
+				_faceMap set [_faceIndex, 1];
 				_j = _j + 1;
 			};
 		};
 		_i = _i + 1;
 	};
 
-	_faces
+	_faceMap
 };
 
 _createSupportLodFromSelections =
 {
-	private ["_p3d","_base","_resolution","_keepSelections","_stripRenderData","_lod","_keepFaces","_allFaces","_deleteFaces","_i","_faceIndex","_sel"];
+	private ["_p3d","_base","_resolution","_keepSelections","_stripRenderData","_lod","_keepFaceMap","_allFaces","_deleteFaces","_i","_faceIndex","_sel"];
 
 	_p3d = _this@0;
 	_base = _this@1;
@@ -381,18 +365,19 @@ _createSupportLodFromSelections =
 	_p3d setResolution _resolution;
 	_lod setProperty ["autocenter", 0];
 
-	_keepFaces = [_lod, _keepSelections] call _collectFacesForSelections;
-	if ((count _keepFaces) > 0) then
+	_allFaces = [];
+	_lod forEachFace ["true", "_allFaces set [count _allFaces, _x];"];
+	_keepFaceMap = [_lod, _keepSelections, _allFaces] call _buildFaceMapForSelections;
+
+	if ((count _allFaces) > 0) then
 	{
-		_allFaces = [];
-		_lod forEachFace ["true", "_allFaces set [count _allFaces, _x];"];
 		_deleteFaces = [];
 		_i = 0;
 
 		while {_i < (count _allFaces)} do
 		{
 			_faceIndex = _allFaces @ _i;
-			if !([_keepFaces, _faceIndex] call _containsValue) then
+			if ((_keepFaceMap @ _faceIndex) != 1) then
 			{
 				_deleteFaces set [count _deleteFaces, _faceIndex];
 			};
