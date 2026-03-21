@@ -83,14 +83,16 @@ class CfgVehicles
 		isUav = 1;
 		uavCameraDriverPos = "pip_pilot_pos";
 		uavCameraDriverDir = "pip_pilot_dir";
-		uavCameraGunnerPos = "pos_pilotcamera";
-		uavCameraGunnerDir = "pos_pilotcamera_dir";
+		uavCameraGunnerPos = "";
+		uavCameraGunnerDir = "";
 		extCameraPosition[] = {0,-0.25,-2.35};
 		extCameraParams[] = {0.93,10,30,0.25,1,10,30,0,1};
 		formationX = 10;
 		formationZ = 10;
 		memoryPointTaskMarker = "TaskMarker_1_pos";
-		memoryPointDriverOptics = "pos_pilotcamera";
+		memoryPointDriverOptics = "pip_pilot_pos";
+		memoryPointsGetInDriver = "pos_driver";
+		memoryPointsGetInDriverDir = "pos_driver_dir";
 		driverOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
 		GunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
 		driverForceOptics = 1;
@@ -326,7 +328,7 @@ class CfgVehicles
 		{
 			class Sting
 			{
-				init = "(_this # 0) engineOn true;";
+				init = "_veh = _this # 0; if (local _veh) then {if ((count crew _veh) isEqualTo 0) then {createVehicleCrew _veh;}; _veh engineOn true;};";
 			};
 		};
 		attenuationEffectType = "OpenHeliAttenuation";

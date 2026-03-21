@@ -221,6 +221,7 @@ try
 		};
 
 		[_base] call _applyVisualMaterial;
+		_base setProperty ["LODNoShadow", "1"];
 		_base setProperty ["LODNoShadows", "1"];
 		_logFile << "Updated base visual LOD and rewrote face materials" << eoln;
 
@@ -262,6 +263,8 @@ try
 			[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
 			[_mem, _cameraCenter, "pos_pilotcamera"] call _createPointSelection;
 			[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
+			[_mem, _bodyCenter, "pos_driver"] call _createPointSelection;
+			[_mem, _cameraDirPoint, "pos_driver_dir"] call _createPointSelection;
 			_logFile << "Created camera points" << eoln;
 		};
 
