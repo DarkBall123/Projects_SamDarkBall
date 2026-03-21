@@ -58,13 +58,6 @@ class CfgAmmo
         effectsMissileInit = "";
         effectsSmoke = "";
         muzzleEffect = "";
-        CraterEffects = "";
-        explosionEffects = "";
-        SoundSetExplosion[] = {};
-        soundHit1[] = {"", 0, 1};
-        soundHit2[] = {"", 0, 1};
-        soundHit3[] = {"", 0, 1};
-        multiSoundHit[] = {"soundHit1", 1};
 
         class Components: Components
         {
