@@ -1,9 +1,13 @@
 _RES_GEOMETRY = 1e13;
 _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
+_RES_LANDCONTACT = 2e15;
 _AXIS_HALF_LEN = 0.10;
 _CAM_DIR_LEN = 0.25;
 _MODEL_SCALE = 0.0277778;
+_LANDCONTACT_X = 0.10;
+_LANDCONTACT_Y = 0.10;
+_LANDCONTACT_Z = -0.02;
 _VISUAL_TEXTURE = "\sting\mat0_co.paa";
 _VISUAL_MATERIAL = "";
 
@@ -97,6 +101,28 @@ _createPointSelection =
 	echo ("Created point " + _selectionName + ": " + str _point);
 };
 
+_createLandContactPoints =
+{
+	private ["_landObj","_center","_points","_i"];
+
+	_landObj = _this@0;
+	_center = _this@1;
+	_points =
+	[
+		[(_center @ 0) - _LANDCONTACT_X, (_center @ 1) - _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z],
+		[(_center @ 0) + _LANDCONTACT_X, (_center @ 1) - _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z],
+		[(_center @ 0) - _LANDCONTACT_X, (_center @ 1) + _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z],
+		[(_center @ 0) + _LANDCONTACT_X, (_center @ 1) + _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z]
+	];
+	_i = 0;
+
+	while {_i < (count _points)} do
+	{
+		_landObj addPoint (_points @ _i);
+		_i = _i + 1;
+	};
+};
+
 _buildDirectionPoint =
 {
 	private ["_origin","_target","_dir","_dirLen"];
@@ -168,7 +194,8 @@ try
 		[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
 		[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
 		[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
-		_logFile << "Deleted old Memory/Geometry/ShadowVolume LODs" << eoln;
+		[_p3d, _RES_LANDCONTACT] call _deleteLevelsByResolution;
+		_logFile << "Deleted old Memory/Geometry/ShadowVolume/LandContact LODs" << eoln;
 
 		_existingScale = _base getProperty "sting_scale_applied";
 		_existingScaleValue = 1;
@@ -202,6 +229,13 @@ try
 		_geom setProperty ["autocenter", 0];
 		_logFile << "Created Geometry LOD" << eoln;
 
+		_shadow = addLevel _p3d;
+		_p3d setResolution _RES_SHADOW;
+		_shadow setProperty ["autocenter", 0];
+		_shadow setProperty ["sbsource", "shadowvolume"];
+		_shadow setProperty ["prefershadowvolume", 1];
+		_logFile << "Created empty ShadowVolume LOD" << eoln;
+
 		_mem = addLevel _p3d;
 		_p3d setResolution _RES_MEMORY;
 		_mem setProperty ["autocenter", 0];
@@ -213,6 +247,12 @@ try
 		{
 			_bodyCenter = [0,0,0];
 		};
+
+		_land = addLevel _p3d;
+		_p3d setResolution _RES_LANDCONTACT;
+		_land setProperty ["autocenter", 0];
+		[_land, _bodyCenter] call _createLandContactPoints;
+		_logFile << "Created LandContact LOD" << eoln;
 
 		[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
 		[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;

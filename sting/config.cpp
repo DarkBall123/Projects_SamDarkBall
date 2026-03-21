@@ -81,8 +81,8 @@ class CfgVehicles
 		displayName = "Sting UAV";
 		editorSubcategory = "EdSubcat_Drones";
 		isUav = 1;
-		uavCameraDriverPos = "pos_pilotcamera";
-		uavCameraDriverDir = "pos_pilotcamera_dir";
+		uavCameraDriverPos = "pip_pilot_pos";
+		uavCameraDriverDir = "pip_pilot_dir";
 		uavCameraGunnerPos = "pos_pilotcamera";
 		uavCameraGunnerDir = "pos_pilotcamera_dir";
 		extCameraPosition[] = {0,-0.25,-2.35};
@@ -171,8 +171,8 @@ class CfgVehicles
 		irTargetSize = 0.01;
 		lockDetectionSystem = 0;
 		incomingMissileDetectionSystem = 0;
-		weapons[] = {};
-		magazines[] = {};
+		weapons[] = {"Laserdesignator_mounted"};
+		magazines[] = {"Laserbatteries"};
 		irScanRangeMin = 0;
 		irScanRangeMax = 0;
 		irScanToEyeFactor = 1;
@@ -218,7 +218,7 @@ class CfgVehicles
 			minAngleY = -150;
 			maxAngleY = 150;
 		};
-		class Viewoptics: ViewOptics
+		class ViewOptics: ViewOptics
 		{
 			initAngleX = 0;
 			minAngleX = 0;
@@ -237,6 +237,69 @@ class CfgVehicles
 		};
 		class MFD
 		{
+		};
+		class PilotCamera
+		{
+			minTurn = -27;
+			maxTurn = 27;
+			initTurn = 0;
+			minElev = -35;
+			maxElev = 90;
+			initElev = 0;
+			maxXRotSpeed = 1;
+			maxYRotSpeed = 1;
+			maxMouseXRotSpeed = 0.5;
+			maxMouseYRotSpeed = 0.5;
+			pilotOpticsShowCursor = 1;
+			controllable = 1;
+			class OpticsIn
+			{
+				class Wide
+				{
+					opticsDisplayName = "WFOV";
+					initAngleX = 0;
+					minAngleX = 0;
+					maxAngleX = 0;
+					initAngleY = 0;
+					minAngleY = 0;
+					maxAngleY = 0;
+					initFov = 0.8;
+					minFov = 0.028;
+					maxFov = 0.8;
+					directionStabilized = 1;
+					visionMode[] =
+					{
+						"Normal",
+						"TI"
+					};
+					thermalMode[] = {0,1};
+					gunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
+					opticsPPEffects[] =
+					{
+						"OpticsCHAbera2",
+						"OpticsBlur2"
+					};
+				};
+				class Medium: Wide
+				{
+					opticsDisplayName = "MFOV";
+					initFov = 0.25;
+					minFov = 0.25;
+					maxFov = 0.25;
+					gunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+				};
+				class Narrow: Wide
+				{
+					opticsDisplayName = "NFOV";
+					initFov = 0.08;
+					minFov = 0.08;
+					maxFov = 0.08;
+					gunnerOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+				};
+				showMiniMapInOptics = 1;
+				showUAVViewInOptics = 0;
+				showSlingLoadManagerInOptics = 0;
+			};
 		};
 		enableManualFire = 1;
 		reportRemoteTargets = 1;
