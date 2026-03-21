@@ -2,6 +2,7 @@ _RES_GEOMETRY = 1e13;
 _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
 _AXIS_HALF_LEN = 0.10;
+_CAM_DIR_LEN = 0.25;
 
 _deleteLevelsByResolution =
 {
@@ -22,38 +23,74 @@ _deleteLevelsByResolution =
 	};
 };
 
-_createAxisFromSelection =
+_getSelectionCenter =
 {
-	private ["_srcObj","_memObj","_selectionName","_axisName","_sel","_center","_p1","_p2","_i1","_i2","_axisSel"];
+	private ["_srcObj","_selectionName","_sel"];
 
 	_srcObj = _this@0;
-	_memObj = _this@1;
-	_selectionName = _this@2;
-	_axisName = _this@3;
+	_selectionName = _this@1;
 
 	_sel = _srcObj loadSelection _selectionName;
 	if (isnil "_sel") then
 	{
 		echo ("Missing selection: " + _selectionName);
+		nil
 	}
 	else
 	{
-		_center = centerOf _sel;
-		_p1 = [_center @ 0, (_center @ 1) - _AXIS_HALF_LEN, _center @ 2];
-		_p2 = [_center @ 0, (_center @ 1) + _AXIS_HALF_LEN, _center @ 2];
-
-		_i1 = countPoints _memObj;
-		_memObj addPoint _p1;
-
-		_i2 = countPoints _memObj;
-		_memObj addPoint _p2;
-
-		_axisSel = newSelection _memObj;
-		_axisSel selectPoints [_i1, _i2];
-		_memObj save (_axisSel as _axisName);
-
-		echo (_axisName + " center: " + str _center);
+		centerOf _sel
 	};
+};
+
+_createPointSelection =
+{
+	private ["_memObj","_point","_selectionName","_i","_sel"];
+
+	_memObj = _this@0;
+	_point = _this@1;
+	_selectionName = _this@2;
+
+	_i = countPoints _memObj;
+	_memObj addPoint _point;
+
+	_sel = newSelection _memObj;
+	_sel selectPoints [_i];
+	_memObj save (_sel as _selectionName);
+
+	echo ("Created point " + _selectionName + ": " + str _point);
+};
+
+_createAxisFromCenter =
+{
+	private ["_memObj","_center","_dir","_axisName","_dirLen","_offset","_p1","_p2","_i1","_i2","_axisSel"];
+
+	_memObj = _this@0;
+	_center = _this@1;
+	_dir = _this@2;
+	_axisName = _this@3;
+
+	_dirLen = [0,0,0] distance _dir;
+	if (_dirLen < 0.001) then
+	{
+		_dir = [0,1,0];
+		_dirLen = 1;
+	};
+
+	_offset = _dir * (_AXIS_HALF_LEN / _dirLen);
+	_p1 = _center - _offset;
+	_p2 = _center + _offset;
+
+	_i1 = countPoints _memObj;
+	_memObj addPoint _p1;
+
+	_i2 = countPoints _memObj;
+	_memObj addPoint _p2;
+
+	_axisSel = newSelection _memObj;
+	_axisSel selectPoints [_i1, _i2];
+	_memObj save (_axisSel as _axisName);
+
+	echo ("Created axis " + _axisName + " center: " + str _center);
 };
 
 _sourcePath = this@0;
@@ -117,11 +154,55 @@ try
 	echo "Created Memory LOD";
 	_logFile << "Created Memory LOD" << eoln;
 
-	[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
-	[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
-	[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
-	[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
-	_logFile << "Created rotor axes" << eoln;
+	_bodyCenter = [_base, "body_0"] call _getSelectionCenter;
+	_cameraCenter = [_base, "camera_0"] call _getSelectionCenter;
+	_v1 = [_base, "vint1_0"] call _getSelectionCenter;
+	_v2 = [_base, "vint2_0"] call _getSelectionCenter;
+	_v3 = [_base, "vint3_0"] call _getSelectionCenter;
+	_v4 = [_base, "vint4_0"] call _getSelectionCenter;
+
+	if (isnil "_bodyCenter") then
+	{
+		_bodyCenter = [0,0,0];
+	};
+
+	_rotorSum = [0,0,0];
+	_rotorCount = 0;
+
+	if !(isnil "_v1") then { _rotorSum = _rotorSum + _v1; _rotorCount = _rotorCount + 1; };
+	if !(isnil "_v2") then { _rotorSum = _rotorSum + _v2; _rotorCount = _rotorCount + 1; };
+	if !(isnil "_v3") then { _rotorSum = _rotorSum + _v3; _rotorCount = _rotorCount + 1; };
+	if !(isnil "_v4") then { _rotorSum = _rotorSum + _v4; _rotorCount = _rotorCount + 1; };
+
+	if (_rotorCount > 0) then
+	{
+		_rotorCenter = _rotorSum * (1 / _rotorCount);
+		[_mem, _rotorCenter, (_rotorCenter - _bodyCenter), "main_rotor_axis"] call _createAxisFromCenter;
+		[_mem, _rotorCenter, "rotor_center"] call _createPointSelection;
+		_logFile << "Created main rotor axis" << eoln;
+	};
+
+	if !(isnil "_cameraCenter") then
+	{
+		[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
+		[_mem, _cameraCenter, "PiP0_pos"] call _createPointSelection;
+
+		_cameraDir = _cameraCenter - _bodyCenter;
+		_cameraDirLen = [0,0,0] distance _cameraDir;
+		if (_cameraDirLen < 0.001) then
+		{
+			_cameraDir = [0,1,0];
+			_cameraDirLen = 1;
+		};
+
+		_cameraDirPoint = _cameraCenter + (_cameraDir * (_CAM_DIR_LEN / _cameraDirLen));
+		[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
+		[_mem, _cameraDirPoint, "PiP0_dir"] call _createPointSelection;
+		_logFile << "Created camera points" << eoln;
+	};
+
+	[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
+	_logFile << "Created task marker point" << eoln;
 
 	if (save (_p3d as _targetPath)) then
 	{
