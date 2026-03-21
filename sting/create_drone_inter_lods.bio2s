@@ -47,8 +47,8 @@ _createAxisFromSelection =
 	else
 	{
 		_center = centerOf _sel;
-		_p1 = [_center @ 0, (_center @ 1) - _AXIS_HALF_LEN, _center @ 2];
-		_p2 = [_center @ 0, (_center @ 1) + _AXIS_HALF_LEN, _center @ 2];
+		_p1 = [_center @ 0, _center @ 1, (_center @ 2) - _AXIS_HALF_LEN];
+		_p2 = [_center @ 0, _center @ 1, (_center @ 2) + _AXIS_HALF_LEN];
 
 		_i1 = countPoints _memObj;
 		_memObj addPoint _p1;
