@@ -1,13 +1,20 @@
 _RES_GEOMETRY = 1e13;
+_RES_GEOMETRYPHYS = 4e13;
 _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
 _RES_LANDCONTACT = 2e15;
+_RES_VIEWGEOMETRY = 6e15;
+_RES_FIREGEOMETRY = 7e15;
 _AXIS_HALF_LEN = 0.10;
 _CAM_DIR_LEN = 0.25;
 _MODEL_SCALE = 0.0277778;
 _LANDCONTACT_X = 0.10;
 _LANDCONTACT_Y = 0.10;
 _LANDCONTACT_Z = -0.02;
+_GEOMETRY_TOTAL_MASS = 20;
+_GEOMETRY_MARGIN_X = 0.01;
+_GEOMETRY_MARGIN_Y = 0.01;
+_GEOMETRY_MARGIN_Z = 0.01;
 _VISUAL_TEXTURE = "sting\mat0_co.paa";
 _VISUAL_MATERIAL = "sting\sting.rvmat";
 
@@ -103,16 +110,21 @@ _createPointSelection =
 
 _createLandContactPoints =
 {
-	private ["_landObj","_center","_points","_i"];
+	private ["_landObj","_bounds","_min","_max","_xInset","_yInset","_z","_points","_i"];
 
 	_landObj = _this@0;
-	_center = _this@1;
+	_bounds = _this@1;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+	_xInset = (((_max @ 0) - (_min @ 0)) * 0.15);
+	_yInset = (((_max @ 1) - (_min @ 1)) * 0.15);
+	_z = _min @ 2;
 	_points =
 	[
-		[(_center @ 0) - _LANDCONTACT_X, (_center @ 1) - _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z],
-		[(_center @ 0) + _LANDCONTACT_X, (_center @ 1) - _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z],
-		[(_center @ 0) - _LANDCONTACT_X, (_center @ 1) + _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z],
-		[(_center @ 0) + _LANDCONTACT_X, (_center @ 1) + _LANDCONTACT_Y, (_center @ 2) + _LANDCONTACT_Z]
+		[(_min @ 0) + _xInset, (_min @ 1) + _yInset, _z],
+		[(_max @ 0) - _xInset, (_min @ 1) + _yInset, _z],
+		[(_min @ 0) + _xInset, (_max @ 1) - _yInset, _z],
+		[(_max @ 0) - _xInset, (_max @ 1) - _yInset, _z]
 	];
 	_i = 0;
 
@@ -121,6 +133,233 @@ _createLandContactPoints =
 		_landObj addPoint (_points @ _i);
 		_i = _i + 1;
 	};
+};
+
+_getBoundsFromPointIndices =
+{
+	private ["_obj","_pointIndices","_point","_min","_max","_i"];
+
+	_obj = _this@0;
+	_pointIndices = _this@1;
+
+	if ((count _pointIndices) == 0) exitWith {nil};
+
+	_point = _obj getPoint (_pointIndices @ 0);
+	_min = +_point;
+	_max = +_point;
+	_i = 1;
+
+	while {_i < (count _pointIndices)} do
+	{
+		_point = _obj getPoint (_pointIndices @ _i);
+
+		if ((_point @ 0) < (_min @ 0)) then {_min set [0, _point @ 0];};
+		if ((_point @ 1) < (_min @ 1)) then {_min set [1, _point @ 1];};
+		if ((_point @ 2) < (_min @ 2)) then {_min set [2, _point @ 2];};
+		if ((_point @ 0) > (_max @ 0)) then {_max set [0, _point @ 0];};
+		if ((_point @ 1) > (_max @ 1)) then {_max set [1, _point @ 1];};
+		if ((_point @ 2) > (_max @ 2)) then {_max set [2, _point @ 2];};
+
+		_i = _i + 1;
+	};
+
+	[_min, _max]
+};
+
+_getObjectBounds =
+{
+	private ["_obj","_pointIndices","_i"];
+
+	_obj = _this@0;
+	_pointIndices = [];
+	_i = 0;
+
+	while {_i < (countPoints _obj)} do
+	{
+		_pointIndices set [count _pointIndices, _i];
+		_i = _i + 1;
+	};
+
+	[_obj, _pointIndices] call _getBoundsFromPointIndices
+};
+
+_getSelectionBounds =
+{
+	private ["_obj","_selectionName","_sel","_pointIndices"];
+
+	_obj = _this@0;
+	_selectionName = _this@1;
+
+	_sel = _obj loadSelection _selectionName;
+	if (isnil "_sel") then
+	{
+		echo ("Missing selection: " + _selectionName);
+		nil
+	}
+	else
+	{
+		_pointIndices = getSelectedPoints _sel;
+		[_obj, _pointIndices] call _getBoundsFromPointIndices
+	};
+};
+
+_expandBounds =
+{
+	private ["_bounds","_margin","_min","_max"];
+
+	_bounds = _this@0;
+	_margin = _this@1;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+
+	[
+		[(_min @ 0) - (_margin @ 0), (_min @ 1) - (_margin @ 1), (_min @ 2) - (_margin @ 2)],
+		[(_max @ 0) + (_margin @ 0), (_max @ 1) + (_margin @ 1), (_max @ 2) + (_margin @ 2)]
+	]
+};
+
+_centerOfBounds =
+{
+	private ["_bounds","_min","_max"];
+
+	_bounds = _this@0;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+
+	[
+		((_min @ 0) + (_max @ 0)) * 0.5,
+		((_min @ 1) + (_max @ 1)) * 0.5,
+		((_min @ 2) + (_max @ 2)) * 0.5
+	]
+};
+
+_createSelectionFromAllFaces =
+{
+	private ["_obj","_selectionName","_faceIndices","_sel"];
+
+	_obj = _this@0;
+	_selectionName = _this@1;
+	_faceIndices = [];
+
+	_obj forEachFace ["true", "_faceIndices set [count _faceIndices, _x];"];
+
+	_sel = newSelection _obj;
+	_sel selectFaces _faceIndices;
+	selectPointsFromFaces _sel;
+	_obj save (_sel as _selectionName);
+};
+
+_setUniformPointMass =
+{
+	private ["_obj","_totalMass","_pointCount","_pointMass","_i"];
+
+	_obj = _this@0;
+	_totalMass = _this@1;
+	_pointCount = countPoints _obj;
+
+	if (_pointCount <= 0) exitWith {};
+
+	_pointMass = _totalMass / _pointCount;
+	_i = 0;
+
+	while {_i < _pointCount} do
+	{
+		_obj setPointMass [_i, _pointMass];
+		_i = _i + 1;
+	};
+};
+
+_createFaceFromTemplate =
+{
+	private ["_templateFace","_targetObj","_vertices","_newFaceIndex","_newFace"];
+
+	_templateFace = _this@0;
+	_targetObj = _this@1;
+	_vertices = _this@2;
+
+	_newFaceIndex = _templateFace addFace _targetObj;
+	_newFace = _targetObj face _newFaceIndex;
+	_newFace setVertices _vertices;
+	_newFace setTexture "";
+	_newFace setMaterial "";
+};
+
+_createBoxFaces =
+{
+	private ["_obj","_templateFace","_bounds","_min","_max","_points","_triangles","_baseIndex","_i","_vertexIndices","_triangle"];
+
+	_obj = _this@0;
+	_templateFace = _this@1;
+	_bounds = _this@2;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+	_points =
+	[
+		[_min @ 0, _min @ 1, _min @ 2],
+		[_max @ 0, _min @ 1, _min @ 2],
+		[_max @ 0, _max @ 1, _min @ 2],
+		[_min @ 0, _max @ 1, _min @ 2],
+		[_min @ 0, _min @ 1, _max @ 2],
+		[_max @ 0, _min @ 1, _max @ 2],
+		[_max @ 0, _max @ 1, _max @ 2],
+		[_min @ 0, _max @ 1, _max @ 2]
+	];
+	_triangles =
+	[
+		[0,3,1],[1,3,2],
+		[4,5,7],[5,6,7],
+		[0,1,4],[1,5,4],
+		[1,2,5],[2,6,5],
+		[2,3,6],[3,7,6],
+		[3,0,7],[0,4,7]
+	];
+	_baseIndex = countPoints _obj;
+
+	_i = 0;
+	while {_i < (count _points)} do
+	{
+		_obj addPoint (_points @ _i);
+		_i = _i + 1;
+	};
+
+	_i = 0;
+	while {_i < (count _triangles)} do
+	{
+		_triangle = _triangles @ _i;
+		_vertexIndices =
+		[
+			_baseIndex + (_triangle @ 0),
+			_baseIndex + (_triangle @ 1),
+			_baseIndex + (_triangle @ 2)
+		];
+		[_templateFace, _obj, _vertexIndices] call _createFaceFromTemplate;
+		_i = _i + 1;
+	};
+};
+
+_createSupportBoxLod =
+{
+	private ["_p3d","_templateFace","_resolution","_bounds","_selectionName","_totalMass","_lod"];
+
+	_p3d = _this@0;
+	_templateFace = _this@1;
+	_resolution = _this@2;
+	_bounds = _this@3;
+	_selectionName = _this@4;
+	_totalMass = _this@5;
+
+	_lod = addLevel _p3d;
+	_p3d setResolution _resolution;
+	_lod setProperty ["autocenter", 0];
+	[_lod, _templateFace, _bounds] call _createBoxFaces;
+	[_lod, _selectionName] call _createSelectionFromAllFaces;
+
+	if (_totalMass > 0) then
+	{
+		[_lod, _totalMass] call _setUniformPointMass;
+	};
+
+	_lod
 };
 
 _buildDirectionPoint =
@@ -215,11 +454,14 @@ try
 		_baseObjects = getObjects _p3d;
 		_logFile << "Level count: " << str (count _baseObjects) << eoln;
 
-		[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
 		[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
+		[_p3d, _RES_GEOMETRYPHYS] call _deleteLevelsByResolution;
+		[_p3d, _RES_VIEWGEOMETRY] call _deleteLevelsByResolution;
+		[_p3d, _RES_FIREGEOMETRY] call _deleteLevelsByResolution;
+		[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
 		[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
 		[_p3d, _RES_LANDCONTACT] call _deleteLevelsByResolution;
-		_logFile << "Deleted old Memory/Geometry/ShadowVolume/LandContact LODs" << eoln;
+		_logFile << "Deleted old Geometry/GeometryPhysX/ViewGeometry/FireGeometry/Memory/ShadowVolume/LandContact LODs" << eoln;
 
 		_lodObjects = getObjects _p3d;
 		_lodResolutions = getResolutions _p3d;
@@ -293,78 +535,115 @@ try
 			};
 			_logFile << "Updated visual LODs and rewrote face materials" << eoln;
 
-			_geom = addLevel _p3d;
-			_geom := _base;
-			_p3d setResolution _RES_GEOMETRY;
-			_geom setProperty ["autocenter", 0];
-			_logFile << "Created Geometry LOD" << eoln;
-
-			_mem = addLevel _p3d;
-			_p3d setResolution _RES_MEMORY;
-			_mem setProperty ["autocenter", 0];
-			_logFile << "Created Memory LOD" << eoln;
-
-			_bodyCenter = [_base, "body_0"] call _getSelectionCenter;
-			_cameraCenter = [_base, "camera_0"] call _getSelectionCenter;
-			if (isnil "_bodyCenter") then
+			_bodyBounds = [_base, "body_0"] call _getSelectionBounds;
+			_visualBounds = [_base] call _getObjectBounds;
+			if (isnil "_bodyBounds") then
 			{
-				_bodyCenter = [0,0,0];
+				_bodyBounds = _visualBounds;
 			};
-
-			_cameraPoint = _cameraCenter;
-			if (isnil "_cameraPoint") then
+			if (isnil "_visualBounds") then
 			{
-				_cameraPoint = [_bodyCenter, [0,0.12,0.03]] call _offsetPoint;
-				_logFile << "Camera selection missing, using fallback point" << eoln;
+				_result = "No bounds available for: " + _sourcePath;
+				_logFile << _result << eoln;
+				echo _result;
 			}
 			else
 			{
+				_bodyCenter = [_bodyBounds] call _centerOfBounds;
+				_collisionBounds = [_visualBounds, [_GEOMETRY_MARGIN_X, _GEOMETRY_MARGIN_Y, _GEOMETRY_MARGIN_Z]] call _expandBounds;
+				_templateFace = _base face 0;
+
+				_geom = [_p3d, _templateFace, _RES_GEOMETRY, _collisionBounds, "Component01", _GEOMETRY_TOTAL_MASS] call _createSupportBoxLod;
+				_geom setProperty ["canocclude", 0];
+				_geom setProperty ["canbeoccluded", 1];
+				_geom setProperty ["forcenotalpha", 1];
+				_logFile << "Created Geometry LOD" << eoln;
+
+				_geomPhys = [_p3d, _templateFace, _RES_GEOMETRYPHYS, _collisionBounds, "Component01", 0] call _createSupportBoxLod;
+				_geomPhys setProperty ["autocenter", 0];
+				_logFile << "Created Geometry PhysX LOD" << eoln;
+
+				_viewGeom = [_p3d, _templateFace, _RES_VIEWGEOMETRY, _collisionBounds, "Component01", 0] call _createSupportBoxLod;
+				_viewGeom setProperty ["autocenter", 0];
+				_logFile << "Created ViewGeometry LOD" << eoln;
+
+				_fireGeom = [_p3d, _templateFace, _RES_FIREGEOMETRY, _collisionBounds, "Component01", 0] call _createSupportBoxLod;
+				_fireGeom setProperty ["autocenter", 0];
+				_logFile << "Created FireGeometry LOD" << eoln;
+
+				_mem = addLevel _p3d;
+				_p3d setResolution _RES_MEMORY;
+				_mem setProperty ["autocenter", 0];
+				_logFile << "Created Memory LOD" << eoln;
+
+				_cameraCenter = [_base, "camera_0"] call _getSelectionCenter;
+				_cameraPoint = _cameraCenter;
+				if (isnil "_cameraPoint") then
+				{
+					_bodyMin = _bodyBounds @ 0;
+					_bodyMax = _bodyBounds @ 1;
+					_cameraPoint =
+					[
+						((_bodyMin @ 0) + (_bodyMax @ 0)) * 0.5,
+						(_bodyMax @ 1) - (((_bodyMax @ 1) - (_bodyMin @ 1)) * 0.08),
+						(_bodyMin @ 2) + (((_bodyMax @ 2) - (_bodyMin @ 2)) * 0.28)
+					];
+					_logFile << "Camera selection missing, using forward fallback point" << eoln;
+				};
+
 				_cameraDistanceSq = [_bodyCenter, _cameraPoint] call _distanceSqBetweenPoints;
 				if (_cameraDistanceSq < 0.0004) then
 				{
-					_cameraPoint = [_bodyCenter, [0,0.12,0.03]] call _offsetPoint;
-					_logFile << "Camera selection too close to body center, using fallback point" << eoln;
+					_bodyMin = _bodyBounds @ 0;
+					_bodyMax = _bodyBounds @ 1;
+					_cameraPoint =
+					[
+						((_bodyMin @ 0) + (_bodyMax @ 0)) * 0.5,
+						(_bodyMax @ 1) - (((_bodyMax @ 1) - (_bodyMin @ 1)) * 0.08),
+						(_bodyMin @ 2) + (((_bodyMax @ 2) - (_bodyMin @ 2)) * 0.28)
+					];
+					_logFile << "Camera selection too close to body center, using forward fallback point" << eoln;
 				};
-			};
 
-			_driverPoint = [_bodyCenter, [0,0.02,0.02]] call _offsetPoint;
+				_driverPoint = [_bodyCenter, [0,0.02,0.02]] call _offsetPoint;
 
-			_land = addLevel _p3d;
-			_p3d setResolution _RES_LANDCONTACT;
-			_land setProperty ["autocenter", 0];
-			[_land, _bodyCenter] call _createLandContactPoints;
-			_logFile << "Created LandContact LOD" << eoln;
+				_land = addLevel _p3d;
+				_p3d setResolution _RES_LANDCONTACT;
+				_land setProperty ["autocenter", 0];
+				[_land, _collisionBounds] call _createLandContactPoints;
+				_logFile << "Created LandContact LOD" << eoln;
 
-			[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
-			[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
-			[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
-			[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
-			_logFile << "Created rotor axes" << eoln;
+				[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
+				[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
+				[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
+				[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
+				_logFile << "Created rotor axes" << eoln;
 
-			_cameraDirPoint = [_bodyCenter, _cameraPoint] call _buildDirectionPoint;
+				_cameraDirPoint = [_bodyCenter, _cameraPoint] call _buildDirectionPoint;
 
-			[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
-			[_mem, _cameraPoint, "pip_pilot_pos"] call _createPointSelection;
-			[_mem, _cameraPoint, "pos_pilotcamera"] call _createPointSelection;
-			[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
-			[_mem, _driverPoint, "pos_driver"] call _createPointSelection;
-			[_mem, _cameraDirPoint, "pos_driver_dir"] call _createPointSelection;
-			_logFile << "Created camera points" << eoln;
+				[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
+				[_mem, _cameraPoint, "pip_pilot_pos"] call _createPointSelection;
+				[_mem, _cameraPoint, "pos_pilotcamera"] call _createPointSelection;
+				[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
+				[_mem, _driverPoint, "pos_driver"] call _createPointSelection;
+				[_mem, _cameraDirPoint, "pos_driver_dir"] call _createPointSelection;
+				_logFile << "Created camera points" << eoln;
 
-			[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
-			_logFile << "Created task marker point" << eoln;
+				[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
+				_logFile << "Created task marker point" << eoln;
 
-			if (save (_p3d as _sourcePath)) then
-			{
-				_result = "Saved: " + _sourcePath;
-				_logFile << _result << eoln;
-				echo _result;
-			}
-			else
-			{
-				_result = "Save failed: " + _sourcePath;
-				_logFile << _result << eoln;
-				echo _result;
+				if (save (_p3d as _sourcePath)) then
+				{
+					_result = "Saved: " + _sourcePath;
+					_logFile << _result << eoln;
+					echo _result;
+				}
+				else
+				{
+					_result = "Save failed: " + _sourcePath;
+					_logFile << _result << eoln;
+					echo _result;
+				};
 			};
 		};
 	};
