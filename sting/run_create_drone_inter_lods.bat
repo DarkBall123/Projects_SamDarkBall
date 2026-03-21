@@ -28,8 +28,9 @@ exit /b 1
 
 :run_script
 pushd "%OB%"
-echo Rebuilding %INPUT_P3D% with target scale 0.0277778 and forced \sting material paths
-O2Script.exe -a "%SCRIPT_DIR%create_drone_inter_lods.bio2s" "%INPUT_P3D%"
+set "TEMPLATE_P3D=%SCRIPT_DIR%..\ArmaFPV\drone.p3d"
+echo Rebuilding %INPUT_P3D% with target scale 0.0277778, forced \sting material paths, and support LOD template %TEMPLATE_P3D%
+O2Script.exe -a "%SCRIPT_DIR%create_drone_inter_lods.bio2s" "%INPUT_P3D%" "%TEMPLATE_P3D%"
 popd
 
 endlocal
