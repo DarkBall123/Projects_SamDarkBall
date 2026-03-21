@@ -114,11 +114,9 @@ class CfgWeapons
 
         class GunParticles
         {
-            class FirstEffect
+            class effect1
             {
-                directionName = "konec hlavne";
                 effectName = "";
-                positionName = "usti hlavne";
             };
         };
         
