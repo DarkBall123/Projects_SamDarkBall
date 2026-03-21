@@ -1,6 +1,6 @@
 class Extended_PreInit_EventHandlers
 {
-	class ArmaFPV_preInit
+	class Sting_preInit
 	{
 		init="call compile preProcessFileLineNumbers '\sting\XEH_preInit.sqf'";
 	};

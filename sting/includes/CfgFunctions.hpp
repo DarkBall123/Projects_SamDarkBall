@@ -2,28 +2,28 @@ class CfgFunctions
 {
 	class DB
 	{
-		class FPV
+		class Sting
 		{
             file = "\sting\functions";
 
-			class fpv_createDialog {};
-			class fpv_getSignal {};
-			class fpv_handleBattery {};
-			class fpv_handleConnect {};
-			class fpv_handleSignal {};
-			class fpv_ppfx_start {};
-			class fpv_ppfx_stop {};
-			class fpv_ppfx_update {};
-			class fpv_ppfx_setInput {};
-			class fpv_handleSettings {};
-			class fpv_handleTime {};
-			class fpv_onDestroy {};
-			class fpv_onSignalLost {};
-			class fpv_destroyUI {};
-			class fpv_droneInit {};
-			class fpv_addUavToInventory {};
-			class fpv_canDisassembly {};
-			class fpv_createUavOnItemCheck {};
+			class sting_createDialog {};
+			class sting_getSignal {};
+			class sting_handleBattery {};
+			class sting_handleConnect {};
+			class sting_handleSignal {};
+			class sting_ppfx_start {};
+			class sting_ppfx_stop {};
+			class sting_ppfx_update {};
+			class sting_ppfx_setInput {};
+			class sting_handleSettings {};
+			class sting_handleTime {};
+			class sting_onDestroy {};
+			class sting_onSignalLost {};
+			class sting_destroyUI {};
+			class sting_droneInit {};
+			class sting_addUavToInventory {};
+			class sting_canDisassembly {};
+			class sting_createUavOnItemCheck {};
 		};
 	};
 };
