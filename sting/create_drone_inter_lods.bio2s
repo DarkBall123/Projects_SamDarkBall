@@ -12,9 +12,6 @@ _LANDCONTACT_X = 0.10;
 _LANDCONTACT_Y = 0.10;
 _LANDCONTACT_Z = -0.02;
 _GEOMETRY_TOTAL_MASS = 20;
-_GEOMETRY_MARGIN_X = 0.01;
-_GEOMETRY_MARGIN_Y = 0.01;
-_GEOMETRY_MARGIN_Z = 0.01;
 _VISUAL_TEXTURE = "sting\mat0_co.paa";
 _VISUAL_MATERIAL = "sting\sting.rvmat";
 
@@ -203,21 +200,6 @@ _getSelectionBounds =
 	};
 };
 
-_expandBounds =
-{
-	private ["_bounds","_margin","_min","_max"];
-
-	_bounds = _this@0;
-	_margin = _this@1;
-	_min = _bounds @ 0;
-	_max = _bounds @ 1;
-
-	[
-		[(_min @ 0) - (_margin @ 0), (_min @ 1) - (_margin @ 1), (_min @ 2) - (_margin @ 2)],
-		[(_max @ 0) + (_margin @ 0), (_max @ 1) + (_margin @ 1), (_max @ 2) + (_margin @ 2)]
-	]
-};
-
 _centerOfBounds =
 {
 	private ["_bounds","_min","_max"];
@@ -269,90 +251,41 @@ _setUniformPointMass =
 	};
 };
 
-_createFaceFromTemplate =
+_stripFaceRenderData =
 {
-	private ["_templateFace","_targetObj","_vertices","_newFaceIndex","_newFace"];
-
-	_templateFace = _this@0;
-	_targetObj = _this@1;
-	_vertices = _this@2;
-
-	_newFaceIndex = _templateFace addFace _targetObj;
-	_newFace = _targetObj face _newFaceIndex;
-	_newFace setVertices _vertices;
-	_newFace setTexture "";
-	_newFace setMaterial "";
-};
-
-_createBoxFaces =
-{
-	private ["_obj","_templateFace","_bounds","_min","_max","_points","_triangles","_baseIndex","_i","_vertexIndices","_triangle"];
+	private ["_obj","_op"];
 
 	_obj = _this@0;
-	_templateFace = _this@1;
-	_bounds = _this@2;
-	_min = _bounds @ 0;
-	_max = _bounds @ 1;
-	_points =
-	[
-		[_min @ 0, _min @ 1, _min @ 2],
-		[_max @ 0, _min @ 1, _min @ 2],
-		[_max @ 0, _max @ 1, _min @ 2],
-		[_min @ 0, _max @ 1, _min @ 2],
-		[_min @ 0, _min @ 1, _max @ 2],
-		[_max @ 0, _min @ 1, _max @ 2],
-		[_max @ 0, _max @ 1, _max @ 2],
-		[_min @ 0, _max @ 1, _max @ 2]
-	];
-	_triangles =
-	[
-		[0,3,1],[1,3,2],
-		[4,5,7],[5,6,7],
-		[0,1,4],[1,5,4],
-		[1,2,5],[2,6,5],
-		[2,3,6],[3,7,6],
-		[3,0,7],[0,4,7]
-	];
-	_baseIndex = countPoints _obj;
-
-	_i = 0;
-	while {_i < (count _points)} do
-	{
-		_obj addPoint (_points @ _i);
-		_i = _i + 1;
-	};
-
-	_i = 0;
-	while {_i < (count _triangles)} do
-	{
-		_triangle = _triangles @ _i;
-		_vertexIndices =
-		[
-			_baseIndex + (_triangle @ 0),
-			_baseIndex + (_triangle @ 1),
-			_baseIndex + (_triangle @ 2)
-		];
-		[_templateFace, _obj, _vertexIndices] call _createFaceFromTemplate;
-		_i = _i + 1;
-	};
+	_op = "_face = _this face _x; _face setTexture \"\"; _face setMaterial \"\";";
+	_obj forEachFace ["true", _op];
 };
 
-_createSupportBoxLod =
+_createSupportLodFromBase =
 {
-	private ["_p3d","_templateFace","_resolution","_bounds","_selectionName","_totalMass","_lod"];
+	private ["_p3d","_base","_resolution","_selectionName","_totalMass","_stripRenderData","_lod"];
 
 	_p3d = _this@0;
-	_templateFace = _this@1;
+	_base = _this@1;
 	_resolution = _this@2;
-	_bounds = _this@3;
-	_selectionName = _this@4;
-	_totalMass = _this@5;
+	_selectionName = _this@3;
+	_totalMass = _this@4;
+	_stripRenderData = _this@5;
 
 	_lod = addLevel _p3d;
+	_lod := _base;
 	_p3d setResolution _resolution;
 	_lod setProperty ["autocenter", 0];
-	[_lod, _templateFace, _bounds] call _createBoxFaces;
+
+	if (_lod checkSelectionName _selectionName) then
+	{
+		_lod deleteSelection _selectionName;
+	};
 	[_lod, _selectionName] call _createSelectionFromAllFaces;
+
+	if (_stripRenderData) then
+	{
+		[_lod] call _stripFaceRenderData;
+	};
 
 	if (_totalMass > 0) then
 	{
@@ -550,24 +483,21 @@ try
 			else
 			{
 				_bodyCenter = [_bodyBounds] call _centerOfBounds;
-				_collisionBounds = [_visualBounds, [_GEOMETRY_MARGIN_X, _GEOMETRY_MARGIN_Y, _GEOMETRY_MARGIN_Z]] call _expandBounds;
-				_templateFace = _base face 0;
-
-				_geom = [_p3d, _templateFace, _RES_GEOMETRY, _collisionBounds, "Component01", _GEOMETRY_TOTAL_MASS] call _createSupportBoxLod;
+				_geom = [_p3d, _base, _RES_GEOMETRY, "Component01", _GEOMETRY_TOTAL_MASS, true] call _createSupportLodFromBase;
 				_geom setProperty ["canocclude", 0];
 				_geom setProperty ["canbeoccluded", 1];
 				_geom setProperty ["forcenotalpha", 1];
 				_logFile << "Created Geometry LOD" << eoln;
 
-				_geomPhys = [_p3d, _templateFace, _RES_GEOMETRYPHYS, _collisionBounds, "Component01", 0] call _createSupportBoxLod;
+				_geomPhys = [_p3d, _base, _RES_GEOMETRYPHYS, "Component01", 0, true] call _createSupportLodFromBase;
 				_geomPhys setProperty ["autocenter", 0];
 				_logFile << "Created Geometry PhysX LOD" << eoln;
 
-				_viewGeom = [_p3d, _templateFace, _RES_VIEWGEOMETRY, _collisionBounds, "Component01", 0] call _createSupportBoxLod;
+				_viewGeom = [_p3d, _base, _RES_VIEWGEOMETRY, "Component01", 0, true] call _createSupportLodFromBase;
 				_viewGeom setProperty ["autocenter", 0];
 				_logFile << "Created ViewGeometry LOD" << eoln;
 
-				_fireGeom = [_p3d, _templateFace, _RES_FIREGEOMETRY, _collisionBounds, "Component01", 0] call _createSupportBoxLod;
+				_fireGeom = [_p3d, _base, _RES_FIREGEOMETRY, "Component01", 0, true] call _createSupportLodFromBase;
 				_fireGeom setProperty ["autocenter", 0];
 				_logFile << "Created FireGeometry LOD" << eoln;
 
@@ -610,7 +540,7 @@ try
 				_land = addLevel _p3d;
 				_p3d setResolution _RES_LANDCONTACT;
 				_land setProperty ["autocenter", 0];
-				[_land, _collisionBounds] call _createLandContactPoints;
+				[_land, _visualBounds] call _createLandContactPoints;
 				_logFile << "Created LandContact LOD" << eoln;
 
 				[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
