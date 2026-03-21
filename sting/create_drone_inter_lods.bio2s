@@ -3,6 +3,9 @@ _RES_MEMORY = 1e15;
 _RES_SHADOW = 10000;
 _AXIS_HALF_LEN = 0.10;
 _CAM_DIR_LEN = 0.25;
+_MODEL_SCALE = 0.25;
+_VISUAL_TEXTURE = "\sting\mat0_c.jpg.paa";
+_VISUAL_MATERIAL = "\sting\sting.rvmat";
 
 _deleteLevelsByResolution =
 {
@@ -94,23 +97,37 @@ _createPointSelection =
 	echo ("Created point " + _selectionName + ": " + str _point);
 };
 
+_scaleObject =
+{
+	private ["_obj","_op"];
+
+	_obj = _this@0;
+	_op = "_vector = _this getPoint _x; _this setPoint [_x, _vector * " + str _MODEL_SCALE + "];";
+	_obj forEachPoint ["true", _op];
+};
+
+_applyVisualMaterial =
+{
+	private ["_obj","_op"];
+
+	_obj = _this@0;
+	_op = "_face = _this face _x; _face setTexture """ + _VISUAL_TEXTURE + """; _face setMaterial """ + _VISUAL_MATERIAL + """;";
+	_obj forEachFace ["true", _op];
+};
+
 _sourcePath = this@0;
-_targetPath = _sourcePath;
 _result = "Script started";
 console = openStandardIO;
 _logPath = _sourcePath + ".o2log.txt";
 deleteFile _logPath;
 _logFile = openFile [_logPath, 2];
 
-if ((count this) > 1) then
-{
-	_targetPath = this@1;
-};
-
 try
 {
 	_logFile << "Source: " << _sourcePath << eoln;
-	_logFile << "Target: " << _targetPath << eoln;
+	_logFile << "Scale: " << str _MODEL_SCALE << eoln;
+	_logFile << "Texture: " << _VISUAL_TEXTURE << eoln;
+	_logFile << "Material: " << _VISUAL_MATERIAL << eoln;
 	echo ("Source: " + _sourcePath);
 
 	_p3d = newLODObject;
@@ -125,81 +142,86 @@ try
 		_result = "Loaded P3D";
 		_logFile << _result << eoln;
 
-	_baseObjects = getObjects _p3d;
-	_base = _baseObjects @ 0;
-	_logFile << "Level count: " << str (count _baseObjects) << eoln;
+		_baseObjects = getObjects _p3d;
+		_base = _baseObjects @ 0;
+		_logFile << "Level count: " << str (count _baseObjects) << eoln;
 
-	echo ("Source: " + _sourcePath);
+		[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
+		[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
+		[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
+		_logFile << "Deleted old Memory/Geometry/ShadowVolume LODs" << eoln;
 
-	[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
-	[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
-	[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
-	_logFile << "Deleted old special LODs" << eoln;
-
-	_geom = addLevel _p3d;
-	_geom := _base;
-	_p3d setResolution _RES_GEOMETRY;
-	_geom setProperty ["autocenter", 0];
-	echo "Created Geometry LOD";
-	_logFile << "Created Geometry LOD" << eoln;
-
-	_shadow = addLevel _p3d;
-	_shadow := _base;
-	_p3d setResolution _RES_SHADOW;
-	echo "Created ShadowVolume LOD";
-	_logFile << "Created ShadowVolume LOD" << eoln;
-
-	_mem = addLevel _p3d;
-	_p3d setResolution _RES_MEMORY;
-	_mem setProperty ["autocenter", 0];
-	echo "Created Memory LOD";
-	_logFile << "Created Memory LOD" << eoln;
-
-	_bodyCenter = [_base, "body_0"] call _getSelectionCenter;
-	_cameraCenter = [_base, "camera_0"] call _getSelectionCenter;
-	if (isnil "_bodyCenter") then
-	{
-		_bodyCenter = [0,0,0];
-	};
-
-	[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
-	[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
-	[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
-	[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
-	_logFile << "Created rotor axes" << eoln;
-
-	if !(isnil "_cameraCenter") then
-	{
-		[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
-
-		_cameraDir = _cameraCenter - _bodyCenter;
-		_cameraDirLen = [0,0,0] distance _cameraDir;
-		if (_cameraDirLen < 0.001) then
+		_existingScale = _base getProperty "sting_scale_applied";
+		if (_existingScale != (str _MODEL_SCALE)) then
 		{
-			_cameraDir = [0,1,0];
-			_cameraDirLen = 1;
+			[_base] call _scaleObject;
+			_base setProperty ["sting_scale_applied", _MODEL_SCALE];
+			_logFile << "Applied model scale" << eoln;
+		}
+		else
+		{
+			_logFile << "Model scale already applied, skipping rescale" << eoln;
 		};
 
-		_cameraDirPoint = _cameraCenter + (_cameraDir * (_CAM_DIR_LEN / _cameraDirLen));
-		[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
-		_logFile << "Created camera points" << eoln;
-	};
+		[_base] call _applyVisualMaterial;
+		_logFile << "Updated base visual LOD and rewrote face materials" << eoln;
 
-	[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
-	_logFile << "Created task marker point" << eoln;
+		_geom = addLevel _p3d;
+		_geom := _base;
+		_p3d setResolution _RES_GEOMETRY;
+		_geom setProperty ["autocenter", 0];
+		_logFile << "Created Geometry LOD" << eoln;
 
-	if (save (_p3d as _targetPath)) then
-	{
-		_result = "Saved: " + _targetPath;
-		_logFile << _result << eoln;
-		echo _result;
-	}
-	else
-	{
-		_result = "Save failed: " + _targetPath;
-		_logFile << _result << eoln;
-		echo _result;
-	};
+		_mem = addLevel _p3d;
+		_p3d setResolution _RES_MEMORY;
+		_mem setProperty ["autocenter", 0];
+		_logFile << "Created Memory LOD" << eoln;
+
+		_bodyCenter = [_base, "body_0"] call _getSelectionCenter;
+		_cameraCenter = [_base, "camera_0"] call _getSelectionCenter;
+		if (isnil "_bodyCenter") then
+		{
+			_bodyCenter = [0,0,0];
+		};
+
+		[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
+		[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
+		[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
+		[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
+		_logFile << "Created rotor axes" << eoln;
+
+		if !(isnil "_cameraCenter") then
+		{
+			[_mem, _cameraCenter, "pip_pilot_pos"] call _createPointSelection;
+
+			_cameraDir = _cameraCenter - _bodyCenter;
+			_cameraDirLen = [0,0,0] distance _cameraDir;
+			if (_cameraDirLen < 0.001) then
+			{
+				_cameraDir = [0,1,0];
+				_cameraDirLen = 1;
+			};
+
+			_cameraDirPoint = _cameraCenter + (_cameraDir * (_CAM_DIR_LEN / _cameraDirLen));
+			[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
+			_logFile << "Created camera points" << eoln;
+		};
+
+		[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
+		_logFile << "Created task marker point" << eoln;
+
+		if (save (_p3d as _sourcePath)) then
+		{
+			_result = "Saved: " + _sourcePath;
+			_logFile << _result << eoln;
+			echo _result;
+		}
+		else
+		{
+			_result = "Save failed: " + _sourcePath;
+			_logFile << _result << eoln;
+			echo _result;
+		};
 	};
 }
 catch
