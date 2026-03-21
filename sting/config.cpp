@@ -83,14 +83,14 @@ class CfgVehicles
 		isUav = 1;
 		uavCameraDriverPos = "pip_pilot_pos";
 		uavCameraDriverDir = "pip_pilot_dir";
-		uavCameraGunnerPos = "pos_pilotcamera";
-		uavCameraGunnerDir = "pos_pilotcamera_dir";
+		uavCameraGunnerPos = "";
+		uavCameraGunnerDir = "";
 		extCameraPosition[] = {0,-0.25,-2.35};
 		extCameraParams[] = {0.93,10,30,0.25,1,10,30,0,1};
 		formationX = 10;
 		formationZ = 10;
 		memoryPointTaskMarker = "TaskMarker_1_pos";
-		memoryPointDriverOptics = "pos_pilotcamera";
+		memoryPointDriverOptics = "pip_pilot_pos";
 		memoryPointsGetInDriver = "pos_driver";
 		memoryPointsGetInDriverDir = "pos_driver_dir";
 		driverOpticsModel = "A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
@@ -176,8 +176,8 @@ class CfgVehicles
 		irTargetSize = 0.01;
 		lockDetectionSystem = 0;
 		incomingMissileDetectionSystem = 0;
-		weapons[] = {"Laserdesignator_mounted"};
-		magazines[] = {"Laserbatteries"};
+		weapons[] = {};
+		magazines[] = {};
 		irScanRangeMin = 0;
 		irScanRangeMax = 0;
 		irScanToEyeFactor = 1;
@@ -331,7 +331,7 @@ class CfgVehicles
 		{
 			class Sting
 			{
-				init = "_veh = _this # 0; if (local _veh) then {if ((count crew _veh) isEqualTo 0) then {createVehicleCrew _veh;}; _veh engineOn true; [_veh] spawn {params [""_veh""]; uiSleep 0.25; diag_log format [""[sting] %1 crew=%2 driver=%3 driverVehicle=%4 hasPilotCamera=%5 pilotCamPos=%6 pilotCamDir=%7 pipPos=%8 pilotPos=%9 driverPos=%10 UAVControl=%11"", typeOf _veh, count crew _veh, driver _veh, vehicle (driver _veh), hasPilotCamera _veh, getPilotCameraPosition _veh, getPilotCameraDirection _veh, _veh selectionPosition [""pip_pilot_pos"", ""Memory""], _veh selectionPosition [""pos_pilotcamera"", ""Memory""], _veh selectionPosition [""pos_driver"", ""Memory""], UAVControl _veh];};};";
+				init = "_veh = _this # 0; if (isServer) then {if ((count crew _veh) isEqualTo 0) then {createVehicleCrew _veh;}; _veh disableAI ""ALL"";}; [_veh] spawn {params [""_veh""]; uiSleep 0.25; diag_log format [""[sting] %1 crew=%2 driver=%3 driverVehicle=%4 hasPilotCamera=%5 pilotCamPos=%6 pilotCamDir=%7 pipPos=%8 pilotPos=%9 driverPos=%10 UAVControl=%11"", typeOf _veh, count crew _veh, driver _veh, vehicle (driver _veh), hasPilotCamera _veh, getPilotCameraPosition _veh, getPilotCameraDirection _veh, _veh selectionPosition [""pip_pilot_pos"", ""Memory""], _veh selectionPosition [""pos_pilotcamera"", ""Memory""], _veh selectionPosition [""pos_driver"", ""Memory""], UAVControl _veh];};";
 			};
 		};
 		attenuationEffectType = "OpenHeliAttenuation";
