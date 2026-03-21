@@ -331,7 +331,7 @@ _stripFaceRenderData =
 
 _collectFacesForSelections =
 {
-	private ["_obj","_selectionNames","_faces","_i","_selectionName","_sel","_selectedFaces","_j","_faceIndex"];
+	private ["_obj","_selectionNames","_faces","_i","_selectionName","_sel","_selectedFaces","_selectedPoints","_tmpSel","_j","_faceIndex"];
 
 	_obj = _this@0;
 	_selectionNames = _this@1;
@@ -344,9 +344,11 @@ _collectFacesForSelections =
 		_sel = _obj loadSelection _selectionName;
 		if !(isnil "_sel") then
 		{
-			_sel = copy _sel;
-			selectFacesFromPoints _sel;
-			_selectedFaces = getSelectedFaces _sel;
+			_selectedPoints = getSelectedPoints _sel;
+			_tmpSel = newSelection _obj;
+			_tmpSel selectPoints _selectedPoints;
+			selectFacesFromPoints _tmpSel;
+			_selectedFaces = getSelectedFaces _tmpSel;
 			_j = 0;
 			while {_j < (count _selectedFaces)} do
 			{
