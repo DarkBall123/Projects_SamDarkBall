@@ -154,11 +154,11 @@ class CfgVehicles
 		steerAheadPlan = 0.7;
 		predictTurnPlan = 2;
 		predictTurnSimul = 1.5;
-		liftForceCoef = 1;
-		cyclicAsideForceCoef = 2;
-		cyclicForwardForceCoef = 1.2;
-		bodyFrictionCoef = 0.3;
-		backRotorForceCoef = 5;
+		liftForceCoef = 1.8;
+		cyclicAsideForceCoef = 0.85;
+		cyclicForwardForceCoef = 0.55;
+		bodyFrictionCoef = 1.05;
+		backRotorForceCoef = 3.5;
 		fuelCapacity = 8.5;
 		maxFordingDepth = 0.3;
 		threat[] = {0,0,0};
