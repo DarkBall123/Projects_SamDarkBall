@@ -3,6 +3,24 @@
 #define QSTING_SOUND(P) QSTR(\sting\sounds\P)
 #define QSTING_UI(P) QSTR(\sting\ui\P)
 
+class SensorTemplatePassiveRadar;
+class SensorTemplateAntiRadiation;
+class SensorTemplateActiveRadar;
+class SensorTemplateIR;
+class SensorTemplateVisual;
+class SensorTemplateMan;
+class SensorTemplateLaser;
+class SensorTemplateNV;
+class SensorTemplateDataLink;
+class DefaultVehicleSystemsDisplayManagerLeft
+{
+	class components;
+};
+class DefaultVehicleSystemsDisplayManagerRight
+{
+	class components;
+};
+
 class CfgPatches
 {
 	class sting_data
@@ -29,99 +47,152 @@ class CfgPatches
 
 class CfgVehicles
 {
-	class All;
-	class AllVehicles: All
+	class Air;
+	class Helicopter: Air
 	{
-		class NewTurret;
+		class Turrets;
+		class HitPoints;
 	};
-	class UAV;
-	class UAV_02_base_F: UAV
+	class Helicopter_Base_F: Helicopter
 	{
-		class NewTurret;
-		class ViewPilot;
-		class ViewOptics;
+		class Turrets: Turrets
+		{
+			class MainTurret;
+		};
+		class HitPoints: HitPoints
+		{
+			class HitHRotor;
+			class HitHull;
+		};
 		class AnimationSources;
+		class EventHandlers;
+		class ViewOptics;
+		class ViewPilot;
 		class Components;
-		class TextureSources;
-		class Sounds;
 	};
 
-	class sting_drone_base_F: UAV_02_base_F
+	class sting_drone_base_F: Helicopter_Base_F
 	{
+		features = "Randomization: No<br />Script animations: None<br />Executed scripts: None<br />Firing from vehicles: No";
+		author = "Sam";
+		mapSize = 4;
 		scope = 0;
 		scopeCurator = 0;
-		forceInGarage = 1;
-		author = "Sam";
 		displayName = "Sting UAV";
 		editorSubcategory = "EdSubcat_Drones";
+		isUav = 1;
+		uavCameraDriverPos = "pip_pilot_pos";
+		uavCameraDriverDir = "pip_pilot_dir";
+		uavCameraGunnerPos = "";
+		uavCameraGunnerDir = "";
+		extCameraPosition[] = {0,-0.25,-2.35};
+		extCameraParams[] = {0.93,10,30,0.25,1,10,30,0,1};
+		formationX = 10;
+		formationZ = 10;
+		memoryPointTaskMarker = "TaskMarker_1_pos";
+		memoryPointDriverOptics = "pip_pilot_pos";
+		driverOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
+		GunnerOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
+		driverForceOptics = 1;
+		disableInventory = 1;
+		unitInfoType = "RscUnitInfoParachute";
+		unitInfoTypeRTD = "RscUnitInfoParachute";
+		driverWeaponsInfoType = "RscOptics_Offroad_01";
+		getInRadius = 0;
+		damageEffect = "UAVDestructionEffects";
+		damageTexDelay = 0.5;
+		dustEffect = "UAVDust";
+		waterEffect = "UAVWater";
+		washDownDiameter = "10.0f";
+		washDownStrength = "0.25f";
+		killFriendlyExpCoef = 0;
+		accuracy = 1.5;
+		camouflage = 0.2;
+		audible = 0.1;
+		armor = 0.5;
+		cost = 20000;
+		altFullForce = 1000;
+		altNoForce = 2000;
+		LODTurnedIn = -1;
+		LODTurnedOut = -1;
+		epeImpulseDamageCoef = 5;
+		fuelExplosionPower = 0;
 		vehicleClass = "Autonomous";
 		model = QSTING(drone_inter.p3d);
 		icon = QSTING_UI(drononmap.paa);
 		picture = QSTING_UI(drononmap.paa);
-		mapSize = 6;
-		destrType = "DestructWreck";
-		animated = 1;
-		simulation = "airplaneX";
-		attenuationEffectType = "PlaneAttenuation";
-		isUav = 1;
-		uavCameraDriverPos = "PiP0_pos";
-		uavCameraDriverDir = "PiP0_dir";
-		uavCameraGunnerPos = "";
-		uavCameraGunnerDir = "";
-		memoryPointDriverOptics = "PiP0_pos";
-		memoryPointTaskMarker = "TaskMarker_1_pos";
-		driverOpticsModel = "A3\drones_f\Weapons_F_Gamma\Reticle\UGV_01_Optics_Driver_F.p3d";
-		driverForceOptics = 1;
-		getInRadius = 0;
-		unitInfoType = "RscOptics_AV_airplane_pilot";
-		unitInfoTypeRTD = "RscOptics_AV_airplane_pilot";
-		driverWeaponsInfoType = "RscOptics_Offroad_01";
-		weapons[] = {};
-		magazines[] = {};
-		accuracy = 0.5;
-		camouflage = 0.25;
-		audible = 0.1;
-		armor = 0.4;
-		cost = 12000;
-		maxSpeed = 180;
-		stallSpeed = 55;
-		landingSpeed = 70;
-		landingAoa = 0.1309;
-		stallWarningTreshold = 0.07;
-		altNoForce = 3500;
-		altFullForce = 1500;
-		fuelCapacity = 1.2;
-		killFriendlyExpCoef = 0;
-		threat[] = {0.1, 0.1, 0.1};
-		irTarget = 0;
-		irTargetSize = 0.02;
+		class Reflectors
+		{
+		};
+		startDuration = 3;
+		maxSpeed = 190;
+		precision = 15;
+		steerAheadSimul = 0.5;
+		steerAheadPlan = 0.7;
+		predictTurnPlan = 2;
+		predictTurnSimul = 1.5;
+		liftForceCoef = 1;
+		cyclicAsideForceCoef = 2;
+		cyclicForwardForceCoef = 1.2;
+		bodyFrictionCoef = 0.3;
+		backRotorForceCoef = 5;
+		fuelCapacity = 8.5;
+		maxFordingDepth = 0.3;
+		threat[] = {0,0,0};
+		maxMainRotorDive = 0;
+		minMainRotorDive = 0;
+		neutralMainRotorDive = 0;
+		gearRetracting = 0;
+		mainRotorSpeed = -7;
+		backRotorSpeed = 7;
+		tailBladeVertical = 0;
 		radarTarget = 0;
-		radarTargetSize = 0.05;
-		visualTargetSize = 0.08;
+		radarTargetSize = 0.02;
+		visualTargetSize = 0.05;
+		irTarget = 0;
+		irTargetSize = 0.01;
 		lockDetectionSystem = 0;
 		incomingMissileDetectionSystem = 0;
-		reportRemoteTargets = 1;
-		reportOwnPosition = 1;
-		soundGetIn[] = {"", 0.56234133, 1};
-		soundGetOut[] = {"", 0.56234133, 1, 40};
-		soundDammage[] = {"", 0.56234133, 1};
-		soundLocked[] = {"\A3\Sounds_F\weapons\Rockets\opfor_lock_1", 1, 1};
-		soundIncommingMissile[] = {"\A3\Sounds_F\vehicles\air\noises\alarm_locked_by_missile_5", 0.39810717, 1};
-		soundEngineOnInt[] = {QSTING_SOUND(quad_start_full_int.wav), 0.70794576, 1};
-		soundEngineOnExt[] = {QSTING_SOUND(quad_start_full_01.wav), 0.70794576, 1, 250};
-		soundEngineOffInt[] = {QSTING_SOUND(quad_stop_full_int.wav), 0.70794576, 1};
-		soundEngineOffExt[] = {QSTING_SOUND(quad_stop_full_01.wav), 0.70794576, 1, 250};
-		soundGearUp[] = {"", 1, 1, 120};
-		soundGearDown[] = {"", 1, 1, 120};
-		soundFlapsUp[] = {"", 1, 1, 100};
-		soundFlapsDown[] = {"", 1, 1, 100};
-		driveOnComponent[] = {};
-
+		weapons[] = {};
+		magazines[] = {};
+		irScanRangeMin = 0;
+		irScanRangeMax = 0;
+		irScanToEyeFactor = 1;
+		class TransportItems
+		{
+		};
+		destrType = "DestructDefault";
+		driverCompartments = "Compartment3";
+		cargoCompartments[] =
+		{
+			"Compartment2"
+		};
+		class HitPoints: HitPoints
+		{
+			class HitHull: HitHull
+			{
+				armor = 0.1;
+			};
+			class HitHRotor: HitHRotor
+			{
+				armor = 0.3;
+			};
+		};
+		class Damage
+		{
+			tex[] = {};
+			mat[] =
+			{
+				"A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01.rvmat",
+				"A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01_damage.rvmat",
+				"A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01_destruct.rvmat"
+			};
+		};
 		class ViewPilot: ViewPilot
 		{
 			minFov = 0.25;
-			maxFov = 1.1;
-			initFov = 0.75;
+			maxFov = 1.25;
+			initFov = 1;
 			initAngleX = 0;
 			minAngleX = -65;
 			maxAngleX = 85;
@@ -129,8 +200,7 @@ class CfgVehicles
 			minAngleY = -150;
 			maxAngleY = 150;
 		};
-
-		class ViewOptics: ViewOptics
+		class Viewoptics: ViewOptics
 		{
 			initAngleX = 0;
 			minAngleX = 0;
@@ -138,54 +208,87 @@ class CfgVehicles
 			initAngleY = 0;
 			minAngleY = 0;
 			maxAngleY = 0;
-			minFov = 0.25;
-			maxFov = 1.1;
-			initFov = 0.75;
+			minFov = 1.25;
+			maxFov = 1.25;
+			initFov = 1.25;
 			visionMode[] =
 			{
-				"Normal",
-				"NVG"
+				"Normal"
 			};
-			thermalMode[] = {0, 1};
+			thermalMode[] = {0,1};
 		};
-
-		class Sounds: Sounds
+		class MFD
 		{
-			class EngineLowOut
+		};
+		enableManualFire = 1;
+		reportRemoteTargets = 1;
+		reportOwnPosition = 1;
+		class Components: Components
+		{
+			class VehicleSystemsDisplayManagerComponentLeft: DefaultVehicleSystemsDisplayManagerLeft
 			{
-				sound[] = {QSTING_SOUND(quad_engine_full_01.wav), 0.70794576, 1, 350};
-				frequency = "1.0 min (rpm + 0.5)";
-				volume = "camPos*(rpm factor[0.95, 0])*(rpm factor[0, 0.95])";
+				class components
+				{
+				};
 			};
-			class EngineHighOut
+			class VehicleSystemsDisplayManagerComponentRight: DefaultVehicleSystemsDisplayManagerRight
 			{
-				sound[] = {QSTING_SOUND(quad_engine_full_01.wav), 1, 1, 500};
-				frequency = "(rpm factor[0.5, 1.0])";
-				volume = "camPos*(rpm factor[0.2, 1.0])";
+				class components
+				{
+				};
 			};
-			class WindNoiseOut
+		};
+		class Turrets
+		{
+		};
+		attenuationEffectType = "OpenHeliAttenuation";
+		soundGetIn[] = {"", 1, 1};
+		soundGetOut[] = {"", 1, 1, 50};
+		soundEnviron[] = {"", 0.031622775, 1};
+		soundDammage[] = {"", 0.56234133, 1};
+		soundEngineOnInt[] = {QSTING_SOUND(quad_start_full_int.wav), 0.56234133, 1};
+		soundEngineOnExt[] = {QSTING_SOUND(quad_start_full_01.wav), 0.56234133, 1, 200};
+		soundEngineOffInt[] = {QSTING_SOUND(quad_stop_full_int.wav), 0.56234133, 1};
+		soundEngineOffExt[] = {QSTING_SOUND(quad_stop_full_01.wav), 0.56234133, 1, 200};
+		class Sounds
+		{
+			class Engine
 			{
-				sound[] = {"A3\Sounds_F\air\UAV_02\noise", 0.31622776, 1, 150};
-				frequency = "(0.3+(1.005*(speed factor[1, 50])))";
-				volume = "camPos*(speed factor[1, 50])";
+				sound[] = {QSTING_SOUND(quad_engine_full_01.wav), 0.44668359, 1, 200};
+				frequency = "rotorSpeed";
+				volume = "camPos*((rotorSpeed-0.72)*4)";
 			};
-			class EngineLowIn
+			class RotorLowOut
 			{
-				sound[] = {QSTING_SOUND(quad_engine_full_int.wav), 1, 1};
-				frequency = "1.0 min (rpm + 0.5)";
-				volume = "(1-camPos)*(rpm factor[0.95, 0])*(rpm factor[0, 0.95])";
+				sound[] = {"A3\Sounds_F\air\Uav_01\blade", 0.31622776, 1, 200};
+				frequency = "rotorSpeed";
+				volume = "camPos*(0 max (rotorSpeed-0.1))";
+				cone[] = {1.6,3.14,1.6,0.95};
 			};
-			class EngineHighIn
+			class RotorHighOut
 			{
-				sound[] = {QSTING_SOUND(quad_engine_full_int.wav), 1, 1};
-				frequency = "(rpm factor[0.5, 1.0])";
-				volume = "(1-camPos)*(rpm factor[0.2, 1.0])";
+				sound[] = {"A3\Sounds_F\air\Uav_01\blade_high", 0.31622776, 1, 250};
+				frequency = "rotorSpeed";
+				volume = "camPos*10*(0 max (rotorThrust-0.9))";
+				cone[] = {1.6,3.14,1.6,0.95};
 			};
-			class WindNoiseIn
+			class EngineIn
 			{
-				sound[] = {"A3\Sounds_F\air\UAV_02\noise", 0.25118864, 1};
-				frequency = "(0.3+(1.005*(speed factor[1, 50])))";
-				volume = "(1-camPos)*(speed factor[1, 50])";
+				sound[] = {QSTING_SOUND(quad_engine_full_int.wav), 0.56234133, 1};
+				frequency = "rotorSpeed";
+				volume = "(1-camPos)*((rotorSpeed-0.75)*4)";
+			};
+			class RotorLowIn
+			{
+				sound[] = {"", 0.56234133, 1};
+				frequency = "rotorSpeed";
+				volume = "(1-camPos)*(0 max (rotorSpeed-0.1))";
+			};
+			class RotorHighIn
+			{
+				sound[] = {"", 0.56234133, 1};
+				frequency = "rotorSpeed";
+				volume = "(1-camPos)*3*(rotorThrust-0.9)";
 			};
 		};
 	};
