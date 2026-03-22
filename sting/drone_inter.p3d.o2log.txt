@@ -1,0 +1,16 @@
+Source: C:\Program Files (x86)\Steam\steamapps\common\Arma 3\Projects_SamDarkBall\sting\drone_inter.p3d
+Scale: 0.0277778
+Texture: sting\mat0_co.paa
+Material: sting\sting.rvmat
+Loaded P3D
+Level count: 7
+Deleted old Memory/ShadowVolume/LandContact LODs
+Updated visual LODs and rewrote face materials
+Preserved Geometry/GeometryPhysX/ViewGeometry/FireGeometry LODs for manual Object Builder editing
+Created Memory LOD
+Camera selection missing, using forward fallback point
+Created LandContact LOD
+Created rotor axes
+Created camera points
+Created task marker point
+Saved: C:\Program Files (x86)\Steam\steamapps\common\Arma 3\Projects_SamDarkBall\sting\drone_inter.p3d
