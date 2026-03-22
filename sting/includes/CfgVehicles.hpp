@@ -163,7 +163,7 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 520;
+		maxSpeed = 620;
 		precision = 4;
 		// AI steering look-ahead and turn prediction distances in meters.
 		steerAheadSimul = 1.2;
@@ -172,8 +172,8 @@ class CfgVehicles
 		predictTurnSimul = 3.2;
 		liftForceCoef = 3.1;
 		cyclicAsideForceCoef = 0.45;
-		cyclicForwardForceCoef = 1.85;
-		bodyFrictionCoef = 0.24;
+		cyclicForwardForceCoef = 2.35;
+		bodyFrictionCoef = 0.16;
 		backRotorForceCoef = 4.8;
 		fuelCapacity = 3.0;
 		maxFordingDepth = 0.3;
