@@ -129,7 +129,7 @@ class RscTitles
 				onLoad = "uiNamespace setVariable ['Sting_ModeText', _this # 0];";
 
 				x = STING_X(0.0264);
-				y = STING_Y(0.867);
+				y = STING_Y(0.873);
 				w = GRID_W(2.30);
 				h = GRID_H(1.20);
 			};
@@ -244,9 +244,9 @@ class RscTitles
 				text = "88";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryValueText', _this # 0];";
 
-				x = STING_X(0.599);
-				y = STING_Y(0.871);
-				w = GRID_W(2.52);
+				x = STING_X(0.605);
+				y = STING_Y(0.878);
+				w = GRID_W(2.34);
 				h = GRID_H(0.52);
 			};
 
@@ -299,7 +299,7 @@ class RscTitles
 				text = "50";
 
 				x = STING_X(0.770);
-				y = STING_Y(0.884);
+				y = STING_Y(0.878);
 				w = GRID_W(1.8);
 				h = GRID_H(0.80);
 			};
@@ -310,7 +310,7 @@ class RscTitles
 				text = "Mbps";
 
 				x = STING_X(0.770);
-				y = STING_Y(0.897);
+				y = STING_Y(0.891);
 				w = GRID_W(2.2);
 				h = GRID_H(0.36);
 			};
@@ -338,10 +338,10 @@ class RscTitles
 			class LinkPercentIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\goggles_icon.paa";
-				x = STING_X(0.900);
+				x = STING_X(0.894);
 				y = STING_Y(0.874);
-				w = GRID_W(1.72);
-				h = GRID_H(1.12);
+				w = GRID_W(1.48);
+				h = GRID_H(1.02);
 			};
 
 			class LinkPercentText: StingHudTextLeft
@@ -349,7 +349,7 @@ class RscTitles
 				sizeEx = GRID_H(0.84);
 				text = "67%";
 
-				x = STING_X(0.915);
+				x = STING_X(0.921);
 				y = STING_Y(0.888);
 				w = GRID_W(2.0);
 				h = GRID_H(0.82);
