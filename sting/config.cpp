@@ -9,7 +9,6 @@ class CfgPatches
 		{
 			"A3_Data_F_AoW_Loadorder",
 			"A3_Data_F",
-			"A3_Air_F",
 			"A3_Drones_F",
 			"cba_main",
 			"cba_keybinding",
