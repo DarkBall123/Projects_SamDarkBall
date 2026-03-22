@@ -62,6 +62,6 @@ private _pfhId = [{
 	if !(GETMVAR(Sting_isControl, false)) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
 	};
-}, 0.2, [_formatRemainingTime, -1]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_formatRemainingTime, -1]] call CBA_fnc_addPerFrameHandler;
 
 SETMVAR(DB_sting_batteryPFH, _pfhId);
