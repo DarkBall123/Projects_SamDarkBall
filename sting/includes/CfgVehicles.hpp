@@ -224,9 +224,9 @@ class CfgVehicles
 			tex[] = {};
 			mat[] =
 			{
-				"A3\\Drones_F\\Air_F_Gamma\\UAV_01\\Data\\UAV_01.rvmat",
-				"A3\\Drones_F\\Air_F_Gamma\\UAV_01\\Data\\UAV_01_damage.rvmat",
-				"A3\\Drones_F\\Air_F_Gamma\\UAV_01\\Data\\UAV_01_destruct.rvmat"
+				"A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01.rvmat",
+				"A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01_damage.rvmat",
+				"A3\Drones_F\Air_F_Gamma\UAV_01\Data\UAV_01_destruct.rvmat"
 			};
 		};
 		class ViewPilot: ViewPilot
@@ -380,14 +380,14 @@ class CfgVehicles
 			};
 			class RotorLowOut
 			{
-				sound[] = {"A3\\Sounds_F\\air\\Uav_01\\blade", 0.31622776, 1, 200};
+				sound[] = {"A3\Sounds_F\air\Uav_01\blade", 0.31622776, 1, 200};
 				frequency = "rotorSpeed";
 				volume = "camPos*(0 max (rotorSpeed-0.1))";
 				cone[] = {1.6, 3.14, 1.6, 0.95};
 			};
 			class RotorHighOut
 			{
-				sound[] = {"A3\\Sounds_F\\air\\Uav_01\\blade_high", 0.31622776, 1, 250};
+				sound[] = {"A3\Sounds_F\air\Uav_01\blade_high", 0.31622776, 1, 250};
 				frequency = "rotorSpeed";
 				volume = "camPos*10*(0 max (rotorThrust-0.9))";
 				cone[] = {1.6, 3.14, 1.6, 0.95};

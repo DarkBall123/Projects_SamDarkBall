@@ -1,13 +1,15 @@
 class RscText;
 class RscProgress;
 class ctrlStaticPicture;
-class ctrlStructuredText;
 
 #define GRID_W(NUM) ( NUM * ( pixelGridNoUIScale * pixelW * 2 ) )
 #define GRID_H(NUM) ( NUM * ( pixelGridNoUIScale * pixelH * 2 ) )
 
 #define STING_X(NUM) (safeZoneXAbs + safeZoneWAbs * (NUM))
 #define STING_Y(NUM) (safeZoneY + safeZoneH * (NUM))
+#define STING_STYLE_LEFT 0
+#define STING_STYLE_RIGHT 1
+#define STING_STYLE_CENTER 2
 
 class StingHudIcon: ctrlStaticPicture
 {
@@ -38,44 +40,27 @@ class StingHudProgress: RscProgress
 	texture = "#(argb,8,8,3)color(1,1,1,1)";
 };
 
-class StingHudTextLeft: ctrlStructuredText
+class StingHudTextLeft: RscText
 {
 	idc = -1;
 	shadow = 2;
 	shadowColor[] = {0, 0, 0, 1};
 	colorBackground[] = {0, 0, 0, 0};
-	size = GRID_H(1.4);
+	colorText[] = {1, 1, 1, 1};
+	font = "EurostileBoldItalic";
+	style = STING_STYLE_LEFT;
+	sizeEx = GRID_H(0.92);
 	text = "";
-
-	class Attributes
-	{
-		font = "EurostileBoldItalic";
-		align = "left";
-		shadow = 1;
-		color = "#FFFFFFFF";
-	};
 };
 
 class StingHudTextCenter: StingHudTextLeft
 {
-	class Attributes: Attributes
-	{
-		font = "EurostileBoldItalic";
-		align = "center";
-		shadow = 1;
-		color = "#FFFFFFFF";
-	};
+	style = STING_STYLE_CENTER;
 };
 
 class StingHudTextRight: StingHudTextLeft
 {
-	class Attributes: Attributes
-	{
-		font = "EurostileBoldItalic";
-		align = "right";
-		shadow = 1;
-		color = "#FFFFFFFF";
-	};
+	style = STING_STYLE_RIGHT;
 };
 
 class RscTitles
@@ -111,14 +96,14 @@ class RscTitles
 
 			class RecordTimeText: StingHudTextLeft
 			{
-				size = GRID_H(1.7);
+				sizeEx = GRID_H(1.15);
 				text = "00:00";
 				onLoad = "uiNamespace setVariable ['Sting_RecordTimeText', _this # 0];";
 
 				x = STING_X(0.846);
-				y = STING_Y(0.282);
-				w = GRID_W(8.2);
-				h = GRID_H(1.8);
+				y = STING_Y(0.286);
+				w = GRID_W(7.0);
+				h = GRID_H(1.3);
 			};
 
 			class ModeBadge: StingHudIcon
@@ -132,70 +117,64 @@ class RscTitles
 
 			class ModeText: StingHudTextCenter
 			{
-				size = GRID_H(2.8);
+				shadow = 0;
+				colorText[] = {0.09, 0.09, 0.09, 1};
+				sizeEx = GRID_H(1.95);
 				text = "S";
 				onLoad = "uiNamespace setVariable ['Sting_ModeText', _this # 0];";
 
-				class Attributes
-				{
-					font = "EurostileBoldItalic";
-					align = "center";
-					shadow = 0;
-					color = "#161616";
-				};
-
 				x = STING_X(0.019);
-				y = STING_Y(0.910);
+				y = STING_Y(0.919);
 				w = GRID_W(5.2);
 				h = GRID_H(5.2);
 			};
 
 			class VerticalSpeedText: StingHudTextLeft
 			{
-				size = GRID_H(1.5);
+				sizeEx = GRID_H(0.98);
 				text = "0.0m/s";
 				onLoad = "uiNamespace setVariable ['Sting_VerticalSpeedText', _this # 0];";
 
 				x = STING_X(0.078);
-				y = STING_Y(0.907);
-				w = GRID_W(7.4);
-				h = GRID_H(1.4);
+				y = STING_Y(0.912);
+				w = GRID_W(6.0);
+				h = GRID_H(1.1);
 			};
 
 			class HorizontalSpeedText: StingHudTextLeft
 			{
-				size = GRID_H(1.5);
+				sizeEx = GRID_H(0.98);
 				text = "12.7m/s";
 				onLoad = "uiNamespace setVariable ['Sting_HorizontalSpeedText', _this # 0];";
 
 				x = STING_X(0.167);
-				y = STING_Y(0.907);
-				w = GRID_W(7.4);
-				h = GRID_H(1.4);
+				y = STING_Y(0.912);
+				w = GRID_W(6.4);
+				h = GRID_H(1.1);
 			};
 
 			class HomeAltText: StingHudTextLeft
 			{
-				size = GRID_H(2.2);
+				sizeEx = GRID_H(1.48);
 				text = "H 0.0m";
 				onLoad = "uiNamespace setVariable ['Sting_HomeAltText', _this # 0];";
 
 				x = STING_X(0.067);
-				y = STING_Y(0.939);
-				w = GRID_W(10.0);
-				h = GRID_H(2.0);
+				y = STING_Y(0.949);
+				w = GRID_W(8.2);
+				h = GRID_H(1.4);
 			};
 
 			class DistanceText: StingHudTextLeft
 			{
-				size = GRID_H(2.2);
+				sizeEx = GRID_H(1.48);
 				text = "D 0m";
 				onLoad = "uiNamespace setVariable ['Sting_DistanceText', _this # 0];";
 
 				x = STING_X(0.162);
-				y = STING_Y(0.939);
-				w = GRID_W(9.0);
-				h = GRID_H(2.0);
+				y = STING_Y(0.949);
+				w = GRID_W(7.0);
+				h = GRID_H(1.4);
 			};
 
 			class DownAltitudeIcon: StingHudIcon
@@ -212,14 +191,14 @@ class RscTitles
 
 			class DownAltitudeText: StingHudTextLeft
 			{
-				size = GRID_H(2.1);
+				sizeEx = GRID_H(1.42);
 				text = "4.1m";
 				onLoad = "uiNamespace setVariable ['Sting_DownAltitudeText', _this # 0];";
 
 				x = STING_X(0.381);
-				y = STING_Y(0.939);
+				y = STING_Y(0.949);
 				w = GRID_W(6.0);
-				h = GRID_H(1.8);
+				h = GRID_H(1.4);
 			};
 
 			class BatteryBarBackground: StingHudSolid
@@ -256,48 +235,48 @@ class RscTitles
 
 			class BatteryValueText: StingHudTextCenter
 			{
-				size = GRID_H(1.35);
+				sizeEx = GRID_H(0.95);
 				text = "88";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryValueText', _this # 0];";
 
 				x = STING_X(0.620);
-				y = STING_Y(0.933);
+				y = STING_Y(0.938);
 				w = GRID_W(3.7);
-				h = GRID_H(1.2);
+				h = GRID_H(0.9);
 			};
 
 			class RemainingTimeText: StingHudTextLeft
 			{
-				size = GRID_H(2.3);
+				sizeEx = GRID_H(1.62);
 				text = "17'32";
 				onLoad = "uiNamespace setVariable ['Sting_RemainingTimeText', _this # 0];";
 
 				x = STING_X(0.666);
-				y = STING_Y(0.936);
+				y = STING_Y(0.947);
 				w = GRID_W(8.0);
-				h = GRID_H(2.0);
+				h = GRID_H(1.4);
 			};
 
 			class LinkLabelRc: StingHudTextRight
 			{
-				size = GRID_H(0.8);
+				sizeEx = GRID_H(0.58);
 				text = "RC";
 
 				x = STING_X(0.753);
-				y = STING_Y(0.931);
+				y = STING_Y(0.940);
 				w = GRID_W(1.8);
-				h = GRID_H(0.8);
+				h = GRID_H(0.55);
 			};
 
 			class LinkLabelHd: StingHudTextRight
 			{
-				size = GRID_H(0.8);
+				sizeEx = GRID_H(0.58);
 				text = "HD";
 
 				x = STING_X(0.753);
-				y = STING_Y(0.949);
+				y = STING_Y(0.954);
 				w = GRID_W(1.8);
-				h = GRID_H(0.8);
+				h = GRID_H(0.55);
 			};
 
 			class LinkBarsIcon: StingHudIcon
@@ -311,24 +290,24 @@ class RscTitles
 
 			class BitrateValueText: StingHudTextLeft
 			{
-				size = GRID_H(2.2);
+				sizeEx = GRID_H(1.32);
 				text = "50";
 
 				x = STING_X(0.806);
-				y = STING_Y(0.936);
+				y = STING_Y(0.947);
 				w = GRID_W(3.2);
-				h = GRID_H(1.6);
+				h = GRID_H(1.2);
 			};
 
 			class BitrateLabelText: StingHudTextLeft
 			{
-				size = GRID_H(0.95);
+				sizeEx = GRID_H(0.64);
 				text = "Mbps";
 
 				x = STING_X(0.807);
-				y = STING_Y(0.955);
+				y = STING_Y(0.959);
 				w = GRID_W(4.0);
-				h = GRID_H(0.9);
+				h = GRID_H(0.6);
 			};
 
 			class LatencyIcon: StingHudIcon
@@ -342,13 +321,13 @@ class RscTitles
 
 			class LatencyText: StingHudTextLeft
 			{
-				size = GRID_H(1.9);
+				sizeEx = GRID_H(1.3);
 				text = "27";
 
 				x = STING_X(0.894);
-				y = STING_Y(0.938);
+				y = STING_Y(0.948);
 				w = GRID_W(2.8);
-				h = GRID_H(1.5);
+				h = GRID_H(1.1);
 			};
 
 			class LinkPercentIcon: StingHudIcon
@@ -362,13 +341,13 @@ class RscTitles
 
 			class LinkPercentText: StingHudTextLeft
 			{
-				size = GRID_H(2.0);
+				sizeEx = GRID_H(1.3);
 				text = "67%";
 
 				x = STING_X(0.961);
-				y = STING_Y(0.937);
+				y = STING_Y(0.947);
 				w = GRID_W(4.0);
-				h = GRID_H(1.6);
+				h = GRID_H(1.1);
 			};
 		};
 	};
