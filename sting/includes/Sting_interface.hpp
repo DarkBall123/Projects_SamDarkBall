@@ -7,9 +7,9 @@ class ctrlStaticPicture;
 
 #define STING_X(NUM) (safeZoneXAbs + safeZoneWAbs * (NUM))
 #define STING_Y(NUM) (safeZoneY + safeZoneH * (NUM))
-#define STING_STYLE_LEFT 12
-#define STING_STYLE_RIGHT 13
-#define STING_STYLE_CENTER 14
+#define STING_STYLE_LEFT 0
+#define STING_STYLE_RIGHT 1
+#define STING_STYLE_CENTER 2
 #define STING_STYLE_PICTURE 2096
 
 class StingHudIcon: ctrlStaticPicture
@@ -82,102 +82,102 @@ class RscTitles
 			class CenterReticle: StingHudIcon
 			{
 				text = "\sting\pictures\hud\reticle_ring.paa";
-				x = STING_X(0.522);
-				y = STING_Y(0.530);
-				w = GRID_W(3.2);
-				h = GRID_H(3.2);
+				x = STING_X(0.523);
+				y = STING_Y(0.531);
+				w = GRID_W(2.8);
+				h = GRID_H(2.8);
 			};
 
 			class RecordDot: StingHudIcon
 			{
 				text = "\sting\pictures\hud\record_dot.paa";
-				x = STING_X(0.833);
-				y = STING_Y(0.289);
-				w = GRID_W(0.95);
-				h = GRID_H(0.95);
+				x = STING_X(0.836);
+				y = STING_Y(0.292);
+				w = GRID_W(0.82);
+				h = GRID_H(0.82);
 			};
 
 			class RecordTimeText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.08);
+				sizeEx = GRID_H(0.96);
 				text = "00:00";
 				onLoad = "uiNamespace setVariable ['Sting_RecordTimeText', _this # 0];";
 
-				x = STING_X(0.849);
-				y = STING_Y(0.286);
-				w = GRID_W(6.2);
-				h = GRID_H(1.2);
+				x = STING_X(0.853);
+				y = STING_Y(0.289);
+				w = GRID_W(5.0);
+				h = GRID_H(1.0);
 			};
 
 			class ModeBadge: StingHudIcon
 			{
 				text = "\sting\pictures\hud\mode_s.paa";
 				x = STING_X(0.022);
-				y = STING_Y(0.857);
-				w = GRID_W(4.9);
-				h = GRID_H(4.9);
+				y = STING_Y(0.892);
+				w = GRID_W(3.9);
+				h = GRID_H(3.9);
 			};
 
 			class ModeText: StingHudTextCenter
 			{
 				shadow = 0;
 				colorText[] = {0, 0, 0, 1};
-				sizeEx = GRID_H(2.55);
+				sizeEx = GRID_H(1.85);
 				text = "S";
 				onLoad = "uiNamespace setVariable ['Sting_ModeText', _this # 0];";
 
 				x = STING_X(0.022);
-				y = STING_Y(0.865);
-				w = GRID_W(4.9);
-				h = GRID_H(2.7);
+				y = STING_Y(0.900);
+				w = GRID_W(3.9);
+				h = GRID_H(1.9);
 			};
 
 			class VerticalSpeedText: StingHudTextCenter
 			{
-				sizeEx = GRID_H(0.84);
+				sizeEx = GRID_H(0.76);
 				text = "0.0m/s";
 				onLoad = "uiNamespace setVariable ['Sting_VerticalSpeedText', _this # 0];";
 
-				x = STING_X(0.071);
-				y = STING_Y(0.869);
-				w = GRID_W(5.2);
-				h = GRID_H(0.95);
+				x = STING_X(0.074);
+				y = STING_Y(0.896);
+				w = GRID_W(4.6);
+				h = GRID_H(0.82);
 			};
 
 			class HorizontalSpeedText: StingHudTextCenter
 			{
-				sizeEx = GRID_H(0.84);
+				sizeEx = GRID_H(0.76);
 				text = "12.7m/s";
 				onLoad = "uiNamespace setVariable ['Sting_HorizontalSpeedText', _this # 0];";
 
-				x = STING_X(0.154);
-				y = STING_Y(0.869);
-				w = GRID_W(5.8);
-				h = GRID_H(0.95);
+				x = STING_X(0.161);
+				y = STING_Y(0.896);
+				w = GRID_W(5.0);
+				h = GRID_H(0.82);
 			};
 
 			class HomeAltText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.26);
+				sizeEx = GRID_H(1.05);
 				text = "H 0.0m";
 				onLoad = "uiNamespace setVariable ['Sting_HomeAltText', _this # 0];";
 
-				x = STING_X(0.064);
-				y = STING_Y(0.904);
-				w = GRID_W(7.6);
-				h = GRID_H(1.2);
+				x = STING_X(0.061);
+				y = STING_Y(0.924);
+				w = GRID_W(6.4);
+				h = GRID_H(1.0);
 			};
 
 			class DistanceText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.26);
+				sizeEx = GRID_H(1.05);
 				text = "D 0m";
 				onLoad = "uiNamespace setVariable ['Sting_DistanceText', _this # 0];";
 
-				x = STING_X(0.149);
-				y = STING_Y(0.904);
-				w = GRID_W(7.0);
-				h = GRID_H(1.2);
+				x = STING_X(0.144);
+				y = STING_Y(0.924);
+				w = GRID_W(5.8);
+				h = GRID_H(1.0);
 			};
 
 			class DownAltitudeIcon: StingHudIcon
@@ -186,22 +186,22 @@ class RscTitles
 				colorText[] = {1, 1, 1, 1};
 				onLoad = "uiNamespace setVariable ['Sting_DownAltitudeIcon', _this # 0];";
 
-				x = STING_X(0.357);
-				y = STING_Y(0.889);
-				w = GRID_W(1.5);
-				h = GRID_H(2.5);
+				x = STING_X(0.355);
+				y = STING_Y(0.910);
+				w = GRID_W(1.3);
+				h = GRID_H(2.1);
 			};
 
 			class DownAltitudeText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.30);
+				sizeEx = GRID_H(1.08);
 				text = "4.1m";
 				onLoad = "uiNamespace setVariable ['Sting_DownAltitudeText', _this # 0];";
 
-				x = STING_X(0.378);
-				y = STING_Y(0.904);
-				w = GRID_W(5.2);
-				h = GRID_H(1.2);
+				x = STING_X(0.376);
+				y = STING_Y(0.924);
+				w = GRID_W(4.4);
+				h = GRID_H(1.0);
 			};
 
 			class BatteryBarBackground: StingHudSolid
@@ -209,20 +209,20 @@ class RscTitles
 				onLoad = "uiNamespace setVariable ['Sting_BatteryBarBackground', _this # 0];";
 				colorBackground[] = {0.22, 0.22, 0.22, 0.65};
 
-				x = STING_X(0.623);
-				y = STING_Y(0.889);
-				w = GRID_W(3.20);
-				h = GRID_H(0.92);
+				x = STING_X(0.622);
+				y = STING_Y(0.910);
+				w = GRID_W(2.92);
+				h = GRID_H(0.80);
 			};
 
 			class BatteryBarFill: StingHudProgress
 			{
 				onLoad = "uiNamespace setVariable ['Sting_BatteryBarFill', _this # 0];";
 
-				x = STING_X(0.623);
-				y = STING_Y(0.889);
-				w = GRID_W(3.20);
-				h = GRID_H(0.92);
+				x = STING_X(0.622);
+				y = STING_Y(0.910);
+				w = GRID_W(2.92);
+				h = GRID_H(0.80);
 			};
 
 			class BatteryPicture: StingHudIcon
@@ -230,127 +230,127 @@ class RscTitles
 				text = "\sting\pictures\hud\battery_frame.paa";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryPicture', _this # 0];";
 
-				x = STING_X(0.619);
-				y = STING_Y(0.884);
-				w = GRID_W(4.55);
-				h = GRID_H(2.05);
+				x = STING_X(0.618);
+				y = STING_Y(0.905);
+				w = GRID_W(4.15);
+				h = GRID_H(1.82);
 			};
 
 			class BatteryValueText: StingHudTextCenter
 			{
-				sizeEx = GRID_H(0.82);
+				sizeEx = GRID_H(0.74);
 				text = "88";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryValueText', _this # 0];";
 
-				x = STING_X(0.621);
-				y = STING_Y(0.892);
-				w = GRID_W(3.45);
-				h = GRID_H(0.8);
+				x = STING_X(0.620);
+				y = STING_Y(0.913);
+				w = GRID_W(3.15);
+				h = GRID_H(0.68);
 			};
 
 			class RemainingTimeText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.42);
+				sizeEx = GRID_H(1.16);
 				text = "17'32""";
 				onLoad = "uiNamespace setVariable ['Sting_RemainingTimeText', _this # 0];";
 
-				x = STING_X(0.664);
-				y = STING_Y(0.900);
-				w = GRID_W(7.0);
-				h = GRID_H(1.2);
+				x = STING_X(0.661);
+				y = STING_Y(0.922);
+				w = GRID_W(5.8);
+				h = GRID_H(1.0);
 			};
 
 			class LinkLabelRc: StingHudTextRight
 			{
-				sizeEx = GRID_H(0.54);
+				sizeEx = GRID_H(0.46);
 				text = "RC";
 
-				x = STING_X(0.756);
-				y = STING_Y(0.895);
-				w = GRID_W(1.7);
-				h = GRID_H(0.50);
+				x = STING_X(0.751);
+				y = STING_Y(0.916);
+				w = GRID_W(1.5);
+				h = GRID_H(0.42);
 			};
 
 			class LinkLabelHd: StingHudTextRight
 			{
-				sizeEx = GRID_H(0.54);
+				sizeEx = GRID_H(0.46);
 				text = "HD";
 
-				x = STING_X(0.756);
-				y = STING_Y(0.908);
-				w = GRID_W(1.7);
-				h = GRID_H(0.50);
+				x = STING_X(0.751);
+				y = STING_Y(0.927);
+				w = GRID_W(1.5);
+				h = GRID_H(0.42);
 			};
 
 			class LinkBarsIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\link_dual_bars.paa";
-				x = STING_X(0.774);
-				y = STING_Y(0.885);
-				w = GRID_W(2.8);
-				h = GRID_H(1.95);
+				x = STING_X(0.769);
+				y = STING_Y(0.908);
+				w = GRID_W(2.45);
+				h = GRID_H(1.70);
 			};
 
 			class BitrateValueText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.12);
+				sizeEx = GRID_H(0.98);
 				text = "50";
 
-				x = STING_X(0.805);
-				y = STING_Y(0.901);
-				w = GRID_W(2.8);
-				h = GRID_H(1.0);
+				x = STING_X(0.799);
+				y = STING_Y(0.922);
+				w = GRID_W(2.2);
+				h = GRID_H(0.9);
 			};
 
 			class BitrateLabelText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(0.58);
+				sizeEx = GRID_H(0.50);
 				text = "Mbps";
 
-				x = STING_X(0.806);
-				y = STING_Y(0.914);
-				w = GRID_W(3.2);
-				h = GRID_H(0.5);
+				x = STING_X(0.799);
+				y = STING_Y(0.933);
+				w = GRID_W(2.6);
+				h = GRID_H(0.42);
 			};
 
 			class LatencyIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\latency_icon.paa";
-				x = STING_X(0.872);
-				y = STING_Y(0.887);
-				w = GRID_W(1.85);
-				h = GRID_H(1.75);
+				x = STING_X(0.866);
+				y = STING_Y(0.910);
+				w = GRID_W(1.60);
+				h = GRID_H(1.55);
 			};
 
 			class LatencyText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.10);
+				sizeEx = GRID_H(0.96);
 				text = "27";
 
-				x = STING_X(0.891);
-				y = STING_Y(0.901);
-				w = GRID_W(2.2);
-				h = GRID_H(1.0);
+				x = STING_X(0.882);
+				y = STING_Y(0.922);
+				w = GRID_W(1.8);
+				h = GRID_H(0.9);
 			};
 
 			class LinkPercentIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\goggles_icon.paa";
-				x = STING_X(0.937);
-				y = STING_Y(0.889);
-				w = GRID_W(2.3);
-				h = GRID_H(1.65);
+				x = STING_X(0.932);
+				y = STING_Y(0.911);
+				w = GRID_W(2.05);
+				h = GRID_H(1.45);
 			};
 
 			class LinkPercentText: StingHudTextLeft
 			{
-				sizeEx = GRID_H(1.10);
+				sizeEx = GRID_H(0.96);
 				text = "67%";
 
-				x = STING_X(0.958);
-				y = STING_Y(0.901);
-				w = GRID_W(3.2);
-				h = GRID_H(1.0);
+				x = STING_X(0.950);
+				y = STING_Y(0.922);
+				w = GRID_W(2.4);
+				h = GRID_H(0.9);
 			};
 		};
 	};
