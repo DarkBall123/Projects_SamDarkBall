@@ -202,7 +202,7 @@ class RscTitles
 				text = "88";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryValueText', _this # 0];";
 
-				x = STING_X(0.61);
+				x = STING_X(0.6);
 				y = STING_Y(0.88);
 				w = GRID_W(2.26);
 				h = GRID_H(0.52);
