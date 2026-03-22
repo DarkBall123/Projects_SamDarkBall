@@ -485,12 +485,12 @@ class CfgVehicles
 	class O_UAV_01_backpack_F;
 	class I_UAV_01_backpack_F;
 
-	STING_SIDE_DRONE(O_Sting_F, sting_drone_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV", "Item_Sting", O_Sting_Bag, QSTING_CFG_PATH(mat0_r.jpg.paa))
+	STING_SIDE_DRONE(O_Sting_F, sting_drone_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV", "Item_Sting", O_Sting_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
 	STING_SIDE_DRONE(B_Sting_F, sting_drone_base_F, 1, "BLU_F", "B_UAV_AI", "Sting UAV", "Item_Sting", B_Sting_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
-	STING_SIDE_DRONE(I_Sting_F, sting_drone_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV", "Item_Sting", I_Sting_Bag, QSTING_CFG_PATH(mat0_g.jpg.paa))
-	STING_SIDE_DRONE(O_Sting_TI_F, sting_drone_ti_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV TI", "Item_Sting_TI", O_Sting_TI_Bag, QSTING_CFG_PATH(mat0_r.jpg.paa))
+	STING_SIDE_DRONE(I_Sting_F, sting_drone_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV", "Item_Sting", I_Sting_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
+	STING_SIDE_DRONE(O_Sting_TI_F, sting_drone_ti_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV TI", "Item_Sting_TI", O_Sting_TI_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
 	STING_SIDE_DRONE(B_Sting_TI_F, sting_drone_ti_base_F, 1, "BLU_F", "B_UAV_AI", "Sting UAV TI", "Item_Sting_TI", B_Sting_TI_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
-	STING_SIDE_DRONE(I_Sting_TI_F, sting_drone_ti_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV TI", "Item_Sting_TI", I_Sting_TI_Bag, QSTING_CFG_PATH(mat0_g.jpg.paa))
+	STING_SIDE_DRONE(I_Sting_TI_F, sting_drone_ti_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV TI", "Item_Sting_TI", I_Sting_TI_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
 
 	STING_BAG(O_Sting_Bag, O_UAV_01_backpack_F, "Sting Bag OPFOR", "O_Sting_F")
 	STING_BAG(B_Sting_Bag, B_UAV_01_backpack_F, "Sting Bag BLUFOR", "B_Sting_F")
