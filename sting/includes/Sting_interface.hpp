@@ -1,5 +1,4 @@
 class RscText;
-class RscProgress;
 class ctrlStaticPicture;
 
 #define GRID_W(NUM) ( NUM * ( pixelGridNoUIScale * pixelW * 2 ) )
@@ -22,26 +21,6 @@ class StingHudIcon: ctrlStaticPicture
 	shadowColor[] = {0, 0, 0, 0.9};
 	colorText[] = {1, 1, 1, 1};
 	text = "";
-};
-
-class StingHudSolid: RscText
-{
-	idc = -1;
-	shadow = 0;
-	text = "";
-	colorText[] = {1, 1, 1, 0};
-	colorBackground[] = {0, 0, 0, 0};
-};
-
-class StingHudProgress: RscProgress
-{
-	idc = -1;
-	type = 8;
-	style = 0;
-	shadow = 0;
-	colorFrame[] = {0, 0, 0, 0};
-	colorBar[] = {0.55, 0.55, 0.55, 0.9};
-	texture = "#(argb,8,8,3)color(1,1,1,1)";
 };
 
 class StingHudTextLeft: RscText
@@ -204,27 +183,6 @@ class RscTitles
 				y = STING_Y(0.889);
 				w = GRID_W(3.4);
 				h = GRID_H(0.86);
-			};
-
-			class BatteryBarBackground: StingHudSolid
-			{
-				onLoad = "uiNamespace setVariable ['Sting_BatteryBarBackground', _this # 0];";
-				colorBackground[] = {0, 0, 0, 0};
-
-				x = STING_X(0.602);
-				y = STING_Y(0.869);
-				w = 0;
-				h = 0;
-			};
-
-			class BatteryBarFill: StingHudProgress
-			{
-				onLoad = "uiNamespace setVariable ['Sting_BatteryBarFill', _this # 0];";
-
-				x = STING_X(0.602);
-				y = STING_Y(0.869);
-				w = 0;
-				h = 0;
 			};
 
 			class BatteryPicture: StingHudIcon

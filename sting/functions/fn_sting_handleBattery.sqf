@@ -1,6 +1,6 @@
 /*
 	Sting: battery handler.
-	Purpose: updates battery percentage, inner battery progress bar and estimated remaining flight time on the OSD.
+	Purpose: updates battery percentage and estimated remaining flight time on the OSD.
 	Context: client, active only while controlling the drone.
 	Params: none.
 	Returns: nothing.
@@ -39,7 +39,6 @@ private _pfhId = [{
 	private _batteryText = GETUVAR(Sting_BatteryValueText, controlNull);
 	private _remainingText = GETUVAR(Sting_RemainingTimeText, controlNull);
 	private _batteryPicture = GETUVAR(Sting_BatteryPicture, controlNull);
-	private _batteryBarFill = GETUVAR(Sting_BatteryBarFill, controlNull);
 	private _batteryPercent = round (_currentBattery * 100);
 	private _remainingSeconds = floor (STING_ESTIMATED_ENDURANCE_SECONDS * _currentBattery);
 
@@ -58,16 +57,6 @@ private _pfhId = [{
 
 	if (!isNull _batteryPicture) then {
 		_batteryPicture ctrlSetTextColor [1, 1, 1, 1];
-	};
-
-	private _batteryBarBackground = GETUVAR(Sting_BatteryBarBackground, controlNull);
-	if (!isNull _batteryBarBackground) then {
-		_batteryBarBackground ctrlSetBackgroundColor [0.22, 0.22, 0.22, 0.65];
-	};
-
-	if (!isNull _batteryBarFill) then {
-		_batteryBarFill ctrlSetTextColor [0.55, 0.55, 0.55, 0.9];
-		_batteryBarFill progressSetPosition _currentBattery;
 	};
 
 	if !(GETMVAR(Sting_isControl, false)) exitWith {
