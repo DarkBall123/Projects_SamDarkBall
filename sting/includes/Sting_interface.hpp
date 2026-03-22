@@ -114,7 +114,7 @@ class RscTitles
 			class ModeBadge: StingHudIcon
 			{
 				text = "\sting\pictures\hud\mode_s.paa";
-				x = STING_X(0.024);
+				x = STING_X(0.025);
 				y = STING_Y(0.857);
 				w = GRID_W(2.66);
 				h = GRID_H(2.66);
@@ -124,14 +124,14 @@ class RscTitles
 			{
 				shadow = 0;
 				colorText[] = {0, 0, 0, 1};
-				sizeEx = GRID_H(1.30);
+				sizeEx = GRID_H(1.22);
 				text = "S";
 				onLoad = "uiNamespace setVariable ['Sting_ModeText', _this # 0];";
 
-				x = STING_X(0.024);
-				y = STING_Y(0.863);
-				w = GRID_W(2.66);
-				h = GRID_H(1.36);
+				x = STING_X(0.0264);
+				y = STING_Y(0.867);
+				w = GRID_W(2.30);
+				h = GRID_H(1.20);
 			};
 
 			class VerticalSpeedText: StingHudTextCenter
@@ -209,12 +209,12 @@ class RscTitles
 			class BatteryBarBackground: StingHudSolid
 			{
 				onLoad = "uiNamespace setVariable ['Sting_BatteryBarBackground', _this # 0];";
-				colorBackground[] = {0.22, 0.22, 0.22, 0.65};
+				colorBackground[] = {0, 0, 0, 0};
 
 				x = STING_X(0.602);
 				y = STING_Y(0.869);
-				w = GRID_W(2.28);
-				h = GRID_H(0.58);
+				w = 0;
+				h = 0;
 			};
 
 			class BatteryBarFill: StingHudProgress
@@ -223,8 +223,8 @@ class RscTitles
 
 				x = STING_X(0.602);
 				y = STING_Y(0.869);
-				w = GRID_W(2.28);
-				h = GRID_H(0.58);
+				w = 0;
+				h = 0;
 			};
 
 			class BatteryPicture: StingHudIcon
@@ -267,9 +267,9 @@ class RscTitles
 				sizeEx = GRID_H(0.42);
 				text = "RC";
 
-				x = STING_X(0.718);
-				y = STING_Y(0.873);
-				w = GRID_W(1.35);
+				x = STING_X(0.724);
+				y = STING_Y(0.878);
+				w = GRID_W(1.18);
 				h = GRID_H(0.36);
 			};
 
@@ -278,19 +278,19 @@ class RscTitles
 				sizeEx = GRID_H(0.42);
 				text = "HD";
 
-				x = STING_X(0.718);
-				y = STING_Y(0.884);
-				w = GRID_W(1.35);
+				x = STING_X(0.724);
+				y = STING_Y(0.889);
+				w = GRID_W(1.18);
 				h = GRID_H(0.36);
 			};
 
 			class LinkBarsIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\link_dual_bars.paa";
-				x = STING_X(0.733);
-				y = STING_Y(0.868);
-				w = GRID_W(1.96);
-				h = GRID_H(1.34);
+				x = STING_X(0.737);
+				y = STING_Y(0.874);
+				w = GRID_W(1.82);
+				h = GRID_H(1.22);
 			};
 
 			class BitrateValueText: StingHudTextLeft
@@ -298,8 +298,8 @@ class RscTitles
 				sizeEx = GRID_H(0.86);
 				text = "50";
 
-				x = STING_X(0.759);
-				y = STING_Y(0.889);
+				x = STING_X(0.770);
+				y = STING_Y(0.884);
 				w = GRID_W(1.8);
 				h = GRID_H(0.80);
 			};
@@ -309,8 +309,8 @@ class RscTitles
 				sizeEx = GRID_H(0.44);
 				text = "Mbps";
 
-				x = STING_X(0.759);
-				y = STING_Y(0.899);
+				x = STING_X(0.770);
+				y = STING_Y(0.897);
 				w = GRID_W(2.2);
 				h = GRID_H(0.36);
 			};
@@ -318,8 +318,8 @@ class RscTitles
 			class LatencyIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\latency_icon.paa";
-				x = STING_X(0.836);
-				y = STING_Y(0.869);
+				x = STING_X(0.838);
+				y = STING_Y(0.874);
 				w = GRID_W(1.18);
 				h = GRID_H(1.18);
 			};
@@ -329,8 +329,8 @@ class RscTitles
 				sizeEx = GRID_H(0.84);
 				text = "27";
 
-				x = STING_X(0.848);
-				y = STING_Y(0.889);
+				x = STING_X(0.851);
+				y = STING_Y(0.888);
 				w = GRID_W(1.5);
 				h = GRID_H(0.82);
 			};
@@ -338,8 +338,8 @@ class RscTitles
 			class LinkPercentIcon: StingHudIcon
 			{
 				text = "\sting\pictures\hud\goggles_icon.paa";
-				x = STING_X(0.892);
-				y = STING_Y(0.869);
+				x = STING_X(0.900);
+				y = STING_Y(0.874);
 				w = GRID_W(1.72);
 				h = GRID_H(1.12);
 			};
@@ -349,8 +349,8 @@ class RscTitles
 				sizeEx = GRID_H(0.84);
 				text = "67%";
 
-				x = STING_X(0.907);
-				y = STING_Y(0.889);
+				x = STING_X(0.915);
+				y = STING_Y(0.888);
 				w = GRID_W(2.0);
 				h = GRID_H(0.82);
 			};
