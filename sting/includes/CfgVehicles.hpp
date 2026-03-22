@@ -129,8 +129,6 @@ class CfgVehicles
 		audible = 0.1;
 		armor = 0.5;
 		cost = 20000;
-		// Sting baseline: 315 km/h tested top speed, about 3 km intercept altitude,
-		// about 15 min / 30 km endurance. Speed and altitude map directly; fuelCapacity is an Arma approximation.
 		altFullForce = 3000;
 		altNoForce = 5000;
 		LODTurnedIn = -1;
@@ -165,7 +163,7 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 315;
+		maxSpeed = 420;
 		precision = 4;
 		// AI steering look-ahead and turn prediction distances in meters.
 		steerAheadSimul = 1.2;
@@ -174,8 +172,8 @@ class CfgVehicles
 		predictTurnSimul = 3.2;
 		liftForceCoef = 3.1;
 		cyclicAsideForceCoef = 0.45;
-		cyclicForwardForceCoef = 0.85;
-		bodyFrictionCoef = 0.55;
+		cyclicForwardForceCoef = 1.45;
+		bodyFrictionCoef = 0.32;
 		backRotorForceCoef = 4.8;
 		fuelCapacity = 3.0;
 		maxFordingDepth = 0.3;
