@@ -16,6 +16,7 @@ if (!isServer) exitWith {};
 
 if (isNil "cba_common_waitUntilAndExecArray") exitWith {
 	_uav disableAI "ALL";
+	_uav setCaptive true;
 };
 
 [
@@ -26,6 +27,7 @@ if (isNil "cba_common_waitUntilAndExecArray") exitWith {
 	{
 		params ["_uav"];
 		_uav disableAI "ALL";
+		_uav setCaptive true;
 	},
 	[_uav]
 ] call CBA_fnc_waitUntilAndExecute;

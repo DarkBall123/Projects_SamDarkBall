@@ -15,8 +15,12 @@ if (isNull _uav) exitWith {};
 
 private _droneTypes = GETMVAR(DB_sting_droneTypes, STING_DRONE_TYPES);
 if !(typeOf _uav in _droneTypes) exitWith {};
+if (_uav getVariable ["DB_sting_detonating", false]) exitWith {};
+_uav setVariable ["DB_sting_detonating", true, true];
 
-cutText ["", "PLAIN"];
+if (hasInterface) then {
+	cutText ["", "PLAIN"];
+};
 
 private _killer = driver _uav;
 private _instigator = (UAVControl _uav) # 0;

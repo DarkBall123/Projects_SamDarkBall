@@ -13,6 +13,7 @@ class CfgFunctions
 			class sting_handleSettings {};
 			class sting_handleTime {};
 			class sting_onDestroy {};
+			class sting_triggerAirburst {};
 			class sting_destroyUI {};
 			class sting_droneInit {};
 			class sting_addUavToInventory {};

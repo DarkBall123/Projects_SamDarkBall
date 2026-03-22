@@ -11,10 +11,11 @@ class CfgPatches
 			"A3_Data_F",
 			"A3_Drones_F",
 			"cba_main",
+			"cba_keybinding",
 			"cba_common",
+			"cba_settings",
 			"cba_xeh",
-			"cba_xeh_a3",
-			"cba_settings"
+			"cba_xeh_a3"
 		};
 		requiredVersion = 0.1;
 		units[] =
