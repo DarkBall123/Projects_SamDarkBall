@@ -28,7 +28,7 @@ class StingHudTextLeft: ctrlStructuredText
 
 	class Attributes
 	{
-		font = "RobotoCondensed";
+		font = "EurostileBoldItalic";
 		align = "left";
 		shadow = 1;
 		color = "#FFFFFFFF";
@@ -39,7 +39,7 @@ class StingHudTextCenter: StingHudTextLeft
 {
 	class Attributes: Attributes
 	{
-		font = "RobotoCondensed";
+		font = "EurostileBoldItalic";
 		align = "center";
 		shadow = 1;
 		color = "#FFFFFFFF";
@@ -50,7 +50,7 @@ class StingHudTextRight: StingHudTextLeft
 {
 	class Attributes: Attributes
 	{
-		font = "RobotoCondensed";
+		font = "EurostileBoldItalic";
 		align = "right";
 		shadow = 1;
 		color = "#FFFFFFFF";
@@ -72,7 +72,7 @@ class RscTitles
 		{
 			class CenterReticle: StingHudIcon
 			{
-				text = "\sting\pictures\hud\reticle_ring.png";
+				text = "\sting\pictures\hud\reticle_ring.paa";
 				x = STING_X(0.515);
 				y = STING_Y(0.521);
 				w = GRID_W(3.4);
@@ -81,7 +81,7 @@ class RscTitles
 
 			class RecordDot: StingHudIcon
 			{
-				text = "\sting\pictures\hud\record_dot.png";
+				text = "\sting\pictures\hud\record_dot.paa";
 				x = STING_X(0.829);
 				y = STING_Y(0.289);
 				w = GRID_W(1.0);
@@ -102,7 +102,7 @@ class RscTitles
 
 			class ModeBadge: StingHudIcon
 			{
-				text = "\sting\pictures\hud\mode_s.png";
+				text = "\sting\pictures\hud\mode_s.paa";
 				x = STING_X(0.019);
 				y = STING_Y(0.906);
 				w = GRID_W(5.2);
@@ -117,7 +117,7 @@ class RscTitles
 
 				class Attributes
 				{
-					font = "RobotoCondensed";
+					font = "EurostileBoldItalic";
 					align = "center";
 					shadow = 0;
 					color = "#161616";
@@ -179,7 +179,7 @@ class RscTitles
 
 			class DownAltitudeIcon: StingHudIcon
 			{
-				text = "\sting\pictures\hud\down_arrow.png";
+				text = "\sting\pictures\hud\down_arrow.paa";
 				colorText[] = {1, 1, 1, 1};
 				onLoad = "uiNamespace setVariable ['Sting_DownAltitudeIcon', _this # 0];";
 
@@ -203,7 +203,7 @@ class RscTitles
 
 			class BatteryPicture: StingHudIcon
 			{
-				text = "\sting\pictures\hud\battery_frame.png";
+				text = "\sting\pictures\hud\battery_frame.paa";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryPicture', _this # 0];";
 
 				x = STING_X(0.617);
@@ -260,7 +260,7 @@ class RscTitles
 
 			class LinkBarsIcon: StingHudIcon
 			{
-				text = "\sting\pictures\hud\link_dual_bars.png";
+				text = "\sting\pictures\hud\link_dual_bars.paa";
 				x = STING_X(0.773);
 				y = STING_Y(0.930);
 				w = GRID_W(3.0);
@@ -291,7 +291,7 @@ class RscTitles
 
 			class LatencyIcon: StingHudIcon
 			{
-				text = "\sting\pictures\hud\latency_icon.png";
+				text = "\sting\pictures\hud\latency_icon.paa";
 				x = STING_X(0.874);
 				y = STING_Y(0.932);
 				w = GRID_W(2.0);
@@ -311,7 +311,7 @@ class RscTitles
 
 			class LinkPercentIcon: StingHudIcon
 			{
-				text = "\sting\pictures\hud\goggles_icon.png";
+				text = "\sting\pictures\hud\goggles_icon.paa";
 				x = STING_X(0.941);
 				y = STING_Y(0.934);
 				w = GRID_W(2.5);

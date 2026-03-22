@@ -2,40 +2,40 @@
 
 class CfgFontFamilies
 {
-    class VCROSDMono
+    class EurostileBoldItalic
     {
         fonts[]=
         {
-            QSTING_CFG_FONT(VCROSDMono6),
-            QSTING_CFG_FONT(VCROSDMono7),
-            QSTING_CFG_FONT(VCROSDMono8),
-            QSTING_CFG_FONT(VCROSDMono9),
-            QSTING_CFG_FONT(VCROSDMono10),
-            QSTING_CFG_FONT(VCROSDMono11),
-            QSTING_CFG_FONT(VCROSDMono12),
-            QSTING_CFG_FONT(VCROSDMono13),
-            QSTING_CFG_FONT(VCROSDMono14),
-            QSTING_CFG_FONT(VCROSDMono15),
-            QSTING_CFG_FONT(VCROSDMono16),
-            QSTING_CFG_FONT(VCROSDMono17),
-            QSTING_CFG_FONT(VCROSDMono18),
-            QSTING_CFG_FONT(VCROSDMono19),
-            QSTING_CFG_FONT(VCROSDMono20),
-            QSTING_CFG_FONT(VCROSDMono21),
-            QSTING_CFG_FONT(VCROSDMono22),
-            QSTING_CFG_FONT(VCROSDMono23),
-            QSTING_CFG_FONT(VCROSDMono24),
-            QSTING_CFG_FONT(VCROSDMono25),
-            QSTING_CFG_FONT(VCROSDMono26),
-            QSTING_CFG_FONT(VCROSDMono27),
-            QSTING_CFG_FONT(VCROSDMono28),
-            QSTING_CFG_FONT(VCROSDMono29),
-            QSTING_CFG_FONT(VCROSDMono30),
-            QSTING_CFG_FONT(VCROSDMono31),
-            QSTING_CFG_FONT(VCROSDMono34),
-            QSTING_CFG_FONT(VCROSDMono35),
-            QSTING_CFG_FONT(VCROSDMono37),
-            QSTING_CFG_FONT(VCROSDMono46)
+            QSTING_CFG_FONT(EurostileBoldItalic6),
+            QSTING_CFG_FONT(EurostileBoldItalic7),
+            QSTING_CFG_FONT(EurostileBoldItalic8),
+            QSTING_CFG_FONT(EurostileBoldItalic9),
+            QSTING_CFG_FONT(EurostileBoldItalic10),
+            QSTING_CFG_FONT(EurostileBoldItalic11),
+            QSTING_CFG_FONT(EurostileBoldItalic12),
+            QSTING_CFG_FONT(EurostileBoldItalic13),
+            QSTING_CFG_FONT(EurostileBoldItalic14),
+            QSTING_CFG_FONT(EurostileBoldItalic15),
+            QSTING_CFG_FONT(EurostileBoldItalic16),
+            QSTING_CFG_FONT(EurostileBoldItalic17),
+            QSTING_CFG_FONT(EurostileBoldItalic18),
+            QSTING_CFG_FONT(EurostileBoldItalic19),
+            QSTING_CFG_FONT(EurostileBoldItalic20),
+            QSTING_CFG_FONT(EurostileBoldItalic21),
+            QSTING_CFG_FONT(EurostileBoldItalic22),
+            QSTING_CFG_FONT(EurostileBoldItalic23),
+            QSTING_CFG_FONT(EurostileBoldItalic24),
+            QSTING_CFG_FONT(EurostileBoldItalic25),
+            QSTING_CFG_FONT(EurostileBoldItalic26),
+            QSTING_CFG_FONT(EurostileBoldItalic27),
+            QSTING_CFG_FONT(EurostileBoldItalic28),
+            QSTING_CFG_FONT(EurostileBoldItalic29),
+            QSTING_CFG_FONT(EurostileBoldItalic30),
+            QSTING_CFG_FONT(EurostileBoldItalic31),
+            QSTING_CFG_FONT(EurostileBoldItalic34),
+            QSTING_CFG_FONT(EurostileBoldItalic35),
+            QSTING_CFG_FONT(EurostileBoldItalic37),
+            QSTING_CFG_FONT(EurostileBoldItalic46)
         };
      };
 };
