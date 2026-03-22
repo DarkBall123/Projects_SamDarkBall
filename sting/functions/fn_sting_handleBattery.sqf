@@ -27,7 +27,7 @@ if (_prevPfh >= 0) then {
 
 private _pfhId = [{
 	_this params ["_args", "_handle"];
-	_args params ["_formatRemainingTime"];
+	_args params ["_formatRemainingTime", "_lastShownRemainingSeconds"];
 	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
 	private _uav = getConnectedUAV _player;
 
@@ -41,7 +41,7 @@ private _pfhId = [{
 	private _batteryPicture = GETUVAR(Sting_BatteryPicture, controlNull);
 	private _batteryBarFill = GETUVAR(Sting_BatteryBarFill, controlNull);
 	private _batteryPercent = round (_currentBattery * 100);
-	private _remainingSeconds = round (STING_ESTIMATED_ENDURANCE_SECONDS * _currentBattery);
+	private _remainingSeconds = floor (STING_ESTIMATED_ENDURANCE_SECONDS * _currentBattery);
 
 	if (!isNull _batteryText) then {
 		_batteryText ctrlSetText str _batteryPercent;
@@ -49,7 +49,10 @@ private _pfhId = [{
 	};
 
 	if (!isNull _remainingText) then {
-		_remainingText ctrlSetText ([_remainingSeconds] call _formatRemainingTime);
+		if (_remainingSeconds != _lastShownRemainingSeconds) then {
+			_remainingText ctrlSetText ([_remainingSeconds] call _formatRemainingTime);
+			_args set [1, _remainingSeconds];
+		};
 		_remainingText ctrlSetTextColor [1, 1, 1, 1];
 	};
 
@@ -70,6 +73,6 @@ private _pfhId = [{
 	if !(GETMVAR(Sting_isControl, false)) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
 	};
-}, 0, [_formatRemainingTime]] call CBA_fnc_addPerFrameHandler;
+}, 0.2, [_formatRemainingTime, -1]] call CBA_fnc_addPerFrameHandler;
 
 SETMVAR(DB_sting_batteryPFH, _pfhId);
