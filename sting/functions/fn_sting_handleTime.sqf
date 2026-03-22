@@ -41,7 +41,7 @@ private _pfhId = [{
 
 	private _timeElapsed = time - _startTime;
 	private _now = time;
-	private _controlText = GETUVAR(Sting_TimeText, controlNull);
+	private _controlText = GETUVAR(Sting_RecordTimeText, controlNull);
 
 	if (!isNull _controlText) then {
 		private _mins = floor (_timeElapsed / 60);

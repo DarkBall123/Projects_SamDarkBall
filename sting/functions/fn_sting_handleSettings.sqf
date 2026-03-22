@@ -1,6 +1,6 @@
 /*
 	Sting: apply UI/UAV settings.
-	Purpose: updates OSD text and captive mode for FPV drones.
+	Purpose: updates OSD badge text and captive mode for FPV drones.
 	Context: client or server when settings change or UI starts.
 	Params: none.
 	Returns: nothing.
@@ -20,14 +20,18 @@ private _isValid = true;
 
 if (hasInterface) then {
 	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
-	private _mainText = GETUVAR(Sting_DefaultText, controlNull);
+	private _mainText = GETUVAR(Sting_ModeText, controlNull);
+	private _badgeText = "S";
+
+	if (_isValid && { _defaultText != "" }) then {
+		private _chars = toArray _defaultText;
+		if !(_chars isEqualTo []) then {
+			_badgeText = toUpper toString [_chars # 0];
+		};
+	};
 
 	if (!isNull _mainText && { !isNull _player }) then {
-		if (_isValid) then {
-			_mainText ctrlSetText _defaultText;
-		} else {
-			_mainText ctrlSetText "";
-		};
+		_mainText ctrlSetText _badgeText;
 	};
 };
 

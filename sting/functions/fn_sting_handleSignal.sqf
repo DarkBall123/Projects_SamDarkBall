@@ -1,6 +1,6 @@
 /*
-	Sting: signal level handler.
-	Purpose: updates the signal indicator and post-process effects based on link quality.
+	Sting: telemetry handler.
+	Purpose: updates the FPV OSD telemetry blocks for altitude, distance and speed.
 	Context: client, active only while controlling the drone.
 	Params: none.
 	Returns: nothing.
@@ -8,18 +8,26 @@
 
 #include "\sting\script_macros.hpp"
 
-private _loopInterval = GETMVAR(DB_sting_signalUpdateInterval, STING_SIGNAL_UPDATE_INTERVAL);
-private _ppfxInterval = GETMVAR(DB_sting_ppfxUpdateInterval, STING_PPFX_UPDATE_INTERVAL);
-private _jammerHeartbeatInterval = GETMVAR(DB_sting_jammerHeartbeatInterval, 3);
-private _state = [
-	diag_tickTime,
-	1,
-	diag_tickTime,
-	-1,
-	false
-];
+private _formatOneDecimal = {
+	params ["_value"];
 
-call DB_fnc_sting_ppfx_start;
+	private _rounded = (round (_value * 10)) / 10;
+	private _sign = "";
+	private _absolute = abs _rounded;
+	private _whole = floor _absolute;
+	private _decimal = round ((_absolute - _whole) * 10);
+
+	if (_decimal >= 10) then {
+		_whole = _whole + 1;
+		_decimal = 0;
+	};
+
+	if (_rounded < -0.05) then {
+		_sign = "-";
+	};
+
+	format ["%1%2.%3", _sign, _whole, _decimal]
+};
 
 private _prevPfh = GETMVAR(DB_sting_signalPFH, -1);
 if (_prevPfh >= 0) then {
@@ -28,200 +36,65 @@ if (_prevPfh >= 0) then {
 
 private _pfhId = [{
 	_this params ["_args", "_handle"];
-	_args params ["_loopInterval", "_ppfxInterval", "_jammerHeartbeatInterval", "_state"];
+	_args params ["_formatOneDecimal"];
 
 	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
 	private _uav = getConnectedUAV _player;
 
 	if (isNull _player || { isNull _uav } || { !(GETMVAR(Sting_isControl, false)) }) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
-		call DB_fnc_sting_ppfx_stop;
 	};
 
-	private _now = diag_tickTime;
-	private _lastUpdate = _state # 0;
-	private _signal = _state # 1;
-	private _lastPpfxUpdate = _state # 2;
-	private _lastJammerBroadcast = _state # 3;
-	private _lastJammerActive = _state # 4;
-	private _doUpdate = (_now - _lastUpdate) >= _loopInterval;
-	private _doPpfxUpdate = (_now - _lastPpfxUpdate) >= _ppfxInterval;
+	private _altitudeAtl = ((getPosATL _uav) select 2) max 0;
+	private _altitudeAsl = (getPosASL _uav) select 2;
+	private _homeAltitudeAsl = _uav getVariable ["DB_sting_homeAltitudeASL", -10000];
+	if (_homeAltitudeAsl <= -10000) then {
+		_homeAltitudeAsl = _altitudeAsl;
+		_uav setVariable ["DB_sting_homeAltitudeASL", _homeAltitudeAsl];
+	};
 
-	private _altitude = (getPosATL _uav) select 2;
-	private _controlPicture = GETUVAR(Sting_SignalPicture, controlNull);
-	private _controlText = GETUVAR(Sting_SignalText, controlNull);
-	private _headingText = GETUVAR(Sting_HeadingText, controlNull);
-	private _compassGroup = GETUVAR(Sting_CompassGroup, controlNull);
-	private _compassN = GETUVAR(Sting_CompassN, controlNull);
-	private _compassE = GETUVAR(Sting_CompassE, controlNull);
-	private _compassS = GETUVAR(Sting_CompassS, controlNull);
-	private _compassW = GETUVAR(Sting_CompassW, controlNull);
-	private _vBarLeft = GETUVAR(Sting_VBarLeft, controlNull);
-	private _vBarRight = GETUVAR(Sting_VBarRight, controlNull);
-	private _vPointerLeft = GETUVAR(Sting_VPointerLeft, controlNull);
-	private _vPointerRight = GETUVAR(Sting_VPointerRight, controlNull);
-	private _altText = GETUVAR(Sting_AltText, controlNull);
-	private _rightText = GETUVAR(Sting_RightText, controlNull);
-	private _distText = GETUVAR(Sting_DefaultText, controlNull);
-	private _heading = (round (getDir _uav)) mod 360;
+	private _verticalSpeedText = GETUVAR(Sting_VerticalSpeedText, controlNull);
+	private _horizontalSpeedText = GETUVAR(Sting_HorizontalSpeedText, controlNull);
+	private _homeAltText = GETUVAR(Sting_HomeAltText, controlNull);
+	private _distanceText = GETUVAR(Sting_DistanceText, controlNull);
+	private _downIcon = GETUVAR(Sting_DownAltitudeIcon, controlNull);
+	private _downText = GETUVAR(Sting_DownAltitudeText, controlNull);
+
 	private _distance = _player distance _uav;
-	private _speedMs = vectorMagnitude (velocity _uav);
-	private _speedDisplay = round (_speedMs / STING_SPEED_SCALE);
-
-	private _inJammer = GETMVAR(DB_timeInJammerZone, 0) > 0;
-	private _jammerStateChanged = _inJammer != _lastJammerActive;
-	private _jammerHeartbeatDue = _inJammer && { (_now - _lastJammerBroadcast) >= _jammerHeartbeatInterval };
-	if (_jammerStateChanged || _jammerHeartbeatDue) then {
-		if (_jammerStateChanged) then {
-			_uav setVariable ["DB_sting_jammerClientActive", _inJammer, true];
-		};
-		_uav setVariable ["DB_sting_jammerClientUpdate", _now, true];
-		if (_inJammer) then {
-			_uav setVariable ["DB_sting_lastJammerContact", _now, true];
-		};
-		_state set [3, _now];
-		_state set [4, _inJammer];
-	};
-
-	if (_doUpdate || _doPpfxUpdate) then {
-		_signal = [_player, _uav] call DB_fnc_sting_getSignal;
-		_state set [1, _signal];
-		if (_doUpdate) then { _state set [0, _now]; };
-		if (_doPpfxUpdate) then { _state set [2, _now]; };
-
-		if (_doUpdate) then {
-			private _picture = "";
-			switch (true) do {
-				case (_signal > 0.75): { _picture = "\sting\pictures\100.paa"; };
-				case (_signal > 0.5): { _picture = "\sting\pictures\75.paa"; };
-				case (_signal > 0.25): { _picture = "\sting\pictures\50.paa"; };
-				case (_signal > 0): { _picture = "\sting\pictures\25.paa"; };
-				case (_signal <= 0): { _picture = "\sting\pictures\0.paa"; };
-				default { _picture = "\sting\pictures\100.paa"; };
-			};
-
-			if (!isNull _controlPicture) then {
-				_controlPicture ctrlSetText _picture;
-			};
-
-			if (!isNull _controlText) then {
-				_controlText ctrlSetText str(round(_signal * 100));
-			};
-		};
-
-		private _maxDistance = GETMVAR(STING_MaxFlightDistance, 4000);
-		private _obstacles = GETMVAR(DB_sting_signal_obstacles, 0);
-		private _terrainMask = GETMVAR(DB_sting_signal_terrainMask, 0);
-
-		private _context = [
-			"altAGL", _altitude,
-			"distance", _distance,
-			"maxDistance", _maxDistance,
-			"inJammer", _inJammer,
-			"obstacleCount", _obstacles,
-			"terrainMask", _terrainMask
-		];
-
-		[_signal, _context] call DB_fnc_sting_ppfx_setInput;
-	};
-
-	private _jammerLowTime = _uav getVariable ["DB_sting_jammerLowTime", 0];
-	private _isLost = _uav getVariable ["DB_sting_isUAVsignalLost", false];
-
-	if (_inJammer && { _signal <= STING_SIGNAL_LOSS_THRESHOLD } && { !_isLost }) then {
-		_jammerLowTime = _jammerLowTime + diag_deltaTime;
-		if (_jammerLowTime >= STING_SIGNAL_LOSS_DURATION) then {
-			[_player, _uav] call DB_fnc_sting_onSignalLost;
-			_jammerLowTime = 0;
-		};
+	private _velocity = velocity _uav;
+	private _verticalSpeed = _velocity # 2;
+	private _horizontalSpeed = vectorMagnitude [_velocity # 0, _velocity # 1, 0];
+	private _relativeAltitude = (_altitudeAsl - _homeAltitudeAsl) max 0;
+	private _clearanceColor = if (_altitudeAtl <= STING_LOW_ALT_WARNING) then {
+		[0.96, 0.66, 0.17, 1]
 	} else {
-		_jammerLowTime = 0;
+		[1, 1, 1, 1]
 	};
 
-	_uav setVariable ["DB_sting_jammerLowTime", _jammerLowTime];
-
-	if (!isNull _headingText) then {
-		private _hTxt = if (_heading < 10) then {
-			format ["00%1", _heading]
-		} else {
-			if (_heading < 100) then { format ["0%1", _heading] } else { str _heading };
-		};
-		_headingText ctrlSetText _hTxt;
+	if (!isNull _verticalSpeedText) then {
+		_verticalSpeedText ctrlSetText format ["%1m/s", [_verticalSpeed] call _formatOneDecimal];
 	};
 
-	if (!isNull _compassGroup) then {
-		private _groupPos = ctrlPosition _compassGroup;
-		private _groupW = _groupPos # 2;
-		private _centerX = _groupW / 2;
-		private _halfW = _groupW / 2;
-		private _letters = [
-			[_compassN, 0],
-			[_compassE, 90],
-			[_compassS, 180],
-			[_compassW, 270]
-		];
-
-		{
-			private _ctrl = _x # 0;
-			private _angle = _x # 1;
-
-			if (!isNull _ctrl) then {
-				private _pos = ctrlPosition _ctrl;
-				private _w = _pos # 2;
-				private _h = _pos # 3;
-				private _y = _pos # 1;
-				private _offset = ((_angle - _heading + 540) mod 360) - 180;
-				private _xPos = _centerX + (_offset / 180) * _halfW - (_w / 2);
-
-				_ctrl ctrlSetPosition [_xPos, _y, _w, _h];
-				_ctrl ctrlCommit 0;
-			};
-		} forEach _letters;
+	if (!isNull _horizontalSpeedText) then {
+		_horizontalSpeedText ctrlSetText format ["%1m/s", [_horizontalSpeed] call _formatOneDecimal];
 	};
 
-	if (!isNull _altText) then {
-		private _alt = (round _altitude) max 0;
-		_altText ctrlSetText format ["%1", _alt];
+	if (!isNull _homeAltText) then {
+		_homeAltText ctrlSetText format ["H %1m", [_relativeAltitude] call _formatOneDecimal];
 	};
 
-	if (!isNull _rightText) then {
-		_rightText ctrlSetText format ["%1", _speedDisplay];
+	if (!isNull _distanceText) then {
+		_distanceText ctrlSetText format ["D %1m", round _distance];
 	};
 
-	if (!isNull _distText) then {
-		private _defaultText = GETMVAR(STING_DefaultText, "STING");
-		_distText ctrlSetText _defaultText;
+	if (!isNull _downIcon) then {
+		_downIcon ctrlSetTextColor _clearanceColor;
 	};
 
-	if (!isNull _vBarLeft && !isNull _vPointerLeft) then {
-		private _barPos = ctrlPosition _vBarLeft;
-		private _barY = _barPos # 1;
-		private _barH = _barPos # 3;
-		private _ptrPos = ctrlPosition _vPointerLeft;
-		private _ptrW = _ptrPos # 2;
-		private _ptrH = _ptrPos # 3;
-		private _altClamp = (_altitude max 0) min STING_ALT_MAX;
-		private _altNorm = _altClamp / STING_ALT_MAX;
-		private _yPos = _barY + (_barH * (1 - _altNorm)) - (_ptrH / 2);
-
-		_vPointerLeft ctrlSetPosition [_ptrPos # 0, _yPos, _ptrW, _ptrH];
-		_vPointerLeft ctrlCommit 0;
+	if (!isNull _downText) then {
+		_downText ctrlSetText format ["%1m", [_altitudeAtl] call _formatOneDecimal];
+		_downText ctrlSetTextColor _clearanceColor;
 	};
-
-	if (!isNull _vBarRight && !isNull _vPointerRight) then {
-		private _barPos = ctrlPosition _vBarRight;
-		private _barY = _barPos # 1;
-		private _barH = _barPos # 3;
-		private _ptrPos = ctrlPosition _vPointerRight;
-		private _ptrW = _ptrPos # 2;
-		private _ptrH = _ptrPos # 3;
-		private _speedClamp = (_speedDisplay max 0) min STING_SPEED_MAX;
-		private _speedNorm = _speedClamp / STING_SPEED_MAX;
-		private _yPos = _barY + (_barH * (1 - _speedNorm)) - (_ptrH / 2);
-
-		_vPointerRight ctrlSetPosition [_ptrPos # 0, _yPos, _ptrW, _ptrH];
-		_vPointerRight ctrlCommit 0;
-	};
-}, 0, [_loopInterval, _ppfxInterval, _jammerHeartbeatInterval, _state]] call CBA_fnc_addPerFrameHandler;
+}, 0, [_formatOneDecimal]] call CBA_fnc_addPerFrameHandler;
 
 SETMVAR(DB_sting_signalPFH, _pfhId);

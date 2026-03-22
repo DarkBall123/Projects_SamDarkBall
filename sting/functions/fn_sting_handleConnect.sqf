@@ -32,7 +32,6 @@ private _pfhId = [{
 	private _lastUav = GETMVAR(DB_sting_lastUav, objNull);
 
 	if (!isNull _lastUav && { _uav isNotEqualTo _lastUav }) then {
-		_lastUav setVariable ["DB_jammer_customUavBehavior", false, true];
 		SETMVAR(DB_sting_controlGraceUntil, -1);
 	};
 
@@ -58,12 +57,10 @@ private _pfhId = [{
 	private _graceControlActive = _wasControl && { _connectedControl } && { _now <= _graceUntil };
 	private _controlActive = _directControlActive || { _graceControlActive };
 	private _uiActive = _controlActive && { _cameraBound } && { _cameraMode == "GUNNER" };
-	private _uiMissing = isNull GETUVAR(Sting_SignalPicture, controlNull);
+	private _uiMissing = isNull GETUVAR(Sting_Display, displayNull);
 	private _hudApplied = GETMVAR(Sting_hudApplied, false);
 
 	if (_controlActive) then {
-		_uav setVariable ["DB_jammer_customUavBehavior", true, true];
-
 		if (!_wasControl) then {
 			private _currentHud = shownHUD;
 			if ((count _currentHud) == 11) then {

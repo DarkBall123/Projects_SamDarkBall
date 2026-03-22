@@ -106,8 +106,8 @@ class CfgVehicles
 		memoryPointDriverOptics = "pip_pilot_pos";
 		memoryPointsGetInDriver = "pos_driver";
 		memoryPointsGetInDriverDir = "pos_driver_dir";
-		driverOpticsModel = QSTING_CFG_PATH(lancet_hud.p3d);
-		GunnerOpticsModel = QSTING_CFG_PATH(lancet_hud.p3d);
+		driverOpticsModel = QSTING_CFG_PATH(empty_hud.p3d);
+		GunnerOpticsModel = QSTING_CFG_PATH(empty_hud.p3d);
 		driverForceOptics = 1;
 		driverCanSee = 63;
 		forceHideDriver = 0;
@@ -129,8 +129,10 @@ class CfgVehicles
 		audible = 0.1;
 		armor = 0.5;
 		cost = 20000;
-		altFullForce = 1000;
-		altNoForce = 2000;
+		// Sting baseline: 315 km/h tested top speed, about 3 km intercept altitude,
+		// about 15 min / 30 km endurance. Speed and altitude map directly; fuelCapacity is an Arma approximation.
+		altFullForce = 3000;
+		altNoForce = 5000;
 		LODTurnedIn = -1;
 		LODTurnedOut = -1;
 		epeImpulseDamageCoef = 5;
@@ -163,18 +165,19 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 360;
-		precision = 15;
-		steerAheadSimul = 0.8;
-		steerAheadPlan = 1;
-		predictTurnPlan = 2.8;
-		predictTurnSimul = 2.2;
+		maxSpeed = 315;
+		precision = 4;
+		// AI steering look-ahead and turn prediction distances in meters.
+		steerAheadSimul = 1.2;
+		steerAheadPlan = 1.5;
+		predictTurnPlan = 3.8;
+		predictTurnSimul = 3.2;
 		liftForceCoef = 3.1;
 		cyclicAsideForceCoef = 0.45;
 		cyclicForwardForceCoef = 0.85;
 		bodyFrictionCoef = 0.55;
 		backRotorForceCoef = 4.8;
-		fuelCapacity = 8.5;
+		fuelCapacity = 3.0;
 		maxFordingDepth = 0.3;
 		threat[] = {0, 0, 0};
 		maxMainRotorDive = 0;
@@ -292,7 +295,7 @@ class CfgVehicles
 						"Normal"
 					};
 					thermalMode[] = {};
-					gunnerOpticsModel = QSTING_CFG_PATH(lancet_hud.p3d);
+					gunnerOpticsModel = QSTING_CFG_PATH(empty_hud.p3d);
 					opticsPPEffects[] =
 					{
 						"OpticsCHAbera2",
@@ -305,7 +308,7 @@ class CfgVehicles
 					initFov = 0.25;
 					minFov = 0.25;
 					maxFov = 0.25;
-					gunnerOpticsModel = QSTING_CFG_PATH(lancet_hud.p3d);
+					gunnerOpticsModel = QSTING_CFG_PATH(empty_hud.p3d);
 				};
 				class Narrow: Wide
 				{
@@ -313,7 +316,7 @@ class CfgVehicles
 					initFov = 0.08;
 					minFov = 0.08;
 					maxFov = 0.08;
-					gunnerOpticsModel = QSTING_CFG_PATH(lancet_hud.p3d);
+					gunnerOpticsModel = QSTING_CFG_PATH(empty_hud.p3d);
 				};
 				showMiniMapInOptics = 1;
 				showUAVViewInOptics = 0;

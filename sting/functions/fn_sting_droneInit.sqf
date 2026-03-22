@@ -1,6 +1,6 @@
 /*
 	Sting: drone initialization.
-	Purpose: disables AI and enables custom jammer behavior for the drone.
+	Purpose: disables AI for the drone after creation.
 	Context: server/client when the drone is created.
 	Params: [_uav]
 		_uav - drone object.
@@ -16,7 +16,6 @@ if (!isServer) exitWith {};
 
 if (isNil "cba_common_waitUntilAndExecArray") exitWith {
 	_uav disableAI "ALL";
-	_uav setVariable ["DB_jammer_customUavBehavior", true, true];
 };
 
 [
@@ -27,7 +26,6 @@ if (isNil "cba_common_waitUntilAndExecArray") exitWith {
 	{
 		params ["_uav"];
 		_uav disableAI "ALL";
-		_uav setVariable ["DB_jammer_customUavBehavior", true, true];
 	},
 	[_uav]
 ] call CBA_fnc_waitUntilAndExecute;

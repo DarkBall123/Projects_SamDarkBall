@@ -1,12 +1,24 @@
 /*
-	Sting: battery indicator handler.
-	Purpose: updates the battery icon and percentage on the OSD.
+	Sting: battery handler.
+	Purpose: updates battery percentage and estimated remaining flight time on the OSD.
 	Context: client, active only while controlling the drone.
 	Params: none.
 	Returns: nothing.
 */
 
 #include "\sting\script_macros.hpp"
+
+private _formatRemainingTime = {
+	params ["_seconds"];
+
+	private _clamped = _seconds max 0;
+	private _mins = floor (_clamped / 60);
+	private _secs = floor (_clamped mod 60);
+	private _mm = if (_mins < 10) then { format ["0%1", _mins] } else { str _mins };
+	private _ss = if (_secs < 10) then { format ["0%1", _secs] } else { str _secs };
+
+	format ["%1'%2%3", _mm, _ss, toString [34]]
+};
 
 private _prevPfh = GETMVAR(DB_sting_batteryPFH, -1);
 if (_prevPfh >= 0) then {
@@ -15,6 +27,7 @@ if (_prevPfh >= 0) then {
 
 private _pfhId = [{
 	_this params ["_args", "_handle"];
+	_args params ["_formatRemainingTime"];
 	private _player = GETMVAR(bis_fnc_moduleRemoteControl_unit, player);
 	private _uav = getConnectedUAV _player;
 
@@ -22,54 +35,37 @@ private _pfhId = [{
 		[_handle] call CBA_fnc_removePerFrameHandler;
 	};
 
-	private _currentBattery = fuel _uav;
-	private _leftVolt = GETUVAR(Sting_LeftVoltText, controlNull);
-	private _leftCurrent = GETUVAR(Sting_LeftCurrentText, controlNull);
-	private _leftMah = GETUVAR(Sting_LeftMahText, controlNull);
-	private _rightVolt = GETUVAR(Sting_RightVoltText, controlNull);
+	private _currentBattery = (fuel _uav) max 0 min 1;
+	private _batteryText = GETUVAR(Sting_BatteryValueText, controlNull);
+	private _remainingText = GETUVAR(Sting_RemainingTimeText, controlNull);
 	private _batteryPicture = GETUVAR(Sting_BatteryPicture, controlNull);
-	private _picture = "";
+	private _batteryPercent = round (_currentBattery * 100);
+	private _remainingSeconds = round (STING_ESTIMATED_ENDURANCE_SECONDS * _currentBattery);
+	private _batteryColor = [1, 1, 1, 1];
 
 	switch (true) do {
-		case (_currentBattery > 0.75): { _picture = "\sting\pictures\A100.paa" };
-		case (_currentBattery > 0.5): { _picture = "\sting\pictures\A75.paa" };
-		case (_currentBattery > 0.25): { _picture = "\sting\pictures\A50.paa" };
-		case (_currentBattery > 0): { _picture = "\sting\pictures\A25.paa" };
-		case (_currentBattery <= 0): { _picture = "\sting\pictures\A0.paa" };
-		default { _picture = "\sting\pictures\A75.paa" };
+		case (_currentBattery <= 0.1): { _batteryColor = [0.91, 0.30, 0.24, 1] };
+		case (_currentBattery <= 0.25): { _batteryColor = [0.96, 0.66, 0.17, 1] };
+		default { _batteryColor = [1, 1, 1, 1] };
 	};
 
-	private _volt = (12 + (_currentBattery * 4.8));
-	private _cur = (5 + ((1 - _currentBattery) * 10));
-	private _mah = round (2000 + ((1 - _currentBattery) * 800));
-	private _voltRight = (10 + (_currentBattery * 4.0));
-	private _voltTxt = str ((round (_volt * 10)) / 10);
-	private _curTxt = str ((round (_cur * 10)) / 10);
-	private _voltRightTxt = str ((round (_voltRight * 10)) / 10);
-
-	if (!isNull _leftVolt) then {
-		_leftVolt ctrlSetText format ["%1V", _voltTxt];
+	if (!isNull _batteryText) then {
+		_batteryText ctrlSetText str _batteryPercent;
+		_batteryText ctrlSetTextColor _batteryColor;
 	};
 
-	if (!isNull _leftCurrent) then {
-		_leftCurrent ctrlSetText format ["%1A", _curTxt];
-	};
-
-	if (!isNull _leftMah) then {
-		_leftMah ctrlSetText format ["%1mAh", _mah];
-	};
-
-	if (!isNull _rightVolt) then {
-		_rightVolt ctrlSetText format ["%1V", _voltRightTxt];
+	if (!isNull _remainingText) then {
+		_remainingText ctrlSetText ([_remainingSeconds] call _formatRemainingTime);
+		_remainingText ctrlSetTextColor _batteryColor;
 	};
 
 	if (!isNull _batteryPicture) then {
-		_batteryPicture ctrlSetText _picture;
+		_batteryPicture ctrlSetTextColor _batteryColor;
 	};
 
 	if !(GETMVAR(Sting_isControl, false)) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
 	};
-}, 0, []] call CBA_fnc_addPerFrameHandler;
+}, 0, [_formatRemainingTime]] call CBA_fnc_addPerFrameHandler;
 
 SETMVAR(DB_sting_batteryPFH, _pfhId);

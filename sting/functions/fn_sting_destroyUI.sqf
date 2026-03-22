@@ -1,6 +1,6 @@
 /*
-	Sting: UI/effects cleanup.
-	Purpose: hides the OSD and removes post-process effects.
+	Sting: UI cleanup.
+	Purpose: hides the OSD layer.
 	Context: client when leaving FPV control.
 	Params: none.
 	Returns: nothing.
@@ -22,7 +22,6 @@ private _clearEffects = {
 		_layer cutText ["", "PLAIN"];
 	};
 
-	call DB_fnc_sting_ppfx_stop;
 };
 
 [_cleanupToken] call _clearEffects;

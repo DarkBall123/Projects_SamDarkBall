@@ -18,18 +18,6 @@ if (isNil "DB_sting_terminalTypes") then {
 	DB_sting_terminalTypes = STING_TERMINAL_TYPES;
 };
 
-if (isNil "DB_sting_signalLossThreshold") then {
-	DB_sting_signalLossThreshold = STING_SIGNAL_LOSS_THRESHOLD;
-};
-
-if (isNil "DB_sting_signalLossDuration") then {
-	DB_sting_signalLossDuration = STING_SIGNAL_LOSS_DURATION;
-};
-
-if (isNil "DB_sting_signalUpdateInterval") then {
-	DB_sting_signalUpdateInterval = STING_SIGNAL_UPDATE_INTERVAL;
-};
-
 if (isNil "DB_sting_connectLoopInterval") then {
 	DB_sting_connectLoopInterval = STING_CONNECT_LOOP_INTERVAL;
 };
@@ -37,9 +25,9 @@ if (isNil "DB_sting_connectLoopInterval") then {
 [ 
     "STING_DefaultText",
     "EDITBOX",
-    ["Default Text", "Enter the text"],
+    ["Mode Badge Text", "Displayed as the first character in the lower-left mode tile."],
     "Sting Settings",
-    "STING",
+    "S",
     0,
     { call DB_fnc_sting_handleSettings }
 ] call cba_settings_fnc_init;
@@ -59,16 +47,6 @@ private _fnc_registerAdminSettings = {
 			publicVariable "STING_isUavCaptive";
 			call DB_fnc_sting_handleSettings;
 		}
-	] call cba_settings_fnc_init;
-
-	[
-		"STING_MaxFlightDistance",
-		"SLIDER",
-		["Max Flight Distance", ""],
-		"Sting Settings",
-		[1500, 12000, 4000, 0],
-		1,
-		{ publicVariable "STING_MaxFlightDistance" }
 	] call cba_settings_fnc_init;
 
 };

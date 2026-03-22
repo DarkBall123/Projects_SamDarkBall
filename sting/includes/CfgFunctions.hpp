@@ -2,23 +2,17 @@ class CfgFunctions
 {
 	class DB
 	{
-		class Sting
-		{
+			class Sting
+			{
             file = "\sting\functions";
 
 			class sting_createDialog {};
-			class sting_getSignal {};
 			class sting_handleBattery {};
 			class sting_handleConnect {};
 			class sting_handleSignal {};
-			class sting_ppfx_start {};
-			class sting_ppfx_stop {};
-			class sting_ppfx_update {};
-			class sting_ppfx_setInput {};
 			class sting_handleSettings {};
 			class sting_handleTime {};
 			class sting_onDestroy {};
-			class sting_onSignalLost {};
 			class sting_destroyUI {};
 			class sting_droneInit {};
 			class sting_addUavToInventory {};
