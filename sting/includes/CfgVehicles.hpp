@@ -138,8 +138,8 @@ class CfgVehicles
 		audible = 0.1;
 		armor = 0.5;
 		cost = 20000;
-		altFullForce = 3000;
-		altNoForce = 5000;
+		altFullForce = 1000;
+		altNoForce = 2000;
 		LODTurnedIn = -1;
 		LODTurnedOut = -1;
 		epeImpulseDamageCoef = 5;
@@ -173,18 +173,17 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 1180;
-		precision = 4;
-		// AI steering look-ahead and turn prediction distances in meters.
-		steerAheadSimul = 1.2;
-		steerAheadPlan = 1.5;
-		predictTurnPlan = 3.8;
-		predictTurnSimul = 3.2;
-		liftForceCoef = 3.1;
-		cyclicAsideForceCoef = 0.55;
-		cyclicForwardForceCoef = 5.25;
-		bodyFrictionCoef = 0.12;
-		backRotorForceCoef = 4.6;
+		maxSpeed = 1200;
+		precision = 15;
+		steerAheadSimul = 0.5;
+		steerAheadPlan = 0.69999999;
+		predictTurnPlan = 2;
+		predictTurnSimul = 1.5;
+		liftForceCoef = 1;
+		cyclicAsideForceCoef = 2;
+		cyclicForwardForceCoef = 1.2;
+		bodyFrictionCoef = 0.30000001;
+		backRotorForceCoef = 5;
 		fuelCapacity = 3.0;
 		maxFordingDepth = 0.3;
 		threat[] = {0, 0, 0};
