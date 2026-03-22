@@ -190,7 +190,7 @@ class RscTitles
 				text = "\sting\pictures\hud\battery_frame.paa";
 				onLoad = "uiNamespace setVariable ['Sting_BatteryPicture', _this # 0];";
 
-				x = STING_X(0.597);
+				x = STING_X(0.593);
 				y = STING_Y(0.865);
 				w = GRID_W(3.34);
 				h = GRID_H(1.46);
