@@ -1,6 +1,6 @@
 /*
 	Sting: battery handler.
-	Purpose: updates battery percentage and estimated remaining flight time on the OSD.
+	Purpose: updates battery percentage, inner battery progress bar and estimated remaining flight time on the OSD.
 	Context: client, active only while controlling the drone.
 	Params: none.
 	Returns: nothing.
@@ -39,28 +39,32 @@ private _pfhId = [{
 	private _batteryText = GETUVAR(Sting_BatteryValueText, controlNull);
 	private _remainingText = GETUVAR(Sting_RemainingTimeText, controlNull);
 	private _batteryPicture = GETUVAR(Sting_BatteryPicture, controlNull);
+	private _batteryBarFill = GETUVAR(Sting_BatteryBarFill, controlNull);
 	private _batteryPercent = round (_currentBattery * 100);
 	private _remainingSeconds = round (STING_ESTIMATED_ENDURANCE_SECONDS * _currentBattery);
-	private _batteryColor = [1, 1, 1, 1];
-
-	switch (true) do {
-		case (_currentBattery <= 0.1): { _batteryColor = [0.91, 0.30, 0.24, 1] };
-		case (_currentBattery <= 0.25): { _batteryColor = [0.96, 0.66, 0.17, 1] };
-		default { _batteryColor = [1, 1, 1, 1] };
-	};
 
 	if (!isNull _batteryText) then {
 		_batteryText ctrlSetText str _batteryPercent;
-		_batteryText ctrlSetTextColor _batteryColor;
+		_batteryText ctrlSetTextColor [1, 1, 1, 1];
 	};
 
 	if (!isNull _remainingText) then {
 		_remainingText ctrlSetText ([_remainingSeconds] call _formatRemainingTime);
-		_remainingText ctrlSetTextColor _batteryColor;
+		_remainingText ctrlSetTextColor [1, 1, 1, 1];
 	};
 
 	if (!isNull _batteryPicture) then {
-		_batteryPicture ctrlSetTextColor _batteryColor;
+		_batteryPicture ctrlSetTextColor [1, 1, 1, 1];
+	};
+
+	private _batteryBarBackground = GETUVAR(Sting_BatteryBarBackground, controlNull);
+	if (!isNull _batteryBarBackground) then {
+		_batteryBarBackground ctrlSetBackgroundColor [0.22, 0.22, 0.22, 0.65];
+	};
+
+	if (!isNull _batteryBarFill) then {
+		_batteryBarFill ctrlSetTextColor [0.55, 0.55, 0.55, 0.9];
+		_batteryBarFill progressSetPosition _currentBattery;
 	};
 
 	if !(GETMVAR(Sting_isControl, false)) exitWith {
