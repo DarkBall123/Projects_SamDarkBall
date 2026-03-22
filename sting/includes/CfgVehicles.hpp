@@ -45,7 +45,7 @@ class DefaultVehicleSystemsDisplayManagerRight
 		}; \
 	};
 
-#define STING_SIDE_DRONE(CLASSNAME, BASECLASS, SIDEID, FACTIONID, CREWCLASS, DISPLAY, ITEMCLASS, BAGCLASS) \
+#define STING_SIDE_DRONE(CLASSNAME, BASECLASS, SIDEID, FACTIONID, CREWCLASS, DISPLAY, ITEMCLASS, BAGCLASS, TEXTURE) \
 	class CLASSNAME: BASECLASS \
 	{ \
 		scope = 2; \
@@ -55,6 +55,15 @@ class DefaultVehicleSystemsDisplayManagerRight
 		crew = CREWCLASS; \
 		typicalCargo[] = { CREWCLASS }; \
 		displayName = DISPLAY; \
+		hiddenSelectionsTextures[] = \
+		{ \
+			TEXTURE, \
+			TEXTURE, \
+			TEXTURE, \
+			TEXTURE, \
+			TEXTURE, \
+			TEXTURE \
+		}; \
 		DB_stingItem = ITEMCLASS; \
 		STING_DISASSEMBLE(BAGCLASS) \
 	};
@@ -139,6 +148,7 @@ class CfgVehicles
 		model = QSTING_CFG_PATH(drone_inter.p3d);
 		icon = QSTING_CFG_DATA(drononmap.paa);
 		picture = QSTING_CFG_DATA(drononmap.paa);
+		editorPreview = QSTING_CFG_DATA(sting_preview.jpg);
 		hiddenSelections[] =
 		{
 			"body_0",
@@ -163,7 +173,7 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 920;
+		maxSpeed = 1180;
 		precision = 4;
 		// AI steering look-ahead and turn prediction distances in meters.
 		steerAheadSimul = 1.2;
@@ -172,8 +182,8 @@ class CfgVehicles
 		predictTurnSimul = 3.2;
 		liftForceCoef = 3.1;
 		cyclicAsideForceCoef = 0.55;
-		cyclicForwardForceCoef = 3.90;
-		bodyFrictionCoef = 0.16;
+		cyclicForwardForceCoef = 5.25;
+		bodyFrictionCoef = 0.12;
 		backRotorForceCoef = 4.6;
 		fuelCapacity = 3.0;
 		maxFordingDepth = 0.3;
@@ -475,12 +485,12 @@ class CfgVehicles
 	class O_UAV_01_backpack_F;
 	class I_UAV_01_backpack_F;
 
-	STING_SIDE_DRONE(O_Sting_F, sting_drone_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV (OPFOR)", "Item_Sting", O_Sting_Bag)
-	STING_SIDE_DRONE(B_Sting_F, sting_drone_base_F, 1, "BLU_F", "B_UAV_AI", "Sting UAV (BLUFOR)", "Item_Sting", B_Sting_Bag)
-	STING_SIDE_DRONE(I_Sting_F, sting_drone_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV (Independent)", "Item_Sting", I_Sting_Bag)
-	STING_SIDE_DRONE(O_Sting_TI_F, sting_drone_ti_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV TI (OPFOR)", "Item_Sting_TI", O_Sting_TI_Bag)
-	STING_SIDE_DRONE(B_Sting_TI_F, sting_drone_ti_base_F, 1, "BLU_F", "B_UAV_AI", "Sting UAV TI (BLUFOR)", "Item_Sting_TI", B_Sting_TI_Bag)
-	STING_SIDE_DRONE(I_Sting_TI_F, sting_drone_ti_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV TI (Independent)", "Item_Sting_TI", I_Sting_TI_Bag)
+	STING_SIDE_DRONE(O_Sting_F, sting_drone_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV", "Item_Sting", O_Sting_Bag, QSTING_CFG_PATH(mat0_r.jpg.paa))
+	STING_SIDE_DRONE(B_Sting_F, sting_drone_base_F, 1, "BLU_F", "B_UAV_AI", "Sting UAV", "Item_Sting", B_Sting_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
+	STING_SIDE_DRONE(I_Sting_F, sting_drone_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV", "Item_Sting", I_Sting_Bag, QSTING_CFG_PATH(mat0_g.jpg.paa))
+	STING_SIDE_DRONE(O_Sting_TI_F, sting_drone_ti_base_F, 0, "OPF_F", "O_UAV_AI", "Sting UAV TI", "Item_Sting_TI", O_Sting_TI_Bag, QSTING_CFG_PATH(mat0_r.jpg.paa))
+	STING_SIDE_DRONE(B_Sting_TI_F, sting_drone_ti_base_F, 1, "BLU_F", "B_UAV_AI", "Sting UAV TI", "Item_Sting_TI", B_Sting_TI_Bag, QSTING_CFG_PATH(mat0_c.jpg.paa))
+	STING_SIDE_DRONE(I_Sting_TI_F, sting_drone_ti_base_F, 2, "IND_F", "I_UAV_AI", "Sting UAV TI", "Item_Sting_TI", I_Sting_TI_Bag, QSTING_CFG_PATH(mat0_g.jpg.paa))
 
 	STING_BAG(O_Sting_Bag, O_UAV_01_backpack_F, "Sting Bag OPFOR", "O_Sting_F")
 	STING_BAG(B_Sting_Bag, B_UAV_01_backpack_F, "Sting Bag BLUFOR", "B_Sting_F")
