@@ -173,16 +173,16 @@ class CfgVehicles
 		{
 		};
 		startDuration = 3;
-		maxSpeed = 1400;
+		maxSpeed = 1600;
 		precision = 15;
 		steerAheadSimul = 0.5;
 		steerAheadPlan = 0.69999999;
 		predictTurnPlan = 2;
 		predictTurnSimul = 1.5;
-		liftForceCoef = 1;
+		liftForceCoef = 1.9;
 		cyclicAsideForceCoef = 2;
-		cyclicForwardForceCoef = 3.2;
-		bodyFrictionCoef = 0.30000001;
+		cyclicForwardForceCoef = 5.8;
+		bodyFrictionCoef = 0.2;
 		backRotorForceCoef = 5;
 		fuelCapacity = 3.0;
 		maxFordingDepth = 0.3;
