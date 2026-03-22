@@ -1,0 +1,1065 @@
+_RES_GEOMETRY = 1e13;
+_RES_GEOMETRYPHYS = 4e13;
+_RES_MEMORY = 1e15;
+_RES_SHADOW = 10000;
+_RES_LANDCONTACT = 2e15;
+_RES_VIEWGEOMETRY = 6e15;
+_RES_FIREGEOMETRY = 7e15;
+_AXIS_HALF_LEN = 0.10;
+_CAM_DIR_LEN = 0.25;
+_MODEL_SCALE = 0.0277778;
+_LANDCONTACT_X = 0.10;
+_LANDCONTACT_Y = 0.10;
+_LANDCONTACT_Z = -0.02;
+_GEOMETRY_TOTAL_MASS = 20;
+_VISUAL_TEXTURE = "sting\mat0_co.paa";
+_VISUAL_MATERIAL = "sting\sting.rvmat";
+
+_deleteLevelsByResolution =
+{
+	private ["_p3d","_targetRes","_resolutions","_i"];
+
+	_p3d = _this@0;
+	_targetRes = _this@1;
+	_resolutions = getResolutions _p3d;
+	_i = (count _resolutions) - 1;
+
+	while {_i >= 0} do
+	{
+		if ((_resolutions @ _i) == _targetRes) then
+		{
+			_p3d deleteLevel _i;
+		};
+		_i = _i - 1;
+	};
+};
+
+_createAxisFromSelection =
+{
+	private ["_srcObj","_memObj","_selectionName","_axisName","_sel","_center","_p1","_p2","_i1","_i2","_axisSel"];
+
+	_srcObj = _this@0;
+	_memObj = _this@1;
+	_selectionName = _this@2;
+	_axisName = _this@3;
+
+	_sel = _srcObj loadSelection _selectionName;
+	if (isnil "_sel") then
+	{
+		echo ("Missing selection: " + _selectionName);
+	}
+	else
+	{
+		_center = centerOf _sel;
+		_p1 = [_center @ 0, _center @ 1, (_center @ 2) - _AXIS_HALF_LEN];
+		_p2 = [_center @ 0, _center @ 1, (_center @ 2) + _AXIS_HALF_LEN];
+
+		_i1 = countPoints _memObj;
+		_memObj addPoint _p1;
+
+		_i2 = countPoints _memObj;
+		_memObj addPoint _p2;
+
+		_axisSel = newSelection _memObj;
+		_axisSel selectPoints [_i1, _i2];
+		_memObj save (_axisSel as _axisName);
+
+		echo ("Created axis " + _axisName + " center: " + str _center);
+	};
+};
+
+_getSelectionCenter =
+{
+	private ["_srcObj","_selectionName","_sel"];
+
+	_srcObj = _this@0;
+	_selectionName = _this@1;
+
+	_sel = _srcObj loadSelection _selectionName;
+	if (isnil "_sel") then
+	{
+		echo ("Missing selection: " + _selectionName);
+		nil
+	}
+	else
+	{
+		centerOf _sel
+	};
+};
+
+_createPointSelection =
+{
+	private ["_memObj","_point","_selectionName","_i","_sel"];
+
+	_memObj = _this@0;
+	_point = _this@1;
+	_selectionName = _this@2;
+
+	_i = countPoints _memObj;
+	_memObj addPoint _point;
+
+	_sel = newSelection _memObj;
+	_sel selectPoints [_i];
+	_memObj save (_sel as _selectionName);
+
+	echo ("Created point " + _selectionName + ": " + str _point);
+};
+
+_createLandContactPoints =
+{
+	private ["_srcObj","_landObj","_bodyBounds","_visualBounds","_rotorNames","_rotorPoints","_commonZ","_i","_rotorName","_rotorBounds","_rotorCenter","_point","_useFallback","_bodyMin","_bodyMax","_visualMin","_visualMax","_bodyCenter","_xSpan","_ySpan"];
+
+	_srcObj = _this@0;
+	_landObj = _this@1;
+	_bodyBounds = _this@2;
+	_visualBounds = _this@3;
+	_rotorNames = ["vint1_0","vint2_0","vint3_0","vint4_0"];
+	_rotorPoints = [];
+	_commonZ = 0;
+	_useFallback = false;
+	_i = 0;
+
+	while {_i < (count _rotorNames)} do
+	{
+		_rotorName = _rotorNames @ _i;
+		_rotorBounds = [_srcObj, _rotorName] call _getSelectionBounds;
+
+		if (isnil "_rotorBounds") then
+		{
+			_useFallback = true;
+		}
+		else
+		{
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			_rotorPoints set [count _rotorPoints, [_rotorCenter @ 0, _rotorCenter @ 1, 0]];
+		};
+
+		_i = _i + 1;
+	};
+
+	if ((!_useFallback) && ((count _rotorPoints) == 4)) then
+	{
+		_commonZ = ((_bodyBounds @ 0) @ 2) + _LANDCONTACT_Z;
+		_i = 0;
+		while {_i < (count _rotorPoints)} do
+		{
+			_point = _rotorPoints @ _i;
+			_landObj addPoint [_point @ 0, _point @ 1, _commonZ];
+			_i = _i + 1;
+		};
+		echo ("Created rotor-based LandContact points, z=" + str _commonZ);
+	}
+	else
+	{
+		_bodyMin = _bodyBounds @ 0;
+		_bodyMax = _bodyBounds @ 1;
+		_visualMin = _visualBounds @ 0;
+		_visualMax = _visualBounds @ 1;
+		_bodyCenter = [_bodyBounds] call _centerOfBounds;
+		_xSpan = (((_visualMax @ 0) - (_visualMin @ 0)) * 0.28);
+		_ySpan = (((_bodyMax @ 1) - (_bodyMin @ 1)) * 0.30);
+
+		if (_xSpan < _LANDCONTACT_X) then
+		{
+			_xSpan = _LANDCONTACT_X;
+		};
+		if (_ySpan < _LANDCONTACT_Y) then
+		{
+			_ySpan = _LANDCONTACT_Y;
+		};
+
+		_commonZ = (_bodyMin @ 2) + _LANDCONTACT_Z;
+		_landObj addPoint [(_bodyCenter @ 0) - _xSpan, (_bodyCenter @ 1) - _ySpan, _commonZ];
+		_landObj addPoint [(_bodyCenter @ 0) + _xSpan, (_bodyCenter @ 1) - _ySpan, _commonZ];
+		_landObj addPoint [(_bodyCenter @ 0) - _xSpan, (_bodyCenter @ 1) + _ySpan, _commonZ];
+		_landObj addPoint [(_bodyCenter @ 0) + _xSpan, (_bodyCenter @ 1) + _ySpan, _commonZ];
+		echo ("Created fallback LandContact points around body center, z=" + str _commonZ);
+	};
+};
+
+_collectRotorBounds =
+{
+	private ["_srcObj","_rotorNames","_rotorBoundsList","_i","_rotorName","_rotorBounds"];
+
+	_srcObj = _this@0;
+	_rotorNames = ["vint1_0","vint2_0","vint3_0","vint4_0"];
+	_rotorBoundsList = [];
+	_i = 0;
+
+	while {_i < (count _rotorNames)} do
+	{
+		_rotorName = _rotorNames @ _i;
+		_rotorBounds = [_srcObj, _rotorName] call _getSelectionBounds;
+		if !(isnil "_rotorBounds") then
+		{
+			_rotorBoundsList set [count _rotorBoundsList, _rotorBounds];
+		};
+		_i = _i + 1;
+	};
+
+	_rotorBoundsList
+};
+
+_getBoundsFromPointIndices =
+{
+	private ["_obj","_pointIndices","_point","_min","_max","_i"];
+
+	_obj = _this@0;
+	_pointIndices = _this@1;
+
+	if ((count _pointIndices) == 0) exitWith {nil};
+
+	_point = _obj getPoint (_pointIndices @ 0);
+	_min = +_point;
+	_max = +_point;
+	_i = 1;
+
+	while {_i < (count _pointIndices)} do
+	{
+		_point = _obj getPoint (_pointIndices @ _i);
+
+		if ((_point @ 0) < (_min @ 0)) then {_min set [0, _point @ 0];};
+		if ((_point @ 1) < (_min @ 1)) then {_min set [1, _point @ 1];};
+		if ((_point @ 2) < (_min @ 2)) then {_min set [2, _point @ 2];};
+		if ((_point @ 0) > (_max @ 0)) then {_max set [0, _point @ 0];};
+		if ((_point @ 1) > (_max @ 1)) then {_max set [1, _point @ 1];};
+		if ((_point @ 2) > (_max @ 2)) then {_max set [2, _point @ 2];};
+
+		_i = _i + 1;
+	};
+
+	[_min, _max]
+};
+
+_getObjectBounds =
+{
+	private ["_obj","_pointIndices","_i"];
+
+	_obj = _this@0;
+	_pointIndices = [];
+	_i = 0;
+
+	while {_i < (countPoints _obj)} do
+	{
+		_pointIndices set [count _pointIndices, _i];
+		_i = _i + 1;
+	};
+
+	[_obj, _pointIndices] call _getBoundsFromPointIndices
+};
+
+_getSelectionBounds =
+{
+	private ["_obj","_selectionName","_sel","_pointIndices"];
+
+	_obj = _this@0;
+	_selectionName = _this@1;
+
+	_sel = _obj loadSelection _selectionName;
+	if (isnil "_sel") then
+	{
+		echo ("Missing selection: " + _selectionName);
+		nil
+	}
+	else
+	{
+		_pointIndices = getSelectedPoints _sel;
+		[_obj, _pointIndices] call _getBoundsFromPointIndices
+	};
+};
+
+_centerOfBounds =
+{
+	private ["_bounds","_min","_max"];
+
+	_bounds = _this@0;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+
+	[
+		((_min @ 0) + (_max @ 0)) * 0.5,
+		((_min @ 1) + (_max @ 1)) * 0.5,
+		((_min @ 2) + (_max @ 2)) * 0.5
+	]
+};
+
+_createSelectionFromAllFaces =
+{
+	private ["_obj","_selectionName","_faceIndices","_sel"];
+
+	_obj = _this@0;
+	_selectionName = _this@1;
+	_faceIndices = [];
+
+	_obj forEachFace ["true", "_faceIndices set [count _faceIndices, _x];"];
+
+	_sel = newSelection _obj;
+	_sel selectFaces _faceIndices;
+	selectPointsFromFaces _sel;
+	_obj save (_sel as _selectionName);
+};
+
+_stripFaceRenderData =
+{
+	private ["_obj","_op"];
+
+	_obj = _this@0;
+	_op = "_face = _this face _x; _face setTexture """"; _face setMaterial """";";
+	_obj forEachFace ["true", _op];
+};
+
+_makeBoundsFromCenter =
+{
+	private ["_center","_halfX","_halfY","_halfZ"];
+
+	_center = _this@0;
+	_halfX = _this@1;
+	_halfY = _this@2;
+	_halfZ = _this@3;
+
+	[
+		[(_center @ 0) - _halfX, (_center @ 1) - _halfY, (_center @ 2) - _halfZ],
+		[(_center @ 0) + _halfX, (_center @ 1) + _halfY, (_center @ 2) + _halfZ]
+	]
+};
+
+_expandBoundsWithBounds =
+{
+	private ["_bounds","_other","_min","_max","_otherMin","_otherMax"];
+
+	_bounds = _this@0;
+	_other = _this@1;
+
+	if (isnil "_bounds") exitWith {+_other};
+	if (isnil "_other") exitWith {+_bounds};
+
+	_min = +(_bounds @ 0);
+	_max = +(_bounds @ 1);
+	_otherMin = _other @ 0;
+	_otherMax = _other @ 1;
+
+	if ((_otherMin @ 0) < (_min @ 0)) then {_min set [0, _otherMin @ 0];};
+	if ((_otherMin @ 1) < (_min @ 1)) then {_min set [1, _otherMin @ 1];};
+	if ((_otherMin @ 2) < (_min @ 2)) then {_min set [2, _otherMin @ 2];};
+	if ((_otherMax @ 0) > (_max @ 0)) then {_max set [0, _otherMax @ 0];};
+	if ((_otherMax @ 1) > (_max @ 1)) then {_max set [1, _otherMax @ 1];};
+	if ((_otherMax @ 2) > (_max @ 2)) then {_max set [2, _otherMax @ 2];};
+
+	[_min, _max]
+};
+
+_buildSupportTargetBounds =
+{
+	private ["_bodyBounds","_rotorBoundsList","_bodyMin","_bodyMax","_bodySizeX","_bodySizeY","_bodySizeZ","_targetBounds","_rotorCenter","_rotorMinY","_rotorMaxY","_rotorSpanY","_bodyBoxMinY","_bodyBoxMaxY","_bodyBoxMaxZ","_motorHalfX","_motorHalfY","_motorHalfZ","_motorCenterZ","_motorBounds","_i","_rotorBounds"];
+
+	_bodyBounds = _this@0;
+	_rotorBoundsList = _this@1;
+
+	_bodyMin = _bodyBounds @ 0;
+	_bodyMax = _bodyBounds @ 1;
+	_bodySizeX = (_bodyMax @ 0) - (_bodyMin @ 0);
+	_bodySizeY = (_bodyMax @ 1) - (_bodyMin @ 1);
+	_bodySizeZ = (_bodyMax @ 2) - (_bodyMin @ 2);
+	_targetBounds = +_bodyBounds;
+
+	if ((count _rotorBoundsList) == 4) then
+	{
+		_rotorCenter = [(_rotorBoundsList @ 0)] call _centerOfBounds;
+		_rotorMinY = _rotorCenter @ 1;
+		_rotorMaxY = _rotorCenter @ 1;
+		_i = 1;
+
+		while {_i < (count _rotorBoundsList)} do
+		{
+			_rotorCenter = [(_rotorBoundsList @ _i)] call _centerOfBounds;
+			if ((_rotorCenter @ 1) < _rotorMinY) then {_rotorMinY = _rotorCenter @ 1;};
+			if ((_rotorCenter @ 1) > _rotorMaxY) then {_rotorMaxY = _rotorCenter @ 1;};
+			_i = _i + 1;
+		};
+
+		_rotorSpanY = _rotorMaxY - _rotorMinY;
+		_bodyBoxMinY = _rotorMinY - (_rotorSpanY * 0.10);
+		_bodyBoxMaxY = _rotorMaxY + (_rotorSpanY * 0.10);
+		_bodyBoxMaxZ = (_bodyMin @ 2) + (_bodySizeZ * 0.72);
+
+		if (_bodyBoxMinY < (_bodyMin @ 1)) then {_bodyBoxMinY = _bodyMin @ 1;};
+		if (_bodyBoxMaxY > (_bodyMax @ 1)) then {_bodyBoxMaxY = _bodyMax @ 1;};
+		if (_bodyBoxMaxZ <= (_bodyMin @ 2)) then {_bodyBoxMaxZ = (_bodyMin @ 2) + 0.04;};
+
+		_targetBounds =
+		[
+			[_bodyMin @ 0, _bodyBoxMinY, _bodyMin @ 2],
+			[_bodyMax @ 0, _bodyBoxMaxY, _bodyBoxMaxZ]
+		];
+
+		_motorHalfX = _bodySizeX * 0.12;
+		_motorHalfY = _bodySizeY * 0.12;
+		_motorHalfZ = _bodySizeZ * 0.18;
+		_motorCenterZ = (_bodyMin @ 2) + (_bodySizeZ * 0.45);
+
+		if (_motorHalfX < 0.015) then {_motorHalfX = 0.015;};
+		if (_motorHalfY < 0.015) then {_motorHalfY = 0.015;};
+		if (_motorHalfZ < 0.015) then {_motorHalfZ = 0.015;};
+
+		_i = 0;
+		while {_i < (count _rotorBoundsList)} do
+		{
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			_motorBounds = [[_rotorCenter @ 0, _rotorCenter @ 1, _motorCenterZ], _motorHalfX, _motorHalfY, _motorHalfZ] call _makeBoundsFromCenter;
+			_targetBounds = [_targetBounds, _motorBounds] call _expandBoundsWithBounds;
+			_i = _i + 1;
+		};
+	};
+
+	_targetBounds
+};
+
+_getLodObjectByResolution =
+{
+	private ["_p3d","_resolution","_objects","_resolutions","_result","_i"];
+
+	_p3d = _this@0;
+	_resolution = _this@1;
+	_objects = getObjects _p3d;
+	_resolutions = getResolutions _p3d;
+	_result = nil;
+	_i = 0;
+
+	while {_i < (count _objects)} do
+	{
+		if ((_resolutions @ _i) == _resolution) then
+		{
+			_result = _objects @ _i;
+		};
+		_i = _i + 1;
+	};
+
+	_result
+};
+
+_fitObjectToBounds =
+{
+	private ["_obj","_targetBounds","_sourceBounds","_sourceMin","_sourceMax","_targetMin","_targetMax","_sourceCenter","_targetCenter","_sourceSizeX","_sourceSizeY","_sourceSizeZ","_targetSizeX","_targetSizeY","_targetSizeZ","_scaleX","_scaleY","_scaleZ","_i","_point","_newPoint"];
+
+	_obj = _this@0;
+	_targetBounds = _this@1;
+	_sourceBounds = [_obj] call _getObjectBounds;
+
+	if ((isnil "_sourceBounds") || (isnil "_targetBounds")) exitWith
+	{
+		echo "Skipped fitObjectToBounds due to missing bounds";
+	};
+
+	_sourceMin = _sourceBounds @ 0;
+	_sourceMax = _sourceBounds @ 1;
+	_targetMin = _targetBounds @ 0;
+	_targetMax = _targetBounds @ 1;
+	_sourceCenter = [_sourceBounds] call _centerOfBounds;
+	_targetCenter = [_targetBounds] call _centerOfBounds;
+	_sourceSizeX = (_sourceMax @ 0) - (_sourceMin @ 0);
+	_sourceSizeY = (_sourceMax @ 1) - (_sourceMin @ 1);
+	_sourceSizeZ = (_sourceMax @ 2) - (_sourceMin @ 2);
+	_targetSizeX = (_targetMax @ 0) - (_targetMin @ 0);
+	_targetSizeY = (_targetMax @ 1) - (_targetMin @ 1);
+	_targetSizeZ = (_targetMax @ 2) - (_targetMin @ 2);
+	_scaleX = 1;
+	_scaleY = 1;
+	_scaleZ = 1;
+
+	if (_sourceSizeX > 0) then {_scaleX = _targetSizeX / _sourceSizeX;};
+	if (_sourceSizeY > 0) then {_scaleY = _targetSizeY / _sourceSizeY;};
+	if (_sourceSizeZ > 0) then {_scaleZ = _targetSizeZ / _sourceSizeZ;};
+
+	_i = 0;
+	while {_i < (countPoints _obj)} do
+	{
+		_point = _obj getPoint _i;
+		_newPoint =
+		[
+			(((_point @ 0) - (_sourceCenter @ 0)) * _scaleX) + (_targetCenter @ 0),
+			(((_point @ 1) - (_sourceCenter @ 1)) * _scaleY) + (_targetCenter @ 1),
+			(((_point @ 2) - (_sourceCenter @ 2)) * _scaleZ) + (_targetCenter @ 2)
+		];
+		_obj setPoint [_i, _newPoint];
+		_i = _i + 1;
+	};
+
+	echo ("Fitted template LOD to target bounds: " + str _targetBounds);
+};
+
+_createSupportLodFromTemplate =
+{
+	private ["_p3d","_resolution","_templateObj","_targetBounds","_stripRenderData","_lod"];
+
+	_p3d = _this@0;
+	_resolution = _this@1;
+	_templateObj = _this@2;
+	_targetBounds = _this@3;
+	_stripRenderData = _this@4;
+
+	_lod = addLevel _p3d;
+	_lod := _templateObj;
+	_p3d setResolution _resolution;
+	_lod setProperty ["autocenter", 0];
+
+	if (_stripRenderData) then
+	{
+		[_lod] call _stripFaceRenderData;
+	};
+
+	[_lod, _targetBounds] call _fitObjectToBounds;
+	_lod
+};
+
+_addBoxComponent =
+{
+	private ["_obj","_bounds","_selectionName","_min","_max","_start","_faceDefs","_faceIndices","_faceIndex","_faceVertices","_i","_sel"];
+
+	_obj = _this@0;
+	_bounds = _this@1;
+	_selectionName = _this@2;
+	_min = _bounds @ 0;
+	_max = _bounds @ 1;
+
+	if (((_max @ 0) <= (_min @ 0)) || ((_max @ 1) <= (_min @ 1)) || ((_max @ 2) <= (_min @ 2))) exitWith
+	{
+		echo ("Skipped invalid box component " + _selectionName + ": " + str _bounds);
+	};
+
+	_start = countPoints _obj;
+	echo ("AddBox start " + _selectionName + " bounds=" + str _bounds);
+	_obj addPoint [_min @ 0, _min @ 1, _min @ 2];
+	_obj addPoint [_max @ 0, _min @ 1, _min @ 2];
+	_obj addPoint [_max @ 0, _max @ 1, _min @ 2];
+	_obj addPoint [_min @ 0, _max @ 1, _min @ 2];
+	_obj addPoint [_min @ 0, _min @ 1, _max @ 2];
+	_obj addPoint [_max @ 0, _min @ 1, _max @ 2];
+	_obj addPoint [_max @ 0, _max @ 1, _max @ 2];
+	_obj addPoint [_min @ 0, _max @ 1, _max @ 2];
+
+	_faceDefs =
+	[
+		[_start + 0, _start + 3, _start + 2, _start + 1],
+		[_start + 4, _start + 5, _start + 6, _start + 7],
+		[_start + 0, _start + 1, _start + 5, _start + 4],
+		[_start + 1, _start + 2, _start + 6, _start + 5],
+		[_start + 2, _start + 3, _start + 7, _start + 6],
+		[_start + 3, _start + 0, _start + 4, _start + 7]
+	];
+	_faceIndices = [];
+	_i = 0;
+
+	while {_i < (count _faceDefs)} do
+	{
+		_faceVertices = _faceDefs @ _i;
+		echo ("AddBox face " + _selectionName + " step=" + str _i + " verts=" + str _faceVertices);
+		_faceIndex = face addFace _obj;
+		echo ("AddBox faceIndex " + _selectionName + " step=" + str _i + " idx=" + str _faceIndex);
+		(_obj face _faceIndex) setVertices _faceVertices;
+		echo ("AddBox setVertices " + _selectionName + " step=" + str _i);
+		_faceIndices set [count _faceIndices, _faceIndex];
+		_i = _i + 1;
+	};
+
+	_sel = newSelection _obj;
+	_sel selectFaces _faceIndices;
+	selectPointsFromFaces _sel;
+	_obj save (_sel as _selectionName);
+	echo ("Created box component " + _selectionName + ": " + str _bounds);
+};
+
+_createBoxedSupportLod =
+{
+	private ["_p3d","_resolution","_bodyBounds","_rotorBoundsList","_lod","_bodyMin","_bodyMax","_bodySizeX","_bodySizeY","_bodySizeZ","_rotorMinX","_rotorMaxX","_rotorMinY","_rotorMaxY","_rotorCenter","_rotorBounds","_i","_rotorSpanX","_rotorSpanY","_bodyBoxMinY","_bodyBoxMaxY","_bodyBoxMaxZ","_bodyBoxBounds","_motorHalfX","_motorHalfY","_motorHalfZ","_motorCenterZ","_componentName","_motorCenter","_motorBounds"];
+
+	_p3d = _this@0;
+	_resolution = _this@1;
+	_bodyBounds = _this@2;
+	_rotorBoundsList = _this@3;
+
+	_lod = addLevel _p3d;
+	_p3d setResolution _resolution;
+	_lod setProperty ["autocenter", 0];
+	echo ("CreateBoxedSupportLod resolution=" + str _resolution);
+
+	_bodyMin = _bodyBounds @ 0;
+	_bodyMax = _bodyBounds @ 1;
+	_bodySizeX = (_bodyMax @ 0) - (_bodyMin @ 0);
+	_bodySizeY = (_bodyMax @ 1) - (_bodyMin @ 1);
+	_bodySizeZ = (_bodyMax @ 2) - (_bodyMin @ 2);
+
+	_bodyBoxBounds = _bodyBounds;
+
+	if ((count _rotorBoundsList) == 4) then
+	{
+		_rotorCenter = [(_rotorBoundsList @ 0)] call _centerOfBounds;
+		_rotorMinX = _rotorCenter @ 0;
+		_rotorMaxX = _rotorCenter @ 0;
+		_rotorMinY = _rotorCenter @ 1;
+		_rotorMaxY = _rotorCenter @ 1;
+		_i = 1;
+
+		while {_i < (count _rotorBoundsList)} do
+		{
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			if ((_rotorCenter @ 0) < _rotorMinX) then {_rotorMinX = _rotorCenter @ 0;};
+			if ((_rotorCenter @ 0) > _rotorMaxX) then {_rotorMaxX = _rotorCenter @ 0;};
+			if ((_rotorCenter @ 1) < _rotorMinY) then {_rotorMinY = _rotorCenter @ 1;};
+			if ((_rotorCenter @ 1) > _rotorMaxY) then {_rotorMaxY = _rotorCenter @ 1;};
+			_i = _i + 1;
+		};
+
+		_rotorSpanX = _rotorMaxX - _rotorMinX;
+		_rotorSpanY = _rotorMaxY - _rotorMinY;
+		_bodyBoxMinY = _rotorMinY - (_rotorSpanY * 0.10);
+		_bodyBoxMaxY = _rotorMaxY + (_rotorSpanY * 0.10);
+		_bodyBoxMaxZ = (_bodyMin @ 2) + (_bodySizeZ * 0.72);
+
+		if (_bodyBoxMinY < (_bodyMin @ 1)) then {_bodyBoxMinY = _bodyMin @ 1;};
+		if (_bodyBoxMaxY > (_bodyMax @ 1)) then {_bodyBoxMaxY = _bodyMax @ 1;};
+		if (_bodyBoxMaxZ <= (_bodyMin @ 2)) then {_bodyBoxMaxZ = (_bodyMin @ 2) + 0.04;};
+
+		_bodyBoxBounds =
+		[
+			[_bodyMin @ 0, _bodyBoxMinY, _bodyMin @ 2],
+			[_bodyMax @ 0, _bodyBoxMaxY, _bodyBoxMaxZ]
+		];
+	};
+
+	[_lod, _bodyBoxBounds, "Component01"] call _addBoxComponent;
+	echo ("CreateBoxedSupportLod body component done resolution=" + str _resolution);
+
+	if ((count _rotorBoundsList) == 4) then
+	{
+		_motorHalfX = _bodySizeX * 0.12;
+		_motorHalfY = _bodySizeY * 0.12;
+		_motorHalfZ = _bodySizeZ * 0.18;
+		_motorCenterZ = (_bodyMin @ 2) + (_bodySizeZ * 0.45);
+
+		if (_motorHalfX < 0.015) then {_motorHalfX = 0.015;};
+		if (_motorHalfY < 0.015) then {_motorHalfY = 0.015;};
+		if (_motorHalfZ < 0.015) then {_motorHalfZ = 0.015;};
+
+		_i = 0;
+		while {_i < (count _rotorBoundsList)} do
+		{
+			_rotorBounds = _rotorBoundsList @ _i;
+			_rotorCenter = [_rotorBounds] call _centerOfBounds;
+			_motorCenter = [_rotorCenter @ 0, _rotorCenter @ 1, _motorCenterZ];
+			_motorBounds = [_motorCenter, _motorHalfX, _motorHalfY, _motorHalfZ] call _makeBoundsFromCenter;
+			_componentName = "Component0" + str (_i + 2);
+			[_lod, _motorBounds, _componentName] call _addBoxComponent;
+			echo ("CreateBoxedSupportLod motor component done " + _componentName);
+			_i = _i + 1;
+		};
+	};
+
+	_lod
+};
+
+_createSupportLodFromBase =
+{
+	private ["_p3d","_base","_resolution","_selectionName","_totalMass","_stripRenderData","_lod"];
+
+	_p3d = _this@0;
+	_base = _this@1;
+	_resolution = _this@2;
+	_selectionName = _this@3;
+	_totalMass = _this@4;
+	_stripRenderData = _this@5;
+
+	_lod = addLevel _p3d;
+	_lod := _base;
+	_p3d setResolution _resolution;
+	_lod setProperty ["autocenter", 0];
+
+	if (_lod checkSelectionName _selectionName) then
+	{
+		_lod deleteSelection _selectionName;
+	};
+	[_lod, _selectionName] call _createSelectionFromAllFaces;
+
+	if (_stripRenderData) then
+	{
+		[_lod] call _stripFaceRenderData;
+	};
+
+	_lod
+};
+
+_buildDirectionPoint =
+{
+	private ["_target"];
+
+	_target = _this@1;
+	[_target, [0,_CAM_DIR_LEN,0]] call _offsetPoint
+};
+
+_offsetPoint =
+{
+	private ["_point","_offset"];
+
+	_point = _this@0;
+	_offset = _this@1;
+
+	[
+		(_point @ 0) + (_offset @ 0),
+		(_point @ 1) + (_offset @ 1),
+		(_point @ 2) + (_offset @ 2)
+	]
+};
+
+_distanceSqBetweenPoints =
+{
+	private ["_pointA","_pointB","_dx","_dy","_dz"];
+
+	_pointA = _this@0;
+	_pointB = _this@1;
+	_dx = (_pointA @ 0) - (_pointB @ 0);
+	_dy = (_pointA @ 1) - (_pointB @ 1);
+	_dz = (_pointA @ 2) - (_pointB @ 2);
+
+	(_dx * _dx) + (_dy * _dy) + (_dz * _dz)
+};
+
+_scaleObject =
+{
+	private ["_obj","_scaleFactor","_op"];
+
+	_obj = _this@0;
+	_scaleFactor = _this@1;
+	_op = "_vector = _this getPoint _x; _this setPoint [_x, _vector * " + str _scaleFactor + "];";
+	_obj forEachPoint ["true", _op];
+};
+
+_applyVisualMaterial =
+{
+	private ["_obj","_op"];
+
+	_obj = _this@0;
+	_op = "_face = _this face _x; _face setTexture """ + _VISUAL_TEXTURE + """; _face setMaterial """ + _VISUAL_MATERIAL + """;";
+	_obj forEachFace ["true", _op];
+};
+
+_isVisualResolution =
+{
+	private ["_resolution"];
+
+	_resolution = _this@0;
+	(_resolution >= 0) && (_resolution < _RES_SHADOW)
+};
+
+_sourcePath = this@0;
+_templatePath = "";
+if ((count this) > 1) then
+{
+	_templatePath = this@1;
+};
+_result = "Script started";
+console = openStandardIO;
+_logFile = console;
+
+try
+{
+	_logFile << "Source: " << _sourcePath << eoln;
+	_logFile << "Scale: " << str _MODEL_SCALE << eoln;
+	_logFile << "Texture: " << _VISUAL_TEXTURE << eoln;
+	_logFile << "Material: " << _VISUAL_MATERIAL << eoln;
+	_logFile << "Template: " << _templatePath << eoln;
+	echo ("Source: " + _sourcePath);
+
+	_p3d = newLODObject;
+	if !(_p3d loadP3D _sourcePath) then
+	{
+		_result = "Failed to load P3D: " + _sourcePath;
+		_logFile << _result << eoln;
+		echo _result;
+	}
+	else
+	{
+		_result = "Loaded P3D";
+		_logFile << _result << eoln;
+
+		_templateP3d = nil;
+		_templateReady = false;
+		_templateGeom = nil;
+		_templateGeomPhys = nil;
+		_templateViewGeom = nil;
+		_templateFireGeom = nil;
+		if (_templatePath != "") then
+		{
+			_templateP3d = newLODObject;
+			if !(_templateP3d loadP3D _templatePath) then
+			{
+				_result = "Failed to load template P3D: " + _templatePath;
+				_logFile << _result << eoln;
+				echo _result;
+				_templateP3d = nil;
+			}
+			else
+			{
+				_logFile << "Loaded template P3D" << eoln;
+				_logFile << "Template resolutions: " << str (getResolutions _templateP3d) << eoln;
+
+				_templateGeom = [_templateP3d, _RES_GEOMETRY] call _getLodObjectByResolution;
+				_templateGeomPhys = [_templateP3d, _RES_GEOMETRYPHYS] call _getLodObjectByResolution;
+				_templateViewGeom = [_templateP3d, _RES_VIEWGEOMETRY] call _getLodObjectByResolution;
+				_templateFireGeom = [_templateP3d, _RES_FIREGEOMETRY] call _getLodObjectByResolution;
+
+				if !(isnil "_templateGeom") then
+				{
+					if (isnil "_templateViewGeom") then
+					{
+						_templateViewGeom = _templateGeom;
+						_logFile << "Template ViewGeometry missing, using Geometry as fallback" << eoln;
+					};
+
+					if (isnil "_templateFireGeom") then
+					{
+						_templateFireGeom = _templateGeom;
+						_logFile << "Template FireGeometry missing, using Geometry as fallback" << eoln;
+					};
+				};
+
+				if ((isnil "_templateGeom") || (isnil "_templateGeomPhys") || (isnil "_templateViewGeom") || (isnil "_templateFireGeom")) then
+				{
+					_result = "Template P3D is missing one or more support LODs";
+					_logFile << _result << eoln;
+					echo _result;
+				}
+				else
+				{
+					_templateReady = true;
+				};
+			};
+		};
+
+		_baseObjects = getObjects _p3d;
+		_logFile << "Level count: " << str (count _baseObjects) << eoln;
+
+		if ((_templatePath != "") && !_templateReady) then
+		{
+			_result = "Aborted before deleting LODs because template support LODs are not usable";
+			_logFile << _result << eoln;
+			echo _result;
+		}
+		else
+		{
+			[_p3d, _RES_GEOMETRY] call _deleteLevelsByResolution;
+			[_p3d, _RES_GEOMETRYPHYS] call _deleteLevelsByResolution;
+			[_p3d, _RES_VIEWGEOMETRY] call _deleteLevelsByResolution;
+			[_p3d, _RES_FIREGEOMETRY] call _deleteLevelsByResolution;
+			[_p3d, _RES_MEMORY] call _deleteLevelsByResolution;
+			[_p3d, _RES_SHADOW] call _deleteLevelsByResolution;
+			[_p3d, _RES_LANDCONTACT] call _deleteLevelsByResolution;
+			_logFile << "Deleted old Geometry/GeometryPhysX/ViewGeometry/FireGeometry/Memory/ShadowVolume/LandContact LODs" << eoln;
+
+			_lodObjects = getObjects _p3d;
+			_lodResolutions = getResolutions _p3d;
+			_visualObjects = [];
+			_base = nil;
+			_i = 0;
+
+			while {_i < (count _lodObjects)} do
+			{
+				_lodResolution = _lodResolutions @ _i;
+				if ([_lodResolution] call _isVisualResolution) then
+				{
+					_lodObject = _lodObjects @ _i;
+					_visualObjects = _visualObjects + [_lodObject];
+
+					if (isnil "_base") then
+					{
+						_base = _lodObject;
+					};
+				};
+				_i = _i + 1;
+			};
+
+			if (isnil "_base") then
+			{
+				_result = "No visual LODs found in: " + _sourcePath;
+				_logFile << _result << eoln;
+				echo _result;
+			}
+			else
+			{
+
+				_existingScale = _base getProperty "sting_scale_applied";
+				_existingScaleValue = 1;
+				if (_existingScale != "") then
+				{
+					_existingScaleValue = call compile _existingScale;
+					if (_existingScaleValue <= 0) then
+					{
+						_existingScaleValue = 1;
+					};
+				};
+
+				if (_existingScale != (str _MODEL_SCALE)) then
+				{
+					_rescaleFactor = _MODEL_SCALE / _existingScaleValue;
+					_i = 0;
+					while {_i < (count _visualObjects)} do
+					{
+						_visualLod = _visualObjects @ _i;
+						[_visualLod, _rescaleFactor] call _scaleObject;
+						_visualLod setProperty ["sting_scale_applied", _MODEL_SCALE];
+						_i = _i + 1;
+					};
+					_logFile << "Applied model scale factor to visual LODs: " << str _rescaleFactor << eoln;
+				}
+				else
+				{
+					_logFile << "Model scale already applied, skipping rescale" << eoln;
+				};
+
+				_i = 0;
+				while {_i < (count _visualObjects)} do
+				{
+					_visualLod = _visualObjects @ _i;
+					[_visualLod] call _applyVisualMaterial;
+					_visualLod setProperty ["LodNoShadow", "1"];
+					_visualLod setProperty ["LODNoShadow", "1"];
+					_visualLod setProperty ["LODNoShadows", "1"];
+					_i = _i + 1;
+				};
+				_logFile << "Updated visual LODs and rewrote face materials" << eoln;
+
+				echo "Step: get body bounds";
+				_bodyBounds = [_base, "body_0"] call _getSelectionBounds;
+				echo ("Step: body bounds=" + str _bodyBounds);
+				echo "Step: get visual bounds";
+				_visualBounds = [_base] call _getObjectBounds;
+				echo ("Step: visual bounds=" + str _visualBounds);
+				if (isnil "_bodyBounds") then
+				{
+					_bodyBounds = _visualBounds;
+				};
+				if (isnil "_visualBounds") then
+				{
+					_result = "No bounds available for: " + _sourcePath;
+					_logFile << _result << eoln;
+					echo _result;
+				}
+				else
+				{
+					echo "Step: center body bounds";
+					_bodyCenter = [_bodyBounds] call _centerOfBounds;
+					echo ("Step: body center=" + str _bodyCenter);
+					echo "Step: collect rotor bounds";
+					_rotorBoundsList = [_base] call _collectRotorBounds;
+					echo ("Step: rotor bounds count=" + str (count _rotorBoundsList));
+					_supportTargetBounds = [_bodyBounds, _rotorBoundsList] call _buildSupportTargetBounds;
+					_logFile << "Support target bounds: " << str _supportTargetBounds << eoln;
+
+					echo "Step: build Geometry LOD from template";
+					_geom = [_p3d, _RES_GEOMETRY, _templateGeom, _supportTargetBounds, true] call _createSupportLodFromTemplate;
+					_geom setProperty ["canocclude", 0];
+					_geom setProperty ["canbeoccluded", 1];
+					_geom setProperty ["forcenotalpha", 1];
+					_logFile << "Created template-based Geometry LOD" << eoln;
+
+					echo "Step: build Geometry PhysX LOD from template";
+					_geomPhys = [_p3d, _RES_GEOMETRYPHYS, _templateGeomPhys, _supportTargetBounds, true] call _createSupportLodFromTemplate;
+					_geomPhys setProperty ["autocenter", 0];
+					_logFile << "Created template-based Geometry PhysX LOD" << eoln;
+
+					echo "Step: build ViewGeometry LOD from template";
+					_viewGeom = [_p3d, _RES_VIEWGEOMETRY, _templateViewGeom, _supportTargetBounds, true] call _createSupportLodFromTemplate;
+					_viewGeom setProperty ["autocenter", 0];
+					_logFile << "Created template-based ViewGeometry LOD" << eoln;
+
+					echo "Step: build FireGeometry LOD from template";
+					_fireGeom = [_p3d, _RES_FIREGEOMETRY, _templateFireGeom, _supportTargetBounds, true] call _createSupportLodFromTemplate;
+					_fireGeom setProperty ["autocenter", 0];
+					_logFile << "Created template-based FireGeometry LOD" << eoln;
+
+					_mem = addLevel _p3d;
+					_p3d setResolution _RES_MEMORY;
+					_mem setProperty ["autocenter", 0];
+					_logFile << "Created Memory LOD" << eoln;
+
+					_cameraCenter = [_base, "camera_0"] call _getSelectionCenter;
+					_cameraPoint = _cameraCenter;
+					if (isnil "_cameraPoint") then
+					{
+						_bodyMin = _bodyBounds @ 0;
+						_bodyMax = _bodyBounds @ 1;
+						_cameraPoint =
+						[
+							((_bodyMin @ 0) + (_bodyMax @ 0)) * 0.5,
+							(_bodyMax @ 1) - (((_bodyMax @ 1) - (_bodyMin @ 1)) * 0.08),
+							(_bodyMin @ 2) + (((_bodyMax @ 2) - (_bodyMin @ 2)) * 0.28)
+						];
+						_logFile << "Camera selection missing, using forward fallback point" << eoln;
+					};
+
+					_cameraDistanceSq = [_bodyCenter, _cameraPoint] call _distanceSqBetweenPoints;
+					if (_cameraDistanceSq < 0.0004) then
+					{
+						_bodyMin = _bodyBounds @ 0;
+						_bodyMax = _bodyBounds @ 1;
+						_cameraPoint =
+						[
+							((_bodyMin @ 0) + (_bodyMax @ 0)) * 0.5,
+							(_bodyMax @ 1) - (((_bodyMax @ 1) - (_bodyMin @ 1)) * 0.08),
+							(_bodyMin @ 2) + (((_bodyMax @ 2) - (_bodyMin @ 2)) * 0.28)
+						];
+						_logFile << "Camera selection too close to body center, using forward fallback point" << eoln;
+					};
+
+					_driverPoint = [_bodyCenter, [0,0.02,0.02]] call _offsetPoint;
+
+					_land = addLevel _p3d;
+					_p3d setResolution _RES_LANDCONTACT;
+					_land setProperty ["autocenter", 0];
+					[_base, _land, _bodyBounds, _visualBounds] call _createLandContactPoints;
+					_logFile << "Created LandContact LOD" << eoln;
+
+					[_base, _mem, "vint1_0", "vint1_axis"] call _createAxisFromSelection;
+					[_base, _mem, "vint2_0", "vint2_axis"] call _createAxisFromSelection;
+					[_base, _mem, "vint3_0", "vint3_axis"] call _createAxisFromSelection;
+					[_base, _mem, "vint4_0", "vint4_axis"] call _createAxisFromSelection;
+					_logFile << "Created rotor axes" << eoln;
+
+					_cameraDirPoint = [_bodyCenter, _cameraPoint] call _buildDirectionPoint;
+
+					[_mem, _cameraDirPoint, "pip_pilot_dir"] call _createPointSelection;
+					[_mem, _cameraPoint, "pip_pilot_pos"] call _createPointSelection;
+					[_mem, _cameraPoint, "pos_pilotcamera"] call _createPointSelection;
+					[_mem, _cameraDirPoint, "pos_pilotcamera_dir"] call _createPointSelection;
+					[_mem, _driverPoint, "pos_driver"] call _createPointSelection;
+					[_mem, _cameraDirPoint, "pos_driver_dir"] call _createPointSelection;
+					_logFile << "Created camera points" << eoln;
+
+					[_mem, _bodyCenter, "TaskMarker_1_pos"] call _createPointSelection;
+					_logFile << "Created task marker point" << eoln;
+
+					if (save (_p3d as _sourcePath)) then
+					{
+						_result = "Saved: " + _sourcePath;
+						_logFile << _result << eoln;
+						echo _result;
+					}
+					else
+					{
+						_result = "Save failed: " + _sourcePath;
+						_logFile << _result << eoln;
+						echo _result;
+					};
+				};
+			};
+		};
+	};
+}
+catch
+{
+	_result = "Exception: " + str _exception;
+	_logFile << _result << eoln;
+	echo _result;
+};
+
+_result

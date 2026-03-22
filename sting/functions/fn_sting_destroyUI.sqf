@@ -1,0 +1,36 @@
+/*
+	Sting: UI cleanup.
+	Purpose: hides the OSD layer.
+	Context: client when leaving FPV control.
+	Params: none.
+	Returns: nothing.
+*/
+
+#include "\sting\script_macros.hpp"
+
+private _cleanupToken = diag_frameNo;
+SETMVAR(DB_sting_pendingCleanupToken, _cleanupToken);
+
+private _clearEffects = {
+	params ["_token"];
+
+	private _activeToken = GETMVAR(DB_sting_pendingCleanupToken, -1);
+	if (_token isNotEqualTo _activeToken) exitWith {};
+
+	private _layer = GETMVAR(DB_STING_Layer_ID, -1);
+	if (_layer >= 0) then {
+		_layer cutText ["", "PLAIN"];
+	};
+
+};
+
+[_cleanupToken] call _clearEffects;
+
+[
+	{
+		params ["_token", "_clearEffects"];
+		[_token] call _clearEffects;
+	},
+	[_cleanupToken, _clearEffects],
+	1
+] call CBA_fnc_waitAndExecute;
