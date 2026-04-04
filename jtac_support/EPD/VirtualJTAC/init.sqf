@@ -1,6 +1,6 @@
 if (missionNamespace getVariable ["DB_JTAC_RuntimeInitialized", false]) exitWith {
     if (!isDedicated and !(isNil "DB_fnc_jtacRefreshState")) then {
-        call DB_fnc_jtacRefreshState;
+        [] call DB_fnc_jtacRefreshState;
     };
 };
 
@@ -69,7 +69,7 @@ if (!isDedicated) then {
     JtacTargetingMethod = "LASER";
 
     waitUntil {sleep 0.5; !(isNull player)};
-    call DB_fnc_jtacRefreshState;
+    [] call DB_fnc_jtacRefreshState;
 
     // ====================== CBA KEYBIND (с переменной) ======================
     if !(missionNamespace getVariable ["DB_JTAC_KeybindRegistered", false]) then {
@@ -80,7 +80,7 @@ if (!isDedicated) then {
             "JTAC_OpenMenu",
             ["Open JTAC Support Menu", "Открыть меню запроса поддержки JTAC"],
             {
-                if ((call DB_fnc_jtacRefreshState) && {JtacAvailable}) then {
+                if (([] call DB_fnc_jtacRefreshState) && {JtacAvailable}) then {
                     [] call JTAC_OpenMainUI;
                 };
             },

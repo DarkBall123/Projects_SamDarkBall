@@ -2,7 +2,19 @@ if ((isServer) and (isDedicated)) exitWith {};
 
 if (isNil "DB_fnc_jtacRefreshState") then {
     DB_fnc_jtacRefreshState = {
-        private _unit = _this param [0, missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player], [objNull]];
+        private _unit = objNull;
+
+        if (_this isEqualType objNull) then {
+            _unit = _this;
+        } else {
+            if (_this isEqualType []) then {
+                _unit = _this param [0, objNull, [objNull]];
+            };
+        };
+
+        if (isNull _unit) then {
+            _unit = missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull];
+        };
 
         if (isNull _unit) then {
             _unit = player;
