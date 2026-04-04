@@ -15,17 +15,32 @@ DROP_BOMBS = {
 	private _spreadRadial = _projectiles select 4;
 	private _minTimeBetween = _projectiles select 5;
 	private _maxRandomTime  = _projectiles select 6;
+	private _applyImpactSpread = false;
+
+	if ((count _projectiles) > 7) then {
+		_applyImpactSpread = _projectiles select 7;
+	};
 
 	private _sourceLocation = _targetLocation getPos[_source2dDistance, _incomingAngle];
 	_sourceLocation set [2, _sourceHeight + (_targetLocation select 2)];
 
 	private "_i";
 	for "_i" from 0 to _numberToSend - 1 do {
-		private _spawnLocation = _sourceLocation getPos[_spreadRadial * sqrt random 1, random 360];
+		private _spawnLocation = _sourceLocation;
+		private _impactLocation = +_targetLocation;
+
+		if (!_applyImpactSpread) then {
+			_spawnLocation = _sourceLocation getPos[_spreadRadial * sqrt random 1, random 360];
+			_spawnLocation set [2, _sourceLocation select 2];
+		} else {
+			_impactLocation = _targetLocation getPos[_spreadRadial * sqrt random 1, random 360];
+			_impactLocation set [2, _targetLocation select 2];
+		};
+
 		_spawnLocation set [2, _sourceLocation select 2];
 
-		private _targetSourceDifference =  (_targetLocation vectorDiff _sourceLocation);
-        _targetSourceDifference set [2,0];
+		private _targetSourceDifference = (_impactLocation vectorDiff _spawnLocation);
+		_targetSourceDifference set [2,0];
 
 		_targetSourceDifference = vectorNormalized _targetSourceDifference;
 		private _bomb = _projectileClassName createVehicle _spawnLocation;

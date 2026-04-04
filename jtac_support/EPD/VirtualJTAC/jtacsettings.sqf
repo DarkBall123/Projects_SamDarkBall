@@ -57,14 +57,15 @@ EPDJtacReloads = [
 				_speed - Optional starting speed for the projectile.
 
 		DROP_BOMBS - Spawns the payload about 4.2km away. Sets the correct orientation and gives it a bit of velocity.
-			parameters - [_projectileClassName, _numberToSend, _initialSpeed, _speedVariance, _spreadRadial, _minTimeBetween, _maxRandomTime]
+			parameters - [_projectileClassName, _numberToSend, _initialSpeed, _speedVariance, _spreadRadial, _minTimeBetween, _maxRandomTime, _useImpactSpread]
 				_projectileClassName - Classname of the projectile to use.
 				_numberToSend - How many bombs to drop.
 				_initialSpeed - How fast the bomb is going.
 				_speedVariance - The speed of the bomb will be adjusted by up to this much. This will cause the bomb to undershoot or overshoot.
-				_angleVariance - Radius of the horizontal inaccuracy. Projectiles can land anywhere in a circle of this radius around the target.
+				_spreadRadial - Radius of the horizontal inaccuracy. When _useImpactSpread is true, bombs will land anywhere in a circle of this radius around the target.
 				_minTimeBetween - Minimum time between shots.
 				_maxRandomTime  - A random value of up to this value is added to the _minTimeBetween variable to provide some variable time between shots.
+				_useImpactSpread - Optional. Use true for bomb payloads that should spread around the target point instead of just varying their spawn point.
 
 		FIRE_ROCKETS - Spawns a missile. Sets the correct orientation and sets the correct model orientation.
 			parameters - [_projectileClassName, _numberToSend, _horizontalDistance, _pitch, _pitchVariance, _yawVariance, _minTimeBetween, _maxRandomTime]
@@ -133,21 +134,21 @@ EPDJtacAvailableAttacks  = [
 	["STRAFINGRUN", "Shrieker HE - 50 meters", 30, 2, "STRAFING_RUN_ROCKET", ["Rocket_04_HE_F", 6, 50, 3000, -20.467, 6, .1, .2]],
 	["STRAFINGRUN", "Shrieker HE - 100 meters", 35, 3, "STRAFING_RUN_ROCKET", ["Rocket_04_HE_F", 12, 100, 3000, -20.467, 6, .1, .2]],
 
-	["BOMBS", "UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 1,211.7,0,0,0,0]],
-	["BOMBS", "4x UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 4,211.7,1,10,1,2]],
-	["BOMBS", "UMPK FAB 500", 30, 1, "DROP_BOMBS", ["umpk500", 1,211.7,0,0,0,0]],
-	["BOMBS", "UMPK FAB 1500", 30, 1, "DROP_BOMBS", ["umpk1500", 1,211.7,0,0,0,0]],
-	["BOMBS", "UMPK FAB 9000", 60, 1, "DROP_BOMBS", ["umpk9000", 1,211.7,0,0,0,0]],
-	["BOMBS", "RBK500 cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 2, 212, 0.5, 10, 0, 0]],
-	["BOMBS", "500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 1, 223.5, 0,0,0,0]],
-	["BOMBS", "4x 500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 4, 223.5, 1,10,1,2]],
-	["BOMBS", "1000lb GBU32", 30, 1, "DROP_BOMBS", ["GBU32", 1, 223.5, 1, 0,0,0,0]],
-	["BOMBS", "1500lb GBU54", 30, 1, "DROP_BOMBS", ["GBU54", 1, 223.5, 1, 0,0,0,0]],
-	["BOMBS", "580lb cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 1, 212, 0.5, 10, 0, 0]],
-	["BOMBS", "MOAB", 60, 1, "DROP_BOMBS", ["MOAB", 1,211.7,0,0,0,0]],
+	["BOMBS", "UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 1,211.7,0,0,0,0,true]],
+	["BOMBS", "4x UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 4,211.7,1,30,1,2,true]],
+	["BOMBS", "UMPK FAB 500", 30, 1, "DROP_BOMBS", ["umpk500", 1,211.7,0,0,0,0,true]],
+	["BOMBS", "UMPK FAB 1500", 30, 1, "DROP_BOMBS", ["umpk1500", 1,211.7,0,0,0,0,true]],
+	["BOMBS", "UMPK FAB 9000", 60, 1, "DROP_BOMBS", ["umpk9000", 1,211.7,0,0,0,0,true]],
+	["BOMBS", "RBK500 cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 2, 212, 0.5, 10, 0, 0,true]],
+	["BOMBS", "500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 1, 223.5, 0,0,0,0,true]],
+	["BOMBS", "4x 500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 4, 223.5, 1,10,1,2,true]],
+	["BOMBS", "1000lb GBU32", 30, 1, "DROP_BOMBS", ["GBU32", 1, 223.5, 1, 0,0,0,true]],
+	["BOMBS", "1500lb GBU54", 30, 1, "DROP_BOMBS", ["GBU54", 1, 223.5, 1, 0,0,0,true]],
+	["BOMBS", "580lb cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 1, 212, 0.5, 10, 0, 0,true]],
+	["BOMBS", "MOAB", 60, 1, "DROP_BOMBS", ["MOAB", 1,211.7,0,0,0,0,true]],
 
 	["ROCKETS", "TORNADO-S", 30, 1, "DROP_BOMBS", ["TORNADOS", 12, 240.55, 1.5, 70, 1, 2]],  //Special snowflake
-	["BOMBS", "TORNADO-S cassette ", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 12, 212, 1.5, 100, 1, 2]],
+	["BOMBS", "TORNADO-S cassette ", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 12, 212, 1.5, 100, 1, 2,true]],
 	["ROCKETS", "TORNADO-G", 30, 1, "DROP_BOMBS", ["TORNADOG", 40, 240.55, 1.5, 100, 1, 2]],  //Special snowflake
 	["ROCKETS", "ISKANDER", 60, 1, "DROP_BOMBS", ["ISKANDERK", 1, 240.55, 1, 25, .4, .2]],  //Special snowflake
 	["ROCKETS", " X101", 60, 1, "FIRE_ROCKETS", ["X101", 1, 3911.5, -17.04, 0.3, 0.3, 4, 1]],
