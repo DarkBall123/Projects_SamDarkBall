@@ -20,9 +20,11 @@ JTAC_UpdateModeButtons = {
                 _textColor = [1, 1, 1, 1];
             };
 
+            _ctrl ctrlEnable (!_isSelected);
             _ctrl ctrlSetBackgroundColor _backgroundColor;
             _ctrl ctrlSetTextColor _textColor;
             _ctrl ctrlSetActiveColor _textColor;
+            _ctrl ctrlSetDisabledColor _textColor;
             _ctrl ctrlCommit 0;
         };
     } forEach [
@@ -54,7 +56,7 @@ JTAC_OpenMainUI = {
     _title ctrlCommit 0;
 
     // ====================== КНОПКА LASER (ЛЕВЫЙ ВЕРХНИЙ УГОЛ) ======================
-    private _btnLaser = _disp ctrlCreate ["RscButton", 1100];
+    private _btnLaser = _disp ctrlCreate ["JTAC_ModeButton", 1100];
     _btnLaser ctrlSetPosition [safeZoneX + 0.26 * safeZoneW, safeZoneY + 0.27 * safeZoneH, 0.20 * safeZoneW, 0.06 * safeZoneH];
     _btnLaser ctrlSetText "LASER";
     _btnLaser ctrlSetFont "PuristaBold";
@@ -62,7 +64,7 @@ JTAC_OpenMainUI = {
     _btnLaser ctrlCommit 0;
 
     // ====================== КНОПКА MAP (ПРАВЫЙ ВЕРХНИЙ УГОЛ) ======================
-    private _btnMap = _disp ctrlCreate ["RscButton", 1101];
+    private _btnMap = _disp ctrlCreate ["JTAC_ModeButton", 1101];
     _btnMap ctrlSetPosition [safeZoneX + 0.54 * safeZoneW, safeZoneY + 0.27 * safeZoneH, 0.20 * safeZoneW, 0.06 * safeZoneH];
     _btnMap ctrlSetText "MAP";
     _btnMap ctrlSetFont "PuristaBold";
@@ -80,14 +82,6 @@ JTAC_OpenMainUI = {
     _btnMap ctrlAddEventHandler ["ButtonClick", {
         JtacTargetingMethod = "MAP";
         hintSilent "Targeting: MAP";
-        [ctrlParent (_this select 0)] call JTAC_UpdateModeButtons;
-    }];
-
-    _btnLaser ctrlAddEventHandler ["MouseExit", {
-        [ctrlParent (_this select 0)] call JTAC_UpdateModeButtons;
-    }];
-
-    _btnMap ctrlAddEventHandler ["MouseExit", {
         [ctrlParent (_this select 0)] call JTAC_UpdateModeButtons;
     }];
 
