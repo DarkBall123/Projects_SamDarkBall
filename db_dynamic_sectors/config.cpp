@@ -43,7 +43,7 @@ class CfgFunctions
     };
 };
 
-#include "includes\Extended_PreInit_EventHandlers.hpp"
+#include "includes\Extended_PostInit_EventHandlers.hpp"
 
 class cfgMods
 {

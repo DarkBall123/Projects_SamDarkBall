@@ -40,7 +40,7 @@ missionNamespace setVariable ["DB_DS_clientInitDone", true];
 
             _baseMarker setMarkerBrushLocal "SolidFull";
             _baseMarker setMarkerColorLocal "#(0.52,0.52,0.52)";
-            _baseMarker setMarkerAlphaLocal 0.28;
+            _baseMarker setMarkerAlphaLocal 0;
 
             {
                 _x setMarkerBrushLocal (_sideBrushes # _forEachIndex);
@@ -55,6 +55,10 @@ missionNamespace setVariable ["DB_DS_clientInitDone", true];
         missionNamespace setVariable ["DB_DS_activeSectorIds", []];
         missionNamespace setVariable ["DB_DS_lastPayloadRevision", -1];
         missionNamespace setVariable ["DB_DS_renderedSectorState", createHashMap];
+
+        {
+            [_forEachIndex, [0, 0, 0]] call DB_DS_fnc_renderSectorState;
+        } forEach _sectorMarkers;
 
         [missionNamespace getVariable ["DB_DS_sectorStatePayload", [0, []]]] call DB_DS_fnc_handleStateUpdate;
 

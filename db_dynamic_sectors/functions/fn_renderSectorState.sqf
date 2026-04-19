@@ -35,8 +35,8 @@ private _sideColors =
 ];
 private _overlayMarkers = [_westMarker, _eastMarker, _indMarker];
 private _activeIndices = [];
-private _baseColor = "#(0.52,0.52,0.52)";
-private _baseAlpha = 0.28;
+private _baseColor = "#(0.46,0.46,0.46)";
+private _baseAlpha = 0.4;
 private _combatColor = "#(0.96,0.56,0.14)";
 
 {
