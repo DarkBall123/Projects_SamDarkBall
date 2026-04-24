@@ -9,7 +9,9 @@ private _cpChance = missionNamespace getVariable ["DZ_cpChance", 0.003];
 private _captureHold = missionNamespace getVariable ["DZ_captureHold", 60];
 private _recaptureSpawnCooldown = missionNamespace getVariable ["DZ_recaptureSpawnCooldown", 180];
 private _counterRepeatCooldown = missionNamespace getVariable ["DZ_counterRepeatCooldown", 180];
-private _counterRepeatChance = missionNamespace getVariable ["DZ_counterRepeatChance", 0.35];
+private _counterGlobalCooldown = missionNamespace getVariable ["DZ_counterGlobalCooldown", 180];
+private _counterFirstChance = missionNamespace getVariable ["DZ_counterFirstChance", 0.03];
+private _counterRepeatChance = missionNamespace getVariable ["DZ_counterRepeatChance", 0.02];
 private _counterMaxActive = missionNamespace getVariable ["DZ_counterMaxActive", 2];
 private _frontMinEnemyNeighbors = missionNamespace getVariable ["DZ_frontMinEnemyNeighbors", 2];
 private _spawnRetryCooldown = missionNamespace getVariable ["DZ_spawnRetryCooldown", 30];
@@ -24,6 +26,7 @@ private _sectorDominance = missionNamespace getVariable ["DZ_sectorDominance", [
 private _spawnBlockedUntil = missionNamespace getVariable ["DZ_spawnBlockedUntil", []];
 private _firstCounterDone = missionNamespace getVariable ["DZ_firstCounterDone", []];
 private _nextCounterAt = missionNamespace getVariable ["DZ_nextCounterAt", []];
+private _nextGlobalCounterAt = missionNamespace getVariable ["DZ_nextGlobalCounterAt", 0];
 private _sideEnemy = missionNamespace getVariable ["CH_sideEnemy", west];
 private _sidePlayers = missionNamespace getVariable ["CH_sidePlayers", east];
 private _now = diag_tickTime;
@@ -396,8 +399,11 @@ for "_idx" from 0 to (_sectorCount - 1) do
             _counterActive = false;
             _counterStart = -1;
             _lastOut = -1;
+            _assets = [[], []];
             _total = 0;
             _ctrLog = -1;
+            _nextCounterAt set [_idx, _now + _counterRepeatCooldown];
+            _nextGlobalCounterAt = _now + _counterGlobalCooldown;
 
             diag_log format ["[DZ:%1] Counterattack ended: no alive BLUFOR units", _idx];
         };
@@ -518,83 +524,91 @@ private _activeCounters = 0;
 
 private _counterCandidates = [];
 
-for "_idx" from 0 to (_sectorCount - 1) do
+if (_now >= _nextGlobalCounterAt) then
 {
-    private _state = _zoneData param [_idx, _zoneTemplate];
-    _state params
-    [
-        "_spawned",
-        "_assets",
-        "_lastOut",
-        "_total",
-        "_captured",
-        "_lastSp",
-        "_preDone",
-        "_counterActive",
-        "_counterStart",
-        "_ctrLog"
-    ];
-
-    if (!_captured || { _spawned } || { _counterActive }) then
+    for "_idx" from 0 to (_sectorCount - 1) do
     {
-        continue;
-    };
+        private _state = _zoneData param [_idx, _zoneTemplate];
+        _state params
+        [
+            "_spawned",
+            "_assets",
+            "_lastOut",
+            "_total",
+            "_captured",
+            "_lastSp",
+            "_preDone",
+            "_counterActive",
+            "_counterStart",
+            "_ctrLog"
+        ];
 
-    if ((_spawnBlockedUntil param [_idx, 0]) > _now) then
-    {
-        continue;
-    };
-
-    private _neighbors = _sectorAdjacency param [_idx, []];
-    private _enemyNeighbors = 0;
-    private _surrounded = (count _neighbors) > 0;
-
-    {
-        if (_playerOwned param [_x, false]) then
+        if (!_captured || { _spawned } || { _counterActive }) then
         {
-            _surrounded = false;
-        }
-        else
-        {
-            _enemyNeighbors = _enemyNeighbors + 1;
+            continue;
         };
-    } forEach _neighbors;
 
-    if (_enemyNeighbors < _frontMinEnemyNeighbors) then
-    {
-        continue;
-    };
+        if ((_spawnBlockedUntil param [_idx, 0]) > _now) then
+        {
+            continue;
+        };
 
-    private _firstDone = _firstCounterDone param [_idx, false];
-    private _nextAllowed = _nextCounterAt param [_idx, 0];
-    private _eligible = false;
+        private _neighbors = _sectorAdjacency param [_idx, []];
+        private _enemyNeighbors = 0;
+        private _enemySpawnNeighbors = [];
+        private _surrounded = (count _neighbors) > 0;
 
-    if (!_firstDone) then
-    {
+        {
+            if (_playerOwned param [_x, false]) then
+            {
+                _surrounded = false;
+            }
+            else
+            {
+                _enemyNeighbors = _enemyNeighbors + 1;
+
+                if ((_spawnBlockedUntil param [_x, 0]) <= _now) then
+                {
+                    _enemySpawnNeighbors pushBack _x;
+                };
+            };
+        } forEach _neighbors;
+
+        if (_enemyNeighbors < _frontMinEnemyNeighbors) then
+        {
+            continue;
+        };
+
+        if (_enemySpawnNeighbors isEqualTo []) then
+        {
+            continue;
+        };
+
+        private _firstDone = _firstCounterDone param [_idx, false];
+        private _nextAllowed = _nextCounterAt param [_idx, 0];
+        private _eligible = false;
+
         if (_now >= _nextAllowed) then
         {
-            _eligible = true;
-        };
-    }
-    else
-    {
-        if (_now >= _nextAllowed) then
-        {
-            if ((random 1) < _counterRepeatChance) then
+            private _counterChance = if (_firstDone) then { _counterRepeatChance } else { _counterFirstChance };
+
+            if ((random 1) < _counterChance) then
             {
                 _eligible = true;
             }
             else
             {
+                _firstCounterDone set [_idx, true];
                 _nextCounterAt set [_idx, _now + _counterRepeatCooldown];
             };
         };
-    };
 
-    if (_eligible) then
-    {
-        private _priority = if (_surrounded) then { 0 } else { 1 };
-        _counterCandidates pushBack [_priority, -_enemyNeighbors, _idx];
+        if (_eligible) then
+        {
+            private _priority = if (_surrounded) then { 0 } else { 1 };
+            private _spawnSectorId = selectRandom _enemySpawnNeighbors;
+            _counterCandidates pushBack [_priority, -_enemyNeighbors, _idx, _spawnSectorId];
+        };
     };
 };
 
@@ -602,8 +616,9 @@ _counterCandidates sort true;
 
 {
     if (_activeCounters >= _counterMaxActive) exitWith {};
+    if (_now < _nextGlobalCounterAt) exitWith {};
 
-    _x params ["_priority", "_negEnemyNeighbors", "_idx"];
+    _x params ["_priority", "_negEnemyNeighbors", "_idx", "_spawnSectorId"];
 
     private _state = +(_zoneData param [_idx, _zoneTemplate]);
     _state params
@@ -625,10 +640,17 @@ _counterCandidates sort true;
         continue;
     };
 
+    if ((_playerOwned param [_spawnSectorId, true]) || { (_spawnBlockedUntil param [_spawnSectorId, 0]) > _now }) then
+    {
+        _nextCounterAt set [_idx, _now + _counterRepeatCooldown];
+        continue;
+    };
+
     private _center = _cells # _idx;
+    private _spawnCenter = _cells # _spawnSectorId;
     private _isUrban = _idx in _urbanHash;
     private _counterTaskKey = if (_isUrban) then { "counterattack_urban" } else { "counterattack_open" };
-    private _counterSpawn = [_center, _counterTaskKey] call DZ_fnc_spawnCounterattackForce;
+    private _counterSpawn = [_center, _counterTaskKey, _spawnCenter] call DZ_fnc_spawnCounterattackForce;
     private _counterGroups = _counterSpawn # 0;
     private _counterVehicles = _counterSpawn # 1;
 
@@ -645,21 +667,24 @@ _counterCandidates sort true;
 
         _firstCounterDone set [_idx, true];
         _nextCounterAt set [_idx, _now + _counterRepeatCooldown];
+        _nextGlobalCounterAt = _now + _counterGlobalCooldown;
         _activeCounters = _activeCounters + 1;
 
         [_assets, _idx, "counterattack"] call _fnc_registerAssets;
         diag_log format
         [
-            "[DZ:%1] Counterattack started (%2 units, enemyNeighbors=%3, surrounded=%4)",
+            "[DZ:%1] Counterattack started (%2 units, enemyNeighbors=%3, surrounded=%4, spawnSector=%5)",
             _idx,
             _total,
             abs _negEnemyNeighbors,
-            _priority == 0
+            _priority == 0,
+            _spawnSectorId
         ];
     }
     else
     {
-        _nextCounterAt set [_idx, _now + 60];
+        _nextCounterAt set [_idx, _now + _counterRepeatCooldown];
+        _nextGlobalCounterAt = _now + _counterGlobalCooldown;
         diag_log format ["[DZ:%1] Counterattack spawn failed; retry delayed", _idx];
     };
 
@@ -730,6 +755,7 @@ missionNamespace setVariable ["DZ_sectorDominance", _sectorDominance];
 missionNamespace setVariable ["DZ_spawnBlockedUntil", _spawnBlockedUntil];
 missionNamespace setVariable ["DZ_firstCounterDone", _firstCounterDone];
 missionNamespace setVariable ["DZ_nextCounterAt", _nextCounterAt];
+missionNamespace setVariable ["DZ_nextGlobalCounterAt", _nextGlobalCounterAt];
 missionNamespace setVariable ["DZ_savedCapturesCache", _saved];
 missionNamespace setVariable ["DZ_capturedHash", _captHash];
 

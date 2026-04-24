@@ -6,10 +6,13 @@
 params
 [
     ["_center", [0, 0, 0]],
-    ["_taskKey", "counterattack_open"]
+    ["_taskKey", "counterattack_open"],
+    ["_spawnCenter", []]
 ];
 
 private _eps = missionNamespace getVariable ["DZ_eps", 300];
+private _gridSize = missionNamespace getVariable ["DZ_gridSize", 350];
+private _counterSpawnRadius = missionNamespace getVariable ["DZ_counterSpawnRadius", _gridSize * 0.35];
 private _sideEnemy = missionNamespace getVariable ["CH_sideEnemy", west];
 private _groupRoot = missionNamespace getVariable ["DZ_enemyGroupRoot", configNull];
 private _vehicleLocalRadius = missionNamespace getVariable ["DZ_vehicleCategoryLocalRadius", _eps * 2];
@@ -42,12 +45,18 @@ private _normalizePos =
     _result
 };
 
+private _spawnOrigin = [_spawnCenter] call _normalizePos;
+if (_spawnOrigin isEqualTo []) then
+{
+    _spawnOrigin = [_center] call _normalizePos;
+};
+
 private _spawnPos = [];
 private _attempt = 0;
 
 while { _attempt < _maxPosAttempts && { _spawnPos isEqualTo [] } } do
 {
-    private _candidate = [[_center, _eps * 0.8, _eps * 1.2, 10, 0, 0.5, 0, [], [_center, _eps]] call BIS_fnc_findSafePos] call _normalizePos;
+    private _candidate = [[_spawnOrigin, 0, _counterSpawnRadius, 10, 0, 0.5, 0, [], [_spawnOrigin, _counterSpawnRadius * 0.5]] call BIS_fnc_findSafePos] call _normalizePos;
 
     if (_candidate isNotEqualTo [] && { !([_candidate] call DZ_fnc_isForbiddenSpawnPos) }) then
     {
@@ -68,7 +77,7 @@ private _pickPosInf =
 
     while { _attempt < _maxPosAttempts && { _result isEqualTo [] } } do
     {
-        private _candidate = [[_ref, 0, 30, 5, 0, 0.1, 0, [], [_center, _eps * 0.5]] call BIS_fnc_findSafePos] call _normalizePos;
+        private _candidate = [[_ref, 0, 30, 5, 0, 0.1, 0, [], [_spawnOrigin, _counterSpawnRadius * 0.5]] call BIS_fnc_findSafePos] call _normalizePos;
 
         if (_candidate isNotEqualTo [] && { !([_candidate] call DZ_fnc_isForbiddenSpawnPos) }) then
         {
@@ -88,7 +97,7 @@ private _candidateVehPos =
     private _p = [_ref findEmptyPosition [20, 80, _vehType]] call _normalizePos;
     if (_p isNotEqualTo [] && { !([_p] call DZ_fnc_isForbiddenSpawnPos) }) exitWith { _p };
 
-    _p = [_center findEmptyPosition [20, _eps, _vehType]] call _normalizePos;
+    _p = [_spawnOrigin findEmptyPosition [20, _counterSpawnRadius, _vehType]] call _normalizePos;
     if (_p isNotEqualTo [] && { !([_p] call DZ_fnc_isForbiddenSpawnPos) }) exitWith { _p };
 
     private _result = [];
@@ -96,7 +105,7 @@ private _candidateVehPos =
 
     while { _attempt < _maxPosAttempts && { _result isEqualTo [] } } do
     {
-        _p = [[_center, _eps * 0.8, _eps * 1.2, 8, 0, 0.2, 0, [], [_center, _eps]] call BIS_fnc_findSafePos] call _normalizePos;
+        _p = [[_spawnOrigin, 0, _counterSpawnRadius, 8, 0, 0.2, 0, [], [_spawnOrigin, _counterSpawnRadius * 0.5]] call BIS_fnc_findSafePos] call _normalizePos;
 
         if (_p isNotEqualTo [] && { !([_p] call DZ_fnc_isForbiddenSpawnPos) }) then
         {
@@ -254,7 +263,7 @@ private _spawnVehicleForGroups =
 {
     params ["_vehType", "_sourceGroups", ["_allowCargo", true]];
 
-    if !([_vehType, _center, _vehicleLocalRadius, _vehs] call DZ_fnc_canSpawnVehicleType) exitWith { objNull };
+    if !([_vehType, _spawnOrigin, _vehicleLocalRadius, _vehs] call DZ_fnc_canSpawnVehicleType) exitWith { objNull };
 
     private _vehPos = [_spawnPos, _vehType] call _candidateVehPos;
     if (_vehPos isEqualTo []) exitWith { objNull };
@@ -378,6 +387,6 @@ private _total = 0;
     };
 } forEach _vehicleDefs;
 
-diag_log format ["[DZ:CTR] Force spawned: task=%1 units=%2 veh=%3", _taskKey, _total, count _vehs];
+diag_log format ["[DZ:CTR] Force spawned: task=%1 units=%2 veh=%3 spawn=%4 target=%5", _taskKey, _total, count _vehs, _spawnOrigin, _center];
 
 [_groups, _vehs, _total]

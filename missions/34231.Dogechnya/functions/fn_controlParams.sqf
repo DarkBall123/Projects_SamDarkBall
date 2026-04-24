@@ -399,9 +399,12 @@ missionNamespace setVariable ["DZ_captureHold", 60];
 missionNamespace setVariable ["DZ_recaptureSpawnCooldown", 180];
 missionNamespace setVariable ["DZ_spawnRetryCooldown", 30];
 missionNamespace setVariable ["DZ_counterRepeatCooldown", 180];
-missionNamespace setVariable ["DZ_counterRepeatChance", 0.35];
+missionNamespace setVariable ["DZ_counterGlobalCooldown", 180];
+missionNamespace setVariable ["DZ_counterFirstChance", 0.03];
+missionNamespace setVariable ["DZ_counterRepeatChance", 0.02];
 missionNamespace setVariable ["DZ_counterMaxActive", 2];
 missionNamespace setVariable ["DZ_frontMinEnemyNeighbors", 2];
+missionNamespace setVariable ["DZ_counterSpawnRadius", _gridSize * 0.35];
 
 missionNamespace setVariable ["DZ_styleEnemyDormant", 0];
 missionNamespace setVariable ["DZ_styleEnemyActive", 1];
