@@ -52,16 +52,19 @@ private _localCount = 0;
     private _vehicles = +(_assets param [1, []]);
 
     {
-        _vehicles append ([_x, true] call BIS_fnc_groupVehicles);
+        if (!isNull _x) then
+        {
+            _vehicles append ([_x, true] call BIS_fnc_groupVehicles);
+        };
     } forEach _groups;
 
     _vehicles = _vehicles arrayIntersect _vehicles;
 
-	{
-	    if (isNull _x || { !alive _x }) then
-	    {
-	        continue;
-	    };
+    {
+        if (isNull _x || { !alive _x }) then
+        {
+            continue;
+        };
 
         private _activeClass = typeOf _x;
         private _activeMeta = _vehicleMeta getOrDefault [_activeClass, []];
@@ -75,7 +78,7 @@ private _localCount = 0;
                 _localCount = _localCount + 1;
             };
         };
-	} forEach (_vehicles arrayIntersect _vehicles);
+    } forEach (_vehicles arrayIntersect _vehicles);
 } forEach _zoneData;
 
 private _pendingCount = 0;

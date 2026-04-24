@@ -145,9 +145,16 @@ private _spawnGroupDef =
 
     if (_resolvedGroupDef isEqualType configNull) exitWith
     {
+        if !(isClass _resolvedGroupDef) exitWith
+        {
+            diag_log format ["[DZ] Missing direct config group for %1", _taskKey];
+            grpNull
+        };
+
         private _spawnPos = [_center] call _pickPosInf;
         if (_spawnPos isEqualTo []) exitWith { grpNull };
         private _grp = [_spawnPos, _sideEnemy, _resolvedGroupDef] call BIS_fnc_spawnGroup;
+        if (isNull _grp) exitWith { grpNull };
         { [_x] call DZ_fnc_prepareSpawnedUnit; } forEach units _grp;
         _grp
     };
@@ -166,6 +173,7 @@ private _spawnGroupDef =
         private _spawnPos = [_center] call _pickPosInf;
         if (_spawnPos isEqualTo []) exitWith { grpNull };
         private _grp = [_spawnPos, _sideEnemy, _cfg] call BIS_fnc_spawnGroup;
+        if (isNull _grp) exitWith { grpNull };
         { [_x] call DZ_fnc_prepareSpawnedUnit; } forEach units _grp;
         _grp
     };
