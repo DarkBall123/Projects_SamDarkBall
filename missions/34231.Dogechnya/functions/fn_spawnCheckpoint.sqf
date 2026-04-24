@@ -324,10 +324,13 @@ private _spawnVehicleForGroups =
         objNull
     };
 
-    [_veh, _center, 150] spawn
+    [group driver _veh, _center, 150] spawn
     {
-        params ["_veh", "_centerPos", "_radius"];
-        [_veh, _centerPos, _radius] call BIS_fnc_taskPatrol;
+        params ["_grp", "_centerPos", "_radius"];
+        if (!isNull _grp) then
+        {
+            [_grp, _centerPos, _radius] call BIS_fnc_taskPatrol;
+        };
     };
 
     _veh

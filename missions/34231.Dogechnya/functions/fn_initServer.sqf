@@ -108,9 +108,9 @@ addMissionEventHandler
 [
     "HandleDisconnect",
     {
-        params ["_unit"];
+        params ["_unit", "_id", "_uid"];
 
-        [_unit, true] call DZ_fnc_savePlayerLoadout;
+        [_unit, true, _uid] call DZ_fnc_savePlayerLoadout;
         false
     }
 ];

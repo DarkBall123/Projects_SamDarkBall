@@ -1,13 +1,20 @@
 params
 [
     ["_unit", objNull],
-    ["_forceFlush", false]
+    ["_forceFlush", false],
+    ["_uidOverride", ""]
 ];
 
 if (!isServer) exitWith { false };
-if (isNull _unit || { !isPlayer _unit } || { !alive _unit }) exitWith { false };
+if (isNull _unit) exitWith { false };
+if (!_forceFlush && { !(isPlayer _unit) || { !(alive _unit) } }) exitWith { false };
 
-private _uid = getPlayerUID _unit;
+private _uid = _uidOverride;
+if (_uid isEqualTo "") then
+{
+    _uid = getPlayerUID _unit;
+};
+
 if (_uid isEqualTo "") exitWith { false };
 
 private _cache = missionNamespace getVariable ["DZ_savedLoadoutsCache", createHashMap];
