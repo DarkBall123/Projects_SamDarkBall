@@ -82,7 +82,6 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	sleep 5;
 	
 	while {true} do {
-	    scopeName "mainScope";
 	    private ["_sleepSeconds", "_calculatedMaxVehicleCount", "_markerSize", "_avgMarkerRadius", "_coveredShare", "_restDistance", "_coveredAreaShare"];
 
 		_allPlayerPositionsTemp = [];
@@ -113,9 +112,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 			};			
 		};
 	
-		if (count _allPlayerPositionsTemp > 0) then {
-			_allPlayerPositions = _allPlayerPositionsTemp;
-		};
+		_allPlayerPositions = _allPlayerPositionsTemp;
 		
 	    if (_areaMarkerName == "") then {
 		    _calculatedMaxVehicleCount = _vehicleCount;
@@ -173,24 +170,23 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	        private _keepVehicle = false;
 	        
 	        {
-	        	scopeName "current";
-	        	
-				private _closePos = _x select 0;
-				private _farPos = _x select 1;
-			
-	            _distance = (_farPos distance _vehicle);
-	            if (_distance < _closestUnitDistance) then {
-	                _closestUnitDistance = _distance;
-	                
-	                if (_closestUnitDistance < _maxSpawnDistance || (_closePos distance2D _vehicle) < _closePos distance2D _farPos) then {
-	                	if (_closestUnitDistance < _minSpawnDistance || { canMove _vehicle  && !_isStationary }) then {
-		                	_keepVehicle = true;
-		                	breakOut "current";
-	                	};
+	            if (!_keepVehicle) then {
+	                private _closePos = _x select 0;
+	                private _farPos = _x select 1;
+
+	                _distance = (_farPos distance _vehicle);
+	                if (_distance < _closestUnitDistance) then {
+	                    _closestUnitDistance = _distance;
+
+	                    if (_closestUnitDistance < _maxSpawnDistance || (_closePos distance2D _vehicle) < _closePos distance2D _farPos) then {
+	                        if (_closestUnitDistance < _minSpawnDistance || { canMove _vehicle  && !_isStationary }) then {
+	                            _keepVehicle = true;
+	                        };
+	                    };
 	                };
+
+	                sleep 0.01;
 	            };
-	            
-	            sleep 0.01;
 	        } foreach _allPlayerPositions;
 	        
 	        if (_keepVehicle) then {

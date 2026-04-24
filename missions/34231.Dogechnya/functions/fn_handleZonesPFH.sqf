@@ -12,6 +12,7 @@ private _counterRepeatCooldown = missionNamespace getVariable ["DZ_counterRepeat
 private _counterRepeatChance = missionNamespace getVariable ["DZ_counterRepeatChance", 0.35];
 private _counterMaxActive = missionNamespace getVariable ["DZ_counterMaxActive", 2];
 private _frontMinEnemyNeighbors = missionNamespace getVariable ["DZ_frontMinEnemyNeighbors", 2];
+private _spawnRetryCooldown = missionNamespace getVariable ["DZ_spawnRetryCooldown", 30];
 
 private _cells = missionNamespace getVariable ["DZ_cells", []];
 private _sectorLookup = missionNamespace getVariable ["DZ_sectorLookup", createHashMap];
@@ -144,6 +145,50 @@ private _fnc_registerAssets =
             _x setVariable ["DZ_dynamicAsset", true];
             _x setVariable ["DZ_dynamicSector", _sectorId];
             _x setVariable ["DZ_dynamicRole", _role];
+        };
+    } forEach _vehicles;
+};
+
+private _fnc_deleteAssets =
+{
+    params ["_assets"];
+
+    private _groups = _assets param [0, []];
+    private _vehicles = +(_assets param [1, []]);
+
+    {
+        private _grp = _x;
+
+        if (!isNull _grp) then
+        {
+            _vehicles append ([_grp, true] call BIS_fnc_groupVehicles);
+
+            {
+                if (!isNull _x) then
+                {
+                    deleteVehicle _x;
+                };
+            } forEach units _grp;
+
+            deleteGroup _grp;
+        };
+    } forEach _groups;
+
+    _vehicles = _vehicles arrayIntersect _vehicles;
+
+    {
+        private _veh = _x;
+
+        if (!isNull _veh) then
+        {
+            {
+                if (!isNull _x) then
+                {
+                    deleteVehicle _x;
+                };
+            } forEach crew _veh;
+
+            deleteVehicle _veh;
         };
     } forEach _vehicles;
 };
@@ -392,13 +437,13 @@ for "_idx" from 0 to (_sectorCount - 1) do
             };
         };
 
-        if (_isUrban && !_preDone && _inPre) then
+        if (_isUrban && !_preDone && _inPre && { _lastSp < 0 || { _now - _lastSp >= _spawnRetryCooldown } }) then
         {
+            _lastSp = _now;
+
             private _spawnResult = [_center, 0] call DZ_fnc_spawnForZone;
             private _spawnGroups = _spawnResult # 0;
             private _spawnVehicles = _spawnResult # 1;
-
-            _preDone = true;
 
             if (_spawnGroups isNotEqualTo [] || { _spawnVehicles isNotEqualTo [] }) then
             {
@@ -406,6 +451,7 @@ for "_idx" from 0 to (_sectorCount - 1) do
                 _total = _spawnResult # 2;
                 _spawned = true;
                 _lastSp = _now;
+                _preDone = true;
                 _lastOut = -1;
 
                 [_assets, _idx, "sector"] call _fnc_registerAssets;
@@ -424,12 +470,17 @@ for "_idx" from 0 to (_sectorCount - 1) do
         {
             if (_now - _lastOut >= _delayCleanup) then
             {
+                [_assets] call _fnc_deleteAssets;
+
                 _spawned = false;
+                _assets = [[], []];
                 _lastOut = -1;
                 _lastSp = -1;
                 _preDone = false;
+                _total = 0;
+                _ctrLog = -1;
 
-                diag_log format ["[DZ:%1] Enemy sector detached from spawn control, live despawn disabled by default", _idx];
+                diag_log format ["[DZ:%1] Enemy sector live-despawned", _idx];
             };
         };
     }
