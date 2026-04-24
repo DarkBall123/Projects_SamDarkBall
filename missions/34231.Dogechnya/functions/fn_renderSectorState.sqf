@@ -17,7 +17,7 @@ private _renderConfig = switch (_styleId) do
     case 1: { ["ColorBlue", "FDiagonal", 0.46] };
     case 2: { ["ColorRed", "DiagGrid", 0.28] };
     case 3: { ["ColorOrange", "Cross", 0.58] };
-    default { ["ColorGrey", "DiagGrid", 0.12] };
+    default { ["ColorBlue", "DiagGrid", 0.18] };
 };
 
 _renderConfig params ["_color", "_brush", "_alpha"];

@@ -396,8 +396,8 @@ missionNamespace setVariable ["CH_sideEnemy", west];
 missionNamespace setVariable ["CH_sidePlayers", east];
 
 missionNamespace setVariable ["DZ_captureHold", 60];
-missionNamespace setVariable ["DZ_recaptureSpawnCooldown", 600];
-missionNamespace setVariable ["DZ_counterRepeatCooldown", 600];
+missionNamespace setVariable ["DZ_recaptureSpawnCooldown", 180];
+missionNamespace setVariable ["DZ_counterRepeatCooldown", 180];
 missionNamespace setVariable ["DZ_counterRepeatChance", 0.35];
 missionNamespace setVariable ["DZ_counterMaxActive", 2];
 missionNamespace setVariable ["DZ_frontMinEnemyNeighbors", 2];

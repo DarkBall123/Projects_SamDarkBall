@@ -7,8 +7,8 @@ private _enableLiveDespawn = missionNamespace getVariable ["DZ_enableLiveDespawn
 private _cpChance = missionNamespace getVariable ["DZ_cpChance", 0.003];
 
 private _captureHold = missionNamespace getVariable ["DZ_captureHold", 60];
-private _recaptureSpawnCooldown = missionNamespace getVariable ["DZ_recaptureSpawnCooldown", 600];
-private _counterRepeatCooldown = missionNamespace getVariable ["DZ_counterRepeatCooldown", 600];
+private _recaptureSpawnCooldown = missionNamespace getVariable ["DZ_recaptureSpawnCooldown", 180];
+private _counterRepeatCooldown = missionNamespace getVariable ["DZ_counterRepeatCooldown", 180];
 private _counterRepeatChance = missionNamespace getVariable ["DZ_counterRepeatChance", 0.35];
 private _counterMaxActive = missionNamespace getVariable ["DZ_counterMaxActive", 2];
 private _frontMinEnemyNeighbors = missionNamespace getVariable ["DZ_frontMinEnemyNeighbors", 2];
@@ -633,13 +633,13 @@ for "_idx" from 0 to (_sectorCount - 1) do
 
     if (_playerCount > _enemyCount && { _playerCount > 0 }) then
     {
-        _styleId = _stylePlayerOwned;
+        _styleId = if (_captured) then { _stylePlayerOwned } else { _styleContested };
     }
     else
     {
         if (_enemyCount > _playerCount && { _enemyCount > 0 }) then
         {
-            _styleId = _styleEnemyActive;
+            _styleId = if (_captured) then { _styleContested } else { _styleEnemyActive };
         }
         else
         {
