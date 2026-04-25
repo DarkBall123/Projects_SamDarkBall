@@ -39,7 +39,7 @@ class CfgFunctions
 };
 class RscDisplayMain: RscStandardDisplay
 {
-	onLoad="_this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf'; ['onLoad',_this,'RscDisplayMain','GUI'] call (uiNamespace getVariable ['BIS_fnc_initDisplay',{}]);";
+	onLoad="(_this # 0) setVariable ['DB_mainMenuDisplay',true]; _this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf'; ['onLoad',_this,'RscDisplayMain','GUI'] call (uiNamespace getVariable ['BIS_fnc_initDisplay',{}]);";
 	delete Spotlight;
 	class controls
 	{
@@ -71,7 +71,7 @@ class RscDisplayMain: RscStandardDisplay
 			y="safeZoneY";
 			w="safeZoneWAbs";
 			h="safeZoneH";
-			onLoad="uiNamespace setVariable ['DB_mainMenuBgCurrent',_this # 0]; _this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf';";
+			onLoad="(ctrlParent (_this # 0)) setVariable ['DB_mainMenuDisplay',true]; uiNamespace setVariable ['DB_mainMenuBgCurrent',_this # 0]; _this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf';";
 		};
 		class BackgroundSlideNext: RscPicture
 		{

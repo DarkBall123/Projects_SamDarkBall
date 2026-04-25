@@ -3,6 +3,33 @@ disableSerialization;
 diag_log "[DB_MAINMENU] initIntro started";
 
 private _display = displayNull;
+private _fnc_isMainMenuDisplay =
+{
+    params ["_display"];
+
+    private _result = false;
+
+    if (!isNull _display) then
+    {
+        private _currentCtrl = _display displayCtrl 1009;
+        private _nextCtrl = _display displayCtrl 1010;
+
+        if (!isNull _currentCtrl && { !isNull _nextCtrl }) then
+        {
+            private _marked = _display getVariable ["DB_mainMenuDisplay", false];
+            private _displayClass = _display getVariable ["BIS_fnc_initDisplay_configClass", ""];
+            private _currentClass = ctrlClassName _currentCtrl;
+            private _nextClass = ctrlClassName _nextCtrl;
+
+            _result = _marked
+                || { _displayClass == "RscDisplayMain" }
+                || { _currentClass == "BackgroundHover" && { _nextClass == "BackgroundSlideNext" } };
+        };
+    };
+
+    _result
+};
+
 private _fnc_findMenuDisplay =
 {
     private _result = displayNull;
@@ -10,7 +37,7 @@ private _fnc_findMenuDisplay =
     {
         if (isNull _result) then
         {
-            if (!isNull (_x displayCtrl 1009)) then
+            if ([_x] call _fnc_isMainMenuDisplay) then
             {
                 _result = _x;
             };
@@ -51,10 +78,10 @@ if (isNull _display) then
     };
 };
 
-if (isNull (_display displayCtrl 1009)) then
+if (!([_display] call _fnc_isMainMenuDisplay)) then
 {
     private _menuDisplay = call _fnc_findMenuDisplay;
-    if (!isNull (_menuDisplay displayCtrl 1009)) then
+    if ([_menuDisplay] call _fnc_isMainMenuDisplay) then
     {
         _display = _menuDisplay;
     };
