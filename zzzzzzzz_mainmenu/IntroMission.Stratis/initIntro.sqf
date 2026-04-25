@@ -3,6 +3,27 @@ disableSerialization;
 diag_log "[DB_MAINMENU] initIntro started";
 
 private _display = displayNull;
+private _fnc_findMenuDisplay =
+{
+    private _result = displayNull;
+
+    {
+        if (isNull _result) then
+        {
+            if (!isNull (_x displayCtrl 1009)) then
+            {
+                _result = _x;
+            };
+        };
+    } forEach allDisplays;
+
+    if (isNull _result) then
+    {
+        _result = findDisplay 0;
+    };
+
+    _result
+};
 
 if (!isNil "_this" && { _this isEqualType [] } && { count _this > 0 }) then
 {
@@ -21,9 +42,22 @@ if (!isNil "_this" && { _this isEqualType [] } && { count _this > 0 }) then
 
 if (isNull _display) then
 {
-    diag_log "[DB_MAINMENU] initIntro waiting for display 0";
-    waitUntil { !isNull findDisplay 0 };
-    _display = findDisplay 0;
+    diag_log "[DB_MAINMENU] initIntro waiting for main menu display";
+    waitUntil
+    {
+        uiSleep 0.1;
+        _display = call _fnc_findMenuDisplay;
+        !isNull _display
+    };
+};
+
+if (isNull (_display displayCtrl 1009)) then
+{
+    private _menuDisplay = call _fnc_findMenuDisplay;
+    if (!isNull (_menuDisplay displayCtrl 1009)) then
+    {
+        _display = _menuDisplay;
+    };
 };
 
 diag_log format ["[DB_MAINMENU] initIntro display ready: %1", _display];
