@@ -399,7 +399,7 @@ class RscTitles
 						colorShadow[]={0,0,0,0.80000001};
 						size="( 1.0 * (pixelGridNoUIScale * pixelH * 2) )";
 						text="SN: 9621391";
-						x="( -1.0 * (pixelGridNoUIScale * pixelH * 2) )";;
+						x="( -1.0 * (pixelGridNoUIScale * pixelH * 2) )";
 						y="( 6.7 * (pixelGridNoUIScale * pixelH * 2) )";
 						w="( 26 * (pixelGridNoUIScale * pixelW * 2) )";
 						h="( 1.3 * (pixelGridNoUIScale * pixelH * 2) )";
