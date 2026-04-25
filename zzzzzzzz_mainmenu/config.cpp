@@ -50,11 +50,39 @@ class RscDisplayMain: RscStandardDisplay
 		class BackgroundHover: RscPicture
 		{
 			idc=1009;
+			text="\zzzzzzzz_mainmenu\pictures\Screen_1.paa";
+			colorText[]={1,1,1,1};
 			x="safeZoneXAbs";
 			y="safeZoneY";
 			w="safeZoneWAbs";
 			h="safeZoneH";
 		};
+		class BackgroundSlideNext: RscPicture
+		{
+			idc=1010;
+			text="";
+			colorText[]={1,1,1,1};
+			x="safeZoneXAbs";
+			y="safeZoneY";
+			w="safeZoneWAbs";
+			h="safeZoneH";
+		};
+	};
+};
+class CfgMusic
+{
+	tracks[]={};
+	class DB_MainMenu_Fonk
+	{
+		name="DB_MainMenu_Fonk";
+		sound[]=
+		{
+			"\zzzzzzzz_mainmenu\IntroMission.Stratis\music\fonk.ogg",
+			db+0,
+			1
+		};
+		duration=159.420839;
+		musicClass="DB_MainMenu";
 	};
 };
 class cfgMods
