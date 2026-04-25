@@ -25,6 +25,7 @@ class RscActivePicture;
 class RscText;
 class RscDisplayMain: RscStandardDisplay
 {
+	onLoad="_this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf'; ['onLoad',_this,'RscDisplayMain','GUI'] call (uiNamespace getVariable ['BIS_fnc_initDisplay',{}]);";
 	delete Spotlight;
 	class controls
 	{
@@ -71,14 +72,17 @@ class RscDisplayMain: RscStandardDisplay
 };
 class CfgMusic
 {
-	tracks[]={};
+	tracks[]=
+	{
+		"DB_MainMenu_Fonk"
+	};
 	class DB_MainMenu_Fonk
 	{
 		name="DB_MainMenu_Fonk";
 		sound[]=
 		{
 			"\zzzzzzzz_mainmenu\IntroMission.Stratis\music\fonk.ogg",
-			db+0,
+			1,
 			1
 		};
 		duration=159.420839;

@@ -1,14 +1,30 @@
 disableSerialization;
 
-waitUntil { !isNull findDisplay 0 };
+private _display = displayNull;
 
-private _display = findDisplay 0;
+if (!isNil "_this" && { _this isEqualType [] } && { count _this > 0 }) then
+{
+    private _passedDisplay = _this # 0;
+    if (_passedDisplay isEqualType displayNull) then
+    {
+        _display = _passedDisplay;
+    };
+};
+
+if (isNull _display) then
+{
+    waitUntil { !isNull findDisplay 0 };
+    _display = findDisplay 0;
+};
 
 setViewDistance 10;
 setObjectViewDistance 10;
 
-player allowDamage false;
-player setPos [worldSize / 2, worldSize / 2, 0];
+if (!isNull player) then
+{
+    player allowDamage false;
+    player setPos [worldSize / 2, worldSize / 2, 0];
+};
 
 private _oldSlideHandle = missionNamespace getVariable ["DB_mainMenuSlideHandle", scriptNull];
 if (!isNull _oldSlideHandle) then
@@ -22,43 +38,27 @@ if (!isNull _oldMusicHandle) then
     terminate _oldMusicHandle;
 };
 
-private _oldMusicEH = missionNamespace getVariable ["DB_mainMenuMusicEH", -1];
-if (_oldMusicEH >= 0) then
-{
-    removeMusicEventHandler ["MusicStop", _oldMusicEH];
-    missionNamespace setVariable ["DB_mainMenuMusicEH", -1];
-};
-
 private _musicHandle = [_display] spawn
 {
     disableSerialization;
     params ["_display"];
 
     private _track = "DB_MainMenu_Fonk";
-    private _musicEH = addMusicEventHandler
-    [
-        "MusicStop",
-        {
-            params ["_musicClassName"];
+    private _trackDuration = 159;
 
-            if (_musicClassName == "DB_MainMenu_Fonk" && { !isNull findDisplay 0 }) then
-            {
-                playMusic "DB_MainMenu_Fonk";
-            };
-        }
-    ];
-
-    missionNamespace setVariable ["DB_mainMenuMusicEH", _musicEH];
-    playMusic _track;
-
-    waitUntil
+    while { !isNull _display } do
     {
-        uiSleep 1;
-        isNull _display
+        0 fadeMusic 1;
+        playMusic [_track, 0];
+
+        private _restartAt = diag_tickTime + _trackDuration;
+        waitUntil
+        {
+            uiSleep 1;
+            isNull _display || { diag_tickTime >= _restartAt }
+        };
     };
 
-    removeMusicEventHandler ["MusicStop", _musicEH];
-    missionNamespace setVariable ["DB_mainMenuMusicEH", -1];
     playMusic "";
 };
 
@@ -81,6 +81,15 @@ private _slideHandle = [_display] spawn
 
     private _currentCtrl = _display displayCtrl 1009;
     private _nextCtrl = _display displayCtrl 1010;
+
+    private _controlsTimeout = diag_tickTime + 5;
+    waitUntil
+    {
+        uiSleep 0.1;
+        _currentCtrl = _display displayCtrl 1009;
+        _nextCtrl = _display displayCtrl 1010;
+        isNull _display || { (!isNull _currentCtrl && { !isNull _nextCtrl }) || { diag_tickTime >= _controlsTimeout } }
+    };
 
     if (isNull _currentCtrl || { isNull _nextCtrl }) exitWith
     {
