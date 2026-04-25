@@ -13,6 +13,7 @@ class CfgPatches
 		requiredVersion=2.0799999;
 		requiredAddons[]=
 		{
+			"A3_Functions_F",
 			"A3_Data_F_AoW_Loadorder"
 		};
 		units[]={};
@@ -33,6 +34,10 @@ class CfgFunctions
 			class preInit
 			{
 				preInit=1;
+			};
+			class postInit
+			{
+				postInit=1;
 			};
 		};
 	};

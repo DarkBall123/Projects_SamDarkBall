@@ -1,10 +1,21 @@
-if (!hasInterface) exitWith {};
+diag_log format ["[DB_MAINMENU] watcher init requested: hasInterface=%1", hasInterface];
 
-diag_log "[DB_MAINMENU] preInit started";
+if (missionNamespace getVariable ["DB_mainMenuWatcherStarted", false]) exitWith
+{
+    diag_log "[DB_MAINMENU] watcher already started";
+};
+
+missionNamespace setVariable ["DB_mainMenuWatcherStarted", true];
 
 [] spawn
 {
     disableSerialization;
+
+    waitUntil
+    {
+        uiSleep 0.25;
+        hasInterface
+    };
 
     diag_log "[DB_MAINMENU] display watcher started";
 
