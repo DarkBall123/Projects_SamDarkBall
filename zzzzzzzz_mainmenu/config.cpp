@@ -13,7 +13,6 @@ class CfgPatches
 		requiredVersion=2.0799999;
 		requiredAddons[]=
 		{
-			"A3_Functions_F",
 			"A3_Data_F_AoW_Loadorder"
 		};
 		units[]={};
@@ -24,27 +23,8 @@ class RscStandardDisplay;
 class RscPicture;
 class RscActivePicture;
 class RscText;
-class CfgFunctions
-{
-	class DB_MainMenu
-	{
-		class MainMenu
-		{
-			file="\zzzzzzzz_mainmenu\functions";
-			class preInit
-			{
-				preInit=1;
-			};
-			class postInit
-			{
-				postInit=1;
-			};
-		};
-	};
-};
 class RscDisplayMain: RscStandardDisplay
 {
-	onLoad="(_this # 0) setVariable ['DB_mainMenuDisplay',true]; _this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf'; ['onLoad',_this,'RscDisplayMain','GUI'] call (uiNamespace getVariable ['BIS_fnc_initDisplay',{}]);";
 	delete Spotlight;
 	class controls
 	{
@@ -76,7 +56,6 @@ class RscDisplayMain: RscStandardDisplay
 			y="safeZoneY";
 			w="safeZoneWAbs";
 			h="safeZoneH";
-			onLoad="(ctrlParent (_this # 0)) setVariable ['DB_mainMenuDisplay',true]; uiNamespace setVariable ['DB_mainMenuBgCurrent',_this # 0]; _this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf';";
 		};
 		class BackgroundSlideNext: RscPicture
 		{
