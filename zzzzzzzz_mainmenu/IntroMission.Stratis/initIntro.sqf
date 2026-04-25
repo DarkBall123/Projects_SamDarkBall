@@ -1,21 +1,32 @@
 disableSerialization;
 
+diag_log "[DB_MAINMENU] initIntro started";
+
 private _display = displayNull;
 
 if (!isNil "_this" && { _this isEqualType [] } && { count _this > 0 }) then
 {
-    private _passedDisplay = _this # 0;
-    if (_passedDisplay isEqualType displayNull) then
+    private _passedArg = _this # 0;
+
+    if (_passedArg isEqualType displayNull) then
     {
-        _display = _passedDisplay;
+        _display = _passedArg;
+    };
+
+    if (_passedArg isEqualType controlNull) then
+    {
+        _display = ctrlParent _passedArg;
     };
 };
 
 if (isNull _display) then
 {
+    diag_log "[DB_MAINMENU] initIntro waiting for display 0";
     waitUntil { !isNull findDisplay 0 };
     _display = findDisplay 0;
 };
+
+diag_log format ["[DB_MAINMENU] initIntro display ready: %1", _display];
 
 setViewDistance 10;
 setObjectViewDistance 10;
@@ -46,10 +57,13 @@ private _musicHandle = [_display] spawn
     private _track = "DB_MainMenu_Fonk";
     private _trackDuration = 159;
 
+    diag_log "[DB_MAINMENU] music loop started";
+
     while { !isNull _display } do
     {
         0 fadeMusic 1;
         playMusic [_track, 0];
+        diag_log format ["[DB_MAINMENU] playMusic requested: %1", _track];
 
         private _restartAt = diag_tickTime + _trackDuration;
         waitUntil
@@ -60,6 +74,7 @@ private _musicHandle = [_display] spawn
     };
 
     playMusic "";
+    diag_log "[DB_MAINMENU] music loop stopped";
 };
 
 missionNamespace setVariable ["DB_mainMenuMusicHandle", _musicHandle];
@@ -82,6 +97,8 @@ private _slideHandle = [_display] spawn
     private _currentCtrl = _display displayCtrl 1009;
     private _nextCtrl = _display displayCtrl 1010;
 
+    diag_log "[DB_MAINMENU] slideshow loop started";
+
     private _controlsTimeout = diag_tickTime + 5;
     waitUntil
     {
@@ -95,6 +112,8 @@ private _slideHandle = [_display] spawn
     {
         diag_log "[DB_MAINMENU] Slideshow controls 1009/1010 are missing";
     };
+
+    diag_log "[DB_MAINMENU] slideshow controls ready";
 
     private _frame = [safeZoneXAbs, safeZoneY, safeZoneWAbs, safeZoneH];
     private _offLeft = [safeZoneXAbs - safeZoneWAbs, safeZoneY, safeZoneWAbs, safeZoneH];

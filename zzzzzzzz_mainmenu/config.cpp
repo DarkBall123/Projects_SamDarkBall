@@ -57,6 +57,7 @@ class RscDisplayMain: RscStandardDisplay
 			y="safeZoneY";
 			w="safeZoneWAbs";
 			h="safeZoneH";
+			onLoad="uiNamespace setVariable ['DB_mainMenuBgCurrent',_this # 0]; _this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf';";
 		};
 		class BackgroundSlideNext: RscPicture
 		{
