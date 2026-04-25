@@ -23,6 +23,20 @@ class RscStandardDisplay;
 class RscPicture;
 class RscActivePicture;
 class RscText;
+class CfgFunctions
+{
+	class DB_MainMenu
+	{
+		class MainMenu
+		{
+			file="\zzzzzzzz_mainmenu\functions";
+			class preInit
+			{
+				preInit=1;
+			};
+		};
+	};
+};
 class RscDisplayMain: RscStandardDisplay
 {
 	onLoad="_this execVM '\zzzzzzzz_mainmenu\IntroMission.Stratis\initIntro.sqf'; ['onLoad',_this,'RscDisplayMain','GUI'] call (uiNamespace getVariable ['BIS_fnc_initDisplay',{}]);";
