@@ -28,7 +28,7 @@ for "_i" from 0 to (count _path - 2) do {
 
 if (_checks isEqualTo []) exitWith { _path };
 
-private _hits = lineIntersectsSurfaces _checks;
+private _hits = _checks apply { lineIntersectsSurfaces _x };
 
 for "_i" from 0 to (count _indexes - 1) do {
     (_indexes # _i) params ["_pathIndex", "_pASL", "_terrainZ"];

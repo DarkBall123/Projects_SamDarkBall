@@ -5,21 +5,23 @@ if !(_item in _validItems) exitWith {};
 if (typeOf _container != "GroundWeaponHolder") exitWith {};
 
 private _uavType = switch (_item) do {
-    case "frtz_Item_KVN_AT":     { "frtz_KVN_AT" };
-    case "frtz_Item_KVN_AP":     { "frtz_KVN_AP" };
-    case "frtz_Item_KVN_AT_TI":  { "frtz_KVN_AT_TI" };
-    case "frtz_Item_KVN_AP_TI":  { "frtz_KVN_AP_TI" };
+    case "frtz_Item_KVN_AT":     { "KVN_AT" };
+    case "frtz_Item_KVN_AP":     { "KVN_AP" };
+    case "frtz_Item_KVN_AT_TI":  { "KVN_AT_TI" };
+    case "frtz_Item_KVN_AP_TI":  { "KVN_AP_TI" };
     default                { "" };
 };
 if (_uavType == "") exitWith { systemChat str "Item not found." };
 
 private _sidePrefix = switch (side _unit) do {
-    case east:       { "O_" };
-    case west:       { "B_" };
-    case resistance: { "I_" };
+    case east:       { "O" };
+    case west:       { "B" };
+    case resistance: { "I" };
     default         { "" };
 };
-private _uavClass = format ["%1%2", _sidePrefix, _uavType];
+if (_sidePrefix == "") exitWith { systemChat str "Unsupported side." };
+
+private _uavClass = format ["frtz_%1_%2", _sidePrefix, _uavType];
 
 private _pos = getPosATL _container;
 private _uav = createVehicle [_uavClass, _pos, [], 0, "CAN_COLLIDE"];
