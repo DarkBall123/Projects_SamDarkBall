@@ -1,8 +1,3 @@
-class BIS_AddonInfo
-{
-	author="[SEAL TEAM] DarkBall";
-	timepacked="1656536061";
-};
 class CfgPatches
 {
 	class DB_MainMenu_Edit
