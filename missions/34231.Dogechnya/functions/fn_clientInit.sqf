@@ -5,22 +5,37 @@ missionNamespace setVariable ["DZ_clientInitDone", true];
 
 [] call DZ_fnc_startAmbientSound;
 
-[] spawn
-{
-    waitUntil
+[
     {
-        !isNull player && { local player }
-    };
+        params ["_args", "_handle"];
 
-    [player] remoteExecCall ["DZ_fnc_requestSavedLoadout", 2];
+        if (!isNull player && { local player }) then
+        {
+            [_handle] call CBA_fnc_removePerFrameHandler;
+            [player] remoteExecCall ["DZ_fnc_requestSavedLoadout", 2];
 
-    sleep 1;
+            [
+                {
+                    params ["_args", "_handle"];
+                    _args params ["_unit", "_runAt"];
 
-    if !(missionNamespace getVariable ["DZ_originalLoadoutReady", false]) then
-    {
-        [player] call DZ_fnc_storeOriginalLoadout;
-    };
-};
+                    if (time < _runAt) exitWith {};
+
+                    [_handle] call CBA_fnc_removePerFrameHandler;
+
+                    if !(missionNamespace getVariable ["DZ_originalLoadoutReady", false]) then
+                    {
+                        [_unit] call DZ_fnc_storeOriginalLoadout;
+                    };
+                },
+                0.2,
+                [player, time + 1]
+            ] call CBA_fnc_addPerFrameHandler;
+        };
+    },
+    0.2,
+    []
+] call CBA_fnc_addPerFrameHandler;
 
 addMissionEventHandler
 [
@@ -35,56 +50,60 @@ addMissionEventHandler
     }
 ];
 
-[] spawn
-{
-    waitUntil
+[
     {
-        !isNil { missionNamespace getVariable "DZ_sectorGrid" } &&
-        !isNil { missionNamespace getVariable "DZ_gridSize" } &&
-        !isNil { missionNamespace getVariable "DZ_sectorStatePayload" }
-    };
+        params ["_args", "_handle"];
 
-    private _sectorGrid = missionNamespace getVariable ["DZ_sectorGrid", []];
-    private _gridSize = missionNamespace getVariable ["DZ_gridSize", 350];
-    private _halfSize = _gridSize * 0.5;
-    private _sectorMarkers = [];
+        if (
+            isNil { missionNamespace getVariable "DZ_sectorGrid" } ||
+            { isNil { missionNamespace getVariable "DZ_gridSize" } } ||
+            { isNil { missionNamespace getVariable "DZ_sectorStatePayload" } }
+        ) exitWith {};
 
-    {
-        _x params ["_sectorId", "_centerX", "_centerY"];
+        [_handle] call CBA_fnc_removePerFrameHandler;
 
-        private _markerPos = [_centerX, _centerY, 0];
-        private _marker = createMarkerLocal [format ["DZ_zone_%1", _sectorId], _markerPos];
+        private _sectorGrid = missionNamespace getVariable ["DZ_sectorGrid", []];
+        private _gridSize = missionNamespace getVariable ["DZ_gridSize", 350];
+        private _halfSize = _gridSize * 0.5;
+        private _sectorMarkers = [];
 
-        _marker setMarkerShapeLocal "RECTANGLE";
-        _marker setMarkerBrushLocal "DiagGrid";
-        _marker setMarkerSizeLocal [_halfSize, _halfSize];
-        _marker setMarkerColorLocal "ColorBlue";
-        _marker setMarkerAlphaLocal 0;
-        _marker setMarkerTextLocal "";
-
-        _sectorMarkers pushBack _marker;
-    } forEach _sectorGrid;
-
-    missionNamespace setVariable ["DZ_sectorMarkers", _sectorMarkers];
-    missionNamespace setVariable ["DZ_renderedSectorState", []];
-    missionNamespace setVariable ["DZ_lastPayloadRevision", -1];
-
-    [missionNamespace getVariable ["DZ_sectorStatePayload", [0, []]]] call DZ_fnc_handleStateUpdate;
-
-    [] spawn
-    {
-        while { true } do
         {
-            private _payload = missionNamespace getVariable ["DZ_sectorStatePayload", [0, []]];
-            private _revision = _payload # 0;
-            private _lastRevision = missionNamespace getVariable ["DZ_lastPayloadRevision", -1];
+            _x params ["_sectorId", "_centerX", "_centerY"];
 
-            if (_revision != _lastRevision) then
+            private _markerPos = [_centerX, _centerY, 0];
+            private _marker = createMarkerLocal [format ["DZ_zone_%1", _sectorId], _markerPos];
+
+            _marker setMarkerShapeLocal "RECTANGLE";
+            _marker setMarkerBrushLocal "DiagGrid";
+            _marker setMarkerSizeLocal [_halfSize, _halfSize];
+            _marker setMarkerColorLocal "ColorBlue";
+            _marker setMarkerAlphaLocal 0;
+            _marker setMarkerTextLocal "";
+
+            _sectorMarkers pushBack _marker;
+        } forEach _sectorGrid;
+
+        missionNamespace setVariable ["DZ_sectorMarkers", _sectorMarkers];
+        missionNamespace setVariable ["DZ_renderedSectorState", []];
+        missionNamespace setVariable ["DZ_lastPayloadRevision", -1];
+
+        [missionNamespace getVariable ["DZ_sectorStatePayload", [0, []]]] call DZ_fnc_handleStateUpdate;
+
+        [
             {
-                [_payload] call DZ_fnc_handleStateUpdate;
-            };
+                private _payload = missionNamespace getVariable ["DZ_sectorStatePayload", [0, []]];
+                private _revision = _payload # 0;
+                private _lastRevision = missionNamespace getVariable ["DZ_lastPayloadRevision", -1];
 
-            sleep 0.25;
-        };
-    };
-};
+                if (_revision != _lastRevision) then
+                {
+                    [_payload] call DZ_fnc_handleStateUpdate;
+                };
+            },
+            0.25,
+            []
+        ] call CBA_fnc_addPerFrameHandler;
+    },
+    0.25,
+    []
+] call CBA_fnc_addPerFrameHandler;

@@ -3,28 +3,31 @@ if (!hasInterface) exitWith { false };
 if (missionNamespace getVariable ["DZ_ambientSoundStarted", false]) exitWith { true };
 missionNamespace setVariable ["DZ_ambientSoundStarted", true];
 
-[] spawn
-{
-    waitUntil { time > 0 };
+missionNamespace setVariable ["DZ_ambientSoundNextAt", 0];
 
-    while { hasInterface } do
+private _handle = [
     {
-        private _soundSource = playSound "DZ_SoundAmbience";
+        params ["_args", "_handle"];
 
-        if (_soundSource isEqualType objNull) then
+        if (!hasInterface) exitWith
         {
-            private _timeoutAt = time + 260;
-            waitUntil
-            {
-                sleep 0.5;
-                !hasInterface || { isNull _soundSource } || { time >= _timeoutAt }
-            };
-        }
-        else
-        {
-            sleep 255;
+            [_handle] call CBA_fnc_removePerFrameHandler;
         };
-    };
-};
+
+        if (time <= 0) exitWith {};
+
+        private _nextAt = missionNamespace getVariable ["DZ_ambientSoundNextAt", 0];
+        if (time < _nextAt) exitWith {};
+
+        private _soundSource = playSound "DZ_SoundAmbience";
+        private _delay = if (_soundSource isEqualType objNull) then { 260 } else { 255 };
+
+        missionNamespace setVariable ["DZ_ambientSoundNextAt", time + _delay];
+    },
+    1,
+    []
+] call CBA_fnc_addPerFrameHandler;
+
+missionNamespace setVariable ["DZ_ambientSoundPfh", _handle];
 
 true

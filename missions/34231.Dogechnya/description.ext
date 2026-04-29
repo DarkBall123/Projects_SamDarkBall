@@ -45,6 +45,23 @@ class CfgFunctions
             class spawnForZone {};
             class startAmbientSound {};
             class storeOriginalLoadout {};
+            class manualSaveProgress {};
+            class showHint {};
+            class sideMessage {};
+            class requestTransport {};
+            class setKshmDeployed {};
+            class startMission {};
+            class requestMissionStatus {};
+            class initEwJammer {};
+            class updateEwJammers {};
+            class initHqLaptop {};
+            class initKshmVehicle {};
+            class initTransportMenu {};
+            class initMissionSystem {};
+            class missionUi {};
+            class endMission {};
+            class startInterdictionMission {};
+            class spawnForest {};
         };
     };
 };
@@ -60,3 +77,34 @@ class CfgSounds
 };
 
 #include "scripts\Discord.cpp"
+
+class CfgRemoteExec {
+    class Functions {
+        mode = 1;
+        jip = 0;
+        class DZ_fnc_applySavedLoadout {
+            allowedTargets = 0;
+        };
+        class DZ_fnc_requestSavedLoadout {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_requestMissionStatus {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_requestTransport {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_setKshmDeployed {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_showHint {
+            allowedTargets = 0;
+        };
+        class DZ_fnc_sideMessage {
+            allowedTargets = 0;
+        };
+        class DZ_fnc_startMission {
+            allowedTargets = 2;
+        };
+    };
+};

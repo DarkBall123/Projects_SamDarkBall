@@ -95,13 +95,17 @@ call DZ_fnc_initRespawnMarkers;
 call DZ_fnc_processTriggerZones;
 call DZ_fnc_publishSectorState;
 
-[] spawn
+if !(missionNamespace getVariable ["DZ_zonePfhStarted", false]) then
 {
-    while { true } do
-    {
-        [] call DZ_fnc_handleZonesPFH;
-        sleep (missionNamespace getVariable ["DZ_updateInterval", 1]);
-    };
+    missionNamespace setVariable ["DZ_zonePfhStarted", true];
+
+    [
+        {
+            [] call DZ_fnc_handleZonesPFH;
+        },
+        missionNamespace getVariable ["DZ_updateInterval", 1],
+        []
+    ] call CBA_fnc_addPerFrameHandler;
 };
 
 addMissionEventHandler
@@ -119,12 +123,8 @@ if !(missionNamespace getVariable ["DZ_loadoutSaveStarted", false]) then
 {
     missionNamespace setVariable ["DZ_loadoutSaveStarted", true];
 
-    [] spawn
-    {
-        while { true } do
+    [
         {
-            sleep (missionNamespace getVariable ["DZ_loadoutSaveInterval", 60]);
-
             {
                 [_x] call DZ_fnc_savePlayerLoadout;
             } forEach (allPlayers select { !isNull _x && { isPlayer _x } && { alive _x } });
@@ -133,20 +133,18 @@ if !(missionNamespace getVariable ["DZ_loadoutSaveStarted", false]) then
             {
                 call DZ_fnc_flushSavedLoadouts;
             };
-        };
-    };
+        },
+        missionNamespace getVariable ["DZ_loadoutSaveInterval", 60],
+        []
+    ] call CBA_fnc_addPerFrameHandler;
 };
 
 if ((missionNamespace getVariable ["DZ_enableCorpseCleanup", false]) && { !(missionNamespace getVariable ["DZ_corpseCleanupStarted", false]) }) then
 {
     missionNamespace setVariable ["DZ_corpseCleanupStarted", true];
 
-    [] spawn
-    {
-        while { true } do
+    [
         {
-            sleep (missionNamespace getVariable ["DZ_corpseCleanupInterval", 600]);
-
             private _corpses = allDeadMen select { !isNull _x };
             private _vehicleCleanupCandidates = vehicles select
             {
@@ -180,8 +178,10 @@ if ((missionNamespace getVariable ["DZ_enableCorpseCleanup", false]) && { !(miss
                 count _corpses,
                 count _deadVehicles
             ];
-        };
-    };
+        },
+        missionNamespace getVariable ["DZ_corpseCleanupInterval", 600],
+        []
+    ] call CBA_fnc_addPerFrameHandler;
 };
 
 if !(missionNamespace getVariable ["DZ_enableCorpseCleanup", false]) then

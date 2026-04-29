@@ -99,34 +99,33 @@ ENGIMA_TRAFFIC_DeleteAllWaypointsFromGroup = {
 	} 
 };
 
-ENGIMA_TRAFFIC_GetPosThisIsland = {
-	params ["_startPos", "_targetPos"];
-	
-	scopeName "main";
-	
-	private _stepDistance = 100;
-	private _direction = _startPos getDir _targetPos;
-	private _totDistance = _startPos distance2D _targetPos;
-	private _lastLandPos = _startPos;
-	private _i = 0;
-	private _pos = _startPos;
-	private _waterPositionsInARow = 0;
-	
-	while { _stepDistance * _i < _totDistance } do {
-		_pos = _startPos getPos [_stepDistance * (_i + 1), _direction];
-		
-		if (surfaceIsWater _pos) then {
+	ENGIMA_TRAFFIC_GetPosThisIsland = {
+		params ["_startPos", "_targetPos"];
+
+		private _stepDistance = 100;
+		private _direction = _startPos getDir _targetPos;
+		private _totDistance = _startPos distance2D _targetPos;
+		private _lastLandPos = _startPos;
+		private _i = 0;
+		private _pos = _startPos;
+		private _waterPositionsInARow = 0;
+		private _done = false;
+
+		while { !_done && { _stepDistance * _i < _totDistance } } do {
+			_pos = _startPos getPos [_stepDistance * (_i + 1), _direction];
+			
+			if (surfaceIsWater _pos) then {
 			_waterPositionsInARow = _waterPositionsInARow + 1;
 		}
 		else {
 			_lastLandPos = _pos;
 		};
-		
-		if (_waterPositionsInARow >= 3) then {
-			_lastLandPos breakOut "main";
-		};
-		
-		_i = _i + 1;
+			
+			if (_waterPositionsInARow >= 3) then {
+				_done = true;
+			};
+			
+			_i = _i + 1;
 	};
 	
 	_lastLandPos
@@ -341,13 +340,11 @@ ENGIMA_TRAFFIC_FindSpawnSegment = {
     _result
 };
 
-ENGIMA_TRAFFIC_RoadsConnected = {
-	params ["_thisSegment", "_targetSegment", ["_visitedSegments", []]];
-	
-	scopeName "main";
-	
-	if (isNil "ENGIMA_TRAFFIC_MarkerNo") then {
-		ENGIMA_TRAFFIC_MarkerNo = 1;
+	ENGIMA_TRAFFIC_RoadsConnected = {
+		params ["_thisSegment", "_targetSegment", ["_visitedSegments", []]];
+
+		if (isNil "ENGIMA_TRAFFIC_MarkerNo") then {
+			ENGIMA_TRAFFIC_MarkerNo = 1;
 	};
 	
 	/*
@@ -355,23 +352,24 @@ ENGIMA_TRAFFIC_RoadsConnected = {
 	_marker setMarkerShape "ICON";
 	_marker setMarkerType "hd_dot";
 	ENGIMA_TRAFFIC_MarkerNo = ENGIMA_TRAFFIC_MarkerNo + 1;
-	*/
-	if (_thisSegment == _targetSegment) then {
-		//_marker setMarkerColor "ColorBlue";
-		true breakOut "main";
-	};
-	
-	_visitedSegments pushBack _thisSegment;
-	
-	private _connectedSegments = roadsConnectedTo _thisSegment;
-	
-	{
-		if (!(_x in _visitedSegments)) then {
-			if ([_x, _targetSegment, _visitedSegments] call ENGIMA_TRAFFIC_RoadsConnected) then {
-				true breakOut "main";
-			};
+		*/
+		if (_thisSegment == _targetSegment) then {
+			//_marker setMarkerColor "ColorBlue";
+			true
+		} else {
+			_visitedSegments pushBack _thisSegment;
+
+			private _connectedSegments = roadsConnectedTo _thisSegment;
+			private _connected = false;
+
+			{
+				if (!_connected && {!(_x in _visitedSegments)}) then {
+					if ([_x, _targetSegment, _visitedSegments] call ENGIMA_TRAFFIC_RoadsConnected) then {
+						_connected = true;
+					};
+				};
+			} foreach _connectedSegments;
+
+			_connected
 		};
-	} foreach _connectedSegments;
-	
-	false
-};
+	};

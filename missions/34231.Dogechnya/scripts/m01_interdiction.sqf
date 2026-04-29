@@ -1,0 +1,1 @@
+call DZ_fnc_startInterdictionMission;
