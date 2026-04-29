@@ -390,6 +390,10 @@ missionNamespace setVariable ["DZ_enableCorpseCleanup", false];
 missionNamespace setVariable ["DZ_enableLiveDespawn", false];
 missionNamespace setVariable ["DZ_loadoutSaveInterval", 60];
 missionNamespace setVariable ["DZ_respawnPoints", _respawnPoints];
+missionNamespace setVariable ["DZ_missionSchedulerEnabled", false];
+missionNamespace setVariable ["DZ_missionEventInterval", 1200];
+missionNamespace setVariable ["DZ_missionEventInitialDelay", 1200];
+missionNamespace setVariable ["DZ_missionAutoMinPlayers", 1];
 
 missionNamespace setVariable ["DZ_cpChance", 0.0003];
 missionNamespace setVariable ["CH_sideEnemy", west];

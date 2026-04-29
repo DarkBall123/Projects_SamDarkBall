@@ -1,5 +1,17 @@
 if (!isServer) exitWith { false };
 
+if ((count (missionNamespace getVariable ["DZ_missionDefinitions", createHashMap])) == 0) then
+{
+    private _definitions = call DZ_fnc_getMissionDefinitions;
+    missionNamespace setVariable ["DZ_missionDefinitions", _definitions];
+};
+
+missionNamespace setVariable ["DZ_missionSchedulerEnabled", missionNamespace getVariable ["DZ_missionSchedulerEnabled", false]];
+missionNamespace setVariable ["DZ_missionEventInterval", missionNamespace getVariable ["DZ_missionEventInterval", 1200]];
+missionNamespace setVariable ["DZ_missionEventInitialDelay", missionNamespace getVariable ["DZ_missionEventInitialDelay", 1200]];
+missionNamespace setVariable ["DZ_missionAutoMinPlayers", missionNamespace getVariable ["DZ_missionAutoMinPlayers", 1]];
+missionNamespace setVariable ["DZ_missionCooldowns", missionNamespace getVariable ["DZ_missionCooldowns", createHashMap]];
+
 if (isNil "DZ_missionConvoyRoutes") then
 {
     DZ_missionConvoyRoutes =
@@ -44,6 +56,8 @@ if (isNil "DZ_missionExtractLz") then
 
 missionNamespace setVariable ["DZ_missionActive", missionNamespace getVariable ["DZ_missionActive", false], true];
 missionNamespace setVariable ["DZ_missionCurrentId", missionNamespace getVariable ["DZ_missionCurrentId", ""], true];
+missionNamespace setVariable ["DZ_missionCurrentTitle", missionNamespace getVariable ["DZ_missionCurrentTitle", ""], true];
+missionNamespace setVariable ["DZ_missionSource", missionNamespace getVariable ["DZ_missionSource", ""], true];
 missionNamespace setVariable ["DZ_missionStartTime", missionNamespace getVariable ["DZ_missionStartTime", 0], true];
 missionNamespace setVariable ["DZ_missionUnits", missionNamespace getVariable ["DZ_missionUnits", []]];
 missionNamespace setVariable ["DZ_missionMarkers", missionNamespace getVariable ["DZ_missionMarkers", []]];

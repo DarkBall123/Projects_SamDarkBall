@@ -2,15 +2,13 @@ if (!isServer) exitWith { false };
 
 call DZ_fnc_initMissionSystem;
 
+private _currentMissionId = missionNamespace getVariable ["DZ_missionCurrentId", ""];
+if ((missionNamespace getVariable ["DZ_missionActive", false]) && { _currentMissionId != "interdiction" }) exitWith { false };
+
 if !(missionNamespace getVariable ["DZ_missionActive", false]) then
 {
-    missionNamespace setVariable ["DZ_missionActive", true, true];
-    missionNamespace setVariable ["DZ_missionCurrentId", "interdiction", true];
-    missionNamespace setVariable ["DZ_missionStartTime", time, true];
-    missionNamespace setVariable ["DZ_missionUnits", []];
-    missionNamespace setVariable ["DZ_missionMarkers", []];
-    missionNamespace setVariable ["DZ_missionVehicles", []];
-    missionNamespace setVariable ["DZ_missionPfhHandles", []];
+    private _definition = ["interdiction"] call DZ_fnc_getMissionDefinition;
+    ["interdiction", "manual", _definition] call DZ_fnc_prepareMissionState;
 };
 
 if (isNil "DZ_missionConvoyRoutes" || { DZ_missionConvoyRoutes isEqualTo [] }) exitWith
@@ -24,9 +22,7 @@ private _startPos = _route # 0;
 private _endPos = _route # 1;
 private _convoyDir = _startPos getDir _endPos;
 private _convoyVehicles = [];
-private _vehicles = missionNamespace getVariable ["DZ_missionVehicles", []];
-private _units = missionNamespace getVariable ["DZ_missionUnits", []];
-private _markers = missionNamespace getVariable ["DZ_missionMarkers", []];
+private _missionUnits = [];
 
 private _vehicleDefs =
 [
@@ -41,7 +37,6 @@ private _vehicleDefs =
     private _vehicle = createVehicle [_className, _startPos, [], _placement, "NONE"];
     _vehicle setDir _convoyDir;
 
-    _vehicles pushBack _vehicle;
     _convoyVehicles pushBack _vehicle;
 } forEach _vehicleDefs;
 
@@ -56,7 +51,7 @@ private _vehicleDefs =
 
         {
             _x setSkill 0.5;
-            _units pushBack _x;
+            _missionUnits pushBack _x;
         } forEach crew _x;
 
         private _waypoint = _group addWaypoint [_endPos, 0];
@@ -69,12 +64,12 @@ private _vehicleDefs =
 ["create", "marker_convoy", _startPos, "mil_destroy", "Convoy"] call DZ_fnc_missionUi;
 ["create", "marker_convoy_dest", _endPos, "mil_flag", "Destination"] call DZ_fnc_missionUi;
 
-_markers pushBack "marker_convoy";
-_markers pushBack "marker_convoy_dest";
-
-missionNamespace setVariable ["DZ_missionUnits", _units];
-missionNamespace setVariable ["DZ_missionMarkers", _markers];
-missionNamespace setVariable ["DZ_missionVehicles", _vehicles];
+[
+    _missionUnits,
+    _convoyVehicles,
+    ["marker_convoy", "marker_convoy_dest"],
+    []
+] call DZ_fnc_addMissionAssets;
 
 [
     "hint",
@@ -132,6 +127,6 @@ private _stateHandle = [
     [_convoyVehicles, _endPos]
 ] call CBA_fnc_addPerFrameHandler;
 
-missionNamespace setVariable ["DZ_missionPfhHandles", [_markerHandle, _stateHandle]];
+[[], [], [], [_markerHandle, _stateHandle]] call DZ_fnc_addMissionAssets;
 
 true

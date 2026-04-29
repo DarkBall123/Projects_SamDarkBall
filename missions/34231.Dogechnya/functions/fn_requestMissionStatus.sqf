@@ -15,13 +15,16 @@ if !(missionNamespace getVariable ["DZ_missionActive", false]) exitWith {
 };
 
 private _missionId = missionNamespace getVariable ["DZ_missionCurrentId", ""];
+private _missionTitle = missionNamespace getVariable ["DZ_missionCurrentTitle", _missionId];
+private _missionSource = missionNamespace getVariable ["DZ_missionSource", "manual"];
 private _startTime = missionNamespace getVariable ["DZ_missionStartTime", time];
 
 [
     "Штаб",
     format [
-        "Активная миссия: %1\nПродолжительность: %2 мин",
-        _missionId,
+        "Активная миссия: %1\nИсточник: %2\nПродолжительность: %3 мин",
+        _missionTitle,
+        _missionSource,
         floor ((time - _startTime) / 60)
     ]
 ] remoteExecCall ["DZ_fnc_showHint", _replyTarget];

@@ -1,6 +1,7 @@
 params [
     ["_missionId", "", [""]],
-    ["_caller", objNull, [objNull]]
+    ["_caller", objNull, [objNull]],
+    ["_source", "manual", [""]]
 ];
 
 if (!isServer) exitWith {};
@@ -10,7 +11,9 @@ private _replyTarget = if (isNull _caller) then {0} else {owner _caller};
 
 call DZ_fnc_initMissionSystem;
 
-if (!(_missionId in ["interdiction", "assassination", "downed_pilot"])) exitWith {
+private _definition = [_missionId] call DZ_fnc_getMissionDefinition;
+
+if ((count _definition) == 0) exitWith {
     ["Штаб", "Неизвестный тип миссии."] remoteExecCall ["DZ_fnc_showHint", _replyTarget];
 };
 
@@ -18,28 +21,45 @@ if (missionNamespace getVariable ["DZ_missionActive", false]) exitWith {
     ["Штаб", "Миссия уже активна."] remoteExecCall ["DZ_fnc_showHint", _replyTarget];
 };
 
-if (_missionId in ["assassination", "downed_pilot"]) exitWith {
+private _manualEnabled = _definition getOrDefault ["manualEnabled", false];
+private _randomEnabled = _definition getOrDefault ["randomEnabled", false];
+private _implemented = _definition getOrDefault ["implemented", false];
+
+if (_source == "manual" && { !_manualEnabled }) exitWith {
+    ["Штаб", "Эта миссия недоступна для ручного запуска."] remoteExecCall ["DZ_fnc_showHint", _replyTarget];
+};
+
+if (_source == "auto" && { !_randomEnabled }) exitWith { false };
+
+if (!_implemented) exitWith {
     [
         "Штаб",
         "Эта миссия пока только зарезервирована в меню. Логика будет добавлена отдельным сценарием."
     ] remoteExecCall ["DZ_fnc_showHint", _replyTarget];
 };
 
-missionNamespace setVariable ["DZ_missionActive", true, true];
-missionNamespace setVariable ["DZ_missionCurrentId", _missionId, true];
-missionNamespace setVariable ["DZ_missionStartTime", time, true];
-missionNamespace setVariable ["DZ_missionUnits", []];
-missionNamespace setVariable ["DZ_missionMarkers", []];
-missionNamespace setVariable ["DZ_missionVehicles", []];
-missionNamespace setVariable ["DZ_missionPfhHandles", []];
+[_missionId, _source, _definition] call DZ_fnc_prepareMissionState;
 
-["hint", "Штаб", format ["Миссия активирована: %1", _missionId]] call DZ_fnc_missionUi;
+private _title = _definition getOrDefault ["title", _missionId];
+["hint", "Штаб", format ["Миссия активирована: %1", _title]] call DZ_fnc_missionUi;
 
-switch (_missionId) do {
-    case "interdiction": {
-        call DZ_fnc_startInterdictionMission;
-    };
-    default {
-        ["cancelled"] call DZ_fnc_endMission;
+private _startFunction = _definition getOrDefault ["startFunction", ""];
+private _startCode = missionNamespace getVariable [_startFunction, {}];
+
+if !(_startCode isEqualType {}) exitWith
+{
+    ["failure"] call DZ_fnc_endMission;
+    false
+};
+
+private _started = call _startCode;
+
+if !(_started isEqualTo true) then
+{
+    if (missionNamespace getVariable ["DZ_missionActive", false]) then
+    {
+        ["failure"] call DZ_fnc_endMission;
     };
 };
+
+_started

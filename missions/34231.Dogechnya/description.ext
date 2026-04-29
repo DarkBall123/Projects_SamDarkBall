@@ -50,6 +50,14 @@ class CfgFunctions
             class sideMessage {};
             class requestTransport {};
             class setKshmDeployed {};
+            class getMissionDefinitions {};
+            class getMissionDefinition {};
+            class prepareMissionState {};
+            class addMissionAssets {};
+            class selectRandomMission {};
+            class startRandomMission {};
+            class startMissionScheduler {};
+            class missionSchedulerTick {};
             class startMission {};
             class requestMissionStatus {};
             class initEwJammer {};
