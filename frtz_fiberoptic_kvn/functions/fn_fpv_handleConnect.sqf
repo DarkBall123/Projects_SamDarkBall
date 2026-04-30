@@ -18,6 +18,10 @@
                 !(typeOf cameraOn in _drones)
             };
 
+            if (isNull _uav || {!alive _uav}) then {
+                [] call DB_kvn_fnc_fpv_showNoImage;
+            };
+
             missionNamespace setVariable ["kvn_isControl", false];
             call DB_kvn_fnc_fpv_destroyUI;
         };

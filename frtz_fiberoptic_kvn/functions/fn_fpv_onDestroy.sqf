@@ -5,6 +5,15 @@ if (isNull _uav) exitWith {};
 private _dronesArray = missionNamespace getVariable ["DB_kvn_fpv_dronesArray", []];
 if !(typeOf _uav in _dronesArray) exitWith {};
 
+private _instigator = (UAVControl _uav) # 0;
+if (!isNull _instigator) then {
+	if (hasInterface && {player isEqualTo _instigator}) then {
+		[] call DB_kvn_fnc_fpv_showNoImage;
+	} else {
+		[] remoteExecCall ["DB_kvn_fnc_fpv_showNoImage", _instigator];
+	};
+};
+
 private _path = _uav getVariable ["kvn_fiber_path", []];
 if !(_path isEqualTo []) then {
     private _ttl = missionNamespace getVariable ["kvn_fiberTTL", 20];
@@ -21,7 +30,6 @@ if !(_path isEqualTo []) then {
 cutText ["", "PLAIN"];
 
 private _killer     = driver _uav;
-private _instigator = (UAVControl _uav) # 0;
 private _missileType = "";
 private _uavType     = toLower typeOf _uav;
 

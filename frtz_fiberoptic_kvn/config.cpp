@@ -19,14 +19,38 @@ class CfgPatches
 			"frtz_O_KVN_AP",
 			"frtz_O_KVN_AT_TI",
 			"frtz_O_KVN_AP_TI",
+			"frtz_O_KVN_AT_20KM",
+			"frtz_O_KVN_AP_20KM",
+			"frtz_O_KVN_AT_TI_20KM",
+			"frtz_O_KVN_AP_TI_20KM",
+			"frtz_O_KVN_AT_25KM",
+			"frtz_O_KVN_AP_25KM",
+			"frtz_O_KVN_AT_TI_25KM",
+			"frtz_O_KVN_AP_TI_25KM",
 			"frtz_B_KVN_AT",
 			"frtz_B_KVN_AP",
 			"frtz_B_KVN_AT_TI",
 			"frtz_B_KVN_AP_TI",
+			"frtz_B_KVN_AT_20KM",
+			"frtz_B_KVN_AP_20KM",
+			"frtz_B_KVN_AT_TI_20KM",
+			"frtz_B_KVN_AP_TI_20KM",
+			"frtz_B_KVN_AT_25KM",
+			"frtz_B_KVN_AP_25KM",
+			"frtz_B_KVN_AT_TI_25KM",
+			"frtz_B_KVN_AP_TI_25KM",
 			"frtz_I_KVN_AT",
 			"frtz_I_KVN_AP",
 			"frtz_I_KVN_AT_TI",
-			"frtz_I_KVN_AP_TI"
+			"frtz_I_KVN_AP_TI",
+			"frtz_I_KVN_AT_20KM",
+			"frtz_I_KVN_AP_20KM",
+			"frtz_I_KVN_AT_TI_20KM",
+			"frtz_I_KVN_AP_TI_20KM",
+			"frtz_I_KVN_AT_25KM",
+			"frtz_I_KVN_AP_25KM",
+			"frtz_I_KVN_AT_TI_25KM",
+			"frtz_I_KVN_AP_TI_25KM"
 		};
 		weapons[]={};
 	};
@@ -44,6 +68,20 @@ class RscTitles
 		duration=9.9999997e+037;
 		movingEnable=0;
 		enableSimulation=1;
+		class controlsBackground
+		{
+			class NoImage_BG: RscText
+			{
+				idc=-1;
+				onLoad="uiNamespace setVariable ['kvn_NoImage_BG', _this # 0]; (_this # 0) ctrlShow false;";
+				colorBackground[]={0.32,0.32,0.32,1};
+				text="";
+				x="safeZoneXAbs";
+				y="safeZoneY";
+				w="safeZoneWAbs";
+				h="safeZoneH";
+			};
+		};
 		class controls
 		{
 			class TL_Group: ctrlControlsGroupNoScrollBars
@@ -398,7 +436,7 @@ class RscTitles
 						shadow=2;
 						colorShadow[]={0,0,0,0.80000001};
 						size="( 1.0 * (pixelGridNoUIScale * pixelH * 2) )";
-						text="SN: 9621391";
+						text="SN: 962139117";
 						x="( -1.0 * (pixelGridNoUIScale * pixelH * 2) )";
 						y="( 6.7 * (pixelGridNoUIScale * pixelH * 2) )";
 						w="( 26 * (pixelGridNoUIScale * pixelW * 2) )";
@@ -416,6 +454,22 @@ class RscTitles
 				y="0.5 - ( 3 * (pixelGridNoUIScale * pixelH * 2) )/2";
 				w="( 3 * (pixelGridNoUIScale * pixelW * 2) )";
 				h="( 3 * (pixelGridNoUIScale * pixelH * 2) )";
+			};
+			class NoImage_Text: RscText
+			{
+				idc=-1;
+				onLoad="uiNamespace setVariable ['kvn_NoImage_Text', _this # 0]; (_this # 0) ctrlShow false;";
+				style=2;
+				font="VCROSDMono";
+				shadow=2;
+				colorShadow[]={0,0,0,0.85000002};
+				colorText[]={0.8,0.8,0.8,1};
+				sizeEx="( 2.8 * (pixelGridNoUIScale * pixelH * 2) )";
+				text="NO IMAGE";
+				x="safeZoneXAbs";
+				y="0.5 - ( 4 * (pixelGridNoUIScale * pixelH * 2) )/2";
+				w="safeZoneWAbs";
+				h="( 4 * (pixelGridNoUIScale * pixelH * 2) )";
 			};
 			class Center_PitchText: ctrlStructuredText
 			{
@@ -601,6 +655,9 @@ class CfgFunctions
 			class fpv_destroyUI
 			{
 			};
+			class fpv_showNoImage
+			{
+			};
 			class fpv_uiAnimate
 			{
 			};
@@ -770,8 +827,8 @@ class CfgVehicles
 		bodyFrictionCoef=0.25;
 		backRotorForceCoef=10;
 		rudderInfluence=1;
-		fuelCapacity=30;
-		fuelUsageCoef=0;
+		fuelCapacity=15;
+		fuelUsageCoef=1;
 		maxFordingDepth=0.30000001;
 		threat[]={0.1,0.1,0.1};
 		maxMainRotorDive=0;
@@ -1275,7 +1332,7 @@ class CfgVehicles
 		{
 			"O_UAV_AI"
 		};
-		displayName="KVN AT";
+		displayName="KVN AT (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1302,7 +1359,7 @@ class CfgVehicles
 		{
 			"O_UAV_AI"
 		};
-		displayName="KVN AP";
+		displayName="KVN AP (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1329,7 +1386,7 @@ class CfgVehicles
 		{
 			"O_UAV_AI"
 		};
-		displayName="KVN AT TI";
+		displayName="KVN AT TI (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1365,7 +1422,7 @@ class CfgVehicles
 		{
 			"O_UAV_AI"
 		};
-		displayName="KVN AP TI";
+		displayName="KVN AP TI (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1401,7 +1458,7 @@ class CfgVehicles
 		{
 			"B_UAV_AI"
 		};
-		displayName="KVN AT";
+		displayName="KVN AT (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1428,7 +1485,7 @@ class CfgVehicles
 		{
 			"B_UAV_AI"
 		};
-		displayName="KVN AP";
+		displayName="KVN AP (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1455,7 +1512,7 @@ class CfgVehicles
 		{
 			"B_UAV_AI"
 		};
-		displayName="KVN AT TI";
+		displayName="KVN AT TI (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1491,7 +1548,7 @@ class CfgVehicles
 		{
 			"B_UAV_AI"
 		};
-		displayName="KVN AP TI";
+		displayName="KVN AP TI (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1527,7 +1584,7 @@ class CfgVehicles
 		{
 			"I_UAV_AI"
 		};
-		displayName="KVN AT";
+		displayName="KVN AT (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1554,7 +1611,7 @@ class CfgVehicles
 		{
 			"I_UAV_AI"
 		};
-		displayName="KVN AP";
+		displayName="KVN AP (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1581,7 +1638,7 @@ class CfgVehicles
 		{
 			"I_UAV_AI"
 		};
-		displayName="KVN AT TI";
+		displayName="KVN AT TI (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1617,7 +1674,7 @@ class CfgVehicles
 		{
 			"I_UAV_AI"
 		};
-		displayName="KVN AP TI";
+		displayName="KVN AP TI (15km)";
 		editorPreview="\frtz_fiberoptic_kvn\data\ui\FPV_KVN_preview.jpg";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		author="Fritz & Smoke";
@@ -1642,17 +1699,401 @@ class CfgVehicles
 			thermalMode[]={0,1};
 		};
 	};
+	class frtz_O_KVN_AT_20KM: frtz_O_KVN_AT
+	{
+		displayName="KVN AT (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AT_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AP_20KM: frtz_O_KVN_AP
+	{
+		displayName="KVN AP (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AP_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AT_TI_20KM: frtz_O_KVN_AT_TI
+	{
+		displayName="KVN AT TI (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AT_TI_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AP_TI_20KM: frtz_O_KVN_AP_TI
+	{
+		displayName="KVN AP TI (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AP_TI_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AT_25KM: frtz_O_KVN_AT
+	{
+		displayName="KVN AT (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AT_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AP_25KM: frtz_O_KVN_AP
+	{
+		displayName="KVN AP (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AP_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AT_TI_25KM: frtz_O_KVN_AT_TI
+	{
+		displayName="KVN AT TI (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AT_TI_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_O_KVN_AP_TI_25KM: frtz_O_KVN_AP_TI
+	{
+		displayName="KVN AP TI (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_O_KVN_AP_TI_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AT_20KM: frtz_B_KVN_AT
+	{
+		displayName="KVN AT (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AT_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AP_20KM: frtz_B_KVN_AP
+	{
+		displayName="KVN AP (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AP_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AT_TI_20KM: frtz_B_KVN_AT_TI
+	{
+		displayName="KVN AT TI (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AT_TI_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AP_TI_20KM: frtz_B_KVN_AP_TI
+	{
+		displayName="KVN AP TI (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AP_TI_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AT_25KM: frtz_B_KVN_AT
+	{
+		displayName="KVN AT (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AT_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AP_25KM: frtz_B_KVN_AP
+	{
+		displayName="KVN AP (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AP_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AT_TI_25KM: frtz_B_KVN_AT_TI
+	{
+		displayName="KVN AT TI (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AT_TI_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_B_KVN_AP_TI_25KM: frtz_B_KVN_AP_TI
+	{
+		displayName="KVN AP TI (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_B_KVN_AP_TI_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AT_20KM: frtz_I_KVN_AT
+	{
+		displayName="KVN AT (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AT_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AP_20KM: frtz_I_KVN_AP
+	{
+		displayName="KVN AP (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AP_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AT_TI_20KM: frtz_I_KVN_AT_TI
+	{
+		displayName="KVN AT TI (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AT_TI_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AP_TI_20KM: frtz_I_KVN_AP_TI
+	{
+		displayName="KVN AP TI (20km)";
+		fuelCapacity=20;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AP_TI_20KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AT_25KM: frtz_I_KVN_AT
+	{
+		displayName="KVN AT (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AT_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AP_25KM: frtz_I_KVN_AP
+	{
+		displayName="KVN AP (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AP_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AT_TI_25KM: frtz_I_KVN_AT_TI
+	{
+		displayName="KVN AT TI (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AT_TI_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
+	class frtz_I_KVN_AP_TI_25KM: frtz_I_KVN_AP_TI
+	{
+		displayName="KVN AP TI (25km)";
+		fuelCapacity=25;
+		class assembleInfo
+		{
+			primary=0;
+			base="";
+			assembleTo="";
+			dissasembleTo[]=
+			{
+				"frtz_I_KVN_AP_TI_25KM_Bag"
+			};
+			displayName="";
+		};
+	};
 	class frtz_O_KVN_AT_Bag: O_UAV_01_backpack_F
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AT Bag OPFOR";
+		displayName="KVN AT (15km) Bag OPFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_O_KVN_AT";
 			base="";
-			displayName="KVN AT Bag OPFOR";
+			displayName="KVN AT (15km) Bag OPFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1661,13 +2102,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AP Bag OPFOR";
+		displayName="KVN AP (15km) Bag OPFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_O_KVN_AP";
 			base="";
-			displayName="KVN AP Bag OPFOR";
+			displayName="KVN AP (15km) Bag OPFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1676,13 +2117,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AT TI Bag OPFOR";
+		displayName="KVN AT TI (15km) Bag OPFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_O_KVN_AT_TI";
 			base="";
-			displayName="KVN AT TI Bag OPFOR";
+			displayName="KVN AT TI (15km) Bag OPFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1691,13 +2132,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AP TI Bag OPFOR";
+		displayName="KVN AP TI (15km) Bag OPFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_O_KVN_AP_TI";
 			base="";
-			displayName="KVN AP TI Bag OPFOR";
+			displayName="KVN AP TI (15km) Bag OPFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1706,13 +2147,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AT Bag BLUFOR";
+		displayName="KVN AT (15km) Bag BLUFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_B_KVN_AT";
 			base="";
-			displayName="KVN AT Bag BLUFOR";
+			displayName="KVN AT (15km) Bag BLUFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1721,13 +2162,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AP Bag BLUFOR";
+		displayName="KVN AP (15km) Bag BLUFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_B_KVN_AP";
 			base="";
-			displayName="KVN AP Bag BLUFOR";
+			displayName="KVN AP (15km) Bag BLUFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1736,13 +2177,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AT TI Bag BLUFOR";
+		displayName="KVN AT TI (15km) Bag BLUFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_B_KVN_AT_TI";
 			base="";
-			displayName="KVN AT TI Bag BLUFOR";
+			displayName="KVN AT TI (15km) Bag BLUFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1751,13 +2192,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AP TI Bag BLUFOR";
+		displayName="KVN AP TI (15km) Bag BLUFOR";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_B_KVN_AP_TI";
 			base="";
-			displayName="KVN AP TI Bag BLUFOR";
+			displayName="KVN AP TI (15km) Bag BLUFOR";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1766,13 +2207,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AT Bag IND";
+		displayName="KVN AT (15km) Bag IND";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_I_KVN_AT";
 			base="";
-			displayName="KVN AT Bag IND";
+			displayName="KVN AT (15km) Bag IND";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1781,13 +2222,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AP Bag IND";
+		displayName="KVN AP (15km) Bag IND";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_I_KVN_AP";
 			base="";
-			displayName="KVN AP Bag IND";
+			displayName="KVN AP (15km) Bag IND";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1796,13 +2237,13 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AT TI Bag IND";
+		displayName="KVN AT TI (15km) Bag IND";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_I_KVN_AT_TI";
 			base="";
-			displayName="KVN AT TI Bag IND";
+			displayName="KVN AT TI (15km) Bag IND";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1811,13 +2252,301 @@ class CfgVehicles
 	{
 		scope=2;
 		scopeCurator=2;
-		displayName="KVN AP TI Bag IND";
+		displayName="KVN AP TI (15km) Bag IND";
 		author="Fritz & Smoke";
 		class assembleInfo
 		{
 			assembleTo="frtz_I_KVN_AP_TI";
 			base="";
-			displayName="KVN AP TI Bag IND";
+			displayName="KVN AP TI (15km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AT_20KM_Bag: frtz_O_KVN_AT_Bag
+	{
+		displayName="KVN AT (20km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AT_20KM";
+			base="";
+			displayName="KVN AT (20km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AP_20KM_Bag: frtz_O_KVN_AP_Bag
+	{
+		displayName="KVN AP (20km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AP_20KM";
+			base="";
+			displayName="KVN AP (20km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AT_TI_20KM_Bag: frtz_O_KVN_AT_TI_Bag
+	{
+		displayName="KVN AT TI (20km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AT_TI_20KM";
+			base="";
+			displayName="KVN AT TI (20km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AP_TI_20KM_Bag: frtz_O_KVN_AP_TI_Bag
+	{
+		displayName="KVN AP TI (20km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AP_TI_20KM";
+			base="";
+			displayName="KVN AP TI (20km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AT_25KM_Bag: frtz_O_KVN_AT_Bag
+	{
+		displayName="KVN AT (25km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AT_25KM";
+			base="";
+			displayName="KVN AT (25km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AP_25KM_Bag: frtz_O_KVN_AP_Bag
+	{
+		displayName="KVN AP (25km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AP_25KM";
+			base="";
+			displayName="KVN AP (25km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AT_TI_25KM_Bag: frtz_O_KVN_AT_TI_Bag
+	{
+		displayName="KVN AT TI (25km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AT_TI_25KM";
+			base="";
+			displayName="KVN AT TI (25km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_O_KVN_AP_TI_25KM_Bag: frtz_O_KVN_AP_TI_Bag
+	{
+		displayName="KVN AP TI (25km) Bag OPFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_O_KVN_AP_TI_25KM";
+			base="";
+			displayName="KVN AP TI (25km) Bag OPFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AT_20KM_Bag: frtz_B_KVN_AT_Bag
+	{
+		displayName="KVN AT (20km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AT_20KM";
+			base="";
+			displayName="KVN AT (20km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AP_20KM_Bag: frtz_B_KVN_AP_Bag
+	{
+		displayName="KVN AP (20km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AP_20KM";
+			base="";
+			displayName="KVN AP (20km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AT_TI_20KM_Bag: frtz_B_KVN_AT_TI_Bag
+	{
+		displayName="KVN AT TI (20km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AT_TI_20KM";
+			base="";
+			displayName="KVN AT TI (20km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AP_TI_20KM_Bag: frtz_B_KVN_AP_TI_Bag
+	{
+		displayName="KVN AP TI (20km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AP_TI_20KM";
+			base="";
+			displayName="KVN AP TI (20km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AT_25KM_Bag: frtz_B_KVN_AT_Bag
+	{
+		displayName="KVN AT (25km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AT_25KM";
+			base="";
+			displayName="KVN AT (25km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AP_25KM_Bag: frtz_B_KVN_AP_Bag
+	{
+		displayName="KVN AP (25km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AP_25KM";
+			base="";
+			displayName="KVN AP (25km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AT_TI_25KM_Bag: frtz_B_KVN_AT_TI_Bag
+	{
+		displayName="KVN AT TI (25km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AT_TI_25KM";
+			base="";
+			displayName="KVN AT TI (25km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_B_KVN_AP_TI_25KM_Bag: frtz_B_KVN_AP_TI_Bag
+	{
+		displayName="KVN AP TI (25km) Bag BLUFOR";
+		class assembleInfo
+		{
+			assembleTo="frtz_B_KVN_AP_TI_25KM";
+			base="";
+			displayName="KVN AP TI (25km) Bag BLUFOR";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AT_20KM_Bag: frtz_I_KVN_AT_Bag
+	{
+		displayName="KVN AT (20km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AT_20KM";
+			base="";
+			displayName="KVN AT (20km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AP_20KM_Bag: frtz_I_KVN_AP_Bag
+	{
+		displayName="KVN AP (20km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AP_20KM";
+			base="";
+			displayName="KVN AP (20km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AT_TI_20KM_Bag: frtz_I_KVN_AT_TI_Bag
+	{
+		displayName="KVN AT TI (20km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AT_TI_20KM";
+			base="";
+			displayName="KVN AT TI (20km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AP_TI_20KM_Bag: frtz_I_KVN_AP_TI_Bag
+	{
+		displayName="KVN AP TI (20km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AP_TI_20KM";
+			base="";
+			displayName="KVN AP TI (20km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AT_25KM_Bag: frtz_I_KVN_AT_Bag
+	{
+		displayName="KVN AT (25km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AT_25KM";
+			base="";
+			displayName="KVN AT (25km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AP_25KM_Bag: frtz_I_KVN_AP_Bag
+	{
+		displayName="KVN AP (25km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AP_25KM";
+			base="";
+			displayName="KVN AP (25km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AT_TI_25KM_Bag: frtz_I_KVN_AT_TI_Bag
+	{
+		displayName="KVN AT TI (25km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AT_TI_25KM";
+			base="";
+			displayName="KVN AT TI (25km) Bag IND";
+			dissasembleTo[]={};
+			primary=1;
+		};
+	};
+	class frtz_I_KVN_AP_TI_25KM_Bag: frtz_I_KVN_AP_TI_Bag
+	{
+		displayName="KVN AP TI (25km) Bag IND";
+		class assembleInfo
+		{
+			assembleTo="frtz_I_KVN_AP_TI_25KM";
+			base="";
+			displayName="KVN AP TI (25km) Bag IND";
 			dissasembleTo[]={};
 			primary=1;
 		};
@@ -1831,36 +2560,60 @@ class CfgMagazines
 		_generalMacro="frtz_Item_KVN_AT";
 		scope=2;
 		author="Fritz & Smoke";
-		descriptionShort="KVN FPV Drone AT (AntiвЂ‘Tank)";
-		displayName="KVN AT Drone";
+		descriptionShort="KVN FPV Drone AT (Anti-Tank, 15km fiber)";
+		displayName="KVN AT Drone (15km)";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		icon="\frtz_fiberoptic_kvn\data\ui\kvn_pic_ca.paa";
 		picture="\frtz_fiberoptic_kvn\data\ui\kvn_map_icon_ca.paa";
 		mass=150;
 		count=1;
 		ammo="";
+	};
+	class frtz_Item_KVN_AT_20KM: frtz_Item_KVN_AT
+	{
+		_generalMacro="frtz_Item_KVN_AT_20KM";
+		descriptionShort="KVN FPV Drone AT (Anti-Tank, 20km fiber)";
+		displayName="KVN AT Drone (20km)";
+	};
+	class frtz_Item_KVN_AT_25KM: frtz_Item_KVN_AT
+	{
+		_generalMacro="frtz_Item_KVN_AT_25KM";
+		descriptionShort="KVN FPV Drone AT (Anti-Tank, 25km fiber)";
+		displayName="KVN AT Drone (25km)";
 	};
 	class frtz_Item_KVN_AP: Laserbatteries
 	{
 		_generalMacro="frtz_Item_KVN_AP";
 		scope=2;
 		author="Fritz & Smoke";
-		descriptionShort="KVN FPV Drone AP (AntiвЂ‘Personnel)";
-		displayName="KVN AP Drone";
+		descriptionShort="KVN FPV Drone AP (Anti-Personnel, 15km fiber)";
+		displayName="KVN AP Drone (15km)";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		icon="\frtz_fiberoptic_kvn\data\ui\kvn_pic_ca.paa";
 		picture="\frtz_fiberoptic_kvn\data\ui\kvn_map_icon_ca.paa";
 		mass=150;
 		count=1;
 		ammo="";
+	};
+	class frtz_Item_KVN_AP_20KM: frtz_Item_KVN_AP
+	{
+		_generalMacro="frtz_Item_KVN_AP_20KM";
+		descriptionShort="KVN FPV Drone AP (Anti-Personnel, 20km fiber)";
+		displayName="KVN AP Drone (20km)";
+	};
+	class frtz_Item_KVN_AP_25KM: frtz_Item_KVN_AP
+	{
+		_generalMacro="frtz_Item_KVN_AP_25KM";
+		descriptionShort="KVN FPV Drone AP (Anti-Personnel, 25km fiber)";
+		displayName="KVN AP Drone (25km)";
 	};
 	class frtz_Item_KVN_AT_TI: Laserbatteries
 	{
 		_generalMacro="frtz_Item_KVN_AT_TI";
 		scope=2;
 		author="Fritz & Smoke";
-		descriptionShort="KVN FPV Drone ATвЂ‘TI (AntiвЂ‘Tank, Thermal)";
-		displayName="KVN AT TI Drone";
+		descriptionShort="KVN FPV Drone AT TI (Anti-Tank, Thermal, 15km fiber)";
+		displayName="KVN AT TI Drone (15km)";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		icon="\frtz_fiberoptic_kvn\data\ui\kvn_pic_ca.paa";
 		picture="\frtz_fiberoptic_kvn\data\ui\kvn_map_icon_ca.paa";
@@ -1868,19 +2621,43 @@ class CfgMagazines
 		count=1;
 		ammo="";
 	};
+	class frtz_Item_KVN_AT_TI_20KM: frtz_Item_KVN_AT_TI
+	{
+		_generalMacro="frtz_Item_KVN_AT_TI_20KM";
+		descriptionShort="KVN FPV Drone AT TI (Anti-Tank, Thermal, 20km fiber)";
+		displayName="KVN AT TI Drone (20km)";
+	};
+	class frtz_Item_KVN_AT_TI_25KM: frtz_Item_KVN_AT_TI
+	{
+		_generalMacro="frtz_Item_KVN_AT_TI_25KM";
+		descriptionShort="KVN FPV Drone AT TI (Anti-Tank, Thermal, 25km fiber)";
+		displayName="KVN AT TI Drone (25km)";
+	};
 	class frtz_Item_KVN_AP_TI: Laserbatteries
 	{
 		_generalMacro="frtz_Item_KVN_AP_TI";
 		scope=2;
 		author="Fritz & Smoke";
-		descriptionShort="KVN FPV Drone APвЂ‘TI (AntiвЂ‘Personnel, Thermal)";
-		displayName="KVN AP TI Drone";
+		descriptionShort="KVN FPV Drone AP TI (Anti-Personnel, Thermal, 15km fiber)";
+		displayName="KVN AP TI Drone (15km)";
 		model="\frtz_fiberoptic_kvn\kvn_fiber_optic.p3d";
 		icon="\frtz_fiberoptic_kvn\data\ui\kvn_pic_ca.paa";
 		picture="\frtz_fiberoptic_kvn\data\ui\kvn_map_icon_ca.paa";
 		mass=150;
 		count=1;
 		ammo="";
+	};
+	class frtz_Item_KVN_AP_TI_20KM: frtz_Item_KVN_AP_TI
+	{
+		_generalMacro="frtz_Item_KVN_AP_TI_20KM";
+		descriptionShort="KVN FPV Drone AP TI (Anti-Personnel, Thermal, 20km fiber)";
+		displayName="KVN AP TI Drone (20km)";
+	};
+	class frtz_Item_KVN_AP_TI_25KM: frtz_Item_KVN_AP_TI
+	{
+		_generalMacro="frtz_Item_KVN_AP_TI_25KM";
+		descriptionShort="KVN FPV Drone AP TI (Anti-Personnel, Thermal, 25km fiber)";
+		displayName="KVN AP TI Drone (25km)";
 	};
 };
 class Extended_PreInit_EventHandlers

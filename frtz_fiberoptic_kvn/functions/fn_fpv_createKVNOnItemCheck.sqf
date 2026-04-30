@@ -4,13 +4,8 @@ private _validItems = missionNamespace getVariable ["DB_kvn_fpv_dronesArray_item
 if !(_item in _validItems) exitWith {};
 if (typeOf _container != "GroundWeaponHolder") exitWith {};
 
-private _uavType = switch (_item) do {
-    case "frtz_Item_KVN_AT":     { "KVN_AT" };
-    case "frtz_Item_KVN_AP":     { "KVN_AP" };
-    case "frtz_Item_KVN_AT_TI":  { "KVN_AT_TI" };
-    case "frtz_Item_KVN_AP_TI":  { "KVN_AP_TI" };
-    default                { "" };
-};
+private _itemParts = _item splitString "_";
+private _uavType = _itemParts select [2, count _itemParts - 2] joinString "_";
 if (_uavType == "") exitWith { systemChat str "Item not found." };
 
 private _sidePrefix = switch (side _unit) do {

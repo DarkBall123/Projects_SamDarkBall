@@ -7,8 +7,13 @@ private _ehOld = missionNamespace getVariable ["kvn_osdEH",-1];
 if (_ehOld >= 0) then { removeMissionEventHandler ["Draw3D", _ehOld]; };
 
 private _sn = _uav getVariable ["kvn_sn",""];
-if (_sn isEqualTo "") then {
-	_sn = format ["%1d", floor random 1e5];
+private _snChars = toArray _sn;
+private _isNineDigitSN = (count _snChars) == 9 && {(_snChars findIf {_x < 48 || {_x > 57}}) < 0};
+if (!_isNineDigitSN) then {
+	_sn = str (1 + floor random 9);
+	for "_i" from 1 to 8 do {
+		_sn = _sn + str (floor random 10);
+	};
 	_uav setVariable ["kvn_sn", _sn, true];
 };
 private _fw        = _uav getVariable ["kvn_fw","2.17"];

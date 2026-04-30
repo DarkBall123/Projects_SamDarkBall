@@ -34,16 +34,28 @@ if ((hasInterface && isServer) || (serverCommandAvailable "#kick")) then {
 ["kvn_fiberTTL", "SLIDER",   ["Dead‑fiber lifetime (s)",   "0 = disabled"], "Fiber-Optic FPV", [0, 120, 20, 0], 0] call CBA_fnc_addSetting;
 
 
-missionNamespace setVariable ["DB_kvn_fpv_dronesArray", [ 
-    "frtz_O_KVN_AT",      "frtz_O_KVN_AP",
-    "frtz_O_KVN_AT_TI",   "frtz_O_KVN_AP_TI",
-    "frtz_B_KVN_AT",      "frtz_B_KVN_AP",
-    "frtz_B_KVN_AT_TI",   "frtz_B_KVN_AP_TI",
-    "frtz_I_KVN_AT",      "frtz_I_KVN_AP",
-    "frtz_I_KVN_AT_TI",   "frtz_I_KVN_AP_TI"
-]];
+private _kvnPayloads = ["AT", "AP", "AT_TI", "AP_TI"];
+private _kvnRangeSuffixes = ["", "_20KM", "_25KM"];
+private _kvnSidePrefixes = ["O", "B", "I"];
 
-missionNamespace setVariable ["DB_kvn_fpv_dronesArray_items", [ 
-    "frtz_Item_KVN_AT", "frtz_Item_KVN_AT_TI",
-    "frtz_Item_KVN_AP", "frtz_Item_KVN_AP_TI"
-]];
+private _kvnDroneClasses = [];
+{
+    private _sidePrefix = _x;
+    {
+        private _payload = _x;
+        {
+            _kvnDroneClasses pushBack format ["frtz_%1_KVN_%2%3", _sidePrefix, _payload, _x];
+        } forEach _kvnRangeSuffixes;
+    } forEach _kvnPayloads;
+} forEach _kvnSidePrefixes;
+
+private _kvnDroneItems = [];
+{
+    private _payload = _x;
+    {
+        _kvnDroneItems pushBack format ["frtz_Item_KVN_%1%2", _payload, _x];
+    } forEach _kvnRangeSuffixes;
+} forEach _kvnPayloads;
+
+missionNamespace setVariable ["DB_kvn_fpv_dronesArray", _kvnDroneClasses];
+missionNamespace setVariable ["DB_kvn_fpv_dronesArray_items", _kvnDroneItems];
