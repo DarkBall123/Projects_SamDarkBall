@@ -22,10 +22,10 @@ JTAC_TabletGetLayout = {
     private _tabletX = safeZoneXAbs + ((safeZoneWAbs - _tabletW) / 2);
     private _tabletY = safeZoneY + ((safeZoneH - _tabletH) / 2);
 
-    private _screenX = _tabletX + (_tabletW * 0.262);
+    private _screenX = _tabletX + (_tabletW * 0.318);
     private _screenY = _tabletY + (_tabletH * 0.225);
-    private _screenW = _tabletW * 0.415;
-    private _screenH = _tabletH * 0.485;
+    private _screenW = _tabletW * 0.359;
+    private _screenH = _tabletH * 0.515;
 
     [[_tabletX, _tabletY, _tabletW, _tabletH], [_screenX, _screenY, _screenW, _screenH]]
 };
