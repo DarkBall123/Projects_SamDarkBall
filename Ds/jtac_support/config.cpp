@@ -369,6 +369,26 @@ class CfgVehicles
 	};
 };
 class RscButton;
+class JTAC_TabletButton: RscButton
+{
+	colorText[] = {0.82,0.95,0.78,1};
+	colorDisabled[] = {0.45,0.55,0.45,1};
+	colorBackground[] = {0.06,0.09,0.07,0.96};
+	colorBackgroundDisabled[] = {0.035,0.045,0.035,0.96};
+	colorBackgroundActive[] = {0.09,0.22,0.12,1};
+	colorFocused[] = {0.09,0.22,0.12,1};
+	colorShadow[] = {0,0,0,0};
+	colorBorder[] = {0.25,0.55,0.28,0.85};
+	shadow = 0;
+	borderSize = 0.0015;
+	style = 2;
+	font = "PuristaBold";
+	sizeEx = 0.032;
+	soundEnter[] = {"",0,1};
+	soundPush[] = {"",0,1};
+	soundClick[] = {"",0,1};
+	soundEscape[] = {"",0,1};
+};
 class JTAC_ModeButton: RscButton
 {
 	colorText[] = {0.7,0.7,0.7,1};
