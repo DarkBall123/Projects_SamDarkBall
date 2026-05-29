@@ -10,7 +10,7 @@ if (!hasInterface) exitWith { false };
         params ["_entry", "_settings"];
 
         sleep (_entry getOrDefault ["delay", 0]);
-        [_entry, _settings] call SDB_oreshnik_fnc_spawnStreak;
+        [_entry, _settings] call DB_fnc_oreshnikSpawnStreak;
     };
 } forEach _strikeData;
 

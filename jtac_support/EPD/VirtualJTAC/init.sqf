@@ -14,6 +14,7 @@ call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\Attacks\Bo
 call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\Attacks\Rockets.sqf";
 call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\Attacks\GuidedMissile.sqf";
 call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\Attacks\StrafingRun.sqf";
+call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\Attacks\Oreshnik.sqf";
 call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\jtacattackparser.sqf";
 call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\jtacfirecontrol.sqf";
 call compile preprocessFileLineNumbers "\jtac_support\EPD\VirtualJTAC\jtacreload.sqf";

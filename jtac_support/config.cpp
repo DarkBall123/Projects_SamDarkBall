@@ -7,6 +7,8 @@ class CfgPatches
         requiredAddons[]=
         {
             "A3_Data_F_AoW_Loadorder",
+            "A3_Misc_F",
+            "A3_Weapons_F",
             "cba_main"          // ← добавлено
         };
         units[]={};
@@ -18,10 +20,32 @@ class CfgPatches
 };
 class CfgAmmo
 {
+    class B_127x99_Ball_Tracer_Yellow;
     class BombCore;
     class ammo_Bomb_SDB: BombCore
     {
         class Components;
+    };
+    class DB_JTAC_Oreshnik_Tracer_Yellow: B_127x99_Ball_Tracer_Yellow
+    {
+        hit=0;
+        indirectHit=0;
+        indirectHitRange=0;
+        explosive=0;
+        caliber=0;
+        typicalSpeed=900;
+        airFriction=0;
+        timeToLive=8;
+        visibleFire=0;
+        audibleFire=0;
+        dangerRadiusBulletClose=0;
+        dangerRadiusHit=0;
+        suppressionRadiusBulletClose=0;
+        suppressionRadiusHit=0;
+        tracerScale=5;
+        tracerStartTime=0;
+        tracerEndTime=8;
+        nvgOnly=0;
     };
     class UMPK250: ammo_Bomb_SDB
     {
@@ -610,6 +634,16 @@ class JTAC_ModeButton: RscButton
     soundClick[] = {"",0,1};
     soundEscape[] = {"",0,1};
 };
+class CfgSounds
+{
+    sounds[]={};
+    class DB_JTAC_Oreshnik_Flyby_Rok
+    {
+        name="DB_JTAC_Oreshnik_Flyby_Rok";
+        sound[]={"\jtac_support\oreshnik\sounds\rok.ogg",1,1,1800};
+        titles[]={};
+    };
+};
 class CfgFunctions
 {
     class DB
@@ -621,6 +655,15 @@ class CfgFunctions
             {
                 postInit=1;
             };
+        };
+        class Oreshnik
+        {
+            file="\jtac_support\oreshnik\functions";
+            class oreshnikStrike {};
+            class oreshnikClientStrike {};
+            class oreshnikSpawnStreak {};
+            class oreshnikImpactEffect {};
+            class oreshnikApplyKineticDamage {};
         };
     };
 };

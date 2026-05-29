@@ -4,7 +4,7 @@ params [
 ];
 
 if (!isServer) exitWith {
-    [_target, _settings] remoteExecCall ["SDB_oreshnik_fnc_strike", 2];
+    [_target, _settings] remoteExecCall ["DB_fnc_oreshnikStrike", 2];
     true;
 };
 
@@ -93,7 +93,7 @@ for "_clusterIndex" from 0 to (_clusterCount - 1) do {
     };
 };
 
-[_strikeData, _settings] remoteExecCall ["SDB_oreshnik_fnc_clientStrike", 0];
+[_strikeData, _settings] remoteExecCall ["DB_fnc_oreshnikClientStrike", 0];
 
 if (_damage) then {
     {
@@ -101,7 +101,7 @@ if (_damage) then {
             params ["_entry", "_settings"];
 
             sleep ((_entry get "delay") + (_entry get "duration"));
-            [_entry get "impactATL", _settings] call SDB_oreshnik_fnc_applyKineticDamage;
+            [_entry get "impactATL", _settings] call DB_fnc_oreshnikApplyKineticDamage;
         };
     } forEach _strikeData;
 };

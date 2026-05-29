@@ -156,6 +156,7 @@ EPDJtacAvailableAttacks  = [
     ["ROCKETS", "HIMARS", 30, 1, "DROP_BOMBS", ["TORNADOS", 6, 240.55, 1.5, 50, 1, 2]],  //Special snowflake
     ["ROCKETS", "ATACMS", 60, 1, "DROP_BOMBS", ["ISKANDERK", 1, 240.55, 1, 25, .4, .2]],  //Special snowflake
     ["ROCKETS", "TOMAHAWK", 60, 1, "FIRE_ROCKETS", ["X101", 1, 3911.5, -17.04, 0.3, 0.3, 4, 1]],
+    ["ROCKETS", "ORESHNIK", 60, 1, "FIRE_ORESHNIK", []],
 
     ["GUIDEDMISSILE", "Titan AT", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Titan_AT_long", "laser"]],
     ["GUIDEDMISSILE", "Titan AT FnF", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Titan_AT_long", "vehicle"]],

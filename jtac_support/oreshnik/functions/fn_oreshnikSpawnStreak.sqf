@@ -10,7 +10,13 @@ private _fallDir = vectorNormalized (_entry getOrDefault ["fallDir", [0, 0, -1]]
 private _streakSize = _entry getOrDefault ["streakSize", 1];
 private _debug = _settings getOrDefault ["debug", false];
 private _sound = _settings getOrDefault ["sound", true];
-private _isClusterLead = (_entry getOrDefault ["elementIndex", 0]) == 0;
+private _elementIndex = _entry getOrDefault ["elementIndex", 0];
+private _isClusterLead = _elementIndex == 0;
+private _flybySound = _settings getOrDefault ["flybySound", "\jtac_support\oreshnik\sounds\rok.ogg"];
+private _flybySoundProgress = (_settings getOrDefault ["flybySoundProgress", 0.76]) max 0.2;
+_flybySoundProgress = _flybySoundProgress min 0.98;
+private _flybySoundVolume = (_settings getOrDefault ["flybySoundVolume", 1.05]) max 0;
+private _flybySoundDistance = (_settings getOrDefault ["flybySoundDistance", 1800]) max 120;
 
 private _rawStartATL = +_startATL;
 private _fullFlightVector = _impactATL vectorDiff _rawStartATL;
@@ -63,7 +69,7 @@ _rightDir = vectorNormalized _rightDir;
 private _upDir = vectorNormalized (_rightDir vectorCrossProduct _fallDir);
 
 private _tracerLayer = _settings getOrDefault ["skyTracerLayer", true];
-private _tracerClass = _settings getOrDefault ["skyTracerClass", "SDB_oreshnik_Tracer_Yellow"];
+private _tracerClass = _settings getOrDefault ["skyTracerClass", "DB_JTAC_Oreshnik_Tracer_Yellow"];
 if !(isClass (configFile >> "CfgAmmo" >> _tracerClass)) then {
     _tracerClass = "B_127x99_Ball_Tracer_Yellow";
 };
@@ -229,7 +235,7 @@ private _startTime = time;
 private _endTime = _startTime + _duration;
 private _lastSparkTime = 0;
 private _lastTracerTime = time - _tracerInterval;
-private _approachSoundPlayed = false;
+private _flybySoundPlayed = false;
 
 if (_tracerLayer) then {
     [_startATL] call _spawnTracer;
@@ -244,9 +250,15 @@ while {time < _endTime} do {
     private _posATL = _startATL vectorAdd ((_impactATL vectorDiff _startATL) vectorMultiply _progress);
     private _fade = 1 - _progress;
 
-    if (_sound && {_isClusterLead} && {!_approachSoundPlayed} && {_progress > 0.58}) then {
-        _approachSoundPlayed = true;
-        playSound3D ["A3\Sounds_F\weapons\Explosion\supersonic_crack_close.wss", objNull, false, ATLToASL _posATL, 1.9, random [0.78, 0.94, 1.08], 950, 0, true];
+    if (_sound && {!_flybySoundPlayed} && {_progress > _flybySoundProgress}) then {
+        _flybySoundPlayed = true;
+
+        private _elementVolume = _flybySoundVolume * _streakSize;
+        if (!_isClusterLead) then {
+            _elementVolume = _elementVolume * 0.72;
+        };
+
+        playSound3D [_flybySound, objNull, false, ATLToASL _posATL, _elementVolume, random [0.9, 1, 1.1], _flybySoundDistance, 0, true];
     };
 
     _body setPosATL _posATL;
@@ -356,6 +368,6 @@ deleteVehicle _headLight;
 
 deleteVehicle _body;
 
-[_entry, _settings] call SDB_oreshnik_fnc_impactEffect;
+[_entry, _settings] call DB_fnc_oreshnikImpactEffect;
 
 true;
