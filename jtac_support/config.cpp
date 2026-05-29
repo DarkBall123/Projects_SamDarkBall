@@ -18,16 +18,14 @@ class CfgPatches
         };
     };
 };
-class CfgAmmo
-{
+    class CfgAmmo {
     class B_127x99_Ball_Tracer_Yellow;
     class BombCore;
-    class ammo_Bomb_SDB: BombCore
-    {
+    class ammo_Bomb_SDB: BombCore {
         class Components;
     };
-    class DB_JTAC_Oreshnik_Tracer_Yellow: B_127x99_Ball_Tracer_Yellow
-    {
+
+    class DB_JTAC_Oreshnik_Tracer_Yellow: B_127x99_Ball_Tracer_Yellow {
         hit=0;
         indirectHit=0;
         indirectHitRange=0;
@@ -47,63 +45,20 @@ class CfgAmmo
         tracerEndTime=8;
         nvgOnly=0;
     };
-    class UMPK250: ammo_Bomb_SDB
-    {
+
+    class UMPK250: ammo_Bomb_SDB {
         model="\jtac_support\umpk250\250.p3d";
-        soundHit1[]=
-        {
-            "A3\Sounds_F\weapons\Explosion\expl_big_1",
-            2.5118864,
-            1,
-            2400
-        };
-        soundHit2[]=
-        {
-            "A3\Sounds_F\weapons\Explosion\expl_big_2",
-            2.5118864,
-            1,
-            2400
-        };
-        soundHit3[]=
-        {
-            "A3\Sounds_F\weapons\Explosion\expl_big_3",
-            2.5118864,
-            1,
-            2400
-        };
-        soundHit4[]=
-        {
-            "A3\Sounds_F\weapons\Explosion\expl_shell_1",
-            2.5118864,
-            1,
-            2400
-        };
-        soundHit5[]=
-        {
-            "A3\Sounds_F\weapons\Explosion\expl_shell_2",
-            2.5118864,
-            1,
-            2400
-        };
-        multiSoundHit[]=
-        {
-            "soundHit1",
-            0.2,
-            "soundHit2",
-            0.2,
-            "soundHit3",
-            0.2,
-            "soundHit4",
-            0.2,
-            "soundHit5",
-            0.2
-        };
+        soundHit1[]= { "A3\Sounds_F\weapons\Explosion\expl_big_1", 2.5118864, 1, 2400 };
+        soundHit2[]= { "A3\Sounds_F\weapons\Explosion\expl_big_2", 2.5118864, 1, 2400 };
+        soundHit3[]= { "A3\Sounds_F\weapons\Explosion\expl_big_3", 2.5118864, 1, 2400 };
+        soundHit4[]= { "A3\Sounds_F\weapons\Explosion\expl_shell_1", 2.5118864, 1, 2400 };
+        soundHit5[]= { "A3\Sounds_F\weapons\Explosion\expl_shell_2", 2.5118864, 1, 2400 };
+        multiSoundHit[]= { "soundHit1", 0.2, "soundHit2", 0.2, "soundHit3", 0.2, "soundHit4", 0.2, "soundHit5", 0.2 };
         warheadName="HE";
-        hit=5000;
-        indirectHit=2500;
-        indirectHitRange=25;
-        dangerRadiusHit=1500;
-        suppressionRadiusHit=250;
+        hit=920;                    // Прямое попадание (FAB-250 ~100 кг ВВ)
+        indirectHit=460;
+        indirectHitRange=38;        // Lethal ~10-15 м, wounding ~40 м, опасно до ~100-120 м
+        dangerRadiusHit=850;
         explosionDir="explosionDir";
         explosionEffects="HeavyBombExplosion";
         explosionEffectsDir="explosionDir";
@@ -122,109 +77,82 @@ class CfgAmmo
         explosionTime=0;
         fuseDistance=100;
         whistleDist=500;
-        class CamShakeExplode
-        {
-            power=46;
-            duration=3;
-            frequency=20;
-            distance=361.32599;
-        };
-        class CamShakeHit
-        {
-            power=230;
-            duration=0.80000001;
-            frequency=20;
-            distance=1;
-        };
-        class CamShakeFire
-        {
-            power=3.89432;
-            duration=3;
-            frequency=20;
-            distance=121.326;
-        };
-        class CamShakePlayerFire
-        {
-            power=5;
-            duration=0.1;
-            frequency=20;
-            distance=1;
-        };
+        class CamShakeExplode { power=46; duration=3; frequency=20; distance=361.32599; };
+        class CamShakeHit { power=230; duration=0.80000001; frequency=20; distance=1; };
+        class CamShakeFire { power=3.89432; duration=3; frequency=20; distance=121.326; };
+        class CamShakePlayerFire { power=5; duration=0.1; frequency=20; distance=1; };
     };
-    class UMPK500: UMPK250
-    {
+
+    class UMPK500: UMPK250 {
         model="\jtac_support\umpk500\500.p3d";
-        hit=15000;
-        indirectHit=7500;
-        indirectHitRange=45;
-        dangerRadiusHit=1500;
+        hit=1950;                   // FAB-500 (~150-200 кг ВВ)
+        indirectHit=980;
+        indirectHitRange=58;        // Damage radius ~250 м по открытым целям (ISW и др.)
+        dangerRadiusHit=1250;
     };
-    class UMPK1500: UMPK500
-    {
+
+    class UMPK1500: UMPK500 {
         model="\jtac_support\umpk1500\1500.p3d";
-        hit=30000;
-        indirectHit=28000;
-        indirectHitRange=60;
-        dangerRadiusHit=1500;
+        hit=4500;                   // FAB-1500 (~670 кг ВВ)
+        indirectHit=2250;
+        indirectHitRange=95;        // Тяжёлое поражение ~70 м, среднее ~140-150 м, опасно до ~400-500 м
+        dangerRadiusHit=1600;
     };
-    class UMPK9000: UMPK1500
-    {
+
+    class UMPK9000: UMPK1500 {
         model="\jtac_support\umpk9000\9000.p3d";
-        hit=60000;
-        indirectHit=35000;
-        indirectHitRange=200;
-        dangerRadiusHit=2500;
+        hit=9200;                   // Аналог FAB-3000/FAB-9000 (очень крупный, 1200+ кг ВВ)
+        indirectHit=5100;
+        indirectHitRange=195;       // Blast radius может достигать сотен метров
+        dangerRadiusHit=2800;
     };
+
     class Bo_GBU12_LGB;
-    class GBU32: Bo_GBU12_LGB
-    {
-        hit=15000;
-        indirectHit=7500;
-        indirectHitRange=45;
-        dangerRadiusHit=1500;
+    class GBU32: Bo_GBU12_LGB {     // Аналог GBU-12 / Mk82 (~87 кг ВВ)
+        hit=680;
+        indirectHit=340;
+        indirectHitRange=30;        // Небольшой blast radius precision-бомбы
+        dangerRadiusHit=650;
     };
-    class GBU54: Bo_GBU12_LGB
-    {
-        hit=30000;
-        indirectHit=28000;
-        indirectHitRange=60;
-        dangerRadiusHit=1500;
+
+    class GBU54: Bo_GBU12_LGB {     // Чуть мощнее (Laser JDAM 500 lb класс)
+        hit=1250;
+        indirectHit=620;
+        indirectHitRange=47;
+        dangerRadiusHit=950;
     };
-    class MOAB: Bo_GBU12_LGB
-    {
-        hit=60000;
-        indirectHit=35000;
-        indirectHitRange=200;
-        dangerRadiusHit=2500;
+
+    class MOAB: Bo_GBU12_LGB {      // GBU-43 (~8,4 тонны ВВ)
+        hit=13500;
+        indirectHit=7200;
+        indirectHitRange=380;       // Blast radius до ~1 мили (~1600 м) по эффекту, lethal ближе
+        dangerRadiusHit=3200;
     };
+
     class ammo_Missile_Cruise_01;
-    class KINJAL: ammo_Missile_Cruise_01
-    {
-        thrustTime=200;
+    class KINJAL: ammo_Missile_Cruise_01 {
         thrust=350;
         maxSpeed=3333;
         maneuvrability=16;
-        hit=30000;
-        indirectHit=23000;
-        indirectHitRange=100;
-        dangerRadiusHit=1500;
+        hit=4100;                   // Kinzhal (~480-700 кг ВВ)
+        indirectHit=2050;
+        indirectHitRange=78;
+        dangerRadiusHit=1450;
     };
-    class X101: ammo_Missile_Cruise_01
-    {
-        hit=25000;
-        indirectHit=23000;
-        indirectHitRange=100;
-        dangerRadiusHit=1500;
-        maxSpeed=200;
+
+    class X101: ammo_Missile_Cruise_01 {
+        hit=3350;                   // Kh-101 (~400-450 кг ВВ)
+        indirectHit=1680;
+        indirectHitRange=72;
+        dangerRadiusHit=1350;
     };
+
     class R_230mm_fly;
-    class TORNADOS: R_230mm_fly
-    {
-        hit=5000;
-        indirectHit=2500;
-        artilleryLock=1;
-        indirectHitRange=30;
-        dangerRadiusHit=1250;
+    class TORNADOS: R_230mm_fly {
+        hit=680;
+        indirectHit=295;
+        indirectHitRange=34;
+        dangerRadiusHit=750;
         model="\A3\Weapons_F\Ammo\Rocket_230mm_Fly_F";
         warheadName="HE";
         audibleFire=64;
@@ -249,71 +177,21 @@ class CfgAmmo
         maneuvrability=20;
         explosionTime=0;
         fuseDistance=100;
-        class CamShakeExplode
-        {
-            power=46;
-            duration=3;
-            frequency=20;
-            distance=361.32599;
-        };
-        class CamShakeHit
-        {
-            power=230;
-            duration=0.80000001;
-            frequency=20;
-            distance=1;
-        };
-        class CamShakeFire
-        {
-            power=3.89432;
-            duration=3;
-            frequency=20;
-            distance=121.326;
-        };
-        class CamShakePlayerFire
-        {
-            power=5;
-            duration=0.1;
-            frequency=20;
-            distance=1;
-        };
-        soundHit1[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_01",
-            2.5118864,
-            1,
-            1900
-        };
-        soundHit2[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_02",
-            2.5118864,
-            1,
-            1900
-        };
-        soundHit3[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_03",
-            2.5118864,
-            1,
-            1900
-        };
-        multiSoundHit[]=
-        {
-            "soundHit1",
-            0.34,
-            "soundHit2",
-            0.33000001,
-            "soundHit3",
-            0.33000001
-        };
+        class CamShakeExplode { power=46; duration=3; frequency=20; distance=361.32599; };
+        class CamShakeHit { power=230; duration=0.80000001; frequency=20; distance=1; };
+        class CamShakeFire { power=3.89432; duration=3; frequency=20; distance=121.326; };
+        class CamShakePlayerFire { power=5; duration=0.1; frequency=20; distance=1; };
+        soundHit1[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_01", 2.5118864, 1, 1900 };
+        soundHit2[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_02", 2.5118864, 1, 1900 };
+        soundHit3[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_03", 2.5118864, 1, 1900 };
+        multiSoundHit[]= { "soundHit1", 0.34, "soundHit2", 0.33000001, "soundHit3", 0.33000001 };
     };
-    class TORNADOG: R_230mm_fly
-    {
-        hit=2000;
-        indirectHit=800;
-        indirectHitRange=20;
-        dangerRadiusHit=1500;
+
+    class TORNADOG: R_230mm_fly {
+        hit=440;
+        indirectHit=190;
+        indirectHitRange=24;
+        dangerRadiusHit=580;
         model="\A3\Weapons_F\Ammo\Rocket_230mm_Fly_F";
         warheadName="HE";
         audibleFire=64;
@@ -338,71 +216,21 @@ class CfgAmmo
         maneuvrability=20;
         explosionTime=0;
         fuseDistance=100;
-        class CamShakeExplode
-        {
-            power=46;
-            duration=3;
-            frequency=20;
-            distance=361.32599;
-        };
-        class CamShakeHit
-        {
-            power=230;
-            duration=0.80000001;
-            frequency=20;
-            distance=1;
-        };
-        class CamShakeFire
-        {
-            power=3.89432;
-            duration=3;
-            frequency=20;
-            distance=121.326;
-        };
-        class CamShakePlayerFire
-        {
-            power=5;
-            duration=0.1;
-            frequency=20;
-            distance=1;
-        };
-        soundHit1[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_01",
-            2.5118864,
-            1,
-            1900
-        };
-        soundHit2[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_02",
-            2.5118864,
-            1,
-            1900
-        };
-        soundHit3[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_03",
-            2.5118864,
-            1,
-            1900
-        };
-        multiSoundHit[]=
-        {
-            "soundHit1",
-            0.34,
-            "soundHit2",
-            0.33000001,
-            "soundHit3",
-            0.33000001
-        };
+        class CamShakeExplode { power=46; duration=3; frequency=20; distance=361.32599; };
+        class CamShakeHit { power=230; duration=0.80000001; frequency=20; distance=1; };
+        class CamShakeFire { power=3.89432; duration=3; frequency=20; distance=121.326; };
+        class CamShakePlayerFire { power=5; duration=0.1; frequency=20; distance=1; };
+        soundHit1[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_01", 2.5118864, 1, 1900 };
+        soundHit2[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_02", 2.5118864, 1, 1900 };
+        soundHit3[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_03", 2.5118864, 1, 1900 };
+        multiSoundHit[]= { "soundHit1", 0.34, "soundHit2", 0.33000001, "soundHit3", 0.33000001 };
     };
-    class ISKANDERK: R_230mm_fly
-    {
-        hit=30000;
-        indirectHit=28000;
-        indirectHitRange=100;
-        dangerRadiusHit=1500;
+
+    class ISKANDERK: R_230mm_fly {
+        hit=4350;                   // Iskander (~480-700 кг ВВ)
+        indirectHit=2180;
+        indirectHitRange=88;
+        dangerRadiusHit=1550;
         model="\A3\Weapons_F\Ammo\Rocket_230mm_Fly_F";
         warheadName="HE";
         audibleFire=64;
@@ -427,64 +255,14 @@ class CfgAmmo
         maneuvrability=20;
         explosionTime=0;
         fuseDistance=100;
-        class CamShakeExplode
-        {
-            power=46;
-            duration=3;
-            frequency=20;
-            distance=361.32599;
-        };
-        class CamShakeHit
-        {
-            power=230;
-            duration=0.80000001;
-            frequency=20;
-            distance=1;
-        };
-        class CamShakeFire
-        {
-            power=3.89432;
-            duration=3;
-            frequency=20;
-            distance=121.326;
-        };
-        class CamShakePlayerFire
-        {
-            power=5;
-            duration=0.1;
-            frequency=20;
-            distance=1;
-        };
-        soundHit1[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_01",
-            2.5118864,
-            1,
-            1900
-        };
-        soundHit2[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_02",
-            2.5118864,
-            1,
-            1900
-        };
-        soundHit3[]=
-        {
-            "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_03",
-            2.5118864,
-            1,
-            1900
-        };
-        multiSoundHit[]=
-        {
-            "soundHit1",
-            0.34,
-            "soundHit2",
-            0.33000001,
-            "soundHit3",
-            0.33000001
-        };
+        class CamShakeExplode { power=46; duration=3; frequency=20; distance=361.32599; };
+        class CamShakeHit { power=230; duration=0.80000001; frequency=20; distance=1; };
+        class CamShakeFire { power=3.89432; duration=3; frequency=20; distance=121.326; };
+        class CamShakePlayerFire { power=5; duration=0.1; frequency=20; distance=1; };
+        soundHit1[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_01", 2.5118864, 1, 1900 };
+        soundHit2[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_02", 2.5118864, 1, 1900 };
+        soundHit3[]= { "A3\Sounds_F\arsenal\weapons\Launchers\Titan\Explosion_titan_missile_03", 2.5118864, 1, 1900 };
+        multiSoundHit[]= { "soundHit1", 0.34, "soundHit2", 0.33000001, "soundHit3", 0.33000001 };
     };
 };
 class cfgMagazines
@@ -615,8 +393,28 @@ class CfgVehicles
     };
 };
 class RscButton;
-class JTAC_ModeButton: RscButton
+class JTAC_TabletButton: RscButton
 {
+    colorText[] = {0.82,0.95,0.78,1};
+    colorDisabled[] = {0.45,0.55,0.45,1};
+    colorBackground[] = {0.06,0.09,0.07,0.96};
+    colorBackgroundDisabled[] = {0.035,0.045,0.035,0.96};
+    colorBackgroundActive[] = {0.09,0.22,0.12,1};
+    colorFocused[] = {0.09,0.22,0.12,1};
+    colorShadow[] = {0,0,0,0};
+    colorBorder[] = {0.25,0.55,0.28,0.85};
+    shadow = 0;
+    borderSize = 0.0015;
+    style = 2;
+    font = "PuristaBold";
+    sizeEx = 0.032;
+    soundEnter[] = {"",0,1};
+    soundPush[] = {"",0,1};
+    soundClick[] = {"",0,1};
+    soundEscape[] = {"",0,1};
+};
+    class JTAC_ModeButton: RscButton
+    {
     colorText[] = {0.7,0.7,0.7,1};
     colorDisabled[] = {1,1,1,1};
     colorBackground[] = {0.2,0.2,0.2,0.9};
@@ -631,42 +429,42 @@ class JTAC_ModeButton: RscButton
     font = "PuristaBold";
     soundEnter[] = {"",0,1};
     soundPush[] = {"",0,1};
-    soundClick[] = {"",0,1};
-    soundEscape[] = {"",0,1};
-};
-class CfgSounds
-{
-    sounds[]={};
-    class DB_JTAC_Oreshnik_Flyby_Rok
-    {
-        name="DB_JTAC_Oreshnik_Flyby_Rok";
-        sound[]={"\jtac_support\oreshnik\sounds\rok.ogg",1,1,1800};
-        titles[]={};
+        soundClick[] = {"",0,1};
+        soundEscape[] = {"",0,1};
     };
-};
-class CfgFunctions
-{
-    class DB
+    class CfgSounds
+    {
+        sounds[]={};
+        class DB_JTAC_Oreshnik_Flyby_Rok
+        {
+            name="DB_JTAC_Oreshnik_Flyby_Rok";
+            sound[]={"\jtac_support\oreshnik\sounds\rok.ogg",1,1,1800};
+            titles[]={};
+        };
+    };
+    class CfgFunctions
+    {
+        class DB
     {
         class JTAC
         {
             file="\jtac_support";
             class jtacInit
             {
-                postInit=1;
+                    postInit=1;
+                };
+            };
+            class Oreshnik
+            {
+                file="\jtac_support\oreshnik\functions";
+                class oreshnikStrike {};
+                class oreshnikClientStrike {};
+                class oreshnikSpawnStreak {};
+                class oreshnikImpactEffect {};
+                class oreshnikApplyKineticDamage {};
             };
         };
-        class Oreshnik
-        {
-            file="\jtac_support\oreshnik\functions";
-            class oreshnikStrike {};
-            class oreshnikClientStrike {};
-            class oreshnikSpawnStreak {};
-            class oreshnikImpactEffect {};
-            class oreshnikApplyKineticDamage {};
-        };
     };
-};
 class cfgMods
 {
     author="Sam";

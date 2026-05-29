@@ -42,7 +42,7 @@ PARSE_AVAILABLE_JTAC_ATTACKS = {
             diag_log format ["VirtualJTAC :::: Ignoring unknown payloadCategory for: %1",  _currentAttack];
         };};};};};};};};};
     };
-    
+
     JtacMainMenu = [
         ["EPD JTAC", true]
     ];
@@ -56,7 +56,7 @@ PARSE_AVAILABLE_JTAC_ATTACKS = {
                                 "%1, %2," +
                                 format["%1", _currentBullet select 5] +
                                 format["] call %1;'], 'average'] call CLIENT_REQUEST_PERMISSION_TO_FIRE;", _currentBullet select 4];
-        JtacBulletMenu set [_bulletsI + 1, 
+        JtacBulletMenu set [_bulletsI + 1,
             [_currentBullet select 1, [_bulletsI + 2], "", -5, [["expression", _innerExpressionString]], "1", "1"]
         ];
     };
@@ -74,7 +74,7 @@ PARSE_AVAILABLE_JTAC_ATTACKS = {
                                 "%1, %2," +
                                 format["%1", _currentBullet select 5] +
                                 format["] call %1;'], 'average'] call CLIENT_REQUEST_PERMISSION_TO_FIRE;", _currentBullet select 4];
-        JtacShellMenu set [_bulletsI + 1, 
+        JtacShellMenu set [_bulletsI + 1,
             [_currentBullet select 1, [_bulletsI + 2], "", -5, [["expression", _innerExpressionString]], "1", "1"]
         ];
     };
@@ -110,7 +110,7 @@ PARSE_AVAILABLE_JTAC_ATTACKS = {
                                 "%1, %2," +
                                 format["%1", _currentBullet select 5] +
                                 format["] call %1;'], 'average'] call CLIENT_REQUEST_PERMISSION_TO_FIRE;", _currentBullet select 4];
-        JtacBombsMenu set [_bulletsI + 1, 
+        JtacBombsMenu set [_bulletsI + 1,
             [_currentBullet select 1, [_bulletsI + 2], "", -5, [["expression", _innerExpressionString]], "1", "1"]
         ];
     };
@@ -137,7 +137,7 @@ PARSE_AVAILABLE_JTAC_ATTACKS = {
         JtacMainMenu = JtacMainMenu + [["Rockets and cruise missiles", [_keyNumber], "#USER:JtacRocketsMenu", -5, [["expression", ""]], "1", "1"]];
         _keyNumber = _keyNumber + 1;
     };
-    
+
     _bulletsCount = count _guidedMissiles;
     JtacGuidedMissilesMenu = [["JTAC Guided Missiles", true]];
     for "_bulletsI" from 0 to _bulletsCount -1 do {

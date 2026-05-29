@@ -35,7 +35,8 @@ SERVER_GRANT_PERMISSION_TO_FIRE = {
         EPDJtacAquisitionGlobalModifier,
         _payload,
         _acquisitionMethod,
-        EPDJtacAquisitionFixedTime] remoteExec ["CLIENT_BEGIN_TARGETING", _unit, false];
+        (EPDJtacAquisitionFixedTime)
+    ] remoteExec ["CLIENT_BEGIN_TARGETING", _unit, false];
 };
 
 CLIENT_BEGIN_TARGETING = {
@@ -48,7 +49,7 @@ CLIENT_BEGIN_TARGETING = {
 
     JtacAvailable = false;
     if( _canFireSalvo ) then {
-        
+
         if( _acquisitionMethod == "average") then {
             [_aquisitionGlobalModifier, _aquisitionFixedTime, _payloadInformation] call CLIENT_LOCK_AND_FIRE_AVERAGE_OR_MAP_LOCATION;
         } else { if (_acquisitionMethod == "laser") then {
@@ -56,7 +57,7 @@ CLIENT_BEGIN_TARGETING = {
         } else { if (_acquisitionMethod == "vehicle") then {
             [_aquisitionGlobalModifier, _aquisitionFixedTime, _payloadInformation] call CLIENT_LOCK_AND_FIRE_VEHICLE;
         };};};
-        
+
         JtacAvailable = true;
     } else {
         if (_reloadTimeRemaining == -20) then {
@@ -127,7 +128,7 @@ CLIENT_LOCK_AND_FIRE_AVERAGE_OR_MAP_LOCATION = {
             hint "Map closed early. Fire mission canceled.";
         };
     };
-    
+
     if(_targetAcquired) then {
         private _firemission = format[(_payloadInformation select 3), _targetLocation, call CLIENT_GET_DIRECTION];
         [player, _firemission, _category, _capacityUsed, true, []] remoteExec ["SERVER_PERFORM_FIRE_MISSION", 2, false];
@@ -155,22 +156,22 @@ CLIENT_LOCK_AND_FIRE_LASER_LOCATION = {
             _designatorName = "Your Vehicle";
         };
     };
-    
+
     private _counter = 0;
     while {true} do {
         if (isNull _laser) exitWith {hint "Laser turned off. Transferring coordinates canceled" };
         hintSilent format ["Using %3\nLocking onto laser: %1%2", _counter, "%", _designatorName];
         _counter = _counter + 1;
-        
+
         if (_counter >= 100) exitWith {
             hint "Missile is fired. Targeting your laser.";
             private _firemission = format[(_payloadInformation select 3), _laser, call CLIENT_GET_DIRECTION];
-            
+
             //0 = _laser spawn {[_this select 0, "M_Titan_AT_long"] call FIRE_GUIDED_MISSILE;}
             [player, _firemission, _category, _capacityUsed, false, [_laser]] remoteExec ["SERVER_PERFORM_FIRE_MISSION", 2, false];
             //[_laser, "M_Titan_AT_long", 0 ] spawn FIRE_GUIDED_MISSILE;
         };
-        
+
         sleep _counterSleepTime;
     };
 };
@@ -204,7 +205,7 @@ CLIENT_LOCK_AND_FIRE_VEHICLE = {
     private _displayName = "Searching...";
     while {true} do {
         if (isNull _laser) exitWith {hint "Laser turned off. Transferring coordinates canceled" };
-        
+
         private _aimedAtCurrentTarget = false;
         private _nearestEntities = _laser nearEntities [["Car", "Motorcycle", "Tank"], 5];
         if (count _nearestEntities > 0) then {
@@ -213,26 +214,26 @@ CLIENT_LOCK_AND_FIRE_VEHICLE = {
                 private _targetType = typeOf _currentTarget;
                 _displayName =  getText (configFile >>  "CfgVehicles" >> _targetType >> "displayName");
             } else {
-                { if ( _currentTarget == _x) then {_aimedAtCurrentTarget = true}; } forEach _nearestEntities;                
-            };        
+                { if ( _currentTarget == _x) then {_aimedAtCurrentTarget = true}; } forEach _nearestEntities;
+            };
         };
-        
+
         if (_aimedAtCurrentTarget) then {
             _aimedAtTargetCounter = _aimedAtTargetCounter + 1;
             _notAimedAtTargetCounter = 0;
         } else {
             _notAimedAtTargetCounter = _notAimedAtTargetCounter + 1;
         };
-        
+
         if (_notAimedAtTargetCounter >= 100) exitWith {hint "Target Lost. Locking Canceled";};
-        
+
         if (_aimedAtTargetCounter >= 100) exitWith {
             hint "Vehicle locked. It is safe to turn off your laser and take cover.";
             private _firemission = format[(_payloadInformation select 3), _currentTarget, call CLIENT_GET_DIRECTION];
             [player, _firemission, _category, _capacityUsed, false, [_currentTarget]] remoteExec ["SERVER_PERFORM_FIRE_MISSION", 2, false];
         };
         hintSilent format["Using %6\nCurrent Target: %1\nOn Target: %2\nLock: %3%5\nLock Lost: %4%5", _displayName, _aimedAtCurrentTarget, _aimedAtTargetCounter, _notAimedAtTargetCounter,"%",_designatorName];
-        
+
         sleep _counterSleepTime;
     };
 };

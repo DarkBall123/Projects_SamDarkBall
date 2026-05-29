@@ -87,7 +87,8 @@ if (!isDedicated) then {
             },
             {},
             [JTAC_KeyCode, [false, false, false]],
-            false] call CBA_fnc_addKeybind;
+            (false)
+        ] call CBA_fnc_addKeybind;
     };
 
     // ====================== Respawn ======================

@@ -32,17 +32,17 @@ EPDJtacReloads = [
 
 /*
     ["payloadCategory", "displayName", "acquireRate", "capacityUsed", "projectileFiringMethod", [firing method parameters...]]
-    
+
     payloadCategory - One of "BULLETS", "SHELLS", "STRAFINGRUN", "BOMBS", "ROCKETS", "GUIDEDMISSILE", "MINES", "SMOKE", or "NIGHT" . Determines which Jtac menu the payload will show up in.
-    
+
     displayName - Name of the payload that will be presented to the operator.
-    
+
     acquireRate - Seconds required to aquire a target.
 
     capacityUsed - The amount of the remaining capacity the attack will use. When the capacity is reached a long reload is triggered.
-    
+
     projectileFiringMethod - One of "SHOOT_PROJECTILES", "DROP_BOMBS", "FIRE_ROCKETS", "EVEN_SPREAD_PROJECTILES", "STRAFING_RUN_ROCKET", "STRAFING_RUN_PROJECTILE", "LAY_MINE_FIELD". Determines which method will be used to send the payload to the target.
-    
+
         SHOOT_PROJECTILES - Traditional technique of sending a projectile at a target. Projectile will be spawned about 2.2km away and flung towards the target.
             parameters - [_projectileClassName, _verticalOffset, _numberToSend, _spreadRadial, _spreadNormal, _minTimeBetween, _maxRandomTime]
                 _projectileClassName - Classname of the projectile to use.
@@ -115,51 +115,54 @@ EPDJtacReloads = [
 */
 
 EPDJtacAvailableAttacks  = [
-    ["BULLETS", "20mm", 10, 2, "SHOOT_PROJECTILES", ["B_20mm", 20, 105.6, 4, 2, .05, .05]],
-    ["BULLETS", "20mm HE", 10, 2, "SHOOT_PROJECTILES", ["G_20mm_HE", 15, 177.1, 6, 5, .1, .1]],
-    ["BULLETS", "30mm HE", 12, 3, "SHOOT_PROJECTILES", ["B_30mm_HE", 15, 43.7, 8, 2, .2, .2]],
-    ["BULLETS", "40mm HEDP", 16, 4, "SHOOT_PROJECTILES", ["G_40mm_HEDP", 6, 177.1, 16, 5, .5, .6]],
-    ["BULLETS", "40mm HE", 16, 4, "SHOOT_PROJECTILES", ["G_40mm_HE", 6, 177.1, 18, 5, .5, .6]],
+    ["BULLETS", "20mm Cannon", 10, 2, "SHOOT_PROJECTILES", ["B_20mm", 40, 10, 15, 5, .05, .05]],
+    ["BULLETS", "20mm HE Burst", 10, 2, "SHOOT_PROJECTILES", ["G_20mm_HE", 30, 15, 20, 10, .05, .05]],
+    ["BULLETS", "30mm HE Strike", 12, 3, "SHOOT_PROJECTILES", ["B_30mm_HE", 25, 10, 15, 8, .08, .1]],
+    ["BULLETS", "40mm HEDP (Auto)", 16, 4, "SHOOT_PROJECTILES", ["G_40mm_HEDP", 20, 20, 25, 15, .15, .2]],
+    ["BULLETS", "40mm HE (Auto)", 16, 4, "SHOOT_PROJECTILES", ["G_40mm_HE", 20, 20, 30, 15, .15, .2]],
 
-    ["SHELLS", "82mm", 18, 3, "SHOOT_PROJECTILES", ["Sh_82mm_AMOS", 5, 23.9, 20, 5, 1, .5]],
-    ["SHELLS", "120mm", 20, 3, "SHOOT_PROJECTILES", ["Sh_120mm_HE", 3, 37.4, 25, 8, 1, 1]],
-    ["SHELLS", "155mm", 22, 7, "SHOOT_PROJECTILES", ["Sh_155mm_AMOS", 2, 23.9, 30, 10, 2, 1]],
-    ["SHELLS", "152mm", 22, 7, "SHOOT_PROJECTILES", ["Sh_155mm_AMOS", 2, 23.9, 30, 10, 2, 1]],
-    ["SHELLS", "155mm cassette", 24, 7, "SHOOT_PROJECTILES", ["Cluster_155mm_AMOS", 1, 23.9, 2, 2, 2, 1]],
+    ["SHELLS", "82mm Battery Strike", 18, 3, "SHOOT_PROJECTILES", ["Sh_82mm_AMOS", 6, 23.9, 60, 30, 0.5, 0.5]],
+    ["SHELLS", "120mm Battery Strike", 20, 3, "SHOOT_PROJECTILES", ["Sh_120mm_HE", 6, 37.4, 100, 50, 0.8, 1]],
+    ["SHELLS", "Krasnopol", 22, 7, "SHOOT_PROJECTILES", ["Sh_155mm_AMOS", 1, 23.9, 5, 2, 0, 0]],
+    ["SHELLS", "Excalibur", 22, 7, "SHOOT_PROJECTILES", ["Sh_155mm_AMOS", 1, 23.9, 5, 2, 0, 0]],
+    ["SHELLS", "155mm cassette", 24, 7, "SHOOT_PROJECTILES", ["Cluster_155mm_AMOS", 1, 23.9, 8, 8, 2, 1]],
 
-    ["STRAFINGRUN", "20mm - 50 meters", 12, 1, "STRAFING_RUN_PROJECTILE", ["B_20mm", 38, 105.6, 50, 4, .005, .005]],
-    ["STRAFINGRUN", "20mm - 100 meters", 15, 2, "STRAFING_RUN_PROJECTILE", ["B_20mm", 75, 105.6, 100, 4, .005, .005]],
-    ["STRAFINGRUN", "Dagger - 50 meters", 30, 2, "STRAFING_RUN_ROCKET", ["M_AT", 6, 50, 3000, -20.98, 6, .1, .2]],
-    ["STRAFINGRUN", "Dagger - 100 meters", 35, 3, "STRAFING_RUN_ROCKET", ["M_AT", 12, 100, 3000, -20.98, 6, .1, .2]],
-    ["STRAFINGRUN", "Shrieker HE - 50 meters", 30, 2, "STRAFING_RUN_ROCKET", ["Rocket_04_HE_F", 6, 50, 3000, -20.467, 6, .1, .2]],
-    ["STRAFINGRUN", "Shrieker HE - 100 meters", 35, 3, "STRAFING_RUN_ROCKET", ["Rocket_04_HE_F", 12, 100, 3000, -20.467, 6, .1, .2]],
+    ["STRAFINGRUN", "20mm - 50 meters", 12, 1, "STRAFING_RUN_PROJECTILE", ["B_20mm", 50, 10, 50, 5, .01, .01]],
+    ["STRAFINGRUN", "20mm - 100 meters", 15, 2, "STRAFING_RUN_PROJECTILE", ["B_20mm", 100, 10, 100, 8, .005, .005]],
+    ["STRAFINGRUN", "Dagger - 50 meters", 30, 2, "STRAFING_RUN_ROCKET", ["M_AT", 6, 50, 2500, -15, 10, .1, .2]],
+    ["STRAFINGRUN", "Dagger - 100 meters", 35, 3, "STRAFING_RUN_ROCKET", ["M_AT", 12, 100, 2500, -15, 15, .1, .2]],
+    ["STRAFINGRUN", "Shrieker HE - 50 meters", 30, 2, "STRAFING_RUN_ROCKET", ["Rocket_04_HE_F", 8, 50, 2500, -15, 12, .1, .2]],
+    ["STRAFINGRUN", "Shrieker HE - 100 meters", 35, 3, "STRAFING_RUN_ROCKET", ["Rocket_04_HE_F", 16, 100, 2500, -15, 20, .1, .2]],
 
-    ["BOMBS", "UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 1,211.7,0,0,0,0,true]],
-    ["BOMBS", "4x UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 4,211.7,1,30,1,2,true]],
-    ["BOMBS", "UMPK FAB 500", 30, 1, "DROP_BOMBS", ["umpk500", 1,211.7,0,0,0,0,true]],
-    ["BOMBS", "UMPK FAB 1500", 30, 1, "DROP_BOMBS", ["umpk1500", 1,211.7,0,0,0,0,true]],
-    ["BOMBS", "UMPK FAB 9000", 60, 1, "DROP_BOMBS", ["umpk9000", 1,211.7,0,0,0,0,true]],
-    ["BOMBS", "RBK500 cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 2, 212, 0.5, 10, 0, 0,true]],
-    ["BOMBS", "500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 1, 223.5, 0,0,0,0,true]],
-    ["BOMBS", "4x 500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 4, 223.5, 1,10,1,2,true]],
-    ["BOMBS", "1000lb GBU32", 30, 1, "DROP_BOMBS", ["GBU32", 1, 223.5, 1, 0,0,0,true]],
-    ["BOMBS", "1500lb GBU54", 30, 1, "DROP_BOMBS", ["GBU54", 1, 223.5, 1, 0,0,0,true]],
-    ["BOMBS", "580lb cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 1, 212, 0.5, 10, 0, 0,true]],
-    ["BOMBS", "MOAB", 60, 1, "DROP_BOMBS", ["MOAB", 1,211.7,0,0,0,0,true]],
+    ["BOMBS", "UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 1, 211.7, 0, 10, 0, 0, true]],
+    ["BOMBS", "4x UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 4, 211.7, 0.5, 40, 0.5, 1, true]],
+    ["BOMBS", "UMPK FAB 500", 30, 1, "DROP_BOMBS", ["umpk500", 1, 211.7, 0, 10, 0, 0, true]],
+    ["BOMBS", "UMPK FAB 1500", 30, 1, "DROP_BOMBS", ["umpk1500", 1, 211.7, 0, 10, 0, 0, true]],
+    ["BOMBS", "RBK500 cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 2, 212, 0.5, 60, 0.5, 1, true]],
+    ["BOMBS", "500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 1, 223.5, 0, 5, 0, 0, true]],
+    ["BOMBS", "4x 500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 4, 223.5, 0.5, 40, 0.5, 1, true]],
+    ["BOMBS", "1000lb GBU32", 30, 1, "DROP_BOMBS", ["GBU32", 1, 223.5, 0, 5, 0, 0, true]],
+    ["BOMBS", "1500lb GBU54", 30, 1, "DROP_BOMBS", ["GBU54", 1, 223.5, 0, 5, 0, 0, true]],
+    ["BOMBS", "580lb cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 1, 212, 0.5, 50, 0, 0, true]],
 
-    ["ROCKETS", "TORNADO-S", 30, 1, "DROP_BOMBS", ["TORNADOS", 12, 240.55, 1.5, 70, 1, 2]],  //Special snowflake
-    ["BOMBS", "TORNADO-S cassette ", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 12, 212, 1.5, 100, 1, 2,true]],
-    ["ROCKETS", "TORNADO-G", 30, 1, "DROP_BOMBS", ["TORNADOG", 40, 240.55, 1.5, 100, 1, 2]],  //Special snowflake
-    ["ROCKETS", "ISKANDER", 60, 1, "DROP_BOMBS", ["ISKANDERK", 1, 240.55, 1, 25, .4, .2]],  //Special snowflake
-    ["ROCKETS", " X101", 60, 1, "FIRE_ROCKETS", ["X101", 1, 3911.5, -17.04, 0.3, 0.3, 4, 1]],
-    ["ROCKETS", "KINJAL", 60, 1, "FIRE_ROCKETS", ["KINJAL", 1, 4135.5, -17.04, 0, 0, 0, 0]],
-    ["ROCKETS", "HIMARS", 30, 1, "DROP_BOMBS", ["TORNADOS", 6, 240.55, 1.5, 50, 1, 2]],  //Special snowflake
-    ["ROCKETS", "ATACMS", 60, 1, "DROP_BOMBS", ["ISKANDERK", 1, 240.55, 1, 25, .4, .2]],  //Special snowflake
-    ["ROCKETS", "TOMAHAWK", 60, 1, "FIRE_ROCKETS", ["X101", 1, 3911.5, -17.04, 0.3, 0.3, 4, 1]],
+    ["ROCKETS", "TORNADO-S", 30, 1, "DROP_BOMBS", ["TORNADOS", 12, 240.55, 0.5, 45, 0.8, 1.2, true]],
+    ["BOMBS", "TORNADO-S cassette ", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 12, 212, 0.5, 80, 1, 2, true]],
+    ["ROCKETS", "TORNADO-G", 30, 1, "DROP_BOMBS", ["TORNADOG", 40, 240.55, 1.5, 200, 0.1, 0.2, true]],
+    ["ROCKETS", "ISKANDER", 60, 1, "DROP_BOMBS", ["ISKANDERK", 1, 240.55, 0.2, 7, 0, 0, true]],
+    ["ROCKETS", " X101", 60, 1, "FIRE_ROCKETS", ["X101", 1, 3911.5, -17.04, 0.05, 0.05, 0, 0]],
+    ["ROCKETS", " X101 cassette ", 60, 1, "FIRE_ROCKETS", ["ammo_Missile_Cruise_01_Cluster", 1, 3911.5, -17.04, 0.05, 0.05, 0, 0]],
+    ["ROCKETS", "KINJAL", 60, 1, "FIRE_ROCKETS", ["KINJAL", 1, 4135.5, -17.04, 0.01, 0.01, 0, 0]],
+    ["ROCKETS", "HIMARS", 30, 1, "DROP_BOMBS", ["TORNADOS", 6, 240.55, 0.5, 30, 1, 2, true]],
+    ["ROCKETS", "ATACMS", 60, 1, "DROP_BOMBS", ["ISKANDERK", 1, 240.55, 0.2, 7, 0, 0, true]],
+    ["ROCKETS", "TOMAHAWK", 60, 1, "FIRE_ROCKETS", ["X101", 1, 3911.5, -17.04, 0.05, 0.05, 0, 0]],
     ["ROCKETS", "ORESHNIK", 60, 1, "FIRE_ORESHNIK", []],
 
-    ["GUIDEDMISSILE", "Titan AT", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Titan_AT_long", "laser"]],
-    ["GUIDEDMISSILE", "Titan AT FnF", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Titan_AT_long", "vehicle"]],
+
+    ["GUIDEDMISSILE", "Spike LR Laser", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Titan_AT_long", "laser"]],
+    ["GUIDEDMISSILE", "Spike LR", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Titan_AT_long", "vehicle"]],
+    ["GUIDEDMISSILE", "Kornet AT", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Vorona_HEAT", "laser"]], //NEW
+    ["GUIDEDMISSILE", "Kornet AP", 1, 1, "FIRE_GUIDED_MISSILE", ["M_Vorona_HE", "laser"]], //NEW
+
 
     ["MINES", "APERS Mine", 30, 2, "LAY_MINE_FIELD", [["APERSMine"], 20, 20]],
     ["MINES", "APERS Bounding Mine", 30, 2, "LAY_MINE_FIELD", [["APERSBoundingMine"], 20, 20]],

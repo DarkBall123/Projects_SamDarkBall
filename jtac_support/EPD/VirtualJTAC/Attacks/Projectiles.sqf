@@ -1,4 +1,4 @@
-SHOOT_PROJECTILES = {    
+SHOOT_PROJECTILES = {
 
     if(!isserver) exitwith{};
 

@@ -4,30 +4,30 @@ JTAC_GET_MAP_POSITIONS = {
     jtacTargetSet = false;
     jtacTarget = [-1,-1,-1];
     jtacPollingMap = false;
-    
+
     deleteMarkerLocal "jtacIngressMarker";
     deleteMarkerLocal "jtacTargetMarker";
     openMap true;
-    
-    while {(visibleMap) and not (jtacIngressSet and jtacTargetSet)} do 
+
+    while {(visibleMap) and not (jtacIngressSet and jtacTargetSet)} do
     {
         if ((not jtacPollingMap) and (not jtacIngressSet)) then {
             jtacPollingMap = true;
             hint "Click to set ingress point";
-            onMapSingleClick "jtacIngressPosition = _pos; jtacIngressSet = true; jtacPollingMap = false; createMarkerLocal['jtacIngressMarker', _pos]; 'jtacIngressMarker' setMarkerTextLocal 'Ingress'; 'jtacIngressMarker' setMarkerTypeLocal 'mil_dot'";
+            onMapSingleClick "jtacIngressPosition = _pos; jtacIngressSet = true; jtacPollingMap = false; createMarkerLocal['jtacIngressMarker', _pos]; 'jtacIngressMarker' setMarkerTextLocal 'Ingress'; 'jtacIngressMarker' setMarkerTypeLocal 'selector_selectable'";
         };
-        
+
         if ((not jtacPollingMap) and (not jtacTargetSet)) then {
             jtacPollingMap = true;
             hint "Click to set Target location";
-            onMapSingleClick "jtacTarget = _pos; jtacTargetSet = true; jtacPollingMap = false; createMarkerLocal['jtacTargetMarker', _pos]; 'jtacTargetMarker' setMarkerTextLocal 'Target'; 'jtacTargetMarker' setMarkerTypeLocal 'mil_dot'";
+            onMapSingleClick "jtacTarget = _pos; jtacTargetSet = true; jtacPollingMap = false; createMarkerLocal['jtacTargetMarker', _pos]; 'jtacTargetMarker' setMarkerTextLocal 'Target'; 'jtacTargetMarker' setMarkerTypeLocal 'mil_destroy'";
         };
         sleep .1;
     };
-    
+
     // Clear event handlers
     onMapSingleClick "";
-    
+
     if (jtacIngressSet and jtacTargetSet) then {
         private _posDiff = jtacIngressPosition vectorDiff jtacTarget;
         private _dX = _posDiff select 0;
@@ -36,9 +36,9 @@ JTAC_GET_MAP_POSITIONS = {
         _ingressDirection = (_ingressDirection + 360) % 360;
         JtacIncomingAngle = _ingressDirection;
     };
-    
 
-    
+
+
     if (not (jtacIngressSet and jtacTargetSet)) then {
         deleteMarkerLocal "jtacIngressMarker";
         deleteMarkerLocal "jtacTargetMarker";
@@ -51,5 +51,5 @@ JTAC_GET_MAP_POSITIONS = {
         };
         [true, [jtacTarget select 0, jtacTarget select 1, getTerrainHeightASL jtacTarget]];
     };
-    
+
 };

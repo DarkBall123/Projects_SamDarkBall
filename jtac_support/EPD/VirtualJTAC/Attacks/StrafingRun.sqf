@@ -46,7 +46,7 @@ STRAFING_RUN_PROJECTILE = {
     private _sourceHeight = 982.1129;
     private _source2dDistance = 2000;
     private _projectileSpeed = 1000;
-    
+
     private _targetLocation = _this select 0;
     private _incomingAngle = 180 + (_this select 1);
     private _projectiles = _this select 2;
@@ -57,20 +57,20 @@ STRAFING_RUN_PROJECTILE = {
     private _spread = _projectiles select 4;
     private _minTimeBetween = _projectiles select 5;
     private _maxRandomTime  = _projectiles select 6;
-    
+
     private _distance = (vectorNormalized  [sin( _incomingAngle), cos(_incomingAngle), 0]) vectorMultiply _distanceToStrafe;
     private _distancePerRound = [(_distance select 0) / _numberToSend, (_distance select 1) / _numberToSend, (_distance select 2) / _numberToSend];
-    
+
 
     private "_i";
     for "_i" from 0 to _numberToSend - 1 do{
-        
+
         private _targetLocationRandom = _targetLocation vectorAdd ( _distancePerRound vectorMultiply _i);
         _targetLocationRandom = _targetLocationRandom vectorAdd [[-_spread, _spread] call BIS_fnc_randomNum, [-_spread, _spread] call BIS_fnc_randomNum, 0];
-    
+
         private _sourceLocation = _targetLocationRandom getPos [_source2dDistance, _incomingAngle];
         _sourceLocation set [2, _sourceHeight + (_targetLocationRandom select 2)];
-        
+
         private _targetSourceDifference =  (_targetLocationRandom vectorDiff _sourceLocation);
         _targetSourceDifference set [2, (_targetSourceDifference select 2) + _verticalOffset];
         _targetSourceDifference = vectorNormalized _targetSourceDifference;
