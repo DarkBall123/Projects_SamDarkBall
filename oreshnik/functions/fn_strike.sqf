@@ -27,8 +27,8 @@ if (_targetATL isEqualTo [0, 0, 0]) exitWith { false };
 private _clusterCount = round (_settings getOrDefault ["clusterCount", 6]);
 _clusterCount = (_clusterCount max 1) min 8;
 
-private _elementsSetting = _settings getOrDefault ["elementsPerCluster", [3, 6]];
-private _minElements = 3;
+private _elementsSetting = _settings getOrDefault ["elementsPerCluster", [6, 6]];
+private _minElements = 6;
 private _maxElements = 6;
 
 if (_elementsSetting isEqualType []) then {
@@ -43,12 +43,12 @@ _minElements = (_minElements max 1) min 10;
 _maxElements = (_maxElements max _minElements) min 10;
 
 private _impactRadius = (_settings getOrDefault ["impactRadius", 110]) max 10;
-private _entryAngle = (_settings getOrDefault ["entryAngle", 80]) max 45;
+private _entryAngle = (_settings getOrDefault ["entryAngle", 75]) max 45;
 _entryAngle = _entryAngle min 89;
 
-private _startAltitude = (_settings getOrDefault ["startAltitude", 1600]) max 200;
-private _duration = (_settings getOrDefault ["duration", 2.4]) max 0.5;
-private _clusterDelay = (_settings getOrDefault ["clusterDelay", 0.18]) max 0;
+private _startAltitude = (_settings getOrDefault ["startAltitude", 1000]) max 200;
+private _duration = (_settings getOrDefault ["duration", 4.2]) max 0.5;
+private _clusterDelay = (_settings getOrDefault ["clusterDelay", 0.55]) max 0;
 private _damage = _settings getOrDefault ["damage", true];
 
 private _azimuth = _settings getOrDefault ["azimuth", random 360];
@@ -78,8 +78,8 @@ for "_clusterIndex" from 0 to (_clusterCount - 1) do {
         _impactATL set [2, 0 max (_impactATL select 2)];
 
         private _startATL = _impactATL vectorDiff (_fallDir vectorMultiply _flightLength);
-        private _delay = (_clusterIndex * _clusterDelay) + random [0, 0.035, 0.08];
-        private _streakDuration = _duration + random [-0.25, 0, 0.25];
+        private _delay = (_clusterIndex * _clusterDelay) + (_elementIndex * 0.025) + random [0, 0.025, 0.055];
+        private _streakDuration = _duration + random [-0.35, 0, 0.35];
 
         _strikeData pushBack createHashMapFromArray [
             ["startATL", _startATL],
@@ -89,7 +89,7 @@ for "_clusterIndex" from 0 to (_clusterCount - 1) do {
             ["fallDir", _fallDir],
             ["clusterIndex", _clusterIndex],
             ["elementIndex", _elementIndex],
-            ["streakSize", random [0.7, 1.0, 1.35]]
+            ["streakSize", random [1.2, 1.55, 1.9]]
         ];
     };
 };
