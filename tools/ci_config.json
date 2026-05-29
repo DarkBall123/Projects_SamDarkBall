@@ -1,13 +1,13 @@
 {
   "sqf": {
-    "include": ["addons", "scripts", "missions"],
+    "include": ["addons", "scripts", "missions", "oreshnik"],
     "exclude_globs": ["**/node_modules/**", "**/.hemtt/**", "**/vendor/**", "**/build/**"],
     "check_tabs": true,
     "check_brackets": true,
     "check_semicolons": true
   },
   "config": {
-    "include": ["addons"],
+    "include": ["addons", "oreshnik"],
     "extensions": [".hpp", ".cpp", ".h", ".inc"],
     "exclude_globs": ["**/node_modules/**", "**/.hemtt/**", "**/vendor/**", "**/build/**"],
     "check_tabs": true,
