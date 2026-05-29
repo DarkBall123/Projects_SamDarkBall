@@ -46,7 +46,7 @@ private _impactRadius = (_settings getOrDefault ["impactRadius", 110]) max 10;
 private _entryAngle = (_settings getOrDefault ["entryAngle", 82]) max 45;
 _entryAngle = _entryAngle min 89;
 
-private _startAltitude = (_settings getOrDefault ["startAltitude", 1000]) max 200;
+private _startAltitude = (_settings getOrDefault ["startAltitude", 15000]) max 200;
 private _duration = (_settings getOrDefault ["duration", 4.2]) max 0.5;
 private _clusterDelay = (_settings getOrDefault ["clusterDelay", 0.18]) max 0;
 private _damage = _settings getOrDefault ["damage", true];

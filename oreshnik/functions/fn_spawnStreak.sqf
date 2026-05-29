@@ -3,7 +3,7 @@ params [
     ["_settings", createHashMap, [createHashMap]]
 ];
 
-private _startATL = _entry getOrDefault ["startATL", [0, 0, 1000]];
+private _startATL = _entry getOrDefault ["startATL", [0, 0, 15000]];
 private _impactATL = _entry getOrDefault ["impactATL", [0, 0, 0]];
 private _duration = _entry getOrDefault ["duration", 2.4];
 private _fallDir = vectorNormalized (_entry getOrDefault ["fallDir", [0, 0, -1]]);
