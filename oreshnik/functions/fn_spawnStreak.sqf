@@ -9,6 +9,8 @@ private _duration = _entry getOrDefault ["duration", 2.4];
 private _fallDir = vectorNormalized (_entry getOrDefault ["fallDir", [0, 0, -1]]);
 private _streakSize = _entry getOrDefault ["streakSize", 1];
 private _debug = _settings getOrDefault ["debug", false];
+private _sound = _settings getOrDefault ["sound", true];
+private _isClusterLead = (_entry getOrDefault ["elementIndex", 0]) == 0;
 
 private _rawStartATL = +_startATL;
 private _fullFlightVector = _impactATL vectorDiff _rawStartATL;
@@ -227,15 +229,25 @@ private _startTime = time;
 private _endTime = _startTime + _duration;
 private _lastSparkTime = 0;
 private _lastTracerTime = time - _tracerInterval;
+private _approachSoundPlayed = false;
 
 if (_tracerLayer) then {
     [_startATL] call _spawnTracer;
+};
+
+if (_sound && {_isClusterLead}) then {
+    playSound3D ["A3\Sounds_F\weapons\Explosion\supersonic_crack_50meters.wss", objNull, false, ATLToASL _startATL, 1.45, random [0.72, 0.86, 1.02], 1400, 0, true];
 };
 
 while {time < _endTime} do {
     private _progress = ((time - _startTime) / _duration) min 1;
     private _posATL = _startATL vectorAdd ((_impactATL vectorDiff _startATL) vectorMultiply _progress);
     private _fade = 1 - _progress;
+
+    if (_sound && {_isClusterLead} && {!_approachSoundPlayed} && {_progress > 0.58}) then {
+        _approachSoundPlayed = true;
+        playSound3D ["A3\Sounds_F\weapons\Explosion\supersonic_crack_close.wss", objNull, false, ATLToASL _posATL, 1.9, random [0.78, 0.94, 1.08], 950, 0, true];
+    };
 
     _body setPosATL _posATL;
     _body setVectorDirAndUp [_fallDir, _upDir];

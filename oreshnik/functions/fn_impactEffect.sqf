@@ -7,9 +7,36 @@ private _impactATL = _entry getOrDefault ["impactATL", [0, 0, 0]];
 private _impactASL = ATLToASL _impactATL;
 private _impactAGL = ASLToAGL _impactASL;
 
-playSound3D ["A3\Sounds_F\arsenal\explosives\shells\ShellLightA_closeExp_03.wss", objNull, false, _impactAGL, 4.5, 0.82, 1800];
-
 private _distance = player distance _impactATL;
+private _sound = _settings getOrDefault ["sound", true];
+private _soundScale = _settings getOrDefault ["soundScale", 1];
+private _isClusterLead = (_entry getOrDefault ["elementIndex", 0]) == 0;
+
+if (_sound) then {
+    [_impactASL, _distance, _soundScale, _isClusterLead, _settings] spawn {
+        params ["_impactASL", "_distance", "_soundScale", "_isClusterLead", "_settings"];
+
+        private _delay = 0;
+        if (_settings getOrDefault ["simulateSoundDelay", true]) then {
+            _delay = (_distance / 343) min 2.35;
+        };
+
+        sleep _delay;
+
+        private _closeVolume = 0.85 * _soundScale;
+        if (_isClusterLead) then {
+            _closeVolume = 1.55 * _soundScale;
+        };
+        playSound3D ["A3\Sounds_F\arsenal\explosives\shells\ShellLightA_closeExp_03.wss", objNull, false, _impactASL, _closeVolume, random [0.72, 0.84, 0.96], 1150, 0, true];
+
+        if (_isClusterLead) then {
+            playSound3D ["A3\Sounds_F\weapons\Explosion\expl_shell_1.wss", objNull, false, _impactASL, 2.2 * _soundScale, random [0.52, 0.62, 0.72], 2300, 0, true];
+            sleep 0.18;
+            playSound3D ["A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_01.wss", objNull, false, _impactASL, 1.45 * _soundScale, random [0.48, 0.58, 0.68], 2900, 0, true];
+        };
+    };
+};
+
 if (_distance < 650) then
 {
     enableCamShake true;

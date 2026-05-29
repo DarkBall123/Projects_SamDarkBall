@@ -43,7 +43,7 @@ _minElements = (_minElements max 1) min 10;
 _maxElements = (_maxElements max _minElements) min 10;
 
 private _impactRadius = (_settings getOrDefault ["impactRadius", 110]) max 10;
-private _entryAngle = (_settings getOrDefault ["entryAngle", 75]) max 45;
+private _entryAngle = (_settings getOrDefault ["entryAngle", 82]) max 45;
 _entryAngle = _entryAngle min 89;
 
 private _startAltitude = (_settings getOrDefault ["startAltitude", 1000]) max 200;
@@ -52,9 +52,8 @@ private _clusterDelay = (_settings getOrDefault ["clusterDelay", 0.18]) max 0;
 private _damage = _settings getOrDefault ["damage", true];
 
 private _azimuth = _settings getOrDefault ["azimuth", random 360];
-private _angleRad = _entryAngle * (pi / 180);
-private _horizontalCoef = cos _angleRad;
-private _verticalCoef = sin _angleRad;
+private _horizontalCoef = cos _entryAngle;
+private _verticalCoef = sin _entryAngle;
 private _flightLength = _startAltitude / _verticalCoef;
 private _fallDir = [(sin _azimuth) * _horizontalCoef, (cos _azimuth) * _horizontalCoef, -_verticalCoef];
 
