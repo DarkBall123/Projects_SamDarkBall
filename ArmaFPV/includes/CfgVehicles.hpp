@@ -99,11 +99,13 @@ class CfgVehicles
 		audible=0.1;
 		armor=0.5;
 		cost=20000;
-		altFullForce=1000;
-		altNoForce=2000;
+		altFullForce=3000;
+		altNoForce=5000;
 		LODTurnedIn=-1;
 		LODTurnedOut=-1;
-		epeImpulseDamageCoef=5;
+		// Rebalanced for the real 4.5 kg airframe mass (was tuned against ~170 kg):
+		// impulse scales with mass, so hard impacts must stay lethal for the impact fuze.
+		epeImpulseDamageCoef=40;
 		fuelExplosionPower=0;
 		vehicleClass="Autonomous";
 		model=QARMAFPV_PATH(drone.p3d);
@@ -112,23 +114,33 @@ class CfgVehicles
 		class Reflectors
 		{
 		};
-		startDuration=3;
-		maxSpeed=190;
+		/*
+			FPV quad flight model (engine helicopterX, tuned to a real ~10" strike quad,
+			4.5 kg AUW with warhead — mass lives in the Geometry LOD of drone.p3d):
+			- liftForceCoef ~ TWR 2.8: punchy climbs (~15 m/s^2 excess);
+			- rotor dive +/-28 deg: thrust vector tilts hard with cyclic — aggressive
+			  nose-down acceleration, flare braking and equal backward flight;
+			- high cyclic/yaw coefs: quad-like snap instead of helicopter inertia;
+			- low body friction: dense airframe keeps momentum, fast dives;
+			- altFullForce raised so thrust does not fade on 1-2 km terrains.
+		*/
+		startDuration=1;
+		maxSpeed=165;
 		precision=15;
 		steerAheadSimul=0.5;
 		steerAheadPlan=0.69999999;
 		predictTurnPlan=2;
 		predictTurnSimul=1.5;
-		liftForceCoef=1;
-		cyclicAsideForceCoef=2;
-		cyclicForwardForceCoef=1.2;
-		bodyFrictionCoef=0.30000001;
-		backRotorForceCoef=5;
+		liftForceCoef=2.6;
+		cyclicAsideForceCoef=2.8;
+		cyclicForwardForceCoef=2.6;
+		bodyFrictionCoef=0.12;
+		backRotorForceCoef=9;
 		fuelCapacity=8.5;
 		maxFordingDepth=0.30000001;
 		threat[]={0,0,0};
-		maxMainRotorDive=0;
-		minMainRotorDive=0;
+		maxMainRotorDive=28;
+		minMainRotorDive=-28;
 		neutralMainRotorDive=0;
 		gearRetracting=0;
 		mainRotorSpeed=-7;
