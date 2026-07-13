@@ -20,9 +20,37 @@ class CfgPatches
 };
     class CfgAmmo {
     class B_127x99_Ball_Tracer_Yellow;
+    class F_40mm_White;
     class BombCore;
     class ammo_Bomb_SDB: BombCore {
         class Components;
+    };
+
+    class DB_JTAC_Oreshnik_Flare_White: F_40mm_White {
+        hit=0;
+        indirectHit=0;
+        indirectHitRange=0;
+        explosive=0;
+        caliber=0;
+        typicalSpeed=1200;
+        airFriction=0;
+        coefGravity=0;
+        timeToLive=10;
+        triggerTime=0.01;
+        triggerSpeedCoef=1;
+        deflecting=0;
+        visibleFire=0;
+        audibleFire=0;
+        dangerRadiusBulletClose=0;
+        dangerRadiusHit=0;
+        suppressionRadiusBulletClose=0;
+        suppressionRadiusHit=0;
+        lightColor[]={1,0.92,0.72,1};
+        smokeColor[]={1,1,1,0};
+        brightness=18;
+        size=2.4;
+        flareSize=12;
+        flareMaxDistance=12000;
     };
 
     class DB_JTAC_Oreshnik_Tracer_Yellow: B_127x99_Ball_Tracer_Yellow {
@@ -40,7 +68,7 @@ class CfgPatches
         dangerRadiusHit=0;
         suppressionRadiusBulletClose=0;
         suppressionRadiusHit=0;
-        tracerScale=5;
+        tracerScale=4;
         tracerStartTime=0;
         tracerEndTime=8;
         nvgOnly=0;

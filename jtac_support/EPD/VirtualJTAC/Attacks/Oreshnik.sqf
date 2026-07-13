@@ -23,10 +23,13 @@ FIRE_ORESHNIK = {
         ["sound", true],
         ["mode", "kinetic"],
         ["azimuth", _azimuth],
-        ["flybySoundProgress", 0.76],
-        ["flybySoundVolume", 1.05],
-        ["flybySoundDistance", 1800],
-        ["flybySound", "\jtac_support\oreshnik\sounds\rok.ogg"],
+        ["flybySoundProgress", 0.7],
+        ["flybySoundVolume", 1.25],
+        ["flybySoundDistance", 4500],
+        ["flybySound", "jtac_support\oreshnik\sounds\rok.ogg"],
+        ["skyVisualAltitude", 1800],
+        ["minSkyDuration", 1.55],
+        ["skyFlareClass", "DB_JTAC_Oreshnik_Flare_White"],
         ["skyTracerClass", "DB_JTAC_Oreshnik_Tracer_Yellow"]
     ];
 
