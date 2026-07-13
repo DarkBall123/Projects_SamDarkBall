@@ -23,7 +23,7 @@ if (_verticalTravel > _visualAltitude) then {
     _startATL = _rawStartATL vectorAdd (_fullFlightVector vectorMultiply _visibleProgress);
 };
 
-_duration = (_duration * ((1 - _visibleProgress) max 0.05)) max _minVisualDuration;
+_duration = _entry getOrDefault ["visibleDuration", (_duration * ((1 - _visibleProgress) max 0.05)) max _minVisualDuration];
 
 private _flightVector = _impactATL vectorDiff _startATL;
 private _fallDir = vectorNormalized _flightVector;

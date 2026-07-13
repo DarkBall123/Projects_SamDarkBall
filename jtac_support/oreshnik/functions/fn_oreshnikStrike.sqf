@@ -50,6 +50,8 @@ private _startAltitude = (_settings getOrDefault ["startAltitude", 15000]) max 2
 private _duration = (_settings getOrDefault ["duration", 4.2]) max 0.5;
 private _clusterDelay = (_settings getOrDefault ["clusterDelay", 0.18]) max 0;
 private _damage = _settings getOrDefault ["damage", true];
+private _visualAltitude = (_settings getOrDefault ["skyVisualAltitude", 1800]) max 300;
+private _minVisualDuration = (_settings getOrDefault ["minSkyDuration", 1.55]) max 0.5;
 
 private _azimuth = _settings getOrDefault ["azimuth", random 360];
 private _horizontalCoef = cos _entryAngle;
@@ -68,7 +70,7 @@ for "_clusterIndex" from 0 to (_clusterCount - 1) do {
     _clusterCenter = _clusterCenter vectorAdd (_elementAxis vectorMultiply (random [-8, 0, 8]));
 
     private _elementCount = _minElements + floor random ((_maxElements - _minElements) + 1);
-    private _elementSpacing = random [10, 14, 20];
+    private _elementSpacing = random [18, 24, 32];
 
     for "_elementIndex" from 0 to (_elementCount - 1) do {
         private _elementOffsetIndex = _elementIndex - ((_elementCount - 1) / 2);
@@ -79,12 +81,19 @@ for "_clusterIndex" from 0 to (_clusterCount - 1) do {
         private _startATL = _impactATL vectorDiff (_fallDir vectorMultiply _flightLength);
         private _delay = (_clusterIndex * _clusterDelay) + (_elementIndex * 0.025) + random [0, 0.025, 0.055];
         private _streakDuration = _duration + random [-0.35, 0, 0.35];
+        private _verticalTravel = ((_startATL select 2) - (_impactATL select 2)) max 0;
+        private _visibleDuration = _streakDuration;
+
+        if (_verticalTravel > _visualAltitude) then {
+            _visibleDuration = (_streakDuration * (_visualAltitude / _verticalTravel)) max _minVisualDuration;
+        };
 
         _strikeData pushBack createHashMapFromArray [
             ["startATL", _startATL],
             ["impactATL", _impactATL],
             ["delay", _delay],
             ["duration", _streakDuration max 0.35],
+            ["visibleDuration", _visibleDuration],
             ["fallDir", _fallDir],
             ["clusterIndex", _clusterIndex],
             ["elementIndex", _elementIndex],
@@ -100,7 +109,7 @@ if (_damage) then {
         [_x, _settings] spawn {
             params ["_entry", "_settings"];
 
-            sleep ((_entry get "delay") + (_entry get "duration"));
+            sleep ((_entry get "delay") + (_entry getOrDefault ["visibleDuration", _entry get "duration"]));
             [_entry get "impactATL", _settings] call DB_fnc_oreshnikApplyKineticDamage;
         };
     } forEach _strikeData;

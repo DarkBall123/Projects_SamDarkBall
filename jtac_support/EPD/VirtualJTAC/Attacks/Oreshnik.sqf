@@ -14,12 +14,14 @@ FIRE_ORESHNIK = {
     private _settings = createHashMapFromArray [
         ["clusterCount", 6],
         ["elementsPerCluster", [6, 6]],
-        ["impactRadius", 110],
+        ["impactRadius", 240],
         ["entryAngle", 82],
         ["startAltitude", 15000],
         ["duration", 4.2],
-        ["clusterDelay", 0.18],
+        ["clusterDelay", 3],
         ["damage", true],
+        ["damageRadius", 14],
+        ["maxDamage", 0.7],
         ["sound", true],
         ["mode", "kinetic"],
         ["azimuth", _azimuth],
@@ -28,7 +30,7 @@ FIRE_ORESHNIK = {
         ["flybySoundDistance", 4500],
         ["flybySound", "jtac_support\oreshnik\sounds\rok.ogg"],
         ["skyVisualAltitude", 1800],
-        ["minSkyDuration", 1.55],
+        ["minSkyDuration", 2.4],
         ["skyFlareClass", "DB_JTAC_Oreshnik_Flare_White"],
         ["skyTracerClass", "DB_JTAC_Oreshnik_Tracer_Yellow"]
     ];
