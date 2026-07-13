@@ -70,7 +70,7 @@ _light setLightAmbient [0.32, 0.22, 0.12];
 _light setLightIntensity (520000 * _streakSize);
 _light setLightAttenuation [0, 0, 0, 0.35, 0, 900, 1600];
 _light setLightUseFlare true;
-_light setLightFlareSize (11 * _streakSize);
+_light setLightFlareSize (7 * _streakSize);
 _light setLightFlareMaxDistance 12000;
 _light setLightDayLight true;
 
@@ -81,9 +81,9 @@ _trail setParticleParams [
     "",
     "Billboard",
     1,
-    0.22,
+    0.3,
     [0, 0, 0],
-    (_fallDir vectorMultiply -105),
+    (_fallDir vectorMultiply -130),
     0,
     1,
     1,
@@ -139,7 +139,7 @@ while {time < _endTime} do {
     _anchor setPosATL _posATL;
     _light setPosATL _posATL;
     _light setLightIntensity ((240000 + (420000 * _fade)) * _streakSize);
-    _light setLightFlareSize ((7 + (7 * _fade)) * _streakSize);
+    _light setLightFlareSize ((4.5 + (4.5 * _fade)) * _streakSize);
 
     if (!isNull _flare) then {
         _flare setPosATL _posATL;

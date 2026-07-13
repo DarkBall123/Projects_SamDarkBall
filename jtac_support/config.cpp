@@ -49,7 +49,7 @@ class CfgPatches
         smokeColor[]={1,1,1,0};
         brightness=18;
         size=2.4;
-        flareSize=12;
+        flareSize=7;
         flareMaxDistance=12000;
     };
 
@@ -68,7 +68,7 @@ class CfgPatches
         dangerRadiusHit=0;
         suppressionRadiusBulletClose=0;
         suppressionRadiusHit=0;
-        tracerScale=4;
+        tracerScale=7;
         tracerStartTime=0;
         tracerEndTime=8;
         nvgOnly=0;

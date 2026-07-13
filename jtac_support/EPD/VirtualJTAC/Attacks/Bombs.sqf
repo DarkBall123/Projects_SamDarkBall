@@ -21,6 +21,8 @@ DROP_BOMBS = {
         _applyImpactSpread = _projectiles select 7;
     };
 
+    _source2dDistance = _projectiles param [8, _source2dDistance];
+
     private _sourceLocation = _targetLocation getPos[_source2dDistance, _incomingAngle];
     _sourceLocation set [2, _sourceHeight + (_targetLocation select 2)];
 

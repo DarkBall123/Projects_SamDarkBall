@@ -57,7 +57,7 @@ EPDJtacReloads = [
                 _speed - Optional starting speed for the projectile.
 
         DROP_BOMBS - Spawns the payload about 4.2km away. Sets the correct orientation and gives it a bit of velocity.
-            parameters - [_projectileClassName, _numberToSend, _initialSpeed, _speedVariance, _spreadRadial, _minTimeBetween, _maxRandomTime, _useImpactSpread]
+            parameters - [_projectileClassName, _numberToSend, _initialSpeed, _speedVariance, _spreadRadial, _minTimeBetween, _maxRandomTime, _useImpactSpread, _sourceDistance]
                 _projectileClassName - Classname of the projectile to use.
                 _numberToSend - How many bombs to drop.
                 _initialSpeed - How fast the bomb is going.
@@ -66,6 +66,7 @@ EPDJtacReloads = [
                 _minTimeBetween - Minimum time between shots.
                 _maxRandomTime  - A random value of up to this value is added to the _minTimeBetween variable to provide some variable time between shots.
                 _useImpactSpread - Optional. Use true for bomb payloads that should spread around the target point instead of just varying their spawn point.
+                _sourceDistance - Optional horizontal distance from the target.
 
         FIRE_ROCKETS - Spawns a missile. Sets the correct orientation and sets the correct model orientation.
             parameters - [_projectileClassName, _numberToSend, _horizontalDistance, _pitch, _pitchVariance, _yawVariance, _minTimeBetween, _maxRandomTime]
@@ -137,11 +138,11 @@ EPDJtacAvailableAttacks  = [
     ["BOMBS", "UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 1, 211.7, 0, 10, 0, 0, true]],
     ["BOMBS", "4x UMPK FAB 250", 30, 1, "DROP_BOMBS", ["umpk250", 4, 211.7, 0.5, 40, 0.5, 1, true]],
     ["BOMBS", "UMPK FAB 500", 30, 1, "DROP_BOMBS", ["umpk500", 1, 211.7, 0, 10, 0, 0, true]],
-    ["BOMBS", "UMPK FAB 1500", 30, 1, "DROP_BOMBS", ["umpk1500", 1, 211.7, 0, 10, 0, 0, true]],
+    ["BOMBS", "UMPK FAB 1500", 30, 1, "DROP_BOMBS", ["umpk1500", 1, 211.7, 0, 10, 0, 0, true, 4500]],
     ["BOMBS", "RBK500 cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 2, 212, 0.5, 60, 0.5, 1, true]],
     ["BOMBS", "500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 1, 223.5, 0, 5, 0, 0, true]],
     ["BOMBS", "4x 500lb GBU12", 30, 1, "DROP_BOMBS", ["Bomb_03_F", 4, 223.5, 0.5, 40, 0.5, 1, true]],
-    ["BOMBS", "1000lb GBU32", 30, 1, "DROP_BOMBS", ["GBU32", 1, 223.5, 0, 5, 0, 0, true]],
+    ["BOMBS", "1000lb GBU32", 30, 1, "DROP_BOMBS", ["GBU32", 1, 223.5, 0, 5, 0, 0, true, 4500]],
     ["BOMBS", "1500lb GBU54", 30, 1, "DROP_BOMBS", ["GBU54", 1, 223.5, 0, 5, 0, 0, true]],
     ["BOMBS", "580lb cassette", 30, 1, "DROP_BOMBS", ["BombCluster_03_Ammo_F", 1, 212, 0.5, 50, 0, 0, true]],
 
