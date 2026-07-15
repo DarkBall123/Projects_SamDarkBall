@@ -26,6 +26,33 @@ Lifeline_fnc_restoreMedicClass = {
     _unit setVariable ["Lifeline_ReviveOriginalMedicClass", nil, true];
 };
 
+Lifeline_fnc_addSupplies = {
+    params ["_unit"];
+
+    private _supplies = [
+        ["ACE_fieldDressing", 12],
+        ["ACE_tourniquet", 2],
+        ["ACE_splint", 2],
+        ["ACE_morphine", 4],
+        ["ACE_epinephrine", 4],
+        ["ACE_salineIV_500", 2]
+    ];
+
+    {
+        _x params ["_item", "_minimumCount"];
+
+        private _missingItems = _minimumCount - ({_x == _item} count items _unit);
+
+        if (_missingItems > 0) then {
+            for "_index" from 1 to _missingItems do {
+                if (_unit canAdd _item) then {
+                    _unit addItem _item;
+                };
+            };
+        };
+    } forEach _supplies;
+};
+
 Lifeline_fnc_getPair = {
     params ["_group"];
 
@@ -67,6 +94,7 @@ Lifeline_fnc_getPair = {
     {
         _x setVariable ["Lifeline_ReviveOriginalMedicClass", _x getVariable ["ace_medical_medicClass", -1], true];
         _x setVariable ["ace_medical_medicClass", 1, true];
+        [_x] call Lifeline_fnc_addSupplies;
     } forEach _pair;
 
     _first setVariable ["Lifeline_RevivePartner", _second, true];
@@ -158,16 +186,11 @@ waitUntil {time > 0};
 while {true} do {
     {
         private _group = _x;
-        private _existingPair = _group getVariable ["Lifeline_RevivePair", []];
-        private _hasPlayer = (units _group findIf {isPlayer _x}) != -1;
+        private _pair = [_group] call Lifeline_fnc_getPair;
 
-        if (_hasPlayer || {_existingPair isNotEqualTo []}) then {
-            private _pair = [_group] call Lifeline_fnc_getPair;
-
-            {
-                [_x] call Lifeline_fnc_processHealer;
-            } forEach _pair;
-        };
+        {
+            [_x] call Lifeline_fnc_processHealer;
+        } forEach _pair;
     } forEach allGroups;
 
     sleep 1;

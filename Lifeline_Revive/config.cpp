@@ -14,7 +14,7 @@ class CfgPatches {
             "ace_medical_treatment"
         };
         author = "Bendy / DarkBall";
-        version = "2.1.0";
+        version = "2.1.1";
     };
 };
 
