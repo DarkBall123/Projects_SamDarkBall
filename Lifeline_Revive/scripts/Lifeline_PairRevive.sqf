@@ -1,3 +1,31 @@
+Lifeline_fnc_releaseTreatment = {
+    params ["_healer"];
+
+    private _patient = _healer getVariable ["Lifeline_RevivePatient", objNull];
+
+    if (!isNull _patient && {_patient getVariable ["Lifeline_ReviveHealer", objNull] == _healer}) then {
+        _patient setVariable ["Lifeline_ReviveHealer", objNull, true];
+        ["Lifeline_releaseUnit", [_patient], _patient] call CBA_fnc_targetEvent;
+    };
+
+    _healer setVariable ["Lifeline_RevivePatient", objNull, true];
+    ["Lifeline_releaseUnit", [_healer], _healer] call CBA_fnc_targetEvent;
+};
+
+Lifeline_fnc_restoreMedicClass = {
+    params ["_unit"];
+
+    private _originalMedicClass = _unit getVariable ["Lifeline_ReviveOriginalMedicClass", -1];
+
+    if (_originalMedicClass == -1) then {
+        _unit setVariable ["ace_medical_medicClass", nil, true];
+    } else {
+        _unit setVariable ["ace_medical_medicClass", _originalMedicClass, true];
+    };
+
+    _unit setVariable ["Lifeline_ReviveOriginalMedicClass", nil, true];
+};
+
 Lifeline_fnc_getPair = {
     params ["_group"];
 
@@ -15,13 +43,13 @@ Lifeline_fnc_getPair = {
 
     {
         if (!isNull _x) then {
+            [_x] call Lifeline_fnc_releaseTreatment;
+            [_x] call Lifeline_fnc_restoreMedicClass;
             _x setVariable ["Lifeline_RevivePartner", objNull, true];
-            _x setVariable ["Lifeline_ReviveBusy", false, true];
         };
     } forEach _pair;
 
     _group setVariable ["Lifeline_RevivePair", [], true];
-    _group setVariable ["Lifeline_ReviveBusy", false, true];
 
     private _candidates = units _group select {
         !isPlayer _x &&
@@ -36,6 +64,11 @@ Lifeline_fnc_getPair = {
     private _second = selectRandom (_candidates - [_first]);
     _pair = [_first, _second];
 
+    {
+        _x setVariable ["Lifeline_ReviveOriginalMedicClass", _x getVariable ["ace_medical_medicClass", -1], true];
+        _x setVariable ["ace_medical_medicClass", 1, true];
+    } forEach _pair;
+
     _first setVariable ["Lifeline_RevivePartner", _second, true];
     _second setVariable ["Lifeline_RevivePartner", _first, true];
     _group setVariable ["Lifeline_RevivePair", _pair, true];
@@ -45,57 +78,79 @@ Lifeline_fnc_getPair = {
     _pair;
 };
 
-Lifeline_fnc_treatPartner = {
-    params ["_group", "_healer", "_patient"];
+Lifeline_fnc_findPatient = {
+    params ["_healer"];
 
-    if (_group getVariable ["Lifeline_ReviveBusy", false]) exitWith {};
-
-    _group setVariable ["Lifeline_ReviveBusy", true, true];
-    _healer setVariable ["Lifeline_ReviveBusy", true, true];
-    _patient setVariable ["Lifeline_ReviveBusy", true, true];
-
-    ["Lifeline_moveToPartner", [_healer, _patient], _healer] call CBA_fnc_targetEvent;
-
-    while {
-        [_patient] call Lifeline_fnc_needsTreatment &&
-        {[_healer] call Lifeline_fnc_canTreatPartner} &&
-        {group _healer == _group} &&
-        {group _patient == _group} &&
-        {_healer distance2D _patient > 2.5}
-    } do {
-        ["Lifeline_moveToPartner", [_healer, _patient], _healer] call CBA_fnc_targetEvent;
-        sleep 2;
+    private _healerSide = side group _healer;
+    private _blockedTarget = _healer getVariable ["Lifeline_ReviveBlockedTarget", objNull];
+    private _blockedUntil = _healer getVariable ["Lifeline_ReviveBlockedUntil", 0];
+    private _patients = allUnits select {
+        _x != _healer &&
+        {side group _x == _healerSide} &&
+        {[_x] call Lifeline_fnc_needsTreatment} &&
+        {
+            private _assignedHealer = _x getVariable ["Lifeline_ReviveHealer", objNull];
+            isNull _assignedHealer || {!alive _assignedHealer} || {_assignedHealer == _healer}
+        } &&
+        {_x != _blockedTarget || {CBA_missionTime >= _blockedUntil}}
     };
 
-    private _canFinish = [_patient] call Lifeline_fnc_needsTreatment &&
-        {[_healer] call Lifeline_fnc_canTreatPartner} &&
-        {group _healer == _group} &&
-        {group _patient == _group} &&
-        {_healer distance2D _patient <= 3.5};
+    private _urgentPatients = _patients select {
+        lifeState _x == "INCAPACITATED" ||
+        {_x getVariable ["ACE_isUnconscious", false]}
+    };
 
-    if (_canFinish) then {
-        ["Lifeline_holdPosition", [_patient], _patient] call CBA_fnc_targetEvent;
-        ["Lifeline_startTreatment", [_healer, _patient], _healer] call CBA_fnc_targetEvent;
+    if (_urgentPatients isNotEqualTo []) then {
+        _patients = _urgentPatients;
+    };
 
-        sleep 8;
+    if (_patients isEqualTo []) exitWith {objNull};
 
-        _canFinish = [_patient] call Lifeline_fnc_needsTreatment &&
-            {[_healer] call Lifeline_fnc_canTreatPartner} &&
-            {group _healer == _group} &&
-            {group _patient == _group} &&
-            {_healer distance2D _patient <= 4.5};
+    private _patient = _patients select 0;
+    private _distance = _healer distance2D _patient;
 
-        if (_canFinish) then {
-            [_patient, _healer, true] call ace_medical_fnc_fullHeal;
+    {
+        private _currentDistance = _healer distance2D _x;
+
+        if (_currentDistance < _distance) then {
+            _patient = _x;
+            _distance = _currentDistance;
+        };
+    } forEach _patients;
+
+    _patient;
+};
+
+Lifeline_fnc_processHealer = {
+    params ["_healer"];
+
+    if (!([_healer] call Lifeline_fnc_canTreat)) exitWith {
+        [_healer] call Lifeline_fnc_releaseTreatment;
+    };
+
+    private _patient = _healer getVariable ["Lifeline_RevivePatient", objNull];
+    private _blockedTarget = _healer getVariable ["Lifeline_ReviveBlockedTarget", objNull];
+    private _blockedUntil = _healer getVariable ["Lifeline_ReviveBlockedUntil", 0];
+    private _patientInvalid = isNull _patient ||
+        {!([_patient] call Lifeline_fnc_needsTreatment)} ||
+        {side group _patient != side group _healer} ||
+        {_patient getVariable ["Lifeline_ReviveHealer", objNull] != _healer} ||
+        {_patient == _blockedTarget && {CBA_missionTime < _blockedUntil}};
+
+    if (_patientInvalid) then {
+        [_healer] call Lifeline_fnc_releaseTreatment;
+        _patient = [_healer] call Lifeline_fnc_findPatient;
+
+        if (!isNull _patient) then {
+            _healer setVariable ["Lifeline_RevivePatient", _patient, true];
+            _patient setVariable ["Lifeline_ReviveHealer", _healer, true];
         };
     };
 
-    _group setVariable ["Lifeline_ReviveBusy", false, true];
-    _healer setVariable ["Lifeline_ReviveBusy", false, true];
-    _patient setVariable ["Lifeline_ReviveBusy", false, true];
+    if (isNull _patient) exitWith {};
 
-    ["Lifeline_releaseUnit", [_healer], _healer] call CBA_fnc_targetEvent;
-    ["Lifeline_releaseUnit", [_patient], _patient] call CBA_fnc_targetEvent;
+    ["Lifeline_holdPatient", [_patient], _patient] call CBA_fnc_targetEvent;
+    ["Lifeline_processTreatment", [_healer, _patient], _healer] call CBA_fnc_targetEvent;
 };
 
 waitUntil {time > 0};
@@ -109,17 +164,9 @@ while {true} do {
         if (_hasPlayer || {_existingPair isNotEqualTo []}) then {
             private _pair = [_group] call Lifeline_fnc_getPair;
 
-            if (count _pair == 2 && {!(_group getVariable ["Lifeline_ReviveBusy", false])}) then {
-                _pair params ["_first", "_second"];
-
-                if ([_first] call Lifeline_fnc_needsTreatment && {[_second] call Lifeline_fnc_canTreatPartner}) then {
-                    [_group, _second, _first] spawn Lifeline_fnc_treatPartner;
-                } else {
-                    if ([_second] call Lifeline_fnc_needsTreatment && {[_first] call Lifeline_fnc_canTreatPartner}) then {
-                        [_group, _first, _second] spawn Lifeline_fnc_treatPartner;
-                    };
-                };
-            };
+            {
+                [_x] call Lifeline_fnc_processHealer;
+            } forEach _pair;
         };
     } forEach allGroups;
 

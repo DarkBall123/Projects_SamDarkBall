@@ -9,11 +9,12 @@ class CfgPatches {
         requiredAddons[] = {
             "cba_xeh",
             "ace_medical",
+            "ace_medical_ai",
             "ace_medical_blood",
             "ace_medical_treatment"
         };
         author = "Bendy / DarkBall";
-        version = "2.0.0";
+        version = "2.1.0";
     };
 };
 
