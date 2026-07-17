@@ -112,18 +112,18 @@ class CfgVehicles
 		class Reflectors
 		{
 		};
-		startDuration=3;
-		maxSpeed=190;
+		startDuration=1;
+		maxSpeed=120;
 		precision=15;
 		steerAheadSimul=0.5;
 		steerAheadPlan=0.69999999;
 		predictTurnPlan=2;
 		predictTurnSimul=1.5;
-		liftForceCoef=1;
-		cyclicAsideForceCoef=2;
+		liftForceCoef=1.25;
+		cyclicAsideForceCoef=1.2;
 		cyclicForwardForceCoef=1.2;
-		bodyFrictionCoef=0.30000001;
-		backRotorForceCoef=5;
+		bodyFrictionCoef=0.5;
+		backRotorForceCoef=3;
 		fuelCapacity=8.5;
 		maxFordingDepth=0.30000001;
 		threat[]={0,0,0};
@@ -133,6 +133,10 @@ class CfgVehicles
 		gearRetracting=0;
 		mainRotorSpeed=-7;
 		backRotorSpeed=7;
+		mainBladeCenter="rotor_center";
+		mainBladeRadius=0.35;
+		tailBladeCenter="rotor_02_center";
+		tailBladeRadius=0.35;
 		tailBladeVertical=0;
 		radarTarget=0;
 		radarTargetSize=0.02;
