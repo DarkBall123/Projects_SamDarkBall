@@ -24,6 +24,8 @@ class CfgPatches
 			"m_lancet_dummy",
 			"m_izdelie_dummy",
 			"izdelie_dummy_mag",
+			"m_geran_dummy",
+			"geran_dummy_mag",
 			"Lancet_Tripod_Bag_Weapon",
 			"Lancet_Tripod_Bag_Support",
 			"lancet_tripod_launcher_o",
@@ -31,7 +33,10 @@ class CfgPatches
 			"lancet_tripod_launcher_i",
 			"izdelie_tripod_launcher_o",
 			"izdelie_tripod_launcher_b",
-			"izdelie_tripod_launcher_i"
+			"izdelie_tripod_launcher_i",
+			"geran_tripod_launcher_o",
+			"geran_tripod_launcher_b",
+			"geran_tripod_launcher_i"
 			
 		};
 		weapons[]=
@@ -109,6 +114,12 @@ class cfgammo
 		deleteParentWhenTriggered=0;
 		lancet_speedArray[]={75,43,7,1000,1};
 	};
+
+	class m_geran_dummy: m_lancet_dummy
+	{
+		modelspecial="\lk_lancet\shahed4.p3d";
+		model="\lk_lancet\shahed4.p3d";
+	};
 };
 class cfgMagazines
 {
@@ -135,6 +146,14 @@ class cfgMagazines
 		scope=2;
 		picture="\lk_lancet\pictures\izdelie53.paa";
 		count = 4;
+	};
+	class geran_dummy_mag: lancet_dummy_mag
+	{
+		modelspecial="\lk_lancet\shahed4.p3d";
+		model="\lk_lancet\shahed4.p3d";
+		displayname="Geran-2 Loitering Ammunition";
+		ammo="m_geran_dummy";
+		picture="\lk_lancet\textures\icon_ca.paa";
 	};
 };
 class CfgWeapons
@@ -304,7 +323,8 @@ class CfgWeapons
 		magazines[]+=
 		{
 			"lancet_dummy_mag",
-			"izdelie_dummy_mag"
+			"izdelie_dummy_mag",
+			"geran_dummy_mag"
 		};
 	};
 };
@@ -670,6 +690,48 @@ class CfgVehicles
 		side=2;
 		faction="IND_F";
 	};	
+
+	class geran_tripod_launcher: lancet_tripod_launcher
+	{
+		model="\lk_lancet\geran_tripod\geran_tripod.p3d";
+		_generalmacro="geran_tripod_launcher";
+		displayName="Geran-2 Tripod Launcher";
+		editorPreview="\lk_lancet\textures\preview_shahed.jpg";
+		class UserActions: UserActions
+		{
+			class ReloadAction: ReloadAction
+			{
+				condition="(vehicle player == player) && (not (this getVariable ['lancet_isAssembleing', false])) && (not (someAmmo this)) && ((this call lancet_fnc_checkContainersForMag) || ('geran_dummy_mag' in magazines player))";
+			};
+		};
+	};
+
+	class geran_tripod_launcher_o: geran_tripod_launcher
+	{
+		crew="O_Soldier_F";
+		scopecurator=2;
+		scope=2;
+		side=0;
+		faction="OPF_R_F";
+	};
+
+	class geran_tripod_launcher_b: geran_tripod_launcher
+	{
+		crew="B_Soldier_F";
+		scopecurator=2;
+		scope=2;
+		side=1;
+		faction="BLU_F";
+	};
+
+	class geran_tripod_launcher_i: geran_tripod_launcher
+	{
+		crew="I_soldier_F";
+		scopecurator=2;
+		scope=2;
+		side=2;
+		faction="IND_F";
+	};
 	
 	class Bag_Base;
 	class Weapon_Bag_Base;

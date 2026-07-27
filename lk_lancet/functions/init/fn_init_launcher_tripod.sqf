@@ -16,7 +16,17 @@ _unitType = typeOf _unit;
 _basePos = AGLToASL (_unit modelToWorld (_unit selectionPosition "konec hlavne"));
 _muzzlePos = AGLToASL (_unit modelToWorld (_unit selectionPosition "usti hlavne"));
 
-_uavType = ["m_lancet_dummy", "m_izdelie_dummy"] select ((_unitType find "izdelie") > -1);
+private _isIzdelie = (_unitType find "izdelie") > -1;
+private _isGeran = (_unitType find "geran") > -1;
+private _uavType = "m_lancet_dummy";
+
+if (_isIzdelie) then {
+    _uavType = "m_izdelie_dummy";
+};
+
+if (_isGeran) then {
+    _uavType = "m_geran_dummy";
+};
 
 _launchPos = _muzzlePos vectorAdd (_basePos vectorFromTo _muzzlePos);
 _uav = _uavType createVehicle _launchPos;
@@ -27,27 +37,27 @@ _uav setPosASL _launchPos;
 private _uav_temp_type = "";
 
 switch (true) do {
-    case ((side _gunner == INDEPENDENT) && {_uavType == "m_lancet_dummy"}): {
+    case ((side _gunner == INDEPENDENT) && {!_isIzdelie}): {
         _uav_temp_type = "I_uav_lancet3";
     };
 
-    case ((side _gunner == EAST) && {_uavType == "m_izdelie_dummy"}): {
+    case ((side _gunner == EAST) && {_isIzdelie}): {
         _uav_temp_type = "O_uav_izdelie53";
     };
 
-    case ((side _gunner == WEST) && {_uavType == "m_izdelie_dummy"}): {
+    case ((side _gunner == WEST) && {_isIzdelie}): {
         _uav_temp_type = "B_uav_izdelie53";
     };
 
-    case ((side _gunner == WEST) && {_uavType == "m_lancet_dummy"}): {
+    case ((side _gunner == WEST) && {!_isIzdelie}): {
         _uav_temp_type = "B_uav_lancet3";
     };
 
-    case ((side _gunner == EAST) && {_uavType == "m_lancet_dummy"}): {
+    case ((side _gunner == EAST) && {!_isIzdelie}): {
         _uav_temp_type = "O_uav_lancet3";
     };
 
-    case ((side _gunner == INDEPENDENT) && {_uavType == "m_izdelie_dummy"}): {
+    case ((side _gunner == INDEPENDENT) && {_isIzdelie}): {
         _uav_temp_type = "I_uav_izdelie53";
     };
 };

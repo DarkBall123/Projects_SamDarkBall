@@ -6,7 +6,10 @@ DB_lancetClasses =  [
     "lancet_tripod_launcher_i",
     "izdelie_tripod_launcher_o",
     "izdelie_tripod_launcher_b",
-    "izdelie_tripod_launcher_i"
+    "izdelie_tripod_launcher_i",
+    "geran_tripod_launcher_o",
+    "geran_tripod_launcher_b",
+    "geran_tripod_launcher_i"
 ];
 
 ["CAManBase", "WeaponAssembled", {

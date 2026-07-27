@@ -22,8 +22,20 @@ private _removeMagazineFromContainer = {
 
 private _playerPos = getPosATL _object;
 private _containers = nearestObjects [_playerPos, ["All"], 15];
-private _magType = ["lancet_dummy_mag", "izdelie_dummy_mag"] select ((typeOf _object) == "izdelie_tripod_launcher");
-private _factor = [1, 0.25] select ((typeOf _object) == "izdelie_tripod_launcher");
+private _objectType = typeOf _object;
+private _isIzdelie = (_objectType find "izdelie") > -1;
+private _magType = "lancet_dummy_mag";
+private _factor = 1;
+
+if (_isIzdelie) then {
+    _magType = "izdelie_dummy_mag";
+    _factor = 0.25;
+};
+
+if ((_objectType find "geran") > -1) then {
+    _magType = "geran_dummy_mag";
+};
+
 private _currentAmmo = (((magazinesAmmo _object) # 0) # 1) / 4;
 
 if ((magazinesAmmo _object) isEqualTo []) then {
