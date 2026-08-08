@@ -25,12 +25,13 @@ class CfgAmmo
 
     class SDB_Ammo_STs226_Element: B_545x39_Ball_F
     {
-        hit = 4;
+        hit = 4.4;
         caliber = 0.45;
         indirectHit = 0;
         indirectHitRange = 0;
         explosive = 0;
         typicalSpeed = 800;
+        airFriction = -0.0032;
         cartridge = "";
         model = "";
         tracerScale = 0;
@@ -41,8 +42,15 @@ class CfgAmmo
     class SDB_Ammo_STs226_Carrier: B_545x39_Ball_F
     {
         simulation = "shotSubmunitions";
+        hit = 5.1;
+        caliber = 0.45;
+        indirectHit = 0;
+        indirectHitRange = 0;
+        explosive = 0;
+        typicalSpeed = 800;
+        airFriction = -0.0032;
         submunitionAmmo = "SDB_Ammo_STs226_Element";
-        submunitionConeType[] = {"poissondisccenter", 3};
+        submunitionConeType[] = {"poissondisc", 2};
         submunitionConeAngle = 0.18;
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitialOffset[] = {0, 0, 0};
@@ -50,7 +58,7 @@ class CfgAmmo
         submunitionParentSpeedCoef = 1;
         triggerTime = 0.001;
         triggerOnImpact = 0;
-        deleteParentWhenTriggered = 1;
+        deleteParentWhenTriggered = 0;
         model = "";
         tracerScale = 0;
         tracerStartTime = 10;
@@ -59,12 +67,13 @@ class CfgAmmo
 
     class SDB_Ammo_STs228_Element: B_762x54_Ball
     {
-        hit = 5;
+        hit = 6.4;
         caliber = 0.55;
         indirectHit = 0;
         indirectHitRange = 0;
         explosive = 0;
         typicalSpeed = 790;
+        airFriction = -0.0032;
         cartridge = "";
         model = "";
         tracerScale = 0;
@@ -75,8 +84,15 @@ class CfgAmmo
     class SDB_Ammo_STs228_Carrier: B_762x54_Ball
     {
         simulation = "shotSubmunitions";
+        hit = 7;
+        caliber = 0.55;
+        indirectHit = 0;
+        indirectHitRange = 0;
+        explosive = 0;
+        typicalSpeed = 790;
+        airFriction = -0.0032;
         submunitionAmmo = "SDB_Ammo_STs228_Element";
-        submunitionConeType[] = {"poissondisccenter", 3};
+        submunitionConeType[] = {"poissondisc", 2};
         submunitionConeAngle = 0.18;
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitialOffset[] = {0, 0, 0};
@@ -84,7 +100,7 @@ class CfgAmmo
         submunitionParentSpeedCoef = 1;
         triggerTime = 0.001;
         triggerOnImpact = 0;
-        deleteParentWhenTriggered = 1;
+        deleteParentWhenTriggered = 0;
         model = "";
         tracerScale = 0;
         tracerStartTime = 10;
