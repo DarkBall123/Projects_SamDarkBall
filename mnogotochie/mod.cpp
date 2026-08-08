@@ -1,0 +1,9 @@
+name = "Многоточие";
+author = "Sam / DarkBall";
+tooltip = "Многоточие";
+tooltipOwned = "Многоточие";
+overview = "СЦ-226 и СЦ-228 с трёхэлементными пулями для борьбы с малыми БПЛА.";
+hideName = 0;
+hidePicture = 1;
+actionName = "";
+action = "";
