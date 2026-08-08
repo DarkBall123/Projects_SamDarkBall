@@ -122,6 +122,7 @@ class CfgMagazines
         displayName = "$STR_SDB_Mnogotochie_STs226_30_Name";
         displayNameShort = "$STR_SDB_Mnogotochie_STs226_Short";
         descriptionShort = "$STR_SDB_Mnogotochie_STs226_Description";
+        picture = "\z\sdb\addons\mnogotochie\data\ui\m_sts226_ca.paa";
         ammo = "SDB_Ammo_STs226_Carrier";
         count = 30;
         initSpeed = 800;
