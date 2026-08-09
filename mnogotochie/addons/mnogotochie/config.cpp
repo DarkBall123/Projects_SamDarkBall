@@ -50,7 +50,7 @@ class CfgAmmo
         typicalSpeed = 800;
         airFriction = -0.0032;
         submunitionAmmo = "SDB_Ammo_STs226_Element";
-        submunitionConeType[] = {"poissondisc", 2};
+        submunitionConeType[] = {"poissondisccenter", 3};
         submunitionConeAngle = 0.18;
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitialOffset[] = {0, 0, 0};
@@ -58,7 +58,7 @@ class CfgAmmo
         submunitionParentSpeedCoef = 1;
         triggerTime = 0.001;
         triggerOnImpact = 0;
-        deleteParentWhenTriggered = 0;
+        deleteParentWhenTriggered = 1;
         model = "";
         tracerScale = 0;
         tracerStartTime = 10;
@@ -92,7 +92,7 @@ class CfgAmmo
         typicalSpeed = 790;
         airFriction = -0.0032;
         submunitionAmmo = "SDB_Ammo_STs228_Element";
-        submunitionConeType[] = {"poissondisc", 2};
+        submunitionConeType[] = {"poissondisccenter", 3};
         submunitionConeAngle = 0.18;
         submunitionDirectionType = "SubmunitionModelDirection";
         submunitionInitialOffset[] = {0, 0, 0};
@@ -100,7 +100,7 @@ class CfgAmmo
         submunitionParentSpeedCoef = 1;
         triggerTime = 0.001;
         triggerOnImpact = 0;
-        deleteParentWhenTriggered = 0;
+        deleteParentWhenTriggered = 1;
         model = "";
         tracerScale = 0;
         tracerStartTime = 10;
