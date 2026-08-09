@@ -19,3 +19,14 @@ git_hash = 0
 
 [hemtt.build]
 pdrive = "disallow"
+
+[hemtt.launch.default]
+workshop = [
+    "450814997",
+]
+mission = "mnogotochie_test.VR"
+parameters = [
+    "-skipIntro",
+    "-noSplash",
+    "-showScriptErrors",
+]
