@@ -25,7 +25,7 @@ class CfgAmmo
 
     class SDB_Ammo_STs226_Element: B_545x39_Ball_F
     {
-        hit = 4.4;
+        hit = 6.5;
         caliber = 0.45;
         indirectHit = 0;
         indirectHitRange = 0;
@@ -42,7 +42,7 @@ class CfgAmmo
     class SDB_Ammo_STs226_Carrier: B_545x39_Ball_F
     {
         simulation = "shotSubmunitions";
-        hit = 5.1;
+        hit = 6.5;
         caliber = 0.45;
         indirectHit = 0;
         indirectHitRange = 0;
@@ -67,7 +67,7 @@ class CfgAmmo
 
     class SDB_Ammo_STs228_Element: B_762x54_Ball
     {
-        hit = 6.4;
+        hit = 8.5;
         caliber = 0.55;
         indirectHit = 0;
         indirectHitRange = 0;
@@ -84,7 +84,7 @@ class CfgAmmo
     class SDB_Ammo_STs228_Carrier: B_762x54_Ball
     {
         simulation = "shotSubmunitions";
-        hit = 7;
+        hit = 8.5;
         caliber = 0.55;
         indirectHit = 0;
         indirectHitRange = 0;
