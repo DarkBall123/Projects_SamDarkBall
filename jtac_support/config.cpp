@@ -74,6 +74,13 @@ class CfgPatches
         nvgOnly=0;
     };
 
+    class DB_JTAC_Oreshnik_Tracer_White: DB_JTAC_Oreshnik_Tracer_Yellow {
+        model="\A3\Weapons_f\Data\bullettracer\tracer_white";
+        tracerColor[]={1,1,1,1};
+        tracerColorR[]={1,1,1,1};
+        tracerScale=10;
+    };
+
     class UMPK250: ammo_Bomb_SDB {
         model="\jtac_support\umpk250\250.p3d";
         soundHit1[]= { "A3\Sounds_F\weapons\Explosion\expl_big_1", 2.5118864, 1, 2400 };

@@ -5,8 +5,8 @@ params [
 
 if (!isServer) exitWith { false };
 
-private _radius = (_settings getOrDefault ["damageRadius", 9]) max 1;
-private _maxDamage = (_settings getOrDefault ["maxDamage", 0.35]) max 0;
+private _radius = (_settings getOrDefault ["damageRadius", 14]) max 1;
+private _maxDamage = (_settings getOrDefault ["maxDamage", 0.7]) max 0;
 _maxDamage = _maxDamage min 0.9;
 
 private _targets = nearestObjects [_impactATL, ["CAManBase", "LandVehicle", "Air", "Ship", "StaticWeapon"], _radius, true];

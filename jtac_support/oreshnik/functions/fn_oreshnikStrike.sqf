@@ -27,8 +27,8 @@ if (_targetATL isEqualTo [0, 0, 0]) exitWith { false };
 private _clusterCount = round (_settings getOrDefault ["clusterCount", 6]);
 _clusterCount = (_clusterCount max 1) min 8;
 
-private _elementsSetting = _settings getOrDefault ["elementsPerCluster", [6, 6]];
-private _minElements = 6;
+private _elementsSetting = _settings getOrDefault ["elementsPerCluster", [4, 6]];
+private _minElements = 4;
 private _maxElements = 6;
 
 if (_elementsSetting isEqualType []) then {
@@ -42,16 +42,24 @@ if (_elementsSetting isEqualType []) then {
 _minElements = (_minElements max 1) min 10;
 _maxElements = (_maxElements max _minElements) min 10;
 
-private _impactRadius = (_settings getOrDefault ["impactRadius", 110]) max 10;
+private _patternLength = (_settings getOrDefault ["patternLength", 320]) max 0;
+private _patternWidth = (_settings getOrDefault ["patternWidth", 80]) max 0;
+private _longitudinalScatter = (_settings getOrDefault ["longitudinalScatter", 8]) max 0;
+private _lateralScatter = (_settings getOrDefault ["lateralScatter", 5]) max 0;
 private _entryAngle = (_settings getOrDefault ["entryAngle", 82]) max 45;
 _entryAngle = _entryAngle min 89;
 
 private _startAltitude = (_settings getOrDefault ["startAltitude", 15000]) max 200;
 private _duration = (_settings getOrDefault ["duration", 4.2]) max 0.5;
-private _clusterDelay = (_settings getOrDefault ["clusterDelay", 0.18]) max 0;
+private _durationJitter = (_settings getOrDefault ["durationJitter", 0.08]) max 0;
+private _clusterDelay = (_settings getOrDefault ["clusterDelay", 1.1]) max 0;
+private _elementDelay = (_settings getOrDefault ["elementDelay", 0.015]) max 0;
+private _timingJitter = (_settings getOrDefault ["timingJitter", 0.04]) max 0;
+private _streakScale = (_settings getOrDefault ["streakScale", 1.35]) max 0.1;
+private _streakVariation = ((_settings getOrDefault ["streakVariation", 0.12]) max 0) min 0.9;
 private _damage = _settings getOrDefault ["damage", true];
-private _visualAltitude = (_settings getOrDefault ["skyVisualAltitude", 1800]) max 300;
-private _minVisualDuration = (_settings getOrDefault ["minSkyDuration", 1.55]) max 0.5;
+private _visualAltitude = (_settings getOrDefault ["skyVisualAltitude", 2200]) max 300;
+private _minVisualDuration = (_settings getOrDefault ["minSkyDuration", 0.85]) max 0.5;
 
 private _azimuth = _settings getOrDefault ["azimuth", random 360];
 private _horizontalCoef = cos _entryAngle;
@@ -59,28 +67,37 @@ private _verticalCoef = sin _entryAngle;
 private _flightLength = _startAltitude / _verticalCoef;
 private _fallDir = [(sin _azimuth) * _horizontalCoef, (cos _azimuth) * _horizontalCoef, -_verticalCoef];
 
-private _clusterAxis = [cos _azimuth, -(sin _azimuth), 0];
-private _elementAxis = [sin _azimuth, cos _azimuth, 0];
+private _longitudinalAxis = [sin _azimuth, cos _azimuth, 0];
+private _lateralAxis = [cos _azimuth, -(sin _azimuth), 0];
 private _strikeData = [];
-private _clusterSpacing = _impactRadius / (_clusterCount max 2);
+private _clusterSpacing = 0;
+
+if (_clusterCount > 1) then {
+    _clusterSpacing = _patternWidth / (_clusterCount - 1);
+};
 
 for "_clusterIndex" from 0 to (_clusterCount - 1) do {
     private _clusterOffsetIndex = _clusterIndex - ((_clusterCount - 1) / 2);
-    private _clusterCenter = _targetATL vectorAdd (_clusterAxis vectorMultiply (_clusterOffsetIndex * _clusterSpacing));
-    _clusterCenter = _clusterCenter vectorAdd (_elementAxis vectorMultiply (random [-8, 0, 8]));
+    private _clusterCenter = _targetATL vectorAdd (_lateralAxis vectorMultiply (_clusterOffsetIndex * _clusterSpacing));
 
     private _elementCount = _minElements + floor random ((_maxElements - _minElements) + 1);
-    private _elementSpacing = random [18, 24, 32];
+    private _elementSpacing = 0;
+
+    if (_elementCount > 1) then {
+        _elementSpacing = _patternLength / (_elementCount - 1);
+    };
 
     for "_elementIndex" from 0 to (_elementCount - 1) do {
         private _elementOffsetIndex = _elementIndex - ((_elementCount - 1) / 2);
-        private _impactATL = _clusterCenter vectorAdd (_elementAxis vectorMultiply (_elementOffsetIndex * _elementSpacing));
-        _impactATL = _impactATL vectorAdd (_clusterAxis vectorMultiply (random [-4, 0, 4]));
+        private _longitudinalOffset = (_elementOffsetIndex * _elementSpacing) + random [-_longitudinalScatter, 0, _longitudinalScatter];
+        private _lateralOffset = random [-_lateralScatter, 0, _lateralScatter];
+        private _impactATL = _clusterCenter vectorAdd (_longitudinalAxis vectorMultiply _longitudinalOffset);
+        _impactATL = _impactATL vectorAdd (_lateralAxis vectorMultiply _lateralOffset);
         _impactATL set [2, 0 max (_impactATL select 2)];
 
         private _startATL = _impactATL vectorDiff (_fallDir vectorMultiply _flightLength);
-        private _delay = (_clusterIndex * _clusterDelay) + (_elementIndex * 0.025) + random [0, 0.025, 0.055];
-        private _streakDuration = _duration + random [-0.35, 0, 0.35];
+        private _delay = (_clusterIndex * _clusterDelay) + (_elementIndex * _elementDelay) + random [0, _timingJitter / 2, _timingJitter];
+        private _streakDuration = _duration + random [-_durationJitter, 0, _durationJitter];
         private _verticalTravel = ((_startATL select 2) - (_impactATL select 2)) max 0;
         private _visibleDuration = _streakDuration;
 
@@ -97,7 +114,7 @@ for "_clusterIndex" from 0 to (_clusterCount - 1) do {
             ["fallDir", _fallDir],
             ["clusterIndex", _clusterIndex],
             ["elementIndex", _elementIndex],
-            ["streakSize", random [1.2, 1.55, 1.9]]
+            ["streakSize", _streakScale * random [1 - _streakVariation, 1, 1 + _streakVariation]]
         ];
     };
 };

@@ -9,13 +9,18 @@ private _duration = _entry getOrDefault ["duration", 2.4];
 private _streakSize = _entry getOrDefault ["streakSize", 1];
 private _debug = _settings getOrDefault ["debug", false];
 private _sound = _settings getOrDefault ["sound", true];
+private _tracerEnabled = _settings getOrDefault ["tracer", true];
+private _trailEnabled = _settings getOrDefault ["trail", true];
+private _trailLength = (_settings getOrDefault ["trailLength", 260]) max 10;
+private _trailDensity = ((_settings getOrDefault ["trailDensity", 1]) max 0.1) min 4;
+private _lightScale = (_settings getOrDefault ["lightScale", 1]) max 0;
 private _isClusterLead = (_entry getOrDefault ["elementIndex", 0]) == 0;
 
 private _rawStartATL = +_startATL;
 private _fullFlightVector = _impactATL vectorDiff _rawStartATL;
 private _visibleProgress = 0;
-private _visualAltitude = (_settings getOrDefault ["skyVisualAltitude", 1800]) max 300;
-private _minVisualDuration = (_settings getOrDefault ["minSkyDuration", 1.55]) max 0.5;
+private _visualAltitude = (_settings getOrDefault ["skyVisualAltitude", 2200]) max 300;
+private _minVisualDuration = (_settings getOrDefault ["minSkyDuration", 0.85]) max 0.5;
 private _verticalTravel = ((_rawStartATL select 2) - (_impactATL select 2)) max 0;
 
 if (_verticalTravel > _visualAltitude) then {
@@ -42,7 +47,10 @@ if !(isClass (configFile >> "CfgAmmo" >> _flareClass)) then {
     _flareClass = "F_40mm_White";
 };
 
-private _tracerClass = _settings getOrDefault ["skyTracerClass", "DB_JTAC_Oreshnik_Tracer_Yellow"];
+private _tracerClass = _settings getOrDefault ["skyTracerClass", "DB_JTAC_Oreshnik_Tracer_White"];
+if !(isClass (configFile >> "CfgAmmo" >> _tracerClass)) then {
+    _tracerClass = "DB_JTAC_Oreshnik_Tracer_Yellow";
+};
 if !(isClass (configFile >> "CfgAmmo" >> _tracerClass)) then {
     _tracerClass = "B_127x99_Ball_Tracer_Yellow";
 };
@@ -56,60 +64,113 @@ if (!isNull _flare) then {
     _flare setVelocity _velocity;
 };
 
-private _tracer = _tracerClass createVehicleLocal _startATL;
-if (!isNull _tracer) then {
-    _tracer setPosATL _startATL;
-    _tracer setVectorDirAndUp [_fallDir, _upDir];
-    _tracer setVelocity _velocity;
+private _tracer = objNull;
+if (_tracerEnabled) then {
+    _tracer = _tracerClass createVehicleLocal _startATL;
+    if (!isNull _tracer) then {
+        _tracer setPosATL _startATL;
+        _tracer setVectorDirAndUp [_fallDir, _upDir];
+        _tracer setVelocity _velocity;
+    };
 };
 
-private _light = "#lightpoint" createVehicleLocal _startATL;
-_light setPosATL _startATL;
-_light setLightColor [1, 0.92, 0.72];
-_light setLightAmbient [0.32, 0.22, 0.12];
-_light setLightIntensity (520000 * _streakSize);
-_light setLightAttenuation [0, 0, 0, 0.35, 0, 900, 1600];
-_light setLightUseFlare true;
-_light setLightFlareSize (7 * _streakSize);
-_light setLightFlareMaxDistance 12000;
-_light setLightDayLight true;
+private _light = objNull;
+if (_lightScale > 0) then {
+    _light = "#lightpoint" createVehicleLocal _startATL;
+    _light setPosATL _startATL;
+    _light setLightColor [1, 0.97, 0.88];
+    _light setLightAmbient [0.38, 0.26, 0.14];
+    _light setLightIntensity (720000 * _streakSize * _lightScale);
+    _light setLightAttenuation [0, 0, 0, 0.28, 0, 1100, 1800];
+    _light setLightUseFlare true;
+    _light setLightFlareSize (8 * _streakSize * _lightScale);
+    _light setLightFlareMaxDistance 12000;
+    _light setLightDayLight true;
+};
 
-private _trail = "#particlesource" createVehicleLocal _startATL;
-_trail attachTo [_anchor, [0, 0, 0]];
-_trail setParticleParams [
-    ["\A3\data_f\ParticleEffects\Universal\Universal", 16, 13, 2, 0],
-    "",
-    "Billboard",
-    1,
-    0.3,
-    [0, 0, 0],
-    (_fallDir vectorMultiply -130),
-    0,
-    1,
-    1,
-    0,
-    [1.8 * _streakSize, 0.45 * _streakSize, 0],
-    [
-        [1, 0.98, 0.86, 0.85],
-        [1, 0.72, 0.28, 0.34],
-        [1, 0.36, 0.08, 0]
-    ],
-    [1],
-    0,
-    0,
-    "",
-    "",
-    _anchor,
-    0,
-    false,
-    -1,
-    [
-        [24, 20, 12, 1],
-        [8, 3, 1, 0]
-    ]
-];
-_trail setParticleRandom [0.04, [0.28, 0.28, 0.28], [1.5, 1.5, 1.5], 0, 0.15, [0.02, 0.02, 0.01, 0.05], 0, 0, 8, 0];
-_trail setDropInterval 0.003;
+private _core = objNull;
+private _halo = objNull;
+
+if (_trailEnabled) then {
+    private _trailLifetime = ((_trailLength / ((vectorMagnitude _velocity) max 1)) max 0.06) min 0.7;
+    private _coreLifetime = (_trailLifetime * 0.45) max 0.04;
+
+    _core = "#particlesource" createVehicleLocal _startATL;
+    _core attachTo [_anchor, [0, 0, 0]];
+    _core setParticleParams [
+        ["\A3\data_f\ParticleEffects\Universal\Universal", 16, 13, 2, 0],
+        "",
+        "Billboard",
+        1,
+        _coreLifetime,
+        [0, 0, 0],
+        (_fallDir vectorMultiply -35),
+        0,
+        1,
+        1,
+        0,
+        [2.8 * _streakSize, 1.9 * _streakSize, 0.4 * _streakSize, 0],
+        [
+            [1, 1, 1, 1],
+            [1, 0.97, 0.82, 0.78],
+            [1, 0.68, 0.24, 0]
+        ],
+        [1],
+        0,
+        0,
+        "",
+        "",
+        _anchor,
+        0,
+        false,
+        -1,
+        [
+            [140, 136, 120, 1],
+            [70, 50, 20, 1],
+            [0, 0, 0, 0]
+        ]
+    ];
+    _core setParticleRandom [0.02, [0.18, 0.18, 0.18], [0.8, 0.8, 0.8], 0, 0.12, [0.01, 0.01, 0.01, 0.03], 0, 0, 5, 0];
+    _core setDropInterval (0.0025 / _trailDensity);
+
+    _halo = "#particlesource" createVehicleLocal _startATL;
+    _halo attachTo [_anchor, [0, 0, 0]];
+    _halo setParticleParams [
+        ["\A3\data_f\ParticleEffects\Universal\Universal", 16, 13, 2, 0],
+        "",
+        "Billboard",
+        1,
+        _trailLifetime,
+        [0, 0, 0],
+        (_fallDir vectorMultiply -20),
+        0,
+        1,
+        1,
+        0,
+        [4.8 * _streakSize, 3.1 * _streakSize, 0.8 * _streakSize, 0],
+        [
+            [1, 0.96, 0.76, 0.46],
+            [1, 0.58, 0.16, 0.24],
+            [0.72, 0.16, 0.03, 0]
+        ],
+        [1],
+        0,
+        0,
+        "",
+        "",
+        _anchor,
+        0,
+        false,
+        -1,
+        [
+            [32, 28, 18, 1],
+            [12, 4, 1, 1],
+            [0, 0, 0, 0]
+        ]
+    ];
+    _halo setParticleRandom [0.04, [0.32, 0.32, 0.32], [1.6, 1.6, 1.6], 0, 0.25, [0.03, 0.02, 0.01, 0.06], 0, 0, 10, 0];
+    _halo setDropInterval (0.004 / _trailDensity);
+};
 
 private _flybySound = _settings getOrDefault ["flybySound", "jtac_support\oreshnik\sounds\rok.ogg"];
 private _flybySoundProgress = ((_settings getOrDefault ["flybySoundProgress", 0.7]) max 0.2) min 0.95;
@@ -124,7 +185,7 @@ if (_debug) then {
 };
 
 if (_sound && {_isClusterLead}) then {
-    playSound3D ["A3\Sounds_F\weapons\Explosion\supersonic_crack_50meters.wss", objNull, false, ATLToASL _startATL, 1.4, random [0.78, 0.9, 1.02], 3500, 0, true];
+    playSound3D ["A3\Sounds_F\weapons\Explosion\supersonic_crack_50meters.wss", objNull, false, ATLToASL _startATL, 1.1 * _flybySoundVolume, random [0.78, 0.9, 1.02], _flybySoundDistance, 0, true];
 };
 
 private _startTime = time;
@@ -137,9 +198,12 @@ while {time < _endTime} do {
     private _fade = 1 - _progress;
 
     _anchor setPosATL _posATL;
-    _light setPosATL _posATL;
-    _light setLightIntensity ((240000 + (420000 * _fade)) * _streakSize);
-    _light setLightFlareSize ((4.5 + (4.5 * _fade)) * _streakSize);
+
+    if (!isNull _light) then {
+        _light setPosATL _posATL;
+        _light setLightIntensity ((320000 + (520000 * _fade)) * _streakSize * _lightScale);
+        _light setLightFlareSize ((5 + (5 * _fade)) * _streakSize * _lightScale);
+    };
 
     if (!isNull _flare) then {
         _flare setPosATL _posATL;
@@ -160,8 +224,17 @@ while {time < _endTime} do {
     sleep 0.01;
 };
 
-deleteVehicle _trail;
-deleteVehicle _light;
+if (!isNull _core) then {
+    deleteVehicle _core;
+};
+
+if (!isNull _halo) then {
+    deleteVehicle _halo;
+};
+
+if (!isNull _light) then {
+    deleteVehicle _light;
+};
 
 if (!isNull _flare) then {
     deleteVehicle _flare;
