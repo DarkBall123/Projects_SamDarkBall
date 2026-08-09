@@ -108,24 +108,20 @@ private _zoneShotHits = 0;
 
 private _round3 = {round (_this * 1000) / 1000};
 private _round1 = {round (_this * 10) / 10};
-private _magazineNames = [];
+private _magazineClasses = [];
 
 {
-    private _displayName = getText (configFile >> "CfgMagazines" >> (_x # 1) >> "displayName");
-    if (_displayName isEqualTo "") then
+    private _magazineClass = _x # 1;
+    if !(_magazineClass in _magazineClasses) then
     {
-        _displayName = _x # 1;
-    };
-    if !(_displayName in _magazineNames) then
-    {
-        _magazineNames pushBack _displayName;
+        _magazineClasses pushBack _magazineClass;
     };
 } forEach _shots;
 
 private _lines = [
     "Mnogotochie ballistics report",
     format ["distance_m=%1", SDB_test_distance],
-    format ["magazines=%1", _magazineNames joinString " | "],
+    format ["magazines=%1", _magazineClasses joinString " | "],
     format ["shots=%1", _shotCount],
     format ["elements_created=%1", _elementCount],
     format ["shots_with_wrong_element_count=%1", _invalidShotCount],

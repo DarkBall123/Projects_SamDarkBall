@@ -24,7 +24,7 @@ addons[]=
 {
     "A3_Map_VR",
     "A3_Characters_F_BLUFOR",
-    "A3_Misc_F_Helpers",
+    "A3_Structures_F_Bootcamp_VR_Blocks",
     "A3_Weapons_F_Ammoboxes",
     "SDB_Mnogotochie"
 };
@@ -47,8 +47,8 @@ class AddonsMetaData
         };
         class Item2
         {
-            className="A3_Misc_F_Helpers";
-            name="Arma 3 Helpers";
+            className="A3_Structures_F_Bootcamp_VR_Blocks";
+            name="Arma 3 VR Blocks";
             author="Bohemia Interactive";
         };
         class Item3

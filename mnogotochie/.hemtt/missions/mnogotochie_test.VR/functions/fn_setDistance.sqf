@@ -12,17 +12,19 @@ private _forward = [
     cos SDB_test_firingDirection,
     0
 ];
-private _targetPosition = SDB_test_firingPosATL vectorAdd (_forward vectorMultiply _distance);
 
 SDB_test_target setDir (SDB_test_firingDirection + 180);
-SDB_test_target setPosATL _targetPosition;
 
 (boundingBoxReal SDB_test_target) params ["_minimum", "_maximum"];
 SDB_test_targetCenterModel = [
     ((_minimum # 0) + (_maximum # 0)) / 2,
-    ((_minimum # 1) + (_maximum # 1)) / 2,
+    _maximum # 1,
     ((_minimum # 2) + (_maximum # 2)) / 2
 ];
+
+private _targetOriginDistance = _distance + (_maximum # 1);
+private _targetPosition = SDB_test_firingPosATL vectorAdd (_forward vectorMultiply _targetOriginDistance);
+SDB_test_target setPosATL _targetPosition;
 SDB_test_aimPointASL = SDB_test_target modelToWorldWorld SDB_test_targetCenterModel;
 
 call SDB_test_fnc_resetSeries;

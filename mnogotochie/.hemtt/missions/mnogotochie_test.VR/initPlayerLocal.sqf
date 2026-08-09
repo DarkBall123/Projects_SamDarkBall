@@ -34,9 +34,12 @@ player addMagazines ["SDB_30Rnd_545x39_STs226_Mag", 8];
 player addWeapon "arifle_AKS_F";
 player selectWeapon "arifle_AKS_F";
 
-SDB_test_target = createVehicle ["UserTexture10m_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
+SDB_test_target = createVehicle ["Land_VR_Block_02_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
 SDB_test_target allowDamage false;
-SDB_test_target setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.85,0.85,0.85,1)"];
+SDB_test_target setObjectMaterialGlobal [0, "\a3\data_f\default.rvmat"];
+SDB_test_target setObjectMaterialGlobal [1, "\a3\data_f\default.rvmat"];
+SDB_test_target setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.82,0.82,0.82,1)"];
+SDB_test_target setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.72,0.72,0.72,1)"];
 
 private _cratePosition = player modelToWorld [3, -1, 0];
 private _crate = createVehicle ["Box_NATO_Ammo_F", _cratePosition, [], 0, "CAN_COLLIDE"];
