@@ -73,7 +73,7 @@ class CfgAmmo
         indirectHitRange = 0;
         explosive = 0;
         typicalSpeed = 790;
-        airFriction = -0.0032;
+        airFriction = -0.0018;
         cartridge = "";
         model = "";
         tracerScale = 0;
@@ -90,7 +90,7 @@ class CfgAmmo
         indirectHitRange = 0;
         explosive = 0;
         typicalSpeed = 790;
-        airFriction = -0.0032;
+        airFriction = -0.0018;
         submunitionAmmo = "SDB_Ammo_STs228_Element";
         submunitionConeType[] = {"poissondisccenter", 3};
         submunitionConeAngle = 0.18;
