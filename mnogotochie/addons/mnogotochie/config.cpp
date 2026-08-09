@@ -144,9 +144,12 @@ class CfgMagazines
         displayNameShort = "$STR_DB_Mnogotochie_STs228_Short";
         descriptionShort = "$STR_DB_Mnogotochie_STs228_Description";
         picture = "\z\db\addons\mnogotochie\data\ui\m_sts228_ca.paa";
-        hiddenSelections[] = {"camo"};
+        modelSpecial = "\A3\Weapons_F_Mark\MagazineProxies\mag_762x51_mk14_20rnd.p3d";
+        modelSpecialIsProxy = 1;
+        hiddenSelections[] = {"magazine", "camo"};
         hiddenSelectionsTextures[] =
         {
+            "\z\db\addons\mnogotochie\data\dmr_06_02_sts228_co.paa",
             "\z\db\addons\mnogotochie\data\dmr_06_02_sts228_co.paa"
         };
         ammo = "DB_Ammo_STs228_Carrier";
