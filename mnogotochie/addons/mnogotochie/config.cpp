@@ -135,12 +135,6 @@ class CfgMagazines
         lastRoundsTracer = 0;
     };
 
-    class SDB_45Rnd_545x39_STs226_Mag: SDB_30Rnd_545x39_STs226_Mag
-    {
-        displayName = "$STR_SDB_Mnogotochie_STs226_45_Name";
-        count = 45;
-    };
-
     class SDB_10Rnd_762x54R_STs228_Mag: 10Rnd_762x54_Mag
     {
         scope = 2;
@@ -177,11 +171,6 @@ class CfgMagazines
         lastRoundsTracer = 0;
     };
 
-    class SDB_150Rnd_762x54R_STs228_Box: SDB_100Rnd_762x54R_STs228_Box
-    {
-        displayName = "$STR_SDB_Mnogotochie_STs228_150_Name";
-        count = 150;
-    };
 };
 
 class CfgMagazineWells
@@ -190,8 +179,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag",
-            "SDB_45Rnd_545x39_STs226_Mag"
+            "SDB_30Rnd_545x39_STs226_Mag"
         };
     };
 
@@ -199,8 +187,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag",
-            "SDB_45Rnd_545x39_STs226_Mag"
+            "SDB_30Rnd_545x39_STs226_Mag"
         };
     };
 
@@ -208,8 +195,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag",
-            "SDB_45Rnd_545x39_STs226_Mag"
+            "SDB_30Rnd_545x39_STs226_Mag"
         };
     };
 
@@ -225,8 +211,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_100Rnd_762x54R_STs228_Box",
-            "SDB_150Rnd_762x54R_STs228_Box"
+            "SDB_100Rnd_762x54R_STs228_Box"
         };
     };
 };

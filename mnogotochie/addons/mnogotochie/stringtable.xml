@@ -11,11 +11,6 @@
             <English>30Rnd 5.45x39 STs-226 Mnogotochie</English>
             <Russian>5,45×39 СЦ-226 «Многоточие», 30 патронов</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs226_45_Name">
-            <Original>45Rnd 5.45x39 STs-226 Mnogotochie</Original>
-            <English>45Rnd 5.45x39 STs-226 Mnogotochie</English>
-            <Russian>5,45×39 СЦ-226 «Многоточие», 45 патронов</Russian>
-        </Key>
         <Key ID="STR_SDB_Mnogotochie_STs226_Short">
             <Original>STs-226</Original>
             <English>STs-226</English>
@@ -35,11 +30,6 @@
             <Original>100Rnd 7.62x54R STs-228 Mnogotochie</Original>
             <English>100Rnd 7.62x54R STs-228 Mnogotochie</English>
             <Russian>7,62×54R СЦ-228 «Многоточие», 100 патронов</Russian>
-        </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs228_150_Name">
-            <Original>150Rnd 7.62x54R STs-228 Mnogotochie</Original>
-            <English>150Rnd 7.62x54R STs-228 Mnogotochie</English>
-            <Russian>7,62×54R СЦ-228 «Многоточие», 150 патронов</Russian>
         </Key>
         <Key ID="STR_SDB_Mnogotochie_STs228_Short">
             <Original>STs-228</Original>
