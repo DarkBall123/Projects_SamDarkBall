@@ -1,63 +1,63 @@
-SDB_test_fnc_resetSeries = compile preprocessFileLineNumbers "functions\fn_resetSeries.sqf";
-SDB_test_fnc_setDistance = compile preprocessFileLineNumbers "functions\fn_setDistance.sqf";
-SDB_test_fnc_trackProjectile = compile preprocessFileLineNumbers "functions\fn_trackProjectile.sqf";
-SDB_test_fnc_onFired = compile preprocessFileLineNumbers "functions\fn_onFired.sqf";
-SDB_test_fnc_finishSeries = compile preprocessFileLineNumbers "functions\fn_finishSeries.sqf";
-SDB_damage_fnc_spawnTarget = compile preprocessFileLineNumbers "functions\fn_spawnDamageTarget.sqf";
-SDB_damage_fnc_reportTarget = compile preprocessFileLineNumbers "functions\fn_reportDamageTarget.sqf";
-SDB_damage_fnc_runBatch = compile preprocessFileLineNumbers "functions\fn_runDamageBatch.sqf";
+DB_test_fnc_resetSeries = compile preprocessFileLineNumbers "functions\fn_resetSeries.sqf";
+DB_test_fnc_setDistance = compile preprocessFileLineNumbers "functions\fn_setDistance.sqf";
+DB_test_fnc_trackProjectile = compile preprocessFileLineNumbers "functions\fn_trackProjectile.sqf";
+DB_test_fnc_onFired = compile preprocessFileLineNumbers "functions\fn_onFired.sqf";
+DB_test_fnc_finishSeries = compile preprocessFileLineNumbers "functions\fn_finishSeries.sqf";
+DB_damage_fnc_spawnTarget = compile preprocessFileLineNumbers "functions\fn_spawnDamageTarget.sqf";
+DB_damage_fnc_reportTarget = compile preprocessFileLineNumbers "functions\fn_reportDamageTarget.sqf";
+DB_damage_fnc_runBatch = compile preprocessFileLineNumbers "functions\fn_runDamageBatch.sqf";
 
-SDB_test_fnc_nextDistance = {
-    private _index = SDB_test_distances find SDB_test_distance;
-    private _nextIndex = (_index + 1) mod (count SDB_test_distances);
-    [SDB_test_distances # _nextIndex] call SDB_test_fnc_setDistance;
+DB_test_fnc_nextDistance = {
+    private _index = DB_test_distances find DB_test_distance;
+    private _nextIndex = (_index + 1) mod (count DB_test_distances);
+    [DB_test_distances # _nextIndex] call DB_test_fnc_setDistance;
 };
 
-SDB_damage_fnc_nextTarget = {
-    private _nextIndex = if (SDB_damage_active) then
+DB_damage_fnc_nextTarget = {
+    private _nextIndex = if (DB_damage_active) then
     {
-        (SDB_damage_targetIndex + 1) mod (count SDB_damage_targetTypes)
+        (DB_damage_targetIndex + 1) mod (count DB_damage_targetTypes)
     }
     else
     {
         0
     };
-    [_nextIndex] call SDB_damage_fnc_spawnTarget;
+    [_nextIndex] call DB_damage_fnc_spawnTarget;
 };
 
-SDB_test_distances = [5, 20, 50, 100, 150, 300, 500, 600];
-SDB_test_distance = 50;
-SDB_test_seriesId = 0;
-SDB_test_nextShotId = 1;
-SDB_test_shots = [];
-SDB_test_elements = [];
-SDB_test_impacts = [];
-SDB_test_active = false;
-SDB_test_traceEnabled = false;
-SDB_test_lastReport = "";
-SDB_test_firingDirection = 0;
-SDB_test_firingPosATL = getPosATL player;
-SDB_test_targetCenterModel = [0, 0, 0];
-SDB_test_aimPointASL = [0, 0, 0];
-SDB_damage_targetTypes = [
+DB_test_distances = [5, 20, 50, 100, 150, 300, 500, 600];
+DB_test_distance = 50;
+DB_test_seriesId = 0;
+DB_test_nextShotId = 1;
+DB_test_shots = [];
+DB_test_elements = [];
+DB_test_impacts = [];
+DB_test_active = false;
+DB_test_traceEnabled = false;
+DB_test_lastReport = "";
+DB_test_firingDirection = 0;
+DB_test_firingPosATL = getPosATL player;
+DB_test_targetCenterModel = [0, 0, 0];
+DB_test_aimPointASL = [0, 0, 0];
+DB_damage_targetTypes = [
     ["VR infantry", "B_Soldier_VR_F", true],
     ["NATO rifleman", "B_Soldier_F", true],
     ["Darter UAV", "B_UAV_01_F", false],
     ["Offroad", "C_Offroad_01_F", false],
     ["Marshall", "B_APC_Wheeled_01_cannon_F", false]
 ];
-SDB_damage_target = objNull;
-SDB_damage_targetIndex = 0;
-SDB_damage_targetLabel = "";
-SDB_damage_targetCenterModel = [0, 0, 0];
-SDB_damage_shots = 0;
-SDB_damage_magazines = [];
-SDB_damage_active = false;
-SDB_damage_lastReport = "";
-SDB_damage_batchRunning = false;
-SDB_damage_batchLastReport = "";
+DB_damage_target = objNull;
+DB_damage_targetIndex = 0;
+DB_damage_targetLabel = "";
+DB_damage_targetCenterModel = [0, 0, 0];
+DB_damage_shots = 0;
+DB_damage_magazines = [];
+DB_damage_active = false;
+DB_damage_lastReport = "";
+DB_damage_batchRunning = false;
+DB_damage_batchLastReport = "";
 
-player setDir SDB_test_firingDirection;
+player setDir DB_test_firingDirection;
 player enableStamina false;
 player setCustomAimCoef 0;
 player setUnitRecoilCoefficient 0;
@@ -68,16 +68,16 @@ removeAllWeapons player;
     player removeMagazine _x;
 } forEach magazines player;
 
-player addMagazines ["SDB_30Rnd_545x39_STs226_Mag", 8];
+player addMagazines ["DB_30Rnd_545x39_STs226_Mag", 8];
 player addWeapon "arifle_AKS_F";
 player selectWeapon "arifle_AKS_F";
 
-SDB_test_target = createVehicle ["Land_VR_Block_02_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
-SDB_test_target allowDamage false;
-SDB_test_target setObjectMaterialGlobal [0, "\a3\data_f\default.rvmat"];
-SDB_test_target setObjectMaterialGlobal [1, "\a3\data_f\default.rvmat"];
-SDB_test_target setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.82,0.82,0.82,1)"];
-SDB_test_target setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.72,0.72,0.72,1)"];
+DB_test_target = createVehicle ["Land_VR_Block_02_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
+DB_test_target allowDamage false;
+DB_test_target setObjectMaterialGlobal [0, "\a3\data_f\default.rvmat"];
+DB_test_target setObjectMaterialGlobal [1, "\a3\data_f\default.rvmat"];
+DB_test_target setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.82,0.82,0.82,1)"];
+DB_test_target setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.72,0.72,0.72,1)"];
 
 private _cratePosition = player modelToWorld [3, -1, 0];
 private _crate = createVehicle ["Box_NATO_Ammo_F", _cratePosition, [], 0, "CAN_COLLIDE"];
@@ -90,36 +90,34 @@ clearBackpackCargoGlobal _crate;
 _crate addWeaponCargoGlobal ["arifle_AKS_F", 2];
 _crate addWeaponCargoGlobal ["srifle_DMR_01_F", 2];
 _crate addWeaponCargoGlobal ["LMG_Zafir_F", 2];
-_crate addMagazineCargoGlobal ["SDB_30Rnd_545x39_STs226_Mag", 30];
-_crate addMagazineCargoGlobal ["SDB_45Rnd_545x39_STs226_Mag", 20];
-_crate addMagazineCargoGlobal ["SDB_10Rnd_762x54R_STs228_Mag", 30];
-_crate addMagazineCargoGlobal ["SDB_100Rnd_762x54R_STs228_Box", 10];
-_crate addMagazineCargoGlobal ["SDB_150Rnd_762x54R_STs228_Box", 10];
+_crate addMagazineCargoGlobal ["DB_30Rnd_545x39_STs226_Mag", 30];
+_crate addMagazineCargoGlobal ["DB_10Rnd_762x54R_STs228_Mag", 30];
+_crate addMagazineCargoGlobal ["DB_100Rnd_762x54R_STs228_Box", 10];
 _crate addMagazineCargoGlobal ["30Rnd_545x39_Mag_F", 20];
 _crate addMagazineCargoGlobal ["10Rnd_762x54_Mag", 20];
 _crate addMagazineCargoGlobal ["150Rnd_762x54_Box", 10];
 
 player addEventHandler ["Fired", {
-    if (SDB_damage_active && {!isNull SDB_damage_target}) then
+    if (DB_damage_active && {!isNull DB_damage_target}) then
     {
-        SDB_damage_shots = SDB_damage_shots + 1;
-        SDB_damage_magazines pushBackUnique (_this param [5, ""]);
+        DB_damage_shots = DB_damage_shots + 1;
+        DB_damage_magazines pushBackUnique (_this param [5, ""]);
     };
 
-    _this call SDB_test_fnc_onFired;
+    _this call DB_test_fnc_onFired;
 }];
 
 addMissionEventHandler ["Draw3D", {
-    if (!isNull SDB_test_target) then
+    if (!isNull DB_test_target) then
     {
         drawIcon3D [
             "\a3\ui_f\data\map\markers\military\dot_CA.paa",
             [0.2, 1, 0.2, 0.95],
-            ASLToAGL SDB_test_aimPointASL,
+            ASLToAGL DB_test_aimPointASL,
             0.5,
             0.5,
             0,
-            format ["%1 m", SDB_test_distance],
+            format ["%1 m", DB_test_distance],
             1,
             0.03,
             "RobotoCondensed",
@@ -128,9 +126,9 @@ addMissionEventHandler ["Draw3D", {
         ];
     };
 
-    if (SDB_damage_active && {!isNull SDB_damage_target}) then
+    if (DB_damage_active && {!isNull DB_damage_target}) then
     {
-        private _damageAimPoint = SDB_damage_target modelToWorldWorld SDB_damage_targetCenterModel;
+        private _damageAimPoint = DB_damage_target modelToWorldWorld DB_damage_targetCenterModel;
         drawIcon3D [
             "\a3\ui_f\data\map\markers\military\dot_CA.paa",
             [1, 0.35, 0.15, 0.95],
@@ -138,7 +136,7 @@ addMissionEventHandler ["Draw3D", {
             0.6,
             0.6,
             0,
-            format ["DAMAGE: %1 | %2 m", SDB_damage_targetLabel, SDB_test_distance],
+            format ["DAMAGE: %1 | %2 m", DB_damage_targetLabel, DB_test_distance],
             1,
             0.03,
             "RobotoCondensed",
@@ -151,7 +149,7 @@ addMissionEventHandler ["Draw3D", {
 player addAction [
     "<t color='#7FD8FF'>TEST: next distance</t>",
     {
-        call SDB_test_fnc_nextDistance;
+        call DB_test_fnc_nextDistance;
     },
     nil,
     1.5,
@@ -165,7 +163,7 @@ player addAction [
 player addAction [
     "<t color='#8CFF8C'>TEST: start / reset series</t>",
     {
-        call SDB_test_fnc_resetSeries;
+        call DB_test_fnc_resetSeries;
     },
     nil,
     1.5,
@@ -179,7 +177,7 @@ player addAction [
 player addAction [
     "<t color='#FFD27F'>TEST: finish + copy report</t>",
     {
-        [] spawn SDB_test_fnc_finishSeries;
+        [] spawn DB_test_fnc_finishSeries;
     },
     nil,
     1.5,
@@ -193,8 +191,8 @@ player addAction [
 player addAction [
     "TEST: toggle trajectory display",
     {
-        SDB_test_traceEnabled = !SDB_test_traceEnabled;
-        if (SDB_test_traceEnabled) then
+        DB_test_traceEnabled = !DB_test_traceEnabled;
+        if (DB_test_traceEnabled) then
         {
             [player, 100] spawn BIS_fnc_traceBullets;
             hint "Trajectory display enabled.";
@@ -217,7 +215,7 @@ player addAction [
 player addAction [
     "<t color='#FF8C66'>DAMAGE: next target</t>",
     {
-        call SDB_damage_fnc_nextTarget;
+        call DB_damage_fnc_nextTarget;
     },
     nil,
     1.5,
@@ -231,7 +229,7 @@ player addAction [
 player addAction [
     "<t color='#FFB366'>DAMAGE: fresh target</t>",
     {
-        [SDB_damage_targetIndex] call SDB_damage_fnc_spawnTarget;
+        [DB_damage_targetIndex] call DB_damage_fnc_spawnTarget;
     },
     nil,
     1.5,
@@ -245,7 +243,7 @@ player addAction [
 player addAction [
     "<t color='#FFD27F'>DAMAGE: copy report</t>",
     {
-        call SDB_damage_fnc_reportTarget;
+        call DB_damage_fnc_reportTarget;
     },
     nil,
     1.5,
@@ -259,14 +257,14 @@ player addAction [
 player addAction [
     "<t color='#FFDF66'>DAMAGE: automatic 10-shot batch</t>",
     {
-        [] spawn SDB_damage_fnc_runBatch;
+        [] spawn DB_damage_fnc_runBatch;
     },
     nil,
     1.5,
     false,
     true,
     "",
-    "!SDB_damage_batchRunning",
+    "!DB_damage_batchRunning",
     5
 ];
 
@@ -278,39 +276,39 @@ player addAction [
         !isNull findDisplay 46
     };
 
-    SDB_damage_keyHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+    DB_damage_keyHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
         params ["_display", "_key", "_shift", "_ctrl", "_alt"];
 
         if (!_shift || {!_ctrl} || {_alt}) exitWith {false};
-        if (SDB_damage_batchRunning) exitWith {true};
+        if (DB_damage_batchRunning) exitWith {true};
 
         if (_key == 32) exitWith
         {
-            call SDB_test_fnc_nextDistance;
+            call DB_test_fnc_nextDistance;
             true
         };
 
         if (_key == 20) exitWith
         {
-            call SDB_damage_fnc_nextTarget;
+            call DB_damage_fnc_nextTarget;
             true
         };
 
         if (_key == 19) exitWith
         {
-            [SDB_damage_targetIndex] call SDB_damage_fnc_spawnTarget;
+            [DB_damage_targetIndex] call DB_damage_fnc_spawnTarget;
             true
         };
 
         if (_key == 46) exitWith
         {
-            call SDB_damage_fnc_reportTarget;
+            call DB_damage_fnc_reportTarget;
             true
         };
 
         if (_key == 48) exitWith
         {
-            [] spawn SDB_damage_fnc_runBatch;
+            [] spawn DB_damage_fnc_runBatch;
             true
         };
 
@@ -318,7 +316,7 @@ player addAction [
     }];
 };
 
-[SDB_test_distance] call SDB_test_fnc_setDistance;
+[DB_test_distance] call DB_test_fnc_setDistance;
 
 systemChat "Mnogotochie test ready. Ammunition and weapons are in the crate.";
 systemChat "Shortcuts: Ctrl+Shift+D distance | T target | R fresh | C report | B automatic batch.";

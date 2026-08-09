@@ -1,28 +1,28 @@
 params [["_targetIndex", 0, [0]]];
 
-if (SDB_damage_targetTypes isEqualTo []) exitWith {};
+if (DB_damage_targetTypes isEqualTo []) exitWith {};
 
-_targetIndex = (_targetIndex max 0) min ((count SDB_damage_targetTypes) - 1);
+_targetIndex = (_targetIndex max 0) min ((count DB_damage_targetTypes) - 1);
 
-if (!isNull SDB_damage_target) then
+if (!isNull DB_damage_target) then
 {
-    deleteVehicle SDB_damage_target;
+    deleteVehicle DB_damage_target;
 };
 
-(SDB_damage_targetTypes # _targetIndex) params ["_label", "_className", "_isMan"];
+(DB_damage_targetTypes # _targetIndex) params ["_label", "_className", "_isMan"];
 
 private _forward = [
-    sin SDB_test_firingDirection,
-    cos SDB_test_firingDirection,
+    sin DB_test_firingDirection,
+    cos DB_test_firingDirection,
     0
 ];
 private _right = [
-    cos SDB_test_firingDirection,
-    -sin SDB_test_firingDirection,
+    cos DB_test_firingDirection,
+    -sin DB_test_firingDirection,
     0
 ];
-private _targetPosition = SDB_test_firingPosATL
-    vectorAdd (_forward vectorMultiply SDB_test_distance)
+private _targetPosition = DB_test_firingPosATL
+    vectorAdd (_forward vectorMultiply DB_test_distance)
     vectorAdd (_right vectorMultiply 10);
 
 private _target = objNull;
@@ -42,7 +42,7 @@ else
 };
 
 (boundingBoxReal _target) params ["_minimum", "_maximum"];
-_targetPosition set [2, (SDB_test_firingPosATL # 2) - (_minimum # 2)];
+_targetPosition set [2, (DB_test_firingPosATL # 2) - (_minimum # 2)];
 _target setPosATL _targetPosition;
 _target setDir (_target getDir player);
 _target setVectorUp [0, 0, 1];
@@ -52,24 +52,24 @@ if (!_isMan) then
 };
 _target allowDamage true;
 
-SDB_damage_target = _target;
-SDB_damage_targetIndex = _targetIndex;
-SDB_damage_targetLabel = _label;
-SDB_damage_targetCenterModel = [
+DB_damage_target = _target;
+DB_damage_targetIndex = _targetIndex;
+DB_damage_targetLabel = _label;
+DB_damage_targetCenterModel = [
     ((_minimum # 0) + (_maximum # 0)) / 2,
     ((_minimum # 1) + (_maximum # 1)) / 2,
     ((_minimum # 2) + (_maximum # 2)) / 2
 ];
-SDB_damage_shots = 0;
-SDB_damage_magazines = [];
-SDB_damage_active = true;
-SDB_test_active = false;
+DB_damage_shots = 0;
+DB_damage_magazines = [];
+DB_damage_active = true;
+DB_test_active = false;
 
-if (!SDB_damage_batchRunning) then
+if (!DB_damage_batchRunning) then
 {
     hint format [
         "Damage target: %1\nDistance: %2 m\nFire one round, then copy the damage report.",
-        SDB_damage_targetLabel,
-        SDB_test_distance
+        DB_damage_targetLabel,
+        DB_test_distance
     ];
 };

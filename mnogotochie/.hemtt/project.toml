@@ -1,12 +1,10 @@
 name = "Mnogotochie"
-prefix = "sdb"
+prefix = "db"
 mainprefix = "z"
 author = "Sam / DarkBall"
 
 [files]
 include = [
-    "LICENSE.md",
-    "README.md",
     "meta.cpp",
     "mod.cpp",
 ]

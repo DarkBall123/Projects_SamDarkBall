@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="SDB_Mnogotochie">
+<Project name="DB_Mnogotochie">
     <Package name="Main">
-        <Key ID="STR_SDB_Mnogotochie_Name">
+        <Key ID="STR_DB_Mnogotochie_Name">
             <Original>Mnogotochie</Original>
             <English>Mnogotochie</English>
             <Russian>Многоточие</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs226_30_Name">
-            <Original>30Rnd 5.45x39 STs-226 Mnogotochie</Original>
-            <English>30Rnd 5.45x39 STs-226 Mnogotochie</English>
-            <Russian>5,45×39 СЦ-226 «Многоточие», 30 патронов</Russian>
+        <Key ID="STR_DB_Mnogotochie_STs226_30_Name">
+            <Original>30Rnd. AK-74 STs-226 Mnogotochie</Original>
+            <English>30Rnd. AK-74 STs-226 Mnogotochie</English>
+            <Russian>30Птрн. АК-74 СЦ-226 «Многоточие»</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs226_Short">
+        <Key ID="STR_DB_Mnogotochie_STs226_Short">
             <Original>STs-226</Original>
             <English>STs-226</English>
             <Russian>СЦ-226</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs226_Description">
+        <Key ID="STR_DB_Mnogotochie_STs226_Description">
             <Original>5.45x39 mm anti-UAV cartridge with a three-element projectile.</Original>
             <English>5.45x39 mm anti-UAV cartridge with a three-element projectile.</English>
             <Russian>Противодронный патрон 5,45×39 мм с трёхэлементной пулей.</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs228_10_Name">
-            <Original>10Rnd 7.62x54R STs-228 Mnogotochie</Original>
-            <English>10Rnd 7.62x54R STs-228 Mnogotochie</English>
-            <Russian>7,62×54R СЦ-228 «Многоточие», 10 патронов</Russian>
+        <Key ID="STR_DB_Mnogotochie_STs228_10_Name">
+            <Original>10Rnd. SVD STs-228 Mnogotochie</Original>
+            <English>10Rnd. SVD STs-228 Mnogotochie</English>
+            <Russian>10Птрн. СВД СЦ-228 «Многоточие»</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs228_100_Name">
-            <Original>100Rnd 7.62x54R STs-228 Mnogotochie</Original>
-            <English>100Rnd 7.62x54R STs-228 Mnogotochie</English>
-            <Russian>7,62×54R СЦ-228 «Многоточие», 100 патронов</Russian>
+        <Key ID="STR_DB_Mnogotochie_STs228_100_Name">
+            <Original>100Rnd. PKM STs-228 Mnogotochie</Original>
+            <English>100Rnd. PKM STs-228 Mnogotochie</English>
+            <Russian>100Птрн. ПКМ СЦ-228 «Многоточие»</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs228_Short">
+        <Key ID="STR_DB_Mnogotochie_STs228_Short">
             <Original>STs-228</Original>
             <English>STs-228</English>
             <Russian>СЦ-228</Russian>
         </Key>
-        <Key ID="STR_SDB_Mnogotochie_STs228_Description">
+        <Key ID="STR_DB_Mnogotochie_STs228_Description">
             <Original>7.62x54R anti-UAV cartridge with a three-element projectile.</Original>
             <English>7.62x54R anti-UAV cartridge with a three-element projectile.</English>
             <Russian>Противодронный патрон 7,62×54R с трёхэлементной пулей.</Russian>

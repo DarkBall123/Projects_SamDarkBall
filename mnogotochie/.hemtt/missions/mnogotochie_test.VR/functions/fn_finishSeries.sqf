@@ -1,18 +1,18 @@
-if (!SDB_test_active) exitWith
+if (!DB_test_active) exitWith
 {
     hint "The series is already finished. Start a new series first.";
 };
 
-SDB_test_active = false;
-private _seriesId = SDB_test_seriesId;
+DB_test_active = false;
+private _seriesId = DB_test_seriesId;
 hint "Waiting 1.5 seconds for the last projectiles...";
 sleep 1.5;
 
-if (_seriesId != SDB_test_seriesId) exitWith {};
+if (_seriesId != DB_test_seriesId) exitWith {};
 
-private _shots = +SDB_test_shots;
-private _elements = +SDB_test_elements;
-private _impacts = +SDB_test_impacts;
+private _shots = +DB_test_shots;
+private _elements = +DB_test_elements;
+private _impacts = +DB_test_impacts;
 
 if (_shots isEqualTo []) exitWith
 {
@@ -120,7 +120,7 @@ private _magazineClasses = [];
 
 private _lines = [
     "Mnogotochie ballistics report",
-    format ["distance_m=%1", SDB_test_distance],
+    format ["distance_m=%1", DB_test_distance],
     format ["magazines=%1", _magazineClasses joinString " | "],
     format ["shots=%1", _shotCount],
     format ["elements_created=%1", _elementCount],
@@ -168,11 +168,11 @@ private _lines = [
     };
 } forEach _elements;
 
-SDB_test_lastReport = _lines joinString toString [13, 10];
-copyToClipboard SDB_test_lastReport;
+DB_test_lastReport = _lines joinString toString [13, 10];
+copyToClipboard DB_test_lastReport;
 
 {
-    diag_log format ["[SDB Mnogotochie Test] %1", _x];
+    diag_log format ["[DB Mnogotochie Test] %1", _x];
 } forEach _lines;
 
 hint format [

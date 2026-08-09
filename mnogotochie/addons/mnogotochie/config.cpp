@@ -1,8 +1,8 @@
 class CfgPatches
 {
-    class SDB_Mnogotochie
+    class DB_Mnogotochie
     {
-        name = "$STR_SDB_Mnogotochie_Name";
+        name = "$STR_DB_Mnogotochie_Name";
         author = "Sam / DarkBall";
         requiredVersion = 2.24;
         requiredAddons[] =
@@ -23,7 +23,7 @@ class CfgAmmo
     class B_545x39_Ball_F;
     class B_762x54_Ball;
 
-    class SDB_Ammo_STs226_Element: B_545x39_Ball_F
+    class DB_Ammo_STs226_Element: B_545x39_Ball_F
     {
         hit = 6.5;
         caliber = 0.45;
@@ -39,7 +39,7 @@ class CfgAmmo
         tracerEndTime = 0;
     };
 
-    class SDB_Ammo_STs226_Carrier: B_545x39_Ball_F
+    class DB_Ammo_STs226_Carrier: B_545x39_Ball_F
     {
         simulation = "shotSubmunitions";
         hit = 6.5;
@@ -49,7 +49,7 @@ class CfgAmmo
         explosive = 0;
         typicalSpeed = 800;
         airFriction = -0.0032;
-        submunitionAmmo = "SDB_Ammo_STs226_Element";
+        submunitionAmmo = "DB_Ammo_STs226_Element";
         submunitionConeType[] = {"poissondisccenter", 3};
         submunitionConeAngle = 0.18;
         submunitionDirectionType = "SubmunitionModelDirection";
@@ -65,7 +65,7 @@ class CfgAmmo
         tracerEndTime = 0;
     };
 
-    class SDB_Ammo_STs228_Element: B_762x54_Ball
+    class DB_Ammo_STs228_Element: B_762x54_Ball
     {
         hit = 8.5;
         caliber = 0.55;
@@ -81,7 +81,7 @@ class CfgAmmo
         tracerEndTime = 0;
     };
 
-    class SDB_Ammo_STs228_Carrier: B_762x54_Ball
+    class DB_Ammo_STs228_Carrier: B_762x54_Ball
     {
         simulation = "shotSubmunitions";
         hit = 8.5;
@@ -91,7 +91,7 @@ class CfgAmmo
         explosive = 0;
         typicalSpeed = 790;
         airFriction = -0.001023;
-        submunitionAmmo = "SDB_Ammo_STs228_Element";
+        submunitionAmmo = "DB_Ammo_STs228_Element";
         submunitionConeType[] = {"poissondisccenter", 3};
         submunitionConeAngle = 0.18;
         submunitionDirectionType = "SubmunitionModelDirection";
@@ -114,57 +114,57 @@ class CfgMagazines
     class 10Rnd_762x54_Mag;
     class 150Rnd_762x54_Box;
 
-    class SDB_30Rnd_545x39_STs226_Mag: 30Rnd_545x39_Mag_F
+    class DB_30Rnd_545x39_STs226_Mag: 30Rnd_545x39_Mag_F
     {
         scope = 2;
         scopeArsenal = 2;
         author = "Sam / DarkBall";
-        displayName = "$STR_SDB_Mnogotochie_STs226_30_Name";
-        displayNameShort = "$STR_SDB_Mnogotochie_STs226_Short";
-        descriptionShort = "$STR_SDB_Mnogotochie_STs226_Description";
-        picture = "\z\sdb\addons\mnogotochie\data\ui\m_sts226_ca.paa";
+        displayName = "$STR_DB_Mnogotochie_STs226_30_Name";
+        displayNameShort = "$STR_DB_Mnogotochie_STs226_Short";
+        descriptionShort = "$STR_DB_Mnogotochie_STs226_Description";
+        picture = "\z\db\addons\mnogotochie\data\ui\m_sts226_ca.paa";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] =
         {
-            "\z\sdb\addons\mnogotochie\data\magazine_ak74_sts226_co.paa"
+            "\z\db\addons\mnogotochie\data\magazine_ak74_sts226_co.paa"
         };
-        ammo = "SDB_Ammo_STs226_Carrier";
+        ammo = "DB_Ammo_STs226_Carrier";
         count = 30;
         initSpeed = 800;
         tracersEvery = 0;
         lastRoundsTracer = 0;
     };
 
-    class SDB_10Rnd_762x54R_STs228_Mag: 10Rnd_762x54_Mag
+    class DB_10Rnd_762x54R_STs228_Mag: 10Rnd_762x54_Mag
     {
         scope = 2;
         scopeArsenal = 2;
         author = "Sam / DarkBall";
-        displayName = "$STR_SDB_Mnogotochie_STs228_10_Name";
-        displayNameShort = "$STR_SDB_Mnogotochie_STs228_Short";
-        descriptionShort = "$STR_SDB_Mnogotochie_STs228_Description";
-        picture = "\z\sdb\addons\mnogotochie\data\ui\m_sts228_ca.paa";
+        displayName = "$STR_DB_Mnogotochie_STs228_10_Name";
+        displayNameShort = "$STR_DB_Mnogotochie_STs228_Short";
+        descriptionShort = "$STR_DB_Mnogotochie_STs228_Description";
+        picture = "\z\db\addons\mnogotochie\data\ui\m_sts228_ca.paa";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] =
         {
-            "\z\sdb\addons\mnogotochie\data\dmr_06_02_sts228_co.paa"
+            "\z\db\addons\mnogotochie\data\dmr_06_02_sts228_co.paa"
         };
-        ammo = "SDB_Ammo_STs228_Carrier";
+        ammo = "DB_Ammo_STs228_Carrier";
         count = 10;
         initSpeed = 790;
         tracersEvery = 0;
         lastRoundsTracer = 0;
     };
 
-    class SDB_100Rnd_762x54R_STs228_Box: 150Rnd_762x54_Box
+    class DB_100Rnd_762x54R_STs228_Box: 150Rnd_762x54_Box
     {
         scope = 2;
         scopeArsenal = 2;
         author = "Sam / DarkBall";
-        displayName = "$STR_SDB_Mnogotochie_STs228_100_Name";
-        displayNameShort = "$STR_SDB_Mnogotochie_STs228_Short";
-        descriptionShort = "$STR_SDB_Mnogotochie_STs228_Description";
-        ammo = "SDB_Ammo_STs228_Carrier";
+        displayName = "$STR_DB_Mnogotochie_STs228_100_Name";
+        displayNameShort = "$STR_DB_Mnogotochie_STs228_Short";
+        descriptionShort = "$STR_DB_Mnogotochie_STs228_Description";
+        ammo = "DB_Ammo_STs228_Carrier";
         count = 100;
         initSpeed = 790;
         tracersEvery = 0;
@@ -177,41 +177,41 @@ class CfgMagazineWells
 {
     class AK_545x39
     {
-        SDB_Mnogotochie[] =
+        DB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag"
+            "DB_30Rnd_545x39_STs226_Mag"
         };
     };
 
     class CBA_545x39_AK
     {
-        SDB_Mnogotochie[] =
+        DB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag"
+            "DB_30Rnd_545x39_STs226_Mag"
         };
     };
 
     class CBA_545x39_RPK
     {
-        SDB_Mnogotochie[] =
+        DB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag"
+            "DB_30Rnd_545x39_STs226_Mag"
         };
     };
 
     class CBA_762x54R_SVD
     {
-        SDB_Mnogotochie[] =
+        DB_Mnogotochie[] =
         {
-            "SDB_10Rnd_762x54R_STs228_Mag"
+            "DB_10Rnd_762x54R_STs228_Mag"
         };
     };
 
     class CBA_762x54R_LINKS
     {
-        SDB_Mnogotochie[] =
+        DB_Mnogotochie[] =
         {
-            "SDB_100Rnd_762x54R_STs228_Box"
+            "DB_100Rnd_762x54R_STs228_Box"
         };
     };
 };

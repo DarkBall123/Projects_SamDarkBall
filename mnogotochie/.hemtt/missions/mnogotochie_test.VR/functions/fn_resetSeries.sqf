@@ -1,21 +1,21 @@
-SDB_damage_active = false;
-if (!isNull SDB_damage_target) then
+DB_damage_active = false;
+if (!isNull DB_damage_target) then
 {
-    deleteVehicle SDB_damage_target;
+    deleteVehicle DB_damage_target;
 };
-SDB_damage_target = objNull;
+DB_damage_target = objNull;
 
-SDB_test_seriesId = SDB_test_seriesId + 1;
-SDB_test_nextShotId = 1;
-SDB_test_shots = [];
-SDB_test_elements = [];
-SDB_test_impacts = [];
-SDB_test_active = true;
+DB_test_seriesId = DB_test_seriesId + 1;
+DB_test_nextShotId = 1;
+DB_test_shots = [];
+DB_test_elements = [];
+DB_test_impacts = [];
+DB_test_active = true;
 
-player setPosATL SDB_test_firingPosATL;
-player setDir SDB_test_firingDirection;
+player setPosATL DB_test_firingPosATL;
+player setDir DB_test_firingDirection;
 
 hint format [
     "New series: %1 m\nFire single shots, then use Finish + copy report.",
-    SDB_test_distance
+    DB_test_distance
 ];

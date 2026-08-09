@@ -26,7 +26,7 @@ addons[]=
     "A3_Characters_F_BLUFOR",
     "A3_Structures_F_Bootcamp_VR_Blocks",
     "A3_Weapons_F_Ammoboxes",
-    "SDB_Mnogotochie"
+    "DB_Mnogotochie"
 };
 class AddonsMetaData
 {
@@ -59,7 +59,7 @@ class AddonsMetaData
         };
         class Item4
         {
-            className="SDB_Mnogotochie";
+            className="DB_Mnogotochie";
             name="Mnogotochie";
             author="Sam / DarkBall";
         };
@@ -117,7 +117,7 @@ class Mission
                     class Attributes
                     {
                         isPlayer=1;
-                        name="SDB_test_shooter";
+                        name="DB_test_shooter";
                     };
                     id=1;
                     type="B_Soldier_F";

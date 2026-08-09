@@ -1,9 +1,9 @@
-if (SDB_damage_batchRunning) exitWith
+if (DB_damage_batchRunning) exitWith
 {
     hint "A damage batch is already running.";
 };
 
-if (!SDB_damage_active || {isNull SDB_damage_target}) exitWith
+if (!DB_damage_active || {isNull DB_damage_target}) exitWith
 {
     hint "Spawn a damage target first.";
 };
@@ -22,12 +22,12 @@ if (_ammoCount < _trialCount) exitWith
     hint format ["The current magazine needs at least %1 rounds.", _trialCount];
 };
 
-private _targetIndex = SDB_damage_targetIndex;
-private _targetLabel = SDB_damage_targetLabel;
-private _distance = SDB_test_distance;
+private _targetIndex = DB_damage_targetIndex;
+private _targetLabel = DB_damage_targetLabel;
+private _distance = DB_test_distance;
 private _results = [];
 
-SDB_damage_batchRunning = true;
+DB_damage_batchRunning = true;
 hint format [
     "Automatic damage batch started\n%1 | %2 m\nKeep the weapon aimed at the marker.",
     _targetLabel,
@@ -36,8 +36,8 @@ hint format [
 
 for "_trial" from 1 to _trialCount do
 {
-    [_targetIndex] call SDB_damage_fnc_spawnTarget;
-    private _target = SDB_damage_target;
+    [_targetIndex] call DB_damage_fnc_spawnTarget;
+    private _target = DB_damage_target;
     uiSleep 0.1;
 
     player forceWeaponFire [_muzzle, _fireMode];
@@ -46,7 +46,7 @@ for "_trial" from 1 to _trialCount do
     waitUntil
     {
         uiSleep 0.01;
-        SDB_damage_shots > 0 || {diag_tickTime >= _firedDeadline}
+        DB_damage_shots > 0 || {diag_tickTime >= _firedDeadline}
     };
 
     private _impactDeadline = diag_tickTime + (_distance / 200) + 0.5;
@@ -59,7 +59,7 @@ for "_trial" from 1 to _trialCount do
 
     private _targetAlive = !isNull _target && {alive _target};
     private _targetDamage = if (isNull _target) then {1} else {damage _target};
-    _results pushBack [_trial, SDB_damage_shots, _targetAlive, _targetDamage];
+    _results pushBack [_trial, DB_damage_shots, _targetAlive, _targetDamage];
 };
 
 private _damageSum = 0;
@@ -81,7 +81,7 @@ private _lines = [
     "Mnogotochie automatic damage report",
     format ["distance_m=%1", _distance],
     format ["target=%1", _targetLabel],
-    format ["target_class=%1", (SDB_damage_targetTypes # _targetIndex) # 1],
+    format ["target_class=%1", (DB_damage_targetTypes # _targetIndex) # 1],
     format ["weapon=%1", _weapon],
     format ["magazine=%1", _magazine],
     format ["fire_mode=%1", _fireMode],
@@ -107,14 +107,14 @@ private _lines = [
     ];
 } forEach _results;
 
-SDB_damage_batchLastReport = _lines joinString toString [13, 10];
-copyToClipboard SDB_damage_batchLastReport;
+DB_damage_batchLastReport = _lines joinString toString [13, 10];
+copyToClipboard DB_damage_batchLastReport;
 
 {
-    diag_log format ["[SDB Mnogotochie Automatic Damage Test] %1", _x];
+    diag_log format ["[DB Mnogotochie Automatic Damage Test] %1", _x];
 } forEach _lines;
 
-SDB_damage_batchRunning = false;
+DB_damage_batchRunning = false;
 hint format [
     "Automatic batch finished\nTarget: %1\nHits: %2/%4\nKills: %3/%4\nMean damage: %5\n\nReport copied to clipboard.",
     _targetLabel,
