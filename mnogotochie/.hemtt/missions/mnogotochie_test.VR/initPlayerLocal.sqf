@@ -5,6 +5,25 @@ SDB_test_fnc_onFired = compile preprocessFileLineNumbers "functions\fn_onFired.s
 SDB_test_fnc_finishSeries = compile preprocessFileLineNumbers "functions\fn_finishSeries.sqf";
 SDB_damage_fnc_spawnTarget = compile preprocessFileLineNumbers "functions\fn_spawnDamageTarget.sqf";
 SDB_damage_fnc_reportTarget = compile preprocessFileLineNumbers "functions\fn_reportDamageTarget.sqf";
+SDB_damage_fnc_runBatch = compile preprocessFileLineNumbers "functions\fn_runDamageBatch.sqf";
+
+SDB_test_fnc_nextDistance = {
+    private _index = SDB_test_distances find SDB_test_distance;
+    private _nextIndex = (_index + 1) mod (count SDB_test_distances);
+    [SDB_test_distances # _nextIndex] call SDB_test_fnc_setDistance;
+};
+
+SDB_damage_fnc_nextTarget = {
+    private _nextIndex = if (SDB_damage_active) then
+    {
+        (SDB_damage_targetIndex + 1) mod (count SDB_damage_targetTypes)
+    }
+    else
+    {
+        0
+    };
+    [_nextIndex] call SDB_damage_fnc_spawnTarget;
+};
 
 SDB_test_distances = [5, 20, 50, 100, 150, 300, 500, 600];
 SDB_test_distance = 50;
@@ -35,6 +54,8 @@ SDB_damage_shots = 0;
 SDB_damage_magazines = [];
 SDB_damage_active = false;
 SDB_damage_lastReport = "";
+SDB_damage_batchRunning = false;
+SDB_damage_batchLastReport = "";
 
 player setDir SDB_test_firingDirection;
 player enableStamina false;
@@ -130,9 +151,7 @@ addMissionEventHandler ["Draw3D", {
 player addAction [
     "<t color='#7FD8FF'>TEST: next distance</t>",
     {
-        private _index = SDB_test_distances find SDB_test_distance;
-        private _nextIndex = (_index + 1) mod (count SDB_test_distances);
-        [SDB_test_distances # _nextIndex] call SDB_test_fnc_setDistance;
+        call SDB_test_fnc_nextDistance;
     },
     nil,
     1.5,
@@ -198,15 +217,7 @@ player addAction [
 player addAction [
     "<t color='#FF8C66'>DAMAGE: next target</t>",
     {
-        private _nextIndex = if (SDB_damage_active) then
-        {
-            (SDB_damage_targetIndex + 1) mod (count SDB_damage_targetTypes)
-        }
-        else
-        {
-            0
-        };
-        [_nextIndex] call SDB_damage_fnc_spawnTarget;
+        call SDB_damage_fnc_nextTarget;
     },
     nil,
     1.5,
@@ -245,6 +256,69 @@ player addAction [
     5
 ];
 
+player addAction [
+    "<t color='#FFDF66'>DAMAGE: automatic 10-shot batch</t>",
+    {
+        [] spawn SDB_damage_fnc_runBatch;
+    },
+    nil,
+    1.5,
+    false,
+    true,
+    "",
+    "!SDB_damage_batchRunning",
+    5
+];
+
+[] spawn
+{
+    waitUntil
+    {
+        uiSleep 0.1;
+        !isNull findDisplay 46
+    };
+
+    SDB_damage_keyHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+        params ["_display", "_key", "_shift", "_ctrl", "_alt"];
+
+        if (!_shift || {!_ctrl} || {_alt}) exitWith {false};
+        if (SDB_damage_batchRunning) exitWith {true};
+
+        if (_key == 32) exitWith
+        {
+            call SDB_test_fnc_nextDistance;
+            true
+        };
+
+        if (_key == 20) exitWith
+        {
+            call SDB_damage_fnc_nextTarget;
+            true
+        };
+
+        if (_key == 19) exitWith
+        {
+            [SDB_damage_targetIndex] call SDB_damage_fnc_spawnTarget;
+            true
+        };
+
+        if (_key == 46) exitWith
+        {
+            call SDB_damage_fnc_reportTarget;
+            true
+        };
+
+        if (_key == 48) exitWith
+        {
+            [] spawn SDB_damage_fnc_runBatch;
+            true
+        };
+
+        false
+    }];
+};
+
 [SDB_test_distance] call SDB_test_fnc_setDistance;
 
 systemChat "Mnogotochie test ready. Ammunition and weapons are in the crate.";
+systemChat "Shortcuts: Ctrl+Shift+D distance | T target | R fresh | C report | B automatic batch.";

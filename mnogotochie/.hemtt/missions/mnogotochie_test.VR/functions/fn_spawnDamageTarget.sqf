@@ -61,8 +61,11 @@ SDB_damage_magazines = [];
 SDB_damage_active = true;
 SDB_test_active = false;
 
-hint format [
-    "Damage target: %1\nDistance: %2 m\nFire one round, then copy the damage report.",
-    SDB_damage_targetLabel,
-    SDB_test_distance
-];
+if (!SDB_damage_batchRunning) then
+{
+    hint format [
+        "Damage target: %1\nDistance: %2 m\nFire one round, then copy the damage report.",
+        SDB_damage_targetLabel,
+        SDB_test_distance
+    ];
+};
