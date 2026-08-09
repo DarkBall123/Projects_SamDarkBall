@@ -137,6 +137,8 @@ class CfgMagazines
 
     class SDB_45Rnd_545x39_STs226_Mag: SDB_30Rnd_545x39_STs226_Mag
     {
+        scope = 1;
+        scopeArsenal = 0;
         displayName = "$STR_SDB_Mnogotochie_STs226_45_Name";
         count = 45;
     };
@@ -149,6 +151,7 @@ class CfgMagazines
         displayName = "$STR_SDB_Mnogotochie_STs228_10_Name";
         displayNameShort = "$STR_SDB_Mnogotochie_STs228_Short";
         descriptionShort = "$STR_SDB_Mnogotochie_STs228_Description";
+        picture = "\z\sdb\addons\mnogotochie\data\ui\m_sts228_ca.paa";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] =
         {
@@ -178,6 +181,8 @@ class CfgMagazines
 
     class SDB_150Rnd_762x54R_STs228_Box: SDB_100Rnd_762x54R_STs228_Box
     {
+        scope = 1;
+        scopeArsenal = 0;
         displayName = "$STR_SDB_Mnogotochie_STs228_150_Name";
         count = 150;
     };
@@ -189,8 +194,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag",
-            "SDB_45Rnd_545x39_STs226_Mag"
+            "SDB_30Rnd_545x39_STs226_Mag"
         };
     };
 
@@ -198,8 +202,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag",
-            "SDB_45Rnd_545x39_STs226_Mag"
+            "SDB_30Rnd_545x39_STs226_Mag"
         };
     };
 
@@ -207,8 +210,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_30Rnd_545x39_STs226_Mag",
-            "SDB_45Rnd_545x39_STs226_Mag"
+            "SDB_30Rnd_545x39_STs226_Mag"
         };
     };
 
@@ -224,8 +226,7 @@ class CfgMagazineWells
     {
         SDB_Mnogotochie[] =
         {
-            "SDB_100Rnd_762x54R_STs228_Box",
-            "SDB_150Rnd_762x54R_STs228_Box"
+            "SDB_100Rnd_762x54R_STs228_Box"
         };
     };
 };
