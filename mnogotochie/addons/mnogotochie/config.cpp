@@ -123,6 +123,11 @@ class CfgMagazines
         displayNameShort = "$STR_SDB_Mnogotochie_STs226_Short";
         descriptionShort = "$STR_SDB_Mnogotochie_STs226_Description";
         picture = "\z\sdb\addons\mnogotochie\data\ui\m_sts226_ca.paa";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] =
+        {
+            "\z\sdb\addons\mnogotochie\data\magazine_ak74_sts226_co.paa"
+        };
         ammo = "SDB_Ammo_STs226_Carrier";
         count = 30;
         initSpeed = 800;
@@ -144,6 +149,11 @@ class CfgMagazines
         displayName = "$STR_SDB_Mnogotochie_STs228_10_Name";
         displayNameShort = "$STR_SDB_Mnogotochie_STs228_Short";
         descriptionShort = "$STR_SDB_Mnogotochie_STs228_Description";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] =
+        {
+            "\z\sdb\addons\mnogotochie\data\dmr_06_02_sts228_co.paa"
+        };
         ammo = "SDB_Ammo_STs228_Carrier";
         count = 10;
         initSpeed = 790;
