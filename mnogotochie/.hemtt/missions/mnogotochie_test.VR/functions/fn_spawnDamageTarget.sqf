@@ -46,6 +46,10 @@ _targetPosition set [2, (SDB_test_firingPosATL # 2) - (_minimum # 2)];
 _target setPosATL _targetPosition;
 _target setDir (_target getDir player);
 _target setVectorUp [0, 0, 1];
+if (!_isMan) then
+{
+    _target enableSimulationGlobal false;
+};
 _target allowDamage true;
 
 SDB_damage_target = _target;
