@@ -3,6 +3,8 @@ SDB_test_fnc_setDistance = compile preprocessFileLineNumbers "functions\fn_setDi
 SDB_test_fnc_trackProjectile = compile preprocessFileLineNumbers "functions\fn_trackProjectile.sqf";
 SDB_test_fnc_onFired = compile preprocessFileLineNumbers "functions\fn_onFired.sqf";
 SDB_test_fnc_finishSeries = compile preprocessFileLineNumbers "functions\fn_finishSeries.sqf";
+SDB_damage_fnc_spawnTarget = compile preprocessFileLineNumbers "functions\fn_spawnDamageTarget.sqf";
+SDB_damage_fnc_reportTarget = compile preprocessFileLineNumbers "functions\fn_reportDamageTarget.sqf";
 
 SDB_test_distances = [5, 20, 50, 100, 150, 300, 500, 600];
 SDB_test_distance = 50;
@@ -18,6 +20,21 @@ SDB_test_firingDirection = 0;
 SDB_test_firingPosATL = getPosATL player;
 SDB_test_targetCenterModel = [0, 0, 0];
 SDB_test_aimPointASL = [0, 0, 0];
+SDB_damage_targetTypes = [
+    ["VR infantry", "B_Soldier_VR_F", true],
+    ["NATO rifleman", "B_Soldier_F", true],
+    ["Darter UAV", "B_UAV_01_F", false],
+    ["Offroad", "C_Offroad_01_F", false],
+    ["Marshall", "B_APC_Wheeled_01_cannon_F", false]
+];
+SDB_damage_target = objNull;
+SDB_damage_targetIndex = 0;
+SDB_damage_targetLabel = "";
+SDB_damage_targetCenterModel = [0, 0, 0];
+SDB_damage_shots = 0;
+SDB_damage_magazines = [];
+SDB_damage_active = false;
+SDB_damage_lastReport = "";
 
 player setDir SDB_test_firingDirection;
 player enableStamina false;
@@ -62,6 +79,12 @@ _crate addMagazineCargoGlobal ["10Rnd_762x54_Mag", 20];
 _crate addMagazineCargoGlobal ["150Rnd_762x54_Box", 10];
 
 player addEventHandler ["Fired", {
+    if (SDB_damage_active && {!isNull SDB_damage_target}) then
+    {
+        SDB_damage_shots = SDB_damage_shots + 1;
+        SDB_damage_magazines pushBackUnique (_this param [5, ""]);
+    };
+
     _this call SDB_test_fnc_onFired;
 }];
 
@@ -76,6 +99,25 @@ addMissionEventHandler ["Draw3D", {
             0.5,
             0,
             format ["%1 m", SDB_test_distance],
+            1,
+            0.03,
+            "RobotoCondensed",
+            "center",
+            true
+        ];
+    };
+
+    if (SDB_damage_active && {!isNull SDB_damage_target}) then
+    {
+        private _damageAimPoint = SDB_damage_target modelToWorldWorld SDB_damage_targetCenterModel;
+        drawIcon3D [
+            "\a3\ui_f\data\map\markers\military\dot_CA.paa",
+            [1, 0.35, 0.15, 0.95],
+            ASLToAGL _damageAimPoint,
+            0.6,
+            0.6,
+            0,
+            format ["DAMAGE: %1 | %2 m", SDB_damage_targetLabel, SDB_test_distance],
             1,
             0.03,
             "RobotoCondensed",
@@ -143,6 +185,56 @@ player addAction [
             [player, 0] spawn BIS_fnc_traceBullets;
             hint "Trajectory display disabled.";
         };
+    },
+    nil,
+    1.5,
+    false,
+    true,
+    "",
+    "true",
+    5
+];
+
+player addAction [
+    "<t color='#FF8C66'>DAMAGE: next target</t>",
+    {
+        private _nextIndex = if (SDB_damage_active) then
+        {
+            (SDB_damage_targetIndex + 1) mod (count SDB_damage_targetTypes)
+        }
+        else
+        {
+            0
+        };
+        [_nextIndex] call SDB_damage_fnc_spawnTarget;
+    },
+    nil,
+    1.5,
+    false,
+    true,
+    "",
+    "true",
+    5
+];
+
+player addAction [
+    "<t color='#FFB366'>DAMAGE: fresh target</t>",
+    {
+        [SDB_damage_targetIndex] call SDB_damage_fnc_spawnTarget;
+    },
+    nil,
+    1.5,
+    false,
+    true,
+    "",
+    "true",
+    5
+];
+
+player addAction [
+    "<t color='#FFD27F'>DAMAGE: copy report</t>",
+    {
+        call SDB_damage_fnc_reportTarget;
     },
     nil,
     1.5,

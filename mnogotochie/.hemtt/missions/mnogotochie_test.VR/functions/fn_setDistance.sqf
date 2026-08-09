@@ -5,6 +5,15 @@ if !(_distance in SDB_test_distances) exitWith
     hint format ["Unsupported distance: %1 m", _distance];
 };
 
+private _damageTargetIndex = if (SDB_damage_active) then
+{
+    SDB_damage_targetIndex
+}
+else
+{
+    -1
+};
+
 SDB_test_distance = _distance;
 
 private _forward = [
@@ -28,3 +37,8 @@ SDB_test_target setPosATL _targetPosition;
 SDB_test_aimPointASL = SDB_test_target modelToWorldWorld SDB_test_targetCenterModel;
 
 call SDB_test_fnc_resetSeries;
+
+if (_damageTargetIndex >= 0) then
+{
+    [_damageTargetIndex] call SDB_damage_fnc_spawnTarget;
+};

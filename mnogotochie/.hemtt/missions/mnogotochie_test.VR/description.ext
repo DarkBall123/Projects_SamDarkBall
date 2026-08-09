@@ -1,5 +1,5 @@
 author = "Sam / DarkBall";
-onLoadName = "Mnogotochie ballistics test";
-onLoadMission = "Automated dispersion and impact measurement";
+onLoadName = "Mnogotochie ballistics and damage test";
+onLoadMission = "Automated dispersion, impact and target damage measurement";
 respawn = 0;
 enableDebugConsole = 1;

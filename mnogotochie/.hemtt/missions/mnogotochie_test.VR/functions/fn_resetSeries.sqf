@@ -1,3 +1,10 @@
+SDB_damage_active = false;
+if (!isNull SDB_damage_target) then
+{
+    deleteVehicle SDB_damage_target;
+};
+SDB_damage_target = objNull;
+
 SDB_test_seriesId = SDB_test_seriesId + 1;
 SDB_test_nextShotId = 1;
 SDB_test_shots = [];
