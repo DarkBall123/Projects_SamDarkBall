@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Return information about military rank.
+
+	1: STRING - requited data, can be one of following:
+		"displayName" - full localized name (e.g. "Major")
+		"displayNameShort" - short localized name (e.g. "Maj.")
+		"classname" - system name (e.g. "MAJOR")
+		"texture" - path to rank insignia
+
+|s1= [source, infoType] call [[BIS_fnc_rankParams]]
+
+|p1= source: [[Number]], [[String]] or [[Object]] - can be one of:
+* [[Number]] - rank ID
+* [[String]] -  rank system name (e.g. "PRIVATE", "CORPORAL", …)
+* [[Object]] - person whose rank is checked
+
+|p2= infoType: [[String]] - can be one of:
+* "displayName" - full localized name (e.g. "Major")
+* "displayNameShort" - short localized name (e.g. "Maj.")
+* "classname" - system name (e.g. "MAJOR")
+* "texture" - path to rank insignia
+
+|r1= [[String]]
+
+|x1= <sqf>private _shortRank = [player, "displayNameShort"] call BIS_fnc_rankParams;</sqf>
+
+|seealso= [[rank]] [[setUnitRank]]
+}}

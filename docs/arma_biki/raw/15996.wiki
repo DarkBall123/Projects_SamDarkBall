@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Hides or shows '''weapon''' information. Also hides ''grenades'' information.
+
+|s1= [showUnitInfo] call [[BIS_fnc_showUnitInfo]]
+
+|p1= showUnitInfo: [[Boolean]] - [[true]] to show weapon information, [[false]] to hide it
+
+|r1= [[Nothing]]
+
+|x1= <sqf>false call BIS_fnc_showUnitInfo; // hides weapon information</sqf>
+
+|seealso= [[showHUD]] [[shownHUD]]
+}}

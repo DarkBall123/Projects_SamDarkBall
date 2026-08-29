@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Briefing
+
+|descr= Initialize animated briefing markers.
+
+|s1= marker call [[BIS_fnc_briefingInit]]
+
+|p1= marker: [[String]] - marker to initialise
+
+|x1= "marker_1" [[call]] [[BIS_fnc_briefingInit]];
+
+|r1= [[Nothing]]
+
+|seealso= [[BIS_fnc_briefingAnimate]]
+}}

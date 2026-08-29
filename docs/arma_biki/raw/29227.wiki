@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+
+|branch= diag
+
+|version1= 1.00
+
+|descr= Dump script assembly.
+
+|gr1= Diagnostic
+
+|s1= [[diag_dumpScriptAssembly]]  code
+
+|p1= code: [[Code]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>diag_dumpScriptAssembly BIS_fnc_taskCreate;</sqf>
+
+|seealso= [[Arma 3: Diagnostics Exe]]
+}}

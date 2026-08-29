@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Collects all loaded [[magazines]] from all [[binocular]] muzzles and returns them in [[Array]], otherwise it returns []. This command is used for infantry weapons only.
+
+|s1= [[binocularMagazine]]  unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] of [[String]]s
+
+|x1= <sqf>hint str binocularMagazine player; // ["Laserbatteries"]</sqf>
+
+|seealso= [[binocularItems]] [[addBinocularItem]] [[removeBinocularItem]] [[removeAllBinocularItems]] [[primaryWeaponMagazine]] [[secondaryWeaponMagazine]] [[handgunMagazine]]
+}}

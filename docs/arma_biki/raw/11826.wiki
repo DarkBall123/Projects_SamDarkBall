@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Positions
+|gr2= Render Time Scope
+
+|descr= Returns an object's rendered [[Position#PositionASL|ASL position]] (z value above sea level) in render time scope.
+
+|s1= [[visiblePositionASL]] object
+
+|p1= object: [[Object]] - name of the object
+
+|r1= [[Position#PositionASL|PositionASL]]
+
+|x1= <sqf>_playerRenderedPosASL = visiblePositionASL player;</sqf>
+
+|seealso= [[getPosVisual]] [[getPosASLVisual]] [[getPosATLVisual]] [[getPosWorldVisual]] [[visiblePosition]] [[position]] [[getPos]] [[getPosATL]] [[getPosASL]] [[getPosASLW]]
+}}

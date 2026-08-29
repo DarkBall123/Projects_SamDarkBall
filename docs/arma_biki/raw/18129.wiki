@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.60
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns the height of one pixel for current resolution.
+
+|s1= '''pixelH'''
+
+|r1= [[Number]] - pixel height
+
+|x1= <sqf>_pixelHeight = pixelH;</sqf>
+
+|seealso= [[pixelGrid]] [[pixelGridBase]] [[pixelGridNoUIScale]] [[pixelW]] [[Pixel Grid System]]
+}}

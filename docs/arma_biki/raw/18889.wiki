@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Vehicles
+
+|descr= Load vehicle appearance saved with [[BIS_fnc_saveVehicle]].
+
+|s1= [object,target] call [[BIS_fnc_loadVehicle]]
+
+|p1= object: [[Object]] - vehicle
+
+|p2= target: [[Array]] - in format:
+*0: [[Namespace]], [[Group]] or [[Object]] - location of the previously saved appearance
+*1: [[String]] - name of the saved appearance
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[BIS_tank, [missionNamespace, "BIS_someTankSave"]] call BIS_fnc_loadVehicle;</sqf>
+
+|seealso= [[BIS_fnc_saveVehicle]] [[BIS_fnc_initVehicle]] [[Arma 3: Vehicle Customisation]]
+}}

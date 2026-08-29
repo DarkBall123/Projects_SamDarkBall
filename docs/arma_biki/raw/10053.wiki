@@ -1,0 +1,591 @@
+{{TOC|side}}
+== BLUEFOR ==
+=== USMC ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|FR_Miles||Miles||[[File:Arma2_FR_miles.jpg|100px]]
+|-
+|FR_Cooper||Cooper||[[File:Arma2_FR_cooper.jpg|100px]]
+|-
+|FR_Ohara||O'Hara||[[File:Arma2_FR_ohara.jpg|100px]]
+|-
+|FR_Rodriguez||Rodriguez||[[File:Arma2_FR_rodriguez.jpg|100px]]
+|-
+|FR_Sykes||Sykes||[[File:Arma2_FR_sykes.jpg|100px]]
+|-
+|FR_AC||FAC Operator||[[File:Arma2_FR_fac_operator.jpg|100px]]
+|-
+|FR_AR||Heavy Gunner||[[File:Arma2_FR_machinegunner.jpg|100px]]
+|-
+|FR_Assault_GL||Assault Grenadier||[[File:Arma2_FR_assault_gren.jpg|100px]]
+|-
+|FR_Assault_R||Assault Rifleman||[[File:Arma2_FR_assault.jpg|100px]]
+|-
+|FR_Commander||Commander||[[File:Arma2_FR_miles.jpg|100px]]
+|-
+|FR_Corpsman||Corpsman||[[File:Arma2_FR_medic.jpg|100px]]
+|-
+|FR_GL||Grenadier||[[File:Arma2_FR_grenadier.jpg|100px]]
+|-
+|FR_Light||Force Recon Unarmed||[[File:Arma2_FR_captive.jpg|100px]]
+|-
+|FR_Marksman||Marksman||[[File:Arma2_FR_sniper.jpg|100px]]
+|-
+|FR_R||Saboteur||[[File:Arma2_FR_saboteur.jpg|100px]]
+|-
+|FR_Sapper||Demolitions Specialist||[[File:Arma2_FR_miner.jpg|100px]]
+|-
+|FR_TL||Team Leader||[[File:Arma2_FR_tl.jpg|100px]]
+|-
+|USMC_LHD_Crew_Blue||LHD Crew (Blue)||rowspan="7" |[[File:Arma2_NAVY_lhd_blue.jpg|100px]]
+|-
+|USMC_LHD_Crew_Brown||LHD Crew (Brown)
+|-
+|USMC_LHD_Crew_Green||LHD Crew (Green)
+|-
+|USMC_LHD_Crew_Purple||LHD Crew (Purple)
+|-
+|USMC_LHD_Crew_Red||LHD Crew (Red)
+|-
+|USMC_LHD_Crew_White||LHD Crew (White)
+|-
+|USMC_LHD_Crew_Yellow||LHD Crew (Yellow)
+|-
+|USMC_Soldier||Soldier||[[File:Arma2_USMC_soldier.jpg|100px]]
+|-
+|USMC_Soldier2||Soldier (M1014)||[[File:Arma2_USMC_m1014.jpg|100px]]
+|-
+|USMC_SoldierM_Marksman||Designated Marksman||[[File:Arma2_USMC_m24.jpg|100px]]
+|-
+|USMC_SoldierS||Scout||[[File:Arma2_USMC_recon.jpg|100px]]
+|-
+|USMC_SoldierS_Engineer||Engineer||[[File:Arma2_USMC_m1014.jpg|100px]]
+|-
+|USMC_SoldierS_Sniper||Sniper||[[File:Arma2_USMC_sniper.jpg|100px]]
+|-
+|USMC_SoldierS_SniperH||Sniper (M107)||[[File:Arma2_USMC_m107.jpg|100px]]
+|-
+|USMC_SoldierS_Spotter||Spotter||[[File:Arma2_USMC_spotter.jpg|100px]]
+|-
+|USMC_Soldier_AA||Soldier (AA)||[[File:Arma2_USMC_aa.jpg|100px]]
+|-
+|USMC_Soldier_AR||Automatic Rifleman||[[File:Arma2_USMC_lmg.jpg|100px]]
+|-
+|USMC_Soldier_AT||Soldier (M134)||[[File:Arma2_USMC_m134.jpg|100px]]
+|-
+|USMC_Soldier_Crew||Crew||[[File:Arma2_USMC_crew.jpg|100px]]
+|-
+|USMC_Soldier_GL||Grenadier||[[File:Arma2_USMC_grenadier.jpg|100px]]
+|-
+|USMC_Soldier_HAT||Soldier (Javelin)||[[File:Arma2_USMC_javelin.jpg|100px]]
+|-
+|USMC_Soldier_LAT||Soldier (SMAW)||[[File:Arma2_USMC_smaw.jpg|100px]]
+|-
+|USMC_Soldier_Light||Soldier (unarmed)||[[File:Arma2_USMC_captive.jpg|100px]]
+|-
+|USMC_Soldier_MG||Machinegunner||[[File:Arma2_USMC_machinegunner.jpg|100px]]
+|-
+|USMC_Soldier_Medic||Medic||[[File:Arma2_USMC_medic.jpg|100px]]
+|-
+|USMC_Soldier_Officer||Officer||[[File:Arma2_USMC_officer.jpg|100px]]
+|-
+|USMC_Soldier_Pilot||Pilot||[[File:Arma2_USMC_pilot.jpg|100px]]
+|-
+|USMC_Soldier_SL||Squad Leader||[[File:Arma2_USMC_sl.jpg|100px]]
+|-
+|USMC_Soldier_TL||Team Leader||[[File:Arma2_USMC_tl.jpg|100px]]
+|-
+|}
+
+=== Chernarussian Defence Forces (CDF) ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|CDF_Soldier||Soldier||[[File:Arma2_CDF_soldier.jpg|100px]]
+|-
+|CDF_Commander||General||[[File:Arma2_CDF_general.jpg|100px]]
+|-
+|CDF_Soldier_AR||Light Machinegunner||[[File:Arma2_CDF_lmg.jpg|100px]]
+|-
+|CDF_Soldier_Crew||Crewman||[[File:Arma2_CDF_crew.jpg|100px]]
+|-
+|CDF_Soldier_Engineer||Engineer||[[File:Arma2_CDF_pio.jpg|100px]]
+|-
+|CDF_Soldier_GL||Grenadier||[[File:Arma2_CDF_grenadier.jpg|100px]]
+|-
+|CDF_Soldier_Light||Soldier (unarmed)||[[File:Arma2_CDF_captive.jpg|100px]]
+|-
+|CDF_Soldier_MG||Machinegunner||[[File:Arma2_CDF_mg.jpg|100px]]
+|-
+|CDF_Soldier_Marksman||Marksman||[[File:Arma2_CDF_recon.jpg|100px]]
+|-
+|CDF_Soldier_Medic||Medic||[[File:Arma2_CDF_medic.jpg|100px]]
+|-
+|CDF_Soldier_Militia||Militia||[[File:Arma2_CDF_militia.jpg|100px]]
+|-
+|CDF_Soldier_Officer||Officer||[[File:Arma2_CDF_officer.jpg|100px]]
+|-
+|CDF_Soldier_Pilot||Pilot||[[File:Arma2_CDF_pilot.jpg|100px]]
+|-
+|CDF_Soldier_RPG||RPG Specialist||[[File:Arma2_CDF_rpg7.jpg|100px]]
+|-
+|CDF_Soldier_Sniper||Sniper||[[File:Arma2_CDF_sniper.jpg|100px]]
+|-
+|CDF_Soldier_Spotter||Spotter||[[File:Arma2_CDF_spotter.jpg|100px]]
+|-
+|CDF_Soldier_Strela||AA Specialist||[[File:Arma2_CDF_aa.jpg|100px]]
+|-
+|CDF_Soldier_TL||Team Leader||[[File:Arma2_CDF_tl.jpg|100px]]
+|-
+|}
+
+== OPFOR ==
+=== Russia ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|RU_Commander||General||[[File:Arma2_RU_general.jpg|100px]]
+|-
+|RU_Soldier||Rifleman||[[File:Arma2_RU_soldier.jpg|100px]]
+|-
+|RU_Soldier2||Rifleman (Saiga)||[[File:Arma2_RU_saiga.jpg|100px]]
+|-
+|RU_Soldier_Crew||Crewman||[[File:Arma2_RU_crew.jpg|100px]]
+|-
+|RU_Soldier_GL||Grenadier||[[File:Arma2_RU_grenadier.jpg|100px]]
+|-
+|RU_Soldier_AR||Automatic Rifleman||[[File:Arma2_RU_lmg.jpg|100px]]
+|-
+|RU_Soldier_HAT||AT Specialist (Metis)||[[File:Arma2_RU_at.jpg|100px]]
+|-
+|RU_Soldier_LAT||Rifleman (RPG-18)||[[File:Arma2_RU_rpg18.jpg|100px]]
+|-
+|RU_Soldier_Light||Soldier (unarmed)||[[File:Arma2_RU_captive.jpg|100px]]
+|-
+|RU_Soldier_MG||Machinegunner||[[File:Arma2_RU_machinegunner.jpg|100px]]
+|-
+|RU_Soldier_Marksman||Marksman||[[File:Arma2_RU_svd.jpg|100px]]
+|-
+|RU_Soldier_Medic||Medic||[[File:Arma2_RU_medic.jpg|100px]]
+|-
+|RU_Soldier_Officer||Officer||[[File:Arma2_RU_officer.jpg|100px]]
+|-
+|RU_Soldier_Pilot||Pilot||[[File:Arma2_RU_pilot.jpg|100px]]
+|-
+|RU_Soldier_SL||Squad Leader||[[File:Arma2_RU_sl.jpg|100px]]
+|-
+|RU_Soldier_Sniper||Sniper||[[File:Arma2_RU_sniper.jpg|100px]]
+|-
+|RU_Soldier_SniperH||Sniper (KSVK)||[[File:Arma2_RU_ksvk.jpg|100px]]
+|-
+|RU_Soldier_Spotter||Spotter||[[File:Arma2_RU_spotter.jpg|100px]]
+|-
+|RU_Soldier_TL||Team Leader||[[File:Arma2_RU_tl.jpg|100px]]
+|-
+|RUS_Commander||Spetsnaz Officer||[[File:Arma2 RUS officer.jpg|100px]]
+|-
+|RUS_Soldier1||Spetsnaz Operator||[[File:Arma2_RUS_spetsnaz.jpg|100px]]
+|-
+|RUS_Soldier2||Spetsnaz Operator (SD)||[[File:Arma2_RUS_sd.jpg|100px]]
+|-
+|RUS_Soldier3||Spetsnaz Scout||[[File:Arma2_RUS_recon.jpg|100px]]
+|-
+|RUS_Soldier_GL||Spetsnaz Assaultman||[[File:Arma2_RUS_assault.jpg|100px]]
+|-
+|RUS_Soldier_Marksman||Spetsnaz Marksman||[[File:Arma2_RUS_sniper.jpg|100px]]
+|-
+|RUS_Soldier_Sab||Saboteur||[[File:Arma2_RUS_sd.jpg|100px]]
+|-
+|RUS_Soldier_TL||Spetsnaz Team Leader||[[File:Arma2_RUS_tl.jpg|100px]]
+|-
+|MVD_Soldier||Operator||[[File:Arma2_MVD_operator.jpg|100px]]
+|-
+|MVD_Soldier_AT||Operator (RPG-7)||[[File:Arma2_MVD_rpg7.jpg|100px]]
+|-
+|MVD_Soldier_GL||Operator (GL)||[[File:Arma2_MVD_grenadier.jpg|100px]]
+|-
+|MVD_Soldier_MG||Machinegunner||[[File:Arma2_MVD_machinegunner.jpg|100px]]
+|-
+|MVD_Soldier_Marksman||Marksman||[[File:Arma2_MVD_snipersd.jpg|100px]]
+|-
+|MVD_Soldier_Sniper||Sniper||[[File:Arma2_MVD_sniper.jpg|100px]]
+|-
+|MVD_Soldier_TL||Operator||[[File:Arma2_MVD_tl.jpg|100px]]
+|-
+|}
+
+=== Chernarussian Movement of the Red Star (ChDKZ) ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|INS_Lopotev||Lopotev||[[File:Arma2_INS_boss.jpg|100px]]
+|-
+|INS_Bardak||Bardak||[[File:Arma2_INS_insurgent.jpg|100px]]
+|-
+|INS_Commander||Commander||[[File:Arma2_INS_commander.jpg|100px]]
+|-
+|INS_Soldier_1||Rifleman||[[File:Arma2_INS_soldier.jpg|100px]]
+|-
+|INS_Soldier_2||Rifleman (AK-47)||[[File:Arma2_INS_ak47.jpg|100px]]
+|-
+|INS_Soldier_AA||AA Specialist||[[File:Arma2_INS_aa.jpg|100px]]
+|-
+|INS_Soldier_AR||Automatic Rifleman||[[File:Arma2_INS_lmg.jpg|100px]]
+|-
+|INS_Soldier_AT||AT Specialist||[[File:Arma2_INS_rpg7.jpg|100px]]
+|-
+|INS_Soldier_CO||Officer||[[File:Arma2_INS_officer.jpg|100px]]
+|-
+|INS_Soldier_Crew||Crewman||[[File:Arma2_INS_crew.jpg|100px]]
+|-
+|INS_Soldier_GL||Grenadier||[[File:Arma2_INS_grenadier.jpg|100px]]
+|-
+|INS_Soldier_MG||Machinegunner||[[File:Arma2_INS_mg.jpg|100px]]
+|-
+|INS_Soldier_Medic||Medic||[[File:Arma2_INS_medic.jpg|100px]]
+|-
+|INS_Soldier_Pilot||Pilot||[[File:Arma2_INS_pilot.jpg|100px]]
+|-
+|INS_Soldier_Sab||Saboteur||[[File:Arma2_INS_saboteur.jpg|100px]]
+|-
+|INS_Soldier_Sapper||Sapper||[[File:Arma2_INS_sappeur.jpg|100px]]
+|-
+|INS_Soldier_Sniper||Sniper||[[File:Arma2_INS_sniper.jpg|100px]]
+|-
+|INS_Villager3||Farmer||[[File:Arma2_INS_farmer.jpg|100px]]
+|-
+|INS_Villager4||Villager||[[File:Arma2_INS_villager.jpg|100px]]
+|-
+|INS_Woodlander1||Woodman||[[File:Arma2_INS_woodman.jpg|100px]]
+|-
+|INS_Woodlander2||Gamekeeper||[[File:Arma2_INS_gamekeeper.jpg|100px]]
+|-
+|INS_Woodlander3||Forester||[[File:Arma2_INS_forester.jpg|100px]]
+|-
+|INS_Worker1||Local||[[File:Arma2_INS_local.jpg|100px]]
+|-
+|}
+
+== INDEPENDENT ==
+=== National Party (NAPA) ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|GUE_Soldier_3||Rifleman||[[File:Arm2 GUE soldier.jpg|100px]]
+|-
+|GUE_Soldier_1||Rifleman (AKSU)||[[File:Arm2 GUE ak74su.jpg|100px]]
+|-
+|GUE_Commander||Warlord||[[File:Arm2 GUE warlord.jpg|100px]]
+|-
+|GUE_Soldier_2||Rifleman (AKM)||[[File:Arm2 GUE akm.jpg|100px]]
+|-
+|GUE_Soldier_AA||AA Specialist||[[File:Arm2 GUE aa.jpg|100px]]
+|-
+|GUE_Soldier_AR||Automatic Rifleman||[[File:Arm2 GUE lmg.jpg|100px]]
+|-
+|GUE_Soldier_AT||AT Specialist||[[File:Arm2 GUE rpg7.jpg|100px]]
+|-
+|GUE_Soldier_CO||Officer||[[File:Arm2 GUE commander.jpg|100px]]
+|-
+|GUE_Soldier_Crew||Crewman||[[File:Arm2 GUE crew.jpg|100px]]
+|-
+|GUE_Soldier_GL||Grenadier||[[File:Arm2 GUE grenadier.jpg|100px]]
+|-
+|GUE_Soldier_MG||Machinegunner||[[File:Arm2 GUE mg.jpg|100px]]
+|-
+|GUE_Soldier_Medic||Medic||[[File:Arm2 GUE medic.jpg|100px]]
+|-
+|GUE_Soldier_Pilot||Pilot||[[File:Arm2 GUE pilot.jpg|100px]]
+|-
+|GUE_Soldier_Sab||Saboteur||[[File:Arm2 GUE soldier.jpg|100px]]
+|-
+|GUE_Soldier_Scout||Scout||[[File:Arm2 GUE spotter.jpg|100px]]
+|-
+|GUE_Soldier_Sniper||Sniper||[[File:Arm2 GUE hunter.jpg|100px]]
+|-
+|GUE_Villager3||Farmer||[[File:Arma2 INS farmer.jpg|100px]]
+|-
+|GUE_Villager4||Villager||[[File:Arma2 INS villager.jpg|100px]]
+|-
+|GUE_Woodlander1||Woodman||[[File:Arma2 INS woodman.jpg|100px]]
+|-
+|GUE_Woodlander2||Gamekeeper||[[File:Arma2 INS gamekeeper.jpg|100px]]
+|-
+|GUE_Woodlander3||Forester||[[File:Arma2 INS forester.jpg|100px]]
+|-
+|GUE_Worker1||Local||[[File:Arma2 INS local.jpg|100px]]
+|-
+|}
+
+== CIVILIAN ==
+=== Chernarussia/Russia ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|Assistant||Assistant||rowspan="2" |[[File:Arma2_civ_assistant.jpg|100px]]
+|-
+|RU_Assistant||Assistant
+|-
+|Citizen1||Citizen (Brown)|| rowspan="8" |[[File:Arma2_civ_citizen.jpg|100px]]
+|-
+|Citizen2||Citizen (Blue)
+|-
+|Citizen3||Citizen (Gray)
+|-
+|Citizen4||Citizen (Green)
+|-
+|RU_Citizen1||Citizen (Brown)
+|-
+|RU_Citizen2||Citizen (Blue)
+|-
+|RU_Citizen3||Citizen (Gray)
+|-
+|RU_Citizen4||Citizen (Green)
+|-
+|Priest||Priest||rowspan="2" |[[File:Arma2_civ_priest.jpg|100px]]
+|-
+|RU_Priest||Priest
+|-
+|Pilot||Pilot||rowspan="2" |[[File:Arma2_civ_pilot.jpg|100px]]
+|-
+|RU_Pilot||Pilot
+|-
+|Policeman||Policeman||rowspan="2" |[[File:Arma2_civ_policeman.jpg|100px]]
+|-
+|RU_Policeman||Policeman
+|-
+|Doctor||Doctor||rowspan="2" |[[File:Arma2_civ_doctor.jpg|100px]]
+|-
+|RU_Doctor||Doctor
+|-
+|Teacher||Teacher||rowspan="2" |[[File:Arma2_civ_teacher.jpg|100px]]
+|-
+|RU_Teacher||Teacher
+|-
+|Functionary1||Functionary (Brown)||rowspan="4" |[[File:Arma2_civ_functionary.jpg|100px]]
+|-
+|Functionary2||Functionary (Black)
+|-
+|RU_Functionary1||Functionary (Brown)
+|-
+|RU_Functionary2||Functionary (Black)
+|-
+|Rocker1||Rocker (black)||rowspan="8" |[[File:Arma2_civ_rocker.jpg|100px]]
+|-
+|Rocker2||Functionary (brown)
+|-
+|Rocker3||Functionary (blue)
+|-
+|Rocker4||Functionary (green)
+|-
+|RU_Rocker1||Functionary (black)
+|-
+|RU_Rocker2||Functionary (brown)
+|-
+|RU_Rocker3||Functionary (blue)
+|-
+|RU_Rocker4||Functionary (green)
+|-
+|Profiteer1||Profiteer (gray)||rowspan="8" |[[File:Arma2_civ_profiteer.jpg|100px]]
+|-
+|Profiteer2||Profiteer (blue)
+|-
+|Profiteer3||Profiteer (brown)
+|-
+|Profiteer4||Profiteer (red)
+|-
+|RU_Profiteer1||Profiteer (gray)
+|-
+|RU_Profiteer2||Profiteer (blue)
+|-
+|RU_Profiteer3||Profiteer (brown)
+|-
+|RU_Profiteer4||Profiteer (red)
+|-
+|Villager1||Villager (blue check)||rowspan="8" |[[File:Arma2_civ_villager.jpg|100px]]
+|-
+|Villager2||Villager (green check)
+|-
+|Villager3||Villager (green)
+|-
+|Villager4||Villager (blue)
+|-
+|RU_Villager1||Villager (blue check)
+|-
+|RU_Villager2||Villager (green check)
+|-
+|RU_Villager3||Villager (green)
+|-
+|RU_Villager4||Villager (blue)
+|-
+|Woodlander1||Woodlander||rowspan="8" |[[File:Arma2_civ_woodlander.jpg|100px]]
+|-
+|Woodlander2||Woodlander (blue)
+|-
+|Woodlander3||Woodlander (brown)
+|-
+|Woodlander4||Woodlander (camo)
+|-
+|RU_Woodlander1||Woodlander (blue)
+|-
+|RU_Woodlander2||Woodlander (brown)
+|-
+|RU_Woodlander3||Woodlander (camo)
+|-
+|RU_Woodlander4||Woodlander (green)
+|-
+|Worker1||Worker||rowspan="8" |[[File:Arma2_civ_worker.jpg|100px]]
+|-
+|Worker2||Worker (Gray)
+|-
+|Worker3||Worker (Green)
+|-
+|Worker4||Worker (Blue)
+|-
+|RU_Worker1||Worker (Gray)
+|-
+|RU_Worker2||Worker (Green)
+|-
+|RU_Worker3||Worker (Blue)
+|-
+|RU_Worker4||Worker (Brown)
+|-
+|Secretary1||Secretary||rowspan="8" |[[File:Arma2_civ_secretary.jpg|100px]]
+|-
+|Secretary2||Secretary
+|-
+|Secretary3||Secretary
+|-
+|Secretary4||Secretary
+|-
+|RU_Secretary1||Secretary
+|-
+|RU_Secretary2||Secretary
+|-
+|RU_Secretary3||Secretary
+|-
+|RU_Secretary4||Secretary
+|-
+|Damsel1||Damsel||rowspan="8" |[[File:Arma2_civ_damsel.jpg|100px]]
+|-
+|Damsel2||Damsel
+|-
+|Damsel3||Damsel
+|-
+|Damsel4||Damsel
+|-
+|RU_Damsel1||Damsel
+|-
+|RU_Damsel2||Damsel
+|-
+|RU_Damsel3||Damsel
+|-
+|RU_Damsel4||Damsel
+|-
+|Hooker1||Hooker||rowspan="8" |[[File:Arma2_civ_hooker.jpg|100px]]
+|-
+|Hooker2||Hooker
+|-
+|Hooker3||Hooker
+|-
+|Hooker4||Hooker
+|-
+|RU_Hooker1||Hooker
+|-
+|RU_Hooker2||Hooker
+|-
+|RU_Hooker3||Hooker
+|-
+|RU_Hooker4||Hooker
+|-
+|Madam1||Madam||rowspan="8" |[[File:Arma2_civ_madam.jpg|100px]]
+|-
+|Madam2||Madam
+|-
+|Madam3||Madam
+|-
+|Madam4||Madam
+|-
+|RU_Madam1||Madam
+|-
+|RU_Madam2||Madam
+|-
+|RU_Madam3||Madam
+|-
+|RU_Madam4||Madam
+|-
+|WorkWoman1||Work woman||rowspan="8" |[[File:Arma2_civ_workwife.jpg|100px]]
+|-
+|WorkWoman2||Work woman
+|-
+|WorkWoman3||Work woman
+|-
+|WorkWoman4||Work woman
+|-
+|RU_WorkWoman1||Work woman
+|-
+|RU_WorkWoman2||Work woman
+|-
+|RU_WorkWoman3||Work woman
+|-
+|RU_WorkWoman4||Work woman
+|-
+|HouseWife1||Houswife||rowspan="8" |[[File:Arma2_civ_housewife.jpg|100px]]
+|-
+|HouseWife2||Houswife
+|-
+|HouseWife3||Houswife
+|-
+|HouseWife4||Houswife
+|-
+|RU_HouseWife1||Houswife
+|-
+|RU_HouseWife2||Houswife
+|-
+|RU_HouseWife3||Houswife
+|-
+|RU_HouseWife4||Houswife
+|-
+|Farmwife1||Farmwife||rowspan="8" |[[File:Arma2_civ_farmwife.jpg|100px]]
+|-
+|Farmwife2||Farmwife
+|-
+|Farmwife3||Farmwife
+|-
+|Farmwife4||Farmwife
+|-
+|RU_Farmwife1||Farmwife
+|-
+|RU_Farmwife2||Farmwife
+|-
+|RU_Farmwife3||Farmwife
+|-
+|RU_Farmwife4||Farmwife
+|-
+|Sportswoman1||Sportswoman||rowspan="8" |[[File:Arma2_civ_sportswoman.jpg|100px]]
+|-
+|Sportswoman2||Sportswoman
+|-
+|Sportswoman3||Sportswoman
+|-
+|Sportswoman4||Sportswoman
+|-
+|RU_Sportswoman1||Sportswoman
+|-
+|RU_Sportswoman2||Sportswoman
+|-
+|RU_Sportswoman3||Sportswoman
+|-
+|RU_Sportswoman4||Sportswoman
+|-
+|}
+
+
+== See also ==
+
+* [[{{arma2oa}}: Infantry]]
+* [[ArmA: Infantry]]
+* [[OFP: Infantry]]
+
+{{GameCategory|arma2|Reference Lists}}

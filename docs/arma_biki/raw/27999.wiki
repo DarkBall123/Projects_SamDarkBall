@@ -1,0 +1,18 @@
+[[Category: Control Types]]
+
+{{CT|intro
+
+|macro = CT_ITEMSLOT
+|value = 103
+|description = Unknown control type.
+|gallery=
+|commands =
+|events =
+}}
+
+<!-- {{CT|abc start}}
+
+{{CT|abc end}} -->
+
+{{CT|examples}}
+None

@@ -1,0 +1,339 @@
+{{TOC|side}}
+Actions are normally initiated by the player using the action menu. The script command [[action]] allows actions to be performed by any unit.
+For example, the command "player action ["WEAPONONBACK"]" has the same effect as choosing "M16 on back" in the menu. New actions can be defined using [[addAction]].
+
+
+== Syntax ==
+
+Syntax: '''unit action ["actionname"]''', where
+* unit = [[Object]]: pointer to the unit that should perform this action
+* actionname = [[String]]: name of action to be performed
+
+Capitalization for the commands doesn't matter (i.e. player action ["DROP WEAPON", box, 1, 1, "AK74"] is the same as player action ["drop weapon", box, 1, 1, "ak74"])
+
+
+== Actions ==
+
+=== AUTOHOVER ===
+
+'''helicopter1 action ["AUTOHOVER"]'''
+
+Toggles hovering on and off. (Only works if player is pilot)
+
+<sqs>ChopperOne action ["AUTOHOVER"]</sqs>
+
+=== CANCEL LAND ===
+
+'''plane1 action ["CANCEL LAND"]'''
+
+Cancel autopilot landing for 'plane1'.
+
+<sqs>PlaneOne action ["CANCEL LAND"]</sqs>
+
+=== DEACTIVATE ===
+
+'''unit1 action ["DEACTIVATE", unit2, 0, 0, "PIPEBOMB"]'''
+
+Soldier 'unit1' will deactivate a satchel charge that has been placed by unit2.<br>
+This happens from a distance (i.e. unit1 will not walk up to the charge to deactivate it, but do it 'remotely').<br>
+If unit2 is nearby the charge when it is being deactivated it will end up back in its inventory.
+
+<sqs>SoldierOne action ["DEACTIVATE", player, 0, 0, "PIPEBOMB"]</sqs>
+
+=== DEACTIVATE MINE ===
+
+'''unit1 action ["DEACTIVATE MINE", unit2, 0, 0, "MINE"]'''
+
+Soldier 'unit1' will deactivate a mine that has been placed by unit2.<br>
+This happens from a distance (i.e. unit1 will not walk up to the charge to deactivate it, but do it 'remotely').<br>
+'unit1' must be an engineer to be able to deactivate mines laid by others.
+Doesn't work with mines pre-placed in the Editor.
+If unit2 is nearby the charge when it is being deactivated it will end up back in its inventory.
+
+<sqs>SoldierOne action ["DEACTIVATE MINE", player, 0, 0, "MINE"]</sqs>
+
+=== DROP WEAPON / MAGAZINE ===
+
+'''unit1 action ["DROP MAGAZINE", container, 1, 1, "MAGAZINENAME"]'''<br>
+'''unit1 action ["DROP WEAPON", container, 1, 1, "WEAPONNAME"]'''
+
+Soldier 'unit1' will put a magazine or weapon ([[:Category: Weapons|see list]]) into weaponsholder 'container' (ammo box, car, etc.).
+If container is nothing or an non-existant object, the magazine or weapon will be dropped at the unit's feet.
+
+<sqs>
+SoldierOne action ["DROP MAGAZINE", CarOne, 1, 1, "AK74"]
+SoldierOne action ["DROP WEAPON", "", 1, 1, "AK74"]
+</sqs>
+
+=== EJECT ===
+
+'''unit1 action ["EJECT", vehicle1]'''
+
+Soldier 'unit1' will jump out of 'vehicle1'. (Via parachute in case of planes & helicopters.)
+
+<sqs>SoldierOne action ["EJECT", ChopperOne]</sqs>
+
+=== ENGINE ON / OFF ===
+
+'''unit1 action ["ENGINE ON", vehicle1]'''<br>
+'''unit1 action ["ENGINE OFF", vehicle1]'''
+
+Soldier 'unit1' will turn engine of 'vehicle1' either on or off.<br>
+Engine will only stay on in '''AIR''' vehicles (helicopters or planes). In cars, eg a tank the engine will be shut off again right away.
+
+<sqs>SoldierOne action ["ENGINE ON", ChopperOne]</sqs>
+
+=== FLAPS DOWN / UP ===
+
+'''unit1 action ["FLAPS DOWN"]'''<br>
+'''unit1 action ["FLAPS UP"]'''
+
+Aircraft 'unit1' will put its flaps down or up, can be activated twice.<br>
+Doesn't work with AI controlled aircraft, well it probably does, but they reverse the action again immediately.<br>
+
+<sqs>SoldierOne action ["ENGINE ON", ChopperOne]</sqs>
+
+=== FIRE INFLAME / PUT DOWN ===
+
+'''unit1 action ["FIRE INFLAME", fire1]'''<br>
+'''unit1 action ["FIRE PUT DOWN", fire1]'''
+
+Soldier 'unit1' will ignite ("fire inflame") or extinguish ("fire put down") fireplace/lamp 'fire1'.
+
+<sqs>SoldierOne action ["FIRE INFLAME", LampOne]</sqs>
+
+=== GETIN COMMANDER / DRIVER / GUNNER / CARGO / PILOT ===
+
+'''unit1 action ["GETIN COMMANDER", vehicle1]'''<br>
+'''unit1 action ["GETIN DRIVER", vehicle1]'''<br>
+'''unit1 action ["GETIN GUNNER", vehicle1]'''<br>
+'''unit1 action ["GETIN CARGO", vehicle1]'''
+
+Soldier 'unit1' will be '''teleported''' next to 'vehicle1', play the entering animation, and then be assigned as either commander, driver, gunner or cargo.
+If a 'unit' is already in that position, the animation etc occurs, but 'unit1' is ejected.
+
+<sqs>SoldierOne action ["GETIN COMMANDER", CarOne]</sqs>
+
+=== GETOUT ===
+
+'''unit1 action ["GETOUT", vehicle1]'''
+
+Soldier 'unit1' will jump out of 'vehicle1'. (No parachute in case of planes & helicopters.)
+
+<sqs>SoldierOne action ["GETOUT", ChopperOne]</sqs>
+
+=== HANDGUN ON / OFF ===
+
+'''unit1 action ["HANDGUN OFF"]'''<br>
+'''unit1 action ["HANDGUN ON"]'''
+
+Soldier 'unit1' will switch to primary ("handgun off") or secondary ("handgun on") weapon.
+
+<sqs>SoldierOne action ["HANDGUN ON"]</sqs>
+
+=== HEAL ===
+
+'''unit1 action ["HEAL", unit2]'''
+
+Medic 'unit2' will teleport to 'unit1' and heal him.
+
+<sqs>SoldierOne action ["HEAL", MedicOne]</sqs>
+
+=== HIDEBODY ===
+
+'''unit1 action ["HIDEBODY", unit2]'''
+
+Soldier 'unit1' will hide (bury) 'unit2'.
+
+<sqs>SoldierOne action ["HIDEBODY", SoldierTwo]</sqs>
+
+=== LADDERDOWN / LADDERUP ===
+
+'''unit1 action ["ladderdown", building1]'''<br>
+'''unit1 action ["ladderdown", object ID]'''<br>
+'''unit1 action ["ladderup", building1]'''<br>
+'''unit1 action ["ladderup", object ID]'''
+
+Soldier 'unit1' will either climb up or down the ladder of a building that's either defined via name or object ID.
+
+<sqs>SoldierOne action ["ladderup", object 123456]</sqs>
+
+=== LAND ===
+
+'''plane1 action ["LAND"]'''
+
+This doesn't actually seem to make planes land.<br>
+They start the process, but just as they are approaching proper lineup to the runway they turn away and do it all over again, ad nauseum.<br>
+This doesn't work for choppers.
+
+<sqs>PlaneOne action ["LAND GEAR"]</sqs>
+
+=== LAND GEAR ===
+
+'''plane1 action ["LAND GEAR"]'''
+
+Toggle landing gear on 'plane1'.<br>
+Only works if player is pilot.
+
+<sqs>PlaneOne action ["LAND GEAR"]</sqs>
+
+=== LIGHT OFF / ON ===
+
+'''vehicle1 action ["LIGHT ON"]'''<br>
+'''vehicle1 action ["LIGHT OFF"]'''
+
+Turns lights of 'vehicle1' either on or off.<br>
+Lights will not stay ''on'' unless driver is in SAFE or CARELESS mode.<br>
+Lights will not stay ''off'' if driver is in SAFE or CARELESS mode.
+
+<sqs>CarOne action ["LIGHT OFF"]</sqs>
+
+=== MANUALFIRE ===
+
+'''tank1 action ["MANUALFIRE"]'''
+
+Toggles manual fire mode if player is driver of vehicle.
+
+<sqs>TankOne action ["MANUALFIRE"]</sqs>
+
+=== MOVETOCARGO / MOVETOCOMMANDER / MOVETODRIVER / MOVETOGUNNER / MOVETOPILOT ===
+
+'''unit1 action ["MOVETOCARGO", vehicle1]'''<br>
+'''unit1 action ["MOVETOCOMMANDER", vehicle1]'''<br>
+'''unit1 action ["MOVETODRIVER", vehicle1]'''<br>
+'''unit1 action ["MOVETOGUNNER", vehicle1]'''<br>
+'''unit1 action ["MOVETOPILOT", vehicle1]'''
+
+Moves 'unit1' into cargo, commander, driver, gunner or pilot position.<br>
+If that position was occupied before, the units will swap places.
+
+<sqs>SoldierOne action ["MOVETODRIVER", CarOne]</sqs>
+
+=== NVGOGGLES ===
+
+'''player action ["nvgoggles"]'''
+
+Toggles night vision goggles on/off for player.
+
+<sqs>player action ["NVGOGGLES"]</sqs>
+
+
+=== REARM / REFUEL / REPAIR ===
+
+'''vehicle1 action ["REARM", vehicle2]'''
+'''vehicle1 action ["REFUEL", vehicle2]'''
+'''vehicle1 action ["REPAIR", vehicle2]'''
+
+Vehicle1 will receive weapons/fuel/repair from 'vehicle2' immediately and via teleportation.
+
+<sqs>SoldierOne action ["REARM", TruckOne]</sqs>
+
+=== RETURN FLAG ===
+
+'''unit1 action ["RETURN FLAG", flag1]'''
+
+Soldier 'unit1' returns 'flag1' to base.
+
+<sqs>SoldierOne action ["RETURN FLAG", FlagOne]</sqs>
+
+=== SALUTE ===
+
+'''unit1 action ["SALUTE"]'''
+
+Soldier 'unit1' salutes, and stays in that animation.<br>
+Only works in SAFE and CARELESS mode.
+
+<sqs>SoldierOne action ["SALUTE"]</sqs>
+
+=== SCUD LAUNCH / START ===
+
+'''scud1 action ["SCUD LAUNCH"]'''<br>
+'''scud1 action ["SCUD START"]'''
+
+Scud1 launches or fires its missile.<br>
+The launch process takes about 10.5 seconds.
+
+<sqs>ScudOne action ["SCUD START"]</sqs>
+
+=== SETTIMER ===
+
+'''unit1 action ["SETTIMER"]''' 
+
+Soldier 'unit1' activates the timer for a satchel charge.<br>
+Charge has to be places first via a unit1 fire ["PUT", "PIPEBOMB"] command.
+
+<sqs>SoldierOne action ["SETTIMER"]</sqs>
+
+=== SITDOWN === 
+'''unit1 action ["SITDOWN"]'''
+
+Soldier 'unit1' sits down.<br>
+Only works in SAFE and CARELESS mode.
+
+<sqs>SoldierOne action ["SITDOWN"]</sqs>
+
+=== STROKEFIST ===
+
+'''unit1 action ["STROKEFIST"]'''
+
+Soldier 'unit1' performs a boxing animation.
+
+<sqs>SoldierOne action ["STROKEFIST"]</sqs>
+
+=== STROKEGUN ===
+
+'''unit1 action ["STROKEGUN"]''' 
+
+Soldier 'unit1' performs a hitting animation with his weapon.
+
+<sqs>SoldierOne action ["STROKEGUN"]</sqs>
+
+=== TAKE FLAG ===
+
+'''unit1 action ["Take Flag", flag1]'''
+
+Soldier 'unit1' takes control of 'flag1'.
+
+<sqs>SoldierOne action ["TAKE FLAG", FlagOne]</sqs>
+
+=== TAKE MAGAZINE / WEAPON ===
+
+'''unit1 action ["TAKE MAGAZINE", container1, 0, 0, "MAGAZINENAME"]'''<br>
+'''unit1 action ["TAKE WEAPON", container1, 0, 0, "WEAPONNAME"]'''<br>
+'''unit1 action ["TAKE MINE", container1, 0, 0, "MAGAZINENAME"]'''
+
+Soldier 'unit1' takes one magazine/weapon/mine of specified type ([[:Category: Weapons|see list]]) from weaponsholder 'container1' (car, ammo box, unit).<br>
+Transfer happens immediately and via teleportation. Unit1 plays pickup animation at its current position, no matter where 'container1' is.
+
+<sqs>SoldierOne action ["TAKE MAGAZINE", SoldierTwo, 0, 0, "RPGLAUNCHER"]</sqs>
+
+=== TOUCHOFF ===
+
+'''unit1 action ["TOUCHOFF"]'''
+
+Soldier 'unit1' touches off satchel charge.
+
+<sqs>SoldierOne action ["TOUCHOFF"]</sqs>
+
+=== TURNIN / TURNOUT ===
+
+'''tank1 action ["TURNIN"]'''<br>
+'''tank1 action ["TURNOUT"]'''
+
+Crew of 'tank1' turns in/out (gets in and out of hatches).
+
+<sqs>TankOne action ["TURNIN"]</sqs>
+
+=== WEAPONINHAND / WEAPONONBACK ===
+
+'''unit1 action ["WEAPONINHAND"]'''<br>
+'''unit1 action ["WEAPONONBACK"]'''
+
+Soldier 'unit1' takes weapon from/to back.<br>
+Change is persistent with player, but AI units will switch back if their behaviour mode is incompatible (SAFE or CARELESS with WEAPONINHAND, and STEALTH, COMBAT & AWARE with WEAPONONBACK).
+
+<sqs>SoldierOne action ["WEAPONONBACK"]</sqs>
+
+
+{{GameCategory|ofp|Reference Lists}}
+[[Category: Actions]]

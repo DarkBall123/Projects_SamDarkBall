@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Radio
+
+|gr2= Diagnostic
+
+|descr= Tracks played radio sentences.
+
+|s1=  call [[BIS_fnc_diagRadio]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>call BIS_fnc_diagRadio;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diag functions]]
+}}

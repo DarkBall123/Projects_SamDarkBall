@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= CampaignManager
+
+|descr= <pre>/*
+	Author: Nelson Duarte
+
+	Description:
+	Triggers corresponding event for given mission state
+
+	Parameters:
+		_state: The mission state
+
+	Returns:
+		Nothing
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_EXP_camp_manager_triggerEvent]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Resize structured text control to fit its text height.
+
+|s1= [control,offset,time] call [[BIS_fnc_ctrlFitToTextHeight]]
+
+|p1= control: [[Control]] - the control which should be scaled
+
+|p2= offset: [[Number]] - (Optional, default 0) offset
+
+|p3= time: [[Number]] - (Optional, default 0) commit time
+
+|r1= [[Number]] - text height
+
+|x1= <sqf>private _height = [_ctrl, 1.5, 3] call BIS_fnc_ctrlFitToTextHeight;</sqf>
+
+|seealso= [[ctrlCommitted]] [[ctrlSetPosition]] [[ctrlSetFade]]
+}}

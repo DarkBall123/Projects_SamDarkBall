@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Multiplayer
+
+|descr=Set mission countdown.
+
+|s1= [time] call [[BIS_fnc_estimatedTimeLeft]]
+
+|p1= time: [[Number]] - mission countdown
+
+|r1= [[Number]] - [[estimatedEndServerTime]]
+
+|x1= <sqf>[180] call BIS_fnc_estimatedTimeLeft;</sqf>
+
+|seealso= [[estimatedEndServerTime]]
+}}

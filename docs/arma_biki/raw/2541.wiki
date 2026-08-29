@@ -1,0 +1,8 @@
+'''Description:'''
+Control UI object.
+
+Introduced with Armed Assault, does not refer to Cold War Crisis or Resistance.
+
+More information can be found on the [[Arma: GUI Configuration]] page.
+
+[[Category: Data Types]]

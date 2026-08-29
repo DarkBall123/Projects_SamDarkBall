@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= CIRCLE [[Custom_Waypoints|custom waypoint]].
+Keep helicopter rotated in given vector toward target.
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [circleLimit, circleBorder, circleDir, customCond, hint]
+
+|p1= circleLimit: [[Number]] - what time in seconds must be spent withing limit (default: 0)
+
+|p2= circleBorder: [[Number]] - precision tolerance (smaller number means more precision) (default: 0.75)
+
+|p3= circleDir: [[Number]] or [[Array]] - limit - direction or vector towards target (default: view of 2nd [[crew]] member - left (-90) or right (90))
+
+|p4= customCond: [[Code]] - additional condition required for waypoint completion. Passed arguments are [_veh,_target]. (default: {[[true]]})
+
+|p5= hint: [[String]] - [[format]]ted hint. %1 is value showing how precise current vector is (in percents), %2 is precent symbol "%1" (default: "%1%2")
+
+|r1= [[Nothing]]
+
+|x1=
+
+|seealso= [[:Category:Function Group: Waypoints|Waypoint functions]]
+}}

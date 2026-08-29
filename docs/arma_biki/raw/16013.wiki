@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Returns terrain height map to BiTXT (Universal Bistudio TXT) format, which can be imported to [[Object Builder]]. Output is also [[copyToClipboard|copied to clipboard]].
+{{Feature|important|
+Be wary that '''this function is CPU-demanding''' and may lock your computer for minutes!}}
+
+|s1= [resolution, size, zCoeff] call [[BIS_fnc_exportMapToBiTXT]]
+
+|p1= resolution: [[Number]] - (Optional, default 64) object resolution, i.e, number of points per side
+
+|p2= size: [[Number]] - (Optional, default 10) object size in metres
+
+|p3= zCoeff: [[Number]] - (Optional, default 2) vertical coefficient. All Z coordinates will be multiplied by this number to highlight hills and mountains
+
+|r1= [[String]] - height map, same data as in the clipboard
+
+|x1= <sqf>[10, 10, 1] call BIS_fnc_exportMapToBiTXT;</sqf>
+
+|x2= <sqf>call BIS_fnc_exportMapToBiTXT;</sqf>
+
+|seealso=
+}}

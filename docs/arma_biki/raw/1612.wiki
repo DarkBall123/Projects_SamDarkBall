@@ -1,0 +1,55 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Control
+
+|descr= Order the given unit(s) to target the given target (without radio messages).<br>Targeting can be stopped by <sqf>_unit doWatch objNull;</sqf> or<sqf>_unit commandWatch objNull;</sqf>
+
+|s1= unit [[doTarget]] target
+
+|p1= unit: [[Object]] or [[Array]] of [[Object]]s - a single unit or array of units
+
+|p2= target: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_ESoldier1 doTarget _WSoldier1;</sqf>
+
+|seealso= [[assignedTarget]] [[commandTarget]] [[doWatch]] [[doFire]]
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2017-03-28 - 08:18 (UTC)</dd>
+<dt class="note">[[User:Joris|Joris]]</dt>
+<dd class="note">
+Targeting may not work as expected when trying to target a unit on the same side (friendly).
+</dd>
+
+</dl>

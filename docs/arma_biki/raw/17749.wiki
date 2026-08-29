@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Open a window with [[Eden Editor: Scenario Atttributes|scenario attribute]] in given section.
+
+|s1= [[edit3DENMissionAttributes]]  section
+
+|p1= section: [[String]] - attribute section from <sqf inline>configFile >> "Cfg3DEN" >> "Mission"</sqf>
+
+|r1= [[Nothing]]
+
+|x1= <sqf>edit3DENMissionAttributes "Multiplayer";</sqf>
+
+|seealso= [[get3DENAttribute]] [[set3DENAttributes]]
+}}

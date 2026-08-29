@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.60
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns width of one pixel for current resolution.
+
+|s1= '''pixelW'''
+
+|r1= [[Number]] - pixel width
+
+|x1= <sqf>_pixelWidth = pixelW;</sqf>
+
+|seealso= [[pixelGrid]] [[pixelGridBase]] [[pixelGridNoUIScale]] [[pixelH]] [[Pixel Grid System]]
+}}

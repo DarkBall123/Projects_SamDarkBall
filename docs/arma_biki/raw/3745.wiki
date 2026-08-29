@@ -1,0 +1,86 @@
+{{GameCategory|ofp|Modelling}}
+[[Category:Arma: Tutorials]]
+== General Introductions into Modelling ==
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson1/lesson1_a.htm|text=  Making your first addon}}
+
+
+== Common Topics == 
+
+=== Animations ===
+[[Animations | Intro]]
+
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson9/lesson9_a.htm|text= Custom Object Animations}}(OFP)
+
+{{Link|http://www.dc3d.co.nz/tutorials/guneffect.htm|Pseudo Multiple Aircraft Weapons effects}}<!-- Broken link-->
+
+{{Link|http://www.dc3d.co.nz/tutorials/OFP/images/Animations/gear/gear2.jpg|Animated Undercarriage Gear and Gear Up warning sound}}<!-- Broken link-->
+
+{{Link|http://www.dc3d.co.nz/tutorials/navlightss.htm|Animated Navigation Lights}}<!-- Broken link-->
+
+{{Link|http://www.dc3d.co.nz/tutorials/canopies.htm|Animated Canopies}}<!-- Broken link-->
+
+{{Link|http://www.dc3d.co.nz/tutorials/jetstream.htm|Animated Aircraft Exhausts}}<!-- Broken link-->
+
+
+=== Texturing ===
+{{Link|http://fab.ofp.free.fr/Tutorials/SetObjectTexture.htm|Texture Changing}} (OFP)
+
+{{Link|http://fab.ofp.free.fr/Tutorials/Textures.htm|Advanced Texturing}} (OFP)
+
+{{Link|link= http://www.flashpoint1985.com/cgi-bin/ikonboard311/ikonboard.cgi?s=89cfbdf7313c1791d6a1caee50974447;act=ST;f=50;t=35568|text= Smooth/Sharp Edges}} 
+
+
+== Object Types ==
+
+=== Characters ===
+
+=== Weapons ===
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson3/lesson3_a.htm|text= Your first weapon}} (OFP)
+
+=== Cars, Trucks ===
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson2/lesson2_a.htm|text= Your first car}} (OFP)
+
+=== Tanks ===
+
+=== Planes, Helicopters ===
+{{Link|http://www.dc3d.co.nz/tutorials/cheyenne.htm|Modelling the Piper Cheyenne executive aircraft}}
+
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson4/lesson4_a.htm|text= Your first helicopter}} (OFP)
+
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson6/lesson6_a.htm|text= Your first airplane}} (OFP)
+
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson7/lesson7_a.htm|text= Your first armed plane}} (OFP)
+
+
+=== Boats ===
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson5/lesson5_a.htm|text= Your first gunboat}} (OFP)
+
+=== Buildings ===
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/lesson8/lesson8_a.htm|text= Your first house}} (OFP)
+
+== Specific Techniques ==
+
+=== Damage Indication ===
+{{Link|http://fab.ofp.free.fr/Tutorials/Damaged_Tank.htm|Damaged Tank}} (OFP)
+
+=== Glass ===
+
+=== Importing models from other programs ===
+
+=== Hidden Selections ===
+{{Link|http://fab.ofp.free.fr/Tutorials/Hidden_Selections.htm|Intro}} (OFP)
+
+=== Ladders ===
+
+===Optics ===
+
+=== Shadows ===
+{{Link|http://fab.ofp.free.fr/Tutorials/Shadow.htm|Intro}} (OFP)
+
+== Tools ==
+=== Oxygen2 ===
+{{Link|link= http://ofp.gamepark.cz/_hosted/brsseb/tutorials/start/start.htm|text= How to install o2 and Viewer}}
+
+{{Link|http://www.storiamilitare.org/o2/tuts.php|Oxygen for Newbies}}
+
+[http://www.legionary2k.de/include.php?path{{=}}content/download.php&contentid{{=}}22&PHPKITSID{{=}}d8a2f248c5fcce7615e43d50c62a4e17 Oxygen Light for Newbies (German) / Oxygen Light Mini-Tutorial für Einsteiger (deutsch)]

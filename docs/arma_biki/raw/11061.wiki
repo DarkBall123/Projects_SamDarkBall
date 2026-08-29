@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Map and Markers
+
+|descr= Generate Lat and Long fields from {{Link|https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system#UTM_zone|UTM Zone}}, Easting and Northing.
+It uses {{Link|https://en.wikipedia.org/wiki/North_American_Datum|NAD83 constants}}.
+
+|s1= [easting, northing, zone'', hemisphere''] call [[BIS_fnc_posUTMToDeg]]
+
+|p1= easting: [[Number]]
+
+|p2= northing: [[Number]]
+
+|p3= zone: [[Number]]
+
+|p4= hemisphere: [[String]] - (Optional, default "N") "N" for northern hemisphere, "S" for southern hemisphere
+
+|r1= [[Array]] of [[Number]]s - format [longitude, latitude]
+
+|x1= <sqf>[5273702, 560561, 10] call BIS_fnc_posUTMToDeg;</sqf>
+
+|seealso= [[BIS_fnc_posDegToUTM]] [[BIS_fnc_posDegToWorld]]
+}}

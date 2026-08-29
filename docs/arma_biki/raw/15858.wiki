@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Missions
+
+|descr= Returns name of currently selected single mission.
+
+|s1= call [[BIS_fnc_singleMissionName]]
+
+|r1= [[String]] - the mission name
+
+|x1= <sqf>private _missionName = call BIS_fnc_singleMissionName;</sqf>
+
+|seealso= [[missionName]] [[briefingName]]
+}}

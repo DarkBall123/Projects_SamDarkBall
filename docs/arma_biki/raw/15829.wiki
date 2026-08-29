@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Helicopters
+
+|descr= Return all hitpoints for a helicopter.
+
+|s1= object call [[BIS_fnc_helicopterGetHitpoints]]
+
+|p1= object: [[Object]] - helicopter
+
+|r1= [[Array]] of [[String]]s
+
+|x1= <sqf>[BIS_helicopter] call BIS_fnc_helicopterGetHitpoints;</sqf>
+
+|seealso= [[setDamage]] [[setDammage]] [[getDammage]] [[setHit]] [[getHit]] [[getHitIndex]] [[setHitIndex]] [[getHitPointDamage]] [[setHitPointDamage]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.04
+
+|descr= Returns the name of the given task.
+
+|gr1= Briefing
+
+|s1= [[taskName]] task
+
+|p1= task: [[Task]]
+
+|r1= [[String]] - task name
+
+|x1= <sqf>private _taskName = taskName _mytask;</sqf>
+
+|seealso= [[taskType]] [[createSimpleTask]]
+}}

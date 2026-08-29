@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.82
+
+|gr1= Object Manipulation
+
+|descr= Get the license plates from any vehicle which has plates configured.
+
+|s1= [[getPlateNumber]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>if (getPlateNumber vehicle player != "H4X0RZ") then { hint "u no 1337 bro" };</sqf>
+
+|seealso= [[setPlateNumber]]
+}}

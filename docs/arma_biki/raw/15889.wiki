@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Combat
+
+|descr= Returns true if unit knows about nearby enemy unit or driven vehicle.
+
+|s1= unit call [[BIS_fnc_enemyDetected]]
+
+|p1= unit - [[Object]]: unit that is inspected
+
+|r1= [[Boolean]]: True if an enemy was detected
+
+|x1= <sqf>private _enemyDetected = _unit call BIS_fnc_enemyDetected;</sqf>
+
+|seealso= [[BIS_fnc_enemyTargets]]
+|p2=distance - [[Number]]: radius around unit to check|x2=<sqf>private _enemyDetected = [_unit, 100] call BIS_fnc_enemyDetected;</sqf>}}

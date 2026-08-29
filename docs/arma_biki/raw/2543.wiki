@@ -1,0 +1,5 @@
+'''Display''' is a UI object that holds [[Arma: GUI Configuration|Dialogs]] and [[Control]]s. Similar to how controls are identified by IDCs, displays and dialogs are identified by IDDs. If the IDD is available, displays (and dialogs) can be accessed with [[findDisplay]]. The existence of a distinction between displays and dialogs becomes apparent at time of creation and closing. A display uses the functions [[createDisplay]] and [[closeDisplay]], whereas a dialog uses [[createDialog]] and [[closeDialog]].
+
+Introduced with Armed Assault, does not refer to Cold War Crisis or Resistance.
+
+[[Category: Data Types]]

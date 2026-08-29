@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Map and Markers
+
+|descr= Draw minefields on the map. Dynamically calculated from all mines positions. Distinguishes AP and AT minefields.
+
+|s1= call [[BIS_fnc_drawMinefields]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_drawMinefields;</sqf>
+
+|seealso= [[allMines]]
+}}

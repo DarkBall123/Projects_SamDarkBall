@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.40
+|gr1= Waypoints
+|gr2= Remote Control
+
+|descr= Checks if the UAV has waypoints enabled.
+
+|s1= [[waypointsEnabledUAV]] uav
+
+|p1= uav: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+_uav enableUAVWaypoints false;
+hint str waypointsEnabledUAV _uav; // returns false
+</sqf>
+|seealso= [[enableUAVWaypoints]] [[enableUAVConnectability]] [[disableUAVConnectability]] [[isUAVConnected]] [[isUAVConnectable]] [[allUnitsUAV]] [[getConnectedUAV]] [[connectTerminalToUAV]]
+}}

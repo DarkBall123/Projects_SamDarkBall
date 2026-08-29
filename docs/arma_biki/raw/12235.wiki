@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Sides
+
+|descr= Pre-defined variable for the blufor [[Side|side]].
+
+|alias= [[west]]
+
+|s1= [[blufor]] 
+
+|r1= [[Side]]
+
+|x1= <sqf>
+if (side player == blufor) then
+{
+	hint "BLUFOR";
+};
+</sqf>
+
+|seealso= [[side]] [[civilian]] [[east]] [[independent]] [[opfor]] [[resistance]] [[west]]
+}}

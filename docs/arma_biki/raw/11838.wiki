@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma2oa 
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Positions 
+
+|descr= Converts a position from [[Position#PositionATL|PositionATL]] to [[Position#PositionASL|PositionASL]] 
+
+|s1= [[ATLToASL]] pos 
+
+|p1= pos: [[Position#PositionATL|PositionATL]] - position to convert 
+
+|r1= [[Position#PositionASL|PositionASL]] 
+
+|x1= <sqf>ATLToASL (getPosATL player) isEqualTo getPosASL player;</sqf> 
+
+|x2= <sqf>_camPosASL = ATLToASL positionCameraToWorld [0,0,0];</sqf> 
+
+|seealso= [[ASLToATL]] [[AGLToASL]] [[ASLToAGL]] [[getPos]] [[getPosATL]] [[getPosASL]]
+}}

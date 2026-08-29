@@ -1,0 +1,32 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Interpolation 
+
+|descr= <pre>/*
+
+	Description:
+	Calculate bezier curve velocity
+
+	Parameter(s):
+		0: ARRAY - list of control points in format [x,y,z], can be any number of them
+		1: NUMBER - progress in range 0 to 1
+
+	Returns:
+	ARRAY - velocity vector in format [x,y,z]
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_bezierVelocity]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_bezierVelocity;</sqf> -->
+
+|seealso=
+}}

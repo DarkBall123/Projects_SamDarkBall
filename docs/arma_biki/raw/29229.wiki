@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+
+|version1= 2.04
+
+|branch= diag
+
+|gr1= Diagnostic
+
+|descr= Returns the terrain segment. It is basically the same as:
+<sqf>
+_worldPos params ["_x", "_y"];
+[floor (_x / diag_getTerrainGrid), floor (_y / diag_getTerrainGrid)];
+</sqf>
+
+|s1= [[diag_getTerrainSegmentOffset]]  worldPos
+
+|p1= worldPos: [[Position#Introduction|Position2D]] or [[Position#Introduction|Position3D]] - world coordinates
+
+|r1= [[Position#Introduction|Position2D]] - [x,y] of terrain segment (integer, basically pixel coordinates in heightmap)
+
+|x1= <sqf>private _segmentOffset = diag_getTerrainSegmentOffset getPosWorld player;</sqf>
+
+|seealso= [[diag_getTerrainHeight]] [[diag_getTerrainGrid]]
+}}

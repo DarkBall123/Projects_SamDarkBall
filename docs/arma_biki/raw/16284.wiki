@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Sides
+
+|descr= Set relationship of competing Trident sides.
+When the value reaches threshold, side relationship will change.
+The value slowly decreases towards 0.
+
+|s1= [side1, side2, value, absolute] call [[BIS_fnc_tridentSetRelationship]]
+
+|p1= side1: [[Side]]
+
+|p2= side2: [[Side]]
+
+|p3= value: [[Number]] - changed value
+
+|p4= absolute: [[Boolean]] - [[true]] to add the value, [[false]] to set the value
+
+|r1= [[Number]] - relationship value after changes
+
+|x1= <sqf>[west, east, 0.5, true] call BIS_fnc_tridentSetRelationship;</sqf>
+
+|seealso= [[BIS_fnc_tridentGetRelationship]] [[BIS_fnc_tridentHandleDamage]] [[BIS_fnc_tridentExecute]]
+}}

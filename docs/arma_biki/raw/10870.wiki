@@ -1,0 +1,12 @@
+Contains the game configs as they exist in memory when the game is running. Useful during development, lookup of values etc.
+
+== Arma 3 ==
+# Download the [[Arma 3: Steam Branches|development branch]]
+# Start the game via [[Arma 3: Diagnostics Exe|arma3diag_x64.exe]]
+# Run [[diag_exportConfig]]
+
+== Arma 2 ==
+* {{Link|link= https://forums.bohemia.net/forums/topic/120057-how-to-create-an-allinone-config/|text= How to create an All in One Config}}
+
+{{GameCategory|arma2|Editing}}
+{{GameCategory|arma3|Editing}}

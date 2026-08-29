@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|gr2= Object Detection
+
+|descr= Returns list of all curator logic units, not the units assigned to the logic.
+
+|s1= '''allCurators'''
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>_allCuratorLogics = allCurators;</sqf>
+
+|seealso= [[allGroups]] [[allDead]] [[playableUnits]] [[switchableUnits]] [[vehicles]] [[allUnitsUAV]] [[allSites]]
+}}
+
+<dl class="command_description">

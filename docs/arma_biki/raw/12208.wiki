@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Groups
+
+|descr= Sets [[formationDirection | formation direction]] of a group relative to current direction of the group leader. The group units will change their positions to form new formation if new formation direction is different (approx +/- 15 degrees). Does the same as:<br>
+<sqf>_grp setFormDir getDir leader _grp;</sqf>
+
+|s1= [[resetSubgroupDirection]] unit
+
+|p1= unit: [[Object]] - any member of the [[Group]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>resetSubgroupDirection myUnit;</sqf>
+
+|seealso= [[setFormDir]] [[group]] [[leader]] [[formation]] [[formationLeader]] [[formationMembers]] [[formationTask]] [[formationDirection]] [[formationPosition]]
+}}

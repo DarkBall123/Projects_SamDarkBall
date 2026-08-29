@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.42
+
+|gr1= Modules
+
+|descr= <pre>/*, _objects*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_moduleHvtObjective]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

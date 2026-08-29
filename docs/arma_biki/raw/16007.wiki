@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Inventory
+
+|descr= Determines basic backpack with no equipment present (ie empty).
+
+|s1= backPackClassName call [[BIS_fnc_basicBackpack]]
+
+|p1= [[String]] - backpack classname.
+
+|r1= [[String]] - returns classname of base backpack.
+
+|x1= <sqf>baseBackpack = "b_assaultpack_rgr_medic" call BIS_fnc_basicBackpack; // returns "b_assaultpack_rgr", the base class</sqf>
+
+|seealso=
+}}

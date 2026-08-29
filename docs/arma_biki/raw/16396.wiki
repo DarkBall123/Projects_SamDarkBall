@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= ''N/A''
+
+|s1= <!-- [] call [[BIS_fnc_initCuratorAttribute]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_initCuratorAttribute;</sqf> -->
+
+|seealso=
+}}

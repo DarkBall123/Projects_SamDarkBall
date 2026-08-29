@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Mission Information
+
+|gr2= DLC
+
+|descr= Returns list of DLCs that are used in the mission.
+{{Feature|important|The list is created from units listed in [[Mission.sqm|mission.sqm]] and does '''not''' detect units later created by scripts.}}
+
+|s1= [[getMissionDLCs]]
+
+|r1= [[Array]] - list of DLCs detected for the mission
+
+|x1= <sqf>_usedDLCs = getMissionDLCs; // returns e.g ["Orange","Enoch","Expansion","Heli","Contact","Mark","Argo","Jets"]</sqf>
+
+|seealso= [[getDLCs]] [[getObjectDLC]] [[getPersonUsedDLCs]] [[getDLCAssetsUsageByName]] [[getDLCAssetsUsage]] [[getAssetDLCInfo]]
+}}

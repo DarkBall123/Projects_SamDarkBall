@@ -1,0 +1,51 @@
+{{TOC|side}}
+Textures available for use with [[setFlagTexture]]. See [[:Category:Command Group: Flags|Command Group: Flags]] for all flag commands.
+
+
+== Single-colour flags for east/west/resistance/civilian ==
+
+* "\ca\ca_e\data\flag_opfor_co.paa" 
+* "\ca\ca_e\data\flag_blufor_co.paa" 
+* "\ca\ca_e\data\flag_indfor_co.paa" 
+* "\ca\ca_e\data\flag_white_co.paa" 
+
+
+== Country flags ==
+
+* "\ca\ca_e\data\flag_cdf_co.paa" 
+* "\ca\ca_e\data\flag_cr_co.paa" 
+* "\ca\ca_e\data\flag_cz_co.paa" 
+* "\ca\ca_e\data\flag_ger_co.paa" 
+* "\ca\ca_e\data\flag_tka_co.paa" 
+* "\ca\ca_e\data\flag_tkg_co.paa" 
+* "\ca\ca_e\data\flag_tkm_co.paa" 
+* "\ca\ca_e\data\flag_us_co.paa"
+* "\ca\data_baf\flag_unionjack_co.paa"
+
+
+== Flags for various organisations and groups ==
+
+* "\ca\ca_e\data\flag_bis_co.paa" 
+* "\ca\ca_e\data\flag_knight_co.paa" 
+* "\ca\ca_e\data\flag_nato_co.paa" 
+* "\ca\ca_e\data\flag_pow_co.paa"
+* "\ca\ca_e\data\flag_uno_co.paa" 
+* "\ca\ca_e\data\flag_usarmy_co.paa"
+* "\ca\ca_pmc\data\flag_ion_white_co.paa"
+* "\ca\ca_pmc\data\flag_ion_black_co.paa"
+
+
+== Flags for rescue organisations ==
+
+* "\ca\ca_e\data\flag_rcrescent_co.paa" 
+* "\ca\ca_e\data\flag_rcross_co.paa" 
+* "\ca\ca_e\data\flag_rcrystal_co.paa"
+
+
+== Miscellaneous flags ==
+
+* "\ca\missions_e\data\images\fos_planck_co.paa"
+
+
+{{GameCategory|arma2oa|Reference Lists}}
+[[Category:Flag Textures]]

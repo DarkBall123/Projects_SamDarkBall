@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Plays some radio message from CfgRadio locally.
+
+|s1= [speaker, sentence] call [[BIS_fnc_curatorSayMessage]]
+
+|p1= target: [[Object]] - curator entity
+|p2= sentence: [[String]] - sentence from CfgRadio
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, "mp_groundsupport_01_casrequested_BHQ_0"] call BIS_fnc_curatorSayMessage;</sqf>
+
+|seealso= [[Arma 3: Curator]] [[globalRadio]]
+}}

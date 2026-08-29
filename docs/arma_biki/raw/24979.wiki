@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Interpolation
+
+|descr= Inverse of [[BIS_fnc_lerp]].
+
+|s1= [currentValue, targetValue, alpha] call [[BIS_fnc_inverseLerp]]
+
+|p1= currentValue: [[Number]] - start
+
+|p2= targetValue: [[Number]] - end
+
+|p3= alpha: [[Number]] - alpha
+
+|r1= [[Number]] - interpolated value
+
+|x1= <sqf>[10,20,0.5] call BIS_fnc_inverseLerp;</sqf>
+
+|seealso= [[BIS_fnc_clerp]] [[BIS_fnc_slerp]] [[BIS_fnc_lerp]] [[BIS_fnc_lerpVector]]
+}}

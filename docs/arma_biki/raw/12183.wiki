@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Create and assign item to the correct slot. If there is an item in the targeted slot, it gets replaced. See also [[assignItem]].
+
+|s1= unit [[linkItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+bluforUnit linkItem "NVGoggles";
+opforUnit linkItem "NVGoggles_OPFOR";
+independentUnit linkItem "NVGoggles_INDEP";
+</sqf>
+
+|seealso= [[unlinkItem]] [[addItem]] [[assignItem]] [[removeItem]] [[unassignItem]] [[assignedItems]] [[removeAllAssignedItems]]
+}}

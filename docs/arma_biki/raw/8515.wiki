@@ -1,0 +1,177 @@
+{{TOC|side}}
+This page describes all pre-defined functions available to manipulate the settings of an [[Ambient Combat Manager]] (ACM).
+
+
+== Intensity ==
+
+Not all missions require heavy enemy / friendly presence. The ACM's intensity controls how many patrols can be active at a given time and how frequently patrols are spawned. The intensity can be controlled by using the following function call:
+
+<sqf>[intensity, module] call BIS_ACM_setIntensityFunc;</sqf>
+
+* ''intensity'': [[Number]] - a [[Number]] between 0.0 and 2.0. 2.0 is the maximum intensity and 0.0 will in effect pause the ACM.
+* ''module'': [[Object]] - a reference to the ACM module itself, or a reference to any unit in the group the ACM is synchronized to.
+
+'''Example:'''
+
+Sets frequency and number of patrols (values 0-1). BIS_ACM is module name.
+
+<sqf>[1, BIS_ACM] call BIS_ACM_setIntensityFunc;</sqf>
+
+== Spawning distances ==
+
+It is possible to control the minimum and maximum distance from the group leader at which enemies will be spawned. Be careful not to spawn too close, since it will be obvious to human players. 
+
+<sqf>[module, minimum, maximum] call BIS_ACM_setSpawnDistanceFunc;</sqf>
+
+* ''minimum'': [[Number]] - 0..1
+* ''maximum'': [[Number]] - 0..1
+* ''module'': [[Object]]
+
+* Distances with the value -1 will leave the distance as it was.
+* Distances with a value below -1 will reset to their defaults.
+* The default values are 500 meters (minimum) and 1000 meters (maximum).
+* Air patrols are currently excluded from these distances, since they generally require a much large area and they are not spawned on the ground.
+
+'''Example:'''
+
+Min & Max spawn distances included. BIS_ACM is module name.
+
+<sqf>[BIS_ACM, 100, 500] call BIS_ACM_setSpawnDistanceFunc;</sqf>
+
+
+== Skill range ==
+
+You can control the skill levels of spawned units by defining a range from which a random value is selected for each unit. If you want a very specific value, simply make a range with both minimum and maximum set to that value.
+
+<sqf>[minimum, maximum, module] call BIS_ACM_setSkillFunc;</sqf>
+
+* ''minimum'': [[Number]] - 0..1
+* ''maximum'': [[Number]] - 0..1
+* ''module'': [[Object]]
+
+'''Example:'''
+
+Min & Max skill range for spawned units. BIS_ACM is module name.
+
+<sqf>[0, 0.6, BIS_ACM] call BIS_ACM_setSkillFunc;</sqf>
+
+
+== Ammunition count range ==
+
+You may define the ammunition count of spawned units by defining a range from which a random value is selected for each unit.
+
+<sqf>[minimum, maximum, module] call BIS_ACM_setAmmoFunc;</sqf>
+
+* ''minimum'': [[Number]] - 0..1
+* ''maximum'': [[Number]] - 0..1
+* ''module'': [[Object]]
+
+'''Example:'''
+
+Amount of ammo spawned units possess. BIS_ACM is module name.
+
+<sqf>[0.2, 0.5, BIS_ACM] call BIS_ACM_setAmmoFunc;</sqf>
+
+
+== Group types ==
+
+By default the ACM will select group types from ''CfgGroups'', but you may want to use only a number of specific group types.
+You have the possibility of overriding the group type database with your own database, by using two functions.
+
+<sqf>
+// You can pass both actual CfgGroups Config entries or class name Strings.
+[module, types] call BIS_ACM_addGroupClassesFunc;
+</sqf>
+* ''module'': [[Object]]
+* ''types'': [[Array]] of [[Config]]s or [[Array]] of [[String]]s
+
+<sqf>
+// Passing an empty types Array will completely disable the custom database and switch back to the default.
+[module, types] call BIS_ACM_removeGroupClassesFunc;
+</sqf>
+
+Useable group types: [[Ambient Combat Manager - Group types]]
+
+'''Example:'''
+<sqf>[BIS_ACM, ["RU_InfSquad", "RU_InfSection_AA", "RU_SniperTeam", "RU_MechInfSquad_2"]] call BIS_ACM_addGroupClassesFunc;</sqf>
+
+
+== Factions ==
+
+You are able to control which factions are spawned by the ACM.
+
+// Arma 2 factions: "USMC", "CDF", "RU", "INS", "GUE"
+// Operation Arrowhead factions: "BIS_US", "BIS_CZ", "BIS_GER", "BIS_TK", "BIS_TK_INS", "BIS_TK_GUE", "BIS_UN", "BIS_TK_CIV", "BIS_CIV_special"
+// DLC/Reinforcements factions: "BIS_BAF", "PMC_BAF", "BIS_CZ"
+[factions, module] call BIS_ACM_setFactionsFunc;
+* ''factions'': [[Array]] of [[String]]s
+* ''module: [[Object]]
+
+'''Example:'''
+
+Factions to be spawned. BIS_ACM is module name.
+
+<sqf>[["USMC", "INS", "CDF", "RU", "GUE"], BIS_ACM] call BIS_ACM_setFactionsFunc;</sqf>
+
+
+== Blacklisting areas ==
+
+Certain areas of a map can be blacklisted as areas in which the ACM should not spawn units or place their waypoints (although their travel paths may cross these areas).
+There are a number of methods to define such areas.
+
+=== By markers ===
+
+You may place markers with a special naming pattern ''BIS_ACM_X'' (where X has to start at 1 and may not skip any numbers).
+The areas defined by these markers are automatically blacklisted and the markers deleted.
+
+=== By function ===
+
+<sqf>
+// When passing Arrays, these should contain the top-left and bottom-right coordinates.
+[module, blacklist] call BIS_ACM_blacklistAreaFunc;
+</sqf>
+
+* module: [[Object]]
+* blacklist: [[Array]] of [[Array]]s ([[Position]]) / [[String]]s (markers) / [[Object]]s (triggers)
+
+'''Examples:'''
+
+<sqf>
+[BIS_ACM, ["marker_1"]] call BIS_ACM_blacklistAreaFunc;
+
+// Example 2: Adding two marker areas to ACM called "BIS_ACM" with names "marker_1" and "marker_2":
+[BIS_ACM, ["marker_1", "marker_2"]] call BIS_ACM_blacklistAreaFunc;
+</sqf>
+<!--
+''ToDo: working examples for adding coordinates (via getMarkerPos for example)''
+-->
+
+
+== Patrol types ==
+
+In some missions you may not want to use all patrol types, or use different chances for said patrol types. A custom pool of types and chances can be defined like so:
+
+<sqf>
+/*
+	type must be one of "", "ground_patrol", "air_patrol".
+	Passing an empty type will reset back to the default pool.
+	Weights should normally be between 0 and 1.
+	A weight of -1 will remove that patrol type from the pool.
+*/
+[type, change, module] call BIS_ACM_setTypeChanceFunc;
+</sqf>
+
+'''Example:'''
+
+Type of patrol. With 0 meaning no chance of appearing, and 1 meaning 100% chance. -1 removes patrol type completely. BIS_ACM is module name.
+<sqf>
+["ground_patrol", 1, BIS_ACM] call BIS_ACM_setTypeChanceFunc;
+["air_patrol", 1, BIS_ACM] call BIS_ACM_setTypeChanceFunc;
+</sqf>
+
+
+For further discussion on the ACM: {{Link|https://forums.bohemia.net/forums/topic/72262-ambient-combat-module/|Official Forums thread}}.
+
+
+{{GameCategory|arma2|Editing}}
+{{GameCategory|arma2|Editor Modules}}

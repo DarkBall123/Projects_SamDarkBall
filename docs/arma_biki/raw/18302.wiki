@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= GUI Control - Menu
+
+|descr= Returns current URL set in entry on given path.
+
+|s1= [[menuURL]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|r1= [[String]]
+
+|s2= control [[menuURL]] path
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|r2= [[String]]
+
+|x1= <sqf>findDisplay 313 displayCtrl 120 menuURL [7, 0]; // returns "https://community.bistudio.com/wiki/Eden_Editor"</sqf>
+
+|seealso= [[menuSetURL]]
+}}

@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= GUI Control - Menu
+
+|gr2= Broken Commands
+
+|descr= Returns a string containing shortcut text for menu item on the given path.
+
+|pr= {{Feature|warning|This command is currently broken in {{arma3}} 2.00. It only returns shortcuts which do not use a modifier key ({{Controls|Ctrl}}, {{Controls|Alt}} and {{Controls|Shift}}).}}
+
+|s1= [[menuShortcutText]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|r1= [[String]]
+
+|s2= control [[menuShortcutText]] path
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|r2= [[String]]
+
+|x1= <sqf>findDisplay 313 displayCtrl 120 menuShortcutText [1, 8]; // returns "#"</sqf>
+
+|seealso= [[menuShortcut]] [[menuSetShortcut]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Briefing
+
+|descr= Cancels a simple task destination.
+
+|s1= [[cancelSimpleTaskDestination]] task
+
+|p1= task: [[Task]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>cancelSimpleTaskDestination myTask;</sqf>
+
+|seealso= [[taskDestination]] [[setSimpleTaskDestination]]
+}}

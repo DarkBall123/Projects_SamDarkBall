@@ -1,0 +1,15 @@
+HashMapKey is a virtual compound type containing all the possible types that can be used as keys in a [[HashMap]].
+
+The types are:
+* [[Number]]
+* [[Boolean]]
+* [[String]]
+* [[Code]]
+* [[Side]]
+* [[Config]]
+* [[Namespace]]
+* [[NaN]]
+* [[Array]]
+
+
+[[Category: Magic Types]]

@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Difficulty
+
+|gr2= Mission Information
+
+|descr= Return difficulty that has been forced for this mission, returns -1 if difficulty is not forced and it is used one from player's options.
+
+|s1= [[missionDifficulty]]
+
+|r1= [[Number]]
+
+|x1= <sqf>private _number = missionDifficulty;</sqf>
+
+|x2= <sqf>
+private _playedDifficulty = missionDifficulty;
+if (_playedDifficulty == -1) then
+{
+	_playedDifficulty = difficulty;
+};
+</sqf>
+
+|seealso= [[difficultyOption]] [[difficulty]]
+}}

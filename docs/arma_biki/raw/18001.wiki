@@ -1,0 +1,17 @@
+{{RV|type=command
+|game1= arma3
+|version1= 1.56
+
+|gr1= Multiplayer
+|gr2= Diagnostic
+
+|descr= Terminates a network log file started with [[logNetwork]] with the given handle
+|s1= [[logNetworkTerminate]] handle
+
+|p1=handle:  [[Number]] - handle to terminate (created with [[logNetwork]])
+
+|r1= [[Nothing]]
+
+|x1= <sqf>logNetworkTerminate _someHandle;</sqf>
+|seealso= [[logNetwork]]
+}}

@@ -1,0 +1,40 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Object Manipulation
+
+|gr2= Broken Commands
+
+|descr= Sets ID to vehicle. By this ID vehicle is referenced by triggers and waypoints.
+
+{{Feature|warning|This command is '''not''' to be used.}}
+
+|s1= vehicleName [[setVehicleId]] id
+
+|p1= vehicleName: [[Object]]
+
+|p2= id: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player setVehicleId 1;</sqf>
+
+|seealso= [[setVehicleVarName]]
+}}

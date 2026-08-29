@@ -1,0 +1,56 @@
+{{TOC|side}}
+
+== Example Class ==
+<syntaxhighlight lang="cpp">class CfgMarkers 
+{
+	class Flag 
+	{
+		name = "Marker description";
+		icon = "\ca\ui\data\markers\marker1.paa";
+		color[] = {1, 0, 0, 1};
+		size = 32;
+		shadow = true;
+		scope = private;
+	};
+};
+</syntaxhighlight>
+
+== {{arma1}} ==
+<code style="display: block"><nowiki>"Flag"
+"Flag1"
+"Dot"
+"Destroy"
+"Start"
+"End"
+"Warning"
+"Join"
+"Pickup"
+"Unknown"
+"Marker"
+"Arrow"
+"Empty"
+"Empty"("Select")
+</nowiki></code>
+
+{{arma1}} v1.14 includes Warfare markers:
+<code style="display: block"><nowiki>"AirTeam"
+"Attack"
+"Camp"
+"CommandTeam"
+"Defend"
+"Depot"
+"DestroyedVehicle"
+"FireMission"
+"Headquaters"
+"HeavyTeam"
+"InfantryTeam"
+"LightTeam"
+"Move"
+"RepairVehicle"
+"SalvageVehicle"
+"SupplyVehicle"
+"Town"
+"Vehicle"
+</nowiki></code>
+
+{{GameCategory|arma1|Reference Lists}}

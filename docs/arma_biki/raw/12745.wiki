@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Register RSC layer and returns a '''unique''' ID.
+
+|s1= [layerName] call [[BIS_fnc_rscLayer]]
+
+|p1= layerName: [[String]] - layer name. Parent function name is used automatically when param is [[nil]].
+
+|r1= [[Number]] - layer ID
+
+|x1= <sqf>private _id = ["myLayerName"] call BIS_fnc_rscLayer;</sqf>
+
+|seealso= [[allCutLayers]] [[titleRsc]] [[cutText]] [[cutObj]] [[cutFadeOut]] [[setTitleEffect]]
+}}

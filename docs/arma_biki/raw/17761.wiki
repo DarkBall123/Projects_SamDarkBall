@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|arg= local
+
+|gr1= Stamina System
+
+|descr= Returns true if player is allowed to sprint
+
+|s1= [[isSprintAllowed]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (not isSprintAllowed player) then { hint "no running in the corridors!" };</sqf>
+
+|seealso= [[Arma 3: Stamina]] [[allowSprint]]
+}}

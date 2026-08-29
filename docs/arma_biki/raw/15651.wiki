@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= Inventory
+
+|descr= Returns inventory contents of given vehicle (unit). For vehicles it returns mounted gun and its ammo, '''not''' cargo weapons and ammo.
+
+|s1= [unit] call [[BIS_fnc_inv]]
+
+|p1= unit: [[Object]] - unit or vehicle
+
+|r1= [[Array]] of [[Config]] - weapons then magazines
+
+|x1= <sqf>[player] call BIS_fnc_inv;</sqf>
+
+|seealso= [[BIS_fnc_invAdd]] [[BIS_fnc_invRemove]] [[BIS_fnc_invCodeToArray]] [[BIS_fnc_invString]] [[BIS_fnc_invSlots]] [[BIS_fnc_invSlotsEmpty]] [[BIS_fnc_invSlotType]]
+}}

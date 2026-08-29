@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= {{Feature|important|This function does not work.}}
+
+|s1= -
+
+|r1= -
+
+|x1= -
+
+|seealso= [[:Category:Function Group: Waypoints]]
+}}

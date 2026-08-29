@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|gr1= Dynamic Simulation
+
+|descr= A getter for [[enableDynamicSimulation]].
+
+|s1= [[dynamicSimulationEnabled]] object
+
+|p1= object: [[Object]] or [[Group]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>hint str dynamicSimulationEnabled _myObject;</sqf>
+
+|seealso= [[enableDynamicSimulationSystem]] [[dynamicSimulationSystemEnabled]] [[enableDynamicSimulation]] [[setDynamicSimulationDistance]] [[dynamicSimulationDistance]] [[setDynamicSimulationDistanceCoef]] [[dynamicSimulationDistanceCoef]] [[triggerDynamicSimulation]] [[canTriggerDynamicSimulation]] [[enableSimulation]] [[simulationEnabled]] [[enableSimulationGlobal]] [[Arma 3: Dynamic Simulation]]
+}}

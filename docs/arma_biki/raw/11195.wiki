@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|exec= spawn
+
+|descr= COUNTDOWN [[Custom_Waypoints|custom waypoint]].
+
+Player has to reach waypoint area before time runs out.
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [failCode,timeLimit,showHint]
+
+|p1= failCode: [[Code]] - (Optional, default <sqf inline>{}</sqf> code executed when time runs oout before player reach the waypoint
+
+|p2= timeLimit: [[Number]] - (Optional, default 30) limit in seconds
+
+|p3= showHint: [[Boolean]] - (Optional, default [[false]]) [[true]] to show info about time left
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, position dude, 100, { hintC "You failed!" }, 42, true] spawn BIS_fnc_wpTimed;</sqf>
+
+|seealso=
+}}

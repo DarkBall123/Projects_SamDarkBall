@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Multiplayer
+
+|descr= Returns player-controlled unit (if any) according to the provided [[getPlayerUID|player UID]].
+
+|s1= playerUID call [[BIS_fnc_getUnitByUID]]
+
+|p1= playerUID: [[String]] - see [[getPlayerUID]]
+
+|r1= [[Object]] - the unit controlled by ''playerUID'' player
+
+|x1= <sqf>private _unitPlayedByUID550055 = "550055" call BIS_fnc_getUnitByUID;</sqf>
+
+|seealso= [[getPlayerUID]]
+}}

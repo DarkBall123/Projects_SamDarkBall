@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Briefing
+
+|descr= Selects a diary subject. 
+{{Feature|informative|This was a temporary replacement for [[selectDiarySubject]] scripting command which '''had been broken''' until v2.04.}}
+
+|s1= [diaryName] call [[BIS_fnc_selectDiarySubject]]
+
+|p1= diaryName: [[String]] - diary subject name
+
+|r1= [[Boolean]] - [[true]] if the subject was found and selected
+
+|x1= <sqf>["someSubject"] call BIS_fnc_selectDiarySubject;</sqf>
+
+|seealso= [[processDiaryLink]] [[createDiaryLink]] [[createDiarySubject]] [[diarySubjectExists]] [[selectDiarySubject]]
+}}

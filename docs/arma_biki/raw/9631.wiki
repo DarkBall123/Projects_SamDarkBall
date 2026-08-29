@@ -1,0 +1,40 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.55
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Containers
+
+|descr= Returns all backpack types and count from the cargo space.
+
+|s1= [[getBackpackCargo]] object
+
+|p1= object: [[Object]] - object to check
+
+|r1= [[Array]] with [classes, counts]
+* classes: [[Array]] of [[String]]s - Backpack class names
+* counts: [[Array]] of [[Number]]s - Backpack counts
+
+|x1= <sqf>
+getBackpackCargo cursorTarget;
+/*
+	returns e.g
+	[
+        ["5BackpackA", "10BackpackB"]
+        [5, 10]
+	]
+*/
+</sqf>
+
+|x2= <sqf>_content = getBackpackCargo carName;</sqf>
+
+|x3= <sqf>_content = getBackpackCargo ammoBoxName;</sqf>
+
+|seealso= [[backpackContainer]] [[firstBackpack]] [[unitBackpack]] [[backpack]] [[backpackCargo]] [[backpackItems]] [[addBackpack]] [[addBackpackCargo]] [[addBackpackCargoGlobal]] [[removeBackpack]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]] [[clearAllItemsFromBackpack]] [[loadBackpack]] [[backpackSpaceFor]] [[canAddItemToBackpack]] [[addItemToBackpack]] [[removeItemFromBackpack]] [[everyBackpack]]
+}}

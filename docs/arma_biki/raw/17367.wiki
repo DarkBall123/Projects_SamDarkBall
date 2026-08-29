@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.50
+
+|gr1= Multiplayer
+
+|serverExec= server
+
+|descr= Checks if the current [[owner]] of supplied [[Object]] Joined In Progress. Returns [[false]] on clients.
+
+|s1= [[didJIPOwner]]  object
+
+|p1= object: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_ownerDidJip = didJIPOwner tank;</sqf>
+
+|seealso= [[didJIP]] [[owner]] [[setOwner]] [[groupOwner]] [[remoteExecutedOwner]] [[exportJIPMessages]]
+}}

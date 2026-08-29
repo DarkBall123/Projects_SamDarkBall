@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|gr1= Turrets
+
+|descr= Returns the name of the currently selected weapon on specified turret. Use turret path [-1] for driver's turret.
+
+|s1= vehicle [[currentWeaponTurret]] turretPath
+
+|p1= vehicle: [[Object]]
+
+|p2= turretPath: [[Turret Path]]
+
+|r1= [[String]]
+
+|x1= <sqf>_weapon = MBT_Kuma currentWeaponTurret [0];</sqf>
+
+|seealso= [[currentMagazineDetailTurret]] [[currentMagazineTurret]] [[addWeaponTurret]] [[removeWeaponTurret]] [[turretLocal]] [[currentWeapon]]
+}}

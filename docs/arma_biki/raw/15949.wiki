@@ -1,0 +1,32 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|eff= local
+
+|gr1= Effects
+
+|descr= Used to add an effect to fired bullets. Should be executed from Fired Event Handler.
+
+|s1= [unit, nil, nil, nil, ammoType] call [[BIS_fnc_effectFiredRifle]]
+
+|p1= unit: [[Object]] - the unit, the effect should be added to
+
+|p2= nil: [[Nothing]]
+
+|p3= nil: [[Nothing]]
+
+|p4= nil: [[Nothing]]
+
+|p5= ammoType: [[String]] - the type of ammo the effect should be triggered for
+
+|r1= [[Nothing]]
+
+|x1= <sqf>unit addEventHandler ["Fired", 
+{
+   _this call BIS_fnc_effectFiredRifle;
+}];</sqf>
+
+|seealso= [[addEventHandler]] [[Arma_3:_Event_Handlers#Fired | Fired Event Handler]]
+}}

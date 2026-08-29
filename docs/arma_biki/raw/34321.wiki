@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|gr1= GUI Control - Map
+
+|descr= Returns the current orientation angle of the map control in degrees.
+
+|s1= [[ctrlMapDir]] ctrl
+
+|p1= ctrl: [[Control]]
+
+|r1= [[Number]]
+
+|x1= <sqf>
+private _mapControl = findDisplay 12 displayCtrl 51; // get the map
+private _dir = ctrlMapDir _mapControl; // returns 0 as the main map does not autorotate
+</sqf>
+
+|seealso= [[ctrlMapScale]]
+}}

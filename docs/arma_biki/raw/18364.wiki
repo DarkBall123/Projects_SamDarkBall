@@ -1,0 +1,40 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= GUI
+
+|descr= Displays the given subtitles at the correctly defined moments. Each array added to the parameters represents one subtitle.
+{{Feature|informative|Subtitles can be cancelled by setting {{hl|BIS_fnc_EXP_camp_playSubtitles_terminate}} to [[true]].}}
+
+|s1= [subtitleDetail1, subtitleDetail2, ...] spawn [[BIS_fnc_EXP_camp_playSubtitles]]
+
+|p1= subtitleDetailN: [[Array]] - format [speaker, text, timing]:
+* speaker: [[String]] - speaker's name
+* text: [[String]] - subtitle
+* timing: [[Number]] - time at which the subtitle is played
+
+|r1= [[Boolean]] - [[true]] if successful, [[false]] if not
+
+|x1= <sqf>
+[
+	["CROSSROAD", "Mission is a go, I repeat, mission is a go! Crossroad, out.", 0]
+] spawn BIS_fnc_EXP_camp_playSubtitles; // shows a subtitle immediately
+</sqf>
+|x2= <sqf>
+[
+	["Speaker1", "Subtitle1", 0],
+	["Speaker2", "Subtitle2", 5],
+	["Speaker3", "Subtitle3", 10],
+	["Speaker4", "Subtitle4", 15]
+] spawn BIS_fnc_EXP_camp_playSubtitles; // displays 4 subtitles with 5 seconds between them
+
+sleep 7;
+BIS_fnc_EXP_camp_playSubtitles_terminate = true; // closes subtitles
+</sqf>
+
+|exec= spawn
+
+|seealso= [[Conversations]] [[BIS_fnc_showSubtitle]]
+}}

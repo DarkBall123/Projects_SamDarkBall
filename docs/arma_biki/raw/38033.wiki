@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Obtains the provided entity's parent.
+
+|s1= [[get3DENParent]] entity
+
+|p1= entity: [[Object]], [[Group]], [[Array]], [[Number]], [[String]] - [[Eden Entity]]
+
+|r1= [[Object]], [[Array]], [[Number]] - Returns [[Eden Entity]] or the [[Eden ID]] representing it. -1 for system layers such as ''BLUFOR'', ''OPFOR'' etc.
+
+|x1= <sqf>private _parent = get3DENParent _myObject;</sqf>
+
+|seealso= [[create3DENEntity]] [[delete3DENEntities]]
+}}

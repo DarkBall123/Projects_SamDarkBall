@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|arg= global
+|eff= local
+
+|gr1= Systems
+
+|descr= Delete the provided counter added by [[BIS_fnc_counter]].
+
+|s1= [varName] call [[BIS_fnc_deleteCounter]]
+
+|p1= varName: [[String]] or [[Array]] format [varName, namespace] - default namespace is [[missionNamespace]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[["TAG_Score", player]] call BIS_fnc_deleteCounter;</sqf>
+
+|seealso= [[BIS_fnc_counter]]
+}}

@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.63
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|eff= local
+
+|gr1= Radio and Chat
+
+|descr= Types text to the system radio channel. The text will be visible only on the PC where command was executed. If you need the message to show on all computers, you have to execute it globally (see [[remoteExec]]). Use [[clearRadio]] to clear chat history
+
+|s1= [[systemChat]] text
+
+|p1= text: [[String]] - message to transmit
+
+|r1= [[Nothing]]
+
+|x1= <sqf>systemChat "Hello world!";</sqf>
+
+|x2= [[File:xChat.jpg|right]]
+<sqf>
+driver vehicle player sideChat "sideChat";
+driver vehicle player globalChat "globalChat";
+driver vehicle player groupChat "groupChat";
+vehicle player vehicleChat "vehicleChat";
+driver vehicle player commandChat "commandChat";
+driver vehicle player customChat [1, "customChat"];
+systemChat "systemChat";
+</sqf>
+
+|seealso= [[globalChat]] [[groupChat]] [[vehicleChat]] [[commandChat]] [[customChat]] [[sideChat]] [[directSay]] [[clearRadio]]
+}}

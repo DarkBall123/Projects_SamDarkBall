@@ -1,0 +1,77 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|gr1= Camera Control
+
+|descr= Applies an effect to the current camera of the player.
+
+{{Feature|arma3|This command is not present in {{arma3}}.}}
+
+|s1= triggerOrWaypoint [[setCameraEffect]] [type, position]
+
+|p1= triggerOrWaypoint: [[Object]] or [[Waypoint]]
+
+|p2= type: [[String]] - effect type (a subclass of CfgCameraEffects.Array)
+{{{!}} class="wikitable"
+! Effect
+! Position
+{{!}}-
+{{!}} style="vertical-align: top" {{!}}
+{{Columns|2|
+* "TERMINATE"
+* "INTERNAL"
+* "ZOOMIN"
+* "ZOOMINSLOW"
+* "AROUND"
+* "AROUNDSLOW"
+* "ZOOMANDAROUND"
+* "AROUNDANDZOOMINSLOW"
+* "ZOOMINS"
+* "FIXED"
+* "FIXEDWITHZOOM"
+* "EXTERNAL"
+* "$TERMINATE$"
+}}
+{{!}} style="vertical-align: top" {{!}}
+{{Columns|3|
+* "TOP"
+* "LEFT"
+* "RIGHT"
+* "FRONT"
+* "BACK"
+* "LEFT FRONT"
+* "RIGHT FRONT"
+* "LEFT BACK"
+* "RIGHT BACK"
+* "LEFT TOP"
+* "RIGHT TOP"
+* "FRONT TOP"
+* "BACK TOP"
+* "BOTTOM"
+}}
+{{!}}}
+
+|p3= position: [[String]] - relative position
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myTrigger setCameraEffect ["ZoomIn", "FRONT"];</sqf>
+
+|x2= <sqf>_waypoint1 setCameraEffect ["FIXED", "RIGHT TOP"];</sqf>
+
+|seealso= [[cameraEffect]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Weapons
+
+|descr= Returns shot information for the given projectile.
+If shot was fired by a soldier on foot or in FFV position in vehicle, the soldier is returned for the vehicle.
+
+|s1= [[getShotParents]] projectile
+
+|p1= projectile: [[Object]] - the actual projectile shot
+
+|r1= [[Array]] - [vehicle, instigator] - Where vehicle is the vehicle the shot was fired from, and the instigator is the person who pulled the trigger
+
+|x1= <sqf>_shotParents = getShotParents myProjectile;</sqf>
+
+|x2= <sqf>batmobile addEventHandler ["Fired", { systemChat str getShotParents (_this select 6) }];</sqf>
+
+|seealso= [[setShotParents]]
+}}

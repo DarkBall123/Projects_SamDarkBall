@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.01
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Environment
+
+|descr= Enable ambient traffic. {{Feature|arma3|This command does nothing in {{arma3}}.}}
+
+|s1= [[enableTraffic]] enable
+
+|p1= enable: [[Boolean]] - enable or disable
+
+|r1= [[Nothing]]
+
+|x1= <sqf>enableTraffic true;</sqf>
+
+|seealso= [[setTrafficDensity]] [[setTrafficDistance]] [[setTrafficGap]] [[setTrafficSpeed]]
+}}

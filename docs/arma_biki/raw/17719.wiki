@@ -1,0 +1,14 @@
+Array of Eden Entities is an [[Array]] used by many [[:Category:Command_Group:_Eden_Editor|Eden Editor commands]]. It's not a unique [[Data_Types|data type]], only an array with specific format.
+
+ [objects, groups, triggers, systems, waypoints, markers, layers, comments]
+* objects: [[Array]] of [[Object]]s
+* groups: [[Array]] of [[Group]]s
+* triggers: [[Array]] of [[Object]]s
+* systems: [[Array]] of [[Object]]s
+* waypoints: [[Array]] of [[Array]]s in [[Waypoint]] format
+* markers: [[Array]] of [[String]]s
+* layers: [[Array]] of [[Number]]s
+* comments: [[Array]] of [[Number]]s
+
+[[Category:Arrays]]
+[[Category:Eden_Editor:_Modding]]

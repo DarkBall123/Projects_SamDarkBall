@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI Control - Tree View
+
+|descr= Returns the right picture of a [[CT_TREE]] on given path.
+
+|s1= [[tvPictureRight]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|r1= [[String]] - path to picture
+
+|s2= ctrl [[tvPictureRight]] path
+
+|p21= ctrl: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|r2= [[String]] - path to picture
+
+|x1= <sqf>private _result = _controlTV tvPictureRight [0, 0];</sqf>
+
+|seealso= [[tvSetPictureRight]] [[tvSetPicture]] [[tvPicture]]
+}}

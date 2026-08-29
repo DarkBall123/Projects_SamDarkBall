@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|gr1= Stamina System
+
+|descr= Get current stamina (~ seconds until depletion)
+
+|s1= [[getStamina]] unit
+
+|p1= unit: [[Object]]
+|r1= [[Number]]
+
+|x1= <sqf>getStamina player;</sqf>
+
+|seealso= [[Arma 3: Stamina]] [[setStamina]] [[setFatigue]] [[getFatigue]]
+}}
+
+{{Note
+|user= Hypoxic125
+|timestamp= 20240331005230
+|text= A naked player unit has 60 seconds of stamina.
+}}

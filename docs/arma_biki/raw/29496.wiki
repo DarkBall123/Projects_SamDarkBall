@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.04
+
+|descr= Returns all values stored in the given [[HashMap]]. The order of the returned Array corresponds to the order of the Array returned by the [[keys]] command.
+
+|gr1= HashMap
+
+|s1= [[values]] hashmap
+
+|p1= hashmap: [[HashMap]]
+
+|r1= [[Array]] - all values stored in ''hashmap''
+
+|x1= <sqf>private _values = values _myHashMap;</sqf>
+
+|seealso= [[keys]] [[toArray]]
+}}

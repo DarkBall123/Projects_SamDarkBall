@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Returns if given object is curator logic. Despite the misleading name this does not check if a player has access to Zeus. It just check if the given object's simulation is of type "curator".
+
+|s1= object call [[BIS_fnc_isCurator]]
+
+|p1= object: [[Object]] - object which should be checked
+
+|r1= [[Boolean]]
+
+|x1= <sqf>player call BIS_fnc_isCurator;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

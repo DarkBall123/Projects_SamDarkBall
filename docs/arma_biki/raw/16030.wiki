@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Arrays
+
+|descr= Converts RGB color format to procedural texture, e.g {{hl|[0,0,0,1]}} becomes {{hl|"#(argb,8,8,3)color(0,0,0,1)"}}.<br>
+Values are in range 0..1.
+
+|s1= color call [[BIS_fnc_colorRGBAtoTexture]]
+
+|p1= color: [[Array]] - format [{{Color|red|R}},{{Color|green|G}},{{Color|blue|B}},{{Color|grey|A}}]
+
+|r1= [[String]] - procedural texture to format "#(argb,8,8,3)color(<span style{{=}}"color: red">R</span>,<span style{{=}}"color: green">G</span>,<span style{{=}}"color: blue">B</span>,<span style{{=}}"color: grey">A</span>)"
+
+|x1= <sqf>private _texture = [0,0,0,1] call BIS_fnc_colorRGBAtoTexture;</sqf>
+
+|seealso= [[BIS_fnc_colorRGBAtoHTML]]
+}}

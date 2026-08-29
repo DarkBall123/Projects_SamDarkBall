@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|arg= global
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Unassign and delete existing item from its assigned slot. Nothing happens if the item does not exist or is not assigned. See also [[unassignItem]].
+
+|s1= unit [[unlinkItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+bluforUnit unlinkItem "NVGoggles";
+opforUnit unlinkItem "NVGoggles_OPFOR";
+indepUnit unlinkItem "NVGoggles_INDEP";
+
+// or
+{ _x unlinkItem hmd _x } forEach [bluforUnit, opforUnit, indepUnit];
+</sqf>
+
+|seealso= [[linkItem]] [[addItem]] [[assignItem]] [[removeItem]] [[unassignItem]] [[assignedItems]] [[removeAllAssignedItems]]
+}}
+
+{{Note
+|user= Killzone_Kid
+|timestamp= 20181015144600
+|text= With this command you can also unlink [[vest]], [[uniform]] and [[headgear]].
+}}

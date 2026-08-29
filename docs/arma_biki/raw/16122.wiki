@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.24
+
+|gr1= Object Manipulation
+
+|descr= Get a unit's uniform insignia class set with [[BIS_fnc_setUnitInsignia]].
+
+|s1= [target] call [[BIS_fnc_getUnitInsignia]]
+
+|p1= target: [[Object]] - object from which to return its insignia's class
+
+|r1= [[String]] - insignia classname
+
+|x1= <sqf>private _insigniaClass = [player] call BIS_fnc_getUnitInsignia</sqf>
+
+|seealso= [[BIS_fnc_setUnitInsignia]] [[Arma 3: Unit Insignia]]
+}}

@@ -1,0 +1,28 @@
+{{TOC|none}}
+The '''Garbage Collector''' (GC) is a module that helps cleaning up dynamically created content. It is used by many other modules, since we cannot indefinitely keep adding content while playing a mission.
+You may ''trash'' certain types of content and the module will remove it from the game in a hopefully smart way (for instance by removing a unit only when it is some distance away).
+
+
+== Initialisation ==
+
+=== Paths ===
+
+Editor:
+ Modules (F7) > Garbage Collector
+
+Data:
+ ca\modules\garbage_collector
+
+=== Editor Setup ===
+
+* Add a unit to the Garbage Collector via <sqf inline>0 = [unit] execVM "ca\modules\garbage_collector\data\scripts\trashIt.sqf";</sqf>. You can refer to the Garbage Collector using {{hl|BIS_GC}}.
+
+
+== Behaviour ==
+
+* Garbage Collector will check every 10 seconds if its queue is empty.
+* It then processes the queue checking if these units are dead or not, and destroy them if they are.
+* It checks if the player's group is not too close (< 500m) before effectively destroy the unit.
+
+
+{{GameCategory|arma2|Editor Modules}}

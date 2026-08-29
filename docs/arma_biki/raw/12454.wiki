@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.70
+|arg= local
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes all items from [[primaryWeapon]], except magazine.
+
+|s1= [[removeAllPrimaryWeaponItems]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllPrimaryWeaponItems player;</sqf>
+
+|seealso= [[addPrimaryWeaponItem]] [[removePrimaryWeaponItem]] [[removeAllSecondaryWeaponItems]] [[removeAllHandgunItems]] [[removeAllBinocularItems]]
+}}

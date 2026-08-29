@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Map
+
+|descr= Returns the map elevation offset from [map]/config.cpp.
+
+Returns 0 if there is no elevationOffset defined in the config of the current world.
+
+|s1= [[getElevationOffset]]
+
+|r1= [[Number]] - elevation offset of the map
+
+|x1= <sqf>_offset = getElevationOffset;</sqf>
+
+|seealso= [[getTerrainHeightASL]]
+}}

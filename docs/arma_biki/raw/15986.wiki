@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Live Feed
+
+|descr= Terminate a live feed.
+
+|s1= call [[BIS_fnc_liveFeedTerminate]]
+
+|r1= [[Boolean]] - [[true]] if successful, [[false]] if not
+
+|x1= <sqf>call BIS_fnc_liveFeedTerminate;</sqf>
+
+|seealso= [[BIS_fnc_liveFeed]] [[BIS_fnc_liveFeedEffects]] [[BIS_fnc_liveFeedSetSource]] [[BIS_fnc_liveFeedSetTarget]]
+}}

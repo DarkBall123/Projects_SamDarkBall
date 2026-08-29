@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Sides
+
+|descr= Returns empty side, for example static buildings in [[:Category:Eden Editor|Eden Editor]].
+
+|s1= '''sideEmpty'''
+
+|r1= [[Side]]
+
+|x1= <sqf>_sideEmpty = sideEmpty;</sqf>
+
+|seealso= [[side]] [[west]] [[blufor]] [[east]] [[opfor]] [[resistance]] [[independent]] [[civilian]] [[sideLogic]] [[sideFriendly]] [[sideEnemy]] [[sideUnknown]] [[playerSide]] [[sideAmbientLife]]
+}}

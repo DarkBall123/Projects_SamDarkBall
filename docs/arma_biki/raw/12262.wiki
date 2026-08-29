@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|gr1= Artillery
+
+|descr= Get list of all available magazines of artillery units on the list. Command returns only unique magazine types and doesn't contain any information about which unit has which magazine.
+
+|s1= [[getArtilleryAmmo]] artilleryList
+
+|p1= artilleryList: [[Array]] of [[Object]]s
+
+|r1= [[Array]] of [[String]]s
+
+|x1= <sqf>
+if ("8Rnd_82mm_Mo_Flare_white" in getArtilleryAmmo [
+	_mortar1,
+	_mortar2,
+	_mortar3, 
+	_mortar4
+]) then
+{
+	hint "Sir, we have white flares, Sir!";
+};
+</sqf>
+
+|seealso= [[getArtilleryETA]] [[commandArtilleryFire]] [[doArtilleryFire]] [[enableEngineArtillery]] [[getArtilleryComputerSettings]] [[shownArtilleryComputer]] [[inRangeOfArtillery]]
+}}

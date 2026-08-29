@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Briefing
+
+|descr= Returns the type of the given task. A new task returns "Default" for the type.
+
+|s1= [[taskType]] task
+
+|p1= task: [[Task]]
+
+|r1= [[String]]
+
+|x1= <sqf>_type = taskType (currentTask player);</sqf>
+
+|seealso= [[setSimpleTaskType]] [[taskName]] [[currentTask]] [[setSimpleTaskCustomData]] [[taskCustomData]] [[Arma 3: Task Framework#Task Overhaul|Tasks Overhaul]]
+}}

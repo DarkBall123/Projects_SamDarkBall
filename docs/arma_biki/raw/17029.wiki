@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.42
+
+|gr1= GUI Control
+
+|descr= Returns a child control with specified idc from a controls group
+
+|s1= ctrlgrp [[controlsGroupCtrl]] idc
+
+|p1= ctrlgrp: [[Control]]
+
+|p2= idc: [[Number]]
+
+|r1= [[Control]]
+
+|x1= <sqf>_control = _controlsGroup controlsGroupCtrl 101;</sqf>
+
+|seealso= [[allDisplays]] [[allControls]] [[ctrlCreate]] [[ctrlParentControlsGroup]]
+}}

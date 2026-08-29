@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Environment
+
+|descr= Returns density of clouds at given position.
+
+|pr= {{Feature|Eden Editor|SimulWeather seems to be disabled in [[:Category:Eden Editor|Eden Editor]] and scenario preview.}}
+
+|s1= [[simulCloudDensity]] pos
+
+|p1= pos: [[Position]]
+
+|r1= 
+* [[Number]] - density (0-1)
+* [[Nothing]] - If arguments are incorrect
+* [[Boolean]] - Returns [[false]] if simulWeather is disabled
+
+|x1= <sqf>simulCloudDensity getPos player;</sqf>
+
+|seealso= [[setSimulWeatherLayers]] [[simulCloudOcclusion]] [[simulInClouds]]
+}}

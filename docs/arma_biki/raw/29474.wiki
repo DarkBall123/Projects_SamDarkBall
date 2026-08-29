@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= Lights
+
+|arg= local
+
+|eff= local
+
+|descr= Sets lightpoint in infrared range.
+
+|s1= light [[setLightIR]] value
+
+|p1= light: [[Object]] - object of class {{hl|"#lightpoint"}} or similar
+
+|p2= value: [[Boolean]] - [[true]] to make it visible ''only'' with night vision goggles, [[false]] to make it a normal light
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLight setLightIR true; // visible with NVG only!</sqf>
+
+|seealso= [[setLightColor]] [[setLightAmbient]] [[setLightBrightness]] [[lightAttachObject]] [[lightDetachObject]] [[setLightIntensity]] [[setLightAttenuation]] [[setLightUseFlare]] [[setLightFlareSize]] [[setLightFlareMaxDistance]] [[setLightDayLight]]
+}}

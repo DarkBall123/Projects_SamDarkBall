@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Interpolation
+
+|descr= Interpolates scalar to target linearly.
+
+|s1= [currentValue, targetValue, delta, interpSpeed] call [[BIS_fnc_interpolateConstant]]
+
+|p1= currentValue: [[Number]] - the current value
+
+|p2= targetValue: [[Number]] - the target value
+
+|p3= delta: [[Number]] - (Optional, default 0) the delta time
+
+|p4= interpSpeed: [[Number]] - (Optional, default 0) the interpolation speed
+
+|r1= [[Number]] - the interpolated value
+
+|x1= <sqf>private _value = [4,8,0.2,0.1] call BIS_fnc_interpolateConstant;</sqf>
+
+|seealso= [[BIS_fnc_interpolate]] [[BIS_fnc_interpolateVector]] [[BIS_fnc_interpolateVectorConstant]]
+}}

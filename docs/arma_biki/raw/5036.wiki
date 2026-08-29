@@ -1,0 +1,16 @@
+If variables don't exist, their value as string is generally a "scalar bool array string 0xe0ffffef" error.
+
+'''Compatibility:'''
+
+Version {{GameCategory|arma1|link=y}} '''1.00'''
+
+{{Feature|ofp|For {{GameCategory|ofp|link=y}} version, see [[scalar bool array string 0xfcffffef]].}}
+
+
+'''Examples:'''
+
+<sqf>hint format ["%1", undefined_variable]</sqf>
+<sqf>hint (if (format ["%1", undefined_variable] == "scalar bool array string 0xe0ffffef") then { "Variable undefined" } else { "Variable already defined" })</sqf>
+
+
+[[Category:Common Scripting Errors]]

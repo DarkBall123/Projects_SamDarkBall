@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Behavior
+
+|descr= <pre>/*
+	BIN_fnc_setBehaviorCoef
+	Set behavior coefficients
+
+	Examples:
+
+		[bin_drone,"gravityCannon",0] call BIN_fnc_setBehaviorCoef
+*/</pre>
+{{Wiki|placeholder}}
+{{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_setBehaviorCoef]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

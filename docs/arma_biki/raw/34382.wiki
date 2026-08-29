@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|gr1= Curator
+
+|descr= Load the given selection preset to the current selection of the curator.
+
+|s1= [[loadCuratorSelectionPreset]] numkey
+
+|p1= numkey: [[Number]] - the number key under which the selection preset is saved
+
+|r1= [[Nothing]]
+
+|x1= <sqf>loadCuratorSelectionPreset 1;</sqf>
+
+|seealso= [[curatorSelectionPreset]] [[setCuratorSelectionPreset]] [[curatorSelected]] [[setCuratorSelected]] [[addCuratorSelected]] [[Arma 3: Curator]]
+}}

@@ -1,0 +1,57 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Systems
+
+|descr= Translates (relative or absolute), scales (relative or absolute), and sets the alpha over time on the provided control.
+
+|s1= [control, durationOrSpeed, [translationPosition, isRelativeTranslation, useDuration], [scalePosition, isRelativeScale, scalePivot], alpha] call [[BIS_fnc_animatePicture]]
+
+|p1= control: [[Control]] - the control to be moved
+
+|p2= durationOrSpeed: [[Number]] - (Optional, default 2) transition duration ''or'' movement speed, depending on ''useDuration''
+
+|p3= translationPosition: [[Array]] format [[Position#Position2D|Position2D]] - (Optional, default [0,0])
+
+|p4= isRelativeTranslation - [[Boolean]] - (Optional, default [[true]]) is ''translationPosition'' relative to the original ''control''<nowiki/>'s position
+
+|p5= useDuration: [[Boolean]] - (Optional, default [[true]]) if set to [[false]], ''durationOrSpeed'' will be used as ''control'' speed (and effect duration will be recalculated from it)
+
+|p6= scalePosition: [[Number]] or [[Array]] of [[Number]]s - (Optional, default 1) define X and Y scale value
+
+|p7= isRelativeScale: [[Boolean]] - (Optional, default [[true]]) is ''scalePosition'' relative to the original ''control''<nowiki/>'s scale
+
+|p8= scalePivot: [[String]] - (Optional, default "center") case-'''in'''sensitive. Possible values:
+
+{{Columns|3|
+* "topLeft"
+* "topCenter"
+* "topRight"
+* "centerLeft"
+* "center" - fallback value
+* "centerRight"
+* "bottomLeft"
+* "bottomCenter"
+* "bottomRight"
+}}
+
+|p9= alpha: [[Number]] - (Optional, default 0) ''control''<nowiki/>'s final opacity
+
+|r1= [[Number]] - animation's duration
+
+|x1= <sqf>
+private _t =
+[
+	_controlFront,
+	1,
+	[[0.5, 0.5], true, false],
+	[],
+	0.5
+] 
+call BIS_fnc_animatePicture;
+</sqf>
+
+|seealso=
+}}

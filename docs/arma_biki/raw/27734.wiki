@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.72
+
+|gr1= Sensors
+
+|descr= Returns if given unit is confirmed target for given side.
+
+|s1= unit [[isSensorTargetConfirmed]] side
+
+|p1= unit: [[Object]]
+
+|p2= side: [[Side]]
+
+|r1= [[Boolean]] - [[true]] if confirmed target, otherwise [[false]]
+
+|x1= <sqf>private _enemyConfirmed = _possibleEnemy isSensorTargetConfirmed opfor;</sqf>
+
+|seealso= [[listVehicleSensors]] [[isVehicleSensorEnabled]]
+}}

@@ -1,0 +1,40 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Waypoints
+
+|descr= Attaches the [[Waypoint]] to the provided vehicle [[Object]].
+{{Feature | important | Use this command to associate a transport with {{hl|"GETIN"}} waypoint, other types of waypoints might or might not work.
+See also [[setWaypointType]] to set the waypoint type to "GETIN".}}
+
+|s1= waypoint [[waypointAttachVehicle]] vehicleName
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= vehicleName: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp, 2] waypointAttachVehicle vehicle player;</sqf>
+
+|x2= <sqf>((waypoints player) select 0) waypointAttachVehicle _soldier1;</sqf>
+
+|seealso= [[waypoints]] [[deleteWaypoint]] [[copyWaypoints]] [[setCurrentWaypoint]] [[setWaypointBehaviour]] [[setWaypointCombatMode]] [[setWaypointCompletionRadius]] [[setWaypointDescription]] [[setWaypointFormation]] [[setWaypointHousePosition]] [[setWaypointPosition]] [[setWaypointScript]] [[setWaypointSpeed]] [[setWaypointStatements]] [[setWaypointTimeout]] [[setWaypointType]] [[setWaypointVisible]] [[waypointAttachedVehicle]] [[setWaypointLoiterRadius]] [[waypointLoiterRadius]] [[addWaypoint]] [[setWaypointLoiterType]] [[currentWaypoint]] [[attachObject]] [[attachTo]] [[attachedObjects]] [[attachedTo]] [[lightAttachObject]] [[triggerAttachVehicle]] [[attachedObject]]
+}}

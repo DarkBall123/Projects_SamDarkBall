@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|descr= Initializes the classes players can choose from before spawning.
+
+|serverExec= server
+
+|s1= [mode] call [[BIS_fnc_EXP_camp_initClasses]]
+
+|p1= mode: [[String]] - (Optional, default "DAY") can be either "DAY" (unsilenced, no NVGs, default) or "NIGHT" (silenced, NVGs)
+
+|r1= [[Boolean]] - returns [[true]] if successful, [[false]] if not
+
+|x1= <sqf>["NIGHT"] call BIS_fnc_EXP_camp_initClasses;</sqf>
+
+|seealso= [[BIS_fnc_EXP_camp_initCharacter]]
+}}

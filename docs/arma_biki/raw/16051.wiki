@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.10
+
+|gr1= Math
+
+|gr2= Environment
+
+|descr= Returns true if given year is a leap year, otherwise false.
+
+|s1= year call [[BIS_fnc_isLeapYear]]
+
+|p1= year: [[Number]] - a non-decimal number (a.k.a integer)
+
+|r1= [[Boolean]]
+
+|x1= <sqf>private _isLeapYear = 2035 call BIS_fnc_isLeapYear;</sqf>
+
+|x2= <sqf>private _isLeapYear = 2036 call BIS_fnc_isLeapYear; // 2036 is a leap year</sqf>
+
+|seealso= [[date]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.84
+
+|gr1= System
+
+|descr= Returns [[true]] if visibility of [[player]] by friendly units is calculated.
+
+|s1= [[getCalculatePlayerVisibilityByFriendly]]
+
+|r1= [[Boolean]] - [[true]] if visibility is calculated, [[false]] if not
+
+|x1= <sqf>
+if (!getCalculatePlayerVisibilityByFriendly) then
+{
+	calculatePlayerVisibilityByFriendly true;
+};
+</sqf>
+
+|seealso= [[calculatePlayerVisibilityByFriendly]] [[knowsAbout]]
+}}

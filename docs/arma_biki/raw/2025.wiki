@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|eff= local
+
+|gr1= System
+
+|descr= Fades in mission screen and re-executes [[Event Scripts#init.sqf|init.sqf]] and [[Event Scripts#init.sqs|init.sqs]] scripts. In [[:Category:Eden Editor|Eden Editor]] the code inside the "Init" mission attribute is executed.
+
+|s1= [[runInitScript]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>runInitScript;</sqf>
+
+|seealso= [[Event Scripts]]
+}}

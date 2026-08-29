@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Return [[true]] if vehicle has enabled auto hover. (always returns false if the vehicle can't set auto hover)
+
+|s1= [[isAutoHoverOn]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_isOn = isAutoHoverOn vehicle player;</sqf>
+
+|seealso=
+}}

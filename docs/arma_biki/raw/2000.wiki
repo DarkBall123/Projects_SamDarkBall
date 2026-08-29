@@ -1,0 +1,36 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Mission Information
+
+|descr= Checks whether the given key is active in the current user profile.
+
+See keys, keysLimit and doneKeys in the [[Description.ext#keys|description.ext]] file of the missions.
+
+|s1= [[isKeyActive]] keyName
+
+|p1= keyName: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_active = isKeyActive "Mission04Key";</sqf>
+
+|seealso= [[activateKey]] [[deActivateKey]]
+}}

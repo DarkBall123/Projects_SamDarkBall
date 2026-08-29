@@ -1,0 +1,275 @@
+{{Feature|UnsupportedDoc}}
+
+= Model Info =
+The Model Info structure is last in file for ODOL7 (ofp) and at top of file for ODOL4x (ARMAx)
+
+ ModelInfo
+ {
+   float      resolutions[Header.NoOfLods];// alias resolutions
+   ulong      Index;                    // appears to be a bit flag, 512, 256 eg
+   float      MemLodSphere;
+   float      GeoLodSphere;             // mostly same as MemLodSphere
+   ulong      Remarks;            // typically 00 00 00 00  00 00 00 00 00 00 0C 00 eg (last is same as user point flags)
+   ulong      andHints;
+   ulong      orHints;
+   XYZTriplet geo_offset;               // model offset (unknown functionality),//mostly same as offset2
+   rgba       mapIconColor;             // RGBA 32 color
+   rgba       mapSelectedColor;         // RGBA 32 color
+   float      ViewDensity;              //-1 -> default shape values will be used (default value)  / 0 -> opaque / 1 -> transparent (DO NOT add this to an opaque object)
+   XYZTriplet bboxMinPosition;          // minimum coordinates of bounding box
+   XYZTriplet bboxMaxPosition;          // maximum coordinates of bounding box. Generally the complement of the 1st
+                                        // pew.GeometryBounds in Pew is bboxMinPosition-bboxMaxPosition for X and Z
+                                        // pew.ResolutionBounds mostly the same
+   if version >=70
+     float lodDensityCoef;
+   if version >=71
+     float drawImportance;
+   if version >=52
+     MinMaxVectors visual_bounds;
+   XYZTriplet boundingCenter;          // pew.GeometryAutoCenterPos (and mostly pew.ResolutionAutoCenterPos too)
+   XYZTriplet geometryCenter;                  // mostly same as Offset1 often same as (but it isn't ResolutionPos)
+   XYZTriplet centerOfMass;             //CogOffset see below
+   XYZTriplet p3dinfo_invInertia[3];      // for ODOL7 this is a mixture of floats and index values
+  
+   TinyBool   AutoCenter,
+              lockAutoCenter,
+              canOcclude,
+              canBeOccluded,
+              allowAnimation;
+   if version>=73 || dayz
+     TinyBool   disableCover;
+    
+   float ThermalProfile[24];       // 
+   if dayz
+      float     dayz_thermal_extra
+   ulong      forceNotAlphaModel;              // V48 and beyond
+   ulong      sbSource;
+   TinyBool   prefershadowvolume;
+   if version==48
+    float shadowOffset;
+   bool   allowAnimation;
+   byte   mapType;
+   if dayz
+    dayz_mass_array[];
+ 
+   float      Mass;
+   float      MassReciprocal;           // see note
+   float      ArmorMass;                  // see note
+   float      ArmorReciprocal;        // see note
+   if version>=72
+     float     explosionshielding
+    if version>=56
+     byte       UnknownByteIndices[14]    // see note generally FF FF FF FF FF FF FF FF FF FF FF FF
+   else
+     byte       UnknownByteIndices[12]    // see note generally FF FF FF FF FF FF FF FF FF FF FF FF
+   ///////////ARMA (V4x) ONLY ////////////
+   ulong      UnknownLong;              // often same as NoOfLods
+   TinyBool   canBlend;                 // generally set if ascii below has strings
+   if (dayz==54
+     byte dayzv126;
+   asciiz     ClassType;                // class="House" See [[Named Properties]]
+   asciiz     DestructType;             // damage="Tent" See [[Named Properties]]
+   TinyBool   frequent;                 // rarely true
+   ulong      Always0;                  //
+   if version >= 54
+       byte   preferred_shadows[NoOfLods][12]; //generally FF FF FF FF FF FF FF FF FF FF FF FF
+    ///////////////////////////////////////
+ }
+
+Coordinates in odols are expressed '''relative''' to this value.
+
+Thus
+
+ MLOD Points[Any] = ODOL Points[Any] + CentreOfGravity
+
+*RawCentreOfGravity is calculated from the mlod geometry lod
+
+*Asymetrical BoundingBox values are calculated from the TotalMin and TotalMax of all points in all lods (of the mlod).
+ 
+ TotalMinMax=MinMax(lods[AllLods].points[AllValues])
+
+*The odol's CentreOfGravity, bounding box and CogOffset are calculated as follows
+ // convert mlod to odol relative 
+ 
+ TotalMin-=RawCentreOfGravity; //asymetrical bounding box
+ TotalMax-=RawCentreOfGravity;
+ 
+ //turn asymetrical to symetrical
+ BoundingBoxMax=fabs(TotalMax-TotalMin)/2);
+ BoundingBoxMin=-BoundingBoxMax; // this *is* the odol bbox expressed in relative units
+  
+ CogOffset= BoundingBoxMax-TotalMax+RawCentreOfGravity;// *the* odol CogOffset
+ 
+ CentreOfGravity-=CogOffset;//*the* odol cog
+
+*Pew files make use of this information to build p3d model templates. For odol p3d's the information is stored as above, for mlods, it is calculated as above
+
+=== ODOLV7 BIS ===
+
+The 24 byte area after the mass float is, as represented, in the supplied, 'official', addons from Bis for ALL game engines.
+
+For V7:
+
+*MOST oem addons subscribe to above.
+
+*SOME oem addons, notably those from VTE, and any with optics, have a varying amount of data after the Mass float. Some less than 24, some, a lot more than 24. CLearly this area needs further work. The models themselves are unlikely to be faulty, and were generated by O2L. There is nothing in previous data structures that would suggest appended or truncated data. Perhaps, like it is MLOD-SP3X equivalent, it has a default file size, and anything 'extra', is tested for.
+
+==== Odol Explorer ====
+
+Note that odol explorer from Dschulle reverses -24 bytes from end of file to 'get at' the Mass float. This because at the time, the compressed float array was not understood.
+
+For trunctated data (Odol7 files < 24 bytes) this will clearly be faulty. For excessive files, OdolEX may well indeed be right.
+
+== Skeleton ==
+  Skeleton
+  {
+    asciiz                    SkeletonName;  //"A10Skeleton"
+    if (SkeletonName != null)
+    {
+      tbool                   isInherited;
+      ulong                   NoOfBoneNames;
+      SkeletonBoneName        SkeletonBoneNames[NoOfBoneNames];
+      if (type>40 && ! VBS2) // ie arma2
+      {
+      byte                    Always0;
+      }
+    }
+  }
+
+=== SkeletonBoneName ===
+
+  SkeletonBoneName
+  {
+    asciiz BoneName;            //"3dhud" or "Gearlocks" or "Fuel" or ...
+    asciiz ParentBoneName;      // "Aeileron_1"
+  }
+
+corresponds to model.cfg
+<pre>
+ class cfgSkeletons
+ {
+	class SkeletonClassname : Default
+	{
+		skeletonBones[]=
+		{
+			"RightDoor1","",
+			"RightDoor2","",
+			"LeftDoor1","",
+			"LeftDoor2","RightDoor2",
+			etc"
+		};
+	};
+</pre>
+
+== resolutions ==
+Most of them have humanly readable context such as the 'memory' lod. And are selected as such in Oxygen. The are consequently referred to here as 'resolutions', since the floating point values, although relevant to the engine, are not as immediately apparent to a human.
+
+In this list. there is, undoubtedly, some meaning to the apparent random order of lod types (the order of resolutions). It could simply be 'as presented', 'as discovered', or 'as first created' in O2. It could be something much deeper, res lods followed by geo lods, stencil lods, and etc.
+
+The order is irrelevant to the structure of the file (and probably irrelevant to the engine as well).
+
+The resolutions array is used in conjunction with the start and ending LodAddressOffsets mentioned above.
+
+Whatever resolution is in resolutions[0] '''THAT''' LOD will be found at the offsets contained in startaddress[0].
+
+and so on.
+
+
+In other words, we have a fast indexing service. If the engine is only interested in, or needs to render, shadow lods, it looks for shadow lods (if any) in the list, and 'jumps' to that lod, rather than scanning the entire file.
+
+
+=== Resolution Values ===
+
+{| border="0"
+!width="100" align="left"|Hex
+!width="50" align="left"|Float
+!width="150" align="left"|Decimal
+!width="300" align="left"|Description
+|-
+|-
+|align="left"| ||align="left"| ||align="right"|<1,000||align="left"|Graphical Lod
+|-
+|align="left"| ||align="left"| ||align="right"|  ||align="left"|Functional Lods
+|-
+|align="left"|0x447a0000||align="left"|1.0e3||align="right"|1,000||align="left"|View Gunner
+|-
+|align="left"|0x44898000||align="left"|1.1e3||align="right"|1,100||align="left"|View Pilot
+|-
+|align="left"|0x44960000||align="left"|1.2e3||align="right"|1,200||align="left"|View Cargo
+|-
+|align="left"|""||align="left"|""||align="right"| ||align="left"|Shadow Lods
+|-
+|align="left"|0x461c4000||align="left"|1.0e4||align="right"|10,000||align="left"|Shadow Volume
+|-
+|align="left"|0x461c6800||align="left"|1.001e4||align="right"|10,010||align="left"|Shadow Volume 2
+|-
+|align="left"|0x462be000||align="left"|1.1e4||align="right"|11000||align="left"|Stencil Shadow
+|-
+|align="left"|0x462c0800||align="left"|1.101e4||align="right"|11010||align="left"|Stencil Shadow 2
+|-
+|align="left"|0x551184e7||align="left"|1.0e13||align="right"|10,000,000,000,000||align="left"|Geometry
+|-
+|align="left"|0x58635fa9||align="left"|1.0e15||align="right"|1,000,000,000,000,000||align="left"|Memory
+|-
+|align="left"|0x58e35fa9||align="left"|2.0e15||align="right"|2,000,000,000,000,000||align="left"|Land Contact
+|-
+|align="left"|0x592a87bf||align="left"|3.0e15||align="right"|3,000,000,000,000,000||align="left"|Roadway
+|-
+|align="left"|0x59635fa9||align="left"|4.0e15||align="right"|4,000,000,000,000,000||align="left"|Paths
+|-
+|align="left"|0x598e1bca||align="left"|5.0e15||align="right"|5,000,000,000,000,000||align="left"|HitPoints
+|-
+|align="left"|0x59aa87bf||align="left"|6.0e15||align="right"|6,000,000,000,000,000||align="left"|View Geometry
+|-
+|align="left"|0x59c6f3b4||align="left"|7.0e15||align="right"|7,000,000,000,000,000||align="left"|Fire Geometry
+|-
+|align="left"|0x59e35fa9||align="left"|8.0e15||align="right"|8,000,000,000,000,000||align="left"|View Cargo Geometry
+|-
+|align="left"|0x59ffcb9e||align="left"|9.0e15||align="right"|9,000,000,000,000,000||align="left"|View Cargo Fire Geometry
+|-
+|align="left"|0x5a0e1bca||align="left"|1.0e16||align="right"|10,000,000,000,000,000||align="left"|View Commander
+|-
+|align="left"|0x5a1c51c4||align="left"|1.1e16||align="right"|11,000,000,000,000,000||align="left"|View Commander Geometry
+|-
+|align="left"|0x5a2a87bf||align="left"|1.2e16||align="right"|12,000,000,000,000,000||align="left"|View Commander Fire Geometry
+|-
+|align="left"|0x5a38bdb9||align="left"|1.3e16||align="right"|13,000,000,000,000,000||align="left"|View Pilot Geometry
+|-
+|align="left"|0x5a46f3b4||align="left"|1.4e16||align="right"|14,000,000,000,000,000||align="left"|View Pilot Fire Geometry
+|-
+|align="left"|0x5a5529af||align="left"|1.5e16||align="right"|15,000,000,000,000,000||align="left"|View Gunner Geometry
+|-
+|align="left"|0x5a635fa9||align="left"|1.6e16||align="right"|16,000,000,000,000,000||align="left"|View Gunner Fire Geometry
+|-
+|align="left"|0x5a7195a4||align="left"|1.7e16||align="right"|17,000,000,000,000,000||align="left"|Sub Parts
+|-
+|align="left"|0x5a7fcb9e||align="left"|1.8e16||align="right"|18,000,000,000,000,000||align="left"|SHADOW_VOLUME_VIEW_CARGO
+|-
+|align="left"|0x5a8700cc||align="left"|1.9e16||align="right"|19,000,000,000,000,000||align="left"|SHADOW_VOLUME_VIEW_PILOT
+|-
+|align="left"|0x5a8e1bca||align="left"|2.0e16||align="right"|20,000,000,000,000,000||align="left"|SHADOW_VOLUME_VIEW_GUNNER
+|-
+|align="left"|0x5a9536c7||align="left"|2.1e16||align="right"|21,000,000,000,000,000||align="left"|WRECK
+
+
+|-
+|}
+
+
+If the value is below 1000.0, then the LOD is supposed to be a graphical LOD.
+If the value equals or is above 10000.0 and is not one of the functional LODs, it is a shadow LOD.
+
+The LOD selected for displaying if 
+
+ DistanceToObject * LODCoef * M <= LODResolution 
+
+Where: 
+
+*LODCoef is value from OFP preferences (I have LODCoef = 0.019). 
+*M is some value that changed by OFP developers (I use M=1 in WRPEdit and M=2 in P3DEdit).
+
+=Related Page(s)=
+
+[[BIS_File_Formats#3D_Model_File_Formats|Model File Formats]]
+[[Category:Real Virtuality File Formats]]
+{{GameCategory|arma1|File Formats}}

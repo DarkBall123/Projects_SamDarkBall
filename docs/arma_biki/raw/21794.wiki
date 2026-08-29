@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|gr1= Unit Control
+
+|descr= Forces the vehicle to stay on road.
+
+|s1= vehicle [[forceFollowRoad]] state
+
+|p1= vehicle: [[Object]] - vehicle
+
+|p2= state: [[Boolean]] - true: Force on road, false: default behaviour
+
+|r1= [[Nothing]]
+
+|x1= <sqf>car forceFollowRoad true;</sqf>
+
+|seealso= [[setConvoySeparation]] [[limitSpeed]] [[setDriveOnPath]] [[useAISteeringComponent]]
+}}

@@ -1,0 +1,39 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Multiplayer
+
+|gr2= Variables
+
+|descr= Send the variable value to the server - same limitations regarding variable type as [[publicVariable#Description|publicVariable]].
+{{Feature|arma3|In {{arma3}} it is possible to broadcast the [[nil]] value.}}
+
+|s1= [[publicVariableServer]] varName
+
+|p1= varName: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>publicVariableServer "CTFscoreOne";</sqf>
+
+|seealso= [[publicVariable]] [[publicVariableClient]] [[addPublicVariableEventHandler]]
+}}
+
+{{Note
+|user= Kylania
+|timestamp= 20120824020600
+|text=
+* [[publicVariableServer]] (run on client)
+* [[publicVariableClient]] (run on server)
+
+Publishes the variable (name as [[String]]) to the server only.
+Useful when you want to synchronise a variable with the server but not any other clients. - {{Link|link= http://forums.bistudio.com/showthread.php?136494-ARMA-2-OA-beta-build-94209-(1-60-MP-compatible-build-post-1-60-release)&p=2179795&viewfull=1#post2179795|text= Rocket}}
+}}

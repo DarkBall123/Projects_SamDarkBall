@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= Arrays
+
+|descr= Function to return the maximum difference between all values in an array.
+
+|s1= [arrayOfNumbers] call [[BIS_fnc_maxDiffArray]]
+
+|p1= arrayOfNumbers: [[Array]] - numbers to be tested
+
+|r1= [[Number]] - the biggest difference
+
+|x1= <sqf>private _maxDiff = [[0, 5, 10, -5]] call BIS_fnc_maxDiffArray; // will return 15 (-5 to 10)</sqf>
+
+|seealso=
+}}

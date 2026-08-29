@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= <pre>#define CONTROL_SHOW(CONTROL) \
+	CONTROL ctrlshow true; \
+	CONTROL ctrlsetfade 0; \
+	CONTROL ctrlcommit 0;
+
+#define CONTROL_HIDE(CONTROL) \
+	CONTROL ctrlshow false; \
+	CONTROL ctrlsetfade 1; \
+	CONTROL ctrlcommit 0;
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_overviewMission]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_overviewMission;</sqf> -->
+
+|seealso=
+}}

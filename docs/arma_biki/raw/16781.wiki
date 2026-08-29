@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+|gr1= DLC
+
+|descr= Returns true if the DLC (CDLC included) is marked as available on Steam.
+Official and Creator DLC appIds can be found on [[:Category:Arma 3: DLCs & Expansions|Arma 3: DLCs & Expansions]] and [[:Category:Arma 3: CDLCs|Arma 3: CDLCs]] pages.
+{{Feature|important|This command will return [[true]] if the DLC is owned, even if it is '''not''' installed!}}
+
+|s1= [[isDLCAvailable]] appId
+
+|p1= appId : [[Number]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+private _karts = 288520;
+isDLCAvailable _karts; // returns true
+</sqf>
+
+|seealso= [[getDLCs]] [[getObjectDLC]] [[getPersonUsedDLCs]] [[getMissionDLCs]]
+}}
+
+{{Note
+|user= Benargee
+|timestamp= 20141019023900
+|text= appId can be taken from Steam DLC url, e.g Karts url is {{hl|<nowiki>http://store.</nowiki>steampowered.com/app/'''288520'''/}}.
+}}

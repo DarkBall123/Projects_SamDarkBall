@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+|gr1= Groups
+
+|descr= Returns all vehicles added to the given [[Group]] with [[addVehicle]].
+
+|s1= [[assignedVehicles]] group
+
+|p1= group: [[Group]]
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>_vehicles = assignedVehicles group player;</sqf>
+
+|seealso= [[assignedVehicle]] [[assignedGroup]] [[addVehicle]] [[assignAsDriver]] [[assignAsCargo]] [[assignAsCommander]] [[assignAsGunner]] [[assignAsTurret]] [[assignAsCargoIndex]] [[unassignVehicle]] [[leaveVehicle]] [[fullCrew]]
+}}

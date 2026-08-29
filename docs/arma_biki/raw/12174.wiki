@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+|arg= global
+
+|gr1= Artillery
+
+|descr= Returns true if all given units are able to fire at given position with given magazineType.
+
+|s1= pos [[inRangeOfArtillery]] [units, magazineType]
+
+|p1= pos: [[Position]]
+
+|p2= units: [[Array]] of [[Object]]s - array of units.
+
+|p3= magazineType: [[String]] - '''case-sensitive'''
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_isInRange = getMarkerPos "myTarget" inRangeOfArtillery [[myArty], "32Rnd_155mm_Mo_shells"];</sqf>
+
+|seealso= [[getArtilleryAmmo]] [[commandArtilleryFire]] [[doArtilleryFire]] [[enableEngineArtillery]] [[getArtilleryComputerSettings]] [[shownArtilleryComputer]] [[getArtilleryETA]]
+}}
+
+{{Note
+|user= Waffle SS.
+|timestamp= 20150710194600
+|text= Using an empty artillery vehicle will return false.
+}}

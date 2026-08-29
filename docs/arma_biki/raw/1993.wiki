@@ -1,0 +1,42 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= AI Behaviour
+
+|descr= Enables parts of the AI behavior that was disabled by [[disableAI]]. 
+{{Feature|important|When player switches and leaves behind AI unit, you need to enable "TeamSwitch" AI on it <sqf inline>_unit enableAI "TeamSwitch";</sqf> so that the unit continues with [[waypoints]].}}
+{{Feature|arma3|Since Arma 3 v1.96 it is possible to return the state of the given AI flag via [[checkAIFeature]] or set it using alias command [[enableAIFeature]].}}
+
+|s1= unit [[enableAI]] skilltype
+
+|p1= unit: [[Object]]
+
+|p2= skilltype: [[String]] - see [[disableAI]] for possible values.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_soldierOne enableAI "Move";</sqf>
+
+|seealso= [[disableAI]] [[checkAIFeature]] [[enableAIFeature]] [[vehicleMoveInfo]] [[getUnitState]]
+}}

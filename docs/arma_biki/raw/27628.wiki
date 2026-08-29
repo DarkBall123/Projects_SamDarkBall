@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.00
+
+|arg= global
+
+|gr1= Radio and Chat
+
+|descr= Gets provided player's Voice over Network (VoN) volume.
+
+|s1= [[getPlayerVoNVolume]] unit
+
+|p1= unit: [[Object]] - the other player's unit
+
+|r1= [[Number]] in range 0..1, -1 in case of error (e.g provided a non-human)
+
+|x1= <sqf>private _volume = getPlayerVoNVolume (units player select 1);</sqf>
+
+|seealso= [[setPlayerVoNVolume]] [[soundVolume]] [[radioVolume]] [[musicVolume]]
+}}

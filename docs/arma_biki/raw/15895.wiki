@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Configs
+
+|descr= Return addon from CfgPatches to which a given object belongs to.
+
+|s1= [object] call [[BIS_fnc_unitAddon]]
+
+|p1= object: [[Object]] - object whose addon should be returned
+
+|r1= [[String]] - addon class
+
+|x1= <sqf>[player] call BIS_fnc_unitAddon;</sqf>
+
+|seealso= [[unitAddons]] [[activatedAddons]]
+}}

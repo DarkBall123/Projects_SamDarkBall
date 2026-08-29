@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.02
+
+|gr1= Unit Identity
+
+|descr= Returns the face class of a person as it is written in 'CfgFaces'.
+
+|s1= [[face]] person
+
+|p1= person: [[Object]]
+|r1= [[String]]
+
+|x1= <sqf>face player;</sqf>
+
+|seealso= [[setFace]] [[setIdentity]] [[setSpeaker]] [[hasCustomFace]]
+}}

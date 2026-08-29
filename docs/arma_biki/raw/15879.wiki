@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 0.76
+
+|gr1= Arrays
+
+|descr= Finds duplicates in the given array of anything and consolidates them into an array of sub-arrays
+
+|s1= array call [[BIS_fnc_consolidateArray]]
+
+|p1= array: [[Array]] - array of anything
+
+|r1= [[Array]] - array of sub-arrays in format [<nowiki/>[value, count],...], where:
+* value: [[Anything]] - consolidated element
+* count: [[Number]] - occurrence count
+
+|x1= <sqf>["apple","apple","pear","pear","apple"] call BIS_fnc_consolidateArray; // return: [["apple",3],["pear",2]]</sqf>
+
+|x2= <sqf>["apple","apple",1,1,nil,nil] call BIS_fnc_consolidateArray; // return: [["apple",2],[1,2],[any,2]]</sqf>
+		
+
+|seealso=
+}}

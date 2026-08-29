@@ -1,0 +1,47 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|serverExec= server
+
+|eff= global
+
+|gr1= Waypoints
+
+|descr= Switches the group speed mode when the waypoint becomes active.
+<br>
+<br>
+Possible values are:
+* "UNCHANGED"
+* "LIMITED"
+* "NORMAL"
+* "FULL"
+
+|s1= waypoint [[setWaypointSpeed]] mode
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= mode: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp, 2] setWaypointSpeed "FULL";</sqf>
+
+|seealso= [[waypoints]] [[deleteWaypoint]] [[copyWaypoints]] [[setCurrentWaypoint]] [[setWaypointBehaviour]] [[setWaypointCombatMode]] [[setWaypointCompletionRadius]] [[setWaypointDescription]] [[setWaypointFormation]] [[setWaypointHousePosition]] [[setWaypointPosition]] [[setWaypointScript]] [[setWaypointStatements]] [[setWaypointTimeout]] [[setWaypointType]] [[setWaypointVisible]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[setWaypointLoiterRadius]] [[waypointLoiterRadius]] [[addWaypoint]] [[setWaypointLoiterType]] [[waypointSpeed]]
+}}

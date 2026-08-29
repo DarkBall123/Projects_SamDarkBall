@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.22
+
+|arg=
+|eff=
+
+|gr1= Camera Control
+|gr2= Turrets
+
+|descr= Enables/disables turret gun stabilisation.
+
+|s1= vehicle [[enableGunStabilization]] [mode, turretPath]
+
+|p1= vehicle: [[Object]]
+
+|p2= mode: [[Number]] - can be one of:
+* -1 - clear override
+* 0 - no stabilisation
+* 1 - elevation stabilisation
+* 2 - traverse stabilisation
+* 3 - both
+
+|p3= turretPath: [[Turret Path]]
+
+|r1= [[Number]] - the previous mode, also returns -1 on error
+
+|x1= <sqf>vehicle player enableGunStabilization [3, [0]];</sqf>
+
+|seealso= [[enableDirectionStabilization]] [[directionStabilizationEnabled]] [[lockCameraTo]]
+}}

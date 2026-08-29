@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Scripts
+
+|arg= global
+
+|eff= global
+
+|descr= Changes animation phase of given door.
+
+|s1= [building, doorIndex, animationPhase] call [[BIS_fnc_door]]
+
+|p1= building: [[Object]] - building
+
+|p2= doorIndex: [[Number]] - index of the door used in "bis_disabled_Door_%1", "Door_%1_sound_source", "Door_%1_noSound_source", "Door_%1_locked_source"
+
+|p3= animationPhase: [[Number]] - phase of the animation, see [[animateSource]] for more information
+|r1= [[Nothing]]
+
+|x1= <sqf>[_building, 5, 1] call BIS_fnc_door;</sqf>
+
+|seealso= [[BIS_fnc_doorOpen]] [[BIS_fnc_doorNoHandleOpen]] [[BIS_fnc_doorClose]]
+}}

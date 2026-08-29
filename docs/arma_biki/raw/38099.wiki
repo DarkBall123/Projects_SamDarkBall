@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+
+|branch= diag
+
+|version1= 2.16
+
+|gr1= Diagnostic
+
+|descr= Resets the animations system cache, so that animation makers can test their animations without restarting the game. A '''mission restart''' is required for the changes to be applied.
+
+|s1= [[diag_resetAnims]]
+
+|r1= [[Nothing]]
+
+|seealso= [[diag_resetShapes]]
+}}

@@ -1,0 +1,2 @@
+#REDIRECT [[BIS_File_Formats#Island_File_Formats]]
+[[Category: File extensions]]

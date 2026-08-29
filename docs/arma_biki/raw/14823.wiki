@@ -1,0 +1,42 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Allow curator use of given addon.
+
+|s1= curatorObj [[addCuratorAddons]] addons
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|p2= addons: [[Array]] of [[String]]s - CfgPatches class names
+
+|r1= [[Nothing]]
+
+|x1= <sqf>curatorObj addCuratorAddons ["A3_Armor_F_AMV","A3_Armor_F_Panther"];</sqf>
+
+|x2= <sqf>curatorObj addCuratorAddons ["A3_Modules_F_Curator_Lightning"];</sqf>
+
+|x3= Addons can be stacked:
+<sqf>
+curatorObj addCuratorAddons ["A3_Armor_F_AMV","A3_Armor_F_Panther"];
+curatorObj addCuratorAddons ["A3_Modules_F_Curator_Lightning"];
+diag_log curatorAddons curatorObj;
+</sqf>
+<br>
+<sqf>
+[
+	"A3_Armor_F_AMV",
+	"A3_Armor_F_Panther",
+	"A3_Modules_F_Curator_Lightning"
+]
+</sqf>
+
+|seealso= [[Arma 3: Curator]] [[removeCuratorAddons]] [[removeAllCuratorAddons]] [[curatorAddons]]
+
+|mp= Can be executed only on server
+}}

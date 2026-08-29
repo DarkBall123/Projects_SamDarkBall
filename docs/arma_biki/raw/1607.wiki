@@ -1,0 +1,69 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.85
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= Program Flow
+
+|descr= Executes ''code''. Used as part of a construct, such as [[while]], [[with]], [[for]] and [[switch]]. The ''code'' is always executed in [[missionNamespace]] unless [[do]] is used with [[with]] as an argument.
+
+|s1= construct [[do]] code
+
+|p1= construct: [[While Type]] ([[while]]), [[With Type]] ([[with]]), [[For Type]] ([[for]]), [[Switch Type]] ([[switch]])
+
+|p2= code: [[Code]]
+
+|r1= [[Anything]]
+
+|x1= <sqf>
+while { b > a } do
+{
+	a = a + 1;
+};
+</sqf>
+
+|x2= <sqf>
+with uiNamespace do
+{
+	MyUIVar = MyUIVar + 5;
+};
+</sqf>
+
+|x3= <sqf>
+for "_i" from 1 to 10 do
+{
+	systemChat str _i;
+	sleep 0.5;
+};
+</sqf>
+
+|x4= <sqf>
+switch (50) do
+{
+	case 25: { hint "25" };
+	case 50: { hint "50" }; // hints "50"
+	case 75: { hint "75" };
+	default { hint "nope" };
+};
+</sqf>
+
+|seealso= [[Control Structures]]
+}}

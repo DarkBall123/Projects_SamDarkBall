@@ -1,0 +1,39 @@
+=How to make a Userconfig:=
+Some quick notes from what I learned while trying to use it for a mission.
+(a.k.a. What I wish somebody had written already) ''--MaHuJa''
+
+
+The '''\userconfig''' folder should be located in the root Arma 3 game directory, typically in your main Steam folder, \Steam\steamapps\common\Arma 3\
+
+
+'''Description.ext'''
+<syntaxhighlight lang="cpp">
+class X
+{
+	#include "\userconfig\MY_addon\Somefile.hpp"
+};
+</syntaxhighlight>
+
+'''\userconfig\MY_addon\Somefile.hpp'''
+<syntaxhighlight lang="cpp">
+class Y
+{
+	key = value;
+};
+</syntaxhighlight>
+
+
+'''Use:'''
+<sqf>_userConfigValue = getNumber (missionConfigFile >> "X" >> "Y" >> "key");</sqf>
+
+
+Skipping class X means the user could introduce anything into the description.ext
+Note that #include WILL fail with a CTD if the somefile.hpp doesn't exist. 
+
+[[missionConfigFile]] is used when the mission does the include from description.ext
+[[campaignConfigFile]] is similar but for a campaign
+[[configFile]] is about the "global config" of unit types, vehicle types, and so on - this is the area added to by addons.
+
+
+{{GameCategory|arma2|Editing}}
+{{GameCategory|arma3|Editing}}

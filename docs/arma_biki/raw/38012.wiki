@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.16
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Get an object's water intake ratio when immersed.
+
+|s1= [[getWaterLeakiness]] obj
+
+|p1= obj: [[Object]] - object to check
+
+|r1= [[Number]] in range 0..1 - 0 is waterproof and 1 is full leak
+
+|x1= <sqf>
+if (getWaterLeakiness _myCar > 0) then
+{
+	hint "don't go in the water with it!";
+};
+</sqf>
+
+|seealso= [[setWaterLeakiness]] [[setWaterFillPercentage]] [[getWaterFillPercentage]]
+}}

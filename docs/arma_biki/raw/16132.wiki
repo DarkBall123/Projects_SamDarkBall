@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= Create a death screen.
+
+|s1= [killed, killer] spawn [[BIS_fnc_respawnNone]]
+
+|p1= killed: [[Object]] - killed unit ([[player]])
+
+|p2= killer: [[Object]] - any unit
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, someUnit] spawn BIS_fnc_respawnNone;</sqf>
+
+|exec= spawn
+
+|seealso= [[:Category:Function Group: Respawn]]
+}}

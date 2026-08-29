@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= Gets or sets inventory menu loadout metadata for class CfgRespawnInventory
+
+|s1= ["get", 0] call [[BIS_fnc_showRespawnMenuInventoryMetadata]]
+
+|p1= [[String]] - mode:
+* "set"
+* "get"
+* "delete"
+
+|p2= [[Number]] - List box selection for: "BIS_RscRespawnControlsMap_ctrlRoleList"
+
+|r1= [[Array]] of Arrays:
+* 0: [[Array]] - Array containing role data: <([[String]])DisplayName, ([[Config]])Config, ([[String]])Icon Path>
+* 1: [[Array]] - Array containing loadout data: <([[String]])Classname, ([[String]])DisplayName, ([[Config]])Config>
+
+|x1= <!-- <sqf>[] call BIS_fnc_showRespawnMenuInventoryMetadata;</sqf> -->
+
+|seealso=
+}}

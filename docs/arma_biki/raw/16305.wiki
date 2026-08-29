@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Systems
+
+|descr= An internally used .fsm.
+
+|s1= <!-- [] call [[BIS_fnc_skirmishTrigger]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_skirmishTrigger;</sqf> -->
+
+|seealso=
+}}

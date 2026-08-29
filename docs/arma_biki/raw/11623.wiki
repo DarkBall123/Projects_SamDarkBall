@@ -1,0 +1,59 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|arg= global
+|eff= global
+
+|gr1= Radio and Chat
+
+|gr2= Custom Radio and Chat
+
+|descr= Set the custom radio chat channel's callsign / VoN callsign.
+
+|s1= customChannelID [[radioChannelSetCallSign]] callSign
+
+|p1= customChannelID: [[Number]] - [[Channel IDs|custom channel ID]] returned by [[radioChannelCreate]] command
+
+|p2= callSign: [[String]] or {{GVI|arma3|2.22|size= 0.75}} [[Array]] - custom chat callsign or [callSign, callSignVoN]. Available parameters: <spoiler>
+{| class="wikitable"
+! Parameter !! Description !! Example
+|-
+| {{hl|%$KEY}} || Reference a localised text || "%$STR_Q_North" &rarr; "North"
+|-
+| {{hl|%CHANNEL_LABEL}} || The channel's label - see [[radioChannelSetLabel]] || "Q-dance Radio"
+|-
+| {{hl|%UNIT_SIDE}} || Side's name, similar to [[sideRadio]] || "BLUFOR"
+|-
+| {{hl|%UNIT_NAME}} || The '''''player'''''<nowiki/>'s or AI's name - see [[name]] || "John Doe"
+|-
+| {{hl|%UNIT_RANK}} || A shorthand version of the unit's rank || "Sgt"
+|-
+| {{hl|%UNIT_ID}} || The unit's id in the group || "1"
+|-
+| {{hl|%UNIT_REF}} || The unit's log reference || "Unit123456"
+|-
+| {{hl|%UNIT_GRP_NAME}} || The group's name - see [[setGroupId]] || "Alpha 1-1"
+|-
+| {{hl|%UNIT_GRP_LEADER}} || Group leader mention (if the unit is its group's leader) || ", group leader"
+|-
+| {{hl|%UNIT_VEH_NAME}} || Display name of the unit's vehicle || "Hunter"
+|-
+| {{hl|%UNIT_VEH_POSITION}} || Unit's vehicle position, similar to [[vehicleRadio]] || "Gunner"
+|-
+| {{hl|%%}} || To display a normal percentage sign || {{n/a}}
+|}
+</spoiler>
+
+|r1= [[Nothing]]
+
+|x1= <sqf>4 radioChannelSetCallSign "(%UNIT_ID) %UNIT_RANK %UNIT_NAME%UNIT_GRP_LEADER"; // (1) Sgt Ben Kelly, group leader</sqf>
+
+|x2= <sqf>4 radioChannelSetCallSign ["%UNIT_VEH_POSITION, %UNIT_VEH_NAME", "%UNIT_NAME%UNIT_GRP_LEADER"];</sqf>
+
+|seealso= [[radioChannelAdd]] [[radioChannelCreate]] [[radioChannelRemove]] [[radioChannelSetLabel]]
+}}

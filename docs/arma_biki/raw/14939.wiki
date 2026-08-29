@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Remote Control
+
+|gr2= Custom Panels
+
+|descr= Shows/hides video feed transmitted from UAV in [[Arma 3: Custom Info|its custom info panel]].
+
+|s1= [[showUAVFeed]] show
+
+|p1= show: [[Boolean]]
+
+|r1= [[Boolean]] - always [[true]] unless error
+
+|x1= <sqf>showUAVFeed true;</sqf>
+
+|seealso= [[shownUAVFeed]] [[allUnitsUAV]] [[getConnectedUAV]] [[UAVControl]] [[connectTerminalToUAV]] [[isUAVConnected]] [[BIS_fnc_liveFeed]]
+}}

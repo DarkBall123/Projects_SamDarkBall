@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Check if a loading screen is opened.
+
+|s1= call [[BIS_fnc_isLoading]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>private _isLoading = call BIS_fnc_isLoading;</sqf>
+
+|seealso= [[BIS_fnc_startLoadingScreen]] [[BIS_fnc_endLoadingScreen]] [[BIS_fnc_progressLoadingScreen]]
+}}

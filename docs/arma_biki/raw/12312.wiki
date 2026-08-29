@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+|eff= local
+
+|gr1= Object Manipulation
+
+|descr= Enables/Disables random lip. When enabled, the unit continuously moves its lips as if it is talking.
+
+|s1= unit [[setRandomLip]] bool
+
+|p1= unit: [[Object]]
+
+|p2= bool: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player setRandomLip true;</sqf>
+
+|seealso= [[say]] [[setMimic]] [[setFaceAnimation]] [[setFace]]
+}}

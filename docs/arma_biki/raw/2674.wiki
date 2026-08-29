@@ -1,0 +1,46 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Returns whether a person is hidden (reached the hiding position).
+{{Feature|Important | Not to be confused with [[isObjectHidden]], which is returning object visibility set with [[hideObject]]}} 
+
+|s1= [[isHidden]] person
+
+|p1= person: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_bobIsHidden = isHidden bob;</sqf>
+
+|seealso= [[isObjectHidden]] [[getHideFrom]] [[setHideBehind]] [[findCover]]
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2017-01-01 - 22:40 (UTC)</dd>
+<dt class="note">[[User:Killzone_Kid|Killzone_Kid]]</dt>
+<dd class="note">
+Tested in 1.67 DEV, seems to always return [[false]]
+</dd>
+
+</dl>

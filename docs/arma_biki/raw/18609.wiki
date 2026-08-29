@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|arg= global
+
+|gr1= Stamina System
+
+|descr= Returns aimPrecision from animation state with custom value that will directly affects weapon sway size and speed.
+
+|s1= [[getCustomAimCoef]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_coef = getCustomAimCoef player;</sqf>
+
+|seealso= [[Arma 3: Stamina]] [[setCustomAimCoef]]
+}}

@@ -1,0 +1,48 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= global
+
+|gr1= AI Behaviour
+
+|descr= Returns the behaviour of the individual unit, this is why it only accepts [[Object]] as the argument. For Arma 3 behaviour explanation see [[Arma_3_AI_Behavior]]
+
+|s1= [[behaviour]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]] - one of:
+* "CARELESS"
+* "SAFE"
+* "AWARE"
+* "COMBAT"
+* "STEALTH"
+* "ERROR" (Since {{GVI|Arma3|1.78}} when used on empty vehicles and such)
+
+|x1= <sqf>
+_soldier setBehaviour "CARELESS";
+_b = behaviour _soldier; // returns "CARELESS"
+</sqf>
+
+|seealso= [[AIBehaviour]] [[setBehaviour]] [[setWaypointBehaviour]] [[combatMode]] [[setCombatMode]] [[skill]] [[setSkill]] [[Arma 3: AI Skill]] [[setCombatBehaviour]] [[combatBehaviour]]
+}}

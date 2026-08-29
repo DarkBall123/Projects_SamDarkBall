@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|arg= local
+
+|gr1= AI Behaviour
+
+|descr= Returns whether the [[useAISteeringComponent|AI steering component]] feature is enabled for the specified vehicle.
+
+|s1= [[isAISteeringComponentEnabled]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Boolean]] - [[true]] if AI steering component is supported by the vehicle (i.e. defined in config) and enabled, [[false]] otherwise
+
+|x1= <sqf>isAISteeringComponentEnabled myTank;</sqf>
+
+|seealso= [[useAISteeringComponent]] [[isUsingAISteeringComponent]]
+}}

@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= System
+
+|descr= Exports landscape as XYZ file.
+{{Feature|warning|Not available in Retail Version!}}
+
+|s1= [[exportLandscapeXYZ]] filename
+
+|p1= filename: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>exportLandscapeXYZ "myLandscape.txt";</sqf>
+
+|seealso=
+}}

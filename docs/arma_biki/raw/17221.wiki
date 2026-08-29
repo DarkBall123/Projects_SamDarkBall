@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.44
+
+|gr1= Diagnostic
+
+|descr= Returns array with active SQSs. To see number of all scripts currently in the scheduler use [[diag_activeScripts]].
+
+|s1= [[diag_activeSQSScripts]]
+
+|r1= [[Array]] with [<nowiki/>[name, fileName, isRunning, currentLine],...]
+* name: [[String]] - function or file name
+* fileName: [[String]]
+* isRunning: [[Boolean]]
+* currentLine: [[Number]] - line currently executing
+
+|x1= <sqf>{ systemChat str _x } forEach diag_activeSQSScripts;</sqf>
+
+|seealso= [[diag_activeMissionFSMs]] [[diag_activeSQFScripts]] [[diag_log]] [[diag_fps]] [[diag_fpsmin]] [[diag_frameno]] [[diag_tickTime]] [[diag_activeScripts]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.00
+
+|gr1= Object Manipulation
+
+|descr= Returns TI parameters of a vehicle.
+
+|s1= [[getVehicleTIPars]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Array]] with [aliveFactor, movementFactor, metabolismFactor]
+
+|x1= <sqf>getVehicleTIPars _veh;</sqf>
+
+|seealso= [[setVehicleTIPars]]
+}}

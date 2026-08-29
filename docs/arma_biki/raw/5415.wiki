@@ -1,0 +1,200 @@
+==Tracked==
+
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''||'''Commander'''
+|-
+|M1Abrams||M1A1||[[File:M1abrams.jpg|200px]]||900||3||0||1||Y
+|-
+|M113||M113||[[File:M113.jpg|200px]]||150||13||11||1||N
+|-
+|M113_RACS||M113 (RACS)||[[File:M113_racs.jpg|200px]]||150||13||11||1||N
+|-
+|M113Ambul||M113 Ambulance||[[File:M113ambul.jpg|200px]]||150||4||3||0||N
+|-
+|Vulcan||M163 Vulcan||[[File:Vulcan.jpg|200px]]||180||2||0||1||N
+|-
+|Vulcan_RACS||M163 Vulcan||[[File:Vulcan_racs.jpg|200px]]||180||2||0||1||N
+|-
+|BMP2||BMP-2||[[File:Bmp2.jpg|200px]]||250||10||7||1||Y
+|-
+|BMP2Ambul||BMP-2 Ambulance||[[File:Bmp2ambul.jpg|200px]]||250||4||3||0||N
+|-
+|T72||T-72||[[File:T72.jpg|200px]]||750||3||0||1||Y
+|-
+|ZSU||Shilka||[[File:Zsu.jpg|200px]]||250||3||0||1||Y
+|}
+
+== Wheeled ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|HMMWV||[[HMMWV]]||[[File:Hmmwv.jpg|200px]]||70||4||3||0
+|-
+|HMMWV50||[[HMMWV M2]]||[[File:Hmmwv50.jpg|200px]]||70||5||3||1
+|-
+|HMMWVTOW||[[HMMWV TOW]]||[[File:Hmmwvtow.jpg|200px]]||70||5||3||1
+|-
+|HMMWVMK||[[HMMWV Mk19]]||[[File:Hmmwvmk.jpg|200px]]||70||5||3||1
+|-
+|Truck5t||[[5t Truck]]||[[File:Truck5t.jpg|200px]]||20||14||13||0
+|-
+|Truck5tOpen||5t Truck Open||[[File:Truck5topen.jpg|200px]]||20||14||13||0
+|-
+|Truck5tRepair||Repair Truck||[[File:Truck5trepair.jpg|200px]]||20||2||1||0
+|-
+|Truck5tReammo||Ammo Truck||[[File:Truck5treammo.jpg|200px]]||20||2||1||0
+|-
+|Truck5tRefuel||Refuel Truck||[[File:Truck5trefuel.jpg|200px]]||20||2||1||0
+|-
+|Truck5tMG||5t Truck with Machine Gun||[[File:Truck5tmg.jpg|200px]]||20||14||12||1
+|-
+|Stryker_ICV_M2||[[Stryker ICV (M2)]]||[[File:Stryker_icv_m2.jpg|200px]]||200||11||9||1
+|-
+|Stryker_ICV_MK19||[[Stryker ICV (MK19)]]||[[File:Stryker_icv_mk19.jpg|200px]]||200||11||9||1
+|-
+|Stryker_TOW||[[Stryker ATGM]]||[[File:Stryker_tow.jpg|200px]]||200||2||0||1
+|-
+|UAZ||UAZ||[[File:Uaz.jpg|200px]]||20||7||6||0
+|-
+|UAZMG||UAZ with Machine Gun||[[File:Uazmg.jpg|200px]]||20||3||1||1
+|-
+|UAZ_AGS30||UAZ AGS-30||[[File:Uaz_ags30.jpg|200px]]||20||3||1||1
+|-
+|DATSUN_DSHKM1<br>''(Queen's Gambit)''||Datsun DshKm-1||[[File:DatsunDshKm.jpg|200px]]||?||?||?||1
+|-
+|DATSUN_PK1<br>''(Queen's Gambit)''||Datsun PK-1||[[File:DatsunPk1.jpg|200px]]||?||?||?||1
+|-
+|DATSUN_PK2<br>''(Queen's Gambit)''||Datsun PK-2||[[File:DatsunPk2.jpg|200px]]||?||?||?||1
+|-
+|HILUX_PK1<br>''(Queen's Gambit)''||Hilux PK-1||[[File:HiluxPk1.jpg|200px]]||?||?||?||1
+|-
+|Ural||ural||[[File:Ural.jpg|200px]]||20||15||14||0
+|-
+|UralOpen||Ural Open||[[File:Uralopen.jpg|200px]]||20||15||14||0
+|-
+|UralRepair||Ural Repair||[[File:Uralrepair.jpg|200px]]||20||3||2||0
+|-
+|UralReammo||Ural Ammo||[[File:Uralreammo.jpg|200px]]||20||3||2||0
+|-
+|UralRefuel||Ural Fuel||[[File:Uralrefuel.jpg|200px]]||20||3||2||0
+|-
+|UralCivil||Ural (Civil)||[[File:Uralcivil.jpg|200px]]||20||15||14||0
+|-
+|UralCivil2||Ural (Civil 2)||[[File:Uralcivil2.jpg|200px]]||20||15||14||0
+|-
+|BRDM2||BRDM-2||[[File:Brdm2.jpg|200px]]||120||5||3||1
+|-
+|BRDM2_ATGM||BRDM-2 ATGM||[[File:Brdm2_atgm.jpg|200px]]||120||3||1||1
+|-
+|Skoda||Car (White)||[[File:Skoda.jpg|200px]]||20||4||3||0
+|-
+|SkodaBlue||Car (Blue)||[[File:Skodablue.jpg|200px]]||20||4||3||0
+|-
+|SkodaRed||Car (Red)||[[File:Skodared.jpg|200px]]||20||4||3||0
+|-
+|SkodaGreen||Car (Green)||[[File:Skodagreen.jpg|200px]]||20||4||3||0
+|-
+|datsun1_civil_1_open||Pick-Up||[[File:Datsun1_civil_1_open.jpg|200px]]||20||4||3||0
+|-
+|datsun1_civil_2_covered||Pick-Up 2||[[File:Datsun1_civil_2_covered.jpg|200px]]||20||4||3||0
+|-
+|datsun1_civil_3_open||Pick-Up 3||[[File:Datsun1_civil_3_open.jpg|200px]]||20||4||3||0
+|-
+|hilux1_civil_1_open||Offroad||[[File:Hilux1_civil_1_open.jpg|200px]]||20||2||1||0
+|-
+|hilux1_civil_2_covered||Offroad 2||[[File:Hilux1_civil_2_covered.jpg|200px]]||20||2||1||0
+|-
+|hilux1_civil_3_open||Offroad 3||[[File:Hilux1_civil_3_open.jpg|200px]]||20||2||1||0
+|-
+|Landrover_Closed||Army 4x4||[[File:Landrover_closed.jpg|200px]]||20||7||6||0
+|-
+|Landrover||Army 4x4 Open||[[File:Landrover.jpg|200px]]||20||7||6||0
+|-
+|LandroverMG||Army 4x4 M2||[[File:Landrovermg.jpg|200px]]||20||3||1||1
+|-
+|Bus_city||Bus||[[File:Bus_city.jpg|200px]]||20||13||12||0
+|-
+|tractor||Tractor||[[File:Tractor.jpg|200px]]||20||1||0||0
+|-
+|car_hatchback||Hatchback||[[File:Car_hatchback.jpg|200px]]||20||4||3||0
+|-
+|car_sedan||Sedan||[[File:Car_sedan.jpg|200px]]||20||4||3||0
+|-
+|HMMWV_civil<br>''(Queen's Gambit)''||HMMWV (Civil)||[[File:HMMWV_Civ.jpg|200px]]||?||?||?||?
+|-
+|M1030||M1030||[[File:M1030.jpg|200px]]||50||2||1||0
+|-
+|TT650C||TT650||[[File:TT650C.jpg|200px]]||50||2||1||0
+|-
+|TT650G||TT650G||[[File:TT650G.jpg|200px]]||50||2||1||0
+|}
+
+== Air ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|AH6||AH-6||[[File:Ah6.jpg|200px]]||30||2||1||0
+|-
+|AH6_RACS||AH-6||[[File:Ah6_racs.jpg|200px]]||30||2||1||0
+|-
+|AH1W||AH-1Z||[[File:Ah1w.jpg|200px]]||60||2||0||1
+|-
+|UH60||UH-60 (FFAR)||[[File:Uh60.jpg|200px]]||40||14||13||0
+|-
+|UH60MG||UH-60||[[File:Uh60mg.jpg|200px]]||40||16||13||2
+|-
+|UH60MGRACS<br>''(Queen's Gambit)''||UH-60 (RACS)||[[File:UH60RACS.jpg|200px]]||40||16||13||2
+|-
+|MH6||MH-6||[[File:Mh6.jpg|200px]]||30||6||5||0
+|-
+|MH6_RACS||MH-6||[[File:Mh6_racs.jpg|200px]]||30||6||5||0
+|-
+|AV8B||AV8B[[ArmA: Armed Assault: STOVL | STOVL]]||[[File:Av8b.jpg|200px]]||60||1||0||0
+|-
+|AV8B2||AV8B (GBU)[[ArmA: Armed Assault: STOVL | STOVL]]||[[File:Av8b2.jpg|200px]]||60||1||0||0
+|-
+|A10||A-10||[[File:A10.jpg|200px]]||85||1||0||0
+|-
+|KA50||KA-50||[[File:Ka50.jpg|200px]]||60||1||0||0
+|-
+|Mi17||Mi17 (57 mm Rockets)||[[File:Mi17.jpg|200px]]||40||17||16||0
+|-
+|Mi17_MG||Mi17||[[File:Mi17_mg.jpg|200px]]||40||18||16||1
+|-
+|SU34||Su-34||[[File:Su34.jpg|200px]]||50||2||0||1
+|-
+|SU34B||Su-34B||[[File:Su34b.jpg|200px]]||50||2||0||1
+|-
+|Camel||Camel||[[File:Camel.jpg|200px]]||15||1||0||0
+|-
+|Camel2||Camel E||[[File:Camel2.jpg|200px]]||15||1||0||0
+|-
+|DC3<br>''(Queen's Gambit)''||DC3||[[File:DC3.jpg|200px]]||?||16||15||0
+|-
+|ParachuteEast||Parachute|| rowspan="5" |[[File:Parachute.jpg|200px]]||-||1||0||0
+|-
+|ParachuteWest||Parachute||-||1||0||0
+|-
+|Parachute||Parachute||-||1||0||0
+|-
+|ParachuteG||Parachute||-||1||0||0
+|-
+|ParachuteC||Parachute||-||1||0||0
+|}
+
+== Water ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|Zodiac||CRRC||[[File:Zodiac.jpg|200px]]||20||5||4||0
+|-
+|Zodiac2||CRRC||[[File:Zodiac2.jpg|200px]]||20||5||4||0
+|-
+|RHIB||RHIB||[[File:Rhib.jpg|200px]]||30||12||10||1
+|-
+|RHIB2Turret||RHIB (2 Turrets)||[[File:Rhib2turret.jpg|200px]]||30||10||7||2
+|-
+|PBX||PBX Boat||[[File:Pbx.jpg|200px]]||20||4||3||0
+|}
+
+{{GameCategory|arma1|Reference Lists}}

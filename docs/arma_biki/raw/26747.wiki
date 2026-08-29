@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Modules - CBRN
+
+|descr= <pre>/*
+
+	Description:
+	Enables CBRN systems in a scenario (not MP-compatible!).
+	NOTE: Module / function set not robust nor completed - not recommended for usage at this stage!
+
+	Parameter(s):
+
+	Returns:
+	BOOL
+*/</pre>
+
+{{Wiki|placeholder}}
+{{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_moduleCBRN]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

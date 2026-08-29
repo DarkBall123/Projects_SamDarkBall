@@ -1,0 +1,97 @@
+{{TOC|side}}
+== Playing Music ==
+
+You can play all music with:
+
+<sqf>playMusic "Track01_Dead_Forest";</sqf>
+
+
+== CfgMusic ==
+
+=== {{arma2}} ===
+
+* Track01_Dead_Forest (01: Dead Forest)
+* Track02_Insertion (02: Insertion)
+* Track03_First_To_Fight (03: First To Fight)
+* Track04_Reinforcements (04: Reinforcements)
+* Track05_Warpath (05: Warpath)
+* Track06_Abandoned_Battlespace (06: Abandoned Battlespace)
+* Track07_Last_Men_Standing (07: Last Men Standing)
+* Track08_Harvest_Red (08: Harvest Red)
+* Track09_Movement_To_Contact (09: Movement To Contact)
+* Track10_Logistics (10: Logistics)
+* Track11_Large_Scale_Assault (11: Large Scale Assault)
+* Track12_The_Movement (12: The Movement)
+* Track13_Sharping_Knives (13: Sharping Knives)
+* Track14_Close_Quarter_Combat (14: Close Quarter Combat)
+* Track15_Morning_Sortie (15: Morning Sortie)
+* Track16_Valentine (16: Valentine)
+* Track17_Marauder_Song (17: Marauder Song)
+* Track18_Ghost_Waltz (18: Ghost Waltz)
+* Track19_Debriefing (19: Debriefing)
+* Track20_Badlands (20: Badlands)
+* Track21_Rise_Of_The_Fallen (21: Rise Of The Fallen)
+* Track22_Chernarussian_Anthem (22: Chernarussian Anthem)
+* Track26_Organ_Works (26: Organ Works)
+* Track27_Killing_Machines (27: Easter Eggs - Killing Machines)
+* Ambient01_Cold_Wind (28: Cold Wind)
+* Ambient02_Vague_Shapes (29: Vague Shapes)
+* Ambient03_Indian_Summer (30: Indian Summer)
+* Ambient04_Electronic_Warfare (31: Electronic Warfare)
+* Ambient05_Cobalt (32: Cobalt)
+* Ambient06_Khe_Sanh_Riff (33: Khe Sanh Riff)
+* Ambient07_Manhattan (34: Manhattan)
+* Ambient08_Reforger (35: Reforger)
+* Short01_Defcon_Three (36: Defcon Three)
+* ToWar (EW - ToWar)
+* AllHelllBreaksLoose (EW - All Helll Breaks Loose)
+* Fallout (Fallout)
+* Defcon (Defcon)
+* Wasteland (Wasteland)
+* SkyNet (Sky Net)
+* MAD (EW - Mutual Assured Destruction)
+
+=== {{arma2oa}} ===
+
+* EP1_Track01 (E01: Arrowhead)
+* EP1_Track01D (E01D: Arrowhead (drums))
+* EP1_Track02 (E02: Good Morning T-Stan)
+* EP1_Track03 (E03: Airborne)
+* EP1_Track03D (E03D: Airborne (drums))
+* EP1_Track04 (E04: Arrival)
+* EP1_Track05 (E05: Zargabad Market)
+* EP1_Track06 (E06: Nightlife)
+* EP1_Track07 (E07: Coltan Blues)
+* EP1_Track07D (E07D: Coltan Drums)
+* EP1_Track08 (E08: Revolver Jam)
+* EP1_Track09 (E09: Dancing Scimitar)
+* EP1_Track10 (E10: Death From Above)
+* EP1_Track11 (E11: Night Visions)
+* EP1_Track12 (E12: Crude Oil)
+* EP1_Track13 (E13: Iron Mountain)
+* EP1_Track13D1 (E13D1: Mountain Drums 1)
+* EP1_Track13D2 (E13D2: Mountain Drums 2)
+* EP1_Track13V (E13V: Mountain Chant)
+* EP1_Track14 (E14: Concrete Cell)
+* EP1_Track15 (E15: Warmongers)
+
+=== {{Name|arma2baf}} ===
+
+* BAF_Track01
+* BAF_Track02
+* BAF_Track03
+* BAF_Track04
+* BAF_Track05
+* BAF_Track06
+
+=== {{Name|arma2pmc}} ===
+
+* PMC_Track01
+* PMC_Track02
+* PMC_Track03
+* PMC_Track04
+* PMC_Track05
+* PMC_Track06
+
+
+{{GameCategory|arma2|Reference Lists}}

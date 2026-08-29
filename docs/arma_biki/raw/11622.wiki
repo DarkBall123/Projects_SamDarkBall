@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Radio and Chat
+
+|gr2= Custom Radio and Chat
+
+|descr= Remove the units from the custom radio channel.
+
+|s1= customChannelID [[radioChannelRemove]] units
+
+|p1= customChannelID: [[Number]] - [[Channel IDs|custom channel ID]] returned by [[radioChannelCreate]] command
+
+|p2= units: [[Array]] of [[Object]]s - units
+
+|r1= [[Nothing]]
+
+|x1= <sqf>3 radioChannelRemove [blufor_unit_1, blufor_unit_2];</sqf>
+
+|seealso= [[radioChannelAdd]] [[radioChannelCreate]] [[radioChannelSetCallSign]] [[radioChannelSetLabel]]
+}}

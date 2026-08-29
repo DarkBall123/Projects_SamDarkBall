@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Checks whether the object is marked for weapons collection.
+
+|s1= [[isMarkedForCollection]]  object
+
+|p1= object: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_marked = isMarkedForCollection _truck;</sqf>
+
+|seealso=
+}}

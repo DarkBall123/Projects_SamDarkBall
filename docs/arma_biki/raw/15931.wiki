@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= <pre>/*
+
+	Description:
+	Exports config macros.
+
+	Parameter(s):
+		0: CONFIG or ARRAY - config container to be searched (e.g. configFile >> "CfgVehicles") or list of classes or classnames
+		1: ARRAY - list of macro names to be used (e.g. ["MAPSIZE","NAMESOUND"])
+		2 (Optional): STRING - macro category name (when param 0 is CONFIG, its classname is used by default - e.g. "CfgVehicles")
+
+	Returns:
+	STRING
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_diagMacros]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_diagMacros;</sqf> -->
+
+|seealso=
+}}

@@ -1,0 +1,9 @@
+The scenario is divided into four phases. Each has its own set of entities and environmental settings (e.g. a night scenario with a player in a tank can have an infantry only intro set during the day).
+
+[[File:3den scenario phases.png|center]]
+The sequence of phases is:
+# In singleplayer, '''Intro''' is automatically played before the scenario starts (even before briefing). It is primarily used for cutscenes, and it can be skipped using the button in the pause menu. This phase is optional and is skipped when it doesn't contain any character with the ''Player'' attribute.
+# '''Scenario''' is the core part. It is the only phase available in multiplayer, and the only one where player has control over his character.
+# '''Outro - Win''' and '''Outro - Lose''' phases are similar to the Intro, but are played after the scenario ends. 'The Win' part is selected when the scenario ends successfully, otherwise the 'Lose' part is chosen.
+
+[[Category:Eden Editor: Scenario|Scenario Phases]]

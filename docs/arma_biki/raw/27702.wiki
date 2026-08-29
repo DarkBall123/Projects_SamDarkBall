@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes all items from [[binocular]] weapon, except magazine.
+
+|s1= [[removeAllBinocularItems]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllBinocularItems player;</sqf>
+
+|seealso= [[addBinocularItem]] [[removeBinocularItem]] [[removeAllPrimaryWeaponItems]] [[removeAllSecondaryWeaponItems]] [[removeAllHandgunItems]]
+}}

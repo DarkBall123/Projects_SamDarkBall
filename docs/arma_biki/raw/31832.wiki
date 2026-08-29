@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= Weapons
+
+|arg= local
+
+|descr= Returns [[true]] if a unit's weapon can be deployed.
+
+|s1= [[canDeployWeapon]] unit
+
+|p1= unit : [[Object]]
+
+|r1= [[Boolean]] - [[true]] if unit's weapon can be deployed
+
+|x1= <sqf>if (canDeployWeapon player) then { hint "I could rest my weapon here..." };</sqf>
+
+|seealso= [[isWeaponDeployed]] [[isWeaponRested]]
+}}

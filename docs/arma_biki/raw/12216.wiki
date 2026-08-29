@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Waypoints
+
+|descr= Changes the waypoint name.
+
+|s1= waypoint [[setWaypointName]] name
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= name: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp,2] setWaypointName "myName";</sqf>
+|seealso= [[addWaypoint]] [[waypointName]] [[setWaypointBehaviour]] [[setWaypointCombatMode]] [[setWaypointCompletionRadius]] [[setWaypointDescription]] [[setWaypointFormation]] [[setWaypointHousePosition]] [[setWaypointLoiterRadius]] [[setWaypointLoiterType]] [[setWaypointPosition]] [[setWaypointScript]] [[setWaypointSpeed]] [[setWaypointStatements]] [[setWaypointTimeout]] [[setWaypointType]] [[setWaypointVisible]]
+}}

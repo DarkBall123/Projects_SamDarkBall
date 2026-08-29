@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Containers
+
+|gr2= Unit Inventory
+
+|descr= Get array with all magazines from uniform of the given unit.
+
+|s1= [[uniformMagazines]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] of [[String]]
+
+|x1= <sqf>
+uniformMagazines player;
+// returns e.g
+/*
+[
+	"6.5mm 30Rnd STANAG Mag(30/30)[id/cr:1/0](3x)"
+]
+*/
+</sqf>
+
+|seealso= [[vestMagazines]] [[backpackMagazines]] [[soldierMagazines]]
+}}

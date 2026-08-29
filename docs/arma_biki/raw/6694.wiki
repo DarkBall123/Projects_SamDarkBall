@@ -1,0 +1,30 @@
+{{Tool
+
+|AUTHOR=
+[[:Category:Projects|Bohemia Interactive]]
+
+|VERSION=
+
+|COMPATIBILITY=
+[[:Category: Arma 3|Arma 3]]
+
+|DOWNLOAD= {{Link|link= http://store.steampowered.com/app/233800/|text= Part of Arma 3 Tools package on Steam}}
+
+|DESCRIPTION=
+DSCheckSignatures is a tool for checking ArmA digital signatures. It allows you to verify your signatures match your pbo files. This verification is recommended step before publishing signed addons, as it emulates the signature verification done on the server, and by using it you can verify your signatures are up to date and are working fine.
+
+|COMMAND=
+DSCheckSignatures <checked directory> <keys directory>
+
+|NOTES=
+
+|LICENSING=
+[[End User License Agreement for BI's Tools|Bohemia Interactive End User License Agreement]]
+
+|SEEALSO=
+[[DSUtils 2]], 
+[[Armed Assault: Addon Signatures]]
+}}
+
+{{GameCategory|arma1|Official Tools}}
+{{GameCategory|arma3|Official Tools}}

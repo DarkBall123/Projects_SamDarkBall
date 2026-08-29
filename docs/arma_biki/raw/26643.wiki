@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Interpolation 
+
+|descr= <pre>#define STEPS	101
+</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_bezierAverage]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_bezierAverage;</sqf> -->
+
+|seealso=
+}}

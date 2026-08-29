@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Make destroyed curator objects non-editable.
+
+|s1= [object, parentClasses] call [[BIS_fnc_removeDestroyedCuratorEditableObjects]]
+
+|p1= object: [[Object]] - curator module or objects to be removed after death
+
+|p2= parentClasses: [[Array]] of [[String]]s - parent classes of objects to be removed (e.g., "Man")
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[curatorModule, ["Man"]] call BIS_fnc_removeDestroyedCuratorEditableObjects;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

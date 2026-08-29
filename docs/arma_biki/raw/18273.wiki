@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Changes selection in [[:Category:Eden Editor|Eden Editor]] to what is inside entities array. {{Feature|warning|This command will trigger the 3DEN event handler '''"OnSelectionChange"'''. Do not use it inside this event handler!}}
+
+|s1= [[set3DENSelected]] entities
+
+|p1= entities: [[Array]] of [[Eden Entity]] or [[Eden ID]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>set3DENSelected [0,5,3,6,7,12];</sqf>
+
+|seealso= [[get3DENMouseOver]] [[all3DENEntities]] [[collect3DENHistory]] [[get3DENEntityID]] [[get3DENSelected]] [[set3DENObjectType]]
+}}

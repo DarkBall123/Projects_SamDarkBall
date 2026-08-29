@@ -1,0 +1,16 @@
+{{RV|type=command
+|game1= arma3
+|version1= 1.62
+|arg=
+|gr1= Stamina System
+
+|descr= Set whether animation's aim precision affects weapon sway.
+|s1= unit [[enableAimPrecision]] enable
+
+|p1= unit: [[Object]]
+|p2= enable: [[Boolean]] - [[true]] enable, [[false]], disabled
+|r1= [[Nothing]]
+
+|x1= <sqf>player enableAimPrecision false;</sqf>
+|seealso= [[Arma 3: Stamina]]
+}}

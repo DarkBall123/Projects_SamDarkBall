@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= CampaignManager
+
+|descr= <pre>/*
+	Author: Nelson Duarte
+
+	Description:
+	Get's the mission state, can be one of "Waiting", "Intro", "Loadout" or "Started"
+
+	Parameters:
+		Nothing
+
+	Returns:
+		The mission state
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_EXP_camp_manager_getState]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.24
+
+|gr1= Mines
+
+|descr=Returns an array of all mines detected by a given side
+
+|s1= [[detectedMines]] side
+
+|p1= side: [[side]]
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>detectedMines west;</sqf>
+
+|x2= <sqf>detectedMines side player;</sqf>
+
+|seealso= [[allMines]] [[mineDetectedBy]] [[createMine]] [[mineActive]] [[revealMine]]
+}}

@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|eff= local
+
+|gr1= Camera Control
+
+|descr= Allows camera shake effects via [[addCamShake]]. If set to [[false]], then a currently active shake effect will stop immediately.
+By default, shake effects are enabled, but once they have been disabled by this command, they will have to be enabled first, in order to be visible.
+
+|s1= [[enableCamShake]]  value
+
+|p1= value: [[Boolean]] - if [[true]], shake effects are visible
+
+|r1= [[Nothing]]
+
+|x1= <sqf>enableCamShake false;</sqf>
+
+|seealso= [[addCamShake]] [[setCamShakeDefParams]] [[setCamShakeParams]] [[resetCamShake]]
+}}

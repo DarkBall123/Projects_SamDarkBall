@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Briefing
+
+|descr= Returns custom data attached to the local task or an empty array if there are no custom data attached.
+
+|s1= [[taskCustomData]] task
+
+|p1= task: [[Task]]
+
+|r1= [[Array]] of string - iconPath, iconText, descriptionText
+
+|x1= <sqf>_data = taskCustomData someTask;</sqf>
+
+|seealso= [[setSimpleTaskCustomData]] [[setSimpleTaskType]] [[taskType]] [[Arma 3: Task Framework#Task Overhaul|Tasks Overhaul]]
+}}

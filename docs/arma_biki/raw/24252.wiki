@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.86
+
+|gr1= Environment
+
+|descr= Returns the newer date or returns true if they are identical.
+
+|s1= [date1, date2] call [[BIS_fnc_compareDateTimes]]
+
+|p1= date1: [[Array]] format [[Date]]
+|p2= date2: [[Array]] format [[Date]]
+
+|r1= [[Boolean]] or [[Array]]
+
+|x1= <sqf>[[2035,5,28,13,37], [2032,5,28,13,37]] call BIS_fnc_compareDateTimes;</sqf>
+
+|seealso= [[date]] [[BIS_fnc_isDateTimeNewer]] [[BIS_fnc_calculateDateTime]]
+}}

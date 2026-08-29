@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|exec= spawn
+
+|descr= DROP SLINGLOAD [[Custom_Waypoints|custom waypoint]].
+
+Drop an object which was previously loaded using [[BIS_fnc_wpSlingLoadAttach]]
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: none
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, position dude, 50] spawn BIS_fnc_wpSlingLoadDrop;</sqf>
+
+|seealso=
+}}

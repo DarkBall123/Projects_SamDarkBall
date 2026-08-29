@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Eden Editor
+
+|descr= Moves Eden's camera depending on one of two modes:
+* "random" - A random position over land preferring non forested areas
+* "selected" - The current selected Eden entity or users cursor position if nothing is selected
+
+|s1= [mode] call [[BIS_fnc_3DENCamera]]
+
+|p1= mode: [[String]] - option mode to use
+
+|r1= [[Nothing]]
+
+|x1= Move Eden's camera to the currently selected Eden entity
+<sqf>["selected"] call BIS_fnc_3DENCamera;</sqf>
+
+|x2= Move Eden's camera to a random position
+<sqf>["random"] call BIS_fnc_3DENCamera;</sqf>
+
+|seealso= [[:Category:Eden Editor|Eden Editor]] [[BIS_fnc_3DENControlsHint]] [[BIS_fnc_3DENDiagCreateList]] [[BIS_fnc_3DENDiagFonts]] [[BIS_fnc_3DENDiagMouseControl]] [[BIS_fnc_3DENDrawLocations]] [[BIS_fnc_3DENEntityMenu]] [[BIS_fnc_3DENExportAttributes]] [[BIS_fnc_3DENExportOldSQM]] [[BIS_fnc_3DENExportTerrainBuilder]] [[BIS_fnc_3DENFlashlight]] [[BIS_fnc_3DENGrid]] [[BIS_fnc_3DENIntel]] [[BIS_fnc_3DENInterface]] [[BIS_fnc_3DENListLocations]] [[BIS_fnc_3DENMissionPreview]] [[BIS_fnc_3DENModuleDescription]] [[BIS_fnc_3DENShowMessage]] [[BIS_fnc_3DENStatusBar]] [[BIS_fnc_3DENToolbar]] [[BIS_fnc_3DENTutorial]] [[BIS_fnc_3DENVisionMode]]
+}}

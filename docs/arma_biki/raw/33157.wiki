@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+|gr1= Groups
+
+|descr= Returns [[Group]] to which the given vehicle was added last with [[addVehicle]]. To update [[assignedGroup]] to the current group, run [[addVehicle]] to the current group again.
+
+|s1= [[assignedGroup]] vehicle
+
+|p1= vehicle: [[Object]] - transport
+
+|r1= [[Group]]
+
+|x1= <sqf>_group = assignedGroup vehicle player;</sqf>
+
+|seealso= [[assignedVehicle]] [[assignedVehicles]] [[addVehicle]] [[assignAsDriver]] [[assignAsCargo]] [[assignAsCommander]] [[assignAsGunner]] [[assignAsTurret]] [[assignAsCargoIndex]] [[unassignVehicle]] [[leaveVehicle]] [[fullCrew]]
+}}

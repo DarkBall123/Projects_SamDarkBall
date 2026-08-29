@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1=arma3
+|version1=1.84
+
+|gr1= System
+
+|descr= Sets if friendly units will calculate [[player]]'s visibility or not. Default value is [[false]].
+
+|s1= [[calculatePlayerVisibilityByFriendly]] calculate
+
+|p1= calculate: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>calculatePlayerVisibilityByFriendly true;</sqf>
+
+|seealso= [[getCalculatePlayerVisibilityByFriendly]] [[knowsAbout]]
+}}

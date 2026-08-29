@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.01
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= System
+
+|descr= Returns whether Picture-In-Picture video option (Render to Texture) is enabled or not.
+
+|s1= [[isPiPEnabled]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>private _PiPState = isPiPEnabled;</sqf>
+
+|seealso= [[BIS_fnc_PIP]]
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|gr1= Animations
+
+|gr2= Stamina System
+
+|descr= Returns aim precision for current animation
+
+|s1= [[getAnimAimPrecision]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Number]]
+
+|x1= <sqf>private _aimPrecision = getAnimAimPrecision player;</sqf>
+ 
+|seealso= [[Arma 3: Stamina]]
+}}

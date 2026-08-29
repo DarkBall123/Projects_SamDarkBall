@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Campaign
+
+|gr2= Missions
+
+|descr= Checks to see if a mission is being run in a campaign.
+
+|s1= [] call [[BIS_fnc_isCampaign]]
+
+|r1= [[Boolean]] - [[true]] if being run in a campaign, [[false]] if not
+
+|x1= <sqf>[] call BIS_fnc_isCampaign;</sqf>
+
+|seealso= [[campaignConfigFile]]
+}}

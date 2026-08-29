@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.75
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= Weapon Pool
+
+|descr= Remove all weapons from the weapon pool, of which the player may choose in the following missions. Available in campaigns only.
+
+|s1= [[clearWeaponPool]] 
+
+|r1= [[Nothing]]
+
+|x1= <sqf>clearWeaponPool;</sqf>
+
+|seealso= [[addWeaponPool]]
+}}

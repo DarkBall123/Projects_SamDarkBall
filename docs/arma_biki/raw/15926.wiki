@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Runs scripted loop. Repeated call terminates previous loops.
+
+|s1= [code, delay] spawn [[BIS_fnc_diagLoop]]
+
+|p1= code: [[Code]] - code to be executed
+
+|p2= code: [[Number]] - (Optional, default 0.1) delay between loops
+
+|exec= spawn
+
+|r1= [[Script Handle]] - [[spawn]] handle
+
+|x1= <sqf>[{ systemChat "Loop!" }, 0.5] spawn BIS_fnc_diagLoop;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diag functions]]
+}}

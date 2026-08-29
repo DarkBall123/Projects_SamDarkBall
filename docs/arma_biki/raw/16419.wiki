@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= Draws respawn positions on the map which were added by [[BIS_fnc_addRespawnPosition]].
+
+|s1= [state] call [[BIS_fnc_drawRespawnPositions]]
+
+|p1= state: [[Boolean]] - [[true]] to start drawing, [[false]] to end it
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[true] call BIS_fnc_drawRespawnPositions;</sqf>
+
+|seealso= [[:Category:Function Group: Respawn|Respawn functions]]
+}}

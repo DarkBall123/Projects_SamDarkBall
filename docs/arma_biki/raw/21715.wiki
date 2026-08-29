@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3 
+|version1= 1.72
+
+|gr1= Sensors
+
+|descr= Return list of datalink targets and time for which they will be/were known.
+
+|s1= [[listRemoteTargets]] side
+
+|p1= side: [[Side]]
+
+|r1= [[Array]] of [[Array]]s with [remoteTarget, lastDetected]
+* remoteTarget: [[Object]]
+* lastDetected: [[Number]]
+
+|x1= <sqf>listRemoteTargets opfor;</sqf>
+
+|seealso= [[listVehicleSensors]] [[enableVehicleSensor]] [[isVehicleRadarOn]] [[isVehicleSensorEnabled]]
+}}

@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Map and Markers
+
+|arg= global
+
+|eff= global
+
+|descr= Unhide the markers sequentially.
+
+|s1= [marker, duration, hideAfter] spawn [[BIS_fnc_showMarkerArray]]
+
+|p1= marker: [[Array]] - [[Array]] of [[String]]s markers
+
+|p2= duration: [[Number]] - (Optional, default 1) duration
+
+|p3= hideAfter: [[Boolean]] - (Optional, default [[true]]) [[true]] to keep markers displayed, [[false]] to hide them again afterward
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[["marker_1","marker_2","marker_n"], 3, false] spawn BIS_fnc_showMarkers;</sqf>
+
+|exec= spawn
+
+|seealso= [[BIS_fnc_blinkMarker]] [[BIS_fnc_colorMarker]] [[BIS_fnc_moveMarker]] [[BIS_fnc_showMarker]]
+}}

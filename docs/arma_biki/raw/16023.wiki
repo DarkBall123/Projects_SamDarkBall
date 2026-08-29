@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Missions
+
+|descr= Tracks mission time by storing time in [[profileNamespace]].
+
+|s1= [save, delete] call [[BIS_fnc_trackMissionTime]]
+
+|p1= save: [[Boolean]] (Optional, default [[true]])
+
+|p2= delete: [[Boolean]] (Optional, default [[false]])
+
+|r1= [[Number]] - time result
+
+|x1= <sqf>[true, true] call BIS_fnc_trackMissionTime; // Delete saved mission time</sqf>
+
+|x2= <sqf>[true] call BIS_fnc_trackMissionTime; // Save mission time</sqf>
+
+|seealso= [[time]] [[serverTime]] [[systemTime]]
+}}

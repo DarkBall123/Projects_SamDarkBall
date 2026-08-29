@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact
+
+|descr= <pre>/*
+
+	Description:
+		Return if task is active, i.e., added to player, but not yet completed.
+		Only in this state can player assign it.
+
+	Parameter(s):
+		0: STRING - task ID
+
+	Returns:
+		BOOL
+
+	Example:
+		if ("q_schnobble" call BIN_fnc_taskActive) then {hint "ACTIVE!";};
+*/</pre>
+
+{{Wiki|placeholder}}
+{{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_taskActive]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

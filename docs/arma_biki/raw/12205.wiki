@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes all items with given class name from the inventory.
+
+|s1= unit [[removeItems]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeItems "FirstAidKit";</sqf>
+
+|seealso= [[removeItem]] [[removeAllAssignedItems]] [[unassignItem]] [[assignItem]] [[assignedItems]] [[addItem]] [[linkItem]] [[unlinkItem]]
+}}

@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+|gr1= Environment
+
+|descr= Sets the provided Thermal Imaging parameter's value.
+{{Feature|important|The settings are '''not''' saved in savegame and must be reapplied after loading.}}
+
+|s1= [[setTIParameter]] [paramName, newValue]
+
+|p1= paramName: [[String]] - the parameter name. See [[getTIParameters]] for a list of possible values
+
+|p2= newValue: [[Number]]<!-- technically anything --> - the set number
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+setTIParameter ["OutputRangeStart", 0];
+setTIParameter ["OutputRangeWidth", 1];
+</sqf>
+
+|seealso= [[getTIParameters]] [[setCamUseTI]] [[disableTIEquipment]]
+}}

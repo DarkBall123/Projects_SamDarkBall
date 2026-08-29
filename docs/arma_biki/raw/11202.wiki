@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= CHECKPOINT [[Custom Waypoints|custom waypoint]].
+
+Player has to reach waypoint position with certain precision (as opposed to normal [[Mission Editor: Waypoints#Move|Move]] waypoint, which became completed in around 500m).
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [posLimit]
+
+|p1= posLimit: [[Code]] - time in seconds unit is required to stay withing waypoint completion radius (default: -1)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, getPosASL dude, 10, 2] spawn BIS_fnc_wpCheckpoint;</sqf>
+
+|seealso=
+}}

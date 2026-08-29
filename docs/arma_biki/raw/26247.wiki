@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|arg= global
+
+|eff= local
+
+|gr1= Unit Control
+
+|descr= Sets [[effectiveCommander]] of the given vehicle. Effective commander is the person who commands the vehicle, i.e. gives commands to the driver.
+Every time a person gets in or out of a vehicle, effective commander eligibility is recalculated by the engine based on the current [[crew]].
+Use this command to force desired effective commander. 
+
+|mp= In multiplayer, execute globally.
+
+|s1= vehicle [[setEffectiveCommander]] person
+
+|p1= vehicle: [[Object]]
+
+|p2= person: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setEffectiveCommander player;</sqf>
+
+|seealso= [[effectiveCommander]] [[commander]] [[vehicleMoveInfo]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.32
+
+|eff= local
+
+|gr1= Missions
+
+|descr= Show mission status with sectors, respawn tickets, etc.
+
+|s1= [] call [[BIS_fnc_showMissionStatus]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>call BIS_fnc_showMissionStatus;</sqf>
+
+|seealso= [[BIS_fnc_rscLayer]]
+}}

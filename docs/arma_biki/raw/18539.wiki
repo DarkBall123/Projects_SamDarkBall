@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+|arg= local
+|eff= local
+
+|gr1= GUI Control - Controls Table
+
+|descr= Returns metadata associated with a particular row of a [[CT_CONTROLS_TABLE]] control.
+
+|s1= ctrl [[ctData]] row
+
+|p1= ctrl: [[Control]] - the respective control
+|p2= row: [[Number]] - the row index
+
+|r1= [[String]]
+
+|x1= <sqf>private _data = _ctrl ctData 0;</sqf>
+
+|seealso= [[ctAddRow]] [[ctAddHeader]] [[ctClear]] [[ctCurSel]] [[ctSetCurSel]] [[ctRowControls]] [[ctHeaderControls]] [[ctRowCount]] [[ctHeaderCount]] [[ctSetValue]] [[ctValue]] [[ctSetData]] [[ctFindRowHeader]] [[ctFindHeaderRows]] [[ctRemoveRows]] [[ctRemoveHeaders]] [[ctSetRowTemplate]] [[ctSetHeaderTemplate]]
+}}

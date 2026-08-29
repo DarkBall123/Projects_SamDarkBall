@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|gr2= Respawn
+
+|descr= ''N/A''
+
+|s1= <!-- [] call [[BIS_fnc_moduleRespawnPosition]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_moduleRespawnPosition;</sqf> -->
+
+|seealso=
+}}

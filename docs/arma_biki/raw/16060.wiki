@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Systems
+
+|descr= Wait until all modules using the [[Modules|Arma 3: Module Framework]] are initialised.
+
+|s1= [modules] call [[BIS_fnc_initModules]]
+
+|p1= modules: [[Array]] of [[Object]]s - modules to be activated
+
+|r1= [[Boolean]] - always returns [[true]]
+
+|x1= <sqf>[module_1,module_2] call BIS_fnc_initModules;</sqf>
+
+|seealso= [[Modules]]
+}}

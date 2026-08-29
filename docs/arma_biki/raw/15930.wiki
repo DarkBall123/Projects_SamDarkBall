@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Add a "bullet camera" to shots fired by the specified unit.
+
+|s1= unit call [[BIS_fnc_diagBulletCam]]
+
+|p1= unit: [[Object]] - the shooting unit. Can be a vehicle.
+
+|r1= [[Boolean]] - [[true]] when done
+
+|x1= <sqf>player call BIS_fnc_diagBulletCam;</sqf>
+
+|x2= <sqf>
+// bullet camera will be removed after 10s
+_unit = player;
+_unit call BIS_fnc_diagBulletCam;
+_ehIndex = _unit getVariable "BIS_fnc_diagBulletCam_fired";
+sleep 10;
+_unit removeEventHandler ["fired", _ehIndex];
+</sqf>
+
+|seealso= [[:Category:Event_Handlers|Event Handlers]] [[:Category:Command_Group:_Camera_Control|Camera Control Commands]]
+}}

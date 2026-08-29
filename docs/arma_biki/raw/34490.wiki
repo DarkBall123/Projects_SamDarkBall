@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|gr1= Markers
+
+|descr= Returns marker draw priority.
+
+|s1= [[markerDrawPriority]] markerName
+
+|p1= markerName: [[String]]
+
+|r1= [[Number]] - draw priority
+
+|x1= <sqf>markerDrawPriority "MarkerOne"</sqf>
+
+|seealso= [[setMarkerDrawPriority]] [[setMarkerType]] [[setMarkerTypeLocal]] [[markerType]] [[setMarkerAlphaLocal]] [[setMarkerBrush]] [[setMarkerColor]] [[setMarkerDir]] [[setMarkerPos]] [[setMarkerShape]] [[setMarkerSize]] [[setMarkerText]] [[createMarker]] [[CfgMarkers]] 
+}}

@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+|gr1= DLC
+
+|descr= Returns an array with the session and global time the asset has been used.
+
+|s1= [[getDLCAssetsUsageByName]] assetName
+
+|p1= assetName: [[String]]
+
+|r1= [[Array]] - array in format: [sessionTime, totalTime].
+
+|x1= <sqf>_dlcAssetUsage = getDLCAssetsUsageByName "C_IDAP_Heli_Transport_02_F";</sqf>
+|seealso= [[getDLCs]] [[getObjectDLC]] [[getPersonUsedDLCs]] [[getMissionDLCs]] [[getDLCAssetsUsage]] [[getAssetDLCInfo]]
+}}

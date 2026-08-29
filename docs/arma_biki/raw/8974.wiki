@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|arg= global
+
+|eff= local
+
+|gr1= Teams
+
+|descr= Adds resources to a team member.
+
+|s1= teamMember [[addResources]] [resource1, resource2, ...]
+
+|p1= teamMember: [[Team Member]]
+
+|p2= resourceN: [[String]]
+
+|r1= [[Nothing]]
+
+|x1=
+
+|seealso= [[resources]] [[deleteResources]]
+}}

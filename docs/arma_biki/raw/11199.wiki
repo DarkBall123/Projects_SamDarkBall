@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= ATTACH SLINGLOAD [[Custom_Waypoints|custom waypoint]].
+
+Load an object to rope.
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [posLimit, failCode, weight]
+
+|p1= posLimit: [[Number]] or [[Boolean]] - time in seconds it takes to attach the cargo. When [[true]], cargo is attached immediately (default: -1)
+
+|p2= failCode: [[Code]] - code executed if rope is cut by accident (e.g. collision with another object) (default: {})
+
+|p3= weight: [[Number]] - cargo weight (default: model weight)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, dude, 50, 10, { hintC "You lost the cargo!" }, 1000] spawn BIS_fnc_wpSlingLoadAttach;</sqf>
+
+|x2= <sqf>[player, dude, 0, true] spawn BIS_fnc_wpSlingLoadAttach; // attaches the cargo immediately</sqf>
+
+|seealso=
+}}

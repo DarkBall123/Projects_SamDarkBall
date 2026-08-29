@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Inventory
+
+|descr= Delete loadout saved using [[BIS_fnc_saveInventory]].
+
+|s1= [unit, [target, loadout]] call [[BIS_fnc_deleteInventory]]
+
+|p1= unit: [[Object]] - unit whose inventory should be saved
+
+|p2= target: [[Namespace]], [[Group]] or [[Object]] - target where the loadout is stored
+
+|p3= loadout: [[String]] - loadout name
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[player, [missionNamespace, "BIS_inv"]] call BIS_fnc_deleteInventory;</sqf>
+
+|seealso= [[BIS_fnc_loadInventory]] [[BIS_fnc_exportInventory]] [[BIS_fnc_saveInventory]] [[getUnitLoadout]]
+}}

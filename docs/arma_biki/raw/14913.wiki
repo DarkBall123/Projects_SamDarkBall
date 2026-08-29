@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|arg= global
+
+|eff= global
+
+|serverExec= server
+
+|gr1= Sides
+
+|gr2= Multiplayer
+
+|descr= Adds side score. This is shown in the MP score tab as the total score. '''MP only'''.
+
+|s1= side [[addScoreSide]] value
+
+|p1= side: [[Side]]
+
+|p2= value: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>west addScoreSide 10;</sqf>
+
+|seealso= [[score]] [[addScore]] [[scoreSide]] [[getPlayerScores]]
+}}

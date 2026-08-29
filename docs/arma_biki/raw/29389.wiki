@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|branch= diag
+
+|eff= local
+
+|descr= Starts gathering [[Arma 3: Dynamic Simulation]] diagnostic data.
+
+|gr1= Dynamic Simulation
+
+|gr2= Diagnostic
+
+|s1= [[diag_dynamicSimulationStart]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>diag_dynamicSimulationStart;</sqf>
+
+|seealso= [[diag_dynamicSimulationEnd]] [[Arma 3: Dynamic Simulation]]
+}}

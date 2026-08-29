@@ -1,0 +1,37 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.04
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Markers
+
+|eff= local
+
+|descr= Set marker size.
+
+|s1= markerName [[setMarkerSizeLocal]] [axisA, axisB]
+
+|p1= markerName: [[String]]
+
+|p2= axisA: [[Number]] - 1/2 width of marker
+
+|p3= axisB: [[Number]] - 1/2 height of marker
+
+|r1= [[Nothing]]
+
+|x1= <sqf>"MarkerOne" setMarkerSizeLocal [100, 200];</sqf>
+
+|seealso= [[setMarkerAlpha]] [[setMarkerAlphaLocal]] [[setMarkerBrush]] [[setMarkerBrushLocal]] [[setMarkerColor]] [[setMarkerColorLocal]] [[setMarkerDir]] [[setMarkerDirLocal]] [[setMarkerPos]] [[setMarkerPosLocal]] [[setMarkerShape]] [[setMarkerShapeLocal]] [[setMarkerSize]] [[setMarkerText]] [[setMarkerTextLocal]] [[setMarkerType]] [[setMarkerTypeLocal]]
+}}

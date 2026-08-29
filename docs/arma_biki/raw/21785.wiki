@@ -1,0 +1,25 @@
+[[Category: Control Types]]
+
+{{CT|intro
+
+|macro = CT_LINEBREAK
+|value = 98
+|description = Unknown control type.
+|commands =
+|events =
+}}
+<!--
+{{CT|abc start}}
+
+{{CT|abc end}}
+-->
+{{CT|examples}}
+=== RscExample ===
+<syntaxhighlight lang="cpp">
+class RscLineBreak
+{
+	idc = -1;
+	type = 98;
+	shadow = 0;
+};
+</syntaxhighlight>

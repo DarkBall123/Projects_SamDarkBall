@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Environment
+
+|descr= Sets parameters for helicopter rotor wash.
+It affects the visual effect of a rotor's downwash, such as blown particles, vegetation wind effect and area size.
+
+|s1= [[setLocalWindParams]] [strength, diameter]
+
+|p1= strength: [[Number]] - down-force wind strength
+
+|p2= diameter: [[Number]] - area affected
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setLocalWindParams [10, 5];</sqf>
+
+|x2= "Disables" the effects:
+<sqf>setLocalWindParams [0.0001, 0.0001]; // 0 values are ignored by the command</sqf>
+
+|x3= Reset to default:<sqf>setLocalWindParams [1, 1];</sqf>
+
+|seealso= [[setWind]] [[wind]] [[setWindStr]] [[setWindDir]] [[setWindForce]] [[windDir]] [[windStr]] [[gusts]] [[setGusts]]
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.00
+
+|gr1= Waypoints
+
+|descr= Assigns loiter altitude to the provided waypoint.
+
+|s1= waypoint [[setWaypointLoiterAltitude]] loiterAltitude
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= loiterAltitude: [[Number]]
+
+|r1= Nothing
+
+|x1= <sqf>[_grp, 2] setWaypointLoiterAltitude 100;</sqf>
+
+|seealso= [[waypointLoiterAltitude]]
+}}

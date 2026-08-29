@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= VR
+
+|descr= Fade In effect for VR.
+
+|s1= call [[BIS_fnc_VRFadeIn]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_VRFadeIn;</sqf>
+
+|seealso= [[BIS_fnc_VRFadeOut]]
+}}
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2018-05-22 - 00:42 (UTC)</dd>
+<dt class="note">[[User:Kalthramis|Kalthramis]]</dt>
+<dd class="note">
+This is also used in Triggers. Under "Triggers: Effects -> UI Overlay," select "Video Glitch".
+</dd>
+
+</dl>

@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= Used by the Date module.
+
+|s1= [logic, null, activated] call [[BIS_fnc_moduleDate]]
+
+|p1= logic: [[Object]] - date module
+
+|p2= null: [[Anything]] - not used
+
+|p3= activated: [[Boolean]] - (Optional, default [[true]]) if [[false]] nothing will happen
+
+|r1= [[Boolean]] - always [[true]]
+
+|x1= <sqf>[logic, nil, true] call BIS_fnc_moduleDate;</sqf>
+
+|seealso= [[Modules]] [[Date]]
+}}

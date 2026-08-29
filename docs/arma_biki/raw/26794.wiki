@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact 
+
+|descr= Sets EMP parameters to a vehicle. Destroys lights and optionally prevents vehicle from starting
+
+{{Feature|informative|The player has to be defined as <sqf inline>BIN_player</sqf> for the voice lines to be spoken.}}
+{{Feature|arma3contact}} 
+
+|s1= [obj, destroyEngine, aiExit] call [[BIN_fnc_empVehicle]]
+
+|p1= obj: [[Object]] - the vehicle
+
+|p2= destroyEngine: [[Boolean]] - (Optional, default [[true]]) [[true]] to destroys the engine, [[false]] to have it working
+
+|p3= aiExit: [[Boolean]] - (Optional, default [[true]]) AI behaviour in vehicle; [[true]] to make them exit the vehicle, [[false]] to remain in it
+
+|r1=
+
+|x1= <sqf>[_enemyVehicle, true, true] call BIN_fnc_empVehicle;</sqf>
+
+|seealso= [[setDamage]] [[setHitPointDamage]]
+}}

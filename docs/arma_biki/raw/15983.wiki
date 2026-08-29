@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Live Feed
+
+|descr= Add effect to the current live feed.
+
+|s1= effect call [[BIS_fnc_liveFeedEffects]]
+
+|p1= effect: [[Number]] - (Optional, default 0) live feed effect. Can be one of:
+* -1: reset
+* &nbsp;0: normal
+* &nbsp;1: night vision
+* &nbsp;2: thermal imaging
+
+|r1= [[Boolean]] - [[true]] if successful, [[false]] if not
+
+|x1= <sqf>1 call BIS_fnc_liveFeedEffects;</sqf>
+
+|seealso=     [[BIS_fnc_liveFeed]] [[BIS_fnc_liveFeedSetSource]] [[BIS_fnc_liveFeedSetTarget]] [[BIS_fnc_liveFeedTerminate]]
+}}

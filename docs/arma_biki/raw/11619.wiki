@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr= Set the throttle for the given engine(s) of a helicopter.
+
+|s1= helicopterRTD [[setThrottleRTD]] [value, engineIndex]
+
+|p1= helicopterRTD: [[Object|ObjectRTD]] - helicopter
+
+|p2= value: [[Number]] - throttle level, range 0..1
+* throttle 0: fully closed
+* throttle ~0.15: average flight idle
+* throttle 1: full
+
+|p3= engineIndex: [[Number]] - engine index
+* engine index 0: engine #1
+* engine index 1: engine #2
+* engine index 2: engine #3
+* engine index -1: all engines
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setThrottleRTD [0.5, 1];</sqf>
+
+|seealso= [[throttleRTD]]
+}}

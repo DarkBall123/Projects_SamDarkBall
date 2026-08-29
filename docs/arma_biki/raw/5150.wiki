@@ -1,0 +1,137 @@
+{{TOC|side}}
+These parameters can be configured by creating a new shortcut on your desktop and then adding the appropriate option.
+
+{{Feature|arma2|For {{arma2}}, see [[Arma 2: Startup Parameters]].}}
+
+'''Example'''
+
+ "C:\somePath\ArmedAssault.exe" -nosplash -mod=@winter
+
+
+== Available parameters ==
+
+=== Display Options ===
+
+ -x=                 Numeric, used to set resolution width
+ -y=                 Numeric, used to set resolution height
+ -window             Displays ArmA windowed instead of full screen
+                      (can be used in conjunction with -x/-y: {{hl|c= -window -x=800 -y=600}})
+ -nosplash           Disables intro and splash screens. Real speed-up gained with this is likely to be negligible with Armed Assault, as the loading screens are handled in parallel with the game data being loaded, and the loading itself takes quite long thanks to the amount of data needed.
+ -benchmark          Intended for automated benchmarking, but was never finished and is not working.
+ -showScriptErrors   Enables on-screen script error reporting ({{hl|ARMA 2 v1.03.58627}})
+
+=== Misc. ===
+
+ -maxmem=               Limit memory allocation (in MB). 2047 is hardcoded maximum at the moment
+ -init=                 Run scripting command once in the main menu (useful to start a certain 
+                        (test) mission of choice automatically. Add to command line: 
+                        -init=playMission["","M04Saboteur.Sara"] (see also [[playMission]])
+                        (''Mission has to reside in the gamedir\Missions folder, NOT the user directory.'')
+ -world=                Select a world loaded by default, e.g. -world=Sara
+                        -world=empty (for faster game loading.. no island and no menu animation loaded (1.05))
+ /secuexp               Starts Securom Support (for Troubleshooting)
+
+ ''AbsolutePathToMission.sqm'' Can also be used to load a mission directly in the editor:
+                        "d:\games\arma\users\myUser\missions\myMission.intro\mission.sqm"
+
+ -noland                Starts ArmA with no world. (Used for [[Bulldozer]])
+ -buldozer              Start ArmA in [[Buldozer]] mode.
+ -generateshaders       Use unknown. (Possibly for use with [[Buldozer]])
+ -download              Use unknown. (Possibly set auto download of missing Mod pbo's from
+                        server.)
+ -disableProgramDrawing Use unknown. (Possibly for use with [[Buldozer]])
+ -useProgramDrawing     Use unknown. (Possibly for use with [[Buldozer]])
+ -gamertag=             Sets clan tag to profile name.
+ -dsound                Use DirectX sound.
+ -openal                Use OpenAl sound.
+ -nosound               No sound output.
+ -vm108                 (1.09)Mimic the 1.08 version virtual address space handling
+                        (Uses more virtual space, but can be handy if you know 1.08 was stable
+                        for you, and 1.09 for some reason is not)
+ -noPause               (1.09)Allow the game running even when its window does not have a focus
+                        (i.e. running in the background)
+
+=== Modifications ===
+
+ [[Arma: Mod Folders|-mod]]=        Allows the use of sub-folders for different mods, separated by semi-colons.
+              Both relative and absolute possible, as well as subfolders:
+              -mod=@myMOD; loads from arma\@myMOD\addons\*.pbo and arma\@myMOD\dta\bin.pbo.
+              -mod=x\myMod; loads from arma\x\myMod\addons\*.pbo and dta.
+              -mod=d:\different\drive; loads from a different partition or harddisk.
+              Under Linux multiple folders arguments need the following separation syntax: -mod=mod1\;mod2\;mod3
+ -cfg=        Selects a config file like the [[basic.cfg|Server Basic Config file]]. Prcessed at startup.
+ -config=     Selects a config file like the [[Arma 3: Server Config File|Server Config File]]. Processed after startup.
+              Config file for server specific settings like admin password and mission selection.
+ -profiles=   Location of user-profile folder. Relative or absolute possible.
+ -BEpath=     Set BattlEye path (see {{Link|http://www.battleye.com/support.html|link}}) Default is C:\Documents and Settings\[User Name]\Local Settings\Application Data\ArmA\BattlEye
+
+=== Network Options ===
+
+ -port=         Port to host dedicated server on.
+ -password=     Password to join dedicated server.
+ -ranking=      Generates a ranking file. See below for details.
+ -host          Start a non-dedicated host.
+ -server        Start a [[Armed Assault:Dedicated Server|dedicated server]] (not needed for a special dedicated server exe).
+ -pid=          File to write the server's PID (process ID) to. The file is removed automatically when the exe is
+                stopped. Only works when started as a dedicated server.
+ -connect=      Client-side, server to connect to.
+ -name=         Client-side, User name.
+ -netlog        Enables ArmA multiplayer network traffic logging
+
+== Closer Description ==
+
+=== config ===
+
+The option '''''-config ''''' allows you to specify a specific [[Arma 3: Server Config File|server config]] file.
+
+=== -profiles ===
+
+'''-profiles''' is a startup option allowing you to choose an alternate location for the user profile files, such as downloaded missions and .cfg files.
+
+The windows user account would need permissions to write to the folder of choice.
+
+An '''example''' might be like this:
+ "C:\Program Files\Bohemia Interactive\ArmA\ArmA.exe" -profiles=C:\ArmA\Profiles
+or
+ "C:\Program Files\Bohemia Interactive\ArmA\ArmA.exe" -profiles=Profiles
+would store all your profiles/configs/downloaded content into your ROOT ArmA folder under the folder name "Profiles"
+
+=== ranking ===
+
+'''-ranking''' is a startup option allowing you to output ranking info or otherwise know as player stats.
+
+The windows user account would need permissions to write to the folder of choice.
+
+An '''example''' might be like this:
+ "C:\Program Files\Bohemia Interactive\ArmA\ArmA.exe" -ranking=C:\ArmA\ranking.log
+
+Output sample:
+
+ class Player1
+ {
+ 	name = "playerName";
+ 	killsInfantry = 71;
+ 	killsSoft = 3;
+ 	killsArmor = 5;
+ 	killsAir = 5;
+ 	killsPlayers = 0;
+ 	customScore = 0;
+ 	killsTotal = 84;
+ 	killed = 3;
+ };
+
+=== nosplash ===
+
+'''-nosplash''' is a startup option that allows you to bypass the splash screens on startup of Operation Flashpoint and Armed Assault.
+
+Note: Real speed-up gained with this is likely to be negligible with Armed Assault, as the loading screens are handled in parallel with the game data being loaded, and the loading itself takes quite long thanks to the amount of data needed.
+
+=== cpuCount ===
+
+'''-cpuCount=''' is the way to limit number of CPUs/cores available. The best way to simulate dual core on quad core is to use -cpuCount=2 when you run the game and then change the affinity to 2 cores to make sure additional cores can never be used when some over-scheduling happens. It might be also possible to set the affinity in the OS before you launch the process, that would work as well.
+
+Tags: Command-line;Commandline
+
+{{GameCategory|arma1}}
+[[Category:_Startup_Parameters]]
+{{GameCategory|arma1|Multiplayer}}

@@ -1,0 +1,44 @@
+This error occurs when there is a syntax error contained inside a block of code that makes up part of another statement.
+The error will be identified as being part of the original statement, not on the specific line where it actually occurs.
+For instance, if there is a syntax error inside an [[if]] statement's "[[then]]" or "[[else]]" block, the error will be identified in front of the "[[then]]"/"[[else]]" keyword.
+
+
+'''Compatibility:'''
+
+Version Unknown
+
+
+'''Example:'''
+
+<sqf>
+if (_USD + _EUR == 0) then
+{
+	hint "Your wallet is empty.";
+}
+else // the missing semicolon error below is reported to be ''before'' this [[else]] keyword
+{
+	_output = "Your wallet contains:";
+	if (_USD > 0) then
+	{
+		_output = _output + format["\n- %1 USD", _USD];
+	} // <-- missing semicolon
+
+	if (_EUR > 0) then
+	{
+		_output = _output + format["\n- %1 EUR", _EUR];
+	} // <-- missing semicolon
+
+	hint _output;
+};
+</sqf>
+
+The missing semicolons on the if statements within the else block will be reported being before the "else" command as "Type String, Expected Code".
+
+
+'''See Also:'''
+
+* [[When an error makes no sense]]
+* [[Error Type Something Expected Nothing]]
+
+
+[[Category:Common Scripting Errors]]

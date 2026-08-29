@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.74
+
+|gr1= GUI Control - Tree View
+
+|arg= local
+
+|eff= local
+
+|descr= Returns numeric value set for given tree view path. 
+
+|s1= [[tvValue]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Array]] of [[Number]]s
+
+|r1= [[Number]] - set value; if no value was set, 0 is returned
+
+|s2= ctrl [[tvValue]] path
+
+|p21= ctrl: [[Control]]
+
+|p22= path: [[Array]] of [[Number]]s
+
+|r2= [[Number]] - set value; if no value was set, 0 is returned
+
+|x1= <sqf>tvValue [101, [0]];</sqf>
+
+|x2= <sqf>_ctrl tvValue [0,0,0];</sqf>
+
+|seealso= [[tvAdd]] [[tvClear]] [[tvCollapse]] [[tvCount]] [[tvCurSel]] [[tvData]] [[tvDelete]] [[tvExpand]] [[tvPicture]] [[tvSetCurSel]] [[tvSetData]] [[tvSetPicture]] [[tvSetValue]] [[tvSort]] [[tvSortByValue]] [[tvText]]
+}}

@@ -1,0 +1,32 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact 
+
+|descr= <pre>/*
+
+	Description:
+	Return a formatted string of a mapped control (same style as the Field Manual and Hints)
+
+	Parameter(s):
+		0: STRING - name of the control action
+		1 (Optional): SCALAR - 0-based index of the mapped control
+
+	Returns:
+	STRING - formatted control
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getFormattedControl]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getFormattedControl;</sqf> -->
+
+|seealso=
+}}

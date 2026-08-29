@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 0.76
+
+|gr1= Supports
+
+|descr= Removes support types during a mission.
+
+|s1= [requester, provider] call [[BIS_fnc_removeSupportLink]]
+
+|p1= requester: [[Object]] - requester module
+
+|p2= provider: [[Object]] - provider module
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[requesterMod, providerMod] call BIS_fnc_removeSupportLink;</sqf>
+
+|seealso= [[BIS_fnc_addSupportLink]]
+}}

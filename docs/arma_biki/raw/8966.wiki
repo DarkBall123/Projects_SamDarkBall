@@ -1,0 +1,7 @@
+'''Ambient Animals''' is a scripted module for {{GameCategory|arma2|link= y}} which dynamically generates both wild and farm animals around a unit.
+It is launched server-side (1.04b) and animals are created around server player.
+
+To stop animals spawning within a specific area, place a trigger named {{hl|BIS_ARZ_0}} (and subsequent areas {{hl|BIS_ARZ_1}}, {{hl|BIS_ARZ_2}} etc).
+
+
+{{GameCategory|arma2|Editor Modules}}

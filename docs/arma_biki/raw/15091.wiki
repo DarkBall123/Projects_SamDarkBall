@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|arg= global
+
+|gr1= Remote Control
+
+|descr= Returns whether the UAV is in autonomous mode or not.
+
+|s1= [[isAutonomous]] uav
+
+|p1= uav: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>private _isAutonomous = isAutonomous uav;</sqf>
+
+|seealso= [[setAutonomous]] [[disableAI]] [[enableAI]] [[checkAIFeature]]
+}}
+
+{{Note
+|user= Sa-Matra
+|timestamp= 20230430040148
+|text= Only works on UAV vehicle, UAV crew will always return false. Check my comment @ [[setAutonomous]] for more details about this command.
+}}

@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.08
+
+|gr1= AI Behaviour
+
+|descr= Returns final, recalculated sub skill value of given unit. (with regard to AI Level coefficient (Difficulty settings)).
+
+|mp= Since {{GVI|arma3|1.40}} the command works in multiplayer.
+
+|s1= unit [[skillFinal]] skillName
+
+|p1= unit: [[Object]]
+
+|p2= skillName: [[String]] - see [[AI Sub-skills|sub-skill]]. Possible values are:
+* "aimingAccuracy"
+* "aimingShake"
+* "aimingSpeed"
+* "endurance" - Has no effect in {{arma3}}
+* "spotDistance"
+* "spotTime"
+* "courage"
+* "reloadSpeed"
+* "commanding"
+* "general"
+
+|r1= [[Number]]
+
+|x1= <sqf>_unitTrueCourage = unit1 skillFinal "courage";</sqf>
+
+|seealso= [[skill]] [[setSkill]] [[setUnitAbility]] [[CfgAISkill]] [[Combat Modes]]
+}}
+
+[[Category:AI]]

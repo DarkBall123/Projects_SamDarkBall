@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|arg= local
+|eff= global
+
+|gr1= Object Manipulation
+
+|descr= Sets which type of repair/refuel/rearm service is allowed. The two available types are manual, where the action is displayed to the user, and auto, where the service happens within distance.
+The engine default is both (manual and auto) for historic reasons.
+
+|s1= vehicle [[allowService]] type 
+
+|p1= vehicle: [[Object]] - supply vehicle, i.e. ammo truck
+
+|p2= type: [[Number]] - 0: none, 1: auto, 2: manual, 3: both
+
+|r1= [[Nothing]]
+
+|x1= <sqf>ammoTruck allowService 0;</sqf>
+
+|seealso= [[allowedService]] [[needService]]
+}}

@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= GUI Control - Controls Table
+
+|descr= Returns metadata (number) associated with a particular row of RscControlsTable.
+
+|s1= control [[ctValue]] index
+
+|p1= control: [[Control]]
+|p2= index: [[Number]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_number = _control ctValue 0;</sqf>
+
+|seealso= [[ctAddRow]] [[ctAddHeader]] [[ctClear]] [[ctCurSel]] [[ctSetCurSel]] [[ctRowControls]] [[ctHeaderControls]] [[ctRowCount]] [[ctHeaderCount]] [[ctSetValue]] [[ctSetData]] [[ctData]] [[ctFindRowHeader]] [[ctFindHeaderRows]] [[ctRemoveRows]] [[ctRemoveHeaders]] [[ctSetRowTemplate]] [[ctSetHeaderTemplate]]
+}}

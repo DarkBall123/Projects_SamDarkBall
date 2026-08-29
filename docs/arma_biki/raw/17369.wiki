@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.50
+
+|gr1= Multiplayer
+
+|descr= Checks if the current client {{Link|Multiplayer Scripting#Join In Progress|Joined In Progress}}.
+
+|s1= [[didJIP]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+if (didJIP) then
+{
+	hint "you're late to the party!";
+};
+</sqf>
+
+|seealso= [[didJIPOwner]] [[exportJIPMessages]]
+}}
+
+{{Note
+|user= Commy2
+|timestamp= 20160223223300
+|text= reports false in {{hl|CfgFunctions}} with <syntaxhighlight lang="cpp" inline>preInit = 1;</syntaxhighlight> even when the client joined in progress.
+}}

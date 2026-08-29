@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Program Flow
+
+|descr= Spawns given function and executes it in the order it was called in case multiple calls are made. If mutex name is not specified, function name is used.
+
+|s1= [params, functionName, mutexName] call [[BIS_fnc_spawnOrdered]]
+
+|p1= params: [[Anything]] - function parameters
+
+|p2= functionName: [[String]] - function name in current namespace
+
+|p3= mutexName: [[String]] - (Optional, default functionName) this is a reference to group of spawns. It's saved in the [[missionNamespace]] variable '''BIS_fnc_spawnOrdered_mutexName'''
+
+|r1= [[Boolean]] - returns [[false]] if function name is empty, otherwise [[true]]
+
+|x1= <sqf>
+myFnc = { diag_log [_this, canSuspend] };
+for "_i" from 0 to 1000 do { [_i, "myFnc"] call BIS_fnc_spawnOrdered };
+</sqf>
+
+|seealso= [[spawn]]
+}}

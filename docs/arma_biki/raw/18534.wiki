@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+|arg= local
+|eff= local
+
+|gr1= GUI Control - Controls Table
+
+|descr= Returns number of rows (headers not included) in the RscControlsTable.
+
+|s1= [[ctRowCount]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Number]]
+
+|x1= <sqf>ctRowCount _control;</sqf>
+
+|seealso= [[ctAddHeader]] [[ctAddRow]] [[ctClear]] [[ctCurSel]] [[ctSetCurSel]] [[ctRowControls]] [[ctHeaderControls]] [[ctHeaderCount]] [[ctSetValue]] [[ctValue]] [[ctSetData]] [[ctData]] [[ctFindRowHeader]] [[ctFindHeaderRows]] [[ctRemoveRows]] [[ctRemoveHeaders]] [[ctSetRowTemplate]] [[ctSetHeaderTemplate]]
+}}

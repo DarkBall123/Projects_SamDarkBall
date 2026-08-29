@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= GUI Control
+
+|descr= Sets checked state of a [[CT_CHECKBOXES]] control.
+
+|s1= control [[ctrlSetChecked]] checked
+
+|p1= control: [[Control]] - [[CT_CHECKBOXES]] control. If control contain multiple checkboxes, only checkbox with index 0 is queried.
+
+|p2= checked: [[Boolean]] - [[true]] to check, [[false]] to uncheck the checkbox
+
+|r1= [[Nothing]]
+
+|s2= control [[ctrlSetChecked]] [index, checked]
+
+|s2since= arma3 1.72
+
+|p21= control: [[Control]] - [[CT_CHECKBOXES]] control
+
+|p22= index: [[Number]] - checkbox index
+
+|p23= checked: [[Boolean]] - [[true]] to check, [[false]] to uncheck the checkbox
+
+|r2=[[Nothing]]
+
+|x1= <sqf>_control ctrlSetChecked true;</sqf>
+
+|x2= <sqf>_control ctrlSetChecked [3, true];</sqf>
+
+|seealso= [[ctrlChecked]] [[cbChecked]] [[cbSetChecked]]
+}}

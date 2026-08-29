@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|descr= Returns task's variable name. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskID call [[BIS_fnc_taskVar]]
+
+|p1= taskID: [[String]] - ID of the task
+
+|r1= [[String]] - returns '''"@test"''' for a task with the variable name '''"test"'''.
+
+|x1= <sqf>"task_1" call BIS_fnc_taskVar;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

@@ -1,0 +1,36 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= TXScan 
+
+|descr= <pre>/*
+		Killzone_Kid
+
+	Description:
+		Gets stored TXScan transmitter position
+
+	Parameter(s):
+		0: STRING - scan name
+		
+	Returns:
+		ARRAY - set transmitter position or [] on error
+		
+	Example:
+		"MyScan" call BIN_fnc_setTXScanPosition
+
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getTXScanPosition]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getTXScanPosition;</sqf> -->
+
+|seealso=
+}}

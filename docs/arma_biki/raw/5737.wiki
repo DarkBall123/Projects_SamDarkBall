@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.05
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= System
+
+|descr= Returns the numerical index for the distribution region of this copy of [[:Category:ArmA: Armed Assault|{{arma1}}]].
+# USA
+# Rest of the world
+
+|s1= [[distributionRegion]]
+
+|r1= [[Number]]
+
+|x1= <sqf>if (distributionRegion == 1) then { hint "miles"; } else { hint "kilometres"; };</sqf>
+
+|seealso= [[productVersion]]
+}}

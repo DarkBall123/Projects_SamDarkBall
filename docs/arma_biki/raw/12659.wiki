@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Environment
+
+|descr= A getter for [[setFog]] (Alt Syntax). Returns extended params for the fog
+
+|s1= [[fogParams]]
+
+|r1= [[Array]] of [[Number]]s - in [[setFog]] format: [fogValue, fogDecay, fogBase]
+
+|x1= <sqf>private _fog = fogParams;</sqf>
+
+|seealso= [[setFog]] [[fog]] [[fogForecast]] [[rainParams]]
+}}
+
+{{Note
+|user= POLPOX
+|timestamp= 20230923065153
+|text= To return a position (ASL Height)'s approx. fog level
+<sqf>
+private _getFogPowerASL = {
+	fogParams params ["_fogPower","_fogDecay","_fogHeight"] ;
+	private _height = _this - _fogHeight;
+	(_fogPower * 0.5 ^ (_height * _fogDecay / 2.45) max 0)
+};
+
+(AGLToASL (positionCameraToWorld [0,0,0]) # 2) call _getFogPowerASL;
+</sqf>
+Note that, this could return >1 value if fogDecay is not 0.
+}}

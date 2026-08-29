@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.76
+|arg= global
+
+|eff= local
+|gr1= Remote Control
+
+|descr= Returns true if UAV is connected to some terminal. Terminal connection is handled [[local]]ly, therefore the result of this command will be returned only for the client on which this command is executed.
+
+|s1= [[isUAVConnected]] uav
+
+|p1= uav: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_isConnected = isUAVConnected cursorTarget;</sqf>
+
+|seealso= [[showUAVFeed]] [[shownUAVFeed]] [[allUnitsUAV]] [[getConnectedUAV]] [[UAVControl]] [[connectTerminalToUAV]]
+}}

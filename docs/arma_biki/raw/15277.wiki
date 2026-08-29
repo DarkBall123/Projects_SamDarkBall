@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Interaction
+
+|descr= Checks if the player has watch opened and visible. Keep in mind that the GPS minimap in {{arma3}} also shows the time.
+
+|s1= [[visibleWatch]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (visibleWatch) then { hint "Watch is visible" };</sqf>
+
+|seealso= [[showWatch]] [[shownWatch]] [[visibleGPS]] [[visibleCompass]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Conversations
+
+|descr= Check if person is not locked by some [[Conversations|conversation]].
+
+|s1= unit call [[BIS_fnc_kbCanSpeak]]
+
+|p1= unit: [[Object]] - checked person
+
+|r1= [[Boolean]] - if the person can speak
+
+|x1= <sqf>private _canPlayerTalk = player call BIS_fnc_kbCanSpeak;</sqf>
+
+|seealso= [[Conversations]] [[BIS_fnc_kbTell]]
+}}

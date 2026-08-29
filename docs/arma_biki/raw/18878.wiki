@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Mission Parameters
+
+|descr= Set view distance.
+
+|s1= [[viewDistance]] call [[BIS_fnc_paramViewDistance]]
+
+|p1= viewDistance: [[Number]] - wanted view distance
+
+|r1= [[Number]] - [[viewDistance]]
+
+|x1= <sqf>7500 call BIS_fnc_paramViewDistance;</sqf>
+
+|seealso= [[Mission Parameters]] [[:Category:Function Group: Mission Parameters|Mission Parameters Functions]] [[setViewDistance]] [[viewDistance]]
+}}

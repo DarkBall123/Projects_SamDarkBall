@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.42
+
+|gr1= Object Manipulation
+
+|descr= Returns [[true]] if given unit is turned out, otherwise [[false]]. The output changes to [[true]] after unit finished turning out, however will change to [[false]] almost immediately after unit is ordered to turn in.
+
+|s1= [[isTurnedOut]] unit
+
+|p1= unit: [[Object]] - unit on turn(in/out) enabled turret
+|r1= [[Boolean]]
+
+|x1= <sqf>_commanderOut = isTurnedOut (tank turretUnit [0,0]);</sqf>
+
+|seealso= [[moveOut]] [[moveInDriver]] [[turretUnit]]
+}}

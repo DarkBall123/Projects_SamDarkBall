@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.72
+
+|gr1= Scripts
+
+|arg= global
+
+|descr= Plays an easter egg video on the screen of an old laptop.
+
+|s1= laptop call [[BIS_fnc_laptopPlayVideo]]
+
+|p1= laptop: [[Object]] - the old laptop to play the video on
+
+|r1= [[Nothing]]
+
+|x1= <sqf>this call BIS_fnc_laptopPlayVideo;</sqf>
+
+|seealso= [[BIS_fnc_laptopInit]]
+}}

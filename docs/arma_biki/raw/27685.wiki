@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control - Tree View
+
+|descr= Sets the selection state of given treeview item in multi-select control.
+
+|s1= control [[tvSetSelected]] [path, selected]
+
+|p1= control: [[Control]]
+
+|p2= path: [[Tree View Path]]
+
+|p3= selected: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control tvSetSelected [[0], true];</sqf>
+
+|seealso= [[tvSelection]] [[tvIsSelected]]
+}}

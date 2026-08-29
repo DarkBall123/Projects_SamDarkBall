@@ -1,0 +1,10 @@
+Basic steps so far:
+* Open Shapefile in Globe Mapper
+* Export Vector Data > Arc (Line/Area) *.dat
+* Convert Lat/lon to Visitor X/Y
+* Run through LineMapper
+* Import into Visitor
+* Tidy up any issues
+
+[[Category:Community Tools]]
+[[Category:Arma: Tutorials]]

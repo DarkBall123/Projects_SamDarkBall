@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|serverExec= server
+
+|descr= Removes curator camera area.
+
+|s1= curatorObj [[removeCuratorCameraArea]] cameraAreaID
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|p2= cameraAreaID: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myCurator removeCuratorCameraArea 3;</sqf>
+
+|seealso= [[Arma 3: Curator]] [[addCuratorCameraArea]] [[removeAllCuratorCameraAreas]] [[curatorCameraArea]]
+
+}}

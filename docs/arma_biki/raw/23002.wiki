@@ -1,0 +1,40 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.72
+
+|gr1= Custom Panels
+
+|descr= Returns array of all components available to given object info panel.
+
+|s1= unit [[infoPanelComponents]] panelID
+
+|p1= unit: [[Object]] - the concerned vehicle
+
+|p2= panelID: [[String]] - "left" or "right" can be used as panel names
+
+|r1= [[Array]] with [className, componentType, isAccessible]
+* className: [[String]] - component classname as defined in object/vehicle config
+* componentType: [[String]] - componentType - component type
+* isAccessible: [[Boolean]] - boolean flag that shows if component is currently accessible (lack of required item can make it temporarily inaccessible)
+
+|s2= [unit, turretPath] [[infoPanelComponents]] panelID
+
+|p21= unit: [[Object]] - the concerned vehicle
+
+|p22= turretPath: [[Turret Path]] - turret index
+
+|p23= panelID: [[String]] - "left" or "right" can be used as panel names
+
+|r2= [[Array]] with [className, componentType, isAccessible]
+* className: [[String]] - component classname as defined in object/vehicle config
+* componentType: [[String]] - componentType - component type
+* isAccessible: [[Boolean]] - boolean flag that shows if component is currently accessible (lack of required item can make it temporarily inaccessible)
+
+|x1= <sqf>
+// returns array of all components configured for _helicopter pilot seat
+private _componentsData = [_helicopter, [-1]] infoPanelComponents "left";
+</sqf>
+
+|seealso= [[Arma 3: Custom Info]] [[infoPanel]] [[infoPanels]] [[setInfoPanel]] [[enableInfoPanelComponent]] [[infoPanelComponentEnabled]]
+}}

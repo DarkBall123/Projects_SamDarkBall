@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|descr= Shows a task hint. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= [taskName, taskState] call [[BIS_fnc_taskHint]]
+
+|p1= taskName: [[String]]
+
+|p2= taskState: [[String]] - can be:
+*"CREATED"
+*"ASSIGNED"
+*"SUCCEEDED"
+*"FAILED"
+*"CANCELED"
+
+|r1= [[Boolean]]
+
+|x1= <sqf>["BIS_task_01","CANCELED"] call BIS_fnc_taskHint;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

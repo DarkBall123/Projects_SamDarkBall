@@ -1,0 +1,17 @@
+[[File:CoverMapExample1.png|thumb|In-editor appearance|280px]]
+[[File:CoverMapExample2.png|thumb|In-game appearance|280px]]
+Highlights area of operation in the map by enclosing it and covering the unused part.
+
+
+== Synchronisation Chart ==
+
+{| class="valign-top"
+| [[File:CoverMapModule1.png]]
+| [[File:CoverMapModule2.png]]
+|-
+| [[File:CoverMapModule3.png]]
+| [[File:CoverMapModule4.png]]
+|}
+
+
+{{GameCategory|arma3|Editor Modules}}

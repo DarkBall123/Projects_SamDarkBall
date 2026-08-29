@@ -1,0 +1,3 @@
+#REDIRECT [[PAA File Format]]
+
+[[Category: File extensions|PAA]]

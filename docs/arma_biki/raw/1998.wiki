@@ -1,0 +1,39 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Unit Control
+
+|descr= Control what the unit(s) is/are glancing at (target or [[Position]]). If target is used, it will get revealed fully.
+
+How frequently the unit(s) is/are glancing there depends on behaviour.
+
+|s1= unit(s) [[glanceAt]] position
+
+|p1= unit(s): [[Object]] or [[Array]] of [[Object]]s
+
+|p2= position: [[Object]] or [[Position]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_someSoldier glanceAt _otherSoldier;</sqf>
+|x2= <sqf>[_someSoldier, _otherSoldier] glanceAt markerPos "markerOne";</sqf>
+
+|seealso= [[lookAt]] [[commandWatch]] [[doWatch]]
+}}

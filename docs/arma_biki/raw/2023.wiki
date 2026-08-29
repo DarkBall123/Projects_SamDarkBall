@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Sounds
+
+|descr= Returns the current radio volume (set by [[fadeRadio]]).
+
+|s1= [[radioVolume]]
+
+|r1= [[Number]] in range 0..2
+
+|x1= <sqf>hint str radioVolume;</sqf>
+
+|seealso= [[fadeRadio]] [[soundVolume]] [[musicVolume]] [[speechVolume]] [[environmentVolume]] [[getAudioOptionVolumes]]
+}}

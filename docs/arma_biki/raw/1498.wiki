@@ -1,0 +1,47 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Check unit rating. Rating is increased for killing enemies, decreased for killing friendlies (see [[ArmA:_Rating Values|Rating Values]]). Can be changed via [[addRating]] by the mission designer. 
+
+The rating of the player is displayed as the "score" at the end of the mission. Via [[Description.ext]] one can define how many points it takes to get a perfect score, as well as the number of stars.
+
+|s1= [[rating]] unitName
+
+|p1= unitName: [[Object]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_score = rating player;</sqf>
+
+|seealso= [[Side Relations]] [[ArmA: Rating Values]] [[addRating]] [[rank]] [[setUnitRank]]
+}}
+
+{{Note
+|user= Leo15745
+|timestamp= 20110106131900
+|text= In ArmA 1.18 rating does only return rating levels for units that are local.
+}}

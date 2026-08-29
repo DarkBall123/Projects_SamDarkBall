@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Add curator editing / camera area based on triggers.
+
+|s1= [curatorLogic, triggers, checkedPosition, triggerType, editingArea, cameraArea] call [[BIS_fnc_addCuratorAreaFromTrigger]]
+
+|p1= curatorLogic: [[Logic]] - curator logic
+
+|p2= triggers: [[Array]] - list of triggers
+
+|p3= checkedPosition: [[Anything]] - checked position. Check [[BIS_fnc_position]] for supported data types
+
+|p4= triggerType: [[Boolean]] - [[true]] to use a trigger nearest to the ''checkedPosition'', [[false]] to use all triggers which the position is in
+
+|p5= editingArea: [[Boolean]] - [[true]] to add editing area
+
+|p6= cameraArea: [[Boolean]] - [[true]] to add camera area
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[BIS_curator, [trigger_1,trigger_2], [0,0,0], true, true, true] call BIS_fnc_addCuratorAreaFromTrigger;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|gr1= Curator
+
+|descr= Returns list of all objects stored in the given selection preset.
+
+|s1= [[curatorSelectionPreset]] numkey
+
+|p1= numkey: [[Number]] - number key under which the selection preset is saved
+
+|r1= [[Array]] of [[Object]]s - objects saved in the selection preset
+
+|x1= <sqf>private _savedItems = curatorSelectionPreset 1;</sqf>
+
+|seealso= [[loadCuratorSelectionPreset]] [[setCuratorSelectionPreset]] [[curatorSelected]] [[setCuratorSelected]] [[addCuratorSelected]] [[Arma 3: Curator]]
+}}

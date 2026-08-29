@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|eff= local
+
+|gr1= Sounds
+
+|descr= Terminates the given sound
+
+|s1= [[stopSound]] id
+
+|p1= id: [[Number]] - id returned by [[playSoundUI]] and [[playSound3D]] commands{{Feature|important|Sound ids are '''local'''.}}
+
+|r1= [[Nothing]]
+
+|x1= <sqf>stopSound 10;</sqf>
+
+|seealso= [[playSoundUI]] [[playSound3D]] [[soundParams]]
+}}

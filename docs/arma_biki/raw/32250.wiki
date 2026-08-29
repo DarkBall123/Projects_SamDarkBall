@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+
+|arg= local
+
+|eff= global
+
+|gr1= PhysX
+
+|descr= Disables autobrake, which is engaged when vehicle is stationary and stops wheels from rotating freely when vehicle is pushed.
+
+|s1= transport [[disableBrakes]] disable
+
+|p1= transport: [[Object]] - PhysX car or tank
+
+|p2= disable: [[Boolean]] - [[true]] to disable autobrake. The autobrake is re-enabled if the driver uses brakes
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myCar disableBrakes true;</sqf>
+
+|seealso= [[brakesDisabled]] [[awake]] [[isAwake]] [[addTorque]] [[addForce]] [[vectorModelToWorld]] [[vectorModelToWorldVisual]] [[selectionPosition]] [[setVelocityTransformation]] [[setVelocityModelSpace]]
+}}

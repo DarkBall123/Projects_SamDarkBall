@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Progress scripted loading screen. The value will be preserved even when a new screen is opened.
+{{Feature|arma3|The loading screen can be force-ended with the {{Link|Arma 3: Cheats#ENDLOAD|ENDLOAD cheat code}}.}}
+
+|s1= [progress] call [[BIS_fnc_progressLoadingScreen]]
+
+|p1= progress: [[Number]] - progress in range from 0 to 1
+
+|r1= [[Number]] - progress
+
+|x1= <sqf>private _IDD = _prog = [0.75] call BIS_fnc_progressLoadingScreen;</sqf>
+
+|seealso= [[Loading Screens]] [[BIS_fnc_displayLoading]]
+}}

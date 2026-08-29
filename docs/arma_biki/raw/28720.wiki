@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.04
+
+|descr= Returns if the marker is drawn with shadow enabled.
+
+|pr= [[setMarkerType]] will reset the shadow value to the one defined in marker type.
+
+|gr1= Markers
+
+|s1= [[markerShadow]] marker
+
+|p1= marker: [[String]] - the marker
+
+|r1= [[Boolean]]: [[true]] if marker is enabled, [[false]] if not
+
+|x1= <sqf>private _shadowEnabled = markerShadow _myMarker;</sqf>
+
+|seealso= [[setMarkerShadow]] [[setMarkerShadowLocal]]
+}}

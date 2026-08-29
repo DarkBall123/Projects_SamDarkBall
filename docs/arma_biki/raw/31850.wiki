@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= GUI Control
+
+|descr= Returns control's foreground color.
+
+|s1= [[ctrlForegroundColor]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Color|Color (RGBA)]]
+
+|x1= <sqf>ctrlForegroundColor _control;</sqf>
+
+|seealso= [[ctrlSetForegroundColor]] [[ctrlText]]
+}}

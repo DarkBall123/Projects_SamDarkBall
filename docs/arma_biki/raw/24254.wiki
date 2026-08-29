@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.86
+
+|gr1= Environment
+
+|descr= Returns true if the first passed datetime is newer than the second one.
+
+|s1= [date1, date2] call [[BIS_fnc_isDateTimeNewer]]
+
+|p1= date1: [[Array]] format [[Date]]
+
+|p2= date2: [[Array]] format [[Date]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>private _isNewer = [[2035,5,28,13,37], [2032,5,28,13,37]] call BIS_fnc_isDateTimeNewer;</sqf>
+
+|seealso= [[date]] [[BIS_fnc_compareDateTimes]] [[BIS_fnc_calculateDateTime]]
+}}

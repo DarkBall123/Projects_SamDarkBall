@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.10
+
+|gr1= Math
+
+|gr2= Environment
+
+|descr= Checks the array with date data and makes sure the values are within the boundries.
+
+|s1= date call [[BIS_fnc_fixDate]]
+
+|p1= date: [[Array]] format [[Date]] - date to be checked
+
+|r1= [[Array]] format [[Date]] - resulting date
+
+|x1= <sqf>private _fixedDate = [2033, -2, 89, 25, 75] call BIS_fnc_fixDate;</sqf>
+
+|seealso= [[date]] [[setDate]]
+}}

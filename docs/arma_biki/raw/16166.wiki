@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+|arg= global
+|eff= global
+
+|descr= Return [[true]] if a task exists. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= [taskName] call [[BIS_fnc_taskExists]]
+
+|p1= taskName: [[String]] - task name
+
+|r1= [[Boolean]] - [[true]] if it exists
+
+|x1= <sqf>private _exists = ["MyTask"] call BIS_fnc_taskExists;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

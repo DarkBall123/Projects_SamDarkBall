@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.74
+
+|gr1= Mission Information
+
+|descr= Returns true if the current mission is a Steam Workshop mission.
+
+|s1= '''isSteamMission'''
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+if (isSteamMission) then
+{
+	hint "Thank you for subscribing to my mission on Steam!";
+}
+else
+{
+	hint "Thank you for downloading my mission off the Internet!";
+};
+</sqf>
+
+|seealso= [[markAsFinishedOnSteam]]
+}}

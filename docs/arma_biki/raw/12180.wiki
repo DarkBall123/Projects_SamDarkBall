@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+|arg= global
+
+|gr1= Vehicle Inventory
+
+|descr= Get array with items from ammo box (or any general weapon holder container).
+
+|s1= [[itemCargo]] object
+
+|p1= object: [[Object]] - vehicle or ammo box
+
+|r1= [[Array]] of [[String]]s - ["ItemType1","ItemType2","ItemType3"...]
+
+|x1= <sqf>hint str itemCargo vestContainer player;</sqf>
+
+|seealso= [[getItemCargo]] [[addItemCargo]] [[addItemCargoGlobal]] [[clearItemCargo]] [[clearItemCargoGlobal]] [[weaponCargo]] [[magazineCargo]]
+}}

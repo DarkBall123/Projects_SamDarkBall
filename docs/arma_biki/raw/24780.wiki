@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|eff= local
+
+|descr= Assigns correct appearance and loadout of story characters based upon their vehicle classnames.
+
+|mp= Must be executed on all machines.
+
+|s1= [unit, mode] call [[BIS_fnc_EXP_camp_initCharacter]]
+
+|p1= unit: [[Object]] - the character to be initialized
+
+|p2= mode: [[String]] - (Optional, default "DAY") can be either "DAY" (unsilenced, no NVGs, default) or "NIGHT" (silenced, NVGs)
+
+|r1= [[Boolean]] - returns [[true]] if successful, [[false]] if not
+
+|x1= <sqf>[BIS_unit,"NIGHT"] call BIS_fnc_EXP_camp_initCharacter;</sqf>
+
+|seealso= [[BIS_fnc_EXP_camp_initClasses]]
+}}

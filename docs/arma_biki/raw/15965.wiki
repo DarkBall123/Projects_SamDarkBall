@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Effects for high fatigue values. Internal engine use only, as it relies on internal BIS_* variables.
+
+|s1= call [[BIS_fnc_fatigueEffect]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_fatigueEffect;</sqf>
+
+|seealso=
+}}

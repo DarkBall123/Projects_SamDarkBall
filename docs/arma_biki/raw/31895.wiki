@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+
+|gr1= Sounds
+
+|descr= Returns all environmental 3D sound sources ([[Object]]s) like trees and houses in camera vicinity. 
+
+|s1= [[allEnv3DSoundSources]]
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>private _sources = allEnv3DSoundSources;</sqf>
+
+|seealso= [[getAllEnv3DSoundControllers]] [[getAllEnvSoundControllers]] [[getEnv3DSoundController]] [[getEnvSoundController]] [[selectBestPlaces]] [[getSoundController]] [[getSoundControllerResult]] [[getEnvSoundController]] [[getAllSoundControllers]] [[getCustomSoundController]] [[setCustomSoundController]] [[getCustomSoundControllerCount]] [[Arma 3: Sound]]
+}}

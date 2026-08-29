@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.20
+
+|gr1= Modules - Time Trials
+
+|descr= {{Feature|important|Used for Time Trials, internal use only.}}
+
+|s1= -
+
+|r1= -
+
+|x1= -
+
+|seealso= [[:Category:Function Group: Modules - Time Trials|Time Trials Functions]]
+}}

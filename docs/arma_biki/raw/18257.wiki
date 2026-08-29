@@ -1,0 +1,18 @@
+{{RV|type=command
+|game1= arma3
+|version1= 1.62
+|arg=
+|eff= local
+
+|gr1= GUI Control
+
+|descr= Sets the font size of the secondary text of given control.
+|s1= ctrl [[ctrlSetFontSecondary]] fontClass
+
+|p1= ctrl: [[Control]]
+|p2= fontClass: [[String]] - font class
+|r1= [[Nothing]]
+
+|x1= _control [[ctrlSetFontSecondary]] "TahomaB";
+|seealso= [[ctrlSetFontP]] [[ctrlSetFontHeightSecondary]]
+}}

@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control
+
+|descr= Sets URL property of the given control subject to {{hl|allowedHTMLLoadURIs[]}} whitelisting in [[CfgCommands]] config. Supported controls are:
+* {{hl|CT_BUTTON}}
+* {{hl|CT_SHORTCUTBUTTON}} 
+* {{hl|CT_ACTIVETEXT}}
+
+|s1= control [[ctrlSetURL]] URL
+
+|p1= control: [[Control]]
+|p2= URL: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control ctrlSetURL "http://arma3.com/";</sqf>
+
+|seealso= [[ctrlURL]] [[menuSetURL]]
+}}

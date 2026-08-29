@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.74
+
+|gr1= Mission Information
+
+|descr= Marks current mission as finished on Steam. Returns true if Steam query is successfully started or false otherwise.
+
+|s1= '''markAsFinishedOnSteam'''
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+markAsFinishedOnSteam;
+endMission "END1";
+</sqf>
+
+|seealso= [[isSteamMission]]
+}}

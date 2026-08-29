@@ -1,0 +1,76 @@
+{{Feature|UnsupportedDoc}}
+
+These 'flags' (or attributes) are present in the following p3d's
+
+*[[P3D File Format - MLOD]]
+*[[P3D File Format - ODOLV40 Revised]]
+*[[P3D File Format - ODOLV7]]
+
+
+== Point Flags ==
+[[File:O2L points.JPG]]
+These correspond to O2L 'Point Properties' 
+
+ NHUUFdLS 
+        Surface
+         xxxxxxx0 normal
+         xxxxxxx1 on surface 
+         xxxxxxx2 above 
+         xxxxxxx4 under 
+         xxxxxxx8 keep height(fence)
+       Lighting Face
+         xxxxxx0x normal
+         xxxxxx1x shine
+         xxxxxx2x always in shadow
+         xxxxxx4x full light
+         xxxxxx8x half light
+      decal
+        xxxxx0xx normal
+        xxxxx1xx decal (obsolete for A2)
+        xxxxx2xx radio12 (OFP only)
+     Fog
+        xxxx0xxx none :ofp normal
+        xxxx1xxx sky  :ofp none
+        xxxx2xxx normal :ofp sky
+   User xxUUxxxx user 0..255 (obsolete for A2)
+  H     x1xxxxxx hidden vertex
+ Normals
+        x0xxxxxx by face
+        x2xxxxxx fixed (normal)
+        x4xxxxxx by impedence
+
+
+
+== Face Flags ==
+[[File:O2L Face.JPG]]
+Corresponding to O2L 'face properties'. 
+
+Enable shadow 
+
+ 0x00000010 - off (disable shadow) 
+
+Enable texture merging 
+
+ 0x01000000 - off (disable texture merging) 
+
+ZBias (0x00000300 mask) 
+ 0x00000000 - none 
+ 0x00000100 - low 
+ 0x00000200 - middle 
+ 0x00000300 - high 
+
+Lightning (0x003000a0 mask) 
+ 0x00000020 - both sides 
+ 0x00000080 - position 
+ 0x00200000 - flat 
+ 0x00100000 - reversed (transparent) 
+
+User (0xfe000000 mask) 
+ 0xfe000000 - user additional mark value (0..127)
+
+=Related Page(s)=
+
+[[BIS_File_Formats#3D_Model_File_Formats|Model File Formats]]
+[[Category:Real Virtuality File Formats]]
+{{GameCategory|arma1|File Formats}}
+{{GameCategory|ofp|Modelling}}

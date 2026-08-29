@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.48
+
+|gr1= Weapons
+
+|descr= Returns current rate of how much the weapon view is distorted because of quick aiming.
+
+|s1= [[weaponInertia]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] with [x, y]
+* x: Number - Amount of x-axis sway
+* y: Number - Amount of y-axis sway
+
+|x1= <sqf>_inertia = weaponInertia player; //[-0.0126307,0.038023]</sqf>
+
+|seealso= [[getWeaponSway]]
+}}

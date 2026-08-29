@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.55
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Briefing
+
+|descr= Attach a target to the simple task.<br>Overrides [[setSimpleTaskDestination]].
+
+|s1= task [[setSimpleTaskTarget]] [target, precisePosition]
+
+|p1= task: [[Task]]
+
+|p2= target: [[Object]]
+
+|p3= precisePosition: [[Boolean]] - use exact position of the target for map marker / HUD indicator instead of the position known to the task's owner (depending on the unit's knowledge of the target)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_task setSimpleTaskTarget [targetVehicle, true];</sqf>
+
+|seealso= [[briefing]] [[createSimpleTask]] [[setSimpleTaskDestination]]
+}}

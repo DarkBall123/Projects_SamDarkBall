@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Returns [[true]] if the [[:Category:Eden Editor|Eden Editor]] is currently being used.
+
+|s1= [[is3DEN]] 
+
+|r1= [[Boolean]] - [[true]] when inside editor environment, [[false]] when outside of editor environment
+
+|x1= <sqf>if is3DEN then { systemChat "Welcome to Eden Editor!" };</sqf>
+
+|seealso= [[is3DENMultiplayer]] [[is3DENPreview]]
+}}

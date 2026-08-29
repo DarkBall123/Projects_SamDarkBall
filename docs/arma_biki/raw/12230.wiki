@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Environment
+
+|descr= Returns the current wind azimuth.
+
+|s1= [[windDir]]
+
+|r1= [[Number]] - azimuth
+
+|x1= <sqf>
+if (windDir < 45 || windDir > 315) then {
+	hint "I feel a southern wind"; // wind going from South to North
+};
+</sqf>
+
+|seealso= [[wind]] [[setWindDir]] [[setWindStr]] [[setWindForce]]
+}}

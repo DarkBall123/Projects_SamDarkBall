@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|eff= local
+|arg= local
+
+|gr1= Stamina System
+
+|descr= Set custom aim precision coefficient for weapon sway
+
+|s1= unit [[setCustomAimCoef]] coef
+
+|p1= unit: [[Object]]
+
+|p2= coef: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player setCustomAimCoef 3;</sqf>
+
+|seealso= [[Arma 3: Stamina]] [[getCustomAimCoef]] [[getWeaponSway]]
+}}

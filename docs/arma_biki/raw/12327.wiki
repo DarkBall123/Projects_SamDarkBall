@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= GUI Control - HTML
+
+|descr= Returns [[true]] when HTML content was successfully loaded.
+
+|s1= [[ctrlHTMLLoaded]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+_control htmlLoad "test.html";
+if (!ctrlHTMLLoaded _control) then {
+	hint "Loading test.html failed!";
+};
+</sqf>
+
+|seealso= [[htmlLoad]] [[Arma: GUI Configuration]]
+}}

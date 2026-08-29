@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Exports {{hl|CfgHints}} to wiki format (see [[:Category:Arma 3: Field Manual]]).
+
+|s1= [category, class] call [[BIS_fnc_exportCfgHints]]
+
+|p1= category: [[String]]
+
+|p2= class: [[String]]
+
+|r1= [[String]] - wiki content
+
+|x1= <sqf>[] call BIS_fnc_exportCfgHints;</sqf>
+
+|seealso=   [[BIS_fnc_exportEditorPreviews]] [[BIS_fnc_exportFunctionsToWiki]]
+}}

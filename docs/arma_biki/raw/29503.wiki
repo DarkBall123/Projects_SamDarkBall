@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= GUI Control
+
+|descr= Returns tooltip for ListBox, ComboBox and Toolbox
+
+|s1= [[lbTooltip]] [idc, index]
+
+|p1= idc: [[Number]]
+
+|p2= index: [[Number]]
+
+|r1= [[String]]
+
+|s2= control [[lbTooltip]] index
+
+|p21= control: [[Control]]
+
+|p22= index: [[Number]]
+
+|r2= [[String]]
+
+|x1= <sqf>lbTooltip [1, 1];</sqf>
+
+|seealso= [[lbSetTooltip]] [[ctrlTooltip]] 
+}}

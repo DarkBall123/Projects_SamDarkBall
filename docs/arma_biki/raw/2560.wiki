@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Environment
+
+|descr= Return the current overcast level. Zero is clear skies, one is maximum cloud cover.
+
+|s1= [[overcast]] 
+
+|r1= [[Number]]
+
+|x1= <sqf>_cloudLevel = overcast;</sqf>
+
+|mp= Before {{arma3}}, each client and the server can have differing overcast values.
+
+|seealso= [[overcastForecast]] [[setOvercast]] [[nextWeatherChange]]
+}}

@@ -1,0 +1,37 @@
+[h1]ATTENTION:[/h1]  
+The mod authors firmly condemn the terrorist attack at Crocus City Hall and extend their condolences to the victims, the injured, and the entire country. Please note that this mod is not connected to recent events; the name “Crocus” was chosen long ago.
+
+[i]Crocus is a strike Unmanned Aerial Vehicle (UAV) with First‑Person View (FPV) video transmission. Available in two modifications: AT (Anti‑Tank) and AP (Anti‑Personnel).[/i]
+
+[h1][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3149794355] Reduced damage compatibility [/url][/h1]  
+[h1][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3147611501] Sania UAV Jammer [/url][/h1]
+
+[h1]Technical Specifications:[/h1]
+- Maximum Flight Speed: up to 190 km/h  
+- Maximum Range: up to 4 km (up to 6.5 km with a repeater)  
+- Flight Time: depends on load and settings
+
+[h1]Additional Features:[/h1]
+- Repeater improves signal quality and extends range.  
+- The item is called [b]“FPV Signal Booster”[/b] and is visible in Zeus.  
+[i]The “FPV Signal Booster” should be placed within 2 km of the player or the drone.[/i]
+
+[h1]For Developers:[/h1]
+- The mod operates on the client‑side.  
+- The mod is signed.
+
+[h1]Settings:[/h1]  
+In Addon Options you can change:
+- Max flight range of the drone;  
+- The main text in the interface (e.g., “CROCUS”).
+
+[h1]Drone Video Signal Depends On:[/h1]
+- Distance to the operator  
+- Terrain/obstacles (elevation can block signal)  
+- Low flight altitude outside direct line of sight  
+- Nearby objects and interference
+
+[h3]Recommended: control the drone with the mouse.[/h3]
+
+[i]Thanks for the consultation: Lukin[/i]  
+[i]Please like this mod, add it to your favorites and share.[/i]

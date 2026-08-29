@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= Waypoints
+
+|descr= Gets the waypoint speed.
+
+Possible values are:
+* "UNCHANGED"
+* "LIMITED"
+* "NORMAL"
+* "FULL"
+
+|s1= [[waypointSpeed]] waypoint
+
+|p1= waypoint: [[Waypoint]]
+
+|r1= [[String]] - see description
+
+|x1= <sqf>_speed = waypointSpeed [groupOne,1];</sqf>
+
+|seealso= [[deleteWaypoint]] [[copyWaypoints]] [[setCurrentWaypoint]] [[setWaypointBehaviour]] [[setWaypointCombatMode]] [[setWaypointCompletionRadius]] [[setWaypointDescription]] [[setWaypointFormation]] [[setWaypointHousePosition]] [[setWaypointPosition]] [[setWaypointScript]] [[setWaypointSpeed]] [[setWaypointStatements]] [[setWaypointTimeout]] [[setWaypointType]] [[setWaypointVisible]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[setWaypointLoiterRadius]] [[waypointLoiterRadius]] [[addWaypoint]] [[setWaypointLoiterType]] [[waypoints]] [[setWPPos]] [[waypointName]]
+}}

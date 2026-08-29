@@ -1,0 +1,2 @@
+#REDIRECT [[Config.cpp/bin File Format]]
+[[Category: File extensions]]

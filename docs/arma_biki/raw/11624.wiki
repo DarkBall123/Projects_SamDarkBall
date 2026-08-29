@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Radio and Chat
+
+|gr2= Custom Radio and Chat
+
+|descr= Set the custom radio channel's label.
+
+|s1= customChannelID [[radioChannelSetLabel]] label
+
+|p1= customChannelID: [[Number]] - [[Channel IDs|custom channel ID]] returned by [[radioChannelCreate]] command
+
+|p2= label: [[String]] - label
+
+|r1= [[Nothing]]
+
+|x1= <sqf>5 radioChannelSetLabel "Q-dance Radio";</sqf>
+
+|seealso= [[radioChannelAdd]] [[radioChannelCreate]] [[radioChannelRemove]] [[radioChannelSetCallSign]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+|gr1= GUI Control
+
+|descr= Returns 'shadow' property of the control (see [[ctrlSetShadow]]).
+
+|s1= [[ctrlShadow]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_shadow = ctrlShadow _control;</sqf>
+
+|seealso= [[ctrlSetShadow]] [[ctrlCreate]]
+}}

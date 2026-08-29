@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= CuratorChallenges
+
+|descr= Return number of completed curator challenges.
+
+|s1= curator call [[BIS_fnc_completedCuratorChallengesCount]]
+
+|p1= curator: [[Object]] - curator module
+
+|r1= [[Number]] - number of completed challenges
+
+|x1= <sqf>curatorModule call BIS_fnc_completedCuratorChallengesCount;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.68
+
+|arg= local
+
+|gr1= Aircraft Carrier
+
+|descr= Accelerates an aircraft off the aircraft carrier. For this to work the aircraft must be properly configured in config. See [[Arma 3: Aircraft Systems]] for information about needed config changes.
+
+|s1= [aircraft, direction] call [[BIS_fnc_aircraftCatapultLaunch]]
+
+|p1= aircraft: [[Object]] - the aircraft that should be launched
+
+|p2= direction: [[Number]] - (optional, default <sqf inline>direction _aircraft</sqf>) direction to launch the aircraft off to
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_plane] call BIS_fnc_aircraftCatapultLaunch;</sqf>
+
+|seealso= [[BIS_fnc_aircraftTailhook]]
+}}

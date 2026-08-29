@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|gr1= Curator
+
+|descr= Add items to the selected curator items.
+
+|s1= [[addCuratorSelected]] items
+
+|p1= items: [[Array]] - items to add; items can be an [[Object]], [[Group]], [[Waypoint]], or [[String]] (marker)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>addCuratorSelected [unit1, group1, [group1, waypointIndex], markerName1];</sqf>
+
+|x2= <sqf>addCuratorSelected [vehicle1, unit1, unit2, unit3, unit4, group1];</sqf>
+
+|seealso= [[curatorMouseOver]] [[curatorSelected]] [[setCuratorSelected]] [[curatorEditableObjects]] [[Arma 3: Curator]]
+}}

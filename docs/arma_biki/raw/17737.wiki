@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Adds an editing layer in [[:Category:Eden Editor|Eden Editor]].
+
+|s1= parentLayerID [[add3DENLayer]]  name
+
+|p1= parentLayerID : [[Number]] - ID of the parent layer. No layer will be created when the ID does not point to a layer. Use {{hl|-1}} to create the layer to root. 
+
+|p2= name: [[String]] - layer display name
+
+|r1= [[Number]] - layer ID
+
+|x1= <sqf>
+_myLayer = -1 add3DENLayer "Enemy Base";
+_myLayerFort = _myLayer add3DENLayer "Fortifications";
+_myLayerPatrol = _myLayer add3DENLayer "Patrols";
+</sqf>
+
+|seealso= [[remove3DENLayer]] [[set3DENLayer]] [[get3DENLayerEntities]]
+}}
+
+{{Note
+|user= Leopard20
+|timestamp= 20230404172800
+|text= To get the list of all 3DEN layers, use [[all3DENEntities]].
+}}

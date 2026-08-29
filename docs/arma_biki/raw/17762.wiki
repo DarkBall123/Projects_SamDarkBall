@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|eff= local
+
+|arg= local
+
+|gr1= Stamina System
+
+|descr= Force player to run/jog if set to false.
+
+|s1= unit [[allowSprint]]  state
+
+|p1= unit: [[Object]]
+
+|p2= state: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player allowSprint false;</sqf>
+
+|seealso= [[Arma 3: Stamina]] [[isSprintAllowed]]
+}}

@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.00
+
+|gr1= Namespaces
+
+|gr2= Variables
+
+|gr3= Multiplayer
+
+|descr= Returns local [[Namespace]] attached to the mission.
+Has the same lifetime as [[missionNamespace]] but variables '''cannot be broadcasted''' out of or into this namespace in multiplayer and will not be serialized when game is saved. UI variables can be safely stored in this namespace.
+Use [[allVariables]] command to save the variables elsewhere if required.
+
+|s1= [[localNamespace]]
+
+|r1= [[Namespace]]
+
+|x1= <sqf>localNamespace setVariable ["abc", 123];</sqf>
+
+|x2= <sqf>with localNamespace do { hint str abc };</sqf>
+
+|seealso= [[missionNamespace]] [[uiNamespace]] [[parsingNamespace]] [[profileNamespace]] [[currentNamespace]] [[allVariables]]
+}}

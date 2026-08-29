@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.02
+
+|gr1= Unit Identity
+
+|gr2= Sounds
+
+|descr= Returns the speaker class name of a unit.
+
+|s1= [[speaker]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>speaker player; // Can return "male09eng"</sqf>
+
+|seealso= [[setSpeaker]]
+}}

@@ -1,0 +1,34 @@
+{{TOC|none}}{{Wiki|stub}}
+'''Strategic Reference Layer''' module (also referred as '''SRL''') automatically defines locations given some markers, and store them in its variables.
+
+== Initialisation ==
+
+=== Paths ===
+
+Editor:
+ Modules (F7) > Strategic Reference Layer
+
+Data:
+ ca\modules\strat_layer
+
+=== Editor Setup ===
+
+# Insert marker(s) named BIS_SRL_x - x as a number, starting from 1, numbers must follow, e.g {{hl|BIS_SRL_1}}, {{hl|BIS_SRL_2}}, etc.
+The markers types and colors are used to define the locations type and side.
+
+* Markers used are the ones from H.Q to Depot.
+* Marker color are used as follow:
+** blue = west
+** red = east
+** green = resistance
+** any other = civilian.
+
+=== Optional Parameters ===
+
+None.
+
+Get module variables:
+<sqf inline>_types = BIS_SRL_mainScope getVariable "types";</sqf>
+
+
+{{GameCategory|arma2|Editor Modules}}

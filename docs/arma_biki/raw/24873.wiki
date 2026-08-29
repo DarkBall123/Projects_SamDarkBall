@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Sets the FOV of given camera.
+
+|s1= [camera, FOV] call [[BIS_fnc_camera_setFOV]]
+
+|p1= camera: [[Object]] - the camera
+
+|p2= FOV: [[Number]] - (Optional, default 0,75) wanted FOV
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_camera,0.5] call BIS_fnc_camera_setFOV;</sqf>
+
+|seealso= [[BIS_fnc_camera_getFOV]]
+}}

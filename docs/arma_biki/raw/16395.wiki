@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Show attributes window of an entity. When no attributes are available, no window is opened.
+
+|s1= [target] call [[BIS_fnc_showCuratorAttributes]]
+
+|p1= target: [[Object]], [[Group]], [[Array]] (Waypoint) or [[String]] - entity whose attributes should be shown
+
+|r1= [[Boolean]] - [[true]] if windows was opened
+
+|x1= <sqf>[BIS_vehicle] call BIS_fnc_showCuratorAttributes;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

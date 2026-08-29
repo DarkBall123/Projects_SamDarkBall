@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Checks whether icon is defined in CfgVehicleIcons and if so, returns the icon.
+
+|s1= [wantedIcon] call [[BIS_fnc_textureVehicleIcon]]
+
+|p1= wantedIcon: [[String]]
+
+|r1= [[String]] - icon texture path, or ''wantedIcon'' if not found
+
+|x1= <sqf>private _mediTexture = ["iconManMedic"] call BIS_fnc_textureVehicleIcon;</sqf>
+
+|seealso= [[BIS_fnc_textureMarker]]
+}}

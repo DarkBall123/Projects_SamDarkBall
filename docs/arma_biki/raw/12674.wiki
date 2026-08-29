@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|pr= {{Feature|Eden Editor|SimulWeather seems to be disabled in [[:Category:Eden Editor|Eden Editor]] and scenario preview.}}
+
+|gr1= Environment
+
+|descr= Returns if given position is in clouds.
+
+|s1= [[simulInClouds]] pos
+
+|p1= pos: [[Position]]
+
+|r1= [[Boolean]], [[Nothing]] - [[true]] if given position is in clouds. [[Nothing]] if given arguments are incorrect
+
+|x1= <sqf>simulInClouds getPos player;</sqf>
+
+|seealso= [[setSimulWeatherLayers]] [[simulCloudDensity]] [[simulCloudOcclusion]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Environment
+
+|descr= Return the current lightnings value.
+
+|s1= '''lightnings'''
+
+|r1= [[Number]]
+
+|x1= Get the current ''lightnings'' value:<sqf>_lightningsVal = lightnings;</sqf>
+
+|seealso= [[setLightnings]]
+}}

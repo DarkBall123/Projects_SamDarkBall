@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Supports
+
+|descr= Limits support runs during a mission.
+
+|s1= [module, supportType, quantity] call [[BIS_fnc_limitSupport]]
+
+|p1= module: [[Object]] - the requester module
+
+|p2= supportType: [[String]] - can be one of:
+* "Artillery"
+* "Transport"
+* "CAS_Heli"
+* "CAS_Bombing"
+* "Drop"
+
+|p3= quantity: [[Number]] - support run limit. -1 for unlimited support
+
+|r1= [[Boolean]] - [[true]] when done
+
+|x1= <sqf>[reqModule, "Transport", -1] call BIS_fnc_limitSupport;</sqf>
+
+|seealso= [[BIS_fnc_addSupportLink]]
+}}

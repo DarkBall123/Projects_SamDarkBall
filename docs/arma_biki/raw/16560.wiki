@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|gr1= Object Manipulation
+
+|arg= global
+
+|eff= global
+
+|descr= Removes vehicles/units from the garbage collector, so they do not get deleted automatically; added earlier with [[addToRemainsCollector]].
+
+|s1= [[removeFromRemainsCollector]] remains
+
+|p1= remains: [[Array]] of [[Object]]s
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeFromRemainsCollector [unit1, unit2, vehicle1];</sqf>
+
+|seealso= [[addToRemainsCollector]] [[isInRemainsCollector]] [[diag_remainsCollector]]
+}}

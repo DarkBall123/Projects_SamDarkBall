@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= KeyframeAnimation
+
+|descr= Used internally by the [[Arma 3: Key Frame Animation|Key Frame Animation]] system. Adds needed event handlers.
+
+|s1=
+
+|r1= [[Nothing]]
+
+|x1= -
+
+|seealso= [[Arma 3: Key Frame Animation|Key Frame Animation]]
+}}

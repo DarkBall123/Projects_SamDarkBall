@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|arg= global
+
+|gr1= Flags
+
+|descr= Returns flag position on the flag pole.
+
+|mp= The result is local to the PC on which command is executed.
+
+|s1= [[flagAnimationPhase]]  flag
+
+|p1= flag: [[Object]] - flag pole of the type {{hl|"FlagCarrier"}}
+
+|r1= [[Number]] in range 0..1 - flag position, where 0 is bottom of the flag pole, 1 is the top of the flag pole
+
+|x1= <sqf>flagAnimationPhase _flag1;</sqf>
+
+|seealso= [[setFlagAnimationPhase]] [[Arma 3: Flag Textures]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Decon Shower 
+
+|descr= <pre>/*
+	BIN_fnc_deconShowerCollision
+*/</pre>
+{{Wiki|placeholder}} 
+
+|s1= <!-- [] call [[BIN_fnc_deconShowerCollision]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_deconShowerCollision;</sqf> -->
+
+|seealso=
+}}

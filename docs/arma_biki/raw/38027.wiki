@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Object Manipulation
+
+|descr= Get the local player's current locked target (with weapons that can lock on).
+
+|s1= [[playerTargetLock]]
+
+|r1= [[Array]] with [target, lockValue, config]
+* target: [[Object]] - the locked object
+* lockValue: [[Number]] - in range 0..1 where 1 is fully locked
+* config: [[Config]] - used weapon's {{hl|CfgWeapons}} config
+
+|x1= <sqf>
+playerTargetLock params ["_target", "_lock", "_cfg"];
+if (_lock == 1) then
+{
+	hint format ["%1 locked %2", getText (_cfg >> "displayName"), getText (configOf _target >> "displayName")];
+};
+</sqf>
+
+|x2= <sqf>playerTargetLock; // returns [objNull, 0, configNull] if no lock is being done</sqf>
+
+|seealso= [[cursorTarget]]
+}}

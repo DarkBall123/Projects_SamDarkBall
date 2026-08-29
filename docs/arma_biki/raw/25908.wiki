@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Warlords
+
+|descr= <pre>/*
+WARLORDS-SPECIFIC FUNCTION
+
+Author: Josef Zemánek
+
+Description: Returns time synced between server and clients
+*/</pre>{{Wiki|placeholder}}
+
+|s1= [] call [[BIS_fnc_WLSyncedTime]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

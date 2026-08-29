@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.24
+
+|gr1= Tasks
+
+|descr= Plays an animation that pushes the active task waypoint up and down.
+
+|s1= param call [[BIS_fnc_animateTaskWaypoint]]
+
+|p1= [[Object]] - unit that should have animations played.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player] call BIS_fnc_animateTaskWaypoint;</sqf>
+
+|seealso= [[Task Framework]]
+}}

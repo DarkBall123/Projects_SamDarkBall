@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Waypoints
+
+|descr= Gets the waypoint name.
+
+|s1= [[waypointName]] waypoint
+
+|p1= waypoint: [[Waypoint]]
+
+|r1= [[String]]
+
+|x1= <sqf>_wpName = waypointName [_grp, 2];</sqf>
+
+|seealso= [[setWaypointName]] [[waypointPosition]] [[waypointSpeed]]
+}}

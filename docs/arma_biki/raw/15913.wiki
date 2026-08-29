@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Tracks received wounds. ([[getNumber]] ([[missionConfigFile]] >> "diagHit") > 0) has to be [[true]].
+
+|s1= call [[BIS_fnc_diagHit]]
+
+|r1= [[Boolean]] - [[true]] when activated
+
+|x1= <sqf>call BIS_fnc_diagHit;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diag functions]]
+}}

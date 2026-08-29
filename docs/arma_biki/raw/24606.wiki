@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Map and Markers
+
+|eff= global
+
+|descr= Makes the marker go from its original color to a specified color over time
+
+|s1= [marker, color, duration] spawn [[BIS_fnc_changeColorMarker]]
+
+|p1= marker: [[String]] - marker
+
+|p2= color: [[String]] - color from CfgMarkerColors
+
+|p3= duration: [[Number]] - (Optional, default 1) duration of transition in seconds
+
+|r1= [[Nothing]]
+
+|x1= <sqf>["BIS_marker","ColorRed"] spawn BIS_fnc_changeColorMarker;</sqf>
+
+|exec= spawn
+
+|seealso= [[BIS_fnc_blinkMarker]] [[BIS_fnc_colorMarker]]
+}}

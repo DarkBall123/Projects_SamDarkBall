@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Artillery
+
+|descr= Checks whether the player has the artillery computer currently open.
+
+|s1= '''shownArtilleryComputer'''
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (shownArtilleryComputer) then { hint "Artillery Computer shown on screen"; };</sqf>
+
+|seealso= [[enableEngineArtillery]] [[getArtilleryComputerSettings]] [[inRangeOfArtillery]] [[commandArtilleryFire]] [[doArtilleryFire]] [[getArtilleryETA]]
+}}

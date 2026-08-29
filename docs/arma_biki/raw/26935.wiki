@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma2
+|version1= 1.00
+
+|arg=
+
+|eff=
+
+|gr1= Modules
+
+|descr= Function behind the [[Secondary Operations Manager]] module. 
+
+|s1= [secops, unit] call [[BIS_SOM_addSupportRequestFunc]]
+
+|p1= secops: [[Array]] of [[String]]s - values can be:
+* "transport"
+* "aerial_reconnaissance"
+* "supply_drop"
+* "tactical_airstrike"
+* "artillery_barrage"
+* "gunship_run"
+
+|p2= unit: [[Object]]
+
+|r1=
+
+|x1= <sqf>[["transport", "aerial_reconnaissance", "supply_drop", "tactical_airstrike", "artillery_barrage", "gunship_run"], player] call BIS_SOM_addSupportRequestFunc;</sqf>
+
+|seealso= [[Secondary Operations Manager]] [[BIS_SOM_requestSecOpFunc]] [[:Category:Arma 2: Editor Modules|Arma 2: Editor Modules]]
+}}

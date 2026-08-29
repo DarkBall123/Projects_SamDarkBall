@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Map and Markers
+
+|eff= local
+
+|descr= Makes an existing or new trigger cover a marker area.
+
+|s1= [trigger, markerName] call [[BIS_fnc_triggerToMarker]]
+
+|p1= trigger: [[Object]] - trigger that will be used to cover the marker. [[objNull]] to create a new trigger
+
+|p2= markerName: [[String]]
+
+|r1= [[Object]] - the (created) trigger. [[objNull]] if marker is not rectangular or elliptical.
+
+|x1= <sqf>private _createdTrigger = [objNull, myAreaTrigger] call BIS_fnc_triggerToMarker;</sqf>
+
+|seealso= [[BIS_fnc_markerToTrigger]]
+}}

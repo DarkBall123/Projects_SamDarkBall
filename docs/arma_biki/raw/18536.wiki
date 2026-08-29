@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= GUI Control - Controls Table
+
+|descr= Associates metadata (number) with the row determined by the index. Returns Nothing.
+
+|s1= control [[ctSetValue]] [index, value]
+
+|p1= control: [[Control]]
+|p2= index: [[Number]]
+|p3= value: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control ctSetValue [0, 23];</sqf>
+
+|seealso= [[ctAddRow]] [[ctAddHeader]] [[ctClear]] [[ctCurSel]] [[ctRowControls]] [[ctHeaderControls]] [[ctRowCount]] [[ctHeaderCount]] [[ctSetCurSel]] [[ctValue]] [[ctSetData]] [[ctData]] [[ctFindRowHeader]] [[ctFindHeaderRows]] [[ctRemoveRows]] [[ctRemoveHeaders]] [[ctSetRowTemplate]] [[ctSetHeaderTemplate]]
+}}

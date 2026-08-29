@@ -1,0 +1,3 @@
+Eden ID is unique index of an [[Eden Entity]]. This [[Number]] remains the same even after saving and loading the scenario. [[add3DENLayer|Editor layers]] and [[Eden_Editor:_Comment|Editor comments]] are always represented by their Eden ID
+
+[[Category:Eden Editor: Modding]]

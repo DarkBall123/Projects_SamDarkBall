@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Event Handlers
+
+|descr= Register code to be executed after mission end.
+{{Feature|arma3|
+Replaced by [[Arma 3: Mission Event Handlers#Ended|"Ended" mission event handler]].<br>
+This function now exists only because of backward compatibility.
+}}
+
+|s1= argument call [[BIS_fnc_onEnd]]
+
+|p1= argument: [[Code]], [[Array]] or [[Number]]:
+* [[Code]] - code to be executed
+* [[Array]] - code with arguments in format [code, arguments]
+* [[Number]] - remove code at given index
+
+|r1= [[Number]] - index of onEnd code
+
+|x1= <sqf>private _onEndIndex = { player addRating 10000; } call BIS_fnc_onEnd;</sqf>
+
+|x2= <sqf>private _onEndIndex = [{ { _x addRating 10000; } forEach _this; }, units group player] call BIS_fnc_onEnd;</sqf>
+
+|seealso= [[Event Scripts]] [[Arma 3: Mission Event Handlers#Ended|Ended Mission Event Handler]]
+}}

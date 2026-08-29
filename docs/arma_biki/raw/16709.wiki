@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|arg= global
+
+|gr1= Object Manipulation
+|gr2= Render Time Scope
+
+|descr= Returns an object's rendered [[Position#PositionASL|ASL position]] (z value above sea level) in render time scope.
+
+|alias= [[visiblePositionASL]]
+
+|s1= [[getPosASLVisual]] object
+
+|p1= object: [[Object]] - name of the object
+
+|r1= [[Position#PositionASL|PositionASL]]
+
+|x1= <sqf>private _playerRenderedPosASL = getPosASLVisual player;</sqf>
+
+|seealso= [[getPosVisual]] [[getPosATLVisual]] [[getPosWorldVisual]] [[visiblePositionASL]] [[visiblePosition]] [[position]] [[getPos]] [[getPosATL]] [[getPosASL]] [[getPosASLW]]
+}}

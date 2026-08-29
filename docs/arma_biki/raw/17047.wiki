@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Leaderboards
+
+|descr= Deletes internal class for the leaderboard with given name. Returns true if the board has been found and deinitialized.
+
+|s1= [[leaderboardDeInit]] boardName
+
+|p1= boardName: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>leaderboardDeInit "TT01";</sqf>
+
+|seealso= [[leaderboardGetRows]] [[leaderboardInit]] [[leaderboardRequestRowsFriends]] [[leaderboardRequestRowsGlobal]] [[leaderboardRequestRowsGlobalAroundUser]] [[leaderboardsRequestUploadScore]] [[leaderboardsRequestUploadScoreKeepBest]] [[leaderboardState]]
+}}

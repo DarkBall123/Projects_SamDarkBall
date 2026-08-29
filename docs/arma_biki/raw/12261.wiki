@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Briefing
+
+|descr= Returns debriefing text of provided end.
+
+|s1= [[debriefingText]] end
+
+|p1= end: [[String]]
+
+|r1= [[String]] - ''end'' debriefing text. If it does not exist in config, empty string is returned.
+
+|x1= <sqf>_deathText = debriefingText "endDeath";</sqf>
+
+|seealso= [[setDebriefingText]] [[disableDebriefingStats]] [[enableDebriefingStats]]
+}}

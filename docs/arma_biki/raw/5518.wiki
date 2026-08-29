@@ -1,0 +1,4 @@
+'''Description:'''
+Helper type used in [[if]]...[[then]] construct.
+
+[[Category:Syntactical Helper Types]]

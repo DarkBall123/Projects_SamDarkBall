@@ -1,0 +1,37 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Interaction
+
+|descr= Initialise interactive leaflet.
+
+|s1= [mode, parameters] call [[BIS_fnc_initLeaflet]]
+
+|p1= mode: [[String]] - "init" for scripted initialisation, other mode ("fired") is used when leaflets are fired as a weapon
+
+|p2= parameters: [[Array]] in format:
+* [leaflet, texture, text]:
+** leaflet: [[Object]] - the leaflet object itself
+** texture: [[String]] - texture path
+** text: [[String]] - localized text, shown when previewing the leaflet in full screen
+* [leaflet, cfgLeafletsClass]:
+** leaflet: [[Object]] - the leaflet object itself
+** cfgLeafletsClass: [[String]] - class name
+* [position, cfgLeafletsClass]:
+** position: [[Array]] format [[Position]] - desired placement position (see [[createVehicle]])
+** cfgLeafletsClass: [[String]] - class name
+
+|r1= [[Nothing]]
+
+|x1= <sqf>["init", [myLeaflet, "#(argb,8,8,3)color(1,1,0,1)", "Yellow pages"]] call BIS_fnc_initLeaflet;</sqf>
+
+|x2= <sqf>["init", [myLeaflet, "Custom_02"]] call BIS_fnc_initLeaflet;</sqf>
+
+|x3= <sqf>["init", [myLeaflet, "West"]] call BIS_fnc_initLeaflet;</sqf>
+
+|x4= <sqf>["init", [getPosATL player, "Custom_02"]] call BIS_fnc_initLeaflet;</sqf>
+
+|seealso= [[Arma 3: Leaflets]] [[BIS_fnc_initInspectable]]
+}}

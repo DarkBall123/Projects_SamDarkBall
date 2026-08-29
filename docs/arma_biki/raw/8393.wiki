@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes all special [[items]] from the unit.
+
+|s1= [[removeAllItems]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllItems unitName;</sqf>
+
+|seealso= [[removeAllWeapons]] [[removeMagazines]]
+}}
+
+{{Note
+|user= DarkDruid
+|timestamp= 20130618153500
+|text= Arma 3, version 0.70 - removes only items listed by command [[items]].
+}}

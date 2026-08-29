@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Diary 
+
+|descr= <pre>/*
+
+	Description:
+		Set fixed size marker to be drawn in main map
+
+	Parameter(s):
+		0: STRING - unique marker ID
+		1:
+			ARRAY - marker parameters in format used by drawIcon command
+			BOOL - delete the marker
+
+	Returns:
+		BOOL - true if successful
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_drawIconFixed]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_drawIconFixed;</sqf> -->
+
+|seealso=
+}}

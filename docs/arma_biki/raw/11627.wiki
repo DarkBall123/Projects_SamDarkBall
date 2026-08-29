@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= System
+
+|descr= Returns the currently selected system of units.
+* 0: Metric
+* 1: Mixed (ground vehicles use Metric / air vehicles use Imperial)
+* 2: Imperial
+
+|s1= '''systemOfUnits'''
+
+|r1= [[Number]]
+
+|x1= <sqf>_system = systemOfUnits;</sqf>
+
+|seealso= [[BIS_fnc_convertUnits]] [[setSystemOfUnits]]
+}}

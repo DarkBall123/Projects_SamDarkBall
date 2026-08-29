@@ -1,0 +1,19 @@
+[[Category: Control Types]]
+
+{{CT|intro
+
+|macro = CT_STATIC_SKEW
+|value = 10
+|description = Unknown control type.
+|gallery=
+|commands =
+|events =
+}}
+
+<!-- {{CT|abc start}}
+
+{{CT|abc end}} -->
+
+{{CT|examples}}
+
+None

@@ -1,0 +1,16 @@
+{{Feature|informative|
+See also {{Link|https://forums.bohemia.net/forums/topic/91221-resourcelink-collection-how-to-make-a-map-beginning-from-the-idea-in-your-head/|Resourcelink collection: How to make a map, beginning from the idea in your head}} forum topic.}}
+
+
+{{Feature|obsolete|You can eventually use it for certain SatMap and MaskMap related things, but the rest is no more up to date.}}
+
+'''Link list for Allie´s Visitor RC3 Tutorial:'''
+* {{Link|https://www.ofpec.com/addons_depot/index.php?action{{=}}details&id{{=}}98|Installation}}
+* {{Link|https://www.ofpec.com/addons_depot/index.php?action{{=}}details&id{{=}}99|Setup}}
+* {{Link|https://www.ofpec.com/addons_depot/index.php?action{{=}}details&id{{=}}100|Small Island Creation}}
+* {{Link|https://www.ofpec.com/addons_depot/index.php?action{{=}}details&id{{=}}101|Satellite Texture Creation}}
+* {{Link|https://www.ofpec.com/addons_depot/index.php?action{{=}}details&id{{=}}102|Mask Texture Creation}}
+<!-- * ftp://ftp.fraghaus.com/arma/satpics/VisitorRC3v2ROADS.pdf -->
+
+
+{{GameCategory|arma1|Tutorials}}

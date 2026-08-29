@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 1.34
+
+|gr1= Ropes and Sling Loading
+
+|descr= Destroys the given rope. If the rope is attached to a vehicle, it will be detached and then destroyed.
+
+|s1= [[ropeDestroy]] rope
+
+|p1= rope: [[Object]] - rope object returned by [[ropeCreate]] command
+
+|r1= [[Nothing]]
+
+|x1= <sqf>ropeDestroy myRope;</sqf>
+
+|seealso= [[ropeCreate]] [[ropeDetach]] [[ropeSetCargoMass]] [[ropes]] [[canSlingLoad]] [[enableRopeAttach]] [[getSlingLoad]] [[ropeAttachedObjects]] [[ropeAttachTo]] [[ropeLength]] [[ropeUnwound]] [[ropeAttachedTo]] [[ropeAttachEnabled]] [[ropeCut]] [[ropeEndPosition]] [[ropeUnwind]]
+}}

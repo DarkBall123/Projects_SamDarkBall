@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Sets maximal ([[Position#PositionATL|ATL]]) height to which curator camera can move.
+
+|s1= curatorObj [[setCuratorCameraAreaCeiling]] height
+
+|p1= curatorObj: [[Object]] - [[Arma 3 Curator|Curator]] module
+
+|p2= height: [[Number]] - [[Position#PositionATL|ATL]], in metres
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myCurator setCuratorCameraAreaCeiling 50;</sqf>
+
+|seealso= [[Arma 3 Curator]] [[addCuratorCameraArea]] [[removeCuratorCameraArea]] [[removeAllCuratorCameraAreas]] [[curatorCameraArea]]
+}}

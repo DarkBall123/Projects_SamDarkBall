@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+|gr1= GUI Control
+
+|descr= Returns the URL overlay mode 0, 1, 2 (see [[ctrlSetURLOverlayMode]]) or -1 if something went wrong.
+
+|s1= [[ctrlURLOverlayMode]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_mode = ctrlURLOverlayMode _control; // e.g. 0</sqf>
+
+|seealso= [[ctrlSetURLOverlayMode]] [[ctrlURL]] [[isSteamOverlayEnabled]]
+}}

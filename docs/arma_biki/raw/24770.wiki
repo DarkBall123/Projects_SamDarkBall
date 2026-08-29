@@ -1,0 +1,32 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= CampaignManager
+
+|serverExec= server
+
+|descr= <pre>/*
+	Author: Nelson Duarte
+
+	Description:
+	Set's the state of the mission
+
+	Parameters:
+		_state: The new mission state to set
+
+	Returns:
+		Nothing
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_EXP_camp_manager_setState]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

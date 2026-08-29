@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Check whether given uniform can be dressed by target soldier.
+
+|s1= unit [[isUniformAllowed]] type
+
+|p1= unit: [[Object]]
+
+|p2= type: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_canUse = _unit isUniformAllowed "U_B_CombatUniform_mcam";</sqf>
+
+|seealso= [[addUniform]] [[forceAddUniform]] [[removeUniform]] [[uniform]]
+}}

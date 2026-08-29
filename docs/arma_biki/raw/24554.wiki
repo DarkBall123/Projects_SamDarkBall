@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Vectors
+
+|descr= Rotates the vector around the given axis by the given angle
+
+|s1= [vector, angle, axis] call [[BIS_fnc_rotateVector3D]]
+
+|p1= vector: [[Array]] in format [[Vector3D]]
+
+|p2= angle: [[Number]] - given angle (taken in the opposite direction to the one defined by the {{Link|https://en.wikipedia.org/wiki/Right-hand_rule|right hand rule}})
+
+|p3= axis: [[Number]] - rotation axis:
+* 0 - '''X''' axis
+* 1 - '''Y''' axis
+* 2 - '''Z''' axis
+|r1= [[Array]] - rotated vector in format [[Vector3D]]
+
+|x1= <sqf>[vectorDir player, 90, 2] call BIS_fnc_rotateVector3D;</sqf>
+
+|seealso= [[BIS_fnc_transformVectorDirAndUp]] [[BIS_fnc_rotateVector2D]]
+}}

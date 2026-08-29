@@ -1,0 +1,23 @@
+This error usually occurs when a statement is incomplete, malformed, or non-existent.
+
+
+
+'''Compatibility:'''
+
+Version '''1.96'''
+
+
+
+'''Example (non-existent statement):'''
+
+7 + 6 * 5
+
+'''Example (malformed statement):'''
+
+3 = 4
+
+'''Example (incomplete statement):'''
+
+_myVariable
+
+[[Category:Common Scripting Errors]]

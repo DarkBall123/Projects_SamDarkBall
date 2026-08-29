@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.50
+
+|gr1= Object Detection
+
+|descr= Returns unit's knowledge about target.
+
+|s1= unit [[targetKnowledge]] target
+
+|p1= unit: [[Object]]
+
+|p2= target: [[Object]]
+
+|r1= [[Array]] with [knownByGroup, knownByUnit, lastSeen, lastThreat, side, errorMargin, position, ignoreTarget]
+* knownByGroup: [[Boolean]] - target known by group
+* knownByUnit: [[Boolean]] - target known by the unit
+* lastSeen: [[Number]] - last time the target was seen by the unit
+* lastThreat: [[Number]] - last time the target endangered the unit
+* side: [[Side]] - target side
+* errorMargin: [[Number]] - position error
+* position: [[Position]] - target position
+* {{GVI|arma3|2.18}} ignoreTarget: [[Boolean]] - target is ignored ([[ignoreTarget]])
+
+|x1= <sqf>
+private _allInfo = _soldierOne targetKnowledge _jeepOne;
+_allInfo params ["_knownByGroup", "_knownByUnit", "_lastSeen", "_lastThreat", "_side", "_errorMargin", "_position", "_ignoreTarget"];
+</sqf>
+
+|x2= <sqf>private _posError = (_soldierOne targetKnowledge _jeepOne) select 5;</sqf>
+
+|seealso= [[knowsAbout]] [[targets]] [[targetsQuery]] [[nearTargets]] [[targetsAggregate]] [[reveal]] [[forgetTarget]] [[setTargetAge]] [[getHideFrom]] [[ignoreTarget]]
+}}

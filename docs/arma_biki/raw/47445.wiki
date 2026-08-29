@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.22
+|arg=local
+
+|gr1= PhysX
+
+|descr= Get the child that has been attached via [[attachChild]]
+
+|s1= [[childAttached]] parent
+
+|p1= parent: [[Object]] -  Must be a Transport vehicle like Car/Tank (Maybe helicopter/airplane works?).
+
+|r1= [[Object]]
+
+|seealso= [[attachChild]] [[parentAttached]]
+}}

@@ -1,0 +1,53 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|serverExec= server
+
+|eff= global
+
+|gr1= Waypoints
+
+|descr= Switches the group formation when the waypoint becomes active.
+<br>
+<br>
+Possible values are: 
+* "NO CHANGE"
+* "COLUMN"
+* "STAG COLUMN"
+* "WEDGE"
+* "ECH LEFT"
+* "ECH RIGHT"
+* "VEE"
+* "LINE"
+* "FILE"
+* "DIAMOND"
+
+|s1= waypoint [[setWaypointFormation]] formation
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= formation: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp, 2] setWaypointFormation "LINE";</sqf>
+
+|seealso= [[Mission_Editor:_Waypoints#Formation|formations description]] [[waypoints]] [[deleteWaypoint]] [[copyWaypoints]] [[setCurrentWaypoint]] [[setWaypointBehaviour]] [[setWaypointCombatMode]] [[setWaypointCompletionRadius]] [[setWaypointDescription]] [[setWaypointHousePosition]] [[setWaypointPosition]] [[setWaypointScript]] [[setWaypointSpeed]] [[setWaypointStatements]] [[setWaypointTimeout]] [[setWaypointType]] [[setWaypointVisible]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[setWaypointLoiterRadius]] [[waypointLoiterRadius]] [[addWaypoint]] [[setWaypointLoiterType]] [[waypointSpeed]]
+}}

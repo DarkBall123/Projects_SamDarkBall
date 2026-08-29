@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|gr1= Mines
+
+|descr= Checks if the given mine is active.
+
+|s1= [[mineActive]] obj
+
+|p1= obj: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (mineActive _mine) then {hint "BOOM!"};</sqf>
+
+|seealso= [[allMines]] [[detectedMines]] [[mineDetectedBy]] [[createMine]] [[revealMine]]
+}}

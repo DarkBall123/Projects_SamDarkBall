@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Variables
+
+|gr2= Config
+
+|descr= A non-existing [[Config]].
+
+{{Feature|important|
+Unlike other null values ([[objNull]], [[grpNull]], etc), [[configNull]] returns [[true]] when compared to itself.
+<sqf>
+configNull == configNull;							// returns true
+isNull configNull;									// returns true
+configNull isEqualTo configNull;					// returns true
+configNull == configFile >> "ANonExistentEntry";	// returns true
+</sqf>
+}}
+
+|s1= [[configNull]]
+
+|r1= [[Config]]
+
+|x1= <sqf>_config = missionNamespace getVariable ["myConfig", configNull];</sqf>
+
+|x2= <sqf>str configNull; // returns ""</sqf>
+
+|seealso= [[controlNull]] [[displayNull]] [[grpNull]] [[locationNull]] [[objNull]] [[taskNull]] [[teamMemberNull]] [[scriptNull]] [[typeName]] [[isNull]]
+}}

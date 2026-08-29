@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control - Tree View
+
+|descr= Returns array of paths to selected items.
+
+|s1= [[tvSelection]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Tree View Path]]
+
+|x1= <sqf>private _selection = tvSelection _ctrlTV;</sqf>
+
+|seealso= [[tvSetSelected]] [[tvIsSelected]]
+}}

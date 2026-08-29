@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= FAST-ROPE [[Custom_Waypoints|custom waypoint]].
+
+Let everybody in vehicles' cargo space rappel down on a rope.
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [limitHeight,limitSpeed,fastropeID]
+
+|p1= limitHeight: [[Number]] - height tolerance from waypoint's height (default: 10m)
+
+|p2= limitSpeed: [[Number]] - maximum speed ov vehicle (default: 10km/h)
+
+|p3= fastropeID: [[Number]] - ID of vehicle's fast-rope position. Positions are defined in vehicle's config under RopePositions >> Fastrope
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, position dude, 50, 5, 15, 1] spawn BIS_fnc_wpFastRope;</sqf>
+
+|seealso=
+}}

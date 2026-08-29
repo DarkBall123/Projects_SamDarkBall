@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= HashMap
+
+|descr= Creates a new empty [[HashMap]].
+
+|s1= [[createHashMap]]
+
+|r1= [[HashMap]]
+
+|x1= <sqf>private _myHashMap = createHashMap;</sqf>
+
+|seealso= [[createHashMapFromArray]]
+}}

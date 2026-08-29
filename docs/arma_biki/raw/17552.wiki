@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.52
+|arg= global
+|eff= global
+
+|gr1= Weapons
+
+|descr= Enables or disables transport NV (Night Vision). To disable TI (Thermal Imaging) use [[disableTIEquipment]].
+
+|s1= vehicle [[disableNVGEquipment]] state
+
+|p1= vehicle: [[Object]]
+
+|p2= state: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myTank disableNVGEquipment true;</sqf>
+
+|seealso= [[equipmentDisabled]] [[disableTIEquipment]]
+}}

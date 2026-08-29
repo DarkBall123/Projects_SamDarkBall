@@ -1,0 +1,18 @@
+[[Category: Control Types]]
+
+{{CT|intro
+
+|macro = CT_OBJECT_CONT_ANIM
+|value = 83
+|description = Unknown control type.
+|gallery=
+|commands =
+|events =
+}}
+
+<!-- {{CT|abc start}}
+
+{{CT|abc end}} -->
+
+{{CT|examples}}
+None

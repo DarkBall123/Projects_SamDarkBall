@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Missions
+
+|descr= <pre>#define VAR_RELOADS	(missionname + "_reloads_" + str ismultiplayer)
+
+//--- Mission end type and rating
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_missionHandlers]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_missionHandlers;</sqf> -->
+
+|seealso=
+}}

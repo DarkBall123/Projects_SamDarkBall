@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.75
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|gr1= Event Handlers
+
+|gr2= Sounds
+
+|gr3= Briefing
+
+|descr= Select a sound declared in the [[Description.ext#Sound|Description.ext]] of the mission to be played the first time the [[Briefing.html#Gear|Gear tab]] is selected in the [[Briefing.html|briefing]].
+
+|s1= [[onBriefingGear]]  soundName
+
+|p1= soundName: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>onBriefingGear "GearVoiceOver";</sqf>
+
+|seealso= [[Description.ext#Sounds|CfgSounds]]
+}}

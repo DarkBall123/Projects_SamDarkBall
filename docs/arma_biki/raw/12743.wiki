@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.04
+
+|gr1= Unit Inventory
+
+|gr2= Containers
+
+|descr= Removes all [[itemsWithMagazines]] from the uniform, vest and backpack. Command essentially clears all unit's containers.
+
+|s1= [[removeAllItemsWithMagazines]] unit
+
+|p1= unit: [[Object]]
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllItemsWithMagazines player;</sqf>
+
+|seealso= [[itemsWithMagazines]] [[items]]
+}}

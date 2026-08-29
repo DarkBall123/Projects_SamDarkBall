@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Effects when player is hit. Parameters are sent by the [[Arma 3: Event Handlers#HandleDamage|HandleDamage]] event handler.
+
+|s1= call [[BIS_fnc_healthEffects]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>call BIS_fnc_healthEffects;</sqf>
+
+|seealso= [[BIS_fnc_healing]]
+}}

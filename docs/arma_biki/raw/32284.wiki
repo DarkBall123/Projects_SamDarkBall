@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+
+|arg= local
+
+|gr1= Object Manipulation
+
+|descr= Returns a unit's freefall information.
+
+|s1= [[getUnitFreefallInfo]] unit
+
+|p1= unit: [[Object]] - unit
+
+|r1= [[Array]] with [isFalling, isInFreefallPose, minFreefallHeight]
+* isFalling: [[Boolean]] - [[true]] if unit is falling
+* isInFreefallPose: [[Boolean]] - [[true]] if unit is in freefall pose
+* minFreefallHeight: [[Number]] - current minimum freefall height (see [[setUnitFreefallHeight]])
+
+|x1= <sqf>getUnitFreefallInfo player;</sqf>
+
+|seealso= [[setUnitFreefallHeight]] [[getUserInfo]] [[getModelInfo]]
+}}
+
+{{Note
+|user= Sa-Matra
+|timestamp= 20230508042625
+|text= Note that command is supposed to be used on local units. When used  on a remote unit, its return (isFalling) is unreliable and sometimes returns wrong values.
+}}

@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.04
+
+|descr= Returns provided rope's segments.<br>
+{{GVI|arma3|2.12|size= 0.75}} use [[objectParent]] to return the rope parent from a rope segment.
+
+|gr1= Ropes and Sling Loading
+
+|s1= [[ropeSegments]] rope
+
+|p1= rope: [[Object]]
+
+|r1= [[Array]] of [[Object]]s - the rope's segments
+
+|x1= <sqf>private _segments = ropeSegments _myRope;</sqf>
+
+|seealso= [[ropeCreate]] [[ropeLength]] [[ropeCut]] [[ropeEndPosition]]
+}}

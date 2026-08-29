@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|gr1= Object Manipulation
+
+|gr2= Unit Control
+
+|descr= When set to [[true]] it disables the default engine hiding behavior.
+
+|s1= object [[hideBehindScripted]] scriptedHideBehind
+
+|p1= object: [[Object]]
+
+|p2= scriptedHideBehind: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_unit hideBehindScripted true;</sqf>
+
+|seealso= [[isHideBehindScripted]]
+}}

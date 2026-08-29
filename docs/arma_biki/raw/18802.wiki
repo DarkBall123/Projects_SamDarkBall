@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Ambient
+
+|arg= local
+
+|eff= global
+
+|descr= Randomise animals skin.<br>
+Works on:
+* "Alsatian_Random_F"
+* "ButterFly_random"
+* "Cock_random_F"
+* "Fin_random_F"
+* "Goat_random_F"
+* "Sheep_random_F"
+* "Snake_random_F"
+
+|s1= animal call [[BIS_fnc_animalRandomization]]
+
+|p1=
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myDog call BIS_fnc_animalRandomization;</sqf>
+
+|seealso= [[BIS_fnc_unitHeadgear]] [[setObjectTextureGlobal]] [[setObjectMaterialGlobal]]
+}}

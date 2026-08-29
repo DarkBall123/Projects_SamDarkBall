@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Returns name of currently used goggles (for NVGoggles use [[hmd]]).
+
+|s1= [[goggles]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>_goggles = goggles assaultDiver; //G_Diving</sqf>
+ 
+|x2= <sqf>_goggles = goggles reconTeamLeader; //G_Shades_Black</sqf>
+
+|seealso= [[removeGoggles]] [[addGoggles]] [[hmd]] [[headgear]] [[binocular]] [[getDiverState]]
+}}

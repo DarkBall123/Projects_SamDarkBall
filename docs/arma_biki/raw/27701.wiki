@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|arg= local
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes given weapon item, including magazine, from the [[binocular]] weapon.
+
+|s1= unit [[removeBinocularItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeBinocularItem "Laserbatteries";</sqf>
+
+|seealso= [[addBinocularItem]] [[binocularItems]] [[removeAllBinocularItems]] [[removePrimaryWeaponItem]] [[removeSecondaryWeaponItem]] [[removeHandgunItem]]
+}}

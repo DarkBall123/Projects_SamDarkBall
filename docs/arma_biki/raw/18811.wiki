@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|gr2= Configs
+
+|descr= Return config paths to all display controls.
+
+|s1= [display, path] call [[BIS_fnc_controlConfigs]]
+
+|p1= display: [[Display]]
+
+|p2= path: [[Config]] - root display config path
+
+|r1= [[Array]] in format [<nowiki/>[control1, configpath1], [control2, configpath2], ..., [controlN, configpathN]]
+
+|x1= <sqf>[findDisplay 313, configFile >> "Display3DEN"] call BIS_fnc_controlConfigs;</sqf>
+
+|seealso= [[findDisplay]]
+}}

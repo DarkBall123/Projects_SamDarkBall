@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.04
+
+|arg= global
+|eff= global
+
+|gr1= Containers
+
+|descr= Removes item from soldier's uniform. Can be used with magazines and weapons too.
+
+|s1= unit [[removeItemFromUniform]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeItemFromUniform "FirstAidKit";</sqf>
+
+|seealso= [[addItemToUniform]] [[removeItemFromVest]] [[removeItemFromBackpack]] [[removeItemFromPrimaryWeapon]]
+}}

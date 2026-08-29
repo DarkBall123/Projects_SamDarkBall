@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= GUI Control
+
+|descr= Returns display IDD.
+
+|s1= [[ctrlIDD]]  display
+
+|p1= display: [[Display]]
+
+|r1= [[Number]]
+
+|x1= <sqf>
+_display = findDisplay 46;
+ctrlIDD _display; // 46
+</sqf>
+
+|seealso= [[displayCtrl]] [[findDisplay]]
+}}

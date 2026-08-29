@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|gr1= Vehicle Inventory
+
+|descr= Returns all items names and count from ammo box (or any general weapon holder container).
+
+|s1= [[getItemCargo]] box
+
+|p1= box: [[Object]]
+
+|r1= [[Array]] with [classes, counts]
+* classes: [[Array]] of [[String]]s - Item class names
+* counts: [[Array]] of [[Number]]s - Item counts
+
+|x1= <sqf>
+getItemCargo cursorTarget;
+/*
+	returns e.g
+	[
+        ["5ItemA", "10ItemB"]
+        [5, 10]
+	]
+*/
+</sqf>
+
+|seealso= [[itemCargo]] [[addItemCargo]] [[addItemCargoGlobal]] [[clearItemCargo]] [[clearItemCargoGlobal]]
+}}

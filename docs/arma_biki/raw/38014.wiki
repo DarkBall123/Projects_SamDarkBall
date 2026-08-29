@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.16
+
+|arg= local
+
+|gr1= Object Manipulation
+
+|descr= Get an object's water filling.
+
+|s1= [[getWaterFillPercentage]] obj
+
+|p1= obj: [[Object]] - object to manipulate
+
+|r1= [[Number]] - water level in range 0..1 (empty to full)
+
+|x1= <sqf>
+if (getWaterFillPercentage _myCar > 0) then
+{
+	hint "My feet are wet.";
+};
+</sqf>
+
+|seealso= [[setWaterLeakiness]] [[getWaterLeakiness]] [[setWaterFillPercentage]]
+}}

@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.75
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|gr1= Object Detection
+
+|descr= Returns [[Object]] with given id. Object's id can be checked in mission editor.
+{{Feature|important|This command was removed as of {{arma1}} '''v1.08'''; for later versions and titles, use [[nearestObject]] command family instead.}}
+
+|s1= [[object]] id
+
+|p1= id: [[Number]]
+
+|r1= [[Object]]
+
+|x1= <sqf>_object = object 1;</sqf>
+
+|seealso= [[nearestObjects]] [[nearObjectsReady]] [[nearObjects]] [[nearestObject]]
+}}
+
+{{Note
+|user= Hoz
+|timestamp= 20060801221000
+|text=
+{{GVI|ofp|1.75}} To check object's id in the Mission Editor click on "Show IDs" and zoom in closely.<br>
+{{GVI|ofp|1.85}} You cannot <sqf inline>_object setPos [-10000, 0 ,0];</sqf> terrain objects to get them out of the way, but you can use <sqf inline>_object setDamage 1;</sqf> to get trees or other flora out of the way.<br>
+{{GVI|arma1|1.08}} This command is no longer available due to terrain data streaming, you need to use extended variant of [[nearestObject]] instead.
+}}

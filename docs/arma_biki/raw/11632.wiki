@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr= Return the current throttle level for all engines of a helicopter.
+
+|s1= [[throttleRTD]] helicopterRTD
+
+|p1= helicopterRTD : [[Object|ObjectRTD]] - helicopter
+
+|r1= [[Array]]
+
+|x1= <sqf>_throttleValues = throttleRTD vehicle player;</sqf>
+
+|seealso= [[setThrottleRTD]]
+}}

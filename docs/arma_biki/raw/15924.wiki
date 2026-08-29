@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|gr2= Broken Functions
+
+|descr= Previews all vehicle icons on map.
+{{Feature|warning|This function is broken as it uses bad arguments for [[BIS_fnc_returnParents]] ('''line 35''', {{hl|""}} instead of {{hl|true}})}}
+
+|s1= [parentClass, position, map] call [[BIS_fnc_diagVehicleIcons]]
+
+|p1= parentClass: [[String]] - (Optional, default "all")
+
+|p2= position: [[Position]] - (Optional, default [100,100]) position of the first icon on the ''map'', others will be layered on top of it
+
+|p3= map: [[Control]] - (Optional, default <sqf inline>findDisplay 12 displayCtrl 51</sqf> a.k.a main map)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>["all", getPos player] call BIS_fnc_diagVehicleIcons;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diag functions]]
+}}

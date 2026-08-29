@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|eff= global
+
+|gr1= Interaction
+
+|descr= Make a unit perform an action immediately (without any animation/pre-processing). See the [[action]] command for more information.
+
+|s1= unit [[actionNow]] actionArray
+
+|p1= unit: [[Object]]
+
+|p2= actionArray: [[Array]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player actionNow ["TakeBag", _backpack]; // pick up a backpack without any animation</sqf>
+
+|x2= <sqf>player actionNow ["Gear", vehicle player]; // open inventory while in vehicle</sqf>
+
+|seealso= [[action]] [[actionIDs]] [[actionParams]] [[addAction]] [[setUserActionText]] [[inGameUISetEventHandler]] [[showHUD]] [[inputAction]] [[removeAction]] [[removeAllActions]] [[weaponsInfo]]
+}}

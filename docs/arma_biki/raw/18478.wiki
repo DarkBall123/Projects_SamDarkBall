@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|gr1= Object Manipulation
+
+|descr=Returns [[true]] if given object is [[createSimpleObject|simple object]]
+
+|s1= [[isSimpleObject]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_isSimple = isSimpleObject _obj1;</sqf>
+
+|seealso= [[createSimpleObject]] [[allSimpleObjects]] [[nearestObjects]] [[nearObjectsReady]] [[nearObjects]] [[nearestObject]]
+}}

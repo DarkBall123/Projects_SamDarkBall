@@ -1,0 +1,14 @@
+High Dynamic Range Lighting ('''HDR Lighting''') refers to all of the lighting values which are rendered in {{arma1}} can consist of real world ranges.
+This means that the [[Real Virtuality]] engine since {{GameCategory|arma1|link=y}} is handling lighting conditions which are several orders of magnitude different.
+For the player it means that when entering dark areas from light it takes some time to adjust the eyes so it’s not only a visual effect but also influences the way that the game is played.
+
+
+== See Also ==
+
+* {{Link|Real Virtuality}}
+* {{Link|https://en.wikipedia.org/wiki/High_dynamic_range_rendering|Wikipedia Article on HDR Lighting}}
+
+
+{{GameCategory|arma1}}
+{{GameCategory|arma2}}
+{{GameCategory|arma3}}

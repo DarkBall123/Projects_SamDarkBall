@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.24
+
+|gr1= Mines
+
+|descr=Returns an array of all mines in the mission
+
+|s1= [[allMines]]
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>hint format ["there are %1 mines total", count allMines];</sqf>
+
+|x2= <sqf>private _isFirstMineDetected = (allMines select 0) mineDetectedBy blufor;</sqf>
+
+|seealso= [[detectedMines]] [[mineDetectedBy]] [[createMine]] [[mineActive]] [[revealMine]] [[allMissionObjects]]
+}}

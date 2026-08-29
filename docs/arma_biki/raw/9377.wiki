@@ -1,0 +1,37 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.52
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= Turrets
+
+|descr= Removes the magazine from the turret. Use turret path [-1] for driver's turret.
+
+Note: you may create invalid combinations by using this function. When doing so, application behaviour is undefined.
+
+|s1= vehicle [[removeMagazineTurret]] [magazineName, turretPath]
+
+|p1= vehicle: [[Object]]
+
+|p2= magazineName: [[String]]
+
+|p3= turretPath: [[Turret Path]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player removeMagazineTurret ["60rnd_cmflaremagazine",[-1]];</sqf>
+
+|x2= <sqf>_tank removeMagazineTurret ["20Rnd_120mmSABOT_M1A2",[0]];</sqf>
+
+|seealso= [[addMagazineTurret]] [[magazinesTurret]] [[removeMagazinesTurret]] [[weaponsTurret]] [[addWeaponTurret]] [[removeWeaponTurret]] [[turretLocal]] [[removeMagazine]]
+}}

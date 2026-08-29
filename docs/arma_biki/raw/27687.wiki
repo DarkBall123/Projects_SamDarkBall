@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control
+
+|descr= Returns control's font size, usually {{hl|sizeEx}} value (see [[ctrlSetFontHeight]]).
+
+|s1= [[ctrlFontHeight]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Number]]
+
+|x1= <sqf>ctrlFontHeight _control;</sqf>
+
+|seealso= [[ctrlTextHeight]] [[ctrlTextWidth]] [[ctrlSetFontHeight]]
+}}

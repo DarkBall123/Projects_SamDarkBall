@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.50
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Return current level of damage for a specific Hit Point (specified by its hit part index). All hit points can be obtained with [[getAllHitPointsDamage]] command.
+* 0: no damage
+* 1: full damage
+
+|s1= vehicle [[getHitIndex]] hitPartIndex
+
+|p1= vehicle : [[Object]] - vehicle to be queried
+|p2= hitPartIndex: [[Number]] - hit part index of the Hit Point
+
+|r1= [[Number]] - before {{GVI|arma3|1.94|size= 0.75}}, [[Nothing]] was returned when an invalid ''selection'' was provided (now returns {{hl|0}})
+
+|x1= <sqf>vehicle player getHitIndex 3;</sqf>
+
+|seealso= [[getAllHitPointsDamage]] [[setHitIndex]] [[setHitPointDamage]] [[getHitPointDamage]] [[setHit]] [[getHit]] [[setDamage]] [[damage]]
+}}

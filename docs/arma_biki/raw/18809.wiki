@@ -1,0 +1,33 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Weapons
+
+|descr= Return object's magazines as defined in config. Scans also turrets and pylons.
+
+|s1= class call [[BIS_fnc_magazinesEntityType]]
+
+|p1= class: [[String]] - object class
+
+|r1= [[Array]] of [[String]]s
+
+|x1= <sqf>
+"O_MBT_04_cannon_F" call BIS_fnc_magazinesEntityType;
+/*
+	returns
+	[
+		"20Rnd_125mm_APFSDS_T_Green",
+		"12Rnd_125mm_HEAT_T_Green",
+		"12Rnd_125mm_HE_T_Green",
+		"1000Rnd_762x51_Belt_Green",
+		"1000Rnd_762x51_Belt_Green",
+		"500Rnd_127x99_mag_Tracer_Yellow",
+		"SmokeLauncherMag"
+	]
+*/
+</sqf>
+
+|seealso= [[magazines]]
+}}

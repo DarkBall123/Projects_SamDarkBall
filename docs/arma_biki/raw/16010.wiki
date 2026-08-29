@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Map and Markers
+
+|descr= Returns map size from config. Do not confuse with [[worldSize]]. The engine command calculates the map size and doesn't read it from config.
+
+|s1= terrainName call [[BIS_fnc_mapSize]]
+
+|p1= terrainName: [[String]] - (Optional, default [[worldName]]) world name
+
+|r1= [[Number]]
+
+|x1= <sqf>"Altis" call BIS_fnc_mapSize;</sqf>
+
+|x2= <sqf>worldName call BIS_fnc_mapSize;</sqf>
+
+|x3= <sqf>call BIS_fnc_mapSize;</sqf>
+
+|seealso= [[BIS_fnc_mapGridSize]] [[worldSize]] [[worldName]]
+}}

@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Convert number to color team name or color.
+
+|s1= [teamId, getColour] call [[BIS_fnc_teamColor]]
+
+|p1= teamId: [[Number]] - in range 1..5
+
+|p2= getColour: [[Boolean]] - (Optional, default [[false]]) [[true]] to get [[Color|Color (RGBA)]], [[false]] to get the ''localised'' team name
+
+|r1= [[Color|Color (RGBA)]] or [[String]] - color format [r, g, b, a] or localised team name
+
+|x1= <sqf>_colour = [2, true] call BIS_fnc_teamColor;</sqf>
+
+|x2= <sqf>
+_teamName = [2] call BIS_fnc_teamColor;
+hint format ["%1 is %2", 2, _teamName];
+</sqf>
+
+|seealso= [[BIS_fnc_colorConfigToRGBA]] [[BIS_fnc_colorRGBAtoHTML]]
+}}

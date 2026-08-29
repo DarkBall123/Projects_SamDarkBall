@@ -1,0 +1,41 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Set a task description. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= [taskId, [taskDescription, taskTitle, taskMarker]] call [[BIS_fnc_taskSetDescription]]
+
+|p1= taskId: [[String]]
+
+|p2= taskDescription: [[String]]
+
+|p3= taskTitle: [[String]]
+
+|p4= taskMarker: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[
+	"tsk_destroyAA",
+	[
+		"You should plant Satchels under those Shilkas! Good luck.",
+		"Destroy the Shilkas",
+		"Shilkas"
+	]
+] call BIS_fnc_taskSetDescription;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}
+
+{{Note
+|user= Honger
+|timestamp= 20260822223956
+|text= Note that some structured text markups seem to be ignored like colour, verticality etc.
+}}

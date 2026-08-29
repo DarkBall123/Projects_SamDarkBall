@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Removes [[Eden Editor: Connecting|connection]] between entities.
+
+|s1= [[remove3DENConnection]] [type, from, to]
+
+|p1= type: [[String]] - connection class from ''Cfg3DEN >> Connections''
+
+|p2= from: [[Array]] of [[Eden Entity|Eden Entities]] - entities which has a connection
+
+|p3= to: [[Eden Entity]] - connection target
+
+|r1= [[Boolean]] - [[true]] If the connection was removed
+
+|x1= <sqf>remove3DENConnection ["RandomStart", get3DENSelected "Object", "marker_0"];// Remove random start on marker "marker_0" from all selected objects.</sqf>
+
+|seealso= [[add3DENConnection]] [[get3DENConnections]]
+}}

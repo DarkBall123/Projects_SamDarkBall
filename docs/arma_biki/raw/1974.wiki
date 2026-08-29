@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Camera Control
+
+|descr= Sets camera focus range. It does not automatically commit changes (see [[camCommit]]). Use [-1, -1] to disable focus completely.
+
+|s1= camera [[camSetFocus]] focusRange
+
+|p1= camera: [[Object]]
+
+|p2= focusRange: [[Array]] with [distance, blur]
+* distance: [[Number]]
+* blur: [[Number]] -  sets the camera focus blur
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_camera camSetFocus [50, 1];</sqf>
+
+|seealso= [[camCreate]] [[camCommand]] [[camDestroy]] [[camCommit]] [[camPrepareFocus]]
+}}

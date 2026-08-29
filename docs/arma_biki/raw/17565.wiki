@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Returns the grid increment for the given transformation type.
+
+|s1= [[get3DENGrid]]  type
+
+|p1= type: [[String]] - name of transformation type. Can be:
+* {{hl|"r"}} - Rotation
+* {{hl|"t"}} - Translation
+* {{hl|"s"}} - Scale 
+
+|r1= [[Number]]
+
+|x1= <sqf>_currentIncrement = get3DENGrid "t";</sqf>
+
+|seealso= [[set3DENGrid]]
+}}

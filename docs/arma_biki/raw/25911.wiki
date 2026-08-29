@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Eden Editor
+
+|gr2= Broken Functions
+
+|descr= This functions does nothing.
+
+|s1= call [[BIS_fnc_3DENMissionStats]]
+
+|p1= -
+
+|r1= -
+
+|x1= -
+
+|seealso= -
+}}

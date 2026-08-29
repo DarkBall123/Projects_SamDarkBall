@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Positions
+
+|descr= Get all available positions within a building or structure.
+
+|s1= param call [[BIS_fnc_buildingPositions]]
+
+|p1= param: [[Object]]
+
+|p2= param: [[Number]]
+
+|r1= [[Array]]
+
+|x1= <sqf>[_building] call BIS_fnc_buildingPositions;</sqf>
+
+|x2= <sqf>[_building, _maxNumberOfPositions] call BIS_fnc_buildingPositions;</sqf>
+
+|seealso= [[buildingPos]] [[buildingExit]]
+}}

@@ -1,0 +1,52 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Returns the driver of a vehicle.
+
+|s1= [[driver]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Object]] -
+The unit sitting in the driver place is returned. If vehicle is not a vehicle but a person, the person is returned.
+
+|x1= <sqf>(driver _tank) action ["getout", _tank];</sqf>
+
+|x2= <sqf>driver vehicle player isEqualTo player // check if player is driver of current vehicle</sqf>
+
+|seealso= [[commander]] [[gunner]] [[crew]] [[currentPilot]]
+}}
+
+{{Note
+|user= Hardrock
+|timestamp= 20060803143200
+|text= ''Notes from before the conversion:''
+
+It is also possible to find the driver of a vehicle by placing a '''D''' after the name of the vehicle so ''Tank1D'' and '''''driver''' Tank1'' both refer to the same unit, providing the original driver has not got out of the tank.
+
+The difference between the two is ''Tank1D'' is always the unit that was driver of the tank when the mission started, whilst '''''driver''' Tank1'' is the driver which is now there.
+}}

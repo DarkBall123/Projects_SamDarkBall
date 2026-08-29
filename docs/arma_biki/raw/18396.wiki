@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+
+|branch= diag
+
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Returns an array of all diagnostic modes available in the game.
+
+|s1= [[diag_list]]  mode
+
+|p1= mode: [[String]] - can be {{hl|"toggle"}} or {{hl|"drawMode"}}
+
+|r1= [[Array]] - ["Force", "Animation", "Mines", "HitPoints", "AnimSrcUnit", "AnimSrcTarget", "Suspension", "EPEForce", "EPEVehicle", "ParticleNames", "Particles", "SurfaceUnder", "AISkill", "AIDriving", "AIAiming", "AIBrain", "AIDynamicError", "AISuppression"] {{GVI|arma3|1.66}}
+
+|x1= <sqf>diag_list "toggle";</sqf>
+
+|x2= <sqf>diag_list "drawMode";</sqf>
+
+|seealso= [[diag_toggle]] [[diag_enable]]
+}}

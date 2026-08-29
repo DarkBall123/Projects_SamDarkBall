@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control
+
+|descr= Returns control's text color
+
+|s1= [[ctrlTextColor]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Color|Color (RGBA)]] - text color
+
+|x1= <sqf>ctrlTextColor _control;</sqf>
+
+|seealso= [[ctrlSetTextColor]] [[ctrlText]]
+}}

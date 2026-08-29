@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Bitwise
+
+|descr= Decodes a single scalar into array of unique binary flags (zeroes or ones).
+{{Feature|informative|The maximal decodable number is '''16777215''' (2<sup>24</sup> - 1).}}
+
+|s1= [value, size] call [[BIS_fnc_decodeFlags2]]
+
+|p1= value: [[Number]] - (Optional, default 0) the value to be converted
+
+|p2= size: [[Number]] - (Optional, default 1) wanted array size
+
+|r1= [[Array]] of [[Number]]s - "boolean" flags where 0 {{=}} false and 1 {{=}} true
+
+|x1= <sqf>private _result = 13 call BIS_fnc_decodeFlags2; // returns [1,0,1,1]</sqf>
+
+|x2= <sqf>private _result = [13, 8] call BIS_fnc_decodeFlags2; // returns [1,0,1,1,0,0,0,0]</sqf>
+
+|seealso=
+[[BIS_fnc_encodeFlags]] [[BIS_fnc_encodeFlags2]] [[BIS_fnc_encodeFlags4]] [[BIS_fnc_encodeFlags8]]
+[[BIS_fnc_decodeFlags]] [[BIS_fnc_decodeFlags4]] [[BIS_fnc_decodeFlags8]]
+}}

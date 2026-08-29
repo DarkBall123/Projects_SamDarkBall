@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|descr= ''N/A''
+
+|s1= [] call [[BIS_fnc_EXP_camp_addTickets]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

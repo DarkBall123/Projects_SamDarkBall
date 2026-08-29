@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.26
+
+|gr1= GUI Control
+
+|descr= Deletes given control. The control has to be created either by script with [[ctrlCreate]] or to have {{hl|deletable}} property in config set to 1. Use [[ctrlShow]] [[false]] and [[ctrlEnable]] [[false]] to disable controls that cannot be deleted. Returns [[Boolean]] indicating  whether the deletion was successful.
+{{Feature|warning|Using [[ctrlDelete]] in a [[User_Interface_Event_Handlers|UI eventhandler]] called by the to be deleted control will crash the game! This also happens when a controls group is deleted that contains the "calling" control.}}
+
+|s1= [[ctrlDelete]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>ctrlDelete ((findDisplay 20000) displayCtrl 20001);</sqf>
+
+|seealso= [[ctrlCreate]] [[ctrlModel]] [[ctrlSetModel]] [[ctrlPosition]] [[ctrlSetPosition]] [[ctrlClassName]] [[displayCtrl]] [[ctrlModelScale]] [[ctrlSetModelScale]] [[ctrlModelDirAndUp]] [[ctrlSetModelDirAndUp]]
+}}

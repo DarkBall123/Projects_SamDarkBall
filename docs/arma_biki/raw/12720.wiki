@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Weapon Pool
+
+|descr= Removes all items from ammo box (or any general weapon holder container)
+
+|s1= [[clearItemPool]] box
+
+|p1= box: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>clearItemPool jeepOne;</sqf>
+
+|seealso= [[addItemPool]]
+}}

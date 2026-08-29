@@ -1,0 +1,7 @@
+'''Description:'''<br>
+A [[Boolean]] can either be [[true]] or [[false]].
+Note that Booleans are '''real''' types in the scripting language.
+
+In config.cpp (addons), a boolean is simply a poetic licence, a convenience, for a zero/non zero integer.
+
+[[Category: Data Types]]

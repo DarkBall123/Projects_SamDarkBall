@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Mission Information
+
+|descr= Deactivates the given keyname for the current user profile. The keys are used to unlock missions or campaigns.
+
+See keys, keysLimit and doneKeys in the [[Description.ext#keys|description.ext]] file of the missions.
+
+|s1= [[deActivateKey]] keyname
+
+|p1= keyname: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>deActivateKey "Mission04Key";</sqf>
+
+|seealso= [[isKeyActive]] [[activateKey]]
+}}

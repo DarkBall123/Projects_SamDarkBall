@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Whether or not units can be in a vehicle with broken tracks/wheels.
+
+|s1= [[isAllowedCrewInImmobile]] vehicle
+
+|p1= vehicle: [[Object]] - transport
+
+|r1= [[Boolean]] - [[true]] - allowed, [[false]] - not allowed
+
+|x1= <sqf>
+if !(isAllowedCrewInImmobile _tank) then
+{
+	_tank allowCrewInImmobile true;
+};
+</sqf>
+
+|seealso= [[allowCrewInImmobile]]
+}}

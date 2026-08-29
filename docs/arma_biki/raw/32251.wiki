@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+
+|arg= global
+
+|gr1= PhysX
+
+|descr= Returns the status of autobrake (see [[disableBrakes]]).
+
+|s1= [[brakesDisabled]] transport
+
+|p1= transport: [[Object]] - PhysX car or tank
+
+|r1= [[Boolean]] - [[true]] if autobrake is disabled
+
+|x1= <sqf>
+if !(brakesDisabled _vehicle) then
+{
+	_vehicle disableBrakes true;
+};
+</sqf>
+
+|seealso= [[disableBrakes]] [[awake]] [[isAwake]] [[addTorque]] [[addForce]] [[vectorModelToWorld]] [[vectorModelToWorldVisual]] [[selectionPosition]] [[setVelocityTransformation]] [[setVelocityModelSpace]]
+}}

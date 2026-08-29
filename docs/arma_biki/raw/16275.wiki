@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules - Live Feed
+
+|descr= <pre>/*
+	
+	Description:
+	Add effects to a live feed via a module.
+	
+	Parameters:
+		_this: OBJECT - Live Feed - Effects module
+*/
+
+// They ran me on a dedicated server. I stopped their function.
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_liveFeedModuleEffects]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_liveFeedModuleEffects;</sqf> -->
+
+|seealso=
+}}

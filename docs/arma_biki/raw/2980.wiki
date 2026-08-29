@@ -1,0 +1,9 @@
+{{Feature|UnsupportedDoc}}
+== Introduction ==
+
+Armed Assault files with raP encoding are currently ''identical'' to [[raP File Format - Elite|Elite]] raP files with the sole exception that ArmA raP files do not currently have any authentication signatures.
+
+This lack of signature may well change as OEM model makers and campaign suppliers look to protecting their efforts.
+
+{{GameCategory|arma1|File Formats}}
+[[Category:BIS_File_Formats|RAP]]

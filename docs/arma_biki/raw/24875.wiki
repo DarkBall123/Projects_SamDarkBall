@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Sets camera instance of camera object.
+
+|s1= [camera, cameraInstance] call [[BIS_fnc_camera_setCam]]
+
+|p1= camera: [[Object]] - the camera
+
+|p2= cameraInstance: [[Object]] - camera instance
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_camera,BIS_camera_instance] call BIS_fnc_camera_setCam;</sqf>
+
+|seealso= [[BIS_fnc_camera_getCam]]
+}}

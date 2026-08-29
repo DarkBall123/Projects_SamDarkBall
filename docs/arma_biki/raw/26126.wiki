@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= System
+
+|descr= Returns the state of game focus changed by pressing {{Controls|ALT|TAB}} or similar action.
+
+|s1= [[isGameFocused]]
+
+|r1= [[Boolean]] - [[true]] if game window is focused, [[false]] if not
+
+|x1= <sqf>if (!isGameFocused) then { endMission "End" };</sqf>
+
+|seealso= [[isGamePaused]]
+}}

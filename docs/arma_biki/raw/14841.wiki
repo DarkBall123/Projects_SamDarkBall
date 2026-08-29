@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Returns array with all objects that has curator registered and their settings.
+
+|s1= [[curatorRegisteredObjects]] curator
+
+|p1= curator: [[Object]] - curator module
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>curatorRegisteredObjects _curatorModule;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

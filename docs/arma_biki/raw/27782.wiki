@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= Markers
+
+|descr= Returns the channel to which a marker belongs.
+
+|s1= [[markerChannel]] marker
+
+|p1= marker: [[String]]
+
+|r1= [[Number]]
+
+|x1= <sqf>markerChannel "marker_1";</sqf>
+
+|seealso= [[createMarker]] [[Channel IDs]]
+}}

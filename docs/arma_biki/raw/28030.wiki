@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Leaderboards
+
+|descr= Requests given leaderboard to download values around the user position in the table.
+
+|s1= [[leaderboardRequestRowsGlobalAroundUser]] [leaderboard, offset, rows]
+
+|p1= leaderboard: [[String]] - name of the leaderboard
+
+|p2= offset: [[Number]] - offset from user position.
+
+|p3= rows: [[Number]] - defines how many rows are requested
+
+|r1= [[Boolean]] - returns [[true]] if request has been started
+
+|x1= <sqf>_isGettingValues = leaderboardRequestRowsGlobalAroundUser ["TT01", -5, 10];</sqf>
+
+|seealso= [[leaderboardGetRows]] [[leaderboardInit]] [[leaderboardRequestRowsFriends]] [[leaderboardRequestRowsGlobal]] [[leaderboardsRequestUploadScore]] [[leaderboardsRequestUploadScoreKeepBest]] [[leaderboardState]]
+}}

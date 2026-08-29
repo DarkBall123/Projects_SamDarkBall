@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|eff= local
+
+|gr1= Map and Markers
+
+|gr2= Event Handlers
+
+|descr= Event handler function for locking the camera.
+
+|s1= position call [[BIS_fnc_zoomLockEH]]
+
+|p1= position: [[Position]] - position that the camera should focus
+
+|r1=
+
+|x1= <sqf>[position player] call BIS_fnc_zoomLockEH;</sqf>
+
+|seealso= [[BIS_fnc_zoomLock]] [[BIS_fnc_zoomUnlock]]
+}}

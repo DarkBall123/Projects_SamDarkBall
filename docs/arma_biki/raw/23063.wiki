@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= Geometry
+
+|descr= Computes nearest point in a line.
+
+|s1= [start, end, point, ''is2D''] call [[BIS_fnc_nearestPoint]]
+
+|p1= start: [[Position]] - line start
+
+|p2= end: [[Position]] - line end
+
+|p3= point: [[Position]] - point to check against
+
+|p4= is2D: [[Boolean]] - (Optional, default [[false]]) 2D calculation instead of 3D
+
+|r1= [[Position]] - the line point that is closest to ''point''
+
+|x1= <sqf>private _idealLocation = [getMarkerPos "base", getMarkerPos "destination", getPos player, true] call BIS_fnc_nearestPoint;</sqf>
+
+|seealso= [[nearObjects]] [[nearestObject]] [[nearestObjects]] [[BIS_fnc_nearestPosition]] [[BIS_fnc_nearestNum]] [[BIS_fnc_nearestRoad]] [[BIS_fnc_nearestHelipad]] [[BIS_fnc_isPosBlacklisted]]
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Unassign curator (will destroy both sides of connection).
+
+|s1= [[unassignCurator]] curatorObj
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>unassignCurator myCurator;</sqf>
+
+|seealso= [[Arma 3: Curator]] [[addCuratorAddons]] [[removeAllCuratorAddons]] [[curatorAddons]]
+}}

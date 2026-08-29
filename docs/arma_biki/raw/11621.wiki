@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|eff= global
+
+|gr1= Radio and Chat
+
+|gr2= Custom Radio and Chat
+
+|descr= Add the units to the custom channel.
+
+|s1= customChannelID [[radioChannelAdd]] units
+
+|p1= customChannelID: [[Number]] - [[Channel IDs|custom channel ID]] returned by [[radioChannelCreate]] command
+
+|p2= units: [[Array]] of [[Object]]s - list of units
+
+|r1= [[Nothing]]
+
+|x1= <sqf>2 radioChannelAdd [player, unit1];</sqf>
+
+|seealso= [[radioChannelCreate]] [[radioChannelRemove]] [[radioChannelSetCallSign]] [[radioChannelSetLabel]]
+}}
+
+{{Note
+|user= Hypoxic125
+|timestamp= 20221101063641
+|text= Units are removed from the chat channel on RESPAWN. Be sure to add units back to their custom chat channels upon respawn via [[Event_Scripts#onPlayerRespawn.sqf|onPlayerRespawn.sqf]] or [[Arma_3:_Event_Handlers#Respawn|Respawn Event Handler]].
+}}

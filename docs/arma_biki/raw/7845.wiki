@@ -1,0 +1,3 @@
+#REDIRECT [[PBO File Format]]
+
+[[Category: File extensions|PBO]]

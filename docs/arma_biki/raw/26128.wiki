@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Interaction
+
+|descr= Returns [[true]] if scroll menu is visible.
+
+|s1= [[isActionMenuVisible]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (isActionMenuVisible) then { hint "Scroll menu is opened" };</sqf>
+
+|seealso= [[inGameUISetEventHandler]] [[commandingMenu]] [[showCommandingMenu]] [[shownAction]] [[BIS_fnc_addCommMenuItem]] [[BIS_fnc_removeCommMenuItem]]
+}}
+
+{{Note
+|user= POLPOX
+|timestamp= 20210912035906
+|text= To force close Action Menu, use [[showCommandingMenu]].
+<sqf>
+showCommandingMenu "RscGroupRootMenu";
+showCommandingMenu "";
+</sqf>
+}}

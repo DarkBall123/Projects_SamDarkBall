@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Weapons
+
+|descr= A getter for [[enableReload]]. The value returned is wether or not auto-reload is enabled for current client only.
+
+|s1= [[reloadEnabled]] unitName
+
+|p1= unitName: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>private _aiCanReload = reloadEnabled _unit1;</sqf>
+
+|seealso= [[enableReload]] [[reload]] [[needReload]]
+}}

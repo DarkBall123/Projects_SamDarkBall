@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Attach an object on another one under cursor.
+
+|s1= [object] call [[BIS_fnc_curatorAttachObject]]
+
+|p1= object: [[Object]] - some object
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[BIS_vehicle] call BIS_fnc_curatorAttachObject;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

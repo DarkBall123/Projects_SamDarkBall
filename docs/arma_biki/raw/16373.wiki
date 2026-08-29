@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Code executed when curator waypoint is placed.
+
+|s1= [object, waypointGroup, waypointID] call [[BIS_fnc_curatorWaypointPlaced]]
+
+|p1= object: [[Object]] - curator module '''Isn't used in the function'''
+
+|p2= waypointGroup: [[Array]] - group owning the edited waypoint
+
+|p3= waypointID: [[Number]] - ID of the edited waypoint
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[curatorModule, group player, 5] call BIS_fnc_curatorWaypointPlaced;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

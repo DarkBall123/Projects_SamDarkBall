@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control
+
+|descr= Returns the tooltip property of a button control. Getter for [[ctrlSetTooltip]].
+
+|s1= [[ctrlTooltip]] control
+
+|p1= control: [[Control]]
+
+|r1= [[String]]
+
+|x1= <sqf>ctrlTooltip _control;</sqf>
+
+|seealso= [[ctrlSetTooltip]]
+}}

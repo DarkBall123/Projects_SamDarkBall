@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI Control - ListNBox
+
+|descr= Returns [[CT_LISTNBOX]]'s right aligned cell text.
+
+|s1= [[lnbTextRight]] [idc, [row, column]]
+
+|p1= idc: [[Number]]
+
+|p2= row: [[Number]] - index of the row
+
+|p3= column: [[Number]] - index of the column
+
+|r1= [[String]]
+
+|s2= ctrl [[lnbTextRight]] [row, column]
+
+|p21= ctrl: [[Control]]
+
+|p22= row: [[Number]] - index of the row
+
+|p23= column: [[Number]] - index of the column
+
+|r2= [[String]]
+
+|x1= <sqf>_text = _control lnbTextRight [0, 0];</sqf>
+
+|seealso= [[lnbSetTextRight]]
+}}

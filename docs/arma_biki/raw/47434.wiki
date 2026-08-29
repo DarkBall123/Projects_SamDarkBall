@@ -1,0 +1,40 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.22
+
+|arg= local
+
+|eff= local
+
+|serverExec=
+
+|gr1= PhysX
+
+|descr= {{Wiki|WIP}} Requires that a swing+twist or SLERP "drive" has been configured in [[attachChild]].
+Sets the joints target angular velocity (orientation relative to the joint's own orientation).
+The drive will then behave like a spring (springParameters are configured in the drive), trying to accelerate the child object to the desired velocity.
+
+|s1= joint [[setJointDriveAngularVelocity]] velocity
+
+|p1= joint : [[Object]] or [[NetObject]] - The parent vehicle that has a joint to a child, or the joint itself to be manipulated
+
+|p2= velocity: [[Vector3D]] - relative velocity vector
+
+|p3= <!-- ↓ to delete if unused ↓ -->
+
+|r1= [[Nothing]]
+
+
+|x1= <sqf></sqf>
+
+|x2= <sqf></sqf>
+
+|x3= <sqf></sqf>
+
+|x4= <sqf></sqf>
+
+|x5= <sqf></sqf>
+
+|seealso= [[attachChild]] [[setJointDrivePosition]] [[setJointDriveOrientation]] [[setJointDriveLinearVelocity]]
+}}

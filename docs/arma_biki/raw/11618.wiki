@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr= Toggle the starter for the given helicopter engine(s) on or off. 
+* engine index 0: engine #1
+* engine index 1: engine #2
+* engine index 2: engine #3
+* engine index -1: all engines
+
+|s1= helicopterRTD [[setStarterRTD]] [enable, engineIndex]
+
+|p1= helicopterRTD : [[Object|ObjectRTD]] - helicopter
+
+|p2= enable : [[Boolean]] - on or off
+
+|p3= engineIndex : [[Number]] - engine index
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setStarterRTD [true, -1];</sqf>
+
+|seealso=
+}}

@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|arg= global
+
+|eff= global
+
+|gr1= Positions
+
+|descr= Sets position of an object based on the model's centre position (see [[getPosWorld]]).
+
+|s1= object [[setPosWorld]] position
+
+|p1= object: [[Object]]
+|p2= position: [[Position#PositionASL|PositionASL]]
+|r1= [[Nothing]]
+
+|x1= <sqf>_obj setPosWorld getPosWorld _obj;</sqf>
+
+|seealso= [[getPosWorld]] [[setPos]] [[setPosATL]] [[setPosASL]] [[setPosASLW]] [[setMarkerPos]] [[setVehiclePosition]]
+}}

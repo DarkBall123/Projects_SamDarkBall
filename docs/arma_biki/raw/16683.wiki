@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|gr1= Lights
+
+|arg= local
+
+|eff= global
+
+|descr= Switches collision lights of a vehicle on/off.
+
+|s1= vehicle [[setCollisionLight]] set
+
+|p1= vehicle: [[Object]]
+
+|p2= set: [[Boolean]]
+
+|r1= [[Nothing]]
+ 
+|x1= <sqf>heli setCollisionLight true;</sqf>
+
+|seealso= [[isLightOn]] [[isCollisionLightOn]] [[setPilotLight]] [[isIRLaserOn]] [[engineOn]] [[isEngineOn]]
+}}

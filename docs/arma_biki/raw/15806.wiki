@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Camera
+
+|descr= Refresh a camera Field of View according to its distance with the target.
+
+|s1= [camera, target, refreshTime] call [[BIS_fnc_camFollow]]
+
+|p1= camera: [[Object]]
+
+|p2= target: [[Object]] or [[Position]]
+
+|p3= refreshTime: [[Number]] - (Optional, default 1) transition time in seconds.
+If ''refreshTime'' is '''positive''', a refresh happens only once.
+if ''refreshTime'' is '''negative''', the refresh will loop (with a transition time of [[abs|absolute]] ''refreshTime'') until camera [[isNull|is null]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>private _camera = "camera" camCreate ((getPos player) vectorAdd [0,0,3]);
+[_camera, player, -2] call BIS_fnc_camFollow;</sqf>
+
+|seealso= [[:Category:Command Group: Camera Control|Camera commands]]
+}}

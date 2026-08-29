@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+|gr2= Event Handlers
+
+|descr= Removes all [[:Category:Eden Editor|Eden Editor]] event handlers of given type. 
+<br><br>
+See the list of all [[Arma_3:_Event_Handlers:_Eden_Editor|Eden Editor Event Handlers]].
+
+|s1= [[removeAll3DENEventHandlers]] type
+
+|p1= type: [[String]] - name of event handler
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAll3DENEventHandlers "onUndo";</sqf>
+
+|seealso= 
+[[add3DENEventHandler]]
+[[remove3DENEventHandler]]
+}}

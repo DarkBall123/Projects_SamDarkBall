@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Containers
+
+|arg= global
+
+|eff= global
+
+|gr2= Unit Inventory
+
+|descr= Create a new uniform and hard link it into slot (without any restrictions).
+
+|s1= unit [[forceAddUniform]] type
+
+|p1= unit: [[Object]]
+
+|p2= type: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_unit forceAddUniform "U_B_CombatUniform_mcam";</sqf>
+
+|seealso= [[addUniform]] [[isUniformAllowed]] [[removeUniform]] [[uniform]]
+}}

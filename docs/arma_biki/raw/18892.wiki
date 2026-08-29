@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Vehicles
+
+|descr= Return vehicle customization settings.
+
+|s1= [object, class] call [[BIS_fnc_getVehicleCustomization]]
+
+|p1= object: [[Object]]
+
+|p2= class: [[String]] - (Optional, default "") object class override
+
+|r1= [[Array]] in format: [<texture>, <animations>], for example (<nowiki>[</nowiki>["wasp",1],["AddTread",0,"AddTread_Short",1]])
+
+|x1= <sqf>[vehicle player] call BIS_fnc_getVehicleCustomization;</sqf>
+
+|seealso= [[Arma 3: Vehicle Customisation]] [[BIS_fnc_initVehicle]]
+}}

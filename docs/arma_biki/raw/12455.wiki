@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.70
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes given weapon item, including magazine, from the [[handgunWeapon]]
+
+|s1= unit [[removeHandgunItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]] - config class
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeHandgunItem "muzzle_snds_L";</sqf>
+
+|seealso= [[addHandgunItem]] [[removeAllHandgunItems]] [[removePrimaryWeaponItem]] [[removeSecondaryWeaponItem]] [[removeBinocularItem]]
+}}

@@ -1,0 +1,35 @@
+== Introduction ==
+See [[CfgVehicles Config Reference|CfgVehicles Config Reference Introduction]]
+
+== Alphabetical Order ==
+=== C ===
+==== coefSpeed ====
+[[TokenNameValueTypes#Floats|Float]]
+<syntaxhighlight lang="cpp">
+coefSpeed = 10;
+</syntaxhighlight>
+
+=== I ===
+==== inhaleDuration ====
+[[TokenNameValueTypes#Floats|Float]]
+<syntaxhighlight lang="cpp">
+inhaleDuration = 1.5;
+</syntaxhighlight>
+
+=== M ===
+==== maxHoldTime ====
+[[TokenNameValueTypes#Floats|Float]]
+<syntaxhighlight lang="cpp">
+maxHoldTime = 8;
+</syntaxhighlight>
+
+=== O ===
+==== outOfBreathCoef ====
+[[TokenNameValueTypes#Floats|Float]]
+<syntaxhighlight lang="cpp">
+outOfBreathCoef = 5;
+</syntaxhighlight>
+
+
+
+{{GameCategory|arma3|Reference Lists}}

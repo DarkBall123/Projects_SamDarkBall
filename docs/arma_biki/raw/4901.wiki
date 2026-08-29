@@ -1,0 +1,34 @@
+{{Tool
+
+|AUTHOR=
+[[:Category:Projects|Bohemia Interactive]]
+
+|VERSION=
+
+|COMPATIBILITY=
+[[:Category:ArmA: Armed Assault|{{arma1}}]]
+
+[[:Category: Arma 3|Arma 3]]
+
+|DOWNLOAD=
+Included in [[BI Tools]] (as part of [[BinPBO]]),
+
+{{Link|link= http://store.steampowered.com/app/233800/|text= Part of Arma 3 Tools package on Steam}}
+
+|DESCRIPTION=
+DSSignFile is a tool for signing ArmA content.
+
+|COMMAND=
+    dsSignFile private_key_filename file_to_sign_filename
+
+|NOTES=
+
+|LICENSING=
+[[End User License Agreement for BI's Tools|Bohemia Interactive End User License Agreement]]
+
+|SEEALSO=
+[[Armed Assault: Addon Signatures]]
+}}
+
+{{GameCategory|arma1|Official Tools}}
+{{GameCategory|arma3|Official Tools}}

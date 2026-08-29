@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.98
+
+|gr1= Old Man
+
+|descr= Saves the game - simply calls [[saveGame]].
+
+|s1= call [[BIS_fnc_OM_saveGame]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_OM_saveGame;</sqf>
+
+|seealso= [[saveGame]]
+}}

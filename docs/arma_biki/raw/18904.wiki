@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Multiplayer
+
+|descr= Returns the current net mode as a string.
+
+|s1= call [[BIS_fnc_getNetMode]]
+
+|r1= [[String]] - can be one of:
+* "DedicatedServer"
+* "Server"
+* "HeadlessClient"
+* "Client"
+* "SinglePlayer"
+
+|x1= <sqf>private _netMode = call BIS_fnc_getNetMode;</sqf>
+
+|seealso=
+}}

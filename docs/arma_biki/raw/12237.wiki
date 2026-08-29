@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Sides
+
+|descr= Pre-defined variable for the independent [[Side|side]].
+
+|alias= [[resistance]]
+
+|s1= [[independent]] 
+
+|r1= [[Side]]
+
+|x1= <sqf>
+if (side _unit == independent) then
+{
+	hint "This is a independent unit!";
+};
+</sqf>
+
+|seealso= [[side]] [[civilian]] [[blufor]] [[east]] [[opfor]] [[resistance]] [[west]]
+}}

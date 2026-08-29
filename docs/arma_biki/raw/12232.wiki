@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Unit Inventory
+
+|gr2= Vehicle Inventory
+
+|descr= Returns description of vehicle's currently loaded magazine, its ammo count (current/default) and its id.
+
+|s1= [[currentMagazineDetail]] object
+
+|p1= object: [[Object]] - unit or vehicle
+
+|r1= [[String]]
+
+|x1= <sqf>_currentMagazineDetail = currentMagazineDetail player; // "6.5mm 30Rnd STANAG Mag(30/30)[id:0]"</sqf>
+
+|x2= <sqf>_currentMagazineDetail = currentMagazineDetail Mi_48; // "30mm HE Shells(250/250)[id:21]</sqf>
+
+|x3= <sqf>
+_cmd = currentMagazineDetail player; // "9mm 16Rnd Mag(13/16)[id/cr:10000011/0]"
+_cmd splitString "([ ]/:)"; // ["9mm","16Rnd","Mag","13","16","id","cr","10000011","0"]
+</sqf>
+
+|seealso= [[magazinesDetail]] [[currentMagazine]]
+}}

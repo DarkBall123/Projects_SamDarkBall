@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.98
+
+|arg= global
+
+|gr1= Triggers
+
+|descr= Returns trigger condition check frequency in seconds. <br><br> 
+
+{{Feature | important | The trigger could be [[Multiplayer Scripting#Locality|local]] or remote but the result returned by this command will be for the trigger interval set up locally on the client that executed the command. See [[createTrigger]] for more info.}}
+
+|s1= [[triggerInterval]] trigger
+
+|p1= trigger: [[Object]] - trigger object
+
+|r1= [[Number]] - trigger interval in seconds
+
+|x1= <sqf>_interval = triggerInterval someTrigger;</sqf>
+
+|seealso= [[setTriggerInterval]] [[createTrigger]] [[enableSimulation]] [[simulationEnabled]]
+}}

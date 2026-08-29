@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Missions
+
+|descr= Activate mission related keys.
+
+|s1= call [[BIS_fnc_singleMissionKeys]]
+
+|r1= [[Array]] - list of activated keys
+
+|x1= <sqf>private _activatedKeys = call BIS_fnc_singleMissionKeys;</sqf>
+
+|seealso= [[missionName]] [[briefingName]]
+}}

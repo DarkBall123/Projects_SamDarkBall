@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Configs
+
+|descr= Return given class displayName value. Return base class name if displayName not defined.
+
+|s1= [config] call [[BIS_fnc_displayName]]
+
+|p1= config: [[Config]] - config path
+
+|r1= [[String]] - displayName, else [[configName]]
+
+|x1= <sqf>private _myDisplayName = [configFile >> "CfgVehicles" >> typeOf vehicle player] call BIS_fnc_displayName;</sqf>
+
+|x2= <sqf>private _myDisplayName = [configOf player] call BIS_fnc_displayName; // Since Arma 3 2.00</sqf>
+
+|seealso= [[configName]]
+}}

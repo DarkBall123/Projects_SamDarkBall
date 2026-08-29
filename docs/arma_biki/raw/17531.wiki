@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.52
+
+|gr1= Sensors
+
+|descr= Get status of disabled raycasts for remote entities. See [[disableRemoteSensors]] for detailed description.
+
+|s1= [[getRemoteSensorsDisabled]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_status = getRemoteSensorsDisabled;</sqf>
+
+|seealso= [[disableRemoteSensors]]
+}}

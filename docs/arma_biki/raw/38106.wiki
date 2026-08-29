@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Object Manipulation
+
+|descr= Returns an array of bone names and their parents.
+
+|s1= [[getBoneNames]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Array]] of [[String]]s - bone names and bone parents in separate arrays, in format: [[bone1, bone2,...], [parent1, parent2, ....]]
+
+|seealso= [[selectionPosition]] [[selectionNames]] [[getSelectionBones]]
+}}

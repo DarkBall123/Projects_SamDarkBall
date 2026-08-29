@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Spawn units based on curator settings. Used when curator role is not taken.
+
+|s1= [curator, sides, cheatCoef, infantryProb, groundProb, airProb, marineProb] call [[BIS_fnc_curatorAutomatic]]
+
+|p1= curator: [[Object]] - curator module, costs and coefficients will be read from it
+
+|p2= sides: [[Array]] - array of [[side|sides]] of the placed entities
+
+|p3= cheatCoef: [[Number]] - cheat coefficient (1 means default costs, 0.5 means 50% values; allows spawning of more units)
+
+|p4= infantryProb: [[Number]] - infantry probability (probabilities are compared together, the ones with higher number have better chance of spawning)
+
+|p5= groundProb: [[Number]] - ground vehicle probability
+
+|p6= airProb: [[Number]] - aircraft probability
+
+|p7= marineProb: [[Number]] - marine probability
+
+|r1= [[Array]] of [[Group]]s
+
+|x1= <sqf>[curator_module, [west, independent, 0.1, 40, 30, 20, 10] call BIS_fnc_curatorAutomatic;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

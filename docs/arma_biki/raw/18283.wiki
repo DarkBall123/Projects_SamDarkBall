@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1=arma3
+|version1=1.58
+
+|gr1= Briefing
+
+|descr= Returns model space position for the task marker
+
+|s1= [[taskMarkerOffset]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] - offset in format [x, y, z]
+
+|x1= <sqf>_offset = taskMarkerOffset player;</sqf>
+
+|seealso= [[setTaskMarkerOffset]]
+}}

@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Config
+
+|descr= Returns [[Config | config]] entry with given name (alias of [[a / b]], slightly faster but with [[Operators#Order of Precedence|lower precedence]])
+
+|s1= config [[config greater greater name|>>]] name
+
+|p1= config: [[Config]]
+
+|p2= name: [[String]]
+
+|r1= [[Config]] - config entry
+
+|x1= <sqf>configFile >> "CfgVehicles";</sqf>
+
+|seealso= [[configFile]] [[a / b]] [[configName]] [[count]] [[getText]] [[isArray]] [[isClass]] [[isNumber]] [[isText]] [[select]] [[configClasses]]
+}}

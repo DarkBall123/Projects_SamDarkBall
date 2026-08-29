@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Geometry
+
+|descr= [[File:BIS_fnc_inAngleSector.jpg|500px|right]]
+Checks if a position lies within an angle sector.
+
+|s1= [center, centerAngle, sectorWidth, position] call [[BIS_fnc_inAngleSector]]
+
+|p1= center : [[Array]] - center position
+
+|p2= centerAngle : [[Number]] - defines the center angle of the sector
+
+|p3= sectorWidth: [[Number]] - defines the width of the sector in degrees
+
+|p4= position: [[Array]] - the position which should be checked
+
+|r1= [[Boolean]] - [[true]] if the position lies within the defined sector
+
+|x1= <sqf>[getPosWorld player, getDir player, 30, getPosWorld enemy_tank] call BIS_fnc_inAngleSector;</sqf>
+
+|seealso= [[BIS_fnc_isInFrontOf]]
+}}

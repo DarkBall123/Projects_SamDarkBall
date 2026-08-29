@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|descr= Returns whether the ''haystack'' matches the ''pattern''.
+
+|gr1= Strings - Regular Expression
+
+|s1= haystack [[regexMatch]] pattern
+
+|p1= haystack: [[String]]
+
+|p2= pattern: [[String]] - in format [[Arma 3: Regular Expressions|regex pattern]]
+
+|r1= [[Boolean]] - returns [[true]] if match was found, otherwise [[false]]
+
+|x1= <sqf>"I'm a coOkIe clicker" regexMatch ".*cookie.*"; // true</sqf>
+
+|x2= <sqf>"I'm a coOkIe clicker" regexMatch ".*cookie.*/"; // false, empty flags == case sensitive</sqf>
+
+|x3= <sqf>
+forceUnicode 1;
+"I'm a coÖkIe clicker" regexMatch ".*coökie.*";
+</sqf>
+
+|x4= <sqf>"Cookie clicker" regexMatch "cookie/i"; // false, pattern does not fully match the haystack</sqf>
+
+|seealso= [[regexFind]] [[regexReplace]]
+}}

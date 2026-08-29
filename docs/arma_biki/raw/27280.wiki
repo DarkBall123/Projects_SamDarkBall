@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.98
+
+|gr1= Object Manipulation
+
+|descr= Draws bounding box around given objects.
+
+|s1= [objects, color, draw] call [[BIS_fnc_drawBoundingBox]]
+
+|p1= objects: [[Array]] of [[Object]]s - (Optional, default <sqf inline>[objNull]</sqf>)
+
+|p2= color: [[Array]] in format [[Color|Color (RGBA)]] - (Optional, default [1,0,1,1])
+
+|p3= draw: [[Boolean]] - (Optional, default nil) [[true]] to draw, [[false]] to remove
+
+|r1= [[Boolean]] - [[true]] if successful, [[false]] if not
+
+|x1= <sqf>[[BIS_building], [1,0,1,1], true] call BIS_fnc_drawBoundingBox;</sqf>
+
+|x2= <sqf>[[], [], false] call BIS_fnc_drawBoundingBox;</sqf>
+
+|seealso= [[boundingBoxReal]] [[boundingBox]]
+}}

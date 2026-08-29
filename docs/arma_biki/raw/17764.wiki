@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|eff= global
+
+|arg= local
+
+|gr1= Stamina System
+
+|descr= Enable/disable stamina system
+
+|s1= unit [[enableStamina]] enabled
+
+|p1= unit: [[Object]]
+
+|p2= enabled: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player enableStamina true;</sqf>
+
+|seealso= [[Arma 3: Stamina]]
+}}

@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.04
+
+|gr1= Containers
+
+|gr2= Unit Inventory
+
+|descr= Returns a cargo container of a unit's uniform.
+
+|s1= [[uniformContainer]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Object]] - cargo container, [[objNull]] if ''unit'' does not wear any uniform/clothing
+
+|x1= <sqf>hint str uniformContainer player; //2df7dd00# 163941: dummyweapon.p3d</sqf>
+
+|x2= <sqf>
+hint str getMagazineCargo uniformContainer player;
+/*
+	returns e.g
+	[
+		["30Rnd_65x39_caseless_mag"],
+		[3]
+	]
+*/
+</sqf>
+
+|seealso= [[vestContainer]] [[backpackContainer]] [[everyContainer]]
+}}

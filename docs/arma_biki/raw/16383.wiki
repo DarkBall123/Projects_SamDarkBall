@@ -1,0 +1,18 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Toggle curator vision mode.
+
+|s1= [curator, mode] call [[BIS_fnc_toggleCuratorVisionMode]]
+
+|p1= curator: [[Object]] - curator
+
+|p2= mode: [[Number]] - (Optional, default 1) mode index|r1= [[Boolean]]
+|x1= <sqf>[Curator, -2] call BIS_fnc_toggleCuratorVisionMode;</sqf>
+
+|seealso= [[BIS_fnc_curatorVisionModes]] [[Arma 3: Curator]]
+}}

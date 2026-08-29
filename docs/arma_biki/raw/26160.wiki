@@ -1,0 +1,16 @@
+[[File:A3_RscDisplayLocWeaponInfo.jpg|800px|right]]
+A debug config dialog to explore all weapon and magazine classes and check if their localized name is too long.
+
+
+== How To ==
+
+<sqf>
+call BIS_fnc_locWeaponInfo;
+// or
+findDisplay 313 createDisplay "RscDisplayLocWeaponInfo"; // from within Eden Editor
+// or
+createDialog "RscDisplayLocWeaponInfo";
+</sqf>
+
+
+{{GameCategory|arma3|Weapon & Magazine Configuration}}

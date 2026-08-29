@@ -1,0 +1,41 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Program Flow
+
+|descr= Defines a [[Switch Type]] default case - does '''not''' need a colon to define its block. See [[switch]] for more information.
+
+|s1= [[default]] a
+
+|p1= a: [[Code]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+switch (_condition) do
+{
+	case 1: { hint "1" };
+	case 2: { hint "2" };
+	default { hint "default" }; // no colon after default
+};
+</sqf>
+
+|seealso= [[Control Structures]] [[switch]] [[case]]
+}}

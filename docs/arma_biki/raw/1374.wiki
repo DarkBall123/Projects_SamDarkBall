@@ -1,0 +1,5 @@
+An expression of type '''Nothing''' is no value. It cannot be assigned to a variable. It exists because each expression needs to return some value and needs to have some clearly identified [[:Category:Data Types|type]].
+
+Its presence can be checked using [[isNil]].
+
+[[Category: Magic Types]]

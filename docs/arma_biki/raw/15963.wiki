@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Game pulsing damage effect.
+
+|s1= call [[BIS_fnc_damagePulsing]]
+
+|r1= [[Script Handle]]
+
+|x1= <sqf>call BIS_fnc_damagePulsing;</sqf>
+
+|seealso= [[BIS_fnc_fatigueEffect]] [[BIS_fnc_incapacitatedEffect]] [[BIS_fnc_incapacitatedEffect]] [[BIS_fnc_indicateBleeding]] [[BIS_fnc_bloodEffect]]
+}}

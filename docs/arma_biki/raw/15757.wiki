@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Ambient
+
+|gr2= Positions
+
+|descr= Add a new ambient blacklist trigger
+
+|s1= [trigger] call [[BIS_fnc_ambientBlacklistAdd]]
+
+|p1= trigger: [[Object]] - trigger
+
+|r1= [[Boolean]] - returns [[true]] if it was added successfully
+
+|x1= <sqf>[BIS_trigger] call BIS_fnc_ambientBlacklistAdd;</sqf>
+
+|seealso= [[BIS_fnc_ambientBlacklist]]
+}}

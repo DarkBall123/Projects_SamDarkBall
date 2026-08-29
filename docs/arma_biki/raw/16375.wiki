@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Code executed when curator object is edited (i.e., moved or rotated). When a soldier or a vehicle is moved high above ground, create a parachute for them.
+
+|s1= [module, object] call [[BIS_fnc_curatorObjectEdited]]
+
+|p1= module: [[Object]] - [[Arma 3: Curator]] module
+
+|p2= object: [[Object]] - object which was edited
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[module_curator, someObject] call BIS_fnc_curatorObjectEdited;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

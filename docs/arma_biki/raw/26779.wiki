@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact 
+
+|descr= <pre>#define DEBUG
+#define GROUP	(units player - [player])
+#define DAMAGE_COEF	0.25
+#define DIS_LIMIT_SOFT	400
+#define DIS_LIMIT_HARD	600</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_initGroup]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_initGroup;</sqf> -->
+
+|seealso=
+}}

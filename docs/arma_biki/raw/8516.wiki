@@ -1,0 +1,5 @@
+; Description<nowiki>:</nowiki>
+: A [[Diary Record]] is created by [[createDiaryRecord]] - introduced in {{GameCategory|arma2|link= y}}.
+
+
+[[Category: Data Types]]

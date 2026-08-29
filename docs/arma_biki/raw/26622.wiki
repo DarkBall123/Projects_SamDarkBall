@@ -1,0 +1,35 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= TXScan 
+
+|descr= <pre>/*
+		Killzone_Kid
+
+	Description:
+		Returns array of names of all TXScans stored in extension
+
+	Parameter(s):
+		NONE
+
+	Returns:
+		ARRAY - scan names
+		
+	Example:
+		call BIN_fnc_getAllTXScans 
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getAllTXScans]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getAllTXScans;</sqf> -->
+
+|seealso=
+}}

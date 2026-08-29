@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= ''N/A''
+
+|s1= <!-- [] call [[BIS_fnc_moduleObjectiveFind]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_moduleObjectiveFind;</sqf> -->
+
+|seealso=
+}}

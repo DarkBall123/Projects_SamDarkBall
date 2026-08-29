@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Opens the [[Arma 3: Splendid Animation Viewer|Splendid&trade; Animation Viewer]].
+
+|s1= [] call [[BIS_fnc_animViewer]]
+
+<!--
+p0= arrayFromHeader: [[Array]] - forced animation in format [<unit class>, <animation class>]
+
+|p1= mode: [[String]] - (Optional, default "Init")
+
+|p2= arguments: [[Array]] - (Optional, default <sqf inline>[]</sqf>)
+-->
+|r1= [[Nothing]]
+
+|x1= <sqf>[] call BIS_fnc_animViewer;</sqf>
+
+|seealso=  [[BIS_fnc_configViewer]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|gr1= GUI Control - Object
+
+|descr= Returns [[vectorDir]] and [[vectorUp]] of the model used in 3D-[[Arma: GUI Configuration|Dialogs]]. Returns [[],[]] if control is null.
+
+|s1= [[ctrlModelDirAndUp]] control
+
+|p1= control : [[Control]] - 3D control
+
+|r1= [[Array]] of [[Vector3D]]s format [<nowiki/>[[vectorDir]], [[vectorUp]]] or [[],[]]
+
+|x1= <sqf>_vectorDirAndUp = ctrlModelDirAndUp _control3D;</sqf>
+
+|seealso= [[ctrlModelVectorSide]] [[ctrlCreate]] [[ctrlDelete]] [[ctrlSetModelDirAndUp]] [[ctrlModel]] [[ctrlSetModel]] [[ctrlSetModelScale]] [[ctrlModelScale]] [[ctrlPosition]] [[ctrlSetPosition]] [[ctrlClassName]] [[displayCtrl]]
+}}

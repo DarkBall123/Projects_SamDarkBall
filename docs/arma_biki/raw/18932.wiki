@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr=Show tutorial in [[:Category:Eden Editor|Eden Editor]].
+
+|s1= [path, index, oneStep, display] call [[BIS_fnc_3DENTutorial]]
+
+|p1= path: [[Array]] - path in format [<categoryClass>,<tutorialClass>], classes are from '''Cfg3DEN >> Tutorials'''
+
+|p2= index: [[Number]] - (Optional, default 0) index of step at which tutorial starts
+
+|p3= oneStep: [[Boolean]] - (Optional, default [[false]]) true to show only one step, without ability to go forward or backward
+
+|p4= display: [[Display]] - (Optional, default Eden display) display used
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[["Editing", "Connecting"], 0, false] call BIS_fnc_3DENTutorial;</sqf>
+
+|seealso= [[:Category:Eden Editor|Eden Editor]] [[Eden Editor: Configuring Tutorials]]
+}}

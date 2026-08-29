@@ -1,0 +1,43 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|arg= local
+
+|eff= global
+
+|descr= Set mass relative to the default vehicle mass (default mass being vehicle mass on first execution of this function).
+
+|s1= [vehicle, animationInformation, massDifference] call [[BIS_fnc_setVehicleMass]]
+
+|p1= vehicle: [[Object]]
+
+|p2= animationInformation: [[Boolean]] or [[Array]] - (Optional, default <sqf inline>[]</sqf>)
+* [[Boolean]] - [[true]] to take current animations mass in consideration, [[false]] to set "raw" mass
+* [[Array]] - animation sources and phases to format ["animationSource1", 1, "animationSource2", 0, ...]
+
+|p3= massDifference: [[Number]] - (Optional, default 0) value to add to the mass (can be negative)
+
+|r1= [[Boolean]] - success state
+
+|x1= <sqf>
+// default behaviour, change the mass according to the current phase of the animation sources
+result = [this]			call BIS_fnc_setVehicleMass;
+result = [this, [], 0]	call BIS_fnc_setVehicleMass;
+</sqf>
+
+|x2= <sqf>
+// doesn't care about the current phase of animations, it will change the mass for the given sources
+result = [this, ["source1", 1, "source2", 0]] call BIS_fnc_initVehicle;
+</sqf>
+
+|x3= <sqf>
+// will do the same as the first example, then subtract 150 to the mass
+result = [this, [], -150] call BIS_fnc_initVehicle;
+</sqf>
+
+|seealso= [[setMass]] [[setCenterOfMass]]
+}}

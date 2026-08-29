@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Combat
+
+|descr= Return list of nearby enemy targets for given unit.
+
+|s1= unit call [[BIS_fnc_enemyTargets]]
+
+|p1= unit - [[Object]]: unit that is inspected
+
+|r1= [[Array]] of enemies, empty if unit doesn't know about any enemy
+
+|x1= <sqf>private _targets = _unit call BIS_fnc_enemyTargets;</sqf>
+
+|seealso= [[BIS_fnc_enemyDetected]]
+}}

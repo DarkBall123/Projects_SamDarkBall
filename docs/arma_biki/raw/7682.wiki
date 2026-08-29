@@ -1,0 +1,14 @@
+In this tutorial I will show you how to look at a lot of models at once using ArmA shortcut and games startup parameter.
+
+=== Making it Work ===
+
+To load and look a model it has to be added at the games shortcut a [[ArmA:_Startup_Parameters|parameter]] '''-buldozer'''.
+
+This is easiest done by copying the shortcut "P3D Viewer" stored on ur p:// drive. The startup command might look like this:
+
+ Target: "C:\ArmA\arma.exe -window -buldozer -noland"
+ Start in: "From: P:\"
+
+To load several models just drag and drop your models to the P3D Viewer shortcut icon.
+
+{{GameCategory|arma1|Editing_Tutorials}}

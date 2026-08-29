@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.58
+
+|arg= global|gr1= Tasks
+
+|descr= Returns type of given task. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskID call [[BIS_fnc_taskType]]
+
+|p1= taskID: [[String]] - task ID
+
+|r1= [[String]] - task type or type 'Default' if not defined.
+
+|x1= <sqf>["BIS_Task_01"] call BIS_fnc_taskType;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

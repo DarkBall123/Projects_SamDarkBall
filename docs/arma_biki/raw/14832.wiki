@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Returns curator camera object.
+
+|s1= [[curatorCamera]]
+
+|r1= [[Object]]
+
+|x1= <sqf>_camCurator = curatorCamera;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

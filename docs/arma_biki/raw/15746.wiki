@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Scenes
+
+|descr= Plays back input weapon fire data on input unit.
+
+|s1= [unit, data, stateIgnore] spawn [[BIS_fnc_unitPlayFiring]]
+
+|p1= unit: [[Object]] - unit to play weapon fire data on
+
+|p2= data: [[Array]] - firing data to use [[BIS_fnc_unitCaptureFiring]]
+
+|p3= stateIgnore: [[Boolean]] - (Optional, default [[false]]) whether to ignore if the Unit is dead and/or cannot move
+
+|r1= [[Script Handle]]
+
+|exec= spawn
+
+|x1= <sqf>
+private _capturedFireData = [[2.135, "GAU8", "<NULL-object>"]];
+[BIS_Vehicle, _capturedData, true] spawn BIS_fnc_unitPlayFiring;
+</sqf>
+
+|seealso= [[BIS_fnc_unitCaptureFiring]] [[BIS_fnc_unitCaptureSimple]] [[BIS_fnc_unitPlaySimple]] [[BIS_fnc_unitCapture]] [[BIS_fnc_unitPlay]]
+}}

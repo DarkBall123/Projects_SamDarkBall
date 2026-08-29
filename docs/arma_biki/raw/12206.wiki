@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|eff= global
+
+|gr1= Containers
+
+|gr2= Unit Inventory
+
+|descr= Removes uniform from unit.
+
+|s1= [[removeUniform]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeUniform player;</sqf>
+
+|seealso= [[addUniform]] [[forceAddUniform]] [[isUniformAllowed]] [[uniform]] [[removeVest]] [[removeBackpack]]
+}}

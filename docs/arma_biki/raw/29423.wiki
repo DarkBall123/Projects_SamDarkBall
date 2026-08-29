@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= Radio and Chat
+
+|descr= A getter for [[enableSentences]].
+
+|s1= [[sentencesEnabled]]
+
+|r1= [[Boolean]] - returns [[true]] if sentences are enabled
+
+|x1= <sqf>
+if (sentencesEnabled) then
+{
+	hint "sentences are enabled; changing that now";
+	enableSentences false;
+};
+</sqf>
+
+|seealso= [[enableSentences]]
+}}

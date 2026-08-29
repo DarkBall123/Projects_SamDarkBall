@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= HashMap
+
+|descr= Retrieves a value out of a [[HashMap]] after looking it up by its key.
+
+|s1= hashMap [[get]] key
+
+|p1= hashMap: [[HashMap]]
+
+|p2= key: [[HashMapKey]] - case sensitive key
+
+|r1= [[Anything]], or [[Nothing]] if ''key'' is not found
+
+|x1= <sqf>private _myValue = _myHashMap get "a";</sqf>
+
+|seealso= [[HashMap]] [[getOrDefault]]
+}}

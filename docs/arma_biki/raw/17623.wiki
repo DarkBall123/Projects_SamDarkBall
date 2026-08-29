@@ -1,0 +1,6 @@
+The scenario folder can contain various scripts, but also images used during the mission. Commonly used are:
+*[[Description.ext]]
+*[[Event Scripts]]
+*[[Script File|Scripts]]
+
+[[Category:Eden Editor: Scenario|Scenario Folder]]

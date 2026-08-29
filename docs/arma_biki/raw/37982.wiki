@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Weapons
+
+|gr2= Unit Inventory
+
+|descr= Returns [[true]] if the given magazine is a throwable.
+
+|s1= [[isThrowable]] magazine
+
+|p1= magazine: [[String]]
+
+|r1= [[Boolean]] - [[true]] if throwable
+
+|x1= <sqf>isThrowable "HandGrenade"; // true</sqf>
+
+|seealso= [[selectThrowable]] [[currentThrowable]] [[throwables]] [[selectWeapon]] [[currentWeapon]] [[currentMagazine]] [[currentMuzzle]] [[BIS_fnc_isThrowable]]
+}}

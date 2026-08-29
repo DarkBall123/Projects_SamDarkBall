@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+
+|descr= Grab all tasks currently created for a given unit. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= target call [[BIS_fnc_tasksUnit]]
+
+|p1= target: [[Object]]
+
+|r1= [[Array]] - array with task names
+
+|x1= <sqf>player call BIS_fnc_tasksUnit;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

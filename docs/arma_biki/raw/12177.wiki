@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Lights
+
+|descr= Returns [[true]] if there is a linked and enabled IR on the given weapon.
+
+|s1= unit [[isIRLaserOn]] weapon
+
+|p1= unit: [[Object]]
+
+|p2= weapon: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>player isIRLaserOn currentWeapon player;</sqf>
+
+|seealso= [[enableIRLasers]] [[enableGunLights]] [[isLightOn]] [[isCollisionLightOn]] [[setPilotLight]] [[setCollisionLight]]
+}}

@@ -1,0 +1,155 @@
+{{TOC|side}}
+{{Feature | important | This page is about {{tkoh}} Functions Library system.
+* for {{arma2}}, see [[Functions Library]]
+* for {{arma3}}, see [[Arma 3: Functions Library]]
+}}
+[[Functions Library 2.0]] is pack of routine script functions available from anywhere in game.
+The main difference from the older [[Functions Library]] is that it runs automatically and does not require Functions manager to be present.
+
+
+== Usage ==
+
+''params'' are parameters required by given function. If you wish to skip a param (e.g. leave it is default value), use [[nil]] on its index (valid only if [[BIS_fnc_param]] is used by the function).
+
+=== Singleplayer ===
+
+Functions can be launched in mission, intro and outro using this syntax:
+<sqf>_fnc = [params] call functionName;</sqf>
+or
+<sqf>_fnc = [params] spawn functionName;</sqf>
+
+=== Multiplayer ===
+
+Functions replaces the obsolete [[Arma 2: Multiplayer Framework]].
+[[BIS_fnc_MP]] can be used to remotely execute functions on specific clients and set them to be persistent, so they will be executed automatically for client upon JIP.
+
+=== GUI ===
+
+Anywhere outside running mission (user interface), refer to functions stored in UInamespace
+<sqf>_fnc = [params] call (uiNamespace getVariable "functionName");</sqf>
+or
+<sqf>_fnc = [params] spawn (uiNamespace getVariable "functionName");</sqf>
+
+
+== In-Game Functions Viewer ==
+
+[[File:Take_On_Helicopters_Functions_Viewer.jpg|300px|thumb|right]]
+Use the following code to display function library anywhere in game:
+<sqf>[] call BIS_fnc_help;</sqf>
+
+In the 3D Editor, you can find the Function Viewer in the Tools category of the menustrip [[File:icon editor functions.png|20px]]
+
+Features:
+* Listing through all functions from config or description.ext files.
+* Displaying name, path, description and code of selected functions.
+* Code can be easily copied to clipboard.
+
+
+== Add Functions ==
+
+The list of functions is defined in config under the {{hl|CfgFunctions}} container.
+New ones can be also added in '''description.ext''' [[Description.ext|mission's]] or [[Campaign Description.ext|campaign's]] file.
+
+ class CfgFunctions
+ {
+ 	file = "{{Color|DarkOrange|hsim\ModulesCore_H\modules\functions}}";
+
+ 	class {{Color|green|BIS}}
+ 	{
+ 		class {{Color|crimson|category1}}
+ 		{
+ 			class {{Color|teal|Test1}}		{ description = "Testing file 1" };
+ 		};
+ 	};
+
+ 	class HSim
+ 	{
+ 		tag = "{{Color|green|BIS}}";
+
+ 		class {{Color|crimson|category2}}
+ 		{
+ 			file = "{{Color|DarkOrange|hsim\modules_h\functions}}";
+ 			class {{Color|teal|Test2}}		{ description = "Testing file 2"; };
+ 			class {{Color|teal|Test3}}		{ description = "Testing file 3"; file = "{{Color|DarkOrange|test.sqf}}" };
+ 			class {{Color|teal|Test4}}		{ description = "Testing file 4 (FSM)"; ext = "{{Color|fuchsia|.fsm}}" };
+ 		};
+ 	};
+ };
+
+* If 'file' path is not set for the given function, system will search for file in
+**'' '{{Color|DarkOrange|file}}\{{Color|crimson|category}}\fn_{{Color|teal|function}}.sqf"'' (if functions is defined in description.ext)
+* When ''file ='' parameter is defined in category root, all functions in given category will be searched for in this directory.
+* Default ''ext ='' is .sqf. You can optionally use .fsm, but no other extensions are compatible. Define .fsm even when you're settings ''file ='' leading directly to the file.
+
+Result is:
+* '''{{Color|green|BIS}}_fnc_{{Color|teal|Test1}}''' - will load script ''{{Color|DarkOrange|hsim\ModulesCore_H\modules\functions}}\{{Color|crimson|category1}}\{{Color|teal|test1}}.sqf'' from functions directory (see above)
+* '''{{Color|green|BIS}}_fnc_{{Color|teal|Test2}}''' - will load script ''{{Color|DarkOrange|hsim\modules_h\functions}}\{{Color|crimson|category2}}\{{Color|teal|Test2}}.sqf''
+* '''{{Color|green|BIS}}_fnc_{{Color|teal|Test3}}''' - will load script ''{{Color|DarkOrange|test.sqf}}'' from mission directory
+* '''{{Color|green|BIS}}_fnc_{{Color|teal|Test4}}''' - will load FSM ''{{Color|DarkOrange|hsim\modules_h\functions}}\{{Color|crimson|category2}}\{{Color|teal|Test4}}{{Color|fuchsia|.fsm}}''
+
+
+== Debugging ==
+
+=== Debug Functions ===
+
+Use debug functions/commands to register params, display errors and log messages. Printed output of these functions automatically contains name of function from which it was called.
+{{Feature|important|
+Usage of the following commands and functions is mandatory:
+* [[param]]
+* [[params]]
+* [[BIS_fnc_log]]
+* [[BIS_fnc_error]]
+* [[BIS_fnc_halt]]
+}}
+
+Examples of debug outputs:
+<sqf>
+"Helicopter class is empty." call BIS_fnc_halt;						// [3104] Log: HALT: [BIS_fnc_heliportHeliAddMission] Helicopter class is empty.
+
+_mission = param [0, worldName, [""]];								// [3104] Log: ERROR: [BIS_fnc_endMission] 0: HSim_Player is type OBJECT, must be STRING. "United_States_H" used instead.
+
+["Helicopter '%1' not found.", _heliPlayer] call BIS_fnc_error;		// [3104] Log: ERROR: [BIS_fnc_heliportHeliAddMission] Helicopter 'MYHELICOPTER' not found.
+
+42 call BIS_fnc_log;												// [3104] array ["Log: [BIS_fnc_heliportInit] ", 42]
+
+["Random number is %1",random 999] call BIS_fnc_log;				// [3104] Log: [BIS_fnc_heliportInit] Random number is 808.768
+</sqf>
+
+=== Debug Mode ===
+
+Developers can access several debug modes using ''[[BIS_fnc_functionsDebug]]'' function.
+# '''No debug'''
+#* Default
+# '''Save script map'''
+#* Variable ''_fnc_scriptMap'' tracking script execution progress is stored in function header
+# '''Save and log script map'''
+#* Variable ''_fnc_scriptMap'' tracking script execution progress is stored in functions header and it is printed to debug log.
+
+=== Debug Variables ===
+
+Store following variables into profileNameSpace to toggle various debug options:
+* '''BIS_fnc_initRecompileEditor''' - recompiles functions every time you click on 'Preview' button in editor ensuring changes made in functions are present on mission start.
+
+
+=== Meta Variables ===
+
+System is adding header with basic meta data to all functions. Following local variables are defined there:
+* '''_fnc_scriptName''': STRING - Function name (<tag>_fnc_<name>)
+* '''_fnc_scriptNameParent''': STRING - Name of function from which current one was called (_fnc_scriptName used when not defined)
+* '''_fnc_scriptMap''': ARRAY - List of all parent scripts (available only in debug mode 1 and higher, see [[#Debug_Mode|above]]).
+{{Feature|important|Please do not modify these values!}}
+
+=== Initialization Order ===
+
+# '''Functions'''
+# Init Event Handlers
+# Mission.sqm
+# Init.sqf
+# Init.sqs
+# Triggers
+
+{{Feature|informative|See {{Link|Initialisation Order}}.}}
+
+
+{{GameCategory|tkoh|Editing}}
+[[Category:Functions Library]]

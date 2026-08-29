@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|arg= local
+|gr1= Remote Control
+
+|descr= Returns [[true]] if the given player is remote-controlling a unit.
+{{Feature|important|See also [[Remote Control Tutorial]].}}
+
+|s1= [[isRemoteControlling]] person
+
+|p1= person: [[Object]] - a player 
+
+|r1= [[Boolean]] - [[true]] if the given player is remote controlling a unit
+
+|x1= <sqf>
+if (isRemoteControlling player) then
+{
+	hint format ["You are controlling %1", remoteControlled player];
+}
+else
+{
+	hint "Why not remote-control something?";
+};
+</sqf>
+
+|seealso= [[remoteControl]] [[remoteControlled]]
+}}

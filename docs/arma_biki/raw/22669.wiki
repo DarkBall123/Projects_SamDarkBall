@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.82
+
+|gr1= Lights
+
+|gr2= Diagnostic
+
+|descr= Overrides currently used scene lighting. The operand is config that is placed as a string (not file).
+The changes may not be applied immediately, but can be forced by the call of [[simulWeatherSync]].
+
+|s1= [[diag_setLightNew]] config
+
+|p1= config: [[String]] - config in string form
+
+|r1= [[Nothing]]
+
+|x1= <sqf>diag_setLightNew "sunOrMoon = 1; diffuse[] = { 0, 0, 0, 0 }; diffuseCloud[] = { 0, 0, 0, 0 }; ambient[] = { 0, 0, 0, 0 }; ... ";</sqf>
+
+|seealso= [[diag_lightNewLoad]]
+}}
+
+{{Note
+|user= POLPOX
+|timestamp= 20230514105007
+|text= The change is permanent (you can see the change even after you change the mission/terrain.) However, you can send an empty string to reset the lighting.
+}}

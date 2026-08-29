@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|gr1= Dynamic Simulation
+
+|descr= A getter for [[setDynamicSimulationDistanceCoef]]
+
+|s1= [[dynamicSimulationDistanceCoef]] class
+
+|p1= class: [[String]] - see [[setDynamicSimulationDistanceCoef]]
+
+|r1= [[Number]]
+
+|x1= <sqf>hint str dynamicSimulationDistanceCoef "IsMoving";</sqf>
+
+|seealso= [[enableDynamicSimulationSystem]] [[dynamicSimulationSystemEnabled]] [[enableDynamicSimulation]] [[dynamicSimulationEnabled]] [[setDynamicSimulationDistance]] [[dynamicSimulationDistance]] [[setDynamicSimulationDistanceCoef]] [[triggerDynamicSimulation]] [[canTriggerDynamicSimulation]] [[enableSimulation]] [[simulationEnabled]] [[enableSimulationGlobal]] [[Arma 3: Dynamic Simulation]]
+}}

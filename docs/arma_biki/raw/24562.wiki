@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Math
+
+|descr= Pulsates a value from 0 to 1.
+
+|s1= [frequency] call [[BIS_fnc_pulsate]]
+
+|p1= frequency: [[Number]] - the frequency in Hz, 1 / _frequency = 0.1 second is the period
+
+|r1= [[Number]]
+
+|x1= <sqf>200 call BIS_fnc_pulsate; // 0.113001</sqf>
+
+|seealso=
+}}

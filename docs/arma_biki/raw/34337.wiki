@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|arg= local
+
+|gr1= PhysX
+|gr2= Ropes and Sling Loading
+
+|descr= Get the vehicle towing the provided one.
+
+|s1= [[getTowParent]] towedVehicle
+
+|p1= towedVehicle: [[Object]] - the towed vehicle
+
+|r1= [[Object]] - the object towing the provided object - [[objNull]] if not towed
+
+|x1= <sqf>private _towParent = getTowParent _towedVehicle;</sqf>
+
+|seealso= [[setTowParent]]
+}}

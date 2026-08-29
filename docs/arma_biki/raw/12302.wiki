@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= System
+
+|descr= Enable/disable caustics drawing.
+
+|s1= [[enableCaustics]] bool
+
+|p1= bool: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>enableCaustics true;</sqf>
+
+|seealso=
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2017-10-23 - 16:22 (UTC)</dd>
+<dt class="note">[[User:Demellion|Demellion]]</dt>
+<dd class="note">
+Setting this to false will disable a light refraction on "liquid" objects like sea water. This has no effect on solid (static) objects. 
+</dd>
+
+</dl>

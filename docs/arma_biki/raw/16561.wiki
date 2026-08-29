@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Checks if unit or vehicle is queued for disposal after death.
+
+|s1= [[isInRemainsCollector]] remain
+
+|p1= remain: [[Object]] - vehicle or unit
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (isInRemainsCollector unit1) then {hint "unit1 is queued for disposal"};</sqf>
+
+|seealso= [[addToRemainsCollector]] [[removeFromRemainsCollector]] [[diag_remainsCollector]]
+}}

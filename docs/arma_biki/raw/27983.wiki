@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= Arrays
+
+|descr= Flattens an array.
+
+|s1= [[flatten]] array
+
+|p1= array: [[Array]] of [[Anything]]
+
+|r1= [[Array]] of [[Anything]] - flattened array
+
+|x1= <sqf>flatten [1, [2], [[3]], [[[4]]]]; // returns [1, 2, 3, 4]</sqf>
+
+|x2= <sqf>flatten getUnitLoadout player;</sqf>
+
+|seealso= [[arrayIntersect]]
+}}

@@ -1,0 +1,44 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Scans specific config folder and outputs the values in wiki format.
+
+|s1= [mode] call [[BIS_fnc_diagWiki]]
+
+|p1= mode: [[String]] - can be one of:
+{{Columns|4|
+* {{hl|"Anims_aimPrecision"}}
+* {{hl|"CfgDiary_Icons"}}
+* {{hl|"CfgActions"}}
+* {{hl|"CfgActions_CfgVehicles"}}
+* {{hl|"CfgLocationTypes"}}
+* {{hl|"CfgMarkers"}}
+* {{hl|"CfgMarkerBrushes"}}
+* {{hl|"CfgMarkerColors"}}
+* {{hl|"CfgVehicles_identityTypes"}}
+* {{hl|"CfgVehicles_mapSize"}}
+* {{hl|"CfgVehicles_speechVariants"}}
+* {{hl|"CfgVehicleIcons"}}
+* {{hl|"CfgWrapperUI_Cursors"}}
+* {{hl|"IslandMap_colors"}}
+* {{hl|"IslandMap_icons"}}
+* {{hl|"RadioProtocol_Select"}}
+* {{hl|"RadioProtocol_Sent"}}
+* {{hl|"RadioProtocol_Stats"}}
+* {{hl|"RadioProtocol_Variables"}}
+* {{hl|"RadioProtocol_Words"}}
+* {{hl|"RscMapControl_colors"}}
+* {{hl|"RscMapControl_icons"}}
+* {{hl|"RscMapControl_fonts"}}
+}}
+
+|r1= [[String]] - data in wiki format
+
+|x1= <sqf>["RadioProtocol_Sent"] call BIS_fnc_diagWiki;</sqf>
+
+|seealso= [[BIS_fnc_exportFunctionsToWiki]]
+}}

@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= <pre>/*
+	
+	Description:
+	Set Task Description module function
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_moduleTaskSetDescription]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_moduleTaskSetDescription;</sqf> -->
+
+|seealso=
+}}

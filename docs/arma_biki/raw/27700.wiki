@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|arg= local
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Adds weapon item, including magazine, directly to the [[binocular]] weapon. This is used for infantry weapons.
+
+|s1= unit [[addBinocularItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player addBinocularItem "Laserbatteries";</sqf>
+
+|seealso= [[addWeaponItem]] [[removeBinocularItem]] [[removeAllBinocularItems]] [[addPrimaryWeaponItem]] [[addSecondaryWeaponItem]] [[addHandgunItem]] [[weaponsItems]] [[binocularItems]] [[primaryWeaponItems]] [[secondaryWeaponItems]] [[handgunItems]]
+}}

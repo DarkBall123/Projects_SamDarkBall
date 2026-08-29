@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Returns all user actions according to mode.
+
+|s1= mode call [[BIS_fnc_diagKeyTest]]
+
+|p1=mode: [[Number]] - can be:<br>
+0 - Log all categories<br>
+1 - Log Uncategorized<br>
+2 - Log unassigned<br>
+3 - Log undefined<br>
+4 - Log localized names
+
+|r1= [[String]]
+
+|x1= <sqf>0 call BIS_fnc_diagKeyTest;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diagnostic Functions]]
+}}

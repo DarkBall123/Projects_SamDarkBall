@@ -1,0 +1,26 @@
+{{Tool
+
+|AUTHOR=
+[[:Category:Projects|Bohemia Interactive]]
+
+|VERSION=
+
+|COMPATIBILITY=
+[[:Category: Arma 3|Arma 3]]
+
+|DOWNLOAD={{Link|link= http://store.steampowered.com/app/233800/|text= Part of Arma 3 Tools package on Steam}}
+
+|DESCRIPTION=
+WSSDecoder is an application to convert WSS format to Wave.
+
+|NOTES=
+The wave file will be created in the same directory as the source file. The current version of the decoder is not able to decode stereo files.
+|COMMAND=
+    WSSDecoder.exe source
+
+|LICENSING=[[End User License Agreement for BI's Tools|Bohemia Interactive End User License Agreement]]
+
+|SEEALSO=
+[[Sound Tools]]}}
+
+{{GameCategory|arma3|Official Tools}}

@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Load the provided scenario or an empty scenario in the provided world.
+
+|s1= [[load3DENScenario]] scenarioOrWorld
+
+|p1= scenarioOrWorld: [[String]] - scenario name or world name
+
+|r1= [[Boolean]] - [[true]] on success, [[false]] otherwise
+
+|x1= <sqf>load3DENScenario "MyMission.VR";</sqf>
+
+|x2= <sqf>load3DENScenario "Stratis";</sqf>
+
+|x3= <sqf>
+//For a scenario located at ...\Arma 3 - Other Profiles\<PROFILENAME>\missions\subfolder\myMission.VR
+//full path needs to be provided without leading \
+load3DENScenario "missions\subfolder\myMission.VR";
+</sqf>
+
+|seealso= [[is3DENPreview]]
+}}

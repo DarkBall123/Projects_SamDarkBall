@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.86
+
+|gr1= Warlords
+
+|descr= <pre>/*
+WARLORDS-SPECIFIC FUNCTION
+
+Author: Josef Zemánek
+
+Description: Spawns a requested aircraft and makes it land properly.
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_WLAircraftArrival]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

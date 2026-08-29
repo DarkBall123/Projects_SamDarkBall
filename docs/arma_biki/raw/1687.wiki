@@ -1,0 +1,47 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= Groups
+
+|arg= local
+
+|eff= global
+
+|descr= Order the given unit(s) to target the given target (via the radio). Command given to the player, puts a red square with words Target and Distance on player's HUD at target location. If player in vehicle and has radar facilities, it also adds target marker to the radar.
+
+|s1= unit [[commandTarget]] target
+
+|p1= unit: [[Object]]
+
+|p2= target: [[Object]] or [[Array]] of [[Object]]s
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_ESoldier1 commandTarget _WSoldier1;</sqf>
+
+|x2= <sqf>player commandTarget [ted, bill];</sqf>
+
+|mp= This command is only effective when used on local units. When used on a remote unit, this command will create radio dialogue on the machine the unit is local to, but the unit will not target the target.
+
+|seealso= [[assignedTarget]] [[doTarget]]
+}}

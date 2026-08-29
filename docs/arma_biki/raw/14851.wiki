@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Restrict curator use of given addons.
+
+|s1= curatorObj [[removeCuratorAddons]] addons
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|p2= addons: [[Array]] of [[String]]s
+
+|r1= [[Nothing]]
+
+|x1= <sqf>curatorModule removeCuratorAddons [addon1, addon2];</sqf>
+
+|seealso= [[Arma 3: Curator]] [[addCuratorAddons]] [[removeAllCuratorAddons]] [[curatorAddons]]
+}}

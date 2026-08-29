@@ -1,0 +1,36 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= GUI Control
+
+|descr= Sets the input focus on given control.
+
+{{Feature|important|
+* [[ctrlSetFocus]] seems to only work on controls that accept any input from keyboard or mouse.
+* if [[ctrlSetFocus]] is used on a [[CT_CONTROLS_GROUP]] that contains an interactable control, that control will automatically be active.
+* if [[ctrlSetFocus]] is used on a [[CT_CONTROLS_GROUP]] in which there are no interactable controls, then [[ctrlSetFocus]] will do nothing.}}
+
+|s1= [[ctrlSetFocus]]  control
+
+|p1= control: [[Control]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>ctrlSetFocus _control;</sqf>
+
+|seealso= [[focusedCtrl]]
+}}

@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Interpolation
+
+|descr= Linear floating point interpolation (see {{Link|https://en.wikipedia.org/wiki/Linear_interpolation|Linear Interpolation}}).
+
+|s1= [currentValue, targetValue, alpha] call [[BIS_fnc_lerp]]
+
+|p1= currentValue: [[Number]] - first point (start)
+
+|p2= targetValue: [[Number]] - second point (end)
+
+|p3= alpha: [[Number]] - interpolation speed
+
+|r1= [[Number]] - interpolated value
+
+|x1= <sqf>[1, 10, 0.5] call BIS_fnc_lerp; // returns 5.5</sqf>
+
+|seealso= [[:Category:Command Group: Math]]
+}}

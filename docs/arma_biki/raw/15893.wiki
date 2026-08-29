@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Configs
+
+|descr= Searches for class in mission, campaign and then in global config file.
+
+|s1= [input, defaultValue] call [[BIS_fnc_loadClass]]
+
+|p1= '''input''': [[Array]] of [[String]]s - containing [[Config|config]] paths
+
+|p2= '''defaultValue''': [[Config]] - default [[Config|config]] used if '''input''' cannot be found
+
+|r1= [[Config]]
+
+|x1= <sqf>[["bin\config.bin"], configFile >> "Cfg3DEN" >> "Camera"] call BIS_fnc_loadClass</sqf>
+
+|seealso= [[configFile]]
+}}

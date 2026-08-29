@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.48
+
+|gr1= Groups
+
+|arg= global
+
+|eff= global
+
+|descr= A [[Multiplayer Scripting#Locality|global]] equivalent of  [[setGroupId]].
+
+|s1= group [[setGroupIdGlobal]] [format, keyword1, keyword2, ...]
+
+|p1= group: [[Object]] or [[Group]]
+
+|p2= format: [[String]] - format template (e.g "%keyword1 - %keyword2 / %keyword4 (%keyword3)")
+
+|p3= keywordN: [[String]] - keyword value
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+group player setGroupIdGlobal ["PAPA BEAR"];
+hint groupId group player; // "PAPA BEAR"
+</sqf>
+
+|seealso= [[setGroupId]] [[groupId]] [[group]]
+}}

@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Return current profile's name. Deprecated since {{arma3}}, use [[profileName]] instead.
+
+|s1= call [[BIS_fnc_playerName]]
+
+|r1= [[String]] - [[profileName]]
+
+|x1= <sqf>private _myPlayerName = call BIS_fnc_playerName;</sqf>
+
+|seealso= [[profileName]]
+}}

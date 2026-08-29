@@ -1,0 +1,385 @@
+{{TOC|side}}
+Summary page to gather community knowledge about the exposed AI FSM and the modification possibilities.
+
+{{Feature|important|
+None of the information on this page is guaranteed to be correct.
+The provided information is from research, testing and guesswork.
+You are most welcome to contribute yourself!
+}}
+
+
+== What are they about ==
+
+It seems they expose certain areas of the AI behavior outside the core engine.
+This means the community can modify some parts of the AI behavior this one.
+That said in the config space a lot of values permitted tweaking AI as well,
+yet on a different level.
+
+The available FSM are about:
+
+* Behavior while in formation.
+* Behavior while in danger/from danger events.
+
+'''TODO''': Needs more research, testing and specific information.
+
+
+== What are they NOT about ==
+
+* Micro AI
+* Low(est) level AI behavior system
+
+'''TODO''': Clarify and add more details.
+
+== Where to find them ==
+
+ ca\characters\scripts
+
+== Where are they used ==
+
+Following FSMs can be defined for a unit in {{arma2}}:
+* behaviour (formation) FSM (lowest priority)
+* conversation FSM
+* reaction (danger) FSM (highest priority)
+
+=== comm.fsm ===
+
+No reference.
+
+=== danger.fsm ===
+
+<syntaxhighlight lang="cpp">
+class CAManBase : Man
+{
+	// ...
+	fsmDanger = "Ca\characters\scripts\danger.fsm";
+	// ...
+};
+</syntaxhighlight>
+
+=== formationC.fsm ===
+
+<syntaxhighlight lang="cpp">
+class Civilian : CAManBase
+{
+	// ...
+	fsmFormation = "ca\characters\scripts\formationC.fsm";
+	// ...
+}:
+</syntaxhighlight>
+
+=== formationCDanger.fsm ===
+
+<syntaxhighlight lang="cpp">
+class Civilian : CAManBase
+{
+	// ...
+	fsmDanger = "ca\characters\scripts\formationCDanger.fsm";
+	// ...
+}:
+</syntaxhighlight>
+
+=== formationEntity.fsm ===
+
+No reference. However it is the equivalent to the config definition of:
+
+<syntaxhighlight lang="cpp">
+class CAManBase : Man
+{
+	// ...
+	fsmFormation = "Formation";
+	// ...
+};
+</syntaxhighlight>
+
+Formation itself is also defined, for unknown reasons, in the config space rather as FSM file.
+
+ class CfgFSMs - class Formation
+
+
+== How to edit them ==
+
+Get the [[FSM Editor]] part of the [[BI Tools 2]] suite, or Arma 3 Tools from Steam.
+It allows you to open, study and modify the FSM files.
+
+
+== What do they do ==
+
+=== comm.fsm ===
+
+Makes a unit communicate his action:
+
+* "Reloading! Cover me!"
+* "Running!"
+* "Covering!"
+
+=== danger.fsm ===
+
+Seems to be an event hook to make AI react to various danger events.
+
+Right now only few events are used to initiate actions:
+
+==== Cause 0 "ENEMY DETECTED" ====
+'''Signal enemy''' via gesture.
+
+==== Cause 8 "CAN FIRE" ====
+'''Stop to fire''' makes the unit no longer move to return fire more effectively.
+If the threat is dead or after 4 to 8 seconds delay the unit moves on.
+
+=== formationC.fsm ===
+
+It forces initially Civilian units to stand (setUnitPos "UP") permanently unless instructed otherwise by another script/FSM (like {{hl|formationCDanger.fsm}}).
+
+In addition it makes non leader Civilian units to have a five meter radius offset to their actual destination.
+
+The code comment says:
+
+ Lowering the formation precision for civilians
+
+=== formationCDanger.fsm ===
+
+Seems to be an event hook to make '''Civilian''' AI react to various danger events.
+
+If the unit is the leader (isFormationLeader _this), it will react to danger causes 0 to 6 - NOT 7 (Scream) and 8 (CanFire).
+If inside a vehicle and (canUnloadInCombat _this), the unit will eject it, drop down to the ground (60% chance) and not move for a while (360 seconds or till _dangerUntil if not in combat mode).
+After that it will move again and switch to auto stance. If it ejected a vehicle, it will enter it again.
+
+In practice the same happens for non leader units. Expect the chance to drop down is higher (85%) and it will keep on moving.
+There are two additional features in there, but currently not active.
+
+* 'Go to cover': Disabled as findCover and setHideBehind currently do not work.
+* 'Inspect dead body': Not working as the 'Inspect body' condition is broken and therefore this tree will not be used.
+
+The non leader Civilian will react to the highest threat, but will ignore all others. In general it ignores danger causes 7 (Scream) and 8 (CanFire) too like a leader unit Civilian.
+
+=== formationEntity.fsm ===
+
+
+== When are they run ==
+
+=== comm.fsm ===
+
+'''Assumption''': Not at all. Seems like a test version and the actual system is integrated into the engine nowadays.
+
+=== danger.fsm ===
+
+On (seemingly) each danger / threat events close to non civilian units. The distance and frequency are unknown.
+
+==== Next cause ====
+If a new danger event happens to the unit, while the current danger event handling is processed, the event will be added to the units danger events queue.
+Next ''cause checks'' makes the highest prio danger event in the queue processed after the former has been completed.
+
+[{{Link|http://dev-heaven.net/issues/20426#change-98326|Source reference}}]
+
+==== Observed instances ====
+TODO
+
+=== formationC.fsm ===
+
+At mission start executed for every civilian unit.
+'''Assumption''': Seems to run permanently until the unit dies.
+
+=== formationCDanger.fsm ===
+
+On (seemingly) each danger / threat events close to civilian units. The distance and frequency are unknown.
+Also unknown which danger causes actually work / are implemented.
+
+=== formationEntity.fsm ===
+
+
+== Technical details ==
+
+=== comm.fsm ===
+
+* _who = _this select 0;
+* _state = _this select 1;
+
+=== danger.fsm ===
+
+==== Disabling ====
+{{Feature|quote|When you use {{hl|fsmDanger {{=}} ""}}, there are some built-in reactions to danger, but there is no danger FSM running (...).|{{User|Suma}}|http://dev-heaven.net/issues/20426#change-98326}}
+
+==== Danger causes ====
+The FSM contains this description block:
+
+DEFINE_ENUM_BEG(DangerCause)
+ (0) DCEnemyDetected,	// the first enemy detected
+ (1) DCFire,				// fire visible
+ (2) DCHit,				// vehicle hit
+ (3) DCEnemyNear,		// enemy very close to me
+ (4) DCExplosion,		// explosion detected
+ (5) DCDeadBodyGroup,	// dead soldier from my group found
+ (6) DCDeadBody,			// other dead soldier found
+ (7) DCScream			// hit soldier screaming
+ DEFINE_ENUM_END(DangerCause)
+
+See {{Link|Arma 2: FSM Danger Causes}} for more information.
+
+The index numbers in brackets are added for easier viewing only in this article.
+It seems that later an '''ninth (index 8) event''' was added: '''DCCanFire'''.
+It looks like an event when the unit has a target in sight and is able to fire it is weapon.
+
+==== Engine parameters ====
+
+The FSM gets supplied by the engine the following parameters:
+
+* _this: References the unit.
+* _dangerCause: An integer to specify the "first" danger event type. '''Assumption''': First could be most recent or oldest or with the highest priority.
+* _queue: An array that contains multiple danger events and their details. One queue element contains:
+** The danger cause (integer).
+** A position of the event.
+** A current time + random 3-7 seconds offset
+** A danger source (can be <NULL-object>)
+
+This data was retrieved assigning the FSM to civilian units as it never triggered so far for non-Civilian units:
+<sqf>diag_log["danger.FSM", time, _this, _dangerCause, _queue];</sqf>
+ "danger.FSM",0.05,C 1-1-A:8,3,[[3,[1665.17,1686.23,1.31488],5.60283,O 1-1-A:5],[3,[1665.17,1686.23,1.31488],5.79803,O 1-1-A:5]]
+
+==== FSM Init ====
+
+It seems only the highest priority event is handled:
+
+<sqf>
+// Retrieve the highest priority event from the _queue
+private ["_priors","_priorCur"];
+
+_priors = [3, 4, 5, 1, 4, 1, 1, 2, 2];
+
+if (_dangerCause > 0) then { _priorCur = _priors select _dangerCause }
+else { _priorCur = -1 };
+
+{
+	private ["_cause"];
+	_cause = _x select 0;
+	if ((_priors select _cause) > _priorCur) then
+	{
+		_dangerCause = _cause;
+		_dangerPos = _x select 1;
+		_dangerUntil = _x select 2;
+		_dangerCausedBy = _x select 3;
+	}
+} forEach _queue;
+_queue = [];
+</sqf>
+
+Danger cause events ordered by priority. Highest comes first:
+
+ (2) DCHit,				5
+ (1) DCFire,				4
+ (4) DCExplosion,		4
+ (0) DCEnemyDetected,	3
+ (7) DCScream			2
+ (8) DCCanFire			2
+ (3) DCEnemyNear,		1
+ (5) DCDeadBodyGroup,	1
+ (6) DCDeadBody,			1
+
+==== Queue ====
+After handling an event the FSM gets into the 'Check queue' state.
+In the condition 'Next cause', it checks 'count _queue>0' and returns to the init state if true; otherwise exits.
+
+ Suma: There is always only one Danger FSM running per unit. If the Danger FSM is already running
+ when there is a new danger cause, new FSM is not spawned, rather a new item is inserted
+ into the _queue variable for the FSM to process.
+ The default FSM always processes the whole queue at once and discards all items but the one with
+ most priority (see characters\scripts\danger.fsm - initial state Reacting on danger).
+
+[{{Link|http://dev-heaven.net/issues/20426#change-98326|Source reference}}]
+
+=== formationC.fsm ===
+
+* _this: References the unit.
+
+Infinite loop. Seems to have no effect on Civilian leader units (isFormationLeader (effectiveCommander (vehicle _this))).
+
+=== formationCDanger.fsm ===
+
+==== Danger causes ====
+See danger.fsm.
+
+==== Engine parameters ====
+See danger.fsm.
+
+==== FSM Init ====
+It seems only the highest priority event is handled (for non Civilian leader units):
+
+<sqf>
+private ["_vehicle","_commander"];
+_vehicle = vehicle _this;
+_commander = effectiveCommander _vehicle;
+
+private ["_maxTime","_timeNow"];
+_maxTime = 360;
+
+_this setUnitPos "UP";
+
+// Function to retrieve the highest priority event from the _queue
+private ["_priors", "_oldDangerCause"];
+_priors = [3, 3, 4, 5, 2, 1, 1, 1, 1];
+_oldDangerCause = -1;
+
+private ["_funcBiggestDanger"];
+_funcBiggestDanger =
+{
+	private ["_priorCur"];
+	_priorCur = _priors select _dangerCause;
+
+	for "_i" from 0 to ((count _queue) - 1) do
+	{
+		private ["_event","_cause","_priorNew"];
+		_event = _queue select _i;
+		_cause = _event select 0;
+		_priorNew = _priors select _cause;
+
+		if (_priorNew > _priorCur) exitWith
+		{
+			_oldDangerCause = _dangerCause;
+			_dangerCause = _cause;
+			_dangerPos = _event select 1;
+			_dangerUntil = _event select 2;
+		};
+	};
+
+	_queue = [];
+};
+</sqf>
+
+Note the forced standup (setUnitPos "UP") and high delay (_maxTime = 360).
+
+Danger cause events ordered by priority. Highest comes first:
+
+ (3) DCEnemyNear,		5
+ (2) DCHit,				4
+ (0) DCEnemyDetected,	3
+ (1) DCFire,				3
+ (4) DCExplosion,		2
+ (5) DCDeadBodyGroup,	1
+ (6) DCDeadBody,			1
+ (7) DCScream			1
+ (8) DCCanFire			1
+
+==== Queue ====
+See danger.fsm.
+
+The Civilian leader only check the initial/first danger event.
+The non Civilian leader unit will only handle the highest priority even and ignore the rest.
+
+=== formationEntity.fsm ===
+
+==== Modification ====
+So for no luck here assigning an external FSM:
+
+<syntaxhighlight lang="cpp">fsmFormation = "ConfigFSM\formationEntity.fsm";</syntaxhighlight>
+leads to
+ Warning Message: No entry 'ConfigFSM\formationEntity.fsm.FSM'.
+
+and
+
+<syntaxhighlight lang="cpp">fsmFormation = "ConfigFSM\formationEntity";</syntaxhighlight>
+leads to
+ Warning Message: FSM 'ConfigFSM\formationEntity' cannot be loaded.
+
+So it might be only possible to modify the {{hl|CAManBase}}'s fsmFormation by editing the configs based definition in 'class CfgFSMs - class Formation'.
+
+
+[[Category:AI]]
+{{GameCategory|arma2|Editing}}

@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|serverExec= server
+
+|descr= Adds or removes curator points.
+
+|s1= curatorObj [[addCuratorPoints]] points
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|p2= points: [[Number]] in range 0..1
+
+|r1= [[Nothing]]
+
+|x1= <sqf>curatorModule addCuratorPoints 0.5;</sqf>
+
+|seealso= [[Arma 3: Curator]] [[curatorPoints]]
+}}

@@ -1,0 +1,39 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= global
+
+|gr1= Flags
+
+|descr= Returns the original flag pole of the flag the unit is carrying.
+
+|s1= [[flag]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Object]] - flag pole object the flag belongs to. If the unit carries no flag, [[objNull]] is returned.
+
+|x1= <sqf>_flag = flag _soldier;</sqf>
+
+|seealso= [[flagOwner]] [[setFlagOwner]] [[setFlagSide]] [[setFlagTexture]] [[flagSide]] [[flagTexture]] [[setFlagAnimationPhase]] [[flagAnimationPhase]] [[forceFlagTexture]] [[getForcedFlagTexture]] [[:Category:Flag Textures|Flag Textures]]
+}}

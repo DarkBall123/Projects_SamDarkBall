@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Math
+
+|descr= Rounds the provided value to the closest integer.
+
+|s1= [[round]] value
+
+|p1= value: [[Number]]
+
+|r1= [[Number]]
+
+|x1= <sqf>round 5.25; // returns 5</sqf>
+
+|x2= <sqf>round -5.25; // returns -5</sqf>
+
+|seealso= [[floor]] [[ceil]] [[linearConversion]]
+}}

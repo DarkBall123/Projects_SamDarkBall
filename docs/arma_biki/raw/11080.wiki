@@ -1,0 +1,104 @@
+[[{{tkoh}}]] introduced ability to recolor menu and HUD colors. Community creators can define new presets or use user's colors using following configs and functions.
+{{TOC|none}}
+
+== Presets ==
+
+[[File:UI InterfaceColors.jpg|thumb|200px|Interface Colors menu]]
+Presets are available for users in Options > Game Options > Interface Colors menu. Anybody can define new presets and categories.
+ class CfgUIDefault // In Arma 3 the class was renamed to CfgUIColors
+ {
+ 	{{cc|--- Tag}}
+ 	class {{Color|orange|'''IGUI'''}}
+ 	{
+ 		{{cc|--- Name displayed in menu}}
+ 		displayName = "$STR_HSIM_CfgUIDefault_IGUI_0";
+ 		{{cc|--- Color variables}}
+ 		class Variables
+ 		{
+ 			{{cc|--- Identification class ised by presets and scripts}}
+ 			class {{Color|green|'''TEXT_RGB'''}}
+ 			{
+ 				{{cc|--- Name displayed in menu}}
+ 				displayName = "$STR_HSIM_CfgUIDefault_IGUI_Variables_TEXT_RGB_0";
+ 				{{cc|--- Preview picture background}}
+ 				previewBackground = "\hsim\UI_H\data\loadscreen_generic_co.paa";
+ 				{{cc|--- Preview picture (when 1 instead of [[String]], whole menu is recolored instead)}}
+ 				preview = "\hsim\UI_H\data\cursor_w_view_gs.paa";
+ 				{{cc|--- Preview picture width}}
+ 				previewW = 4 * GUI_GRID_W;
+ 				{{cc|--- Preview picture height}}
+ 				previewH = 4 * GUI_GRID_H;
+ 			};
+ 		};
+ 		{{cc|--- Color presets}}
+ 		class Presets
+ 		{
+ 			class PresetDefault
+ 			{
+ 				{{cc|--- Name displayed in menu}}
+ 				displayName = "$STR_HSIM_CfgUIDefault_IGUI_Presets_PresetGreen_0";
+ 				{{cc|--- Class of modified variable (TEXT_RGB) with RGBA values}}
+ 				{{Color|green|'''TEXT_RGB'''}}[] = {0,1,0.05,0.8};
+ 				{{cc|--- When 1, preset is used as default}}
+ 				default = 1;
+ 			};
+ 			class PresetBlue
+ 			{
+ 				displayName = "$STR_HSIM_CfgUIDefault_IGUI_Presets_PresetDefault_0";
+ 				{{Color|green|'''TEXT_RGB'''}}[] = {0,1,1,0.8};
+ 			};
+ 		};
+ 	};
+ };
+
+== Macros ==
+
+=== Adding New ===
+
+System stores preset variables into [[profileNamespace]] upon startup. UI controls can link to them using [[getVariable]] command. 
+
+Using [[PreProcessor_Commands|macros]] helps to keep the code simple and maintain it through development.
+ #define IGUI_TEXT_RGB_R	"([[profileNamespace]] [[getVariable]] ['{{Color|orange|'''IGUI'''}}_{{Color|green|'''TEXT_RGB'''}}_R', 0])"
+ #define IGUI_TEXT_RGB_G	"([[profileNamespace]] [[getVariable]] ['{{Color|orange|'''IGUI'''}}_{{Color|green|'''TEXT_RGB'''}}_G', 1])"
+ #define IGUI_TEXT_RGB_B	"([[profileNamespace]] [[getVariable]] ['{{Color|orange|'''IGUI'''}}_{{Color|green|'''TEXT_RGB'''}}_B', 0.05])"
+ #define IGUI_TEXT_RGB_A	"([[profileNamespace]] [[getVariable]] ['{{Color|orange|'''IGUI'''}}_{{Color|green|'''TEXT_RGB'''}}_A', 0.8])"
+
+Explanation:
+* '''#define IGUI_TEXT_RGB_R''' - macro name. Can be anything, but naming it based on preset is recommended.
+* '''"(profileNamespace getVariable ['IGUI_TEXT_RGB_R',0])"''' - actual value. Must be [[String]], otherwise macro would be terminated after first comma (,)
+** '''IGUI_TEXT_RGB''' - variable created by system based on preset. Created from <tag>_<variable>
+** '''0''' - default value in case variable is not found (used on first game start)
+
+=== Existing ===
+
+Color macros are defined in ''defineCommon.inc'' (see [[User Interface Macros]] for more details). Following defines are based on user modifiable colors:
+
+* GUI (menus)
+** '''GUI_BCG_RGB''' - menu background RGB
+** '''GUI_BCG_COLOR''' - menu background RGBA
+** '''GUI_BCG_MEDIUM_RGB''' - button background RGB (darker version of GUI_BCG_RGB)
+** '''GUI_BCG_MEDIUM_COLOR''' - button background RGBA
+** '''GUI_BCG_ACTIVE_RGB''' - active button background color (e.g. focused buttons) RGB
+* IGUI (HUD)
+** '''IGUI_TEXT_RGB''' - HUD color RGB
+** '''IGUI_TEXT_COLOR''' - HUD color RGBA
+
+=== Sample Configs ===
+
+Set text/picture color to HUD color
+<syntaxhighlight lang="cpp">
+colorText[] = IGUI_TEXT_COLOR;
+</syntaxhighlight>
+Set text/picture color to HUD color with fixed alpha (e.g. override user transparency settings)
+<syntaxhighlight lang="cpp">
+colorText[] = { IGUI_TEXT_RGB, 1 };
+</syntaxhighlight>
+
+
+== Functions ==
+
+* [[BIS_fnc_displayColorGet]]
+* [[BIS_fnc_displayColorSet]]
+
+{{GameCategory|tkoh|Editing}}
+[[Category: GUI Topics]]

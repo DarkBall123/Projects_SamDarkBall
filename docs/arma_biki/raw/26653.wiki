@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact 
+
+|descr= <pre>/*
+
+	Description:
+		Get soldier's role icon (e.g., sniper, machine-gunner, etc.)
+
+	Parameter(s):
+		0: OBJECT
+
+	Returns:
+		STRING - image path
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getRoleIcon]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getRoleIcon;</sqf> -->
+
+|seealso=
+}}

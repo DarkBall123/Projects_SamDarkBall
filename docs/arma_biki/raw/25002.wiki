@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Interpolation
+
+|descr= Derivative of the {{Link|https://en.wikipedia.org/wiki/Kelvin_functions|Kelvin function}} {{Link|https://en.wikipedia.org/wiki/Kelvin_functions#ber(x)|ber}}.
+
+|s1= [a, b, delta] call [[BIS_fnc_berp]]
+
+|p1= a: [[Number]] - (Optional, default 0) first point (start) 
+
+|p2= b: [[Number]] - (Optional, default 0) second point (end)
+
+|p3= delta: [[Number]] - (Optional, default 0) the delta time, 0..1
+
+|r1= [[Number]] - the interpolated value
+
+|x1= <sqf>private _value = [0, 1, 0.5] call BIS_fnc_berp;</sqf>
+
+|seealso= [[BIS_fnc_berpVector]]
+}}

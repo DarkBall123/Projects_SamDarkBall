@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Systems
+
+|descr= <pre>/*
+	Author: BIS
+
+	Description:
+
+ 	Parameters:
+
+	Returns:
+	none
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_animatedOpening]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns mouse position in UI coordinates.
+
+|s1= [[getMousePosition]] 
+
+|r1= [[Position#Introduction|Position2D]] - x and y UI coordinates of the mouse position
+
+|x1= <sqf>getMousePosition params ["_mouseX", "_mouseY"];</sqf>
+
+|seealso= [[setMousePosition]] [[ctrlSetMousePosition]] [[ctrlMousePosition]] [[ctrlMapCursor]] [[reversedMouseY]]
+}}

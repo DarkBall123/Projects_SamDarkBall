@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= DLC
+
+|descr= Returns total DLC usage time in this game session
+
+|s1= [[getTotalDLCUsageTime]]
+
+|r1= [[Number]] - time (in seconds?)
+
+|x1= <sqf>_dlcTime = getTotalDLCUsageTime;</sqf>
+
+|seealso= [[getDLCs]] [[getObjectDLC]] [[getPersonUsedDLCs]] [[getMissionDLCs]]
+}}

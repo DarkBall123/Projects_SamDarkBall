@@ -1,0 +1,2 @@
+#REDIRECT [[SQS Syntax]]
+[[Category: File extensions]]

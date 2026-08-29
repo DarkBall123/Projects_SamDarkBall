@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Sets the grid increment for the given transformation type.
+
+|s1= [[set3DENGrid]] [type, value]
+
+|p1= type: [[String]] - name of transformation type. Can be:
+* {{hl|"r"}} - Rotation
+* {{hl|"t"}} - Translation
+* {{hl|"s"}} - Scale
+
+|p2= value: [[Number]] - transformation increment
+
+|r1= [[Nothing]]
+
+|x1= <sqf>set3DENGrid ["t", 100]; // 100m movement increment</sqf>
+
+|seealso= [[get3DENGrid]]
+}}

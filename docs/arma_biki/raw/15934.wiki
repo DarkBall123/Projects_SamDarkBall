@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Detects vehicle types and prints their radio protocol definitions to clipboard.
+
+|s1= call [[BIS_fnc_diagMacrosNameSound]]
+
+|r1= [[String]]
+
+|x1= <sqf>call BIS_fnc_diagMacrosNameSound;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diag functions]]
+}}

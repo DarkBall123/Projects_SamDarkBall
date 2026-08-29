@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|gr1= GUI Control - Object
+
+|gr2= GUI Control - Positioning
+
+|descr= Sets 3D control model scale
+
+|s1= control [[ctrlSetModelScale]]  scale
+
+|p1= control : [[Control]] - 3D control
+
+|p2= scale : [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_ctrl3D ctrlSetModelScale 1.5;</sqf>
+
+|seealso= [[ctrlModelDirAndUp]] [[ctrlCreate]] [[ctrlDelete]] [[ctrlModel]] [[ctrlSetModel]] [[ctrlSetModelDirAndUp]] [[ctrlModelScale]] [[ctrlPosition]] [[ctrlScale]] [[ctrlSetScale]] [[ctrlSetPosition]] [[ctrlClassName]] [[vectorDir]] [[vectorUp]] [[setVectorDirAndUp]]
+}}

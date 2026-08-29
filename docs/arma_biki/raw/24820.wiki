@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= ''N/A''
+
+|s1= [] call [[BIS_fnc_moduleTimeMultiplier]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

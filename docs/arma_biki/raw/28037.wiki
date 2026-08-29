@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.34
+
+|game2= tkoh
+|version2= 1.00
+
+|gr1= RTD
+
+|descr= {{Wiki|stub}} {{Feature|afm}}
+
+|s1= value [[setForceGeneratorRTD]] arr
+
+|p1= value: [[Number]]
+
+|p2= arr: [[Array]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>something1 setForceGeneratorRTD something2;</sqf>
+
+|seealso= [[clearForcesRTD]] [[forceGeneratorRTD]] [[addForceGeneratorRTD]]
+}}

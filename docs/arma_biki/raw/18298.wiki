@@ -1,0 +1,31 @@
+{{RV|type=command
+|game1= arma3
+|version1= 1.56
+|arg=
+|gr1= GUI Control - Menu
+
+|descr= Adds new submenu entry into item on given path.
+|s1= [[menuAdd]] [idc, path, text]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|p3= text: [[String]]
+
+|r1= [[Number]]
+
+|s2= control [[menuAdd]] [path, text]
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]] - path where the items should be added
+
+|p23= text: [[String]] - displayed name for the entry
+
+|r2= [[Number]] - index of the item
+
+|x1= <sqf>findDisplay 313 displayCtrl 120 menuAdd [[], "Custom Tools"]; // Add new entry at the top level to the menu strip in Eden Editor</sqf>
+
+|seealso= [[menuDelete]]
+}}

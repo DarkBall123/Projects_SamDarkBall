@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Multiplayer
+
+|descr= This function is now an alias to [[BIS_fnc_MP]].
+{{Feature|important|Use [[remoteExec]] and [[remoteExecCall]] instead!}}
+
+|s1=
+
+|p1=
+
+|x1= See [[BIS_fnc_MP]]
+
+|r1=
+
+|seealso= [[remoteExec]] [[remoteExecCall]] [[BIS_fnc_MP]] [[BIS_fnc_execFSM]] [[BIS_fnc_execVM]] [[BIS_fnc_spawn]]
+}}

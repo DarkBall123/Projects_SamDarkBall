@@ -1,0 +1,39 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|arg= global
+
+|gr1= Weapons
+
+|descr= Returns the laser target object created by given unit (vehicle or soldier) when using a laser targeting device. The main syntax targets the primary gunner turret.
+
+|s1= [[laserTarget]] entity
+
+|p1= entity: [[Object]] - unit or vehicle
+
+|r1= [[Object]] - laser target or [[objNull]] if no laser target exists
+
+|s2= vehicle [[laserTarget]] turret
+
+|s2since= arma3 2.12
+
+|p21= vehicle: [[Object]] - transport
+
+|p22= turret: [[Turret Path]]
+
+|r2= [[Object]] - laser target or [[objNull]] if no laser target exists
+
+|x1= <sqf>private _target = laserTarget gunner heli;</sqf>
+
+|x2= <sqf>private _designatedPos = getPosATL laserTarget player;</sqf>
+
+|seealso= [[isLaserOn]] [[cursorTarget]] [[setMissileTarget]]
+}}

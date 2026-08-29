@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= Function used by the Tracers [[Arma_3:_Editor_Modules|module]].
+
+|s1= [logic, activated] call [[BIS_fnc_moduleTracers]]
+
+|p1= logic: [[Object]] - a logic, but can be any object
+
+|p2= activated: [[Boolean]] - [[true]] to activate
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[myLogic, true] call BIS_fnc_moduleTracers;</sqf>
+
+|seealso= [[Arma_3:_Editor_Modules|Modules]]
+}}

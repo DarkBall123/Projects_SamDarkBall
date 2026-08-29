@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Broken Commands
+
+|descr= Removes the site.
+{{Feature|warning|This command is considered deprecated and is no longer supported}}
+
+|s1= [[deleteSite]] site
+
+|p1= site: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= -
+
+|seealso= [[createSite]] [[allSites]]
+}}

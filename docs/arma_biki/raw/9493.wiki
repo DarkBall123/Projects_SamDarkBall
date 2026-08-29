@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|arg= local
+
+|gr1= Stamina System
+
+|descr= Forces unit to walk even if run or sprint is selected.
+
+|s1= unit [[forceWalk]] value
+
+|p1= unit: [[Object]] - the unit forced to walk
+|p2= value: [[Boolean]] - true/false
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player forceWalk true;</sqf>
+
+|seealso= [[isForcedWalk]] [[isWalking]] [[forceSpeed]] [[getSpeed]]
+}}

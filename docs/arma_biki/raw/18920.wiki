@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Export current mission (usually in [[:Category:Eden Editor|Eden Editor]]) in [[2D Editor]] format to the clipboard.
+
+|s1= call [[BIS_fnc_3DENExportOldSQM]]
+
+|r1= [[Nothing]] - old SQM is [[copyToClipboard|copied to the clipboard]]
+
+|x1= See [[Arma 3: Debug Console|Debug Console]]<sqf>call BIS_fnc_3DENExportOldSQM; // execute in debug console</sqf>
+
+|seealso= [[:Category:Eden Editor|Eden Editor]] [[2D Editor]]
+}}

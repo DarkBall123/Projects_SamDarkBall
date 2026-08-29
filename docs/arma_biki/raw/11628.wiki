@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr= Returns the current charge of a helicopter's batteries.
+* 0: empty
+* 1: fully charged
+
+|s1= [[batteryChargeRTD]] helicopterRTD
+
+|p1= helicopterRTD: [[Object|ObjectRTD]] - helicopter
+
+|r1= [[Number]]
+
+|x1= <sqf>_charge = batteryChargeRTD vehicle player;</sqf>
+
+|seealso= [[setBatteryChargeRTD]] [[setBatteryRTD]]
+}}

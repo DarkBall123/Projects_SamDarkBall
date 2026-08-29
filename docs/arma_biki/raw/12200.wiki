@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Unit Inventory
+
+|descr= Removes all containers (vest, uniform, backpack) from the provided unit.
+
+|s1= [[removeAllContainers]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllContainers player;</sqf>
+
+|seealso= [[removeAllAssignedItems]] [[removeGoggles]] [[removeHeadgear]] [[removeItem]] [[removeItems]] [[removeUniform]] [[removeVest]]
+}}

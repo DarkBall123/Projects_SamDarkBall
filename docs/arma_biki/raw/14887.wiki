@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|gr1= Unit Inventory
+
+|descr= Returns class name of currently used binocular weapon.
+
+|s1= [[binocular]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>_binocs = binocular player; //Rangefinder</sqf>
+ 
+
+|seealso= [[binocularMagazine]] [[binocularItems]] [[addBinocularItem]] [[removeBinocularItem]] [[removeAllBinocularItems]] [[headgear]] [[goggles]] [[hmd]]
+}}

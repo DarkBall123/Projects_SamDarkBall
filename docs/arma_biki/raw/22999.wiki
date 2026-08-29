@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.72
+
+|gr1= Custom Panels
+
+|descr= Returns information about what is currently displayed on given player's info panel.
+
+|s1= [[infoPanel]] infoPanelId
+
+|p1= infoPanelId: [[String]] - info panel classname, or "left" or "right"
+
+|r1= [[Array]] with [componentClass, componentType]
+* componentClass: [[String]] - ''EmptyDisplay'' when no panel is open
+* componentType: [[String]] -  ''EmptyDisplayComponent'' when no panel is open
+
+|x1= <sqf>infoPanel "left" params ["_componentClass", "_componentType"];</sqf>
+
+|seealso= [[Arma 3: Custom Info]] [[infoPanels]] [[setInfoPanel]] [[infoPanelComponents]] [[enableInfoPanelComponent]] [[infoPanelComponentEnabled]] [[openGPS]]
+}}

@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|eff= local
+
+|gr1= System
+
+|gr2= Environment
+
+|descr= Sets the rendering distance of objects and shadows.
+
+|s1= [[setObjectViewDistance]] objectDistance
+
+|p1= objectDistance: [[Number]]
+
+|r1= [[Nothing]]
+
+|s2= [[setObjectViewDistance]] [objectDistance, shadowDistance]
+
+|p21= objectDistance: [[Number]]
+
+|p22= shadowDistance: [[Number]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>setObjectViewDistance 2000;</sqf>
+
+|x2= <sqf>setObjectViewDistance [2000, 800];</sqf>
+
+|seealso= [[getObjectViewDistance]] [[setViewDistance]] [[viewDistance]] [[setDetailMapBlendPars]] [[setTerrainGrid]]
+}}

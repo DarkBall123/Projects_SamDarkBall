@@ -1,0 +1,86 @@
+{{TOC|side}}
+This is a full list of the weapons, both small arms and vehicle mounted, found in Operation Flashpoint: Cold War Crisis, Resistance, and Elite. For the classnames of these weapons, see [[Operation Flashpoint: Weapons]].
+
+=== Assault Rifles ===
+
+*AK47
+*AK47/GP-30
+*AK74
+*AK74/GP-30
+*M16A2
+*M16A2/M203
+*XM-177E2
+*XM-177S (XM-177E2 with colt scope)
+*SA Vz. 58 (referred to as AK47 CZ in-game)
+*AKS-74U
+*H&K G36E
+*Steyr AUG A1
+*H&K G3A4 (''Resistance'')
+*FN FAL (''Resistance'')
+
+=== Sub-Machine Guns ===
+
+*MP5SD3 with integrated sound suppressor
+*Izhmash PP-19 Bizon with sound suppressor
+*IMI Uzi with sound suppressor (''Resistance'')
+*Ingram MAC-10 (''Resistance'')
+*Vz. 61 Škorpion (''Resistance'')
+
+=== Pistols ===
+
+*CZ-75 (''Resistance'')
+*Tokarev TT-33 (''Resistance'')
+*Beretta 92F (''Resistance'')
+*Glock 17 with or without sound suppressor (''Resistance'')
+*Smith & Wesson Model 686 (''Resistance'')
+
+=== Support Weapons ===
+
+*M60
+*PK
+
+=== Sniper Rifles ===
+
+*M21
+*SVD Dragunov
+*Remington 700 (''Resistance'')
+
+=== Heavy Weapons ===
+
+*M2HB Browning Machine Gun
+*M72 LAW
+*RPG NH-75
+*Carl Gustav recoilless rifle
+*AT4
+*FIM-92 Stinger
+*9K32 Strela-2
+*MM-1
+*RG-6 (referred to as ''6G30'' in-game)
+
+
+=== Miscellaneous Weapons ===
+
+*M-26 Fragmentation Grenade
+*Rifle Grenade (Launched from M203 and GP-30 launchers)
+*C-4 Satchel Charge
+*Smoke Grenade
+*Laser designator
+*Anti-tank mine
+*{{Link|http://www.czub.cz/index.php?p{{=}}8&lang{{=}}en|CZ584}} (referred to as ''Kozlice'' in-game)
+
+=== Vehicle Mounted Weapons ===
+
+*GBU-24 Laser-guided bomb
+*AGM-114 Hellfire Missile
+*FFAR Rocket Pods
+*S-5 Rocket Pods
+*AGM-65 Maverick Missile
+*GAU-8 Avenger 30mm Cannon
+*BGM-71 TOW Missile
+*9K114 Shturm Missile
+
+=== External links ===
+[http://www.imfdb.org/index.php?title{{=}}Operation_Flashpoint Operation Flashpoint] at the Internet Movie Firearms DataBase
+
+{{GameCategory|ofp|Reference Lists}}
+[[Category: CfgWeapons]]

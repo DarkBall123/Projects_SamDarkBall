@@ -1,0 +1,55 @@
+{{TOC|side}}
+{{Wiki|stub}}
+
+== Commands ==
+
+See [[:Category:Command Group: Ropes and Sling Loading|Ropes and Sling Loading]] command group.
+
+
+== Config ==
+
+=== Rope Type ===
+
+A rope stretches and breaks following the formula:
+<syntaxhighlight lang="cpp">
+const float maxRopeStretchLength = (desiredLength * maxRelLength) + maxExtraLength;
+if (currentLength > maxRopeStretchLength) { /* breaks */ };
+</syntaxhighlight>
+
+[[Config.cpp]] declaration:
+<syntaxhighlight lang="cpp">
+class CfgVehicles
+{
+	class Rope;
+	class RopeRabbit : Rope
+	{
+		maxRelLenght = 1.1;					// "Lenght" is a typo but intentional! Same for maxExtraLenght
+		maxExtraLenght = 20;
+		springFactor = 0.5;					// higher == less stretchy rope
+		segmentType = "RopeSegmentRabbit";	// reference to CfgNonAIVehicles' class
+		torqueFactor = 0.5;
+		dampingFactor[] = {1.0,2.5,1.0};
+		model = "\A3\Animals_F\rabbit\rabbit_F.p3d";
+	};
+};
+
+class CfgNonAIVehicles
+{
+	class RopeSegmentRabbit
+	{
+		scope = 2;
+		displayName = "";
+		simulation = "ropesegment";
+		autocenter = 0;
+		animated = 0;
+		model = "\A3\Animals_F\rabbit\rabbit_F.p3d";
+	};
+};
+</syntaxhighlight>
+
+=== Rope End ===
+
+TBD
+
+
+{{GameCategory|arma3|Editing}}

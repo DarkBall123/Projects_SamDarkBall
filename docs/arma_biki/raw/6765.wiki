@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.08
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Locations
+
+|descr= Sets the importance value of location.
+
+|s1= location [[setImportance]] value
+
+|p1= location: [[Location]]
+|p2= value: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLocation setImportance 2;</sqf>
+
+|seealso= [[importance]]
+}}

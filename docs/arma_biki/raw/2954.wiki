@@ -1,0 +1,187 @@
+{{Feature|UnsupportedDoc}}
+
+== Binary Format ==
+
+For binary rtm's see [[Rtm Binarised File Format]]
+== Conventions ==
+
+see [[Generic FileFormat Data Types]]
+
+== Animations ==
+
+*RTM files are applied to any P3d that has a 'skeleton'. Not ALL p3d's have them.
+
+*The appropriately termed 'skeleton' consists of 'bones' such as heads, arms, legs, feet, doors. 
+
+*The skeleton as such, is not used by an rtm file. Part, or all, of the bones of the skeleton are.
+
+*An rtm frame consists of a collection of bones. Each frame contains identical bones but each of those bones are individually displayed at differing orientations.
+*The same rtm file can be applied to different p3d's on the assumption of course that the bone names in each of those p3d's are identical. This would be reasonable for a collection of soldiers eg.
+
+And so:
+
+
+== RtmFile ==
+ RtmFile 
+ {
+  char[8] "RTM_MDAT"	//optional. Must appear 1st see frame properties. These are not asciiz
+  char[8] "RTM_0101"; //mandatory 
+ };
+
+== RTM_MDAT ==
+Introduced at arma3
+ Properties
+ {
+  char    "RTM_MDAT"
+  ulong   Zeroes;
+  ulong   nFrameProperties;
+  Property[nFrameProperties];
+ };
+
+=== Property ===
+ {
+  float		phase;
+  lAsciiz*	name;
+  lAsciiz*	value;
+ }
+==== lAscii ====
+ {
+   byte nChars   // there is no null char 'byte' might be a compressed byte (see flashpoint strings)
+   char [nChars];// there is no null char
+ ]
+
+== RTM_0101 ==
+ RtmData 
+ {
+  char       "RTM_0101"
+  XYZTriplet Vertex;                // Total Moving XZY. At 0,0,0 'soldier' runs in same spot.
+  ulong      nFrames;               // Self Explanatory?
+  ulong      nBones;                //
+  BoneName   BoneNames[nBones];     // 
+  RtmFrame   Frames[nFrames];
+ };
+
+The number of frames (and bones in each frame) extend to the end of file. There is no checksum or end of file signature.
+
+=== BoneName ===
+ char BoneName[32];   //fixed 32 byte record for each bone. NOT asciiz
+
+=== RtmFrame ===
+ RtmFrame
+ (
+   float          FrameTime; // Values 0.0 to 1.0
+   BoneTransform  Bone[nBones];
+ };
+=== Frametime ===
+
+Represents a percentage of 'time' relative to the ''total'' time taken to display all frames.
+The overall time is ''not'' indicated in the rtm. External sources cause the 'frames' to move   
+fast, or slow, or whatever.
+
+This is one of those parameters that are easy to understand, and difficult to explain.
+
+The value represents percentage of the expiry time for the '''entire''' frameset.
+
+Given ten frames, all of which you want displayed for the same amount of time. the frametime value would progress, 0,0.1,0.2,0.3 etc, not, as would be intuitive, 0.1,0.1,0.1,0.1.........
+
+==== BoneTransform ====
+ BoneTransform
+ {
+   BoneName   BoneName;      //Identical to that found in header above, and in same relative order
+   Transform  Transform;     //The orientation of the model.
+ };
+
+The exact same number of bonesis specified inside every Frame, as per the initial list in exactly the same order. In effect, naming again, in every component, in every frame is redundant. This has since been corrected in the binarised rtm version.
+
+===== Transform =====
+ Transform
+ {
+   XYZTriplet Triplet[4]; // eg float[4][3]
+ };
+
+This is the transform matrix used directly by Microsoft DirectX engines.
+
+In fact, the 'correct' matrix is actually 4 x 4, but the last column always represents 0,0,0,1 thus
+
+ M11,M12 M13 (0.0)
+ M21,M22,M23 (0.0)
+ M31,M32,M33 (0.0)
+ M41,M42,M43 (1.0)
+
+and so is never stored. 
+
+similar Transform matrices are used for WRP and P3d files as well.
+
+The last row (M41...) happens to be the position of the object X Z Y co-ordinates, and is often referred to separately.
+
+For further information visit 
+
+{{Link|https://msdn.microsoft.com/en-us/library/windows/desktop/bb206269.aspx|Microsoft Transforms (Direct3D 9)}}
+
+== Examples ==
+
+Bonenames apply to p3d models that have skeleton structure. This, chiefly, to class man objects (soldiers, civilians, etc). They are internal to the engines.
+
+There are 25 bone names in ofp, and 65 in arma1.
+
+=== Ofp ===
+            hlava(Head)
+            krk(Neck)
+            zebra(Spine) //ribs
+            hrudnik(Spine1 2 or 3) //chest
+             bricho(Pelvis) //abdomen
+ lrameno(LeftShoulder) prameno(RightShoulder)
+ lbiceps(LeftArm)      pbiceps(RightArm)
+ lloket(LeftForeArm)   ploket(RightForeArm)
+ lruka(LeftHand)       pruka(RightHand) //right fist
+ lprsty(LeftHand)      pprsty(RightHand) //left right fingers
+ lstehno(LeftUpLeg)    pstehno(RightUpLeg)
+ lholen(LeftLeg)       pholen(RightLeg) // lower legs
+ lchodidlo(LeftFoot)   pchodidlo(RightFoot)
+ lzadek                pzadek          // right buttock
+            zbran(weapon)   //primary weapon proxy
+            roura(launcher) //secondary weapon proxy
+
+=== Arma ===
+           Head
+           Neck
+           Neck1
+           Spine
+           Spine1
+           Spine2
+           Spine3
+           Pelvis
+ LeftShoulder  RightShoulder
+ LeftArm       RightArm
+ LeftArmRoll   RightArmRoll
+ LeftForeArm   RightForeArm
+ LeftForeArmRoll RightForeArmRoll
+ LeftHand      RightHand
+ LeftHandThumb1  RightHandThumb1
+ LeftHandThumb2  RightHandThumb2
+ LeftHandThumb3  RightHandThumb3
+ LeftHandIndex1  RightHandIndex1
+ LeftHandIndex2  RightHandIndex2
+ LeftHandIndex3  RightHandIndex3
+ LeftHandMiddle1 RightHandMiddle1
+ LeftHandMiddle2 RightHandMiddle2
+ LeftHandMiddle3 RightHandMiddle3
+ LeftHandRing    RightHandRing
+ LeftHandRing1   RightHandRing1
+ LeftHandRing2   RightHandRing2
+ LeftHandRing3   RightHandRing3
+ LeftHandPinky1  RightHandPinky1
+ LeftHandPinky2  RightHandPinky2
+ LeftHandPinky3  RightHandPinky3
+ LeftUpLeg              RightUpLeg
+ LeftUpLegRoll          RightUpLegRoll 
+ LeftLeg                RightLeg
+ LeftLegRoll            RightLegRoll
+ LeftFoot(pchodidlo)    RightFoot
+ LeftToeBase            RightToeBase
+            weapon
+            launcher
+            camera
+
+{{GameCategory|ofp|Modelling}}
+[[Category:Real Virtuality File Formats]]

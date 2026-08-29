@@ -1,0 +1,45 @@
+{{GameCategory|arma2|Editor Modules}}
+
+'''Surrender (SRRS)''' module makes AI soldiers surrendering when in confusion, or outnumbered.
+
+== Initialization==
+=== Paths ===
+Editor:
+ Modules (F7) > Surrender
+Data:
+ ca\modules\SRRS
+
+=== Editor setup ===
+<!-- # Link (F5) every group leader you want to surrender to the module -->
+
+=== Optional parameters ===
+
+Set global variables with desired values:
+
+*'''BIS_SRRS_Debug = <number>;''' - allow or not debug - -1 for no debug, 0 for all debug, and 1 for "loop processing"
+::Example: ''BIS_SRRS_Debug = 0;''
+::Default value: -1
+
+*'''BIS_SRRS_ENABLED = <bool>;''' - activate the script
+
+*'''BIS_SRRS_FOR_VEHICLES_ENABLED = <bool>;''' - 
+
+*'''BIS_SRRS_OVERRIDE_VEHICLES = <array>;''' - 
+
+*''' = <>;''' - 
+
+*''' = <>;''' - 
+
+<!-- *''' = <>;''' - -->
+
+== Behaviour ==
+
+*Soldiers surrendering will drop their weapons and put their hands behind their head
+*Soldiers surrendering will be [[setCaptive]], [[disableAI]] "move", will leave their group, will disembark from their vehicle if they have one and won't be able to climb in another
+*Group leaders can tell their soldiers to surrender
+
+*You'll have to place on the map at least one unit of the faction you will create with this module, or [[setFriend]] their side, so the created patrols attack their enemies
+
+=== Known bugs ===
+
+*Sometimes, the soldier will lower his hands. Don't worry, he's harmless :-)

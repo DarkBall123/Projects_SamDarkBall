@@ -1,0 +1,25 @@
+Eden Entity is an entity which can be created, edited or deleted in the [[:Category:Eden Editor|Eden Editor]].
+
+It is not a unique [[Data_Types|data type]]; instead it represents one of the existing types:
+{| class="wikitable"
+|-
+! Data Type !! Eden Entity
+|-
+| [[Object]] || [[Eden Editor: Object|Eden Editor Object]]
+|-
+| [[Group]] || [[Eden Editor: Group|Eden Editor Group]]
+|-
+| [[Object]] || [[Eden Editor: Trigger|Eden Editor Trigger]]
+|-
+| [[Object]] || [[Eden Editor: System|Eden Editor System]]
+|-
+| [[Array]] || [[Eden Editor: Waypoint|Eden Editor Waypoint]]
+|-
+| [[String]] || [[Eden Editor: Marker|Eden Editor Marker]]
+|-
+| [[Number]] || [[Eden Editor: Layer|Eden Editor Layer]]
+|-
+| [[Number]] || [[Eden Editor: Comment|Eden Editor Comment]]
+|}
+
+[[Category:Eden Editor: Modding]]

@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Main feedback [[FSM]], used for feedback effects (fatigue, drowning, injury etc.). Internal use only.
+
+|s1= [] call [[BIS_fnc_feedbackMain]]
+
+|p1=
+
+|r1= [[Number]]? ([[execFSM]])
+
+|x1= <sqf>[] call BIS_fnc_feedbackMain;</sqf>
+
+|seealso= [[FSM]] [[:Category:Function Group: Feedback|Feedback Function Group]]
+}}

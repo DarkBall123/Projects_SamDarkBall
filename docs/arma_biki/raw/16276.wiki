@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules - Live Feed
+
+|descr= <sqf>
+/*
+	
+	Description:
+	Display a live feed via a module.
+	
+	Parameters:
+		_this: OBJECT - Live Feed - Init module
+*/
+
+// Need not be run on dedicated servers
+</sqf>
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_liveFeedModuleInit]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_liveFeedModuleInit;</sqf> -->
+
+|seealso=
+}}

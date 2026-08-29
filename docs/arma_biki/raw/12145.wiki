@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Containers
+
+|descr= Removes all backpacks from ammo box (or any general weapon holder container).
+
+|s1= [[clearBackpackCargo]] box
+
+|p1= box: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>clearBackpackCargo myBox;</sqf>
+
+|seealso= [[backpackContainer]] [[firstBackpack]] [[unitBackpack]] [[backpack]] [[backpackCargo]] [[getBackpackCargo]] [[backpackItems]] [[addBackpack]] [[addBackpackCargo]] [[addBackpackCargoGlobal]] [[removeBackpack]] [[clearBackpackCargoGlobal]] [[clearAllItemsFromBackpack]] [[loadBackpack]] [[backpackSpaceFor]] [[canAddItemToBackpack]] [[addItemToBackpack]] [[removeItemFromBackpack]] [[everyBackpack]]
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2017-07-06 - 16:26 (UTC)</dd>
+<dt class="note">[[User:Pharenhite|Pharenhite]]</dt>
+<dd class="note">
+This will remove not only backpacks, but vests and uniforms as well.
+</dd>
+
+</dl>

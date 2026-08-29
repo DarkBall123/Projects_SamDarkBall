@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|eff= local
+
+|descr= Screen dirt (texture) postprocess. 
+Displays dust PP according to damage obtained from near explosion; takes array from "Explosion" event handler.
+
+|s1= [unit, damage] call [[BIS_fnc_dirtEffect]]
+
+|p1= unit: [[Object]] - who gets the damage. '''Unused and useless parameter'''
+
+|p2= damage: [[Number]] - damage given to unit by explosion
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[nil, 0.5] call BIS_fnc_dirtEffect;</sqf>
+
+|seealso= [[BIS_fnc_bloodEffect]] [[BIS_fnc_flamesEffect]]
+}}

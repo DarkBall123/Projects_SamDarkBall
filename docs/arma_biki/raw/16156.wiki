@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|descr= {{Feature|important|Local task management executed by [[BIS_fnc_setTask]]. Not to be called independently!}}
+
+|s1= -
+
+|r1= -
+
+|x1= -
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Event Handlers
+
+|gr2= Sounds
+
+|descr= Removes specified music track event handler. See {{Link|Arma 3: Event Handlers#Music Event Handlers}}.
+
+|s1= [[removeMusicEventHandler]] [type, id]
+
+|p1= type: [[String]] - "MusicStart" or "MusicStop"
+
+|p2= id: [[Number]] - event handler id
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeMusicEventHandler ["MusicStart", 12];</sqf>
+
+|x2= <sqf>removeMusicEventHandler ["MusicStop", 12];</sqf>
+
+|x3= <sqf>
+private _stopMusicEH = addMusicEventHandler ["MusicStop", {}];
+// ...
+removeMusicEventHandler ["MusicStop", _stopMusicEH];
+</sqf>
+
+|seealso= [[addMusicEventHandler]] {{Link|Arma 3: Event Handlers#Music Event Handlers}} [[setMusicEventHandler]] [[removeAllMusicEventHandlers]] [[playMusic]]
+}}

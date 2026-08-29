@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Groups
+
+|arg= global
+
+|descr= Returns a group's name or a unit's group ID number.
+
+|s1= [[groupId]] group
+
+|p1= group: [[Group]]
+
+|r1= [[String]] - the group's name (e.g "Alpha Red")
+
+|s2= [[groupId]] unit
+
+|s2since= arma3 2.12
+
+|p21= unit: [[Object]] - a group's unit
+
+|r2= [[Number]] - the unit's group ID (e.g "'''2''', taking command")
+
+|x1= <sqf>_name = groupId group player;			// e.g "B Alpha 1-1"</sqf>
+
+|x2= <sqf>private _unitGroupId = groupId player;	// e.g 3 (number, not a string)</sqf>
+
+|seealso= [[setGroupId]] [[setGroupIdGlobal]] [[group]]
+}}

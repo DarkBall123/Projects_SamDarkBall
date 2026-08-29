@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Multiplayer
+
+|descr= Multiplayer mission init, executed automatically upon mission start. {{Feature|arma3|This is an internal function.}}
+
+|s1= call [[BIS_fnc_initMultiplayer]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_initMultiplayer;</sqf>
+
+|seealso= [[Event Scripts]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.04
+
+|gr1= Sounds
+
+|descr= Returns the current environment volume (set by [[fadeEnvironment]])
+
+|s1= [[environmentVolume]]
+
+|r1= [[Number]]
+
+|x1= <sqf>hint str environmentVolume;</sqf>
+
+|seealso= [[fadeEnvironment]] [[musicVolume]] [[soundVolume]] [[radioVolume]] [[speechVolume]] [[getAudioOptionVolumes]] [[environmentEnabled]]
+}}

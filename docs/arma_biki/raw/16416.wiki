@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Map and Markers
+|gr2= Positions
+
+|descr= Return location description (e.g. "NE of Agia Marina")
+
+|s1= position call [[BIS_fnc_locationDescription]]
+
+|p1= position: [[Position]] - (Optional, default <sqf inline>cameraOn call BIS_fnc_position</sqf>)
+
+|r1= [[String]]
+
+|x1= <sqf>hint format ["Player's position: %1", player call BIS_fnc_locationDescription];</sqf>
+
+|seealso= [[BIS_fnc_position]] [[cameraOn]] [[getPos]] [[getPosATL]] [[getPosASL]] [[getPosASLW]]
+}}

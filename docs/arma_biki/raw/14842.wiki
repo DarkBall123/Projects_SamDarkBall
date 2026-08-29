@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Returns list of all curator selected items.
+
+|s1= [[curatorSelected]]
+
+|r1= [[Array]] with [objects, groups, waypoints, markers]
+* objects: [[Array]] of [[Object]]s
+* groups: [[Array]] of [[Group]]s
+* waypoints: [[Waypoint]]
+* markers: [[Array]] of [[String]]s
+
+|x1= <sqf>_selectedItems = curatorSelected;</sqf>
+
+|x2= <sqf>curatorSelected params ["_selObjects", "_selGroups", "_selWaypoints", "_selMarkers"];</sqf>
+
+|seealso= [[curatorMouseOver]] [[setCuratorSelected]] [[addCuratorSelected]] [[Arma 3: Curator]]
+}}

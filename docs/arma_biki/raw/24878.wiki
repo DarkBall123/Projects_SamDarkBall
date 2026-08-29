@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Returns wether camera HUD is enabled.
+
+|s1= [camera] call [[BIS_fnc_camera_getHUDEnabled]]
+
+|p1= camera: [[Object]] - the camera
+
+|r1= [[Boolean]] - returns [[true]] if HUD is enabled
+
+|x1= <sqf>[BIS_camera] call BIS_fnc_camera_getHUDEnabled;</sqf>
+
+|seealso= [[BIS_fnc_camera_setHUDEnabled]]
+}}

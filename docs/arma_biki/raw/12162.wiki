@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Returns if freelook is active on the current machine's controlled character.
+
+|s1= [[freeLook]]
+
+|r1= [[Boolean]] - [[true]] if freelook is active, [[false]] otherwise
+
+|x1= <sqf>
+if freeLook then
+{
+	systemChat "Quit looking around, soldier!";
+};
+</sqf>
+
+|seealso= [[lookAt]]
+}}

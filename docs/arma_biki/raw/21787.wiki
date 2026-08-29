@@ -1,0 +1,18 @@
+[[Category: Control Types]]
+
+{{CT|intro
+
+|macro = CT_MAP
+|value = 100
+|description = There is no control that currently uses this control type. It might be obsolete. See [[CT_MAP_MAIN]] instead.
+|gallery=
+|commands =
+|events =
+}}
+
+<!-- {{CT|abc start}}
+
+{{CT|abc end}}
+ -->
+{{CT|examples}}
+None

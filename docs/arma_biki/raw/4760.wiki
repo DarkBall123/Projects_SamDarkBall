@@ -1,0 +1,41 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= global
+
+|eff= global
+
+|gr1= Flags
+
+|descr= Returns the global owner of a flag. A getter for [[setFlagOwner]]. Note that owner of a flag is [[Object]] rather than [[Number]], as how it is usually with other [[owner]] commands
+
+|s1= [[flagOwner]]  flag
+
+|p1= flag: [[Object]]
+
+|r1= [[Object]] - the person or vehicle that owns the flag is returned. If used on anything else than a flag, the returned value is [[objNull]]. If the flag is on its pole, the return value is NULL. If the flagowner is dead, the return value is the name of the soldier model
+
+|x1= <sqf>_person = flagOwner _flagOne;</sqf>
+
+|seealso= [[setFlagOwner]] [[:Category:Flag Textures|Flag Textures]]
+}}

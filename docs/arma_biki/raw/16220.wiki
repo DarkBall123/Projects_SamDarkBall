@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Return current move action (used in [[playAction]], [[playActionNow]] and [[switchAction]])
+
+|s1= [unit, returnConfig] call [[BIS_fnc_moveAction]]
+
+|p1= unit: [[Object]]
+
+|p2= returnConfig: [[Boolean]] - (Optional, default [[false]]) [[true]] to return action config path, [[false]] to return the action name
+
+|r1= [[Config]] or [[String]] - depends on ''returnConfig''
+
+|x1= <sqf>
+_actionName		= [player, false] call BIS_fnc_moveAction;
+_actionConfig	= [player,  true] call BIS_fnc_moveAction;
+</sqf>
+
+|seealso= [[playAction]] [[playActionNow]] [[switchAction]] [[playMove]] [[switchMove]]
+}}

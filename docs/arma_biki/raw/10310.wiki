@@ -1,0 +1,508 @@
+{{TOC|side}}
+This list contains also units of the BAF & PMC DLC content. This content is also included in Patch 1.54 - 1.56 as Lite Version 
+== BLUEFOR ==
+=== US ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|Drake||Drake||rowspan="2"|[[File:Arma2_US_DF_drake.jpg|100px]]
+|-
+|Drake_Light||Drake (unarmed)
+|-
+|Graves||Graves||rowspan="2"|[[File:Arma2_US_graves.jpg|100px]]
+|-
+|Graves_Light||Graves (unarmed)
+|-
+|Herrera||Herrera||rowspan="2"|[[File:Arma2_US_herrera.jpg|100px]]
+|-
+|Herrera_Light||Herrera (unarmed)
+|-
+|Pierce||Pierce||rowspan="2"|[[File:Arma2_US_pierce.jpg|100px]]
+|-
+|Pierce_Light||Pierce (unarmed)
+|-
+|US_Delta_Force_AR_EP1||Automatic Rifleman||[[File:Arma2_US_DF_ar.jpg|100px]]
+|-
+|US_Delta_Force_Air_Controller_EP1||Forward Air Controller||[[File:Arma2_US_DF_fac.jpg|100px]]
+|-
+|US_Delta_Force_MG_EP1||Machinegunner||[[File:Arma2_US_DF_mg.jpg|100px]]
+|-
+|US_Delta_Force_Assault_EP1||Operator (Assault)||[[File:Arma2_US_DF_assault.jpg|100px]]
+|-
+|US_Delta_Force_EP1||Operator||[[File:Arma2_US_DF_soldier.jpg|100px]]
+|-
+|US_Delta_Force_M14_EP1||Operator (M14)||[[File:Arma2_US_DF_m14.jpg|100px]]
+|-
+|US_Delta_Force_Marksman_EP1||Marksman||[[File:Arma2_US_DF_marksman.jpg|100px]]
+|-
+|US_Delta_Force_Medic_EP1||Medic||[[File:Arma2_US_DF_medic.jpg|100px]]
+|-
+|US_Delta_Force_Night_EP1||Operator (Night Assault)||[[File:Arma2_US_DF_night.jpg|100px]]
+|-
+|US_Delta_Force_SD_EP1||Operator (Silenced)||[[File:Arma2_US_DF_sd.jpg|100px]]
+|-
+|US_Delta_Force_TL_EP1||Team Leader||[[File:Arma2_US_DF_tl.jpg|100px]]
+|-
+|US_Delta_Force_Undercover_Takistani06_EP1||Graves (undercover)||[[File:Arma2_US_graves_uc.jpg|100px]]
+|-
+|US_Soldier_AR_EP1||Auto Rifleman||[[File:Arma2_US_ar.jpg|100px]]
+|-
+|US_Soldier_AT_EP1||AT Specialist||[[File:Arma2_US_at.jpg|100px]]
+|-
+|US_Soldier_AA_EP1||AA Specialist||[[File:Arma2_US_aa.jpg|100px]]
+|-
+|US_Soldier_HAT_EP1||AT Specialist (Javelin)||[[File:Arma2_US_javelin.jpg|100px]]
+|-
+|US_Soldier_MG_EP1||Machinegunner||[[File:Arma2_US_mg.jpg|100px]]
+|-
+|US_Soldier_AMG_EP1||Asst. Machinegunner||rowspan="4"|[[File:Arma2_US_asst.jpg|100px]]
+|-
+|US_Soldier_AAR_EP1||Asst. Auto Rifleman
+|-
+|US_Soldier_AAT_EP1||Asst. AT Specialist
+|-
+|US_Soldier_AHAT_EP1||Asst. AT Specialist (Javelin)
+|-
+|US_Soldier_EP1||Rifleman||rowspan="2"|[[File:Arma2_US_soldier.jpg|100px]]
+|-
+|US_Soldier_B_EP1||Rifleman (backpack)
+|-
+|US_Soldier_Crew_EP1||Crewman||[[File:Arma2_US_crew.jpg|100px]]
+|-
+|US_Soldier_Engineer_EP1||Engineer||[[File:Arma2_US_engineer.jpg|100px]]
+|-
+|US_Soldier_GL_EP1||Grenadier||[[File:Arma2_US_grenadier.jpg|100px]]
+|-
+|US_Soldier_LAT_EP1||Rifleman (AT)||[[File:Arma2_US_m134.jpg|100px]]
+|-
+|US_Pilot_Light_EP1||Pilot (light)||[[File:Arma2_US_pilotL.jpg|100px]]
+|-
+|US_Soldier_Light_EP1||Soldier (light)||[[File:Arma2_US_officer.jpg|100px]]
+|-
+|US_Soldier_MG_EP1||Machinegunner||[[File:Arma2_US_mg.jpg|100px]]
+|-
+|US_Soldier_Marksman_EP1||Marksman||[[File:Arma2_US_marksman.jpg|100px]]
+|-
+|US_Soldier_Medic_EP1||Medic||[[File:Arma2_US_medic.jpg|100px]]
+|-
+|US_Soldier_Officer_EP1||Officer||[[File:Arma2_US_officer.jpg|100px]]
+|-
+|US_Soldier_Pilot_EP1||Pilot||[[File:Arma2_US_pilot.jpg|100px]]
+|-
+|US_Soldier_SL_EP1||Squad Leader||[[File:Arma2_US_sl.jpg|100px]]
+|-
+|US_Soldier_SniperH_EP1||Sniper (M107)||[[File:Arma2_US_sniperH.jpg|100px]]
+|-
+|US_Soldier_Sniper_EP1||Sniper||[[File:Arma2_US_sniper.jpg|100px]]
+|-
+|US_Soldier_Sniper_NV_EP1||Sniper (TWS)||[[File:Arma2_US_sniperH_N.jpg|100px]]
+|-
+|US_Soldier_Spotter_EP1||Spotter||[[File:Arma2_US_spotter.jpg|100px]]
+|-
+|US_Soldier_TL_EP1||Team Leader||[[File:Arma2_US_tl.jpg|100px]]
+|-
+|}
+
+=== ACR ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|CZ_Soldier_AT_DES_EP1||AT Specialist||[[File:Arma2_ACR_at.jpg|100px]]
+|-
+|CZ_Soldier_DES_EP1||Rifleman||rowspan="2"|[[File:Arma2_ACR_soldier.jpg|100px]]
+|-
+|CZ_Soldier_AMG_DES_EP1||Asst. Machinegunner
+|-
+|CZ_Soldier_B_DES_EP1||Rifleman (backpack)||[[File:Arma2_ACR_bp.jpg|100px]]
+|-
+|CZ_Soldier_Light_DES_EP1||Soldier (light)||[[File:Arma2_ACR_officer.jpg|100px]]
+|-
+|CZ_Soldier_MG_DES_EP1||Machinegunner||[[File:Arma2_ACR_mg.jpg|100px]]
+|-
+|CZ_Soldier_Office_DES_EP1||Officer||[[File:Arma2_ACR_officer.jpg|100px]]
+|-
+|CZ_Soldier_Pilot_DES_EP1||Pilot||[[File:Arma2_ACR_pilot.jpg|100px]]
+|-
+|CZ_Soldier_SL_DES_EP1||Squad Leader||[[File:Arma2_ACR_soldier.jpg|100px]]
+|-
+|CZ_Soldier_Sniper_DES_EP1||Sniper||[[File:Arma2_ACR_sniper.jpg|100px]]
+|-
+|CZ_Special_Forces_DES_EP1||Special Forces Rifleman||[[File:Arma2_ACR_SF_soldier.jpg|100px]]
+|-
+|CZ_Special_Forces_GL_DES_EP1||Special Forces Grenadier||[[File:Arma2_ACR_SF_tl.jpg|100px]]
+|-
+|CZ_Special_Forces_MG_DES_EP1||Special Forces Machinegunner||[[File:Arma2_ACR_SF_mg.jpg|100px]]
+|-
+|CZ_Special_Forces_Scout_DES_EP1||Special Forces Scout||[[File:Arma2_ACR_SF_soldier.jpg|100px]]
+|-
+|CZ_Special_Forces_TL_DES_EP1||Special Forces Team Leader||[[File:Arma2_ACR_SF_tl.jpg|100px]]
+|-
+|}
+
+=== Germany ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|GER_Soldier_EP1||KSK Rifleman||[[File:Arma2_GER_KSK_soldier.jpg|100px]]
+|-
+|GER_Soldier_MG_EP1||KSK Machinegunner||[[File:Arma2_GER_KSK_lmg.jpg|100px]]
+|-
+|GER_Soldier_Medic_EP1||KSK Medic||[[File:Arma2_GER_KSK_medic.jpg|100px]]
+|-
+|GER_Soldier_Scout_EP1||KSK Scout||[[File:Arma2_GER_KSK_recon.jpg|100px]]
+|-
+|GER_Soldier_TL_EP1||KSK Team Leader||[[File:Arma2_GER_KSK_tl.jpg|100px]]
+|-
+|}
+
+=== British Armed Forces (DLC) ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|CIV_Contractor1_BAF||Contractor 1||[[File:Arma2_PMC_contractor1.jpg|100px]]
+|-
+|CIV_Contractor2_BAF||Contractor 2||[[File:Arma2_PMC_contractor2.jpg|100px]]
+|-
+|BAF_crewman_DDPM<br>BAF_crewman_W<br>BAF_crewman_MTP||Crewman||[[File:Arma2_BAF_crew.jpg|100px]]
+|-
+|BAF_Soldier_FAC_DDPM<br>BAF_Soldier_FAC_W<br>BAF_Soldier_FAC_MTP||Joint Terminal Attack Controller||[[File:Arma2_BAF_fac.jpg|100px]]
+|-
+|BAF_Soldier_N_DDPM<br>BAF_Soldier_N_W<br>BAF_Soldier_N_MTP||Rifleman (night)||[[File:Arma2_BAF_soldierN.jpg|100px]]
+|-
+|BAF_Soldier_AT_DDPM<br>BAF_Soldier_AT_W<br>BAF_Soldier_AT_MTP||AT Specialist||[[File:Arma2_BAF_at.jpg|100px]]
+|-
+|BAF_Soldier_HAT_DDPM<br>BAF_Soldier_HAT_W<br>BAF_Soldier_HAT_MTP||AT Specialist (Javelin)||[[File:Arma2_BAF_javelin.jpg|100px]]
+|-
+|BAF_Soldier_MG_DDPM<br>BAF_Soldier_MG_W<br>BAF_Soldier_MG_MTP||Machinegunner||[[File:Arma2_BAF_mg.jpg|100px]]
+|-
+|BAF_Soldier_AR_DDPM<br>BAF_Soldier_AR_W<br>BAF_Soldier_AR_MTP||Auto Rifleman||[[File:Arma2_BAF_ar.jpg|100px]]
+|-
+|BAF_Soldier_AAT_DDPM<br>BAF_Soldier_AAT_W<br>BAF_Soldier_AAT_MTP||Asst. AT Rifleman||rowspan="5" |[[File:Arma2_BAF_asst.jpg|100px]]
+|-
+|BAF_Soldier_AHAT_DDPM<br>BAF_Soldier_AHAT_W<br>BAF_Soldier_AHAT_MTP||Asst. AT Specialist (Javelin)
+|-
+|BAF_Soldier_AHAT_DDPM<br>BAF_Soldier_AHAT_W<br>BAF_Soldier_AHAT_MTP||Asst. AT Specialist (Javelin)
+|-
+|BAF_Soldier_AMG_DDPM<br>BAF_Soldier_AMG_W<br>BAF_Soldier_AMG_MTP||Asst. Machinegunner
+|-
+|BAF_Soldier_AAR_DDPM<br>BAF_Soldier_AAR_W<br>BAF_Soldier_AAR_MTP||Asst. Auto Rifleman
+|-
+|BAF_Soldier_Marksman_DDPM<br>BAF_Soldier_Marksman_W<br>BAF_Soldier_Marksman_MTP||Marksman||[[File:Arma2_BAF_lrr.jpg|100px]]
+|-
+|BAF_Soldier_Officer_DDPM<br>BAF_Soldier_Officer_W<br>BAF_Soldier_Officer_MTP||Officer||[[File:Arma2_BAF_officer.jpg|100px]]
+|-
+|BAF_Soldier_L_DDPM<br>BAF_Soldier_L_W<br>BAF_Soldier_L_MTP||Soldier (light)||[[File:Arma2_BAF_captive.jpg|100px]]
+|-
+|BAF_Soldier_DDPM<br>BAF_Soldier_W<br>BAF_Soldier_MTP||Rifleman||[[File:Arma2_BAF_soldier.jpg|100px]]
+|-
+|BAF_ASoldier_DDPM<br>BAF_ASoldier_DDPM<br>BAF_ASoldier_MTP||Rifleman (backpack)||[[File:Arma2_BAF_bp.jpg|100px]]
+|-
+|BAF_Soldier_Medic_DDPM<br>BAF_Soldier_Medic_W<br>BAF_Soldier_Medic_MTP||Medic||[[File:Arma2_BAF_medic.jpg|100px]]
+|-
+|BAF_Soldier_SL_DDPM<br>BAF_Soldier_SL_W<br>BAF_Soldier_SL_MTP||Squad Leader||[[File:Arma2_BAF_tl.jpg|100px]]
+|-
+|BAF_Pilot_DDPM<br>BAF_Pilot_W<br>BAF_Pilot_MTP||Pilot||[[File:Arma2_BAF_pilot.jpg|100px]]
+|-
+|BAF_Soldier_GL_DDPM<br>BAF_Soldier_GL_W<br>BAF_Soldier_GL_MTP||Grenadier||[[File:Arma2_BAF_grenadier.jpg|100px]]
+|-
+|BAF_Soldier_EN_DDPM<br>BAF_Soldier_EN_W<br>BAF_Soldier_EN_MTP||Engineer||[[File:Arma2_BAF_engineer.jpg|100px]]
+|-
+|BAF_Soldier_AA_DDPM<br>BAF_Soldier_AA_W<br>BAF_Soldier_AA_MTP||AA Specialist||[[File:Arma2_BAF_aa.jpg|100px]]
+|-
+|BAF_Soldier_TL_DDPM<br>BAF_Soldier_TL_W<br>BAF_Soldier_TL_MTP||Team Leader||[[File:Arma2_BAF_tl.jpg|100px]]
+|-
+|BAF_Soldier_SniperH_MTP<br>BAF_Soldier_SniperH_W||Sniper (AS50)||[[File:Arma2_BAF_as50.jpg|100px]]
+|-
+|BAF_Soldier_SniperN_MTP<br>BAF_Soldier_SniperN_W||Sniper (AS50 TWS)||[[File:Arma2_BAF_as50_tws.jpg|100px]]
+|-
+|BAF_Soldier_spotterN_MTP<br>BAF_Soldier_spotterN_W||Spotter (night)||[[File:Arma2_BAF_spotterN.jpg|100px]]
+|-
+|BAF_Soldier_Sniper_MTP<br>BAF_Soldier_Sniper_W||Sniper (LRR)||[[File:Arma2_BAF_sniper.jpg|100px]]
+|-
+|}
+_DDPM = Desert Disruptive Pattern Material<br>
+_W = Woodland (Disruptive Pattern Material)<br>
+_MTP = Multi-Terrain Pattern
+
+== OPFOR ==
+=== Takistan Army ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|TK_Aziz_EP1||Col. Aziz||[[File:Arma2_TK_aziz.jpg|100px]]
+|-
+|TK_Commander_EP1||Commander||[[File:Arma2_TK_commander.jpg|100px]]
+|-
+|TK_Soldier_AT_EP1||AT Rifleman||[[File:Arma2_TK_at.jpg|100px]]
+|-
+|TK_Soldier_MG_EP1||Machinegunner||[[File:Arma2_TK_mg.jpg|100px]]
+|-
+|TK_Soldier_AR_EP1||Auto Rifleman||[[File:Arma2_TK_lmg.jpg|100px]]
+|-
+|TK_Soldier_AAT_EP1||Asst. AT Rifleman||rowspan="2" |[[File:Arma2_TK_asst.jpg|100px]]
+|-
+|TK_Soldier_AMG_EP1||Asst. AT Machinegunner
+|-
+|TK_Soldier_EP1||Rifleman||[[File:Arma2_TK_soldier.jpg|100px]]
+|-
+|TK_Soldier_B_EP1||Rifleman (backpack)||[[File:Arma2_TK_bp.jpg|100px]]
+|-
+|TK_Soldier_Crew_EP1||Crewman||[[File:Arma2_TK_crew.jpg|100px]]
+|-
+|TK_Soldier_Engineer_EP1||Engineer||[[File:Arma2_TK_engineer.jpg|100px]]
+|-
+|TK_Soldier_GL_EP1||Grenadier||[[File:Arma2_TK_grenadier.jpg|100px]]
+|-
+|TK_Soldier_HAT_EP1||AT Specialist||[[File:Arma2_TK_rpg7.jpg|100px]]
+|-
+|TK_Soldier_LAT_EP1||Rifleman (RPG-18)||[[File:Arma2_TK_rpg18.jpg|100px]]
+|-
+|TK_Soldier_EP1||Rifleman||[[File:Arma2_TK_soldier.jpg|100px]]
+|-
+|TK_Soldier_Medic_EP1||Medic||[[File:Arma2_TK_medic.jpg|100px]]
+|-
+|TK_Soldier_Night_1_EP1||Soldier (AKS-74 night)||[[File:Arma2_TK_ak74N.jpg|100px]]
+|-
+|TK_Soldier_Night_2_EP1||Soldier (night)||[[File:Arma2_TK_soldierN.jpg|100px]]
+|-
+|TK_Soldier_Officer_EP1||Officer||[[File:Arma2_TK_officer.jpg|100px]]
+|-
+|TK_Soldier_Pilot_EP1||Pilot||[[File:Arma2_TK_pilot.jpg|100px]]
+|-
+|TK_Soldier_SL_EP1||Squad Leader||[[File:Arma2_TK_tl.jpg|100px]]
+|-
+|TK_Soldier_SniperH_EP1||Sniper (KSVK)||[[File:Arma2_TK_sniperKSVK.jpg|100px]]
+|-
+|TK_Soldier_Sniper_EP1||Sniper||[[File:Arma2_TK_sniper.jpg|100px]]
+|-
+|TK_Soldier_Sniper_Night_EP1||Sniper (night)||[[File:Arma2_TK_sniperN.jpg|100px]]
+|-
+|TK_Soldier_Spotter_EP1||Spotter||[[File:Arma2_TK_spotter.jpg|100px]]
+|-
+|TK_Soldier_TWS_EP1||Soldier (TWS)||[[File:Arma2_TK_soldierTWS.jpg|100px]]
+|-
+|TK_Special_Forces_EP1||Special Forces Rifleman||[[File:Arma2_TK_SF_soldier.jpg|100px]]
+|-
+|TK_Special_Forces_MG_EP1||Special Forces Machinegunner||[[File:Arma2_TK_SF_mg.jpg|100px]]
+|-
+|TK_Special_Forces_TL_EP1||Special Forces Team Leader||[[File:Arma2_TK_SF_tl.jpg|100px]]
+|-
+|}
+=== Takistan Militia ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|TK_INS_Bonesetter_EP1||Bonesetter||[[File:Arma2_TK_INS_bonesetter.jpg|100px]]
+|-
+|TK_INS_Soldier_2_EP1||Militiaman (AK-74 GL)||[[File:Arma2_TK_INS_ak74gl.jpg|100px]]
+|-
+|TK_INS_Soldier_3_EP1||Militiaman (Lee-Enfield)||[[File:Arma2_TK_INS_enfield.jpg|100px]]
+|-
+|TK_INS_Soldier_4_EP1||Militiaman (FN FAL)||[[File:Arma2_TK_INS_fal.jpg|100px]]
+|-
+|TK_INS_Soldier_AT_EP1||Militiaman (RPG-7)||[[File:Arma2_TK_INS_rpg7.jpg|100px]]
+|-
+|TK_INS_Soldier_AAT_EP1||Militiaman (RPG ammo)||[[File:Arma2_TK_INS_ammo.jpg|100px]]
+|-
+|TK_INS_Soldier_AA_EP1||AA Specialist||[[File:Arma2_TK_INS_aa.jpg|100px]]
+|-
+|TK_INS_Soldier_AR_EP1||Automatic Rifleman||[[File:Arma2_TK_INS_lmg.jpg|100px]]
+|-
+|TK_INS_Soldier_EP1||Guerilla (AK-74)||[[File:Arma2_TK_INS_ak74.jpg|100px]]
+|-
+|TK_INS_Soldier_MG_EP1||Machinegunner||[[File:Arma2_TK_INS_mg.jpg|100px]]
+|-
+|TK_INS_Soldier_Sniper_EP1||Militiaman Sniper||[[File:Arma2_TK_INS_sniper.jpg|100px]]
+|-
+|TK_INS_Soldier_TL_EP1||Team Leader||[[File:Arma2_TK_INS_tl.jpg|100px]]
+|-
+|TK_INS_Soldier_Warlord_EP1||Warlord||[[File:Arma2_TK_INS_warlord.jpg|100px]]
+|-
+|}
+== INDEPENDENT ==
+=== Takistan Locals ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|TK_GUE_Bonesetter_EP1||Bonesetter||[[File:Arma2_TK_GUE_boonesetter.jpg|100px]]
+|-
+|TK_GUE_Soldier_2_EP1||Guerilla (AK-47S)||[[File:Arma2_TK_GUE_ak47s.jpg|100px]]
+|-
+|TK_GUE_Soldier_3_EP1||Guerilla (M16A2)||[[File:Arma2_TK_GUE_m16.jpg|100px]]
+|-
+|TK_GUE_Soldier_4_EP1||Guerilla (M16A2 GL)||[[File:Arma2_TK_GUE_m16gl.jpg|100px]]
+|-
+|TK_GUE_Soldier_5_EP1||Guerilla (Lee-Enfield)||[[File:Arma2_TK_GUE_enfield.jpg|100px]]
+|-
+|TK_GUE_Soldier_AT_EP1||Guerilla (RPG-7)||[[File:Arma2_TK_GUE_rpg7.jpg|100px]]
+|-
+|TK_GUE_Soldier_AAT_EP1||Guerilla (RPG ammo)||[[File:Arma2_TK_GUE_ammo.jpg|100px]]
+|-
+|TK_GUE_Soldier_AA_EP1||AA Specialist||[[File:Arma2_TK_GUE_aa.jpg|100px]]
+|-
+|TK_GUE_Soldier_AR_EP1||Automatic Rifleman||[[File:Arma2_TK_GUE_lmg.jpg|100px]]
+|-
+|TK_GUE_Soldier_EP1||Guerilla (AK-47)||[[File:Arma2_TK_GUE_ak47.jpg|100px]]
+|-
+|TK_GUE_Soldier_HAT_EP1||Guerilla (Dragon)||[[File:Arma2_TK_GUE_dragon.jpg|100px]]
+|-
+|TK_GUE_Soldier_MG_EP1||Machinegunner||[[File:Arma2_TK_GUE_mg.jpg|100px]]
+|-
+|TK_GUE_Soldier_Sniper_EP1||Guerilla Sniper||[[File:Arma2_TK_GUE_sniper.jpg|100px]]
+|-
+|TK_GUE_Soldier_TL_EP1||Team Leader||[[File:Arma2_TK_GUE_tl.jpg|100px]]
+|-
+|TK_GUE_Soldier_Warlord_EP1||Warlord||[[File:Arma2_TK_GUE_warlord.jpg|100px]]
+|-
+|}
+=== UNO ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|UN_CDF_Soldier_AT_EP1||AT Rifleman||[[File:Arma2_UN_rpg7.jpg|100px]]
+|-
+|UN_CDF_Soldier_MG_EP1||Machinegunner||[[File:Arma2_UN_mg.jpg|100px]]
+|-
+|UN_CDF_Soldier_EP1||Soldier||rowspan="4" |[[File:Arma2_UN_soldier.jpg|100px]]
+|-
+|UN_CDF_Soldier_AAT_EP1||Asst. AT Rifleman
+|-
+|UN_CDF_Soldier_AMG_EP1||Asst. Machinegunner
+|-
+|UN_CDF_Soldier_B_EP1||Soldier (backpack)
+|-
+|UN_CDF_Soldier_Crew_EP1||Crewman||[[File:Arma2_UN_crew.jpg|100px]]
+|-
+|UN_CDF_Soldier_Guard_EP1||Guard||[[File:Arma2_UN_guard.jpg|100px]]
+|-
+|UN_CDF_Soldier_Light_EP1||Soldier (light)||[[File:Arma2_UN_captive.jpg|100px]]
+|-
+|UN_CDF_Soldier_Officer_EP1||Officer||[[File:Arma2_UN_officer.jpg|100px]]
+|-
+|UN_CDF_Soldier_Pilot_EP1||Pilot||[[File:Arma2_UN_pilot.jpg|100px]]
+|-
+|UN_CDF_Soldier_SL_EP1||Squad Leader||[[File:Arma2_UN_sl.jpg|100px]]
+|-
+|}
+
+=== PMC (DLC) ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|Soldier_TL_PMC||Team Coordinator||[[File:Arma2_PMC_tc.jpg|100px]]
+|-
+|Soldier_Bodyguard_AA12_PMC||Bodyguard (AA12)||[[File:Arma2_PMC_bodyguardAA12.jpg|100px]]
+|-
+|Soldier_Bodyguard_M4_PMC||Bodyguard (M4A3)||[[File:Arma2_PMC_bodyguardM4.jpg|100px]]
+|-
+|Soldier_Sniper_PMC||Defensive Marksman||[[File:Arma2 PMC DEF marksman.jpg|100px]]
+|-
+|Soldier_Medic_PMC||Field Medic||[[File:Arma2 PMC medic.jpg|100px]]
+|-
+|Soldier_MG_PMC||Field Specialist (M8-auto)||[[File:Arma2_PMC_FS_m8.jpg|100px]]
+|-
+|Soldier_MG_PKM_PMC||Field Specialist (PKM)||[[File:Arma2_PMC_FS_pkm.jpg|100px]]
+|-
+|Soldier_AT_PMC||Field Specialist (RPG-18)||[[File:Arma2 PMC FS rpg7.jpg|100px]]
+|-
+|Soldier_Engineer_PMC||Field Technican||[[File:Arma2 PMC FS tech.jpg|100px]]
+|-
+|Soldier_GL_M16A2_PMC||Security Contractor (M16A3-GL)||[[File:Arma2 PMC SC m16gl.jpg|100px]]
+|-
+|Soldier_M4A3_PMC||Security Contractor (M4A3)||[[File:Arma2 PMC SC m4.jpg|100px]]
+|-
+|Soldier_GL_PMC||Security Contractor (M8-GL)||[[File:Arma2_PMC_SC_m8gl.jpg|100px]]
+|-
+|Soldier_PMC||Security Contractor (M8)||[[File:Arma2_PMC_SC_m8.jpg|100px]]
+|-
+|Soldier_Crew_PMC||Tactical Driver||[[File:Arma2_PMC_driver.jpg|100px]]
+|-
+|Soldier_Pilot_PMC||Tactical Pilot||[[File:Arma2_PMC_pilot.jpg|100px]]
+|-
+|Soldier_Sniper_KSVK_PMC||Tactical Specialist (KSVK)||[[File:Arma2 PMC TAC ksvk.jpg|100px]]
+|-
+|Soldier_AA_PMC||Tactical Specialist (Stinger)||[[File:Arma2 PMC TAC aa.jpg|100px]]
+|-
+|Poet_PMC||Frost||[[File:Arma2_PMC_frost.jpg|100px]]
+|-
+|Tanny_PMC||Tanny||[[File:Arma2_PMC_tanny.jpg|100px]]
+|-
+|Reynolds_PMC||Reynolds||[[File:Arma2_PMC_reynolds.jpg|100px]]
+|-
+|Dixon_PMC||Dixon||[[File:Arma2_PMC_dixon.jpg|100px]]
+|-
+|Ry_PMC||Asano||[[File:Arma2_PMC_asano.jpg|100px]]
+|-
+|}
+
+== CIVILIAN ==
+=== Takistan ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|TK_CIV_Takistani01_EP1||Takistani (sweater)||[[File:Arma2_TK_CIV_sweater.jpg|100px]]
+|-
+|TK_CIV_Takistani02_EP1||Takistani (jacket)||[[File:Arma2_TK_CIV_jacket.jpg|100px]]
+|-
+|TK_CIV_Takistani03_EP1||Takistani (hat)||[[File:Arma2_TK_CIV_hat.jpg|100px]]
+|-
+|TK_CIV_Takistani04_EP1||Takistani (tuban)||[[File:Arma2_TK_CIV_turban.jpg|100px]]
+|-
+|TK_CIV_Takistani05_EP1||Takistani (scarf)||[[File:Arma2_TK_CIV_scarf.jpg|100px]]
+|-
+|TK_CIV_Takistani06_EP1||Takistani (vest)||[[File:Arma2_TK_CIV_vest.jpg|100px]]
+|-
+|TK_CIV_Woman01_EP1||Takistani city woman||[[File:Arma2_TK_CIV_woman_city.jpg|100px]]
+|-
+|TK_CIV_Woman02_EP1||Takistani old woman||[[File:Arma2_TK_CIV_woman_old.jpg|100px]]
+|-
+|TK_CIV_Woman03_EP1||Takistani young woman||[[File:Arma2_TK_CIV_woman_young.jpg|100px]]
+|-
+|TK_CIV_Worker01_EP1||Worker (red)||[[File:Arma2_TK_CIV_worker_red.jpg|100px]]
+|-
+|TK_CIV_Worker02_EP1||Worker (brown)||[[File:Arma2_TK_CIV_worker.jpg|100px]]
+|-
+|}
+
+=== Special ===
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|CIV_EuroMan01_EP1||EuroMan1||[[File:Arma2_SP_CIV_euroman1.jpg|100px]]
+|-
+|CIV_EuroMan02_EP1||EuroMan2||[[File:Arma2_SP_CIV_euroman2.jpg|100px]]
+|-
+|CIV_EuroWoman01_EP1||EuroWoman1||[[File:Arma2_SP_CIV_eurowoman1.jpg|100px]]
+|-
+|CIV_EuroWoman02_EP1||EuroWoman2||[[File:Arma2_SP_CIV_eurowoman2.jpg|100px]]
+|-
+|Citizen2_EP1||Citizen (blue)||rowspan="2" |[[File:Arma2 civ citizen.jpg|100px]]
+|-
+|Citizen3_EP1||Citizen (gray)
+|-
+|Dr_Annie_Baker_EP1||Dr. Annie Baker||[[File:Arma2_SP_CIV_baker.jpg|100px]]
+|-
+|Dr_Hladik_EP1||Dr. Hladik||[[File:Arma2_SP_CIV_hladik.jpg|100px]]
+|-
+|Functionay1_EP1||Functionary (black suit)||rowspan="2" |[[File:Arma2 civ functionary.jpg|100px]]
+|-
+|Functionay2_EP1||Functionary (brown suit)
+|-
+|Haris_Press_EP1||Haris Press||[[File:Arma2_SP_CIV_press.jpg|100px]]
+|-
+|Pilot_EP1||Pilot (civil)||[[File:Arma2 civ pilot.jpg|100px]]
+|-
+|Profiteer1_EP1||Profiteer (blue)||[[File:Arma2 civ profiteer.jpg|100px]]
+|-
+|Rita_Ensler_EP1||Rita Ensler||[[File:Arma2_SP_CIV_ensler.jpg|100px]]
+|-
+|}
+
+== See also ==
+* [[Arma 2 OA: Vehicles]]
+* [[Arma 2 OA: Weapons]]
+* [[Arma 2: Infantry]]
+* [[Arma 2: Vehicles]]
+* [[Arma 2: Weapons]]
+
+{{GameCategory|arma2oa|Reference Lists}}

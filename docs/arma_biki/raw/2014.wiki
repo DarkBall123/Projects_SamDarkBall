@@ -1,0 +1,42 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= System
+
+|descr= The mission is launched (from the main menu).
+
+|s1= [[playMission]] [campaign, mission, skipBriefing]
+
+|p1= campaign: [[String]] - directory of Campaign, if empty a single mission is launched
+
+|p2= mission: [[String]] or [[Config]] - directory if a string
+
+|p3= skipBriefing: [[Boolean]] - (Optional) If true, the intro and briefing are skipped.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>playMission ["XOutrage", "x05Negotiator.Noe"];</sqf>
+
+|x2= <sqf>playMission ["", configFile >> "CfgMissions" >> "Missions" >> "Armory1"];</sqf>
+
+|x3= <sqf>playMission ["", "\A3\Missions_F_Bootcamp\Scenarios\Arsenal.VR"];</sqf>
+
+|seealso= [[hostMission]] [[playScriptedMission]] [[createMissionDisplay]] [[createMPCampaignDisplay]]
+}}

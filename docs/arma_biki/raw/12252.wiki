@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Lights
+
+|arg= local
+
+|eff= local
+
+|descr= Sets max distance where the flare is visible.
+
+|s1= light [[setLightFlareMaxDistance]] distance
+
+|p1= light: [[Object]]
+
+|p2= distance: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLight setLightFlareMaxDistance 500;</sqf>
+
+|seealso= [[setLightAmbient]] [[setLightColor]] [[lightAttachObject]] [[lightDetachObject]] [[setLightIntensity]] [[setLightAttenuation]] [[setLightUseFlare]] [[setLightFlareSize]] [[setLightBrightness]] [[setLightDayLight]]
+}}

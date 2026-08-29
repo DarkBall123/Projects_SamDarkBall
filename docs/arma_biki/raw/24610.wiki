@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Map and Markers
+
+|arg= global
+
+|eff= global
+
+|descr= Makes given marker blink.
+
+|s1= [marker, blinkDuration, blinkAmount] spawn [[BIS_fnc_blinkMarker]]
+
+|p1= marker: [[String]] - marker's name
+
+|p2= blinkDuration: [[Number]] - (Optional, default 1) a blink's time
+
+|p3= blinkAmount: [[Number]] - (Optional, default 2) quantity of blinks
+
+|r1= [[Nothing]]
+
+|x1= <sqf>["BIS_marker", 3, 10] spawn BIS_fnc_blinkMarker; // blinks 10 times using 3 seconds intervals</sqf>
+
+|x2= <sqf>["BIS_marker"] spawn BIS_fnc_blinkMarker; // keeps blinking</sqf>
+
+|exec= spawn
+
+|seealso= [[setMarkerAlpha]]
+}}

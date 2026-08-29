@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.70
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes given weapon item, including magazine, from the [[primaryWeapon]].
+
+|s1= unit [[removePrimaryWeaponItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removePrimaryWeaponItem "acc_flashlight";</sqf>
+
+|seealso= [[addPrimaryWeaponItem]] [[removeAllPrimaryWeaponItems]] [[removeSecondaryWeaponItem]] [[removeHandgunItem]] [[removeBinocularItem]]
+}}

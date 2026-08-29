@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Object Manipulation
+
+|gr2= Weapons
+
+|descr= Returns [[true]] if given soldier's weapon is lowered. {{Feature | important | This command will '''always''' return [[false]] if player is sprinting, even without a weapon. Alternatively, the weapon raised state could be obtained via [[animationState]] command {{hl|...slow...}} vs {{hl|...sras...}}}}
+
+|s1= [[weaponLowered]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>isWeaponLowered = weaponLowered player;</sqf>
+
+|seealso= [[stance]] [[unitPos]] [[animationState]]
+}}
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2016-11-11 - 01:13 (UTC)</dd>
+<dt class="note">[[User:Pierre MGI|Pierre MGI]]</dt>
+<dd class="note">
+This command seems to work for player only, not for AI.
+</dd>
+
+</dl>

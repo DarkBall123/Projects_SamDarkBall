@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Live Feed
+
+|descr= Set the target of the current live feed.
+
+|s1= target call [[BIS_fnc_liveFeedSetTarget]]
+
+|p1= target: [[Object]] or [[Position]]
+
+|r1= [[Boolean]] - [[true]] if successful, [[false]] if not.
+
+|x1= <sqf>player call BIS_fnc_liveFeedSetTarget;</sqf>
+
+|seealso= [[BIS_fnc_liveFeed]] [[BIS_fnc_liveFeedEffects]] [[BIS_fnc_liveFeedSetSource]] [[BIS_fnc_liveFeedTerminate]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.98
+
+|gr1= Old Man
+
+|descr= {{Feature|arma3oldman}}
+
+|s1= <!-- [] call [[BIS_fnc_OM_moduleMarket]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

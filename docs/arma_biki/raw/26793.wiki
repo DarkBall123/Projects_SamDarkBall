@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact
+
+|descr= <pre>//#define TIME_SKIP	1.4 // Apex
+#define TIME_SKIP	0.5
+
+</pre>{{Wiki|placeholder}}
+{{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_skip]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

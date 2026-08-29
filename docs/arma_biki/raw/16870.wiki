@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.38
+
+|arg= local
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes given weapon item, including magazine, from the [[secondaryWeapon]].
+
+|s1= unit [[removeSecondaryWeaponItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeSecondaryWeaponItem (secondaryWeaponItems player select 0);</sqf>
+
+|seealso= [[addSecondaryWeaponItem]] [[removePrimaryWeaponItem]] [[removeHandgunItem]] [[removeBinocularItem]]
+}}

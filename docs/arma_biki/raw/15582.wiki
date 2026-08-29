@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.24
+
+|eff= local
+
+|gr1= Remote Control
+
+|descr= Enables unit's AV terminal(s) connecting to UAV.
+
+|s1= object [[enableUAVConnectability]] [uav, checkAllItems]
+
+|p1= object: [[Object]]
+
+|p2= uav: [[Object]]
+
+|p3= checkAllItems: [[Boolean]] - true for enabling of all terminals in unit's inventory, false for enabling of terminal assigned to proper slot only.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>unit enableUAVConnectability [uav, true];</sqf>
+
+|seealso= [[disableUAVConnectability]] [[isUAVConnectable]]
+}}

@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Broken Commands
+
+|gr2= Briefing
+
+|descr= Disable debriefing score table.
+{{Feature|warning|This command is broken.}}
+
+|s1= [[disableDebriefingStats]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>disableDebriefingStats;</sqf>
+
+|seealso= [[enableDebriefingStats]]
+}}

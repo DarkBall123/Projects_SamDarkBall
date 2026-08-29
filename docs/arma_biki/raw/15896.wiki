@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Weapons
+
+|descr= Return addon from CfgPatches to which a given weapon class belongs to.
+{{Feature | important | This function is quite performance heavy, use only when absolutely necessary!}}
+
+|s1= classname call [[BIS_fnc_weaponAddon]]
+
+|p1= classname [[String]] - weapon's classname
+
+|r1= [[String]] - addon's config name
+
+|x1= <sqf>"arifle_MX_F" call BIS_fnc_weaponAddon; // returns "A3_Weapons_F_Rifles_MX"</sqf>
+
+|seealso=
+}}

@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Camera Control
+
+|eff= local
+
+|descr= Stops any ongoing camera shake effects. Does not prevent new effects from being created. To disallow new effects altogether, [[enableCamShake]] should be used.
+
+|s1= [[resetCamShake]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>resetCamShake;</sqf>
+
+|seealso= [[enableCamShake]] [[addCamShake]] [[setCamShakeDefParams]] [[setCamShakeParams]]
+}}

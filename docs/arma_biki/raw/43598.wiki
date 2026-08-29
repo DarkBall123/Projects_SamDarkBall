@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|arg= global
+
+|eff= local
+
+|gr1= Sounds
+
+|descr= Same as [[createSoundSource]] but with local effect - the created sound is not transferred to other clients.
+
+|s1= see [[createSoundSource]]
+
+|p1= see [[createSoundSource]]
+
+|r1= see [[createSoundSource]]
+
+|x1= <sqf>
+createSoundSource		["LittleDog", position player, [], 0]; // global
+createSoundSourceLocal	["LittleDog", position player, [], 0]; // local
+</sqf>
+
+|seealso= [[createSoundSource]] [[Description.ext]] [[CfgSFX]]
+}}

@@ -1,0 +1,60 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|arg= local
+|eff= global
+
+|gr1= Unit Identity
+
+|descr= Sets rank of given unit.
+
+{{Feature|arma3|Before {{arma3}} v1.68 and in previous titles, this command was {{Icon|globalArgument|32}} {{Icon|localEffect|32}}.}}
+
+|s1= unitName [[setRank]] rank
+
+|p1= unitName: [[Object]]
+
+|p2= rank: [[String]] - one of:
+{{Columns|4|
+* {{hl|"PRIVATE"}}
+* {{hl|"CORPORAL"}}
+* {{hl|"SERGEANT"}}
+* {{hl|"LIEUTENANT"}}
+* {{hl|"CAPTAIN"}}
+* {{hl|"MAJOR"}}
+* {{hl|"COLONEL"}}
+}}
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player setRank "COLONEL";</sqf>
+
+|seealso= [[rank]] [[setUnitRank]]
+}}
+
+{{Note
+|user= Wolfrug
+|timestamp= 20090326192400
+|text= Changing a unit's rank using either [[setUnitRank]] or [[setRank]] will also REPLACE their current rating dependent on their new rank (colonels have a rating of 7500 etc).
+That is to say REPLACE, not add to: the unit's old rating will disappear with the rank change.
+}}
+
+{{Note
+|user= Waffle SS.
+|timestamp= 20140412203900
+|text= Behavior when used on players in multiplayer seems unpredictable. ({{arma3}} 1.00)
+}}

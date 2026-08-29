@@ -1,0 +1,17 @@
+[[Category: Control Types]]
+
+{{CT|intro
+
+|macro = CT_VEHICLE_DIRECTION
+|value = 105
+|description = Unknown control type.
+|commands =
+|events =
+}}
+
+<!-- {{CT|abc start}}
+
+{{CT|abc end}} -->
+
+{{CT|examples}}
+None

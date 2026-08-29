@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|arg= local
+
+|gr1= Pilot Camera
+
+|descr= Sets the optics mode index (zoom) for the [[Arma 3: Targeting config reference#class pilotCamera|pilotCamera]]
+
+|s1= object [[setPilotCameraOpticsMode]] index
+
+|p1= object: [[Object]]
+
+|p2 = index: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setPilotCameraOpticsMode 0</sqf>
+
+|seealso= [[getPilotCameraOpticsMode]] [[hasPilotCamera]] [[getPilotCameraPosition]] [[getPilotCameraDirection]] [[getPilotCameraRotation]] [[setPilotCameraDirection]] [[setPilotCameraRotation]] [[setPilotCameraTarget]] [[getPilotCameraTarget]] [[getTurretOpticsMode]] [[setTurretOpticsMode]]
+}}

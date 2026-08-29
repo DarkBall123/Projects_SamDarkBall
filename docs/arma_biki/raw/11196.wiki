@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|exec=spawn
+
+|descr= TRANSPORT [[Custom_Waypoints|custom waypoint]].
+
+Player must pick up group of units in their location.
+Get in AI pathfinding is supressed (to avoid unwanted behaviour on building roofs), units are teleported into player's vehicle instead.
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: none
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, dude, 100] spawn BIS_fnc_wpTransport;</sqf>
+
+|seealso=
+}}

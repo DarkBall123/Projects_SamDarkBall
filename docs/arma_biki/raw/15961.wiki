@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Adds the bleeding effect post-processing effect to the players screen.
+
+|s1= [10] call [[BIS_fnc_bloodEffect]]
+
+|p1= [[Number]] - duration in (milli?)seconds in which effect should be visible.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[10] call BIS_fnc_bloodEffect; // Adds the blood effect for 10 (milli)seconds.</sqf>
+
+|seealso= [[BIS_fnc_indicateBleeding]]
+}}

@@ -1,0 +1,51 @@
+===Playing Music===
+
+You can play all music with:
+[[playMusic]]
+
+== CfgMusic ==
+*ATrack1 (03 Primo In Mortis)
+*ATrack2 (13 Team Alpha)
+*ATrack3 (05 Dogs Of War)
+*ATrack4 (07 Seventh Company)
+*ATrack5 (08 Field Track)
+*ATrack6 (01 Street Combat)
+*ATrack7 (10 Arma Vera)
+*ATrack8 (12 Paradise On Earth)
+*ATrack9 (Crescendo 1)
+*ATrack10 (Crescendo)
+*ATrack11 (Short: Sahrani 1)
+*ATrack12 (Short: Sahrani 2)
+*ATrack13 (Short: Sahrani 3)
+*ATrack14 (Short: Combat)
+*ATrack15 (Short: Riff)
+*ATrack16 (Short: Bells)
+*ATrack17 (Short: Casaulties Of War)
+*ATrack18 (04 Arma Magna)
+*ATrack19 (Short: Arma Magna Rock 1)
+*ATrack20 (Short: Arma Magna Rock 2)
+*ATrack21 (Short: Arma Magna)
+*ATrack22 (Short: Street Combat)
+*ATrack23 (11 Second Assault)
+*ATrack23b (14 First Assault)
+*ATrack24 (06 Black Ops)
+*ATrack25 (02 Flashpoint Rearmed)
+*ATrack26 (Semper Fidelis)
+*ATrack27 (09 Team Bravo)
+
+=== Additional Qeens Gambit ===
+*QGTrack1 (Mission 02)
+*QGTrack2 (Mission 02 - outro)
+*QGTrack3 (Mission 03)
+*QGTrack4 (Mission 03 - outro (lagr))
+*QGTrack5 (Mission 04)
+*QGTrack6 (Mission 04 - outro)
+*QGTrack7 (Mission 05)
+*QGTrack8 (Mission 05 - outro)
+*QGTrack9 (Mission 06)
+*WithCare_Smile (WithCare - I Will Smile)
+*WithCare_Suicide (WithCare - Suicide Song)
+*WithCare_War (WithCare - War)
+*WithCare_What (WithCare - What)
+
+{{GameCategory|arma1|Reference Lists}}

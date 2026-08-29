@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.36
+
+|gr1= Configs
+
+|descr= Scan config paths and return min and max values for each property.<br>
+Can be used only for properties of type [[Number]] and [[Array]] (value is considered to be the geometric mean of all numbers in the array).
+
+|s1= [paths, properties, propertyTypes, propertyDefaults] call [[BIS_fnc_configExtremes]]
+
+|p1= paths: [[Array]] of [[Config]]s - paths to be scanned.
+
+|p2= properties: [[Array]] of [[String]]s - class names of properties to be evaluated.
+
+|p3= propertyTypes: [[Array]] of [[Boolean]]s - (Optional, default [[false]]) whether the property at the respective index should be evaluated and returned as a [[log]]arithmic number
+
+|p4= propertyDefaults: [[Array]] of [[Number]]s - (Optional, default 0) value to be used in cases where the property at the respective index is not defined
+
+|r1= [[Array]] - [minValues, maxValues] where minValues and maxValues are arrays respective to the properties array.
+
+|x1= <sqf>
+private _paths = [configFile >> "CfgWeapons"] call BIS_fnc_returnChildren;
+[_paths, ["maxRange", "reloadTime"]] call BIS_fnc_configExtremes;
+</sqf>
+
+|seealso=
+}}

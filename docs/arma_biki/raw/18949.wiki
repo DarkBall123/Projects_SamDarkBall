@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.68
+
+|arg= local
+|eff= local
+
+|gr1= Aircraft Carrier
+
+|descr= Plays a set of animations to animate the carriers' catapult jet blast deflectors. See [[Arma 3: Aircraft Systems]] for information about needed config changes.
+
+|s1= [carrierPart, animations, animationState] spawn [[BIS_fnc_carrier01AnimateDeflectors]]
+
+|p1 = carrierPart: [[Object]] - part to animate
+
+|p2 = animations: [[Array]] - animations to be played
+
+|p3 = animationState: [[Number]] - animation state
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_carrierPart, ["Deflector_1", "Deflector_1_hydraulic_1", "Deflector_1_hydraulic_2", "Deflector_1_hydraulic_3"], 10] spawn BIS_fnc_carrier01AnimateDeflectors;</sqf>
+
+|exec = spawn
+
+|seealso= [[BIS_fnc_aircraftTailhook]] [[BIS_fnc_aircraftCatapultLaunch]]
+}}

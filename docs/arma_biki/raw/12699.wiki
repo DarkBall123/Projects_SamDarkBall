@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Interaction
+
+|descr= Returns movement borders for HUD
+
+|s1= [[HUDMovementLevels]]
+
+|r1= [[Array]] with [minSpeed, maxSpeed, minAlt, maxAlt, minDir, maxDir, positionOrTarget]
+* minSpeed: [[Number]] - in m/s
+* maxSpeed: [[Number]] - in m/s
+* minAlt: [[Number]] - in meters
+* maxAlt: [[Number]] - in meters
+* minDir: [[Number]] - in degrees
+* maxDir: [[Number]] - in degrees
+* positionOrTarget: [[Position]], [[Object]]
+
+|x1= <sqf>HUDMovementLevels; // returns e.g [0,0,0,0,0,0,[0,0,0]]</sqf>
+
+|seealso= [[setHUDMovementLevels]]
+}}

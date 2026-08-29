@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Modules - CBRN 
+
+|gr2= Broken Functions 
+
+|descr= <pre>/*
+
+	Description:
+	Returns whether or not a character entity is within a CBRN contaminated area.
+	NOTE: Module / function set not robust nor completed - not recommended for usage at this stage!
+
+	Parameter(s):
+		0: OBJECT - character entity to test for
+
+	Returns:
+	BOOL
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_CBRNInContaminant]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_CBRNInContaminant;</sqf> -->
+
+|seealso=
+}}

@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Stamina System
+
+|descr= Returns [[true]] if player is forced to walk with [[forceWalk]].
+
+|s1= [[isForcedWalk]] unitName
+
+|p1= unitName : [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_bool = isForcedWalk player;</sqf>
+
+|seealso= [[forceWalk]] [[isWalking]] [[forceSpeed]] [[getSpeed]]
+}}

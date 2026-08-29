@@ -1,0 +1,39 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|arg= global
+
+|gr1= Weapons
+
+|descr= Returns [[true]] if manual fire is on. Manual fire could either be selected in vehicle action menu (if available) or with [[action]] "ManualFire" and "ManualFireCancel". Always returns [[false]] for a soldier.
+
+|s1= [[isManualFire]] vehicleName
+
+|p1= vehicleName: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_bool = isManualFire vehicle player;</sqf>
+
+|seealso= [[fire]] [[doFire]] [[commandFire]] [[canFire]] [[fireAtTarget]] [[forceWeaponFire]] [[commandArtilleryFire]] [[commandSuppressiveFire]] [[doArtilleryFire]] [[doSuppressiveFire]]
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2017-02-05 - 05:35 (UTC)</dd>
+<dt class="note">[[User:AgentRev|AgentRev]]</dt>
+<dd class="note">
+Manual fire means the [[effectiveCommander]] of the vehicle controls firing (but not aiming) of the [[gunner]] turret weapons (usually path [0]), while unable to fire his own weapons.
+</dd>
+
+</dl>

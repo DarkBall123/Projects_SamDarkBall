@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Return a task's sub-tasks. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskID call [[BIS_fnc_taskChildren]]
+
+|p1= taskID: [[String]] - ID of the task
+
+|r1= [[Array]] or [[Object]] - array with sub tasks or [[objNull]] if parent task ID does not exist
+
+|x1= <sqf>"task_1" call BIS_fnc_taskChildren;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

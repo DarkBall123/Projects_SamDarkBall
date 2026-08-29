@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= AI Human 
+
+|descr= <pre>/*
+
+	Description:
+		Get signals which follow after given one.
+
+	Parameter(s):
+		0: STRING - signal class
+
+	Returns:
+		ARRAY of STRINGs (including input signal when it is not a link)
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getFollowingSignals]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getFollowingSignals;</sqf> -->
+
+|seealso=
+}}

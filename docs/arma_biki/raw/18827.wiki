@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Return cargo index of a person turret and the other way around.
+
+|s1= [vehicle, personOrTurretPath] call [[BIS_fnc_cargoTurretIndex]]
+
+|p1= vehicle: [[Object]] - the vehicle to check
+
+|p2= personOrTurretPath: [[Object#Person|Person]] or [[Array]] of [[Number]]s - unit to find or turret path
+
+|r1= [[Array]] (turret path) or [[Number]] (cargo index)
+
+|x1= <sqf>private _vehicle = vehicle player;
+private _turretCargoIndex = [_vehicle, [0, 1]] call BIS_fnc_cargoTurretIndex;
+private _playerTurretPath = [_vehicle, player] call BIS_fnc_cargoTurretIndex;</sqf>
+
+|seealso= [[turretUnit]] [[moveInTurret]] [[allTurrets]]
+}}

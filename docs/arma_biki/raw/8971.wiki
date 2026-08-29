@@ -1,0 +1,463 @@
+{{TOC|side}}
+An event handler (abbreviated to EH) allows to automatically monitor and then execute custom code upon particular events being triggered.
+{{Feature|warning|
+As opposed to {{ofp}} event handlers, in {{arma2}} a respawned unit retains the EHs it had before, so it is no longer required to re-add EHs after respawning.
+}}
+
+
+See also: [[Event Scripts]] for special event triggered scripts.
+
+
+== Event Handlers List ==
+
+Related commands:
+* [[addEventHandler]]
+* [[removeEventHandler]]
+* [[removeAllEventHandlers]]
+
+=== AnimChanged ===
+
+Triggered every time a new animation is started.
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, anim]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* anim: [[String]] - Name of the anim that is given by playMove/switchMove/playAction/switchAction
+
+=== AnimDone ===
+
+Triggered every time an animation is finished.
+
+Unknown MP behaviour. Probably local.
+
+Passed array: '''[unit, anim]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* anim: [[String]] - Name of the anim that has been finished
+
+=== AnimStateChanged ===
+
+Triggered every time an animation state changes. Unlike AnimChanged and AnimDone, it is triggered for all animation states in a sequence.
+
+Unknown MP behaviour. Probably local.
+
+Passed array: '''[unit, anim]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* anim: [[String]] - Name of the anim that has been started
+
+=== Dammaged ===
+
+Triggered when the unit is damaged. In ArmA works with all vehicles not only men like in OFP.
+
+Global. {{Icon|globalEffect|32}}
+
+(If simultaneous damage occurred (e.g. via grenade) EH might be triggered several times.)
+
+Passed array: '''[unit, selectionName, damage]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* selectionName: [[String]] - Name of the selection where the unit was damaged
+* damage: [[Number]] - Resulting level of damage
+
+=== Engine ===
+
+Triggered when the engine of the unit is turned on/off.
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[vehicle, engineState]'''
+
+* vehicle: [[Object]] - Vehicle the event handler is assigned to
+* engineState: [[Boolean]] - True when the engine is turned on, false when turned off
+
+=== Fired ===
+
+Triggered when the unit fires a weapon.
+
+This EH will not trigger if a unit fires out of a vehicle. For those cases an EH has to be attached to that particular vehicle.
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, weapon, muzzle, mode, ammo]'''
+
+b1.54.73642 : '''[unit, weapon, muzzle, mode, ammo, magazine, projectile]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* weapon: [[String]] - Fired weapon
+* muzzle: [[String]] - Muzzle that was used
+* mode: [[String]] - Current mode of the fired weapon
+* ammo: [[String]] - Ammo used
+* magazine: [[String]] - magazine name which was used
+* projectile: [[object]] - Object of the projectile that was shot
+
+=== FiredNear ===
+
+Triggered when a weapon is fired somewhere ''near'' the unit or vehicle.
+
+It is also triggered if the unit itself is firing.
+
+Global. {{Icon|globalEffect|32}}
+{{Feature|important|Exception: the {{hl|Throw}} weapon will not broadcast the {{hl|FiredNear}} event.}}
+
+Passed array: '''[unit, firer, distance, weapon, muzzle, mode, ammo]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* firer: [[Object]] - Object which fires a weapon near the unit
+* distance: [[Number]] - Distance in meters between the ''unit'' and ''firer'' (max. distance ~69m)
+* weapon: [[String]] - Fired weapon
+* muzzle: [[String]] - Muzzle that was used
+* mode: [[String]] - Current mode of the fired weapon
+* ammo: [[String]] - Ammo used
+
+=== Fuel ===
+
+Triggered when the unit's fuel status changes between completely empty / not empty (only useful if the event handler is assigned to a vehicle).
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[vehicle, fuelState]'''
+
+* vehicle: [[Object]] - Vehicle the event handler is assigned to
+* fuelState: [[Boolean]] - 0 when no fuel, 1 when the fuel tank is full
+
+=== Gear ===
+
+Triggered when the unit lowers/retracts the landing gear (only useful if the event handler is assigned to is a member of the class "Plane").
+
+Global. {{Icon|globalEffect|32}}
+Passed array: '''[vehicle, gearState]'''
+
+* vehicle: [[Object]] - Vehicle the event handler is assigned to
+* gearState: [[Boolean]] - True when the gear is lowered, false when retracted
+
+=== GetIn ===
+
+Triggered when a unit enters the object (only useful when the event handler is assigned to a vehicle). It does not trigger upon a change of positions within the same vehicle. It also is not triggered by the moveInX commands.
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[vehicle, position, unit]'''
+
+* vehicle: [[Object]] - Vehicle the event handler is assigned to
+* position: [[String]] - Can be either "driver", "gunner", "commander" or "cargo"
+* unit: [[Object]] - Unit that entered the vehicle
+
+=== GetOut ===
+
+Triggered when a unit gets out from the object, works the same way as GetIn.
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[vehicle, position, unit]'''
+
+* vehicle: [[Object]] - Vehicle the event handler is assigned to
+* position: [[String]] - Can be either "driver", "gunner", "commander" or "cargo"
+* unit: [[Object]] - Unit that leaved the vehicle
+
+=== HandleDamage ===
+
+Triggered when the unit is damaged. Works with all vehicles.
+
+Code provided must return a value what should be the damage of given part after processing.
+
+Adding this eventhandler with no return value or with return value 0, replaces damage handling by the engine, making the object invulnerable if damage is not scripted in the eventhandler.
+If you want default processing to be done, be sure to return ''_this select 2''.
+
+You can [[setDamage]] and [[setHit]] in combination for additional damage handling.
+
+'''Locality''': HandleDamage is triggered where the unit is local. See also [[Locality in Multiplayer]].
+
+Local. {{Icon|localEffect|32}}
+
+This EH is triggered separately for every selection of the damaged object.
+
+Passed array: '''[unit, selectionName, damage, source, projectile]'''
+
+* unit: [[Object]] - Object the event handler is assigned to.
+* selectionName: [[String]] - Name of the selection where the unit was damaged. "" for over-all structural damage, "?" for unknown selections.
+* damage: [[Number]] - Resulting level of damage for the selection.
+* source: [[Object]] - The source unit that caused the damage.
+* projectile: [[String]] - Classname of the projectile that caused inflicted the damage. ("" for unknown, such as falling damage.)
+
+
+'''Example:'''
+<sqf>TargetSoldier addEventHandler ["HandleDamage", { diag_log text format ["T=%1 : %2", time, _this]; _this select 2; }];</sqf>
+
+When shooting the soldier once in the head, and once in the torso, ArmA2.RPT shows:
+
+ T=6.754 : [TargetSoldier,"",0.350463,SourceUnit,"B_556x45_Ball"]
+ T=6.754 : [TargetSoldier,"head_hit",3.23586,SourceUnit,"B_556x45_Ball"]
+ T=6.754 : [TargetSoldier,"body",0.0743558,SourceUnit,"B_556x45_Ball"]
+ T=6.754 : [TargetSoldier,"hands",0.667459,SourceUnit,"B_556x45_Ball"]
+ T=6.754 : [TargetSoldier,"legs",0.00307311,SourceUnit,"B_556x45_Ball"]
+
+ T=10.078 : [TargetSoldier,"",0.350179,SourceUnit,"B_556x45_Ball"]
+ T=10.078 : [TargetSoldier,"head_hit",0.230999,SourceUnit,"B_556x45_Ball"]
+ T=10.078 : [TargetSoldier,"body",1.52881,SourceUnit,"B_556x45_Ball"]
+ T=10.078 : [TargetSoldier,"hands",0.105206,SourceUnit,"B_556x45_Ball"]
+ T=10.078 : [TargetSoldier,"legs",0.0211435,SourceUnit,"B_556x45_Ball"]
+
+See {{Link|link= http://forums.bistudio.com/showthread.php?t=113418&highlight=event+handler|text= Celery's explanation}}.
+
+Notes:
+* HandleDamage can trigger "twice" per damage event. Once for direct damage, once for indirect damage (explosive damage).
+* This can happen even in the same frame, but is unlikely.
+* Each HandleDamage event show the current damage from the damage source. '''NOT''' cumulative or the current "damage level" (health) of the target unit.
+* So a second HandleDamage event can nullify/overwrite the damage of the first event, IF they are in the same frame (or time slice the engine uses the update the damage status of an unit).
+* You can save the last event as timestamp ([[diag_tickTime]]) onto the unit, as well as the current health of the unit/it's selections, with [[setVariable]] and query it on each HandleDamage event with [[getVariable]] to define a system how to handle the new HandleDamage event.
+
+ // first HandleDamage event - direct damage by sabot hit onto an infantry unit
+ 1081.55,[TargetUnit,"",6426.05,SourceUnit,"Sh_120_SABOT"]
+ 1081.55,[TargetUnit,"head_hit",441.609,SourceUnit,"Sh_120_SABOT"]
+ 1081.55,[TargetUnit,"body",333.333,SourceUnit,"Sh_120_SABOT"]
+ 1081.55,[TargetUnit,"hands",533.333,SourceUnit,"Sh_120_SABOT"]
+ 1081.55,[TargetUnit,"legs",533.333,SourceUnit,"Sh_120_SABOT"]
+
+ // second HandleDamage event - indirect damage by the impact - maybe force/friction applied to the unit body
+ 1081.59,[TargetUnit,"",2.24228,TargetUnit,""]
+ 1081.59,[TargetUnit,"head_hit",0.89672,TargetUnit,""]
+ 1081.59,[TargetUnit,"body",3.3113,TargetUnit,""]
+ 1081.59,[TargetUnit,"hands",3.74862,TargetUnit,""]
+ 1081.59,[TargetUnit,"legs",10,TargetUnit,""]
+
+=== HandleHeal ===
+
+Triggered when unit starts to heal (player using heal action or AI heals after being ordered). If code returns false, engine side healing follows. Return true if you handle healing in script, use [[AISFinishHeal]] to tell engine that script side healing is done. See also [[lifeState]] and [[setUnconscious]] commands.
+
+Passed array: '''[unit, healer, healercanheal]'''
+
+* unit: [[Object]]
+* healer: [[Object]]
+* healercanheal: [[Boolean]] - true when healer is corpsman
+
+=== Hit ===
+
+Triggered when the unit is hit/damaged.
+
+Is ''not'' always triggered when unit is killed by a hit.
+
+Most of the time only the [[ArmA:_Event_Handlers#Killed|killed]] event handler is triggered when a unit dies from a hit.
+
+The hit EH will not necessarily fire if only minor damage occurred (e.g. firing a bullet at a tank), even though the damage increased.
+
+Does not fire when a unit is set to allowDamage false.
+
+Local. {{Icon|localEffect|32}}
+
+Passed array: '''[unit, causedBy, damage]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* causedBy: [[Object]] - Object that caused the damage.<br>Contains the unit itself in case of collisions.
+* damage: [[Number]] - Level of damage caused by the hit
+
+=== HitPart ===
+
+'''WARNING:'''
+{{Feature|important|
+As of 2012-02-06, this eventhandler is fundamentally malfunctioning in dedicated multiplayer environments.
+Make sure you see this ticket before you waste your time with it: {{Link|https://dev-heaven.net/issues/27837}} --[[User:Krause|Krause]] 04:53, 7 February 2012 (CET)
+}}
+
+Runs when the object, it was added to, gets injured/damaged.
+It returns the position and component that was hit on the object within a nested array, this is because the model may have more than selection name for the hit component.
+
+{{GVI|arma2oa|1.60}} Global. {{Icon|globalEffect|32}}
+
+Passed array: '''<nowiki>[[target, shooter, bullet, position, velocity, selection, ammo, direction, radius, surface, direct]]</nowiki>'''
+
+* target: [[Object]] - Object that got injured/damaged.
+* shooter: [[Object]] - Unit that inflicted the damage. If injured by a vehicle impact or a fall the target itself is returned, or, in case of explosions, the [[objNull|null object]]. In case of explosives that were planted by someone (e.g. satchel charges), that unit is returned.
+* bullet: [[Object]] - Object that was fired.
+* position: [[Position#Introduction|Position3D]] - Position the bullet impacted (ASL).
+* velocity: [[Vector3D]] - 3D speed at which bullet impacted.
+* selection: [[Array]] - Array of [[String]]s with named selection of the object that were hit.
+* ammo: [[Array]] - Ammo info: [hit value, indirect hit value, indirect hit range, explosive damage, ammo class name] OR, if there is no shot object: [impulse value on object collided with,0,0,0]
+* direction: [[Vector3D]] - vector that is orthogonal (perpendicular) to the surface struck. For example, if a wall was hit, vector would be pointing out of the wall at a 90 degree angle.
+* radius: [[Number]] - Radius (size) of component hit.
+* surface: [[String]] - Surface type struck.
+* direct: [[Boolean]] - [[true]] if object was directly hit, [[false]] if it was hit by indirect/splash damage.
+
+=== IncomingMissile ===
+
+Triggered when a guided missile locked on the target or unguided missile or rocket aimed by AI at the target was fired.
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, ammo, whoFired]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* ammo: [[String]] - Ammo type that was fired on the unit
+* whoFired: [[Object]] - Object that fired the weapon
+
+=== Init ===
+
+Triggered on mission start or when a vehicle is created on the fly using [[createVehicle]].
+
+Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+
+=== Killed ===
+
+Triggered when the unit is killed.
+
+Local. {{Icon|localEffect|32}}
+
+Passed array: '''[unit, killer]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* killer: [[Object]] - Object that killed the unit<br>Contains the unit itself in case of collisions.
+
+Be careful when the killer has been a vehicle. For most cases the reference of the vehicle is the same as the [[effectiveCommander]], yet not always. For example:
+
+<sqf>
+_gunner setVariable ["Variable",true];
+_killer getVariable "Variable"; // <null>
+(gunner (vehicle _killer)) getVariable "Variable"; // true
+</sqf>
+
+And sample debug output:
+
+<sqf>
+_killer; // B 1-2-F:2
+(gunner (vehicle _killer)); // B 1-2-F:2
+(gunner (vehicle _killer)) == _killer; // false
+</sqf>
+
+=== LandedStopped ===
+
+Triggered when an AI pilot would get out usually. Not executed for player.
+
+Local. {{Icon|localEffect|32}}
+
+Passed array: '''[plane, airportID]'''
+
+* plane: [[Object]] - Object the event handler is assigned to
+* airportID: [[Number]] - ID of the airport (-1 for anything else).
+
+=== LandedTouchDown ===
+
+Triggered when a plane (AI or player) touches the ground.
+
+Local. {{Icon|localEffect|32}}
+
+Passed array: '''[plane, airportID]'''
+
+* plane: [[Object]] - Object the event handler is assigned to
+* airportID: [[Number]] - ID of the airport (-1 for anything else).
+
+=== Respawn ===
+
+Triggered when a unit respawns.
+
+Passed array: '''[unit, corpse, ...]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* corpse: [[Object]] - Object the event handler was assigned to, aka the corpse/unit player was previously controlling.
+
+=== WeaponAssembled ===
+
+Triggers when weapon gets assembled.
+
+{{GVI|arma2oa|1.55}} Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, weapon]'''
+
+* unit: [[object]] - Object the event handler is assigned to
+* weapon: [[object]] - Object of the assembled weapon.
+
+=== WeaponDisassembled ===
+
+Triggers when weapon gets disassembled.
+
+{{GVI|arma2oa|1.55}} Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, primaryBag, secondarybag]'''
+
+* unit: [[object]] - Object the event handler is assigned to
+* primaryBag: [[object]] - First backpack object which was weapon disassembled into...
+* secondarybag: [[object]] - Second backpack object which was weapon disassembled into...
+
+
+== Multiplayer Event Handlers List ==
+
+The new MP event handlers "MPHit", "MPKilled" and "MPRespawn" have to be assigned to the object by using [[addMPEventHandler]].
+
+Related commands:
+* [[addMPEventHandler]]
+* [[removeMPEventHandler]]
+* [[removeAllMPEventHandlers]]
+
+{{Feature|important|A Multiplayer Event Handler is '''not''' saved in a save file and therefore will not be restored on load - use it accordingly.}}
+
+=== MPHit ===
+
+Triggered when the unit is hit/damaged.
+
+Is ''not'' always triggered when unit is killed by a hit.
+
+Most of the time only the [[ArmA:_Event_Handlers#Killed|killed]] event handler is triggered when a unit dies from a hit.
+
+The hit EH will not necessarily fire if only minor damage occurred (e.g. firing a bullet at a tank), even though the damage increased.
+
+Does not fire when a unit is set to allowDamage false.
+
+{{GVI|arma2oa|1.55}} Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, causedBy, damage]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* causedBy: [[Object]] - Object that caused the damage.<br>Contains the unit itself in case of collisions.
+* damage: [[Number]] - Level of damage caused by the hit
+
+=== MPKilled ===
+
+Triggered when the unit is killed. This event handler is triggered for a disconnecting player, if "playableAI" are disabled (by admin or [[Description.ext]]), so that the playable unit dies on disconnect.
+
+{{GVI|arma2oa|1.55}} Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, killer]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* killer: [[Object]] - Object that killed the unit<br>Contains the unit itself in case of collisions.
+
+{{Feature|important|
+Call a function from the MPKilled EH code space rather than to define the full code in there directly.
+The reason is the code space will be transferred over network on each event activation - so keep the data as small as possible!
+}}
+
+<sqf>
+// good
+_unit addMPEventHandler ["MPKilled",{_this spawn MyTag_Function;}];
+
+// bad
+_unit addMPEventHandler ["MPKilled",{ /* complete script code directly in here */ }];
+</sqf>
+
+=== MPRespawn ===
+
+Triggered when a unit respawns.
+
+{{GVI|arma2oa|1.55}} Global. {{Icon|globalEffect|32}}
+
+Passed array: '''[unit, corpse, ...]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* corpse: [[Object]] - Object the event handler was assigned to, aka the corpse/unit player was previously controlling.
+
+
+'''Notes:'''
+
+As of 1.62, this command does not work as one would expect. It is only triggered on the machine where the unit it was assigned to is local.
+The only difference between '''Respawn''' and '''MPRespawn''' is that '''MPRespawn''' can be assigned from anywhere while '''Respawn''' requires the unit to be local.
+
+This command must be used in conjunction with the new command [[addMPEventHandler]] rather than the old command used for non MP commands.
+
+
+[[Category: Event Handlers]]
+{{GameCategory|arma2|Editing}}

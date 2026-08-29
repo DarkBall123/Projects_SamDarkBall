@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.76
+
+|eff= global
+
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Removes the magazine from the unit.
+
+|s1= unit [[removeMagazineGlobal]] magazineName
+
+|p1= unit: [[Object]]
+
+|p2= magazineName: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeMagazineGlobal "30Rnd_65x39_caseless_mag";</sqf>
+
+|seealso= [[removeMagazine]] [[removeMagazines]]
+}}

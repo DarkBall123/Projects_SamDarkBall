@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.00
+
+|arg= global
+
+|gr1= Config
+
+|descr= Returns config path of the provided object.
+
+|s1= [[configOf]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Config]]
+
+|x1= <sqf>configOf player; // returns bin\config.bin/CfgVehicles/B_W_Soldier_TL_F</sqf>
+
+|seealso= [[typeOf]]
+}}

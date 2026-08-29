@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control - Menu
+
+|descr= Sets text of given menu strip entry.
+
+|s1= [[menuSetText]] [idc, path, text]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|p3= text: [[String]]
+
+|r1= [[Nothing]]
+
+|s2= control [[menuSetText]] [path, text]
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|p23= text: [[String]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>_ctrlMenuStrip menuSetText [[0,0,1], "Hello World!"];</sqf>
+
+|seealso= [[menuText]]
+}}

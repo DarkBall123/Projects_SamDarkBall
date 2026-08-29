@@ -1,0 +1,316 @@
+{{TOC|side}}
+== Buildings ==
+
+See also [[ArmA: CfgVehicles]] for unnamed types.
+
+{| class="wikitable sortable"
+! Classname
+! Full Name
+|-
+| ACamp
+| Tent A
+|-
+| Camp
+| Tent
+|-
+| CampEast
+| Tent East
+|-
+| CampEastC
+| Tent East C
+|-
+| CampEmpty
+| Tent (Open)
+|-
+| Chair
+| ''(doesn't seem to have a model in ArmA)''
+|-
+| ChairX
+| ''(doesn't seem to have a model in ArmA)''
+|-
+| Fence
+| Fence
+|-
+| FenceWood
+| Wood Fence
+|-
+| FenceWoodPalet
+| Wood Fence Palet
+|-
+| Fortress1
+| Fortress 1
+|-
+| Fortress2
+| Fortress 2
+|-
+| Grave
+| Grave
+|-
+| GraveCross1
+| Grave Cross 1
+|-
+| GraveCross2
+| Grave Cross 2
+|-
+| GraveCrossHelmet
+| Grave Cross Helmet
+|-
+| Heli_H_civil
+| H (Civilian)
+|-
+| Heli_H_rescue
+| H (Rescue)
+|-
+| HeliH
+| H
+|-
+| HeliHEmpty
+| H (Invisible)
+|-
+| Land_obihacka
+| Training 4
+|-
+| Land_podlejzacka
+| Crawling training
+|-
+| Land_prebehlavka
+| Training 3
+|-
+| Land_prolejzacka
+| Training 2
+|-
+| Land_zidka_branka
+| Wall door
+|-
+| Land_zidka03
+| Wall hole
+|-
+| MASH
+| Field Hospital
+|-
+| Shed
+| Shed
+|-
+| ShedBig
+| Large Shed
+|-
+| ShedSmall
+| Small Shed
+|-
+| Table
+| ''(doesn't seem to have a model in ArmA)''
+|-
+| Tablemap
+| ''(doesn't seem to have a model in ArmA)''
+|-
+| Wall1
+| Wall
+|-
+| Wallend
+| Wall end
+|-
+| Wire
+| Wire
+|-
+| WireFence
+| Fence barbedwire
+|}
+
+== Misc ==
+
+{| class="wikitable sortable"
+! Classname
+! Full Name
+|-
+| BarrelBase
+| -
+|-
+| Barrels
+| Barrels
+|-
+| Barrel1
+| Barrel (red)
+|-
+| Barrel2
+| Barrel (brown)
+|-
+| Barrel3
+| Barrel (yellow)
+|-
+| Barrel4
+| Barrel (black)
+|-
+| Barrel5
+| Barrel (green)
+|-
+| Barrel6
+| Barrel (purple)
+|-
+| BlackhawkWreck
+| UH60 Wreck
+|-
+| BMP2Wreck
+| BMP2 Wreck
+|-
+| Body
+| Body
+|-
+| Camera1
+| Camera
+|-
+| ClutterCutter
+| Grass cutter
+|-
+| Computer
+| Computer
+|-
+| Danger
+| Danger!
+|-
+| DangerEAST
+| Danger East
+|-
+| DangerGUE
+| Danger Guerilla
+|-
+| DangerWest
+| Danger West
+|-
+| datsun01Wreck
+| Datsun Wreck 1
+|-
+| datsun02Wreck
+| Datsun Wreck 2
+|-
+| Fire
+| Fire
+|-
+| FireLit
+| Fire (Lit)
+|-
+| FlagCarrier
+| -
+|-
+| FlagCarrierNorth
+| Flag (SLA)
+|-
+| FlagCarrierSouth
+| Flag (RACS)
+|-
+| FlagCarrierWest
+| Flag (US)
+|-
+| hiluxWreck
+| Offroad Wreck
+|-
+| JeepWreck1
+| Jeep Wreck 1
+|-
+| JeepWreck2
+| Jeep Wreck 2
+|-
+| JeepWreck3
+| Jeep Wreck 3
+|-
+| Land_houpacka
+| Swing
+|-
+| Land_kolotoc
+| |Carousel
+|-
+| Land_kulata_prolezacka
+| Swingset
+|-
+| Land_ladder
+| Ladder
+|-
+| Land_ladder_half
+| Ladder Half
+|-
+| Land_maly_kolotoc
+| Carousel small
+|-
+| Land_Piskoviste
+| Sandpit
+|-
+| Land_radar
+| Radar
+|-
+| M113Wreck
+| M113 Wreck
+|-
+| PaletaBase
+| -
+|-
+| Paleta1
+| Pallet A
+|-
+| Paleta2
+| Pallets
+|-
+| Radio
+| Radio
+|-
+| TargetE
+| Target E
+|-
+| TargetEpopup
+| Pop-Up Target E
+|-
+| TargetGrenade
+| Armored Target
+|-
+| TargetTraining
+| Target
+|-
+| TVStudio
+| TV Studio
+|-
+| UralWreck
+| Ural Wreck
+|-
+| Vysilacka
+| Radio (RT-254)
+|-
+| WallMap
+| Map (Sahrani)
+|-
+| ZavoraAnim
+| Bar gate
+|}
+
+== Ammo Boxes ==
+
+{| class="wikitable sortable"
+! Classname
+! Full Name
+|-
+| AmmoBoxWest
+| Ammo US
+|-
+| WeaponBoxWest
+| Weapons US
+|-
+| SpecialBoxWest
+| Special US
+|-
+| AmmoBoxEast
+| Ammo SLA
+|-
+| WeaponBoxEast
+| Weapons SLA
+|-
+| SpecialBoxEast
+| Special SLA
+|-
+| AmmoBoxGuer
+| Ammo RACS
+|-
+| WeaponBoxGuer
+| Weapons RACS
+|-
+| SpecialBoxGuer
+| Special RACS
+|}
+
+{{GameCategory|arma1|Reference Lists}}

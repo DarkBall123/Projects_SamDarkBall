@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Object Manipulation
+
+|descr= ''N/A''
+
+|s1= <!-- [] call [[BIS_fnc_setObjectShotParents]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_setObjectShotParents;</sqf> -->
+
+|seealso=
+}}

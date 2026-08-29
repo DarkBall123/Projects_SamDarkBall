@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Gets all empty vehicles placed in the currently opened Eden mission and converts data into the format used by the [[Terrain Builder]].
+
+|s1= call [[BIS_fnc_3DENExportTerrainBuilder]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_3DENExportTerrainBuilder;</sqf>
+
+|seealso= [[:Category:Eden Editor|Eden Editor]] [[Terrain Builder]]
+}}

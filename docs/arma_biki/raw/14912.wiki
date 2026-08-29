@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|gr1= GUI Control
+
+|descr= Returns the current state of a [[CT_CHECKBOX]] control.
+
+|s1= [[cbChecked]] control
+
+|p1= control : [[Control]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_checked = cbChecked _myCheckBox;</sqf>
+
+|seealso= [[cbSetChecked]] [[ctrlChecked]] [[ctrlSetChecked]]
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.84
+
+|gr1= GUI Control - Object
+
+|descr= Returns current animation phase of given source. Similar to [[animationSourcePhase]].
+
+|s1= control [[ctrlAnimationPhaseModel]] source
+
+|p1= control : [[Control]] - 3D control
+
+|p2= source: [[String]]
+
+|r1= [[Number]]
+
+|x1= <sqf>private _phase = _control3D ctrlAnimationPhaseModel "Close";</sqf>
+
+|seealso= [[ctrlAnimateModel]] [[ctrlCreate]] [[ctrlDelete]] [[ctrlModel]] [[ctrlPosition]] [[ctrlSetPosition]] [[ctrlClassName]] [[displayCtrl]] [[ctrlModelScale]] [[ctrlSetModelScale]] [[ctrlModelDirAndUp]] [[ctrlSetModelDirAndUp]]
+}}

@@ -1,0 +1,3 @@
+{{Feature|important| While {{arma3}}'s main config may still have traces of it, {{hl|CfgRemoteExecCommands}} is now obsolete. Originally used with [[BIS_fnc_MP]], which is now also obsolete as well and is left for backward compatibility.<br>Use [[remoteExec]] / [[remoteExecCall]] and [[Arma 3: CfgRemoteExec|CfgRemoteExec]] instead.}}
+
+{{GameCategory|arma3|Remote Execution}}

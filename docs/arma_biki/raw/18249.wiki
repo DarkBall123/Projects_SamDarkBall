@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+|arg= global
+
+|gr1= Object Manipulation
+|gr2= Render Time Scope
+
+|descr= Returns the position on the unit other units can aim at in render scope. See also [[aimPos]], [[unitAimPosition]].
+
+|s1= [[unitAimPositionVisual]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Position#PositionAGL|PositionAGL]] - position
+
+|x1= <sqf>unitAimPositionVisual player;</sqf>
+
+|seealso= [[unitAimPosition]] [[aimPos]] [[eyePos]] [[getPosASL]] [[weaponDirection]]
+}}
+
+{{Note
+|user= Sa-Matra
+|timestamp= 20230430114458
+|text= This command (along with [[unitAimPosition]] and [[aimPos]]) is unreliable when entity has [[objectParent]], it can return its last position in the world in case of static weapon packed into backpack, or can return very outdated (lagging behind) position or even [0,0,0] on remote units inside vehicles. Be careful when using it!
+}}

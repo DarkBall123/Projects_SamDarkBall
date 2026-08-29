@@ -1,0 +1,171 @@
+__NOTOC__ __NOEDITSECTION__
+This Collection is supposed to provide all the information which are needed for all thinkable cases.
+So it containes user created Tutorials as well as Developer provided ones. Also included are Documents and Video tutorials as well as technical information. 
+
+<div style="float:left; width:10%;">
+<!-- Visitor3 logo -->
+<div style="margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+
+</div>
+</div>
+
+
+<div style="float:left; width:70%;">
+<div style="padding-left:1em;">
+<!-- Updatehistory  -->
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">Contents</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+* [[Tutorial_%28Ressourcelink%29_Collection#Update|History Update History]]
+* [[Tutorial_%28Ressourcelink%29_Collection#Official|Resources Official Resources]]
+* [[Tutorial_%28Ressourcelink%29_Collection#Reference|Documents Reference Documents]]
+* [[Tutorial_%28Ressourcelink%29_Collection#required|and suggested Tools  required and suggested Tools]]
+* [[Tutorial_%28Ressourcelink%29_Collection#Complete|Tutorials  Complete Tutorials]]
+* [[Tutorial_%28Ressourcelink%29_Collection#common|preperations  common preperations]]
+* [[Tutorial_%28Ressourcelink%29_Collection#generating|heightmap  generating heightmap]]
+* [[Tutorial_%28Ressourcelink%29_Collection#creating|Sat and Mask Map  creating Sat and Mask Map]]
+* [[Tutorial_%28Ressourcelink%29_Collection#all|about configs and scriptfiles  all about configs and scriptfiles]]
+* [[Tutorial_%28Ressourcelink%29_Collection#handling|Objects  handling Objects]]
+* [[Tutorial_%28Ressourcelink%29_Collection#final|processes and packing  final processes and packing]]
+* [[Tutorial_%28Ressourcelink%29_Collection#know|errors and their reasons  know errors and their reasons]]
+* [[Tutorial_%28Ressourcelink%29_Collection#Troubleshooting| Troubleshooting]]
+----
+'''Update History'''<br>
+Tutorial Collection was created, inspired by {{Link|link= http://forums.bistudio.com/showthread.php?94222-Resourcelink-collection-How-to-make-a-map-beginning-from-the-idea-in-your-head|text= ZeroG´s Resourcelink collection}} - 06-03-2012 by MemphisBelle
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<!-- Official Resources  -->
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">Official Resources</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+* {{Wiki|stub}}
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<!-- Reference Documents  -->
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">Reference Documents</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''ArmA1 Tutorials and Objectlists'''
+* {{Link|link= http://www.armaholic.com/page.php?id=2006|text= ArmA1 Visitor tutorial}} 2006 by Alex Sworn (including Object lists)
+* {{Link|link= http://forums.bistudio.com/showthread.php?t=62725&highlight=Visitor+tutorial&page=18|text= ArmA1 Visitor tutorial}} 2006 by OPTERYX
+
+'''Object Lists ArmA2OA'''
+* {{Link|link= http://www.armaholic.com/forums.php?m=posts&p=69878#69878|text= Arma 2 quick start tutorial}} 2009 by kheiro
+* {{Link|link= http://forums.bistudio.com/showthread.php?94999-Library-Class-names-and-pictures-of-natural-objects|text= Visitor Object list}} 2010 by ZeroG
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<!-- Training Videos  -->
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">required and suggested Tools</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''official tools'''
+* [[BI_Tools_2.5| official BIS tools 2.5.1]] latest tool package
+
+'''heightfield generating tools'''
+* {{Link|http://www.blender.org/|3D Terrain editing tool}} free open source 3D content creation suite
+* {{Link|http://www.bundysoft.com/L3DT/|3D Terrain editing tool}} Large 3D Terrain Generator available in a basic standart and to pay for pro version
+
+'''picture editing tools'''
+* {{Wiki|stub}}
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<!-- Aircraft Systems  -->
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">Complete Tutorials</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''PDF ressources'''<br>
+
+'''wiki ressources'''
+* [[ArmA_2_Terrain_Tutorial|Arma 2 simple Tutorial]] 2010 by Atsche (Sgt. Ace)
+* [[Mondkalb%27s_Terrain_Tutorial|up to date Tutorial for ArmA2OA]] 2011/2012 by Mondkalb
+* [[Visitor_3:_Making_of_simple_landscape|ArmA1 related Tutorial which also covers Arma 2 stuff]] by BIS, the community keeps working on that 
+
+'''other ressources'''<br>
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<!-- Weapon Employment  -->
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">common preperations</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''installing the BI tools'''
+* {{Wiki|stub}}
+
+'''setup Visitor'''
+* {{Wiki|stub}}
+
+'''prepare the config files'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">generating heightmap</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">creating Sat and Mask Map</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">all about configs and scriptfiles</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">handling Objects</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">Troubleshooting</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">know errors and their reasons</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+<div style="padding-left:1em;">
+<h2 style="border:1px solid #535252; background-color:#c8c8c8; padding:0.2em 0; margin:0; font-size: 110%; font-weight:bold; text-indent:0.5em;">final processes and packing</h2>
+<div style="border:1px solid #535252; border-top:0px solid #535252; background-color:#f5fffa; margin-bottom:1em; padding:0.5em 0.8em 0.5em 0.8em;">
+'''description'''
+* {{Wiki|stub}}
+
+</div>
+</div>
+
+
+{{GameCategory|arma|Tutorials}}

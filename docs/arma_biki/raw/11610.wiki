@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr= Toggle a helicopter's electrical systems on and off.
+
+|s1= helicopterRTD [[setBatteryRTD]] enable
+
+|p1= helicopterRTD : [[Object|ObjectRTD]] - helicopter
+|p2= enable : [[Boolean]] - on or off
+
+|r1= [[Nothing]]
+
+|x1= <sqf>(vehicle player) setBatteryRTD false;</sqf>
+
+|seealso= [[setBatteryChargeRTD]] [[batteryChargeRTD]]
+}}

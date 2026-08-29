@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Missions
+
+|descr= Returns config of current single mission.
+
+|s1= call [[BIS_fnc_singleMissionConfig]]
+
+|r1= [[Config]] or [[Nothing]] - returns [[Config]] if mission was found, otherwise [[Nothing]]
+
+|x1= <sqf>private _config = call BIS_fnc_singleMissionConfig;</sqf>
+
+|seealso= [[missionName]] [[briefingName]] [[BIS_fnc_singleMissionKeys]] [[BIS_fnc_singleMissionName]]
+}}
+singleMissionKeys

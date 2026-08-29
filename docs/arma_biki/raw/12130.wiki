@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Adds multiple magazines to the unit. For cargo containers use [[addMagazineCargoGlobal]] command.
+{{Feature|informative|This command is meant to be used on human units. If used on vehicles, this command is {{Icon|localArgument|32}} {{Icon|globalEffect|32}}.}}
+
+|s1= unit [[addMagazines]] [magazineName, count]
+
+|p1= unit: [[Object]] - a soldier
+
+|p2= magazineName: [[String]]
+
+|p3= count: [[Number]] - number of magazines
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player addMagazines ["30Rnd_65x39_caseless_mag", 3];</sqf>
+
+|seealso= [[addMagazineGlobal]] [[addMagazine]] [[addMagazineCargo]] [[addMagazineCargoGlobal]] [[addMagazinePool]] [[addMagazineTurret]] [[addMagazineAmmoCargo]]
+}}

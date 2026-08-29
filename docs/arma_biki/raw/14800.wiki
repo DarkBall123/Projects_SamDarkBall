@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+|arg= global
+
+|gr1= PhysX
+
+|descr= Returns center of mass of an object.
+
+|s1= [[getCenterOfMass]] object
+
+|p1= object: [[Object]] - PhysX object
+
+|r1= [[Position#PositionRelative|PositionRelative]] - relative to the model centre
+
+|x1= <sqf>_com = getCenterOfMass _myCar;</sqf>
+
+|seealso= [[getMass]] [[setCenterOfMass]] [[setMass]] [[addTorque]] [[addForce]]
+}}

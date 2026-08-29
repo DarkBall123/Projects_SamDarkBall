@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Mines
+
+|descr= Gets all mine objects this unit has ownership over.
+
+|s1= [[getAllOwnedMines]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>_mines = getAllOwnedMines player;</sqf>
+
+|seealso= [[allMines]] [[createMine]] [[detectedMines]] [[mineActive]] [[removeOwnedMine]] [[addOwnedMine]] [[removeAllOwnedMines]]
+}}

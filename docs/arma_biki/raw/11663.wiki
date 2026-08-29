@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.01
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Environment
+
+|descr= Set the average gap between ambient cars in a rectangle (in meters). {{Feature|arma3|This command does nothing in {{arma3}}.}}
+
+|s1= [[setTrafficGap]] [gap, xMin, xMax, zMin, zMax]
+
+|p1= gap: [[Number]] - average gap between ambient cars (in meters)
+|p2= xMin: [[Number]] - western border of the affected rectangle
+|p3= xMax: [[Number]] - eastern border of the affected rectangle
+|p4= zMin: [[Number]] - southern border of the affected rectangle
+|p5= zMax: [[Number]] - northern border of the affected rectangle
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setTrafficGap [50, 31000, 32500, 28000, 32000];</sqf>
+
+|seealso= [[enableTraffic]] [[setTrafficDensity]] [[setTrafficDistance]] [[setTrafficSpeed]]
+}}

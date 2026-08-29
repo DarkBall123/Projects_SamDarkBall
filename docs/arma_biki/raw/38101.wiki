@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Vehicles
+
+|descr= Called by unflip thing action. Can be used to unflip vehicle without transition. The caller is made invincible during flipping and the original [[isDamageAllowed]] state is set afterward.
+
+|s1= [caller, thing] call [[BIS_fnc_unflipThing]]
+
+|p1= caller: [[Object]] - the unit that called the action, used in context of the unflip action
+
+|p2= thing: [[Object]] - the thing that should be flipped
+
+|r1= [[Boolean]] - [[true]]
+
+|x1= <sqf>[player, quad1] call BIS_fnc_unflipThing;</sqf>
+
+|seealso= [[BIS_fnc_unflipVehicle]]
+}}

@@ -1,0 +1,39 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.05
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|arg= local
+
+|gr1= Object Manipulation
+
+|descr= Adds a specified vehicle for use by a specified AI led group.
+{{Feature|informative|See [[AI Group Vehicle Management]] for more information.}}
+
+|s1= groupName [[addVehicle]] vehicleName
+
+|p1= groupName: [[Group]]
+
+|p2= vehicleName: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_grp addVehicle _vehicle;</sqf>
+
+|x2= Using on crewed vehicle:
+<sqf>group tank addVehicle tank;</sqf>
+
+|seealso= [[leaveVehicle]] [[unassignVehicle]] [[createVehicleCrew]] [[assignedVehicles]] [[assignedGroup]] [[fullCrew]]
+}}

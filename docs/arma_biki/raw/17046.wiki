@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Leaderboards
+
+|descr= Initialize the leaderboard structure for board with given name. Returns true if board is already initialized.
+
+|s1= [[leaderboardInit]] boardName
+
+|p1= boardName: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>leaderboardInit "TT01";</sqf>
+
+|seealso= [[leaderboardDeInit]] [[leaderboardGetRows]] [[leaderboardRequestRowsFriends]] [[leaderboardRequestRowsGlobal]] [[leaderboardRequestRowsGlobalAroundUser]] [[leaderboardsRequestUploadScore]] [[leaderboardsRequestUploadScoreKeepBest]] [[leaderboardState]]
+}}

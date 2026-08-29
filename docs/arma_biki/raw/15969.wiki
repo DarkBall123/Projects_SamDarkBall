@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Broken Functions
+
+|gr2= Feedback
+
+|descr= A draft of incapacitated effects function. {{Feature|warning|Does nothing, as the whole code is commented out.}}
+
+|s1= call [[BIS_fnc_incapacitatedEffect]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_incapacitatedEffect;</sqf>
+
+|seealso= [[BIS_fnc_damageChanged]] [[BIS_fnc_healthEffects]]
+}}

@@ -1,0 +1,35 @@
+{{Feature|UnsupportedDoc}}
+{{TOC|side}}
+Armed Assault save files are stored in the same format as [[Config.bin|binarized config files]] [[raP File Format - Elite]], and can be viewed and unpacked with the same [[ArmA: Community Tools|tools]].
+
+= Classes =
+A save file may contain the following main classes:
+== Radio ==
+== Landscape ==
+== Map ==
+== FastVehicles ==
+== Animals ==
+== SlowVehicles ==
+== OutVehicles ==
+== SwitchableUnits ==
+== SensorList ==
+== Clock ==
+== GameState ==
+=== Variables ===
+:A list of global variables<br>
+:''At the current time (1.08) ArmA will crash when restoring a saved game that has more than 240 entries in the variables list.''
+
+== playerOn ==
+== cameraOn ==
+== RealPlayer ==
+== EastCenter ==
+== WestCenter ==
+== GuerilaCenter ==
+== CivilianCenter ==
+== VehiclesMap ==
+== Stats ==
+== Markers ==
+== VMs ==
+
+
+{{GameCategory|arma1|File Formats}}

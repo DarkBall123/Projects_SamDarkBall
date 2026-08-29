@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Display given string as structured text. {{Feature|arma3|In {{arma3}} this function displays a bottom-left message, limited to two lines of approximately 53 characters each.}}
+
+|s1= message call [[BIS_fnc_titleText]]
+
+|p1= message: [[String]] - [[Structured Text]] formatting supported
+
+|r1= [[Boolean]] - [[true]] when done
+
+|x1= [[File:BIS_fnc_titleText.jpg|right|300px]]<sqf>"Stratis, 2035-07-14 0130<br />A dark night ahead…" call BIS_fnc_titleText;</sqf>
+
+|seealso= [[BIS_fnc_dynamicText]] [[BIS_fnc_typeText]] [[BIS_fnc_typeText2]]
+}}

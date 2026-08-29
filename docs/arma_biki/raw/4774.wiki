@@ -1,0 +1,37 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Camera Control
+
+|descr= focusRange is . Prepares the camera focus blur.
+
+'''[-1,1]''' will reset default values (auto focusing), '''[-1,-1]''' will disable postprocessing (all is focused). Needs the call of [[camCommitPrepared]] to be conducted.
+
+|s1= camera [[camPrepareFocus]] [distance, blur]
+
+|p1= camera: [[Object]]
+
+|p2= distance: [[Number]] - blur distance
+
+|p3= blur: [[Number]] - blur intensity
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_camera camPrepareFocus [50, 1];</sqf>
+
+|seealso= [[camPreload]] [[camCommitPrepared]] [[camSetFocus]]
+}}

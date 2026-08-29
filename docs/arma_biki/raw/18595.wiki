@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|arg= local
+|eff= global
+
+|gr1= Unit Control
+
+|gr2= Groups
+
+|descr= Resets the info a group has about a target, forcing [[knowsAbout]] value to 0.
+
+|s1= group [[forgetTarget]] target
+
+|p1= group: [[Group]] or [[Object]] - group itself or unit in a group
+
+|p2= target: [[Object]] - group target
+
+|r1= [[Nothing]]
+
+|x1= <sqf>soldier1 forgetTarget soldier2;</sqf>
+
+|x2= Give enemyBob some amnesia:
+<sqf>onEachFrame { enemyBob forgetTarget player };</sqf>
+
+|seealso= [[knowsAbout]] [[targetsQuery]] [[targetsAggregate]] [[nearTargets]] [[reveal]] [[getHideFrom]] [[targetKnowledge]]
+}}

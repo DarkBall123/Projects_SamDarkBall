@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|exec= spawn
+
+|descr= Opens credits, identical to those found in main menu ({{arma3}}). Also present in {{arma3}}.
+
+|s1=  [] spawn [[BIS_fnc_credits]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[] spawn BIS_fnc_credits;</sqf>
+
+|seealso=
+}}

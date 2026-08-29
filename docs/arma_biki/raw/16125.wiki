@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= Triggers the respawn screen in the given mode
+
+|s1= <!-- [mode] call [[BIS_fnc_showRespawnMenu]]; -->
+
+|p1= mode: [[String]] - possible modes are "open", "map", "spectate" and "close"
+
+|r1=
+
+|x1= <sqf>["open"] call BIS_fnc_showRespawnMenu; // spawn does work as well</sqf>
+
+|seealso= [[Arma 3: Respawn]]
+}}

@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Mission Parameters
+
+|descr= Stores the provided value in the global {{hl|BIS_reviveParam_requiredTrait}} mission variable.
+
+|s1= [value] call [[BIS_fnc_paramReviveRequiredTrait]]
+
+|p1= value: [[Number]] - (Optional, default -100)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+[42] call BIS_fnc_paramReviveRequiredTrait;	// BIS_reviveParam_requiredTrait is now 42
+"hi" call BIS_fnc_paramReviveRequiredTrait;	// BIS_reviveParam_requiredTrait is now -100
+42 call BIS_fnc_paramReviveRequiredTrait;	// BIS_reviveParam_requiredTrait is now 42
+call BIS_fnc_paramReviveRequiredTrait;		// BIS_reviveParam_requiredTrait is now -100
+</sqf>
+
+|seealso= [[Mission Parameters]] {{Link|Arma 3: Revive}} [[:Category:Function Group: Mission Parameters|Mission Parameters Functions]]
+}}

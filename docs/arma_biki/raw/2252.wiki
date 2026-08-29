@@ -1,0 +1,12 @@
+=== Description ===
+This error occurs when you attempt to divide a variable by 0.
+It also occurs when you attempt to access an element of an array which does not exist.
+
+=== Compatibility ===
+Version '''1.96'''
+
+=== Example ===
+ _myVar = 15 / 0
+ _myVar = [1,2,3] [[select]] 15
+
+[[Category:Common Scripting Errors]]

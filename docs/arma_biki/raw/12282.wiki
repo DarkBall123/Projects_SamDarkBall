@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Animations
+
+|descr= Return animation phase of door on vehicle.
+
+|s1= object [[doorPhase]] door
+
+|p1= object: [[Object]]
+
+|p2= door: [[String]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_phase = heli doorPhase "door_L";</sqf>
+
+|seealso= [[animateDoor]] [[setFaceAnimation]] [[animate]] [[animationPhase]] [[animateSource]] [[animationSourcePhase]] [[animationNames]]
+}}

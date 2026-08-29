@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Aircraft Carrier
+
+|descr= {{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_carrier01CatapultActionAdd]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

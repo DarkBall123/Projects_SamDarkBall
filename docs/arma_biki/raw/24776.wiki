@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|eff= global
+
+|serverExec= server
+
+|descr= Replaces textures of "I_G_Offroad_01_armed_F" and "I_G_Quadbike_01_F" randomly.
+
+|s1=
+
+|r1= [[Boolean]] - [[true]] if in cinematic mode, [[false]] if not
+
+|x1= <sqf>call BIS_fnc_EXP_camp_replaceVehicles;</sqf>
+
+|seealso= [[vehicles]]
+}}

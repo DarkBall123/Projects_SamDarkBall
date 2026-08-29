@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Vehicles
+
+|descr= Save vehicle's params (textures, animations, crew).
+
+|s1= [object,target,params,delete] call [[BIS_fnc_saveVehicle]]
+
+|p1= object: [[Object]] - vehicle
+|p2= target: [[Array]] - in format:
+*0: [[Namespace]], [[Group]] or [[Object]] - Where the save will be saved
+*1: [[String]] - Name of the save
+|p3= params: [[Array]] - (Optional, default <sqf inline>[]</sqf>) additional parameters to be saved
+|p4= delete: [[Boolean]] - (Optional, default [[false]]) [[true]] to delete the save
+
+|r1= [[Array]] - saved value
+
+|x1= <sqf>[BIS_tank, [missionNamespace, "BIS_someTankSave"], ["SomeRandomParam"], false] call BIS_fnc_saveVehicle;</sqf>
+
+|seealso= [[BIS_fnc_initVehicle]] [[BIS_fnc_loadVehicle]] [[Arma 3: Vehicle Customisation]]
+}}

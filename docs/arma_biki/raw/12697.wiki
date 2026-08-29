@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= System
+
+|descr= Enables/Disables satellite normal map or detail maps.
+
+|s1= [[enableSatNormalOnDetail]] state
+
+|p1= state: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>enableSatNormalOnDetail true;</sqf>
+
+|seealso=
+}}

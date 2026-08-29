@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Saves the current state of entities' inventory to the [[Mission.sqm]].
+
+|s1= [[save3DENInventory]] entities
+
+|p1= entities: [[Array]] of [[Eden Entity]] or [[Eden ID]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>save3DENInventory [_soldier1, _soldier2];</sqf>
+
+|x2= <sqf>save3DENInventory [11234, 21251];</sqf>
+
+|seealso= [[clear3DENInventory]] [[get3DENEntityID]] [[collect3DENHistory]]
+}}

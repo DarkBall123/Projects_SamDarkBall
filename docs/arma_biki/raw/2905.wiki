@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= GUI Control
+
+|descr= Returns the parent [[Display]] of the given control. For parent [[Control]]s group see [[ctrlParentControlsGroup]].
+
+|s1= [[ctrlParent]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Display]]
+
+|x1= <sqf>_display = ctrlParent _control;</sqf>
+
+|seealso= [[allControls]] [[allDisplays]] [[controlsGroupCtrl]] [[ctrlDelete]] [[ctrlModel]] [[ctrlSetModel]] [[ctrlPosition]] [[ctrlSetPosition]] [[ctrlClassName]] [[ctrlModelScale]] [[ctrlSetModelScale]] [[ctrlModelDirAndUp]] [[ctrlSetModelDirAndUp]] [[displayParent]] [[ctrlParentControlsGroup]]
+}}

@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.74
+
+|gr1= GUI Control - Tree View
+
+|descr= Adds an item with given text to Tree View control. The position on Tree View where to add the item and the actual path to this item once added are different. If item is added to existing item, then parent item path is used. If no parent exists, empty array [] is used. See [[Tree View Path]] for more information.
+
+|s1= [[tvAdd]] [idc, pathParent, text]
+
+|p1= idc: [[Number]]
+
+|p2= pathParent: [[Tree View Path]] - parent item or [] if no parent exists
+
+|p3= text: [[String]]
+
+|r1= [[Number]] - index of the added item relative to the branch it was added to
+
+|s2= control [[tvAdd]] [pathParent, text]
+
+|p21= control: [[Control]]
+
+|p22= pathParent: [[Tree View Path]] - parent item or [] if no parent exists
+
+|p23= text: [[String]]
+
+|r2= [[Number]] - index of the added item relative to the branch it was added to
+
+|x1= <sqf>_index = _ctrl tvAdd [[], "Parent Item"];</sqf>
+
+|x2= <sqf>_index = tvAdd [101, [0], "First item"];</sqf>
+
+|seealso= [[tvClear]] [[tvCollapse]] [[tvCount]] [[tvCurSel]] [[tvData]] [[tvDelete]] [[tvExpand]] [[tvPicture]] [[tvSetCurSel]] [[tvSetData]] [[tvSetValue]] [[tvSort]] [[tvSortByValue]] [[tvValue]] [[tvText]] [[tvSetText]] [[tvSetPicture]] [[tvSetPictureColor]] [[tvSetPictureRight]] [[tvSetPictureRightColor]]
+}}

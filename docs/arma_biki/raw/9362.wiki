@@ -1,0 +1,51 @@
+{{TOC|side}}
+== Usage ==
+
+=== Usage ===
+
+# Switch to ULB using '''"ULB"''' item in action menu
+# {{Controls|LMB}} to 'fire' the laser
+# When conditions are good (HUD in top left corner - AMMO > 0, ACC > 0), press {{Controls|Ctrl|LMB}} or action from menu to fire a missile from player's vehicle
+
+=== Default Controls ===
+
+* "ULB" option in action menu - switch to ULB view
+* {{Controls|NumEnter}} - exit the ULB view
+* {{Controls|Ctrl|LMB}} - fire weapon from original helicopter
+* {{Controls|Q}} - Up
+* {{Controls|Y}} - Down
+* {{Controls|X}} - Turn left
+* {{Controls|C}} - Turn right
+* {{Controls|B}} - Mark position
+
+* {{Controls|LMB}} in map - place new waypoint
+* {{Controls|Ctrl|LMB}} in map - add new waypoint to currently existing ones
+
+
+== Startup ==
+
+=== Editor Setup ===
+
+[[File:ULB.jpg]]
+# '''ULB manager''' - module manager, can be found in ''Modules (F7) -> ULB''.
+# '''ULB''' - unit with parent <syntaxhighlight lang="cpp" inline>isULB = 1</syntaxhighlight>. Multiple ULBs can be assigned to one manager, the latest has the greatest priority.
+# '''Units with access''' - any units without <syntaxhighlight lang="cpp" inline>isUAV = 1</syntaxhighlight> config param. They will have 'ULB' action in menu.
+
+=== Optional Parameters ===
+
+Set variables to ULB manager with desired values: 
+
+* '''name = <string>;''' - name of the ULB (displayed in action menu)
+:: Example: <sqf inline>BIS_heli_uav_0 setVariable ["name", "AH-6X"];</sqf>
+:: Default value: empty string
+
+* '''unitList = <array>;''' - List of units with access to ULB. Same as synchronization to non-ULB units.
+:: Example: <sqf inline>BIS_heli_uav_0 setVariable ["unitList", [hco_west_1, hco_west_2]];</sqf>
+:: Default value: units synchronised in editor
+
+* '''UAVList = <array>;''' - List of ULBs. Same as synchronization to ULB units.
+:: Example: <sqf inline>BIS_heli_uav_0 setVariable ["UAVList", [ULB_1, ULB_2]];</sqf>
+:: Default value: ULBs synchronised in editor
+
+
+{{GameCategory|arma2|Editor Modules}}

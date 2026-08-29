@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Returns unit's current task. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= unit call [[BIS_fnc_taskCurrent]]
+
+|p1= unit: [[Object]] - unit to be checked
+
+|r1= [[String]] - task ID
+
+|x1= <sqf>private _currentTask = player call BIS_fnc_taskCurrent;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.04
+
+|gr1= Sounds
+
+|descr= Returns the current speech volume (set by [[fadeSpeech]])
+
+|s1= '''speechVolume'''
+
+|r1= [[Number]] in range 0..2
+
+|x1= <sqf>hint str speechVolume;</sqf>
+
+|seealso= [[fadeSpeech]] [[musicVolume]] [[soundVolume]] [[radioVolume]] [[environmentVolume]] [[getAudioOptionVolumes]]
+}}

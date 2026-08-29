@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Returns [[Eden Entity]] based on its [[Eden ID]].
+
+|s1= [[get3DENEntity]]  ID
+
+|p1= ID: [[Number]] - [[Eden ID]]
+
+|r1= [[Eden Entity]] or [[Number]]
+* If the ''ID'' points to an [[Eden Entity]] the entity is returned
+* If it points to a [[Eden Editor: Layer]] or [[Eden Editor: Comment]] the ''ID'' is returned
+* If no entity with given ''ID'' exists {{hl|-1}} is returned
+
+|x1= <sqf>myEntity = get3DENEntity 1;</sqf>
+
+|seealso= [[get3DENEntityID]]
+}}

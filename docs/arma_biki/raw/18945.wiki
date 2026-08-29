@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Aircraft Carrier
+
+|descr= This is a main function designed to assemble a dynamic aircraft carrier.
+A carrier consists of multiple sub-objects that are linked together based on precise memory point positions in 3D space.
+
+|s1= carrier call [[BIS_fnc_carrier01Init]]
+
+|p1= carrier: [[Object]] - an object from which the script will wait to [[getVariable|get variable]] "BIS_carrierParts"
+
+|r1= [[Script Handle]]
+
+|x1= <sqf>myCarrier call BIS_fnc_carrier01Init;</sqf>
+
+|seealso= [[BIS_fnc_carrier01CatapultActionAdd]] [[BIS_fnc_carrier01CatapultActionRemove]]
+}}

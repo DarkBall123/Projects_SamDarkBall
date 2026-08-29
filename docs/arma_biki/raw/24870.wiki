@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Sets camera vision mode.
+
+|s1= [camera, mode] call [[BIS_fnc_camera_setVisionMode]]
+
+|p1= camera: [[Object]] - the camera
+
+|p2= mode: [[Number]] - (Optional, default 0)
+*0 - no vision mode
+*1 - Night vision
+*2 - Ti
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_camera,1] call BIS_fnc_camera_setVisionMode;</sqf>
+
+|seealso= [[BIS_fnc_camera_getVisionMode]]
+}}

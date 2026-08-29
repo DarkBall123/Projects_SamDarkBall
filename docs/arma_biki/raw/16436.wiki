@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= Init respawn backpack.
+	Whover "assembles" it will receive a new respawn position.
+	When backpack object has 'respawnNearbyPlayers' attribute set to 1, nearby player will receive the respawn as well.
+
+|s1= call [[BIS_fnc_initRespawnBackpack]]
+
+|r1= [[Boolean]]
+
+|x1= [[call]] [[BIS_fnc_initRespawnBackpack]];
+
+|seealso= [[Arma 3: Respawn]] [[:Category:Function Group: Respawn]]
+}}

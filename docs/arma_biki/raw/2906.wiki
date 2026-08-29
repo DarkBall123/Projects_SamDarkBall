@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns the current position of 2D control as {{hl|[x, y, w, h]}} array. For 3D control it returns relative {{hl|[x, z, y]}}.<br>
+If the control is within a [[CT_CONTROLS_GROUP]], the returned position will be relative to the group's position.<br>
+If the control is a [[CT_CONTROLS_TABLE]] header or row the returned position is relative to the table's position.
+
+|s1= [[ctrlPosition]] controlName
+
+|p1= controlName: [[Control]]
+
+|r1= [[Array]] format {{hl|[x, y, w, h]}} (2D) or {{hl|[x, z, y]}} (3D)
+
+|x1= <sqf>_pos = ctrlPosition _control;</sqf>
+
+|seealso= [[ctrlCreate]] [[ctrlDelete]] [[ctrlModel]] [[ctrlSetModel]] [[ctrlSetPosition]] [[ctrlClassName]] [[displayCtrl]] [[ctrlModelScale]] [[ctrlSetModelScale]] [[ctrlModelDirAndUp]] [[ctrlSetModelDirAndUp]]
+}}

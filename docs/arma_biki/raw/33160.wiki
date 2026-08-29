@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|gr1= Unit Inventory
+
+|gr2= Object Manipulation
+|descr= Returns the corpse associated with given weaponholder. When unit is killed and had a weapon, the weapon is placed inside "WeaponHolderSimulated" and dropped together with the unit. This command returns the dead body associated with this weaponholder.
+
+
+|s1= [[getCorpse]] weaponholder
+
+|p1= weaponholder: [[Object]] - weaponholder dropped by the dead unit
+
+|r1= [[Object]] - dead unit
+
+
+|x1= <sqf>systemChat str getCorpse cursorObject;</sqf>
+
+
+|seealso= [[getCorpseWeaponholders]] [[nearSupplies]] [[allDeadMen]]
+}}

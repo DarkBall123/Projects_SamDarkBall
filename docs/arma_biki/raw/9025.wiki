@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.05
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|gr1= System
+
+|descr= Opens MP interface.
+{{Feature|arma3|This command is not present in {{arma3}}.}}
+
+|s1= [[openDSInterface]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>openDSInterface;</sqf>
+
+|seealso=
+}}

@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= argo
+|version1= 1.00
+
+|arg= global
+
+|gr1= Argo
+
+|descr= Get if the provided player has the supporter (VIP) status.
+
+|mp= {{Feature|important|Only works in multiplayer.}}
+
+|s1= [[isPlayerSupporter]] unit
+
+|p1= unit: [[Object]] - the unit of player to check
+
+|r1= [[Boolean]] - [[true]] if the provided unit is a player and that player is a supporter, [[false]] otherwise
+
+|x1= <sqf>
+_amIASupporter = isPlayerSupporter player;
+_isHeASupporter = isPlayerSupporter _otherGuy;
+</sqf>
+
+|seealso= [[getPlayerLevel]] [[getCurrentPlayerLevel]]
+}}

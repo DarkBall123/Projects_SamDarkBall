@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Returns unique index of an [[Eden Entity]]. This number remains the same even after saving and loading the scenario. ´
+
+{{Feature|informative|Since {{GVI|arma3|2.22}} this command also returns the IDs of [[Eden Entity|Eden Entities]] of type Object, Trigger, Group and Logic during [[is3DENPreview|preview]].}}
+
+|s1= [[get3DENEntityID]] entity
+
+|p1= entity: [[Eden Entity]] or [[Eden ID]]
+|r1= [[Number]] - [[Eden ID]] If ID is not available, -1 is returned
+
+|x1= <sqf>myID = get3DENEntityID player;</sqf>
+
+|seealso= [[get3DENEntity]]
+}}

@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.70
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes all items from [[handgunWeapon]], except magazine.
+
+|s1= [[removeAllHandgunItems]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllHandgunItems player;</sqf>
+
+|seealso= [[addHandgunItem]] [[removeHandgunItem]] [[removeAllPrimaryWeaponItems]] [[removeAllSecondaryWeaponItems]] [[removeAllBinocularItems]]
+}}

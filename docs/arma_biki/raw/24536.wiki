@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Missions
+
+|gr2= Diagnostic
+
+|descr= Returns true if debug console is allowed in current context
+
+|s1=
+
+|r1= [[Boolean]] - return [[true]] if allowed, [[false]] if not
+
+|x1= <sqf>call BIS_fnc_isDebugConsoleAllowed;</sqf>
+
+|seealso= [[Arma 3: Debug Console]] [[BIS_fnc_debugConsoleExec]]
+}}

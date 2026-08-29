@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= System
+
+|descr= Opens Steam overlay with given YT video. Video URL is the end part of the YT URL, starting with '''watch?v=...'''. If the user has Steam overlay disabled, the command will display appropriate message to the user and return [[false]].
+
+|s1= [[openYoutubeVideo]] youTubeUrl
+
+|p1= youTubeUrl: [[String]] - for parameters see: https://developers.google.com/youtube/player_parameters
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+// open http://www.youtube.com/watch?v=UBIAbm7Rt78
+_isOpened = openYoutubeVideo "watch?v=UBIAbm7Rt78";
+</sqf>
+
+|seealso= [[openDSInterface]] [[openMap]]
+}}
+
+{{Note
+|user= celoush
+|timestamp= 20180525150300
+|text= {{Link|https://dev.arma3.com/post/sitrep-00061|SITREP 00061}}: For security reasons we have restricted its use to outside scenarios only (e.g. in the game's UI or a mod's UI).
+}}

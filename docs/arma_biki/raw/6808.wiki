@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.09
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Strings
+
+|descr= Converts the supplied Unicode string to all uppercase characters. If the string doesn't have characters with [[toArray|codes]] > 255, use [[toUpperANSI]].
+
+|s1= [[toUpper]] string
+
+|p1= string: [[String]]
+
+|r1= [[String]]
+
+|x1= <sqf>hint toUpper "AaBb1"; // returns "AABB1"</sqf>
+
+|seealso= [[toString]] [[toArray]] [[toLower]] [[toFixed]] [[toLowerANSI]] [[toUpperANSI]]
+}}

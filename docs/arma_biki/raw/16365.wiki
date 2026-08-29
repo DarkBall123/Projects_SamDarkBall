@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Return if curator interface is forced (user cannot leave it by pressing Zeus key).
+
+|s1= [] call [[BIS_fnc_isForcedCuratorInterface]]
+
+|r1= [[Boolean]] - [[true]] if forced, else [[false]]
+
+|x1= <sqf>private _isForced = call BIS_fnc_isForcedCuratorInterface;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

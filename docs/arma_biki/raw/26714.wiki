@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Waypoints
+
+|gr2= Contact
+
+|descr= {{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_wpAddScript]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

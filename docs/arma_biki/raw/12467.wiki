@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Respawn
+
+|eff= global
+
+|descr= Remove a respawn position added by [[BIS_fnc_addRespawnPosition]].
+
+|s1= [target, id] call [[BIS_fnc_removeRespawnPosition]]
+
+|p1= '''target''': [[Namespace]], [[Side]], [[Group]] or [[Object]]
+|p2= '''id''': [[Number]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[west, 1] call BIS_fnc_removeRespawnPosition;</sqf>
+
+|x2= <sqf>
+myRespawn = [missionNamespace,"arena"] call BIS_fnc_addRespawnPosition;
+myRespawn call BIS_fnc_removeRespawnPosition;
+</sqf>
+
+|seealso= [[BIS_fnc_addRespawnPosition]] [[Arma 3: Respawn]]
+}}

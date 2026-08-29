@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.66
+
+|gr1= Multiplayer
+
+|descr= Returns [[true]] when playing a game in '''solo multiplayer''' (for example Apex coop campaign PLAY SOLO option).
+
+|s1= [[isMultiplayerSolo]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_state = isMultiplayerSolo;</sqf>
+
+|seealso= [[isMultiplayer]] [[isDedicated]] [[hasInterface]] [[isServer]]
+}}

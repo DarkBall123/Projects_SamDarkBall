@@ -1,0 +1,157 @@
+{{TOC|side}}
+
+An event handler (abbreviated to EH) allows you to automatically monitor and then execute custom code upon particular events being triggered.<br>
+See also [[Event Scripts]] for special event triggered scripts.
+
+{{ArgTitle|3|AnimChanged|{{GVI|ofp|1.99}}}}
+
+Triggered every time a new animation is started.
+
+Global.
+
+Passed array: '''[unit, anim]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* anim: [[String]] - Name of the anim that started<br>
+
+=== Dammaged ===
+
+Triggered when the unit is damaged.
+If simultaneous damage occured (e.g. via grenade) EH might be triggered several times.
+
+Global.
+
+{{Feature|informative|Can be triggered on vehicles only when the engine is on (and therefore it needs a driver/pilot).}}
+
+Passed array: '''[unit, selectionName, damage]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* selectionName: [[String]] - Name of the selection where the unit was damaged "nohy" - leg, "ruce" - hand, "hlava" - head, "telo" - body)
+* damage: [[Number]] - Resulting level of damage
+
+=== Engine ===
+
+Triggered when the engine of the unit is turned on/off.
+
+Global.
+
+{{Feature|important|
+'''MP bug:''' On clients where the vehicle is not local, ''engineState'' is always [[false]], so the following must be used instead:
+<sqs>_vehicle addEventHandler ["Engine", { [_this select 0, isEngineOn (_this select 0)] exec "myScript.sqs" }]</sqs>
+}}
+
+Passed array: '''[unit, engineState]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* engineState: [[Boolean]] - True when the engine is turned on, false when turned off
+
+=== Fired ===
+
+Triggered when the unit fires a weapon.
+
+Global.
+
+Passed array: '''[unit, weapon, muzzle, mode, ammo]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* weapon: [[String]] - Fired weapon
+* muzzle: [[String]] - Muzzle which was used
+* mode: [[String]] - Current mode of the fired weapon
+* ammo: [[String]] - Ammo used
+
+=== Fuel ===
+
+Triggered when the unit's fuel status changes between completely empty / not empty (only useful when the object the event handler is assigned to is a vehicle).
+
+Global.
+
+Passed array: '''[unit, fuelState]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* fuelState: [[Boolean]] - 0 when no fuel, 1 when the fuel tank is full
+
+=== Gear ===
+
+Triggered when the unit lowers/retracts the landing gear (only useful when the object the event handler is assigned to is a member of the class "Plane").
+
+Global.
+
+Passed array: '''[unit, gearState]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* gearState: [[Boolean]] - True when the gear is lowered, false when retracted
+
+=== GetIn ===
+
+Triggered when a unit enters the object (only useful when the object the event handler is assigned to is a vehicle).
+
+Global.
+
+Passed array: '''[unit, position, enterer]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* position: [[String]] - Can be either "driver", "gunner", "commander" or "cargo"
+* enterer: [[Object]] - Object that got into the vehicle
+
+=== GetOut ===
+
+Triggered when a unit gets out from the object, works the same way as GetIn.
+
+Global.
+
+{{Feature|informative|The GetIn/GetOut event handlers do not fire when changing positions within a vehicle.}}
+
+=== Hit ===
+
+Triggered when the unit is hit/damaged.
+
+Local.
+
+Passed array: '''[unit, causedBy, damage]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* causedBy: [[Object]] - Object that caused the damage, contains the unit itself in case of collisions.
+* damage: [[Number]] - Level of damage caused by the hit
+
+=== Init ===
+
+Triggered on mission start.
+
+Global.
+
+Passed array: '''[unit]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+
+
+{{Feature|informative|For crew and passenger units starting inside a vehicle this EH won't be executed. It will once they disembark.}}
+
+{{Feature|important|'''MP Note:''' When calling functions, the commands [[player]] and [[group]] as well as remote objects are not initialised.}}
+
+=== IncomingMissile ===
+
+Triggered when a guided missile or an unguided missile which most likely will hit is fired on the unit.
+
+Global.
+
+Passed array: '''[unit, ammo, whoFired]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* ammo: [[String]] - Ammo type that was fired on the unit
+* whoFired: [[Object]] - Object that fired the weapon
+
+=== Killed ===
+
+Triggered when the unit is killed.
+
+Local.
+
+Passed array: '''[unit, killer]'''
+
+* unit: [[Object]] - Object the event handler is assigned to
+* killer: [[Object]] - Object that killed the unit
+
+
+{{GameCategory|ofp|Editing}}
+[[Category: Event Handlers]]
+{{GameCategory|ofp|Reference Lists}}

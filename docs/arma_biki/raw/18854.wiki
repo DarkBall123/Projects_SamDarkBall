@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= {{Feature|important|Internal function used by the [[Arma 3: Respawn]] system.}}
+
+|s1= -
+
+|r1= -
+
+|x1= -
+
+|seealso= [[Arma 3: Respawn]] [[:Category:Function Group: Respawn|Respawn Functions]]
+}}

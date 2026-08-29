@@ -1,0 +1,3 @@
+#REDIRECT [[BIS File Formats#PEW_File_Formats | PEW File Formats]]
+
+[[Category: File extensions]]

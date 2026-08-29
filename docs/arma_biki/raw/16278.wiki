@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules - Live Feed
+
+|descr= <pre>/*
+	
+	Description:
+	Set a live feed's target via a module.
+	
+	Parameters:
+		_this: OBJECT - Live Feed - Set Target module
+*/
+
+// On dedicated servers, player is not you
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_liveFeedModuleSetTarget]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_liveFeedModuleSetTarget;</sqf> -->
+
+|seealso=
+}}

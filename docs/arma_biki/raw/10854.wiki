@@ -1,0 +1,11 @@
+{{Feature|UnsupportedDoc}}
+
+FileExtension .bin is a generic identifier that indicates the contents are raPified (binarised)
+
+*[[texHeaders.bin File Format]]
+*[[Product.cpp/bin File Format]]
+*[[Config.cpp/bin File Format]]
+*[[Mod.cpp/bin File Format]]
+See also [[CPP File Format]]
+
+[[Category:Real Virtuality File Formats]]

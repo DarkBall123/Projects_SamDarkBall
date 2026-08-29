@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= GUI Control - Menu
+
+|descr= Returns shortcut related to menu entry on given path in form of a bitflag. To get the shortcut text use [[menuShortcutText]].
+
+|s1= [[menuShortcut]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|r1= [[Number]]
+
+|s2= control [[menuShortcut]] path
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|r2= [[Number]]
+
+|x1= <sqf>findDisplay 313 displayCtrl 120 menuShortcut [0, 1];</sqf>
+
+|seealso= [[menuShortcutText]] [[menuSetURL]]
+}}

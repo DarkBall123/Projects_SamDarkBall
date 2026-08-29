@@ -1,0 +1,5 @@
+'''Description:'''
+
+A helper type created by the operator [[with]] and used in [[do]] constructs.
+
+[[Category:Syntactical Helper Types]]

@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= EM Interface 
+
+|descr= <pre>/*
+
+	Description:
+		Get all antennas, transmitters and receivers alike
+
+	Parameter(s):
+		0: BOOL - true to ignore player's antennas (default: false)
+
+	Returns:
+		ARRAY of STRINGs - antenna IDs
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getAntennas]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getAntennas;</sqf> -->
+
+|seealso=
+}}

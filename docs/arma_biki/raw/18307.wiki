@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= GUI Control - Menu
+
+|descr= Returns if item on given path is checked or not.
+
+|s1= [[menuChecked]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|r1= [[Boolean]]
+
+|s2= control [[menuChecked]] path
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|r2= [[Boolean]]
+
+|x1= <sqf>private _isChecked = findDisplay 313 displayCtrl 120 menuChecked [0, 1];</sqf>
+
+|seealso= [[menuSetCheck]]
+}}

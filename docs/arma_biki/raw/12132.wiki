@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Adds weapon item, including magazine, directly to the [[secondaryWeapon]]. This is used for infantry weapons.
+
+|s1= unit [[addSecondaryWeaponItem]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player addSecondaryWeaponItem "muzzle_snds_L";</sqf>
+
+|seealso= [[addWeaponItem]] [[addPrimaryWeaponItem]] [[addHandgunItem]] [[addBinocularItem]] [[weaponsItems]] [[handgunItems]] [[primaryWeaponItems]] [[secondaryWeaponItems]] [[binocularItems]]
+}}

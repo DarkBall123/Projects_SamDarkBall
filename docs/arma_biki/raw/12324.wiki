@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= System
+
+|descr= Generates new roads. Working only in [[Oxygen Viewer|buldozer]].
+
+|s1= [[buldozer_loadNewRoads]] path
+
+|p1= path: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_loaded = buldozer_loadNewRoads "C:/A3/Map_Stratis/data/roads/"</sqf>
+
+|seealso= [[buldozer_reloadOperMap]]
+}}

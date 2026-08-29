@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Mission Parameters
+
+|descr= Returns the value of the named {{Link|Mission Parameters|mission parameter}}.
+This function is global and will return selected param value on any PC including JIP. For backward compatibility it also supports "param1" and "param2".
+
+|s1= paramClass call [[BIS_fnc_getParamValue]]
+
+|p1= paramClass: [[String]] - class name of one of [[Mission Parameters]]
+
+|p2= defalutValue: [[Number]] - (Optional, default 0) default value to return if ''paramClass does not exist
+
+|r1= [[Number]] - param value
+
+|x1= <sqf>scoreToWin = "ScoreToWin" call BIS_fnc_getParamValue;</sqf>
+
+|x2= <sqf>_viewDistance = ["TAG_viewDistance", 500] call BIS_fnc_getParamValue;</sqf>
+
+|x3= <sqf>
+if (param1 == ("param1" call BIS_fnc_getParamValue)) then
+{
+	hint "Old timer";
+};
+</sqf>
+
+|seealso= [[Mission Parameters]] [[getMissionConfigValue]] [[getMissionConfig]] [[BIS_fnc_storeParamsValues]]
+}}

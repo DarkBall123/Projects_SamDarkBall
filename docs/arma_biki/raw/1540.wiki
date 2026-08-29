@@ -1,0 +1,57 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.80
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= Mission Information
+
+|descr= Return currently loaded mission file (path to mission.pbo, relative to game exe).
+
+|s1= [[missionName]]
+
+|r1= [[String]]
+
+|x1= <sqf>hint format ["You are playing mission ""%1""", missionName];</sqf>
+
+|seealso= [[missionNameSource]] [[worldName]] [[briefingName]] [[serverName]] [[worldSize]]
+}}
+
+{{Note
+|user= .kju
+|timestamp= 20100802101900
+|text= Only works in SP and on the MP Host/DS. It returns the mission pboprefix if available, otherwise the pboname. For clients it returns '__cur_mp'.
+}}
+
+{{Note
+|user= Kenoxite
+|timestamp= 20140925080500
+|text= Prior to {{GVI|ofp|1.96}} it returns the mission filename. Since {{GVI|ofp|1.99}}, it returns the briefing name instead when in multiplayer. The string displayed is that set in the Intel section of the mission editor.
+|game= ofp
+|version= 1.99
+}}
+
+{{Note
+|user= NikkoJT
+|timestamp= 20210612193100
+|text= Testing suggests it does now work on clients in the current {{arma3}} version.
+|game= arma3
+|version= 2.06
+}}

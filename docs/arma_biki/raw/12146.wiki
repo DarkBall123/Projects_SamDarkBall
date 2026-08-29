@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Containers
+
+|descr= Removes all items from ammo box (or any general weapon holder container).
+
+|s1= [[clearItemCargo]] box
+
+|p1= box: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>clearItemCargo myBox;</sqf>
+
+|seealso= [[clearItemCargoGlobal]] [[addItemCargo]] [[clearMagazineCargo]] [[clearMagazineCargoGlobal]] [[clearWeaponCargo]] [[clearWeaponCargoGlobal]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]]
+}}

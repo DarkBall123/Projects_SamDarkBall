@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Interaction
+
+|descr= Event handler function for the [[BIS_fnc_lookAtArray]] function.
+
+|s1=
+
+|r1= [[Nothing]]
+
+|x1= -
+
+|seealso= [[BIS_fnc_lookAtArray]]
+}}

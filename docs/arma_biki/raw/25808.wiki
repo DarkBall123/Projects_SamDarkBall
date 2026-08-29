@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|eff= local
+
+|gr1= Briefing
+
+|descr= Removes a page and all its subjects from the [[Diary]].
+
+|s1= player [[removeDiarySubject]] diaryPage
+
+|p1=player: [[Object]]
+
+|p2=diaryPage: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeDiarySubject "myPage";</sqf>
+
+|seealso= [[createDiarySubject]] [[diarySubjectExists]] [[selectDiarySubject]] [[removeDiaryRecord]] [[allDiarySubjects]]
+}}

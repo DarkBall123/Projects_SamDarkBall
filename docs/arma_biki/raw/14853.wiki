@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Unregister objects which can be edited by a curator.
+
+|s1= curatorObj [[removeCuratorEditableObjects]] [objects, removeCrew]
+
+|p1= curatorObj: [[Object]] - curator module
+
+|p2= objects: [[Array]] of [[Object]]s
+
+|p3= removeCrew: [[Boolean]] - (Optional, default [[true]])
+
+|r1= [[Nothing]]
+
+|x1= <sqf>curatorModule removeCuratorEditableObjects [[cursorTarget], true];</sqf>
+
+|seealso= [[Arma 3: Curator]] [[addCuratorEditableObjects]] [[curatorEditableObjects]]
+}}

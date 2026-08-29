@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|gr1= Object Manipulation
+
+|descr= Returns array with how much vehicle needs repairing, refueling and rearming.
+
+|s1= [[needService]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Array]] with [repair, refuel, rearm]. Values are in range 0..1: 0: no need, 1: maximum need
+
+|x1= <sqf>needService tank params ["_needRepair", "_needRefuel", "_needRearm"];</sqf>
+
+|x2= <sqf>onEachFrame { hintSilent str needService vehicle player };</sqf>
+
+|seealso= [[allowService]] [[allowedService]] [[needReload]]
+}}

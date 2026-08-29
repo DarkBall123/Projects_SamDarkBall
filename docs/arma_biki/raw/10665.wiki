@@ -1,0 +1,346 @@
+This list contains also vehicles of the BAF & PMC DLC content. This content is also included in Patch 1.54 - 1.56 as Lite Version
+== Tracked ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''||'''Commander'''
+|-
+|M1A1_US_DES_EP1||M1A1 [US]||rowspan="2"|[[File:Arma2 oa m1a1.jpg|200px]]||850||3||0||1||Y
+|-
+|M1A2_US_TUSK_MG_EP1||M1A2 TUSK [US]
+|-
+|T72_TK_EP1||T-72 [Takistan Army]||[[File:Arma2_oa_t72.jpg|200px]]||690||3||0||1||Y
+|-
+|BMP2_TK_EP1||BMP-2 [Takistan Army]||rowspan="2"|[[File:Arma2_oa_bmp2.jpg|200px]]||250||10||7||1||Y
+|-
+|BMP2_UN_EP1||BMP-2 [UNO]
+|-
+|BMP2_HQ_TK_EP1||BMP-2 (HQ) [Takistan Army]||[[File:Arma2_oa_bmp_hq.jpg|200px]]||250||2||0||0||N
+|-
+|ZSU_TK_EP1||ZSU-23 Shilka [Takistan Army]||[[File:Arma2_oa_shilka.jpg|200px]]||160||3||0||1||Y
+|-
+|MLRS_DES_EP1||M270 MLRS [US]||[[File:Arma2_oa_MLRS.jpg|200px]]||160||3||0||1||Y
+|-
+|T34_TK_EP1||T-34 [Takistan Army]||rowspan="2"|[[File:Arma2_oa_t34.jpg|200px]]||300||3||0||1||Y
+|-
+|T34_TK_GUE_EP1||T-34 [Takistan Local]
+|-
+|T55_TK_EP1||T-55 [Takistan Army]||rowspan="2"|[[File:Arma2_oa_t55.jpg|200px]]||450||3||0||1||Y
+|-
+|T55_TK_GUE_EP1||T-55 [Takistan Local]
+|-
+|M113_TK_EP1||M113 [Takistan Army]||rowspan="2"|[[File:Arma2_oa_m113.jpg|200px]]||105||13||11||1||N
+|-
+|M113_UN_EP1||M113 [Takistan Army]
+|-
+|M113Ambul_TK_EP1||M113 Ambulance [Takistan Army]||rowspan="2"|[[File:Arma2_oa_m113_ambul.jpg|200px]]||105||5||3||0||N
+|-
+|M113Ambul_UN_EP1||M113 Ambulance [UNO]
+|-
+|M2A2_EP1||M2A2 Bradley IFV [US]||rowspan="3"|[[File:Arma2_oa_m2a2.jpg|200px]]||400||9||6||1||Y
+|-
+|M2A3_EP1||M2A3 ERA Bradley IFV [US]
+|-
+|M6_EP1||M6 Linebacker [US]
+|-
+|BAF_FV510_D||FV510 Warrior [BAF]||rowspan="2"|[[File:Arma2_baf_warrior.jpg|200px]]||850||3||7||1||Y
+|-
+|BAF_FV510_W||FV510 Warrior [BAF]
+|-
+|}
+
+== Wheeled ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|HMMWV_DES_EP1||HMMWV [US]||[[File:Arma2_oa_hmmwv.jpg|200px]]||70||4||3||0
+|-
+|HMMWV_M1035_DES_EP1||HMMWV Utility [US]||[[File:Arma2_oa_hmmwv_ut.jpg|200px]]||70||4||3||0
+|-
+|HMMWV_Ambulance_DES_EP1||HMMWV (Ambulance) [US]||rowspan="2"|[[File:Arma2_oa_hmmwv_ambul.jpg|200px]]||70||6||5||0
+|-
+|HMMWV_Ambulance_CZ_DES_EP1||HMMWV (Ambulance) [ACR]
+|-
+|HMMWV_Terminal_EP1||HMMWV Terminal [US]||[[File:Arma2_oa_hmmwv_start.jpg|200px]]||70||6||5||0
+|-
+|HMMWV_M998A2_SOV_DES_EP1||HMMWV SOV [US]||[[File:Arma2_oa_hmmwv_sov.jpg|200px]]||70||4||3||1
+|-
+|HMMWV_TOW_DES_EP1||HMMWV (TOW) [US]||[[File:Arma2_oa_hmmwv_tow.jpg|200px]]||70||4||3||1
+|-
+|HMMWV_MK19_DES_EP1||HMMWV (Mk19) [US]||[[File:Arma2_oa_hmmwv_mk19.jpg|200px]]||70||4||3||1
+|-
+|HMMWV_M1151_M2_DES_EP1||HMMWV GPK (M2) [US]||rowspan="2"|[[File:Arma2_oa_hmmwv_m2.jpg|200px]]||70||5||3||1
+|-
+|HMMWV_M1151_M2_CZ_DES_EP1||HMMWV GPK (M2) [ACR]
+|-
+|HMMWV_Avenger_DES_EP1||HMMWV Avenger [US]||[[File:Arma2_oa_hmmwv_aa.jpg|200px]]||70||3||1||1
+|-
+|HMMWV_M998_crows_M2_DES_EP1||HMMWV CROWS (M2) [US]||rowspan="2"|[[File:Arma2_oa_hmmwv_crows.jpg|200px]]||70||5||3||1
+|-
+|HMMWV_M998_crows_MK19_DES_EP1||HMMWV CROWS (Mk19) [US]
+|-
+|LandRover_CZ_EP1||Military Offroad [ACR]||rowspan="2"|[[File:Arma2_oa_landrover.jpg|200px]]||20||8||7||0
+|-
+|LandRover_TK_CIV_EP1||Military Offroad||20||7||6||0
+|-
+|BAF_Offroad_D||Military Offroad [BAF]||rowspan="2"|[[File:Arma2_baf_landrover.jpg|200px]]||20||4||3||0
+|-
+|BAF_Offroad_W||Military Offroad [BAF]
+|-
+|LandRover_MG_TK_EP1||Military Offroad (M2) [Takistan Army]||rowspan="2"|[[File:Arma2_oa_landrover_mg.jpg|200px]]||20||3||1||1
+|-
+|LandRover_MG_TK_INS_EP1||Military Offroad (M2) [Takistan Militia]
+|-
+|LandRover_SPG9_TK_EP1||Military Offroad (SPG9) [Takistan Army]||rowspan="2"|[[File:Arma2_oa_landrover_spg.jpg|200px]]||20||3||1||1
+|-
+|LandRover_SPG9_TK_INS_EP1||Military Offroad (SPG9) [Takistan Militia]
+|-
+|LandRover_Special_CZ_EP1||Military Offroad Special [ACR]||[[File:Arma2_oa_landrover_special.jpg|200px]]||20||3||2||1
+|-
+|UAZ_Unarmed_TK_EP1||UAZ [Takistan Army]||rowspan="3"|[[File:Arma2_oa_uaz.jpg|200px]]||20||7||6||0
+|-
+|UAZ_Unarmed_TK_CIV_EP1||UAZ
+|-
+|UAZ_Unarmed_UN_EP1||UAZ [UNO]
+|-
+|UAZ_AGS30_TK_EP1||UAZ (AGS-30) [Takistan Army]||[[File:Arma2_oa_uaz_ags.jpg|200px]]||20||3||1||1
+|-
+|UAZ_MG_TK_EP1||UAZ (DShKM) [Takistan Army]||[[File:Arma2_oa_uaz_mg.jpg|200px]]||20||3||1||1
+|-
+|MTVR_DES_EP1||MTVR||rowspan="2"|[[File:Arma2_oa_mtvr.jpg|200px]]||20||13||12||0
+|-
+|MtvrSupply_DES_EP1||Salvage Truck [US]
+|-
+|MTVR_Reammo_DES_EP1||MTVR (Ammo) [US]||[[File:Arma2_oa_mtvr_ammo.jpg|200px]]||20||3||2||0
+|-
+|MTVR_Repair_DES_EP1||MTVR (Repair) [US]||rowspan="2"|[[File:Arma2_oa_mtvr_repair.jpg|200px]]||20||13||12||0
+|-
+|MtvrSalvage_DES_EP1||Supply Truck [US]
+|-
+|MTVR_Refuel_DES_EP1||MTVR (Fuel) [US]||[[File:Arma2_oa_mtvr_fuel.jpg|200px]]||20||3||2||0
+|-
+|Ural_TK_CIV_EP1||Ural Civil||rowspan="2"|[[File:Arma2_oa_ural_civil.jpg|200px]]||20||15||14||0
+|-
+|Ural_UN_EP1||Ural [UNO]
+|-
+|UralSupply_TK_EP1||Salvage Truck [Takistan Army]||[[File:Arma2_oa_ural_open.jpg|200px]]||20||15||14||0
+|-
+|UralReammo_TK_EP1||Ural (Ammunition) [Takistan Army]||[[File:Arma2 oa ural ammo.jpg|200px]]||20||3||2||0
+|-
+|UralRefuel_TK_EP1||Ural (Fuel) [Takistan Army]||[[File:Arma2_oa_ural_fuel.jpg|200px]]||20||3||2||0
+|-
+|UralRepair_TK_EP1||Ural (Repair) [Takistan Army]||rowspan="2"|[[File:Arma2_oa_ural_repair.jpg|200px]]||20||3||2||0
+|-
+|UralSalvage_TK_EP1||Supply Truck [Takistan Army]
+|-
+|Ural_ZU23_TK_EP1||Ural (ZU-23) [Takistan Army]||rowspan="2"|[[File:Arma2_oa_ural_zu23.jpg|200px]]||20||5||3||0
+|-
+|Ural_ZU23_TK_GUE_EP1||Ural (ZU-23) [Takistan Local]
+|-
+|GRAD_TK_EP1||BM-21 GRAD [Takistan Army]||[[File:Arma2_oa_bm_grad.jpg|200px]]||20||3||2||0
+|-
+|MAZ_543_SCUD_TK_EP1||9P117 Scud-B [Takistan Army]||[[File:Arma2_oa_scud.jpg|200px]]||20||4||3||0
+|-
+|V3S_TK_EP1||V3S [Takistan Army]||rowspan="2"|[[File:Arma2_oa_v3s.jpg|200px]]||20||14||13||0
+|-
+|V3S_TK_GUE_EP1||V3S [Takistan Militia]
+|-
+|V3S_Supply_TK_GUE_EP1||Salvage Truck
+|-
+|V3S_Open_TK_EP1||V3S Reammo [Takistan Army]||rowspan="2"|[[File:Arma2 oa v3s open.jpg|200px]]||20||4||3||0
+|-
+|V3S_Open_TK_CIV_EP1||V3S Open
+|-
+|V3S_Reammo_TK_GUE_EP1||V3S Reammo [Takistan Local]||rowspan="2"|[[File:Arma2 oa v3s repair.jpg|200px]]||20||4||3||0
+|-
+|V3S_Repair_TK_GUE_EP1||V3S Repair [Takistan Local]
+|-
+|V3S_Salvage_TK_GUE_EP1||Supply Truck [Takistan Local]
+|-
+|V3S_Refuel_TK_GUE_EP1||V3S Refuel [Takistan Local]||[[File:Arma2_oa_v3s_fuel.jpg|200px]]||20||4||3||0
+|-
+|BRDM2_ATGM_TK_EP1||BRDM-2 ATGM [Takistan Army]||[[File:Arma2_oa_brdm_atgm.jpg|200px]]||120||2||0||1
+|-
+|BRDM2_TK_EP1||BRDM-2 [Takistan Army]||rowspan="2"|[[File:Arma2_oa_brdm.jpg|200px]]||120||5||3||1
+|-
+|BRDM2_TK_GUE_EP1||BRDM-2 [Takistan Local]
+|-
+|BRDM2_HQ_TK_GUE_EP1||BRDM-2 (HQ) [Takistan Local]||[[File:Arma2_oa_brdm_hq.jpg|200px]]||120||2||0||1
+|-
+|BTR40_MG_TK_INS_EP1||BTR-40 (DshKM) [Takistan Militia]||rowspan="2"|[[File:Arma2_oa_btr40_mg.jpg|200px]]||40||8||6||1
+|-
+|BTR40_MG_TK_GUE_EP1||BTR-40 (DshKM) [Takistan Local]
+|-
+|BTR40_TK_INS_EP1||BTR-40 [Takistan Militia]||rowspan="2"|[[File:Arma2_oa_btr40.jpg|200px]]||40||7||6||0
+|-
+|BTR40_TK_GUE_EP1||BTR-40 [Takistan Local]
+|-
+|BTR60_TK_EP1||BTR-60 [Takistan Army]||[[File:Arma2_oa_btr60.jpg|200px]]||900||10||8||1
+|-
+|M1126_ICV_M2_EP1||Stryker ICV (M2) [US]||rowspan="2"|[[File:Arma2_oa_stryker_cv.jpg|200px]]||150||11||9||1
+|-
+|M1126_ICV_MK19_EP1||Stryker ICV (MK19) [US]
+|-
+|M1128_MGS_EP1||Stryker MGS [US]||[[File:Arma2_oa_stryker_mgs.jpg|200px]]||150||3||0||1
+|-
+|M1129_MC_EP1||Stryker MC [US]||rowspan="3"|[[File:Arma2_oa_stryker_tow.jpg|200px]]||150||2||0||1
+|-
+|M1130_CV_EP1||Stryker CV [US]
+|-
+|M1135_ATGMV_EP1||Stryker (TOW) [US]
+|-
+|M1133_MEV_EP1||Stryker MEV [US]||[[File:Arma2_oa_stryker_mev.jpg|200px]]||150||6||4||1
+|-
+|Offroad_DSHKM_Gue||Offroad (DShKM) [Takistan Local]||[[File:Arma2_oa_offroad_mg.jpg|200px]]||20||3||1||1
+|-
+|Offroad_SPG9_Gue||Offroad (SPG9) [Takistan Local]||[[File:Arma2_oa_offroad_spg.jpg|200px]]||20||3||1||1
+|-
+|Pickup_PK_GUE||Pickup (PK) [Takistan Locals]||[[File:Arma2_oa_pickup_mg.jpg|200px]]||20||3||1||1
+|-
+|Lada1_TK_CIV_EP1||Lada||rowspan="2"|[[File:Arma2_oa_lada.jpg|200px]]||20||4||3||0
+|-
+|Lada2_TK_CIV_EP1||Lada (decorated)
+|-
+|hilux1_civil_3_open_EP1||Pickup||[[File:Arma2_offroad.jpg|200px]]||20||2||1||0
+|-
+|Ikarus_TK_CIV_EP1||Bus||[[File:Arma2_oa_ikarus.jpg|200px]]||20||24||23||0
+|-
+|Old_bike_TK_INS_EP1||Old bike [Takistan Militia]||rowspan="2"|[[File:Arma2_oa_old_bike.jpg|200px]]||15||1||0||0
+|-
+|Old_bike_TK_CIV_EP1||Old bike
+|-
+|M1030_US_DES_EP1||Motorcycle [US]||[[File:Arma2_m1030.jpg|200px]]||50||1||0||0
+|-
+|TT650_TK_EP1||Motorcycle [Takistan Army]||rowspan="2"|[[File:Arma2_oa_tt650.jpg|200px]]||50||1||0||0
+|-
+|TT650_TK_CIV_EP1||Motorcycle
+|-
+|Old_moto_TK_Civ_EP1||Old moto||[[File:Arma2_oa_old_moto.jpg|200px]]||50||1||0||0
+|-
+|ATV_US_EP1||ATV [US]||rowspan="3"|[[File:Arma2_oa_atv.jpg|200px]]||50||1||0||0
+|-
+|ATV_CZ_EP1||ATV [ACR]
+|-
+|BAF_ATV_D||ATV [BAF]
+|-
+|Volha_1_TK_CIV_EP1||Vloha (blue)||rowspan="3"|[[File:Arma2_oa_gaz.jpg|200px]]||20||4||3||0
+|-
+|VolhaLimo_TK_CIV_EP1||Vloha Limo
+|-
+|Volha_2_TK_CIV_EP1||Vloha (grey)
+|-
+|S1203_TK_CIV_EP1||S1203||[[File:Arma2_oa_s1203.jpg|200px]]||20||6||5||0
+|-
+|S1203_ambulance_EP1||S1203 Ambulance||[[File:Arma2_oa_s1203_ambul.jpg|200px]]||20||6||5||0
+|-
+|SUV_TK_CIV_EP1||SUV||rowspan="4"|[[File:Arma2_oa_suv.jpg|200px]]||20||6||5||0
+|-
+|SUV_TK_EP1||SUV [Takistan Army]
+|-
+|SUV_UN_EP1||SUV [UNO]
+|-
+|SUV_PMC||SUV [PMC]
+|-
+|BAF_Jackal2_L2A1_D||Jackal 2 MWMIK (HMG) [BAF]||rowspan="2"|[[File:Arma2_baf_jackal_m2.jpg|200px]]||30||4||2||1
+|-
+|BAF_Jackal2_L2A1_w||Jackal 2 MWMIK (HMG) [BAF]
+|-
+|BAF_Jackal2_L2A1_D||Jackal 2 MWMIK (GMG)  [BAF]||rowspan="2"|[[File:Arma2_baf_jackal_mk19.jpg|200px]]||30||4||2||1
+|-
+|BAF_Jackal2_L2A1_w||Jackal 2 MWMIK (GMG) [BAF]
+|-
+|ArmoredSUV_PMC||Armored SUV [PMC]||[[File:Arma2_oa_suv_armored.jpg|200px]]||120||5||3||0
+|-
+|}
+
+== Air ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|A10_US_EP1||A-10 [US]||[[File:Arma2_a10.jpg|200px]]||75||1||0||0
+|-
+|AH64D_EP1||AH-64D [US]||rowspan="2"|[[File:Arma2_ah64.jpg|200px]]||60||2||0||1
+|-
+|BAF_Apache_AH1_D||AH-1 [BAF]
+|-
+|UH60M_EP1||UH-60M [US]||[[File:Arma2_oa_uh60.jpg|200px]]||35||15||13||2
+|-
+|UH60M_MEV_EP1||UH-60M MEV [US]||[[File:Arma2_oa_uh60_mev.jpg|200px]]||35||8||7||2
+|-
+|AH6J_EP1||AH-6J [US]||[[File:Arma2_oa_ah6j.jpg|200px]]||25||2||0||1
+|-
+|AH6X_EP1||AH-6X [US]||[[File:Arma2_oa_ah6x.jpg|200px]]||25||2||0||0
+|-
+|MH6J_EP1||MH-6J [US]||[[File:Arma2_oa_mh6.jpg|200px]]||25||6||4||1
+|-
+|CH_47F_EP1||CH-47F [US]||rowspan="2"|[[File:Arma2_oa_ch47.jpg|200px]]||30||26||24||1
+|-
+|CH_47F_BAF||Chinook HC4 [BAF]
+|-
+|Mi17_TK_EP1||Mi-8 [Takistan Army]||rowspan="3"|[[File:Arma2_oa_mi17.jpg|200px]]||25||18||16||1
+|-
+|Mi17_UN_CDF_EP1||Mi-8 [UNO]
+|-
+|Mi171Sh_CZ_EP1||Mi-171Sh [ACR]
+|-
+|Mi171Sh_rockets_CZ_EP1||Mi-171Sh (rockets) [ACR]||[[File:Arma2_oa_mi171.jpg|200px]]||25||18||16||1
+|-
+|Mi24_D_TK_EP1||Mi-24D [Takistan Army]||[[File:Arma2_oa_mi24.jpg|200px]]||33||10||1||1
+|-
+|Su25_TK_EP1||Su-25 [Takistan Army]||[[File:Arma2_oa_su25.jpg|200px]]||75||1||0||0
+|-
+|L39_TK_EP1||L-39ZA [Takistan Army]||[[File:Arma2_oa_l39.jpg|200px]]||75||1||0||0
+|-
+|UH1H_TK_EP1||UH-1H [Takistan Army]||rowspan="2"|[[File:Arma2_oa_uh1.jpg|200px]]||25||8||5||2
+|-
+|UH1H_TK_GUE_EP1||UH-1H [Takistan Local]
+|-
+|C130J_US_EP1||C-130J [US]||[[File:Arma2_c130.jpg|200px]]||70||26||25||0
+|-
+|An2_TK_EP1||An-2 [Takistan Army]||rowspan="2"|[[File:Arma2_oa_an2.jpg|200px]]||25||15||14||0
+|-
+|An2_1_TK_CIV_EP1||An-2
+|-
+|An2_2_TK_CIV_EP1||An-2
+|-
+|MQ9PredatorB_US_EP1||MQ-9 [US]||[[File:Arma2_mq9.jpg|200px]]||10||2||0||0
+|-
+|Chukar_EP1||BQM-74 [US]||[[File:Arma2_chukar.jpg|200px]]||10||1||0||0
+|-
+|AW159_Lynx_BAF||AH-11 Wildcat [BAF]||[[File:Arma2_baf_ah11.jpg|200px]]||60||10||8||1
+|-
+|BAF_Merlin_HC3_D||Merlin HC3 [BAF]||[[File:Arma2_baf_merlin.jpg|200px]]||60||18||17||0
+|-
+|Ka137_PMC||Ka-137 [PMC]||rowspan="2"|[[File:Arma2_pmc_ka137.jpg|200px]]||1||1||1||0
+|-
+|Ka137_MG_PMC||Ka-137 (PK) [PMC]
+|-
+|Ka60_GL_PMC||Ka-60 (M32) [PMC]||rowspan="2"|[[File:Arma2_pmc_ka60.jpg|200px]]||60||10||8||0
+|-
+|Ka60_PMC||Ka-60 [PMC]
+|-
+|BIS_Steerable_Parachute_EP1||Steerable parachute||rowspan="9"|[[File:Parachute.jpg|200px]]||0||1||0||0
+|-
+|ParachuteBigEast_EP1||Cargo parachute (Large) [Takistan Army]
+|-
+|ParachuteBigWest_EP1||Cargo parachute (Large) [US]
+|-
+|Parachute_TK_GUE_EP1||Parachute [Takistan Local]
+|-
+|Parachute_TK_EP1||Parachute [Takistan Army]
+|-
+|Parachute_US_EP1||Parachute [US]
+|-
+|ParachuteMediumEast||Cargo parachute [Takistan Army]
+|-
+|ParachuteMediumWest_EP1||Parachute [US]
+|-
+|}
+
+== Water ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|SeaFox||Water target||[[File:Arma2_seafox.jpg|200px]]||20||1||0||0
+|-
+|}
+
+{{GameCategory|arma2oa|Reference Lists}}

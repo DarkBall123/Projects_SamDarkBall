@@ -1,0 +1,52 @@
+This is a full list of the vehicles in Operation Flashpoint: Cold War Crisis, Resistance, and Elite. For the classnames of these vehicles, see [[Operation Flashpoint: CfgVehicles]].
+
+'''Land Based Vehicles'''
+
+*[[M1A1]] Abrams
+*[[M2A2]] Bradley
+*[[M60 (Tank)|M60]] Patton
+*[[M113]]
+*[[M113#M163|M163]] Vulcan
+*M151 'MUTT' [[Jeep]]
+*[[HMMWV]]
+*M939 [[5ton Truck|'5-ton' Truck]]
+*[[Ural]]
+*[[UAZ|UAZ-469]]
+*[[Russian T-Tank series#T-55|T-55]]
+*[[Russian T-Tank series#T-72|T-72]]
+*[[Russian T-Tank series#T-5580|T-80]]
+*[[BRDM]]
+*[[Russian BMP series#T-55#BMP-1|BMP-1]]
+*[[Russian BMP series#BMP-2|BMP-2]]
+*''Scud Launcher''
+*[[Shilka]]
+*''Praga V3S truck''
+*''Skoda'' 120 series sedan in four colors
+*''Skoda'' Rapid coupe in two colors
+*''Trabant''
+*''Tractor''
+*''Mini'' (seemingly fictional variant) (''Resistance'')
+*Jawa 353 motorcycle (''Resistance'')
+*''Bicycle'' (''Resistance'')
+*''Bus'' (''Resistance'')
+
+'''Aircraft'''
+
+*[[UH60|UH-60]] Black Hawk
+*[[CH47D|CH-47D]] Chinook
+*[[OH58|OH-58]] Kiowa
+*[[AH1|AH-1]] Cobra
+*[[AH64|AH-64]] Apache
+*[[Mi17|Mi-17]]
+*[[Mi24|Mi-24]] Hind
+*[[Su25|Su-25]] Frogfoot
+*[[A10|A-10]] Thunderbolt II
+*[[Cessna]] 152
+*[[Ka50|Ka-50]] (''Resistance'')
+
+'''Water-borne Vehicles'''
+
+*LST (Landing Ship, Tank)
+*''Mark II PBR'' (Patrol Boat, River)
+
+{{GameCategory|ofp|Reference Lists}}

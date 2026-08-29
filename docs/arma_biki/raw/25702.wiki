@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.92
+
+|gr1= GUI Control - Positioning
+
+|descr= Sets horizontal position (x) of the 2D control. [[ctrlCommit]] is required to complete the operation.
+
+|s1= control [[ctrlSetPositionX]] x
+
+|p1= control: [[Control]] - 2D control
+
+|p2= x: [[Number]] - horizontal position of the control
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+_ctrl ctrlSetPositionX 0.5;
+_ctrl ctrlCommit 1;
+</sqf>
+
+|seealso= [[ctrlSetPosition]] [[ctrlSetPositionY]] [[ctrlSetPositionW]] [[ctrlSetPositionH]]
+}}

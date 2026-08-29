@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Broken Commands
+
+|gr2= Variables
+
+|descr= A non-existing network object. {{Feature|informative|'''NetObject''' data type was never implemented in {{arma3}} - this command always returns [[false]].}}
+
+|s1= [[netObjNull]]
+
+|r1= [[Boolean]] - always returns [[false]]
+
+|x1= -
+
+|seealso= [[objNull]]
+}}

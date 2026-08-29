@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Saves current 3DEN preferences into .3den.Arma3Profile file.
+
+|s1= [[save3DENPreferences]] 
+
+|r1= [[Boolean]] - [[true]] on success
+
+|x1= <sqf>
+"Preferences" set3DENMissionAttribute ["SaveBinarized", true];
+save3DENPreferences;
+</sqf>
+
+|seealso= [[saveProfileNamespace]] [[saveMissionProfileNamespace]]
+}}

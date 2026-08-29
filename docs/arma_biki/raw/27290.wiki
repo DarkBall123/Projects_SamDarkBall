@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.98
+
+|gr1= Interaction
+
+|descr= ''N/A''
+
+|s1= <!-- [] call [[BIS_fnc_escortAI]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_escortAI;</sqf> -->
+
+|seealso=
+}}

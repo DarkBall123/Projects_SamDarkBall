@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Unit Inventory
+
+|descr= Get array with all items (of any kind, even weapons) from uniform.
+
+|s1= [[uniformItems]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] of [[String]]s - Class names of items
+
+|x1= <sqf>
+uniformItems player;
+// returns e.g
+/*
+[
+	"FirstAidKit",
+	"30Rnd_65x39_caseless_mag",
+	"30Rnd_65x39_caseless_mag",
+	"30Rnd_65x39_caseless_mag"
+]
+*/
+</sqf>
+
+|seealso= [[vestItems]] [[backpackItems]]
+}}

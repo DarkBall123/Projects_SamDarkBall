@@ -1,0 +1,15 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.84
+
+|gr1= Boat Recovery
+
+|descr= 
+
+|s1= [[BIS_fnc_BoatRack01ActionCondition]]
+
+|r1= 
+
+|seealso= 
+}}

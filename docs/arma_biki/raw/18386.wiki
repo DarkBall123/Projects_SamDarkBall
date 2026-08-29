@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|arg= local
+
+|gr1= Pilot Camera
+
+|descr= Sets the direction of airplane's or helicopter's {{Link|Arma 3: Targeting config reference#class pilotCamera|pilotCamera}}.
+
+|s1= object [[setPilotCameraDirection]] vector3D
+
+|p1= object: [[Object]] - a vehicle equipped with pilot camera
+
+|p2= vector3D: [[Vector3D]] - in model space, relative to the model centre (In a similar fashion to [[Position#PositionRelative|PositionRelative]])
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setPilotCameraDirection [0,1,0] // re-centers the camera</sqf>
+
+|seealso= [[hasPilotCamera]] [[getPilotCameraPosition]] [[getPilotCameraDirection]] [[getPilotCameraRotation]] [[getPilotCameraTarget]] [[setPilotCameraRotation]] [[setPilotCameraTarget]]
+}}

@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Lights
+
+|arg= local
+
+|eff= local
+
+|descr= Sets relative size of the flare for the light.
+
+|s1= light [[setLightFlareSize]] size
+
+|p1= light: [[Object]]
+
+|p2= size: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLight setLightFlareSize 5;</sqf>
+
+|seealso= [[setLightAmbient]] [[setLightColor]] [[lightAttachObject]] [[lightDetachObject]] [[setLightIntensity]] [[setLightAttenuation]] [[setLightUseFlare]] [[setLightBrightness]] [[setLightFlareMaxDistance]] [[setLightDayLight]]
+}}

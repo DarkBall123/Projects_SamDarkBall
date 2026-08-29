@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.08
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Locations
+
+|descr= Set the shape of a location to be either rectangular or elliptical. Locations default shape is elliptical.
+
+|s1= location [[setRectangular]] set
+
+|p1= location: [[Location]]
+|p2= set: [[Boolean]] - [[true]] set rectangular, [[false]] set elliptical
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLocation setRectangular true;</sqf>
+
+|seealso= [[setText]] [[nearestLocation]] [[nearestLocations]] [[locationPosition]] [[nearestLocationWithDubbing]] [[createLocation]] [[rectangular]]
+}}

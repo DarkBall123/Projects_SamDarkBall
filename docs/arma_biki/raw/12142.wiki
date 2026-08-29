@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Containers
+
+|descr= Get array with backpacks from ammo box (or any general weapon holder container).
+
+|s1= [[backpackCargo]] box
+
+|p1= box: [[Object]]
+
+|r1= [[Array]] of [[String]]s - class names ["BackpackType1", "BackpackType1", "BackpackType2", ...]
+
+|x1= <sqf>hint str backpackCargo vehicle player;</sqf>
+
+|seealso= [[backpackContainer]] [[firstBackpack]] [[unitBackpack]] [[backpack]] [[getBackpackCargo]] [[backpackItems]] [[addBackpack]] [[addBackpackCargo]] [[addBackpackCargoGlobal]] [[removeBackpack]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]] [[clearAllItemsFromBackpack]] [[loadBackpack]] [[backpackSpaceFor]] [[canAddItemToBackpack]] [[addItemToBackpack]] [[removeItemFromBackpack]] [[everyBackpack]]
+}}

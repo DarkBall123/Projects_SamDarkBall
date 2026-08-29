@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI Control - Tree View
+
+|descr= Sets the select color of given path.
+
+|s1= ctrl [[tvSetSelectColor]] [path, color]
+
+|p1= ctrl: [[Control]]
+
+|p2= path: [[Array]] of [[Number]]s - path of the item
+
+|p3= color: [[Color|Color (RGBA)]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control tvSetSelectColor [[0, 0], [1,1,1,0.5]];</sqf>
+
+|seealso= [[tvSetColor]]
+}}

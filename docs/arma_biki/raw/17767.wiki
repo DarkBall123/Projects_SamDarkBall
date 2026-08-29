@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|gr1= Animations
+
+|gr2= Stamina System
+
+|descr= Get coefficient for animation speed.
+
+|s1= [[getAnimSpeedCoef]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Number]]
+
+|x1= <sqf>if (getAnimSpeedCoef player > 1) then { hint "Speedy Gonzales!" };</sqf>
+
+|seealso= [[Arma 3: Stamina]] [[setAnimSpeedCoef]]
+}}

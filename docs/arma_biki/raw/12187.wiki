@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Unit Inventory
+
+|descr= Returns current percentage of mass from items stored in a uniform relative to the maximum capacity of the uniform.<br>
+It is equivalent to this formula:
+<sqf>private _loadUniform = massOfAllItemsInUniform / getContainerMaxLoad uniform player;</sqf>
+
+|s1= [[loadUniform]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Number]]
+
+|x1= <sqf>private _weight = loadUniform player;</sqf>
+
+|seealso= [[load]] [[loadAbs]] [[loadBackpack]] [[loadVest]] [[getMass]] [[weightRTD]] [[getContainerMaxLoad]]
+}}

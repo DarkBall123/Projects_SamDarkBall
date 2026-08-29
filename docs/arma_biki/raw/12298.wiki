@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Radio and Chat
+
+|eff= local
+
+|descr= Shows/hides the whole chat window.
+
+|s1= [[showChat]] bool
+
+|p1= bool: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>showChat false;</sqf>
+
+|seealso= [[shownChat]]
+}}

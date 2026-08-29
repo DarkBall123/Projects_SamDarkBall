@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control
+
+|descr= Returns the URL property of a button control. Getter for [[ctrlSetURL]].
+
+|s1= [[ctrlURL]] control
+
+|p1= control: [[Control]]
+
+|r1= [[String]]
+
+|x1= <sqf>private _ctrlUrl = ctrlURL _control; // e.g. "http://arma3.com/"</sqf>
+
+|seealso= [[ctrlSetURL]]
+}}

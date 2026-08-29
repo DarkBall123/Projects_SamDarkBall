@@ -1,0 +1,36 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Waypoints
+
+|descr= Defines how waypoints are shown to the player in map view. For 3D HUD visibility see [[setWaypointVisible]].
+
+|s1= waypoint [[showWaypoint]] show
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= show: [[String]] - possible values are:
+* "NEVER" - Never show
+* "EASY" - Show only if {{hl|showCadetWP}} is enabled in global [[Arma 3: Difficulty Settings|difficulty]].
+* "ALWAYS" - Always show
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp, 2] showWaypoint "ALWAYS";</sqf>
+
+|seealso= [[waypointShow]]
+}}

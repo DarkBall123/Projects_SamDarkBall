@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr= Let the Auxiliary Power Unit (APU) reach a desired state over the given period of time. 
+
+|s1= helicopterRTD [[setAPURTD]] [value, time]
+
+|p1= helicopterRTD: [[Object|ObjectRTD]] - helicopter
+
+|p2= value: [[Number]] - desired APU state. 0 being completely off, 1 being fully powered up
+
+|p3= time: [[Number]] - time to reach (seconds)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setAPURTD [1, 15];</sqf>
+
+|seealso=
+}}

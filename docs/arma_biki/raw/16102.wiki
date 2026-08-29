@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Mission Parameters
+
+|descr= Initialize [[Mission Parameters|mission params]] and create log in the diary.<br/>
+
+Since {{GVI|arma3|2.18}} it is possible to deactivate automatic parameter initialization in '''singleplayer''' by setting {{hl|BIS_fnc_initParams_skip}} to [[true]] in [[Arma 3: Functions Library|preInit]].
+
+|s1=  [modules] call [[BIS_fnc_initParams]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>call BIS_fnc_initParams;</sqf>
+
+|seealso= [[Mission Parameters]]
+}}

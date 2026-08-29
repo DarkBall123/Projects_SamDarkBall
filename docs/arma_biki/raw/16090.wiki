@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Returns vehicle turrets.
+
+|s1= [input, outputType] call [[BIS_fnc_getTurrets]]
+
+|p1= input: [[Object]] or [[String]] - object or object's class name
+
+|p2= outputType: [[Config]] or [[Array]] - output type (array of config paths or IDs)
+
+|r1= [[Array]] of [[Config|configs]] or [[Array]] - vehicle turrets
+
+|x1= <sqf>[vehicle player]  call BIS_fnc_getTurrets;</sqf>
+
+|seealso= [[moveInTurret]] [[allTurrets]]
+}}

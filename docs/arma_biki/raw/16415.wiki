@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Environment
+
+|descr= Instantly set date and share it across network with optional transition effect. [[File:BIS_fnc_setDate.jpg|right|300px]]
+
+|s1= [value, global, transition] call [[BIS_fnc_setDate]]
+
+|p1= value: [[Number]] or [[Array]] in format [[Date]]
+* [[Number]] - hours to skip. To show exactly ''30 minutes later'' put <sqf inline>30 / 60</sqf>; <sqf inline>0.5</sqf> will show {{hl|29 minutes later}}
+* [[Array]] in format [[Date]] - date
+
+|p2= global: [[Boolean]] - (Optional, default [[true]]) [[true]] for global execution
+
+|p3= transition: [[Boolean]] (Optional, default [[false]]) [[true]] to show a transition effect instead of an immediate skip
+
+|r1= [[Date]] - the new date
+
+|x1= <sqf>[[2035, 12, 31, 23, 59], true, true] call BIS_fnc_setDate;</sqf>
+
+|x2= <sqf>[4, true, true] call BIS_fnc_setDate; // skip 4 hours. Same as image in description</sqf>
+
+|x3= <sqf>[30 / 60, true, true] call BIS_fnc_setDate; // skip 30 minutes and show a "30 minutes later" message</sqf>
+
+|seealso= [[date]] [[setDate]] [[skipTime]]
+}}

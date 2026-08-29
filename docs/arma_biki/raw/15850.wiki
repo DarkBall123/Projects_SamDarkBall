@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Missions
+
+|descr= Evaluates the current battlefield situation and saves the game when appropriate.
+
+|s1= [objects] call [[BIS_fnc_saveGame]]
+
+|p1= objects: [[Array]] - units to check
+
+|r1= [[Boolean]] - [[true]] if saved
+
+|x1= <sqf>[unit_1, unit_2] call BIS_fnc_saveGame;</sqf>
+
+|seealso= [[saveGame]] [[loadGame]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Conversations
+
+|descr= Check if speaker is locked for different conversation.
+
+|s1= unit call [[BIS_fnc_kbIsSpeaking]]
+
+|p1= unit: [[Object]] - the speaker
+
+|r1= [[Boolean]]
+
+|x1= <sqf>player call BIS_fnc_kbIsSpeaking;</sqf>
+
+|seealso= [[Conversations]] [[BIS_fnc_kbTell]] [[kbWasSaid]]
+}}

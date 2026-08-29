@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Arrays
+
+|descr=Returns a random element from the given array. Engine solution to [[BIS_fnc_selectRandom]]
+
+|s1= [[selectRandom]] array
+
+|p1= array: [[Array]] of [[Anything]]
+
+|r1= [[Anything]] - random selected value or [[Nothing]] if array is empty
+
+|x1= <sqf>_randomElement = selectRandom [1,2,3,4,5];</sqf>
+
+|seealso= [[selectRandomWeighted]] [[random]] [[select]] [[selectMin]] [[selectMax]]
+}}

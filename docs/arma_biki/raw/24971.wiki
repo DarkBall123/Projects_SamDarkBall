@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Interpolation
+
+|descr= Spherical lerp, for correct lerping of normalized direction vectors
+
+|s1= [currentValue, targetValue, alpha] call [[BIS_fnc_slerp]]
+
+|p1= currentValue: [[Array]] - the current value
+
+|p2= targetValue: [[Array]] - the target value
+
+|p3= alpha: [[Number]] - the alpha
+
+|r1= [[Array]] - interpolated value
+
+|x1=
+
+|seealso= [[BIS_fnc_clerp]] [[BIS_fnc_lerp]] [[BIS_fnc_lerpVector]] [[BIS_fnc_inverseLerp]]
+}}

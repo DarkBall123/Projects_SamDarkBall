@@ -1,0 +1,36 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Unit Control
+
+|descr= Sets the target depth level for swimming soldier. Depth should be a negative number.
+
+|s1= unit [[swimInDepth]] value
+
+|p1= unit: [[Object]]
+
+|p2= value: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>soldier swimInDepth -20;</sqf>
+|x2= <sqf>
+bob swimInDepth -10;
+bob doMove ASLToAGL getPosASL player;
+</sqf>
+
+|seealso= [[underwater]]
+}}
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2017-06-13 - 01:18 (UTC)</dd>
+<dt class="note">[[User:DrSova|DrSova]]</dt>
+<dd class="note">
+Doesn't work with animals.
+</dd>
+
+</dl>

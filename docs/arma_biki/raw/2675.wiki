@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|gr1= Broken Commands
+
+|gr2= Object Manipulation
+
+|descr= Return whether the vehicle has set the [[hideBehindScripted]] to [[true]] or not.
+
+|s1= [[isHideBehindScripted]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_isHidden = isHideBehindScripted _vehicle;</sqf>
+
+|seealso= [[hideBehindScripted]]
+}}

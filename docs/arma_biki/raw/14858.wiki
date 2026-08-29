@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Sets cost of waypoints (used for placing, editing and deleting).
+
+|s1= curatorObj [[setCuratorWaypointCost]] cost
+
+|p1= curatorObj: [[Object]] - curator module
+
+|p2= cost: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myCurator setCuratorWaypointCost 0.1;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

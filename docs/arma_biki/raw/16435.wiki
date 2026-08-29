@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Initialize virtual unit. Disable it, turn the camera upwards and save its correct side.
+
+|s1= [object] call [[BIS_fnc_initVirtualUnit]]
+
+|p1= object: [[Object]] - object to be turned into virtual unit
+
+|r1= [[Boolean]]
+
+|x1= <sqf>someObject call BIS_fnc_initVirtualUnit;</sqf>
+
+|seealso= [[BIS_fnc_isUnitVirtual]]
+}}

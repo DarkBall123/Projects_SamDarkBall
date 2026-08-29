@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Ambient
+
+|gr2= Positions
+
+|descr= Check if area is blacklisted. Blacklist triggers are to be named 'bis_ambientBlacklist_#', where # is number from 0 to 99.
+
+|s1= [input] call [[BIS_fnc_ambientBlacklist]]
+
+|p1= input: [[Array]] - if array, function checks if givin position is in blacklisted areas. If any [[Number]] is passed to the function instead of an [[Array]] blacklisted areas are initialized and saved in BIS_ambientBlacklist
+
+|r1= [[Boolean]] - returns [[Boolean]] when in blacklisted area, when initialization was triggered, it returns [[nil]]
+
+|x1= <sqf>[1337,1337,0] call BIS_fnc_ambientBlacklist;</sqf>
+
+|x2= <sqf>[0] call BIS_fnc_ambientBlacklist;</sqf>
+
+|seealso= [[BIS_fnc_ambientBlacklistAdd]]
+}}

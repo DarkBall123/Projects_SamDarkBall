@@ -1,0 +1,9 @@
+'''Description:''' : n/a
+
+Introduced with {{arma2}}.
+{{Feature | important | '''Not''' related to [[teamSwitch]] or [[assignedTeam]].}}
+
+See [[:Category:Command Group: Teams|Command Group: Teams]] for related commands.
+
+
+[[Category: Data Types]]

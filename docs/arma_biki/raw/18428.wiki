@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|branch= diag
+
+|gr1= Diagnostic
+
+|descr= Toggles various diagnostics.
+
+|s1= mode [[diag_enable]]  state
+
+|p1= mode: [[String]] - see [[Arma 3: Diagnostics Exe]]
+
+|p2= state: [[Boolean]] - [[true]] to enable diag mode, [[false]] to disable it
+
+|r1= [[Nothing]]
+
+|x1= <sqf>"All" diag_enable true;</sqf>
+
+|seealso= [[Arma 3: Diagnostics Exe]] [[diag_toggle]]
+}}

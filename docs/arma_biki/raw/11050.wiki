@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Diagnostic
+
+|descr= Log debug message.
+{{Feature|informative|{{hl|[[Description.ext#allowFunctionsLog|allowFunctionsLog]]}} has to be set to '''1''' in [[Description.ext]] for this function to have any effect.}}
+
+|s1= param call [[BIS_fnc_log]]
+
+|p1= param: [[Anything]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>diag_tickTime call BIS_fnc_log;</sqf>
+
+|x2= <sqf>[dayTime, overcast, fog] call BIS_fnc_log;</sqf>
+
+|x3= <sqf>(name player) call BIS_fnc_log;</sqf>
+
+|seealso= [[BIS_fnc_error]] [[BIS_fnc_logFormat]] [[BIS_fnc_errorMsg]] [[BIS_fnc_logFormatServer]]
+}}

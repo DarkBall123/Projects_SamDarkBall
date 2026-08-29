@@ -1,0 +1,47 @@
+{{TOC|side}}
+{{GVI|arma2oa|1.60}} {{GVI|TKOH|1.00}} {{GVI|arma3|1.00}}
+== Definitions ==
+
+=== Simulation Time Scope ===
+
+'''Simulation Time Scope''' is working with the '''calculated''' position of objects.
+* It is updated on a lower frequency than the '''rendered''' position in order to save performance. {{cn}}
+* Refresh frequency is lowered the further the object is from the camera. {{cn}}
+
+=== Render Time Scope ===
+
+'''Render Time Scope''' is working with the '''visual''' position of objects, which is rendered (''estimated'') separately from the calculated one.
+* It is updated on a very high frequency (presumably on each frame). {{cn}}
+* The object's position is interpolated depending on its speed and movement direction.
+* Due to interpolation, the position might not be accurate but it is updated frequently, resulting in a smooth motion.
+* Usually, [[:Category:Command Group: Render Time Scope|render time scope scripting commands]] should be used when something is visible to the player, such as UI or on-model precision.
+
+
+[[File:Render Visual Time Scope.gif|right]]
+== Simulation vs Render ==
+
+For performance concerns, '''Simulation''' and '''Render''' cycles are separated '''since {{arma2oa}} v1.60'''.
+This means that any object has now "two" positions: the computed one (simulation), and the visual one (render).
+
+* For visual (e.g HUD-related) operations, use the [[:Category:Command Group: Render Time Scope|render time scope scripting commands]] (e.g [[getPosATLVisual]])
+* "Normal" commands (e.g [[getPosATL]]) are to be used if the position is not updated frequently and the effect is not visible to players.
+
+<spoiler text="See a showcase video">{{Youtube|6xUw0K292sw|[https://www.youtube.com/watch?v{{=}}6xUw0K292sw Video Showcase]||600}}</spoiler>
+
+
+{{Clear}}
+== Before Simulation and Render Separation ==
+
+From {{ofp}} to {{arma2oa}} v1.59, the '''simulation''' first updated the world's state (units position) ''then'' the visual '''rendering''' was done.<br>
+Sequencing these operations worked fine only in non-intensive scenarios; as soon as the CPU reached its limits, the simulation frequency was lowered in order to maintain acceptable FPS, resulting in units visually "jumping".
+
+
+== See Also ==
+
+* {{Link|https://www.bohemia.net/blog/experimental-betas-interpolating-the-future|Experimental betas - Interpolating the future}} blog article
+* {{Link|link= https://forums.bohemia.net/forums/topic/151099-scripting-discussion-dev-branch/?page=21&tab=comments#comment-2720342|text= Sniperwolf572 forum post}} explanation
+* {{Link|https://forums.bohemia.net/profile/832107-grumpy-old-man/|Grumpy Old Man}}'s [https://www.youtube.com/watch?v{{=}}6xUw0K292sw Video Showcase]
+
+
+[[Category:Scripting Topics]]
+[[Category:Introduced with Arma 2: Operation Arrowhead version 1.60]]

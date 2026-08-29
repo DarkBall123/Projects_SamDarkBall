@@ -1,0 +1,10 @@
+An '''operand''' is any value given to an [[Operators|operator]].
+
+
+'''Example:'''
+
+ a + b
+
+{{hl|a}} and {{hl|b}} are operands.
+
+[[Category: Syntax]]

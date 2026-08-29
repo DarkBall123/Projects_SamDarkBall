@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|eff= local
+
+|gr1= Campaign
+
+|descr= Initializes difficulty settings in Apex Protocol campaign.
+
+|mp= Needs to be executed globally.
+
+|s1=
+
+|r1= [[Boolean]] - [[true]]
+
+|x1= <sqf>call BIS_fnc_EXP_camp_initDifficulty;</sqf>
+
+|seealso= [[BIS_fnc_EXP_camp_initClasses]] [[BIS_fnc_EXP_camp_initCharacter]]
+}}

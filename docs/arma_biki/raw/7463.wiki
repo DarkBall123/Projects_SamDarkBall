@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.11
+
+|gr1= Unit Inventory
+
+|gr2= Broken Commands
+
+|descr= Removes specified named clothes selections from unit. {{Feature | important | Result of April Fool's Day 2008. Don't even try ingame ;)}}
+
+|s1= unit [[removeClothing]] item
+
+|p1= unit: [[Object]] - unit
+
+|p2= item: [[Array]] - arrays of named selections ([[String]]s)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_unit removeClothing ["shirt"];</sqf> 
+[[File:rc_sample.jpg|200px]]
+
+|seealso= [[Model Config]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= Sensors
+
+|descr= Gets whether the vehicle shares acquired targets via datalink with the [[Side]] center.
+
+|s1= [[vehicleReportRemoteTargets]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>vehicleReportRemoteTargets vehicle player;</sqf>
+
+|seealso= [[setVehicleRadar]] [[setVehicleReportRemoteTargets]] [[vehicleReceiveRemoteTargets]] [[setVehicleReceiveRemoteTargets]] [[vehicleReportOwnPosition]] [[setVehicleReportOwnPosition]] [[reportRemoteTarget]] [[confirmSensorTarget]]
+}}

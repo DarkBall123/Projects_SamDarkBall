@@ -1,0 +1,37 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= IDWMap
+
+|descr= <pre>/*
+		Killzone_Kid
+
+	Description:
+		Gets stored draw colors
+
+	Parameter(s):
+		NONE
+
+	Returns:
+		ARRAY - draw colors
+		or
+		[] on error
+		
+	Example:
+		call BIN_fnc_getIDWMapDrawColorSet
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_getIDWMapDrawColorSet]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_getIDWMapDrawColorSet;</sqf> -->
+
+|seealso=
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+|arg= local
+|eff= local
+
+|gr1= GUI Control - Controls Table
+
+|descr= Removes all the lines from the RscControlsTable. Returns Nothing.
+
+|s1= [[ctClear]] ctrl
+
+|p1= ctrl: [[Control]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>ctClear _control;</sqf>
+
+|seealso= [[ctAddHeader]] [[ctAddRow]] [[ctCurSel]] [[ctSetCurSel]] [[ctRowControls]] [[ctHeaderControls]] [[ctRowCount]] [[ctHeaderCount]] [[ctSetValue]] [[ctValue]] [[ctSetData]] [[ctData]] [[ctFindRowHeader]] [[ctFindHeaderRows]] [[ctRemoveRows]] [[ctRemoveHeaders]] [[ctSetRowTemplate]] [[ctSetHeaderTemplate]]
+}}

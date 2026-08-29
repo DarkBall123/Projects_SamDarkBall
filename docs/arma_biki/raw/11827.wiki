@@ -1,0 +1,41 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|arg= global
+
+|gr1= Positions
+
+|descr= Returns the position of the object other units can aim to.
+
+|s1= [[aimPos]]  unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Position#PositionASL|PositionASL]]
+
+|x1= <sqf>_aimPos = aimPos player;</sqf>
+
+|x2= '''''aimPosVisual''''' equivalent:<sqf>private _aimPosVisual = AGLToASL unitAimPositionVisual player;</sqf>
+
+|seealso= [[eyePos]] [[getPosASL]] [[weaponDirection]] [[unitAimPosition]] [[unitAimPositionVisual]]
+}}
+
+{{Note
+|user= Waffle SS.
+|timestamp= 20150707211900
+|text= Generally returns the center position of the object (middle of the geometry, not the model's [0,0,0]).
+}}
+
+{{Note
+|user= Sa-Matra
+|timestamp= 20230327123311
+|text= This command uses "zamerny" memory point which is hardcoded name in the engine. If memory point is not present then geometry LOD bounding center is used (according to dedmen)
+}}

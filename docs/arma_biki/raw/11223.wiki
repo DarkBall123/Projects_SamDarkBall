@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Ropes and Sling Loading
+
+|descr= Set the simulated mass of an object attached to a rope.
+{{Feature|arma3|This command is not present in {{arma3}}. Use [[setMass]] instead.}}
+
+|s1= [[ropeSetCargoMass]] [rope, cargo, mass]
+
+|p1= rope: [[Object]] - rope object
+
+|p2= cargo: [[Object]] - cargo object
+
+|p3= mass: [[Number]] - override cargo mass, if mass < 1 then original mass is used
+
+|r1= [[Number]] - object mass
+
+|x1= <sqf>ropeSetCargoMass [myRope, myCargo, 1138];</sqf>
+
+|seealso= [[ropeCreate]] [[ropeDestroy]] [[ropeDetach]] [[getMass]] [[setMass]] [[getCenterOfMass]]
+}}

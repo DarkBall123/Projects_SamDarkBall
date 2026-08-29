@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= Sensors
+
+|descr= Sets that the vehicle will share its own position via datalink to the [[Side]] center.
+
+|s1= vehicle [[setVehicleReportOwnPosition]] report
+
+|p1= vehicle: [[Object]]
+
+|p2= report: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setVehicleReportOwnPosition true;</sqf>
+
+|seealso= [[setVehicleRadar]] [[vehicleReportRemoteTargets]] [[setVehicleReportRemoteTargets]] [[vehicleReceiveRemoteTargets]] [[setVehicleReceiveRemoteTargets]] [[vehicleReportOwnPosition]] [[reportRemoteTarget]] [[confirmSensorTarget]]
+}}

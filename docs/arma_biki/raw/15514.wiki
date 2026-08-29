@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Containers
+
+|gr2= Vehicle Inventory
+
+|descr=Returns an array with subarrays contains class names and also names of connected items of all the vehicle's cargo weapons in [[weaponsItems]] format. If weapon has no magazine, an empty array [] is returned instead of magazine info. If the argument is a vehicle with weapons, vehicles cargo is searched, unlike with [[weaponsItems]] command, which will return vehicle's weapons instead.
+{{Feature|informative|
+Since {{arma3}} v1.96 the returned array always contains secondary muzzle magazine info and is consistent with [[getUnitLoadout]] format for weapon items.
+}}
+
+|s1= [[weaponsItemsCargo]] vehicle
+
+|p1= vehicle: [[Object]] ammobox or vehicle
+
+|r1= [[Array]] - see [[weaponsItems]]
+
+|s2= [[weaponsItemsCargo]] [vehicle, extended]
+|s2since= arma3 2.14
+
+|p21= vehicle: [[Object]] - ammobox or vehicle
+
+|p22= extended: [[Boolean]] - [[true]] to include muzzle information
+
+|r2= [[Array]] - see [[weaponsItems]]
+
+|x1= <sqf>weaponsItemsCargo vehicle player;</sqf>
+
+|x2= <sqf>weaponsItemsCargo _weaponholder;</sqf>
+
+|seealso= [[weaponsItems]] [[primaryWeaponItems]] [[secondaryWeaponItems]] [[handgunItems]] [[addPrimaryWeaponItem]] [[addSecondaryWeaponItem]] [[addHandgunItem]] [[primaryWeapon]] [[secondaryWeapon]] [[handgunWeapon]] [[weaponAccessories]] [[weaponAccessoriesCargo]] [[addWeaponWithAttachmentsCargoGlobal]]
+}}

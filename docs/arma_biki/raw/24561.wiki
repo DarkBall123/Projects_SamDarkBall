@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Math
+
+|descr= Return value1 raised to the power of value2. Identical to [[a ^ b]]. {{Feature|important|Use [[a ^ b]] as it is 5 times faster.}}
+<!--
+|alias= [[a ^ b]]
+-->
+|s1= [value1, value2] call [[BIS_fnc_pow]]
+
+|p1= value1: [[Number]]
+
+|p2= value2: [[Number]]
+
+|r1= [[Number]] - ''value1'' raised to the power of ''value2''
+
+|x1= <sqf>[2, 10] call BIS_fnc_pow; // returns 2^10 = 1024</sqf>
+
+|seealso= [[Operators]] [[:Category:Command Group: Math|Math Commands group]] [[a ^ b]]
+}}

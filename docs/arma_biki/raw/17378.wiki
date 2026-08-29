@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.50
+
+|gr1= Object Manipulation
+
+|descr= Returns object type as a number:
+* 1 - Primary - Normal object placed in Visitor, part of landscape
+* 2 - Network - Road placed in Visitor, part of landscape
+* 4 - Temporary - Temporary object (like tracks)
+* 8 - TypeVehicle - Some entity added by game
+* 16 - TypeTempVehicle - Temporary entity
+* 32 - LandDecal - Land decal
+
+|s1= [[getObjectType]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Number]] - object type
+
+|x1= <sqf>_objType = getObjectType player;</sqf>
+|x2= <sqf>_objType = getObjectType cursorObject;</sqf>
+
+|seealso= [[allObjects]] [[getObjectFOV]] [[cursorObject]] [[cursorTarget]] [[createSimpleObject]] [[allMissionObjects]] [[setObjectViewDistance]] [[getObjectViewDistance]] [[objectParent]] [[object]]
+}}

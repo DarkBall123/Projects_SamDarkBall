@@ -1,0 +1,771 @@
+== Introduction ==
+'''''cfgAmmo''''', '''''cfgMagazines''''', '''''cfgWeapons''''' and '''''cfgVehicles''''' are root classes defined in the engine's {{hl|config.bin}}.
+
+These classes can be subsequently added to by addons.
+
+''cfgAmmo'' defines the missile or projectile characteristics for ammunition held in a ''cfgMagazine'' which, in turn, is used by a ''cfgWeapon'', which, in turn, is selected for use in a (series of) ''cfgVehicles'' or added as a portable weapon for a soldier.
+
+The same ammunition can be used by multiple magazines, and the same magazine can be used by multiple weapons. Generally, the same ammunition and the same magazine are used where possible, for consistency amongst weapons and to allow tweaks and changes to any single ''cfgAmmo'' to propagate naturally through all sources that use it.
+
+'''Note''' that engines accept ''integer'' values where a ''float'' would normally be expected.
+
+=== OFP Legacy Behaviour ===
+All ''[[Real Virtuality]]'' games since ''Arma'' use the root class ''cfgMagazines''. In contrast, ''OFP/Arma: Cold War Assault'' relies on constructs within its ''cfgWeapons'' class to distinguish between weapon and magazine parameters.
+
+The ''cfgAmmo'' class is similar across every game engine, and aside from incremental additions of tokens with new game versions, the overall structure has not changed significantly.
+
+=== Modifications ===
+<syntaxhighlight lang="cpp">
+access = 1;
+</syntaxhighlight>
+
+# Ammunition classes can be added.
+# Existing classes can (sometimes) be altered.
+
+The default ''class'' for ''cfgAmmo'' specifies {{hl|c= access = 3;}} - Almost all subsequent classes inherit this value, which means they cannot be altered in any way.
+
+To allow YOUR addon to subsequently modify YOUR ammunition (should you wish other addons to do so), you '''must''' change the {{hl|c= access=}} in YOUR ammunition.
+
+=== CamShake ===
+New to ''{{GameCategory|arma3|link= y}}'' is the ability to introduce ''camera shake'' to the firing of weapons by including subclasses within each ''cfgAmmo'' definition. In all cases, ''CamShake'' only affects players (as obviously, ''AI'' have no screens to shake).
+
+:'''CamShakeFire''' applies to anyone within the specified ''distance'' of the shooter.
+:'''CamShakePlayerFire''' applies to the shooter directly, instead of the proximity effect.
+:'''CamShakeHit''' applies to anyone struck by or within the area of effect ([[#indirectHit|indirectHitRange]]) of the projectile. Parameters are the same as the ''[[addCamShake]]'' command.
+
+Example:
+
+<syntaxhighlight lang="cpp">
+class myAmmo : BulletCore
+{
+	class CamShakeFire
+	{
+		power = 30;
+		duration = 0.5;
+		frequency = 20;
+		distance = 30;
+	};
+	class CamShakePlayerFire
+	{
+		power = 0.06;
+		duration = 0.1;
+		frequency = 20;
+	};
+	class CamShakeHit
+	{
+		power = 100;
+		duration = 1;
+		frequency = 20;
+	};
+}
+</syntaxhighlight>
+
+== Alphabetical Order ==
+=== A ===
+{{ArgTitle|4|affectedByWind|{{GVI|arma3|2.04}}}}
+;Type: [[TokenNameValueTypes#Boolean|Boolean]]
+;Description: For flares. Default {{hl|false}}. If set to {{hl|true}}, the flare will be carried away by the wind instead of falling down in a straight line.
+
+==== aiAmmoUsageFlags ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Tells the AI how to use this Ammo. NOTE: Feature still WIP, some functions may not work yet or be removed later. See: {{Link|link= http://forums.bistudio.com/showthread.php?159711-Development-Branch-Captain-s-AI-Log&p=2945231&viewfull=1#post2945231|text= AI Devbranch}}
+
+{| class="wikitable"
+! Value        !! Type !! Description
+|-
+| {{hl|0}}  || None || ???
+|-
+| {{hl|1}}  || Light || used for illumination
+|-
+| {{hl|2}}  || Marking || ???
+|-
+| {{hl|4}}  || Concealment || used for smokes
+|-
+| {{hl|8}} || CounterMeasures || ???
+|-
+| {{hl|16}} || Mine || ???
+|-
+| {{hl|32}} || Underwater || used in underwater environment
+|-
+| {{hl|64}} || OffensiveInf || against infantry
+|-
+| {{hl|128}} || OffensiveVeh || against vehicles
+|-
+| {{hl|256}} || OffensiveAir || against air
+|-
+| {{hl|512}} || OffensiveArmour || against armored vehicles
+|-
+| {{hl|1024}} || OffensiveArtillery || against artillery
+|}
+
+Multiple flags can be combined by adding the values together
+
+<syntaxhighlight lang="cpp">
+aiAmmoUsageFlags = 4; //for concealment only
+aiAmmoUsageFlags = "64 + 128"; //against infantry and light vehicles
+</syntaxhighlight>
+
+{{ArgTitle|4|aiAmmoUsageFlagsStrict|{{GVI|arma3|2.22}}}}
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: 'aiAmmoUsageFlags' appears to be only a suggestion, AI will collect penalty points for shooting at targets not specified in UsageFlags, but will not stop shooting. The only exception is 'OffensiveInf', which if not defined, stops AI using ammo on infantry. 'aiAmmoUsageFlagsStrict' enforces all the flags, and if set, AI will not shoot at targets not defined by flags.
+
+<syntaxhighlight lang="cpp">
+aiAmmoUsageFlagsStrict = 1; //strict mode, default 0
+</syntaxhighlight>
+
+==== airFriction ====
+;Type:[[TokenNameValueTypes#Floats|Float]]
+;Description: How much the air friction slows down the projectile (applies to the {{hl|Y}} component of [[velocityModelSpace|model-space velocity]]). Tiny negative values for bullets and bigger positive values for self-propelled missiles and rockets.
+:If the ammo class has artilleryLock = 1 set, the config value for airfriction gets ignored and airfriction=0 is assumed ingame.
+:airFriction is calculated differently for bullets and for missiles or rockets.
+:For bullets use this formula:
+:{{hl|c= f = a / v<sup>2</sup>}}
+:For self-propelled rockets and missiles use this one:
+:{{hl|c= f * -0.002  = a / v<sup>2</sup>}}{{Link|https://forums.bistudio.com/forums/topic/189449-solved-simulate-rocket-flight-airfriction-correction-thrust-in-cfgammo-is-equal-to-acceleration/?do{{=}}findComment&comment{{=}}3002852|link}}
+:f - airFriction
+:a - acceleration
+:v - velocity
+
+==== airLock ====
+;Type: [[TokenNameValueTypes#Boolean|Boolean]]
+;Description: Declares if ammo can lock on air targets. Also makes ''AI'' to decide whether to engage air units with the particular ammo.
+
+==== allowAgainstInfantry ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Default {{hl|1}}. If {{hl|0}}, the ''AI'' will not (deliberately) employ this weapon against infantry targets. Used to override ''[[#cost|cost]]'' behaviour.
+
+==== animated ====
+
+==== audibleFire ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: How much can ''AI'' hear when given weapon is fired.
+
+<syntaxhighlight lang="cpp">
+audibleFire = 5.0;
+</syntaxhighlight>
+
+==== autoSeekTarget ====
+;Description: Self-guided projectiles? Used in ''anti-tank'' artillery shells.
+
+=== B ===
+==== brightness ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: The intensity of the light source. Used in ''illuminating flares''.
+
+<syntaxhighlight lang="cpp">
+brightness = 2;
+</syntaxhighlight>
+
+=== C ===
+==== caliber ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Acts as penetration multiplier for the projectile. 
+;Penetration depth in mm: velocity[m/s] * caliber * penetrability / 1000. Penetrability is a material property (for RHA steel it is 15, for concrete 80, for meat 250).
+<syntaxhighlight lang="cpp">
+caliber = 1.5;
+</syntaxhighlight>
+
+==== canLock ====
+This config parameter does not exist for ''CfgAmmo'' in Arma 3 (only for ''CfgWeapons''). 
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Declares if ammo is able to lock (necessary for ''airLock'', ''irLock'' and ''laserLock''). 
+;Possible values: {{hl|0}} = false, {{hl|1}} = cadet mode only, and {{hl|2}} = always.
+<syntaxhighlight lang="cpp">
+canLock = 0;
+</syntaxhighlight>
+
+==== cartridge ====
+; Type: [[TokenNameValueTypes#Strings|String]]
+; Description: Points to a {{hl|CfgVehicles}} classname of which the model is used as ejected cartridge onn each shot. The model:
+:* Must have a geometry lod with mass assigned
+:* Must be facing right compared to the gun muzzle's orientation
+
+<syntaxhighlight lang="cpp">
+cartridge = "FxCartridge";
+</syntaxhighlight>
+
+==== cmImmunity ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Specifies a missile's resistance to countermeasures (such as ''chaff'' and ''flares'').
+;Possible range: {{hl|0.0}} to {{hl|1.0}}
+
+<syntaxhighlight lang="cpp">
+cmImmunity = 0.9;
+</syntaxhighlight>
+
+==== coefGravity ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Undocumented feature. Multiplier for gravity influence (0 = no gravity, 0.5 = half gravity). Unknown if it works for all simulation classes.
+
+<syntaxhighlight lang="cpp">
+coefGravity = 1.0; //default value
+</syntaxhighlight>
+
+==== cost ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: ''Cost-gain'' evaluation is performed to choose an appropriate weapon.
+:''Gain'' includes self-preservation.
+:''Cost'' includes time required to complete the attack.
+As a result, weapons with ''high cost'' are unlikely to be used against common targets, esp. when ''low cost'' weapons are available. Still, there may be situation where ''AI'' may decide to use high cost weapon, esp. when it thinks it has little chance of survival and needs to attempt destroying enemy quickly.
+
+<syntaxhighlight lang="cpp">
+cost = 5000;
+</syntaxhighlight>
+
+==== CraterEffects ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: Declares which crater effect to spawn on ''hit on ground''.
+;Possible values: {{hl|BombCrater}}, {{hl|ExploAmmoCrater}}, {{hl|GrenadeCrater}}, {{hl|ImpactEffectsBig}}, {{hl|MissileCrater}}, and {{hl|ShellCrater}}.
+
+<syntaxhighlight lang="cpp">
+CraterEffects = "ExploAmmoCrater";
+</syntaxhighlight>
+
+=== D ===
+==== dangerRadiusBulletClose ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Defines how far in meters the AI gets alerted by the bullet's pass. Default value -1 disables the detection. (works only for bullets, no other projectiles).
+
+<syntaxhighlight lang="cpp">
+deflecting = -1;
+</syntaxhighlight>
+
+==== dangerRadiusHit ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Defines how far in meters the AI gets alerted by the projectile's impact or explosion. Default value -1 makes this distance be automatically derived from the hit and indirectHit properties (hit * 0.5 + indirectHit * indirectHitRange * 0.5 - but there's also an energy factor).
+
+<syntaxhighlight lang="cpp">
+deflecting = -1;
+</syntaxhighlight>
+
+==== deflecting ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Declares if ammo is deflecting and thus its deflection angle.
+
+<syntaxhighlight lang="cpp">
+deflecting = 10;
+</syntaxhighlight>
+
+==== deflectionSlowDown ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Modifier applied to projectile velocity after a deflection occurred.
+
+<syntaxhighlight lang="cpp">
+deflectionSlowDown=1.0;
+</syntaxhighlight>
+
+==== deflectionDirDistribution ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Parameter for deflection direction randomization
+
+<syntaxhighlight lang="cpp">
+deflectionDirDistribution=0.5;
+</syntaxhighlight>
+
+
+=== E ===
+==== effectsFire ====
+
+==== effectsMissile ====
+
+==== effectsSmoke ====
+
+==== explosionEffects ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: Declares which explosion effect to spawn on ''hit''.
+;Possible values: {{hl|BombExplosion}}, {{hl|ExploAmmoExplosion}}, {{hl|ExplosionEffects}}, and {{hl|GrenadeExplosion}}.
+
+==== explosionTime ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Declares after how many seconds ammo will explode (''e.g.'' used on ''timed hand grenades''). If set to -1, grenade will act as impact grenade.
+
+<syntaxhighlight lang="cpp">
+explosionTime = 5;
+</syntaxhighlight>
+
+==== explosive ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Declares if ammo is explosive, and if it is, how much of the damage is done using explosion. The rest is assumed to be caused by kinetic impact.
+:{{hl|1}} means fully explosive, {{hl|0}} means fully kinetic.
+
+=== F ===
+==== flareAirFriction ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Controls the descent rate of flares as though they are suspended by parachute. Default {{hl|-0.5}}.
+<syntaxhighlight lang="cpp">
+flareAirFriction = 0; // Flare in free fall.
+</syntaxhighlight>
+
+==== fuseDistance ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: The ''minimum'' distance any ''explosive projectile'' has to travel, before it becomes ''armed'' and thus explodes on impact.
+
+Missiles hitting short of the given range still visually explode, causing no damage or shockwave effects.
+
+Grenades will stick into the ground for ''x'' amount of time and then disappear causing no damage, or (in case {{hl|c= ''explosionTime=''}} is set) explode after ''x'' seconds, causing damage.
+
+=== H ===
+==== hit ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Damage on hit. In OFP total damage is calculated as: {{hl|c= ''Total damage'' = ''Hit damage'' - ''Indirect damage''}} (while hit value is larger than ''indirectHit''). Note that in Arma 3 damage calculation is different. For bullets with caliber=0 the standard damage is dealt. For bullets with caliber > 0 only a fraction of the "hit" value is dealt when the bullet completely penetrates the firegeometry. The damage behaviour in this case is nonlinear (depending on firegeometry thickness) and currently not possible to predict.
+
+<syntaxhighlight lang="cpp">
+hit = 8;
+</syntaxhighlight>
+
+==== HitEffects ====
+<syntaxhighlight lang="cpp">
+class HitEffects
+{
+	vehicle = "ImpactMetal";
+	object = "ImpactConcrete";
+};
+</syntaxhighlight>
+
+==== hit...[] ====
+;Description: The list of sound effects, themselves defined as [[#sound....5B.5D|sound...[]]] arrays, to play whenever the specified events occur, with the loudness or intensity of the sound following.
+
+All array values are defaulted to:
+
+<syntaxhighlight lang="cpp">
+hitBuilding[] = {"soundHit", 1};
+</syntaxhighlight>
+
+Example:
+
+<syntaxhighlight lang="cpp">
+hitGroundSoft[] = {
+	"soundGroundSoft1", 0.2,
+	"soundGroundSoft2", 0.2,
+	"soundGroundSoft3", 0.1,
+	"soundGroundSoft4", 0.1,
+	"soundGroundSoft5", 0.1,
+	"soundGroundSoft6", 0.1,
+	"soundGroundSoft7", 0.1,
+	"soundGroundSoft8", 0.1
+};
+</syntaxhighlight>
+
+===== hitArmor[] =====
+
+===== hitBuilding[] =====
+
+===== hitConcrete[] =====
+
+===== hitDefault[] =====
+
+===== hitFoliage[] =====
+
+===== hitGlass[] =====
+
+===== hitGlassArmored[] =====
+
+===== hitGround[] =====
+;Description: OFP (only)
+
+===== hitGroundHard[] =====
+
+===== hitGroundSoft[] =====
+
+===== hitIron[] =====
+
+===== hitMan[] =====
+
+===== hitMetal[] =====
+
+===== hitMetalplate[] =====
+
+===== hitPlastic[] =====
+
+===== hitRubber[] =====
+
+===== hitWater[] =====
+
+===== hitWood[] =====
+
+=== I ===
+==== indirectHit ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Damage in ''indirectHitRange''.
+
+<syntaxhighlight lang="cpp">
+indirectHit = 8;
+</syntaxhighlight>
+
+==== indirectHitRange ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Radius in metres where ''indirectHit'' damage is caused. See [[Arma_3_Damage_Description#IndirectHit|Arma 3 Damage Description]] fore detailed description.
+
+<syntaxhighlight lang="cpp">
+indirectHitRange = 75;
+</syntaxhighlight>
+
+==== initTime ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: How long (in seconds) the projectile waits before starting it is ''motor''.
+
+<syntaxhighlight lang="cpp">
+initTime = 0.2;
+</syntaxhighlight>
+
+==== irLock ====
+;Type: [[TokenNameValueTypes#Boolean|Boolean]]
+;Description: Declares if ammo can lock on ''IR-targets''.
+
+=== L ===
+==== laserLock ====
+;Type: [[TokenNameValueTypes#Boolean|Boolean]]
+;Description: Declares if ammo can lock on ''laser designator''.
+
+==== lightColor[] ====
+;Type: [[TokenNameValueTypes#Arrays|Array]]
+;Description: Declares color of light (''e.g.'' on ''flares'').
+
+<syntaxhighlight lang="cpp">
+lightColor[] = {1, 1, 1, 0};
+</syntaxhighlight>
+
+=== M ===
+==== maneuvrability ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Declares maneuvrability of guided missiles.
+
+Higher values than {{hl|30-33}} cause ''the missile'' (when locked on) to spin wildly and rarely hit the target.
+
+Tweaking ''sideAirFriction'' and ''simulationStep'' makes the missile track and hit it is target, but (especially in ''multiplayer'') from other player's ''POV'' the missile will spin out of control, whilst from the shooters own ''POV'', it will still fly straight and hit it is target.
+
+<syntaxhighlight lang="cpp">
+manueuvrability = 30;
+</syntaxhighlight>
+
+==== manualControl ====
+;Type: [[TokenNameValueTypes#Boolean|Boolean]]
+;Description: If {{hl|1}}, causes the projectile to be guided towards the firer's crosshairs.
+
+See: {{Link|https://en.wikipedia.org/wiki/SACLOS|SACLOS guidance behaviour}}, such as for ''TOW'' missiles.
+
+<syntaxhighlight lang="cpp">
+manualControl = 0;
+</syntaxhighlight>
+
+==== maxControlRange ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Declares in which distance to player ammo can be controlled during flight.
+
+Using this on handheld ''launchers'' causes the ''missile'' to ''time-out'' after approximately 1.5km, loosing all control of the warhead, which causes the missile to spin around/take off in random directions (until it self-destructs - ''timeToLive''), making higher values useless.
+
+Using this on any ''vehicle mounted launchers'' (like the ''TOW'', ''Hellfire'' or ''Maverick'') allows the warhead to track '''and''' turn to follow it is target even if said target is behind the player's vehicle (and possibly ''AI-controlled'' ones too), which requires a high ''manueuvrability'' value on the missile.
+
+That way, one can simply lock on, then pass the locked ''target'' and shoot a missile, which will follow the target even without direct line of sight.
+
+'''Note''' that The missile follows the target regardless of ''obstacles'', ''init-time'' or ''initspeed'', meaning the missile might crash into the ground, especially at lower heights.
+
+<syntaxhighlight lang="cpp">
+maxControlRange = 5000;
+</syntaxhighlight>
+
+==== maxSpeed ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Declares the maximum speed (metres per second).
+
+<syntaxhighlight lang="cpp">
+maxSpeed = 241;
+</syntaxhighlight>
+
+==== model ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: Declares path to model. For simulation="shotShell" the model gets displayed, but only up to a limit of somewhere between 390 and 450 m/s initspeed. Unknown if other simulationclasses behave different. The model does not get displayed when tracers are created [via the cfgmagazine token tracersevery=<number>; ]. Models for tracers get hardcode-deformed and scaled based on speed and ammo hit strength.
+
+<syntaxhighlight lang="cpp">
+model = "\ca\weapons\bullet[.p3d]"
+</syntaxhighlight>
+
+==== min/mid/maxRange... ====
+;Description: These tokens are present in {{Name|ofp|short}} only. They were badly classed in {{Name|ofp|short}}, causing all weapons using this specific ''bullet'' to exhibit this behaviour rather than the behaviour of the ''rifle''. As such they were transferred to Arma's ''cfgWeapons''{{Clarify}}.
+
+'''Above statement is not true'''; Even in {{Name|arma2|short}} and {{Name|arma2oa|short}}, these values still exist and affect the ''AI'' '''and only the AI''' in the following ways:
+:The tokens are found/put on each weapons "''firing modes''", or on the gun itself, if it has no separate firing modes{{Clarify}}.
+
+===== mineTrigger =====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: is a in [[CfgMineTriggers_Config_Reference|CfgMineTriggers]] defined class
+
+===== minRange =====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: ''Minimum'' engagement range for the ''AI''.
+
+Below given values, the ''AI'' '''will not''' engage but just "''stare them down''", even if they get shot at, and (most likely) killed.
+
+<syntaxhighlight lang="cpp">
+Minrange = 5;
+</syntaxhighlight>
+
+===== minRangeProbab =====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: ''Probability'' declaring how '''''high''''' the chance is that the ''AI'' will engage a target at ''minRange'' using ''this (current)'' firing mode.
+
+Values are {{hl|0.0}} to {{hl|1.0}} where {{hl|1.0}} equates to a ''100% likelihood''.
+
+<syntaxhighlight lang="cpp">
+minRangeProbab = 0.02;
+</syntaxhighlight>
+
+===== midRange =====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: ''Mid-Range'' engagement range for ''AI'''s using ''this (current)'' firing mode.
+
+<syntaxhighlight lang="cpp">
+midRange = 150;
+</syntaxhighlight>
+
+===== midRangeProbab =====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: ''Probability'' declaring how '''''high''''' the chance is that the ''AI'' will engage a target at ''midRange''.
+
+Values are {{hl|0.0}} to {{hl|1.0}} where {{hl|1.0}} equates to a ''100% likelihood''.
+
+<syntaxhighlight lang="cpp">
+midRangeProbab = 0.7;
+</syntaxhighlight>
+
+===== maxRange =====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: ''Maximum'' range possible for the ''AI''.
+
+Although ''AI's'' '''may''' engage targets slightly beyond ''maxRange'', this is how far the ''AI'' will try to shoot at targets. Targets definitely beyond ''maxRange'' are ignored.
+
+<syntaxhighlight lang="cpp">
+maxRange = 500;
+</syntaxhighlight>
+
+===== maxRangeProbab =====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: ''Probability'' declaring how '''''high''''' the chance is that the ''AI'' will engage a target at ''maxRange'' (or slightly below).
+
+Values are {{hl|0.0}} to {{hl|1.0}} where {{hl|1.0}} equates to a ''100% likelihood''.
+
+<syntaxhighlight lang="cpp">
+maxRangeProbab = 0.51;
+</syntaxhighlight>
+
+=== P ===
+==== proxyShape ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: Declares the model of ''this weapon'' used in ''proxies'' on ''vehicles''. Note that ''proxies'' can be used '''only''' with air units.
+
+<syntaxhighlight lang="cpp">
+proxyShape = "\ca\air\sidewinder_proxy";
+</syntaxhighlight>
+
+==== penetrationDirDistribution ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: Parameter for penetration direction randomization
+
+<syntaxhighlight lang="cpp">
+penetrationDirDistribution = 0.25;
+</syntaxhighlight>
+
+=== S ===
+==== shootDistraction ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: below 0 means it decreases dynamic error (DCE) which each shot, above 0 increases DCE which each shot, if the parameter is -1, the value will be calculated as 0.01 * (audibleFire^2 + visibleFire^2)
+
+<syntaxhighlight lang="cpp">
+shootDistraction = 1.0;
+</syntaxhighlight>
+
+==== sideAirFriction ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Adjusts the drag of a projectile (applies to the {{hl|X}} and {{hl|Z}} components of [[velocityModelSpace|model-space velocity]]). Lower values decrease drag, higher values increase drag.
+
+When used with ''guided projectiles'', ''higher values'' make it easier for the projectile to turn, while ''lower values'' make it more difficult to turn.
+
+<syntaxhighlight lang="cpp">
+sideAirFriction = 0.5;
+</syntaxhighlight>
+
+==== simulation ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+;Description: Declares simulation type.
+
+Also affects the behaviour ''the projectile'' causes to the ''shooter/object hit'';
+:Changing "''shotShell''" to "''shotBullet''" makes a tank shell pass through more trees rather than being stopped by them, and also removes the recoil which usually affects the tank/vehicle the cannon is mounted to.
+:Changing "''shotBullet''" to "''shotSpread''" (OA only) causes the changed ammo to behave like it is buckshot (again, OA only).
+
+;Possible values: Refer to ''[[Models & Classnames: Simulation Types]]'' for a list of all supported simulation types.
+
+<syntaxhighlight lang="cpp">
+simulation = "shotShell";
+</syntaxhighlight>
+
+==== simulationStep ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+
+==== shadow ====
+
+==== sound...[] ====
+
+===== soundFly[] =====
+Especially cool for missiles - sound that the projectile makes while it is in flight
+===== soundEngine[] =====
+Sound gets played while the rocket engine is running
+===== soundHit[] =====
+
+==== supersonicCrackNear[] ====
+;Type: [[TokenNameValueTypes#Arrays|Array]]
+;Description: Declares sound and volume of the ''supersonic crack'' ('''near the player'''). Supersonic crack will only occur if ammo is flying with supersonic speed.
+
+<syntaxhighlight lang="cpp">
+supersonicCrackNear[] = {"\ca\Weapons\Data\Sound\supersonic_crack_close.wss", 1, 1};
+</syntaxhighlight>
+
+==== supersonicCrackFar[] ====
+;Type: [[TokenNameValueTypes#Arrays|Array]]
+;Description: Declares sound and volume of the supersonic crack ('''far'''). Supersonic crack will only occur if ammo is flying with supersonic speed.
+
+<syntaxhighlight lang="cpp">
+supersonicCrackFar[] = {"\ca\Weapons\Data\Sound\supersonic_crack_50meters.wss", 1, 1};
+</syntaxhighlight>
+
+==== suppressionRadiusBulletClose ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Defines the max. distance in meters at which the AI becomes suppressed by the bullet's pass. Default value -1 disables the suppressive effect (works only for bullets, no other projectiles).
+
+<syntaxhighlight lang="cpp">
+suppressionRadiusBulletClose = -1;
+</syntaxhighlight>
+
+==== suppressionRadiusHit ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Defines the max. distance in meters  at which the AI becomes suppressed by the projectile's impact or explosion. Default value -1 disables the suppressive effect.
+
+<syntaxhighlight lang="cpp">
+suppressionRadiusHit = -1;
+</syntaxhighlight>
+
+=== T ===
+==== thrust ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Engine power for ''missiles'' and ''rockets''. Thrust is acceleration in m/s². Thrust is at 100% for the first 75% of thrustTime. Then it linearly drops.</br>
+In other words: {{hl|thrust * (1 min (remainingThrustTime * 4 / thrustTime))}}, where {{hl|remainingThrustTime}} is initially the same as {{hl|thrustTime}} but it keeps decreasing with simulation (once it reaches zero, the projectile enters free flight mode)
+{{Link|https://forums.bistudio.com/forums/topic/189449-solved-simulate-rocket-flight-airfriction-correction-thrust-in-cfgammo-is-equal-to-acceleration/?do{{=}}findComment&comment{{=}}3001914|link}}
+
+==== thrustTime ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Engine burn time for ''missiles'' and ''rockets''. See [[#thrust|thrust]].
+
+<syntaxhighlight lang="cpp">
+thrustTime = 0.200000;
+</syntaxhighlight>
+
+==== timeToLive ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Time before the ammo ''vanishes'', used as optimization to avoid having to simulate stray bullets.
+
+'''Note''' that this parameter has no effect in OFP where ''timeToLive'' is predefined by simulation.
+
+<syntaxhighlight lang="cpp">
+timeToLive = 4;
+</syntaxhighlight>
+
+==== tracerColor[] ====
+;Type: [[TokenNameValueTypes#Arrays|Array]]
+;Description: Declares ''tracer colour'' with "''easy''" settings (tracers enabled), format is {{hl|{Red, Green, Blue, Transparency}}}.
+
+==== tracerColorR[] ====
+;Type: [[TokenNameValueTypes#Arrays|Array]]
+;Description: Declares ''tracer colour'' with "''realistic''" settings (tracers disabled), format is {{hl|{Red, Green, Blue, Transparency}}}.
+
+==== trackLead ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: The amount of ''lead''{{Clarify}} a guided weapon will use when tracking a target.
+
+==== trackOversteer ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: The factor at which a guided weapon will ''steer'' to meet ''trackLead''{{Clarify}}.
+
+==== triggerTime ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: Used in ''illumination flares''. The time in seconds before the projectile ''begins emitting'' light.
+
+==== typicalSpeed ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: Hit value is valid when projectile moves at ''this speed''. With lower speed, the hit caused by ''the ammo'' is lower as well.
+
+=== V ===
+==== visibleFire ====
+;Type: [[TokenNameValueTypes#Floats|Float]]
+;Description: How much does ''AI'' see a unit firing this weapon.
+
+<syntaxhighlight lang="cpp">
+visibleFire = 18;
+</syntaxhighlight>
+
+==== visibleFireTime ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: How long is one shot assumed to be noticeable by the ''AI''.
+
+Values under {{hl|5}} should be avoided, as ''AI'' can perform in cycles with 5s of no testing in between.
+
+<syntaxhighlight lang="cpp">
+visibleFireTime = 18;
+</syntaxhighlight>
+
+=== W ===
+==== weaponLockSystem ====
+;Type: [[TokenNameValueTypes#Integers|Integer]] or [[TokenNameValueTypes#Strings|String]]
+;Description: For ''countermeasures'', this defines the types of enemy countermeasures that it is effective against.
+
+For weapons, declares the type of ''guidance system'' that ''the projectile'' uses (and if one is ''spoofed'' it can fall back on another). This can be either an integer by itself, or a string containing a mathematical expression, ''normally a sum of flags added together''.
+
+{| class="wikitable"
+! Flag        !! Guidance Type
+|-
+| {{hl|0}}  || Undetectable
+|-
+| {{hl|1}}  || Visual/Contrast
+|-
+| {{hl|2}}  || Infra-red
+|-
+| {{hl|4}}  || Laser-Guided
+|-
+| {{hl|8}}  || Radar-Guided
+|-
+| {{hl|16}} || Missile
+|}
+
+<syntaxhighlight lang="cpp">
+weaponLockSystem = 2; //infra-red guidance
+weaponLockSystem = "2 + 8"; //infra-red and radar guided
+</syntaxhighlight>
+
+==== weaponType ====
+;Type: [[TokenNameValueTypes#Strings|String]]
+
+Overrides the engine determination of weapon type based on ammo simulation, for vehicle weapon grouping.
+<syntaxhighlight lang="cpp">
+weaponType = "cannon";
+</syntaxhighlight>
+
+Definitions:
+<pre>"cannon"
+"mGun"
+"rocket"
+"missileAA"
+"missileAT"
+"missileAAAT"
+"bomb"
+"special"</pre>
+
+==== whistleDist ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: The range at which ''the projectile'' is audible when moving through the air. Used for ''mortar shells'' and ''artillery shells''. Unknown units.
+
+==== whistleOnFire ====
+;Type: [[TokenNameValueTypes#Integers|Integer]]
+;Description: If {{hl|1}}, ''the projectile'' should begin ''whistling'' immediately after launch.
+
+
+{{GameCategory|ofp|Editing}}
+{{GameCategory|arma1|Addon Configuration}}
+{{GameCategory|ofp|Reference Lists}}

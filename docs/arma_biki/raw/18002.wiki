@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Multiplayer
+
+|gr2= Diagnostic
+
+|descr= Registers new log file recording a network traffic and returns handle of the log. The log file is saved inside the {{arma3}} root folder.
+{{Feature|important|[[logNetwork]] can potentially create a large log file.}}
+
+|s1= [[logNetwork]] [logFile, filter]
+
+|p1= logFile: [[String]] - where to store the log
+
+|p2= filter: [[Array]] of [[String]]s - (Optional) ????
+
+|r1= [[Number]] - handle for the logging
+
+|x1= <sqf>_handle = logNetwork ["myLog.txt", [""]];</sqf>
+
+|seealso= [[logNetworkTerminate]]
+}}

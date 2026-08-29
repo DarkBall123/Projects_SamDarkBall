@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Ticks a camera. Updates position and view mode.
+
+|s1= [camera] call [[BIS_fnc_camera_tick]]
+
+|p1= camera: [[Object]] - the camera
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_camera] call BIS_fnc_camera_tick;</sqf>
+
+|seealso= [[BIS_fnc_camera_init]]
+}}

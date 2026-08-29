@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Briefing
+
+|descr= Sets the task marker position in model space.
+
+|s1= obj [[setTaskState]] position
+
+|p1= obj: [[Object]]
+
+|p2= position: [[Position#PositionRelative|PositionRelative]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player setTaskMarkerOffset [0,0.5,1];</sqf>
+
+|seealso= [[taskMarkerOffset]]
+}}

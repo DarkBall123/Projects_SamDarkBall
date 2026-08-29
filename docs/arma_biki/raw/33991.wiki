@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|gr1= GUI Control
+
+|descr= Get the provided display's [[Procedural Textures#UI On Texture|UI On Texture]] unique name.
+{{Feature|informative|See [[findDisplay]] to get a [[Display]] by its unique name.}}
+
+|s1= [[displayUniqueName]] display
+
+|p1= display: [[Display]]
+
+|r1= [[String]] - the unique display identifier
+
+|x1= <sqf>private _displayName = displayUniqueName _myDisplay;</sqf>
+
+|seealso= [[findDisplay]] [[displayUpdate]] {{Link|Procedural Textures#UI On Texture}}
+}}

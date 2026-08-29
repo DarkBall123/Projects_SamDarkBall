@@ -1,0 +1,18 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Start automatic loading screen upon mission start.
+On client, it will finish only when server is finished.
+
+|s1= call [[BIS_fnc_preload]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>call BIS_fnc_preload;</sqf>
+
+|seealso=
+}}

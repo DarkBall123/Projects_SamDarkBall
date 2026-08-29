@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Multiplayer
+
+|descr= Extends MP-only [[objectFromNetId]] functionality to SP
+
+|s1= netId call [[BIS_fnc_objectFromNetId]]
+
+|p1= netId: [[String]]
+
+|r1= [[Object]] - existing object or [[objNull]]
+
+|x1= <sqf>private _obj = "0:2" call BIS_fnc_objectFromNetId;</sqf>
+
+|seealso= [[netId]] [[objectFromNetId]] [[groupFromNetId]] [[BIS_fnc_netId]] [[BIS_fnc_groupFromNetId]]
+}}

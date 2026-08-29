@@ -1,0 +1,379 @@
+== Faces ==
+
+=== Male faces ===
+
+{| class="wikitable sortable mw-collapsible mw-collapsed align-center-col-3"
+! Class
+! Name
+! Preview
+<!-- EXPORT START ----------------------------------------------------------->
+|-
+| Face1
+| Peter P.
+| [[File:Face_A0_Face1.jpg|100px]]
+
+|-
+| Face2
+| Victor B.
+| [[File:Face_A0_Face2.jpg|100px]]
+
+|-
+| Face3
+| Bohous
+| [[File:Face_A0_Face3.jpg|100px]]
+
+|-
+| Face4
+| Mirek
+| [[File:Face_A0_Face4.jpg|100px]]
+
+|-
+| Face5
+| Peter S.
+| [[File:Face_A0_Face5.jpg|100px]]
+
+|-
+| Face6
+| Charles
+| [[File:Face_A0_Face6.jpg|100px]]
+
+|-
+| Face7
+| Peter V.
+| [[File:Face_A0_Face7.jpg|100px]]
+
+|-
+| Face8
+| Richard B.
+| [[File:Face_A0_Face8.jpg|100px]]
+
+|-
+| Face9
+| Charles M.
+| [[File:Face_A0_Face9.jpg|100px]]
+
+|-
+| Face10
+| Ian O'Hara
+| [[File:Face_A0_Face10.jpg|100px]]
+
+|-
+| Face11
+| Vojta N.
+| [[File:Face_A0_Face11.jpg|100px]]
+
+|-
+| Face12
+| Adam B.
+| [[File:Face_A0_Face12.jpg|100px]]
+
+|-
+| Face13
+| Peter B.
+| [[File:Face_A0_Face13.jpg|100px]]
+
+|-
+| Face14
+| Francesco F.
+| [[File:Face_A0_Face14.jpg|100px]]
+
+|-
+| Face15
+| Bill O.
+| [[File:Face_A0_Face15.jpg|100px]]
+
+|-
+| Face16
+| Colin F.
+| [[File:Face_A0_Face16.jpg|100px]]
+
+|-
+| Face17
+| Darren I.
+| [[File:Face_A0_Face17.jpg|100px]]
+
+|-
+| Face18
+| Eric J.
+| [[File:Face_A0_Face18.jpg|100px]]
+
+|-
+| Face19
+| Phill D.
+| [[File:Face_A0_Face19.jpg|100px]]
+
+|-
+| Face20
+| Graham U.
+| [[File:Face_A0_Face20.jpg|100px]]
+
+|-
+| Face21
+| Henry G.
+| [[File:Face_A0_Face21.jpg|100px]]
+
+|-
+| Face22
+| Ivan B.
+| [[File:Face_A0_Face22.jpg|100px]]
+
+|-
+| Face23
+| Ghulam K.
+| [[File:Face_A0_Face23.jpg|100px]]
+
+|-
+| Face24
+| Kevin B.
+| [[File:Face_A0_Face24.jpg|100px]]
+
+|-
+| Face25
+| Robert
+| [[File:Face_A0_Face25.jpg|100px]]
+
+|-
+| Face26
+| Martin
+| [[File:Face_A0_Face26.jpg|100px]]
+
+|-
+| Face27
+| John A.
+| [[File:Face_A0_Face27.jpg|100px]]
+
+|-
+| Face28
+| Bill G.
+| [[File:Face_A0_Face28.jpg|100px]]
+
+|-
+| Face29
+| Peter O.
+| [[File:Face_A0_Face29.jpg|100px]]
+
+|-
+| Face30
+| Henry H.
+| [[File:Face_A0_Face30.jpg|100px]]
+
+|-
+| Face31
+| William G.
+| [[File:Face_A0_Face31.jpg|100px]]
+
+|-
+| Face32
+| Arnold T.
+| [[File:Face_A0_Face32.jpg|100px]]
+
+|-
+| Face33
+| Michael H.
+| [[File:Face_A0_Face33.jpg|100px]]
+
+|-
+| Face34
+| John Fox.
+| [[File:Face_A0_Face34.jpg|100px]]
+
+|-
+| Face35
+| George McArthur
+| [[File:Face_A0_Face35.jpg|100px]]
+
+|-
+| Face36
+| Peter Sun
+| [[File:Face_A0_Face36.jpg|100px]]
+
+|-
+| Face37
+| Robert S.
+| [[File:Face_A0_Face37.jpg|100px]]
+
+|-
+| Face38
+| John Way
+| [[File:Face_A0_Face38.jpg|100px]]
+
+|-
+| Face39
+| Jack C.
+| [[File:Face_A0_Face39.jpg|100px]]
+
+|-
+| Face40
+| J. C.
+| [[File:Face_A0_Face40.jpg|100px]]
+
+|-
+| Face41
+| Mel D.
+| [[File:Face_A0_Face41.jpg|100px]]
+
+|-
+| Face42
+| John Paul
+| [[File:Face_A0_Face42.jpg|100px]]
+
+|-
+| Face43
+| Jirka M.
+| [[File:Face_A0_Face43.jpg|100px]]
+
+|-
+| Face44
+| Honza K.
+| [[File:Face_A0_Face44.jpg|100px]]
+
+|-
+| Face45
+| John A.
+| [[File:Face_A0_Face45.jpg|100px]]
+
+|-
+| Face46
+| Ondrey N.
+| [[File:Face_A0_Face46.jpg|100px]]
+
+|-
+| Face47
+| Ondrey S.
+| [[File:Face_A0_Face47.jpg|100px]]
+
+|-
+| Face48
+| Gabriel K.
+| [[File:Face_A0_Face48.jpg|100px]]
+
+|-
+| Face49
+| Oliver S.
+| [[File:Face_A0_Face49.jpg|100px]]
+
+|-
+| Face50
+| Radan D.
+| [[File:Face_A0_Face50.jpg|100px]]
+
+|-
+| Face51
+| George J.
+| [[File:Face_A0_Face51.jpg|100px]]
+
+|-
+| Face52
+| Ota B.
+| [[File:Face_A0_Face52.jpg|100px]]
+
+|-
+| {{GVI|ofpr|1.75|size= 0.75}} FaceR01
+| Victor T.
+| [[File:Face_A0_FaceR01.jpg|100px]]
+
+|-
+| {{GVI|ofpr|1.75|size= 0.75}} FaceR02
+| Tomas P.
+| [[File:Face_A0_FaceR02.jpg|100px]]
+
+|-
+| {{GVI|ofpr|1.75|size= 0.75}} FaceR03
+| Vlada N.
+| [[File:Face_A0_FaceR03.jpg|100px]]
+
+|-
+| {{GVI|ofpr|1.75|size= 0.75}} FaceR04
+| Fehy
+| [[File:Face_A0_FaceR04.jpg|100px]]
+|}
+
+{{ArgTitle|3|Female faces|{{GVI|ofpr|1.75}}}}
+
+{| class="wikitable sortable mw-collapsible mw-collapsed align-center-col-3"
+! Class
+! Name
+! Preview
+|-
+| Eva
+| Eva
+| [[File:Face_A0_Eva.jpg|100px]]
+
+|-
+| Kamila
+| Kamila
+| [[File:Face_A0_Kamila.jpg|100px]]
+
+|-
+| Lada
+| Lada
+| [[File:Face_A0_Lada.jpg|100px]]
+
+|-
+| Lucie
+| Lucie
+| [[File:Face_A0_Lucie.jpg|100px]]
+
+|-
+| Marketa
+| Marketa
+| [[File:Face_A0_Marketa.jpg|100px]]
+
+|-
+| Nada
+| Nada
+| [[File:Face_A0_Nada.jpg|100px]]
+
+<!-- EXPORT END ----------------------------------------------------------->
+|}
+
+
+== Glasses ==
+
+* None
+* Spectacles
+* Sunglasses
+
+
+== Speakers ==
+
+{| class="valign-top"
+| style="min-width: 20em" |
+=== {{Name|ofp}} ===
+{{Columns|2|
+* Adam
+* Dan
+* George
+* Greg
+* John
+* Jonah
+* Marc
+* Patrick
+* Paul
+* Peter
+* Rich
+* Rob
+* Ted
+* Tom
+}}
+|
+=== Red Hammer ===
+{{Columns|2|
+* Nikolai
+* Vitaliy
+* Sergey
+* Oleg
+* Ruslan
+* Aleksei
+* Andrei
+* Boris
+* Georgiy
+* Vadim
+* Vladimir
+* Ivan
+}}
+|}
+
+
+[[Category:CfgIdentities]]
+{{GameCategory|ofp|Reference Lists}}

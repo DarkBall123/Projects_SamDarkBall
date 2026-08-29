@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Environment
+
+|descr= Return waves value.
+
+|s1= '''waves'''
+
+|r1= [[Number]]
+
+|x1= <sqf>waveIntensity = waves;</sqf>
+
+|seealso= [[setWaves]]
+}}

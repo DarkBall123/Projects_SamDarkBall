@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+|arg= global
+
+|gr1= Positions
+
+|descr= Returns the object position height above water surface (waves and pond objects included).
+
+|s1= [[getPosASLW]] obj
+
+|p1= obj: [[Object]]
+
+|r1= [[Position#PositionASLW|PositionASLW]]
+
+|x1= <sqf>_pos = getPosASLW _diver;</sqf>
+
+|seealso= [[setPosASLW]] [[position]] [[getPos]] [[getPosATL]] [[getPosASL]] [[visiblePosition]] [[visiblePositionASL]]
+}}

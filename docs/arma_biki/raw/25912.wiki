@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Sound
+
+|gr2= Contact
+
+|descr= <pre>/*
+	BIS_fnc_setCustomSoundController
+
+	a: reyhard
+*/</pre>{{Wiki|placeholder}}
+
+|s1= call [[BIS_fnc_setCustomSoundController]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

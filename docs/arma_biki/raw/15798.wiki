@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Returns IDD of given display.
+
+|s1= [config, ctrlName] call [[BIS_fnc_getIDC]]
+
+|p1= config: [[Config]] - config path to display
+|p2= ctrlName: [[String]] - config name of [[Control|control]]
+
+|r1= [[Number]] - IDC, returns -1 if control was not found
+
+|x1= <sqf>private _IDC = [configFile >> "Display3DENPlace", "ButtonCancel"] call BIS_fnc_getIDC;</sqf>
+
+|seealso= [[configFile]] [[findDisplay]] [[createDisplay]] [[displayCtrl]]
+}}

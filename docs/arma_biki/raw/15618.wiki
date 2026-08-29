@@ -1,0 +1,33 @@
+{{RV|type=function
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= Variables
+
+|descr= Remove element from variable from someone's variable space.
+
+|s1= [object,varName,element,global,inArray] call [[BIS_fnc_variableSpaceRemove]]
+
+|p1= object: [[Object]] - owner of variable space
+
+|p2= varName: [[String]] - name of variable
+
+|p3= element: [[Anything]] - element which will be removed (must be of same type as variable)
+|p4= global: [[Boolean]] - (Optional, default [[false]]) [[true]] to save modified variable globally]]
+
+|r1= [[Anything]] - updated variable
+
+|x1= <sqf>[player, "someVar", 1337, true] call BIS_fnc_variableSpaceRemove;</sqf>
+
+|seealso= [[BIS_fnc_variableSpaceAdd]] [[setVariable]]
+}}

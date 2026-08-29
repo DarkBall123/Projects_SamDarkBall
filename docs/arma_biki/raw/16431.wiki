@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Sound
+
+|descr= Plays given song.
+
+|s1= [class,start,volume] call [[BIS_fnc_playMusic]]
+
+|p1= class: [[String]] - classname of song
+
+|p2= start: [[Number]] - time of start in seconds - Default: 0
+
+|p3= volume: [[Number]] - music volume from 0 to 1 - Default: [[musicVolume]]
+
+|r1= [[Boolean]] - true
+
+|x1= <sqf>["LeadTrack04_F", 10, 0.5] call BIS_fnc_playMusic; // song starts at 10 seconds with 50% volume.</sqf>
+
+|seealso= [[playMusic]] [[musicVolume]]
+}}

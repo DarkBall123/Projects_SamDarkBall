@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Effects
+
+|descr= <pre>/*Arma 2 flares, by Maddmatt
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_effectFiredFlares]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_effectFiredFlares;</sqf> -->
+
+|seealso=
+}}

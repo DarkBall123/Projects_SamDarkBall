@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Ambient
+
+|eff= local
+
+|descr= Initialize terrain-related postprocess effects.
+
+|s1= [terrain, activation] call [[BIS_fnc_ambientPostprocess]]
+
+|p1= terrain: [[String]] - (Optional, default [[worldName]]) terrain from which to take post-process effets configuration
+
+|p2= [[String]] or [[Boolean]] - (Optional, default [[true]]) post-process type to get, or [[true]] to get all of them. '''Any effect but "filmGrain"'''.
+
+|r1= [[Array]] of initialized effects with values
+
+|x1= <sqf>[] call BIS_fnc_ambientPostprocess;</sqf>
+
+|x2= <sqf>["Malden", "ColorCorrections"] call BIS_fnc_ambientPostprocess;</sqf>
+
+|seealso= [[Post Process Effects]]
+}}

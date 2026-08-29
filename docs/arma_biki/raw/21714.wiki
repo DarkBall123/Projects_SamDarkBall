@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.72
+
+|arg= global
+
+|eff= local
+
+|gr1= Sensors
+
+|descr= Enable/disable given sensor
+
+|s1= vehicle [[enableVehicleSensor]] [componentName, enabled]
+
+|p1= vehicle: [[Object]]
+
+|p2= componentName : [[String]] - the component's name (can either be its "real name" or its className)
+
+|p3= enabled: [[Boolean]] - component status
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player enableVehicleSensor ["PassiveRadarSensorComponent", false]; // disables passive radar</sqf>
+
+|seealso= [[listVehicleSensors]] [[isVehicleSensorEnabled]]
+}}

@@ -1,0 +1,42 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Weapons
+
+|descr= Returns how much vehicle wants to reload its weapons.
+
+|s1= [[needReload]] entity
+
+|p1= entity: [[Object]] - unit or vehicle
+
+|r1= [[Number]] - range: 0-1, 0: full mag, 1: empty mag
+
+|s2= entity [[needReload]] muzzle
+|s2since= arma3 2.22
+
+|p21= entity: [[Object]] - unit or vehicle
+|p22= muzzle: [[String]] - muzzle to check. "" to check all muzzles
+
+|r2= [[Number]] - range: 0-1, 0: full mag, 1: empty mag
+
+|x1= <sqf>_seriousness = needReload _vehicle;</sqf>
+
+|x2= <sqf>if (needReload player == 1) then { reload player };</sqf>
+|x3= <sqf>player needReload currentMuzzle player;</sqf>
+
+|seealso= [[needService]] [[reload]] [[reloadEnabled]] [[enableReload]]
+}}

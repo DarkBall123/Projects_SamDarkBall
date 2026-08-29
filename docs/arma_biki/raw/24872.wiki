@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Sets camera focus.
+
+|s1= [camera, focusValues] call [[BIS_fnc_camera_setFocus]]
+
+|p1= camera: [[Object]] - the camera
+
+|p2= focusValues: [[Array]] - (Optional, default [-1, -1]) focus values in format [distance, blur]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_camera, [0.5,0.5]] call BIS_fnc_camera_setFocus;</sqf>
+
+|seealso= [[BIS_fnc_camera_getFocus]]
+}}

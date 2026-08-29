@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= System
+
+|descr= Saves joysticks key mappings into the joysticks.cfg file. Engine add these joysticks to the Joystick Scheme mapping dialog in options controls section.
+
+|s1= [[saveJoysticks]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>saveJoysticks;</sqf>
+
+|seealso= [[saveProfileNamespace]]
+}}

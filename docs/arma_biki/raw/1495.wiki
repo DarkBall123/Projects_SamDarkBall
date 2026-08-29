@@ -1,0 +1,37 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= Math - Geometry
+
+|descr= Converts given value in degrees to radians. 1 radian equals 180 degrees divided by [[pi]].
+
+|s1= [[rad]] value
+
+|p1= value: [[Number]] - degrees 
+
+|r1= [[Number]] - radians
+
+|x1= <sqf>_radians = rad 180; // returns 3.1415 (pi)</sqf>
+
+|seealso= [[pi]] [[deg]]
+}}

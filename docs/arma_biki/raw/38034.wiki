@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Retrieve all attributes and their values of the specified (optional) category.
+
+|s1= entity [[get3DENAttributes]] category
+
+|p1= entity: [[Object]]
+
+|p2= category: [[String]] ("" to get all attributes, [[typeOf]] to get Object Specific attributes)
+
+|r1= [[Array]]
+
+|x1=
+
+|seealso= [[set3DENAttributes]] [[set3DENAttribute]] [[get3DENMissionAttributes]]
+}}

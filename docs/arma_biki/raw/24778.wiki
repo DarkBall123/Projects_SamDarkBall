@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|arg= local
+
+|descr= Returns group that players belong to in coop campaign scenario.
+
+|s1=
+
+|r1= [[Group]] - group the player belongs to
+
+|x1= <sqf>private _group = call BIS_fnc_EXP_camp_getPlayersGroup;</sqf>
+
+|seealso= [[group]]
+}}

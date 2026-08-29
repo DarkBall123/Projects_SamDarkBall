@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= Gets the waypoint's loiter radius.
+
+|s1= [[waypointLoiterRadius]] waypoint
+
+|p1= waypoint: [[Waypoint]]
+
+|r1= [[Number]]
+
+|x1= <sqf>_radius = waypointLoiterRadius [groupOne, 1];</sqf>
+
+|seealso= [[waypoints]] [[deleteWaypoint]] [[setWaypointCompletionRadius]] [[setWaypointPosition]] [[setWaypointTimeout]] [[setWaypointLoiterRadius]] [[addWaypoint]] [[setWaypointLoiterType]] [[currentWaypoint]]
+}}

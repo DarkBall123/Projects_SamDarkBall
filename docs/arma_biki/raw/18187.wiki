@@ -1,0 +1,5 @@
+{{GameCategory|arma3|link= y}} Server Browser Protocol
+
+[[File:WMSBPv2.png]]
+
+{{GameCategory|arma3|Multiplayer}}

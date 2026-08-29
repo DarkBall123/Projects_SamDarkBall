@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Camera Control
+
+|gr2= System
+
+|descr= Sets coef used to shift horizon position based on camera height (use 0 to disable shifting).
+
+|s1= [[setHorizonParallaxCoef]] coef
+
+|p1= coef: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setHorizonParallaxCoef 1;</sqf>
+
+|seealso=
+}}

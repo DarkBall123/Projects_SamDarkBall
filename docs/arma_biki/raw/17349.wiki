@@ -1,0 +1,21 @@
+{{Tool
+
+|AUTHOR=
+[[:Category:Projects|Bohemia Interactive]]
+
+|VERSION=
+
+|COMPATIBILITY=
+Arma 3 Only
+
+|DOWNLOAD={{Link|link= http://store.steampowered.com/app/233800/|text= Part of Arma 3 Tools package on Steam}}
+|DESCRIPTION=This tool provides an easy-to-use visual interface to all addon signature tools.<br>
+[[File:arma3tools_dslutils.jpg|350px]]
+{{Feature|important|For "Key not valid for use in specified state" errors removing the folder RSA from C:\Users<User>\AppData\Roaming\Microsoft\Crypto\RSA fixed the issue with DSUtils making working BISigns}}
+|NOTES=
+|LICENSING=[[End User License Agreement for BI's Tools|Bohemia Interactive End User License Agreement]]
+|COMMAND=DSUtils.exe
+|SEEALSO=[[DSCheckSignatures]], [[DSCreateKey]], [[DSSignFile]]
+}}
+
+{{GameCategory|arma3|Official Tools}}

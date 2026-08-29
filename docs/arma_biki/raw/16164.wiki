@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Return a task's description. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskName call [[BIS_fnc_taskDescription]]
+
+|p1= taskName: [[String]]
+
+|r1= [[Array]] - task's description in the format ["description", "title", "marker"]
+
+|x1= <sqf>"BIS_task_01" call BIS_fnc_taskDescription;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

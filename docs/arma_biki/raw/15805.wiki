@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Load newsfeed.
+
+|s1= [display] call [[BIS_fnc_GUInewsfeed]]
+
+|p1= display: [[Display]] - display where newsfeed with IDC 1101 is
+
+|r1= [[Boolean]] - [[true]] when online
+
+|x1= <sqf>[_display] call BIS_fnc_GUInewsfeed;</sqf>
+
+|seealso= [[findDisplay]]
+}}

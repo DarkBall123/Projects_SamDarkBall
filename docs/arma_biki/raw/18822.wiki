@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Bitwise
+
+|descr= Decodes a single scalar into array of unique binary flags with indexes between 0-15.
+
+|s1= scalar call [[BIS_fnc_decodeFlags]]
+
+|p1= scalar: [[Number]] - scalar (max. 65535, 2^16-1)
+
+|r1= [[Array]] - flags (See parameter of [[BIS_fnc_encodeFlags]])
+
+|x1= <sqf>private _decodedFlags = 13 call BIS_fnc_decodeFlags;//Returns [0,2,3]</sqf>
+
+|seealso= [[BIS_fnc_encodeFlags]]
+}}

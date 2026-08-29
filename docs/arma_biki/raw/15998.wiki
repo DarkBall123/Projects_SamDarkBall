@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|arg= local 
+
+|eff= local
+
+|descr= Create a dated, timed diary record in the owner's "Log" subject.
+
+|s1= [owner, title, text] call [[BIS_fnc_createLogRecord]]
+
+|p1= owner: [[Object]]
+
+|p2= title: [[String]] - (Optional, default "")
+
+|p3= text: [[String]] - (Optional, default "")
+
+|r1= [[String]]
+
+|x1= <sqf>[player, "Title", "This is a log entry. Have fun!"] call BIS_fnc_createLogRecord;</sqf>
+
+|seealso= [[createDiaryRecord]]
+}}

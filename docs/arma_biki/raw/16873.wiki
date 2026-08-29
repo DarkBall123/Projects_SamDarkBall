@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.38
+
+|gr1= Namespaces
+|gr2= Variables
+
+|mp= {{Feature|important|Using [[profileNamespace]] and [[uiNamespace]] with this command has been disabled in multiplayer in {{GVI|arma3|1.40}} - see {{Link|https://forums.bohemia.net/forums/topic/140837-development-branch-changelog/?do{{=}}findComment&comment{{=}}2869646|Changelog}}.}}
+
+|descr= Returns a list of all variables from the desired namespace.
+
+|s1= [[allVariables]] namespace
+
+|p1= namespace: [[Namespace]], [[Object]], [[Group]], [[Task]], [[Location]], [[Team Member]], {{GVI|arma3|2.02|size= 0.75}} [[Control]], {{GVI|arma3|2.02|size= 0.75}} [[Display]]
+
+|r1= [[Array]] of [[String]]s - array of variable names. All names are in lower case (see [[toLower]])
+
+|x1= <sqf>_allVarsUINamespace = allVariables uiNamespace;</sqf>
+
+|x2= <sqf>_allVarsTrigger = allVariables trigger1;</sqf>
+
+|seealso= [[allControls]] [[allDisplays]] [[allCurators]] [[allGroups]] [[allDead]] [[allDeadMen]]
+}}
+
+{{Note
+|user= longbow
+|timestamp= 20161001235400
+|text= One still can use [[allVariables]] in Multiplayer against [[profileNamespace]] and [[uiNamespace]] using config parser. In [[Description.ext]]
+<sqf>_EXEC(someVar = allVariables profileNamespace)</sqf>
+in code
+<sqf>_allProfileVars = parsingNamespace getVariable "someVar"</sqf>
+but this list will be valid only at the moment of config parsing.
+}}

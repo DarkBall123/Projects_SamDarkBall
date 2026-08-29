@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Diagnostic
+
+|descr= Sends an entity to the garbage collection queue. Replaces [[Arma_2:_Garbage_Collector|Arma 2 Garbage Collector]].
+
+|s1= entity spawn [[BIS_fnc_GC]]
+
+|exec= spawn
+
+|p1= entity: [[Object]] or [[Group]] or [[String]] (marker) or [[Array]] (array of entities)
+
+|r1= [[Boolean]] - true if function was executed successfuly
+
+|x1= <sqf>[dude1] spawn BIS_fnc_GC;</sqf>
+
+|x2= <sqf>[dude1, group dude1, "marker1"] spawn BIS_fnc_GC;</sqf>
+
+|seealso= [[Garbage Collector]]
+}}

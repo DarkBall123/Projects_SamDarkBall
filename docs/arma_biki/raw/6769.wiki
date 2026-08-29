@@ -1,0 +1,32 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.08
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Locations
+
+|descr= Sets the text associated with a location. This text will be displayed on the game map at the location's position.
+
+|s1= location [[setText]] text
+
+|p1= location: [[Location]]
+|p2= text: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLocation setText "Rahmadi Village";</sqf>
+
+|seealso= [[text]] [[createLocation]]
+}}

@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.42
+
+|gr1= Scripts
+
+|descr= Animate a Data Terminal ("Land_DataTerminal_01_F").
+
+|s1= [dataTerminal, step] call [[BIS_fnc_dataTerminalAnimate]]
+
+|p1= dataTerminal: [[Object]]
+
+|p2= step: [[Number]] - in range 0..3, steps being:
+* 0: closed terminal
+* 1: case opened
+* 2: antenna up (but closed)
+* 3: antenna opened and transmitting.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[myTerminal, 3] call BIS_fnc_dataTerminalAnimate;</sqf>
+
+|seealso= [[MP End Game|End Game (MP mode)]] [[BIS_fnc_dataTerminalColor]]
+}}

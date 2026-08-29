@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Camera
+
+|descr= Returns camera vision mode.
+
+|s1= [camera] call [[BIS_fnc_camera_getVisionMode]]
+
+|p1= camera: [[Object]] - the camera
+
+|r1= [[Number]] - one of:
+* 0 - normal vision
+* 1 - night vision
+* 2 - thermal imaging
+
+|x1= <sqf>[BIS_camera] call BIS_fnc_camera_getVisionMode;</sqf>
+
+|seealso= [[BIS_fnc_camera_setVisionMode]]
+}}

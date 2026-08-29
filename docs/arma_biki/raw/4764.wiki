@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= Groups
+
+|gr2= Unit Control
+
+|descr= Set if leader can issue attack commands to the soldiers in his group.
+
+|s1= group [[enableAttack]] enable
+
+|p1= group: [[Object]] or [[Group]]
+|p2= enable: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_group1 enableAttack true;</sqf>
+
+|seealso= [[attackEnabled]]
+}}

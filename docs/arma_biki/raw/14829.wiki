@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|serverExec= server
+
+|descr= Allows curator placing and working with modules outside of edit areas.
+
+|s1= curatorObj [[allowCuratorLogicIgnoreAreas]] allow
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|p2= allow: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>curatorModule allowCuratorLogicIgnoreAreas true;</sqf>
+
+|seealso= [[Arma 3: Curator]] [[addCuratorEditingArea]] [[removeCuratorEditingArea]] [[removeAllCuratorEditingAreas]] [[curatorEditingArea]]
+}}

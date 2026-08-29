@@ -1,0 +1,299 @@
+{{TOC|side}}
+== WEST ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SoldierWB||Rifleman||[[File:Soldierwb.jpg|100px]]
+|-
+|SoldierWG||Grenadier||[[File:Soldierwg.jpg|100px]]
+|-
+|SoldierWMedic||Medic||[[File:Soldierwmedic.jpg|100px]]
+|-
+|SoldierWNOG||-||[[File:Soldierwnog.jpg|100px]]
+|-
+|SoldierW||-||[[File:Soldierw.jpg|100px]]
+|-
+|SoldierWAR||Automatic Rifleman||[[File:Soldierwar.jpg|100px]]
+|-
+|SoldierWMG||Machinegunner||[[File:Soldierwmg.jpg|100px]]
+|-
+|SoldierWAT||AT Specialist||[[File:Soldierwat.jpg|100px]]
+|-
+|SoldierWAA||AA Specialist||[[File:Soldierwaa.jpg|100px]]
+|-
+|SoldierWSniper||Sniper||[[File:Soldierwsniper.jpg|100px]]
+|-
+|SoldierWSaboteur||-||[[File:Soldierwsaboteur.jpg|100px]]
+|-
+|SoldierWSaboteurPipe||SF Saboteur||[[File:Soldierwsaboteurpipe.jpg|100px]]
+|-
+|SoldierWSaboteurPipe2||SF Saboteur2||[[File:Soldierwsaboteurpipe2.jpg|100px]]
+|-
+|SoldierWSaboteurRecon||SF Recon||[[File:Soldierwsaboteurrecon.jpg|100px]]
+|-
+|SoldierWSaboteurAssault||SF Assault||[[File:Soldierwsaboteurassault.jpg|100px]]
+|-
+|SoldierWSaboteurMarksman||SF Marksman||[[File:Soldierwsaboteurmarksman.jpg|100px]]
+|-
+|SoldierWMiner||Engineer||[[File:Soldierwminer.jpg|100px]]
+|-
+|SquadLeaderW||Squad Leader||[[File:Squadleaderw.jpg|100px]]
+|-
+|TeamLeaderW||Team Leader||[[File:Teamleaderw.jpg|100px]]
+|-
+|OfficerW||Officer||[[File:Officerw.jpg|100px]]
+|-
+|SoldierWPilot||Pilot||[[File:Soldierwpilot.jpg|100px]]
+|-
+|SoldierWCrew||Crewman||[[File:Soldierwcrew.jpg|100px]]
+|-
+|BISCamelPilot||Camel Pilot||[[File:Biscamelpilot.jpg|100px]]
+|-
+|SoldierMMG<br>''(Queen's Gambit)''||Mercenary MG||[[File:SoldierMMG.jpg|100px]]
+|-
+|SoldierMR<br>''(Queen's Gambit)''||Mercenary Repair||[[File:SoldierMR.jpg|100px]]
+|-
+|SoldierMS<br>''(Queen's Gambit)''||Mercenary Sniper||[[File:SoldierMS.jpg|100px]]
+|-
+|SoldierMD<br>''(Queen's Gambit)''||Mercenary Demolition||[[File:SoldierMD.jpg|100px]]
+|-
+|SoldierMG<br>''(Queen's Gambit)''||Mercenary Grenadier||[[File:SoldierMG.jpg|100px]]
+|-
+|SoldierMTeamLeader<br>''(Queen's Gambit)''||Mercenary Team Leader||[[File:SoldierMTeamLeader.jpg|100px]]
+|}
+
+== EAST ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SoldierEB||Rifleman||[[File:Soldiereb.jpg|100px]]
+|-
+|SoldierEG||Grenadier||[[File:Soldiereg.jpg|100px]]
+|-
+|SoldierEMedic||Medic||[[File:Soldieremedic.jpg|100px]]
+|-
+|SoldierENOG||-||[[File:Soldierenog.jpg|100px]]
+|-
+|SoldierE||-||[[File:Soldiere.jpg|100px]]
+|-
+|SoldierEMG||Machinegunner||[[File:Soldieremg.jpg|100px]]
+|-
+|SoldierEAT||AT Specialist||[[File:Soldiereat.jpg|100px]]
+|-
+|SoldierEAA||AA Specialist||[[File:Soldiereaa.jpg|100px]]
+|-
+|SoldierEMiner||Engineer||[[File:Soldiereminer.jpg|100px]]
+|-
+|SquadLeaderE||Squad Leader||[[File:Squadleadere.jpg|100px]]
+|-
+|TeamLeaderE||Team Leader||[[File:Teamleadere.jpg|100px]]
+|-
+|OfficerE||OfficerE||[[File:Officere.jpg|100px]]
+|-
+|SoldierESniper||Sniper||[[File:Soldieresniper.jpg|100px]]
+|-
+|SoldierESaboteur||-||[[File:Soldieresaboteur.jpg|100px]]
+|-
+|SoldierESaboteurPipe||Especas||[[File:Soldieresaboteurpipe.jpg|100px]]
+|-
+|SoldierESaboteurBizon||Especas Saboteur||[[File:Soldieresaboteurbizon.jpg|100px]]
+|-
+|SoldierESaboteurMarksman||Especas Marksman||[[File:Soldieresaboteurmarksman.jpg|100px]]
+|-
+|SoldierEPilot||Pilot||[[File:Soldierepilot.jpg|100px]]
+|-
+|BISCamelPilot2||Camel Pilot||[[File:Biscamelpilot2.jpg|100px]]
+|-
+|SoldierECrew||Crewman||[[File:Soldierecrew.jpg|100px]]
+|-
+|SoldierPB<br>''(Queen's Gambit)''||Partisan Rifleman||[[File:SoldierPB.jpg|100px]]
+|-
+|SoldierPTeamLeader<br>''(Queen's Gambit)''||Partisan Team Leader||[[File:SoldierPTeamLeader.jpg|100px]]
+|-
+|SoldierPSaboteur<br>''(Queen's Gambit)''||Partisan Saboteur||[[File:SoldierPSaboteur.jpg|100px]]
+|-
+|SoldierPMedic<br>''(Queen's Gambit)''||Partisan Medic||[[File:SoldierPMedic.jpg|100px]]
+|-
+|SoldierPAT<br>''(Queen's Gambit)''||Partisan AT Specialist||[[File:SoldierPAT.jpg|100px]]
+|-
+|SoldierPMG<br>''(Queen's Gambit)''||Partisan MG||[[File:SoldierPMG.jpg|100px]]
+|-
+|D2_RCM03_Civilian1<br>''(Queen's Gambit)''||Chose Ibanez||[[File:D2_RCM03_Civilian1.jpg|100px]]
+|-
+|D2_RCM03_Civilian2<br>''(Queen's Gambit)''||Armando Guglos||[[File:D2_RCM03_Civilian2.jpg|100px]]
+|}
+
+== RACS ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SoldierGB||Rifleman||[[File:Soldiergb.jpg|100px]]
+|-
+|SoldierGMedic||Medic||[[File:Soldiergmedic.jpg|100px]]
+|-
+|SoldierGG||Grenadier||[[File:Soldiergg.jpg|100px]]
+|-
+|SoldierGNOG||-||[[File:Soldiergnog.jpg|100px]]
+|-
+|SoldierG||-||[[File:Soldierg.jpg|100px]]
+|-
+|SoldierGMG||Machinegunner||[[File:Soldiergmg.jpg|100px]]
+|-
+|SoldierGAT||AT Specialist||[[File:Soldiergat.jpg|100px]]
+|-
+|SoldierGAA||AA Specialist||[[File:Soldiergaa.jpg|100px]]
+|-
+|OfficerG||Officer||[[File:Officerg.jpg|100px]]
+|-
+|SquadLeaderG||Squad Leader||[[File:Squadleaderg.jpg|100px]]
+|-
+|TeamLeaderG||Team Leader||[[File:Teamleaderg.jpg|100px]]
+|-
+|SoldierGCrew||Crewman||[[File:Soldiergcrew.jpg|100px]]
+|-
+|SoldierGSniper||Sniper||[[File:Soldiergsniper.jpg|100px]]
+|-
+|SoldierGCommando||Royal Commando||[[File:Soldiergcommando.jpg|100px]]
+|-
+|SoldierGMarksman||Royal Marksman||[[File:Soldiergmarksman.jpg|100px]]
+|-
+|SoldierGPilot||Pilot||[[File:Soldiergpilot.jpg|100px]]
+|-
+|SoldierGMiner||Engineer||[[File:Soldiergminer.jpg|100px]]
+|-
+|SoldierGGuard||Royal Guard||[[File:Soldiergguard.jpg|100px]]
+|-
+|Riboli||-||[[File:Riboli.jpg|100px]]
+|-
+|SoldierSpy<br>''(Queen's Gambit)''||Spy||[[File:SoldierSpy.jpg|100px]]
+|}
+
+== CIVILIAN ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|Civilian||-||[[File:Civilian.jpg|100px]]
+|-
+|Civilian2||Civilian2||[[File:Civilian2.jpg|100px]]
+|-
+|Civilian3||Civilian3||[[File:Civilian3.jpg|100px]]
+|-
+|Civilian4||Civilian4||[[File:Civilian4.jpg|100px]]
+|-
+|Civilian5||Civilian5||[[File:Civilian5.jpg|100px]]
+|-
+|Civilian6||Civilian6||[[File:Civilian6.jpg|100px]]
+|-
+|Civilian7||Civilian7||[[File:Civilian7.jpg|100px]]
+|-
+|Civilian8||Civilian8||[[File:Civilian8.jpg|100px]]
+|-
+|Civilian9||Civilian9||[[File:Civilian9.jpg|100px]]
+|-
+|Civilian10||Civilian10||[[File:Civilian10.jpg|100px]]
+|-
+|Civilian11||Civilian11||[[File:Civilian11.jpg|100px]]
+|-
+|Civilian12||Civilian12||[[File:Civilian12.jpg|100px]]
+|-
+|Civilian13||Civilian13||[[File:Civilian13.jpg|100px]]
+|-
+|Civilian14||Civilian14||[[File:Civilian14.jpg|100px]]
+|-
+|Civilian15||Civilian15||[[File:Civilian15.jpg|100px]]
+|-
+|Civilian16||Civilian16||[[File:Civilian16.jpg|100px]]
+|-
+|Civilian17||Civilian17||[[File:Civilian17.jpg|100px]]
+|-
+|Civilian18||Civilian18||[[File:Civilian18.jpg|100px]]
+|-
+|Civilian19||Civilian19||[[File:Civilian19.jpg|100px]]
+|-
+|Civilian20||Civilian20||[[File:Civilian20.jpg|100px]]
+|-
+|Civilian21||Civilian21||[[File:Civilian21.jpg|100px]]
+|-
+|SoldierWCaptive||Captive||[[File:Soldierwcaptive.jpg|100px]]
+|-
+|SoldierECaptive||Captive||[[File:Soldierecaptive.jpg|100px]]
+|-
+|SoldierGCaptive||Captive||[[File:Soldiergcaptive.jpg|100px]]
+|-
+|Civil_Undead_1||-||[[File:Civil_undead_1.jpg|100px]]
+|-
+|Civil_Undead_2||-||[[File:Civil_undead_2.jpg|100px]]
+|-
+|Civil_Undead_3||-||[[File:Civil_undead_3.jpg|100px]]
+|-
+|Civil_Undead_4||-||[[File:Civil_undead_4.jpg|100px]]
+|-
+|King||-||[[File:King.jpg|100px]]
+|-
+|MarianQuandt||Marian Quandt||[[File:Marianquandt.jpg|100px]]
+|-
+|MarianQuandt02||Marian Quandt||[[File:Marianquandt02.jpg|100px]]
+|-
+|MarianQuandt03||Marian Quandt||[[File:Marianquandt03.jpg|100px]]
+|-
+|MarianQuandt04||Marian Quandt||[[File:Marianquandt04.jpg|100px]]
+|-
+|FieldReporter||-||[[File:Fieldreporter.jpg|100px]]
+|-
+|Anchorman||-||[[File:Anchorman.jpg|100px]]
+|-
+|Anchorman2||-||[[File:Anchorman2.jpg|100px]]
+|-
+|NorthPrimeMinister||-||[[File:Northprimeminister.jpg|100px]]
+|-
+|Prisoner01<br>''(Queen's Gambit)''||Prisoner 01||[[File:Prisoner01.jpg|100px]]
+|-
+|Prisoner02<br>''(Queen's Gambit)''||Prisoner 02||[[File:Prisoner02.jpg|100px]]
+|-
+|Prisoner03<br>''(Queen's Gambit)''||Prisoner 03||[[File:Prisoner03.jpg|100px]]
+|-
+|Prisoner04<br>''(Queen's Gambit)''||Prisoner 04||[[File:Prisoner04.jpg|100px]]
+|-
+|Prisoner05<br>''(Queen's Gambit)''||Prisoner 05||[[File:Prisoner05.jpg|100px]]
+|-
+|ArmsTrader<br>''(Queen's Gambit)''||Arms trader||[[File:ArmsTrader.jpg|100px]]
+|-
+|AdjudantPrisoner<br>''(Queen's Gambit)''||Adjudant (prisoner)||[[File:AdjudantPrisoner.jpg|100px]]
+|-
+|AdjudantUniform<br>''(Queen's Gambit)''||Adjudant (uniform)||[[File:AdjudantUniform.jpg|100px]]
+|-
+|Prince_army<br>''(Queen's Gambit)''||Prince (army)||[[File:Prince_army.jpg|100px]]
+|-
+|Prince_civil<br>''(Queen's Gambit)''||Prince (civil)||[[File:Prince_civil.jpg|100px]]
+|-
+|Prince_resistance<br>''(Queen's Gambit)''||Prince (resistance)||[[File:Prince_resistance.jpg|100px]]
+|-
+|Chancellor<br>''(Queen's Gambit)''||Chancellor||[[File:Chancellor.jpg|100px]]
+|-
+|civil_nprem2<br>''(Queen's Gambit)''||BOSS||[[File:civil_nprem2.jpg|100px]]
+|}
+
+== ANIMALS ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SeaGull||-||[[File:Seagull.jpg|100px]]
+|-
+|Hawk||-||[[File:Hawk.jpg|100px]]
+|-
+|DragonFly||-||[[File:Dragonfly.jpg|100px]]
+|-
+|Butterfly||-||[[File:Butterfly.gif|100px]]
+|-
+|HouseFly||-
+|-
+|HoneyBee||-
+|-
+|Mosquito||-
+|}
+== See also ==
+* [[OFP: Infantry]]
+* [[Arma 2: Infantry]]
+* [[Arma 2 OA: Infantry]]
+
+{{GameCategory|arma1|Reference Lists}}

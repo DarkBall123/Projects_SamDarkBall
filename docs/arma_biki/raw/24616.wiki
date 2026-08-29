@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Map and Markers
+
+|descr= Function that unlocks the camera in which has been previously locked with [[BIS_fnc_zoomLock]].
+
+|s1= call [[BIS_fnc_zoomUnlock]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[] call BIS_fnc_zoomUnlock;</sqf>
+
+|seealso= [[BIS_fnc_zoomLock]]
+}}

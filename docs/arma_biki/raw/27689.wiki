@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control - Positioning
+
+|descr= Similar to [[setMousePosition]] but relative to the given control.
+
+|s1= control [[ctrlSetMousePosition]] [x, y]
+
+|p1= control: [[Control]]
+
+|p2= x: [[Number]] - position in x
+
+|p3= y: [[Number]] - position in y
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control ctrlSetMousePosition [0.5, 0.5];</sqf>
+
+|seealso= [[ctrlMousePosition]] [[setMousePosition]] [[getMousePosition]] [[ctrlMapCursor]]
+}}

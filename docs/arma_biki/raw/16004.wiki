@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Advanced hint credits preprocessor.
+
+|s1= call [[BIS_fnc_advHintCredits]]
+
+|r1= [[String]] - credits
+
+|x1= <sqf>call BIS_fnc_advHintCredits;</sqf>
+
+|seealso=
+}}

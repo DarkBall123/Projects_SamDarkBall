@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.92
+
+|gr1= GUI Control - Positioning
+
+|descr= Sets vertical position (y) of a 2D control. [[ctrlCommit]] is required to complete the operation.
+
+|s1= control [[ctrlSetPositionY]] y
+
+|p1= control: [[Control]] - 2D control
+
+|p2= y: [[Number]] - vertical position of the control
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+_ctrl ctrlSetPositionY 0.5;
+_ctrl ctrlCommit 1;
+</sqf>
+
+|seealso= [[ctrlSetPosition]] [[ctrlSetPositionX]] [[ctrlSetPositionW]] [[ctrlSetPositionH]]
+}}

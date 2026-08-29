@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Vehicle Inventory
+
+|descr=Returns an array of subarrays with the type names and ammo left of all the vehicle's cargo or container magazines.
+
+|s1= [[magazinesAmmoCargo]] vehicle
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Array]] of [[Array]]s with [class, ammo]
+* class: [[String]] - Class name of the magazine
+* ammo: [[Number]] - Number of rounds loaded
+
+|x1= <sqf>magazinesAmmoCargo vehicle player;</sqf>
+|x2= <sqf>magazinesAmmoCargo uniformContainer player;</sqf>
+<sqf>
+// returns:
+[
+	["30Rnd_65x39_caseless_mag",30],
+	["30Rnd_65x39_caseless_mag",30],
+	["Chemlight_green",1]
+]
+</sqf>
+
+|seealso= [[magazinesAmmo]] [[magazinesAmmoFull]]
+}}

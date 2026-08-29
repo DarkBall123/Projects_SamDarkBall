@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|arg= global
+
+|eff= local
+
+|gr1= Remote Control
+
+|descr= Sets UAV autonomous mode.
+
+|s1= uav [[setAutonomous]] bool
+
+|p1= uav: [[Object]]
+
+|p2= bool: [[Boolean]]
+
+|r1= [[Boolean]] - whether the operation was successful. Returns [[false]] when the object is not a uav.
+
+|x1= <sqf>uav setAutonomous true;</sqf>
+
+|seealso= [[isAutonomous]] [[disableAI]] [[enableAI]] [[checkAIFeature]]
+}}
+
+{{Note
+|user= Sa-Matra
+|timestamp= 20230430040028
+|text= This command effectively does [[disableAI]] on this list of features: <sqf inline>["ANIM","AUTOTARGET","CHECKVISIBLE","FSM","MOVE","PATH","TARGET","WEAPONAIM"]</sqf>, the effect is local, just like [[disableAI]]. If at least one of these AI features is disabled, then "Autonomous" checkbox in UAV Terminal will be turned off, [[isAutonomous]] will return false, you won't be able to give it waypoints, despite UAV still being mostly autonomous.
+}}

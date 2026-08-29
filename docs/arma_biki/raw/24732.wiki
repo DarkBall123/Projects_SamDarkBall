@@ -1,0 +1,45 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.84
+
+|gr1= Destroyer
+
+|descr= <pre>/*
+	Author: Bravo Zero One development
+	- John_Spartan
+
+	Description:
+	- This is a sub function designed to handle animations of ship hangar doors. Used in Eden attributes and objects user actions.
+
+	Execution:
+	- Call from script.
+
+	Example:
+		[_shipPart, _value, false] spawn BIS_fnc_destroyer01AnimateHangarDoors;
+
+	Required:
+		Object (ship) must have all animations correctly defined and user actions configured.
+
+	Parameter(s):
+		_this select 0: mode (Scalar)
+		0: ship-part object
+		and
+		1: animation state of doors
+		2: animation speed (instant = true/smooth=false);
+
+	Returns: nothing
+	Result: Ship's hangar door animation is played with sounds added.
+
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_destroyer01AnimateHangarDoors]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

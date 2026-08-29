@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= GUI Control - Menu
+
+|descr= Sets weblink (URL) of given menu strip entry, subject to {{hl|allowedHTMLLoadURIs[]}} whitelisting in [[CfgCommands]] config.
+
+|s1= [[menuSetURL]] [idc, path, link]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]] of [[Number]]s
+
+|p3= link: [[String]]
+
+|r1= [[Nothing]]
+
+|s2= control [[menuSetURL]] [path, link]
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]] of [[Number]]s
+
+|p23= link: [[String]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>_ctrlMenuStrip menuSetURL [[0,0,1], "https://arma3.com/"];</sqf>
+
+|seealso= [[menuURL]] [[ctrlSetURL]]
+}}

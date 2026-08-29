@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Geometry
+
+|descr= Returns the smallest difference between two angles in degrees.
+
+|s1= [angleA, angleB] call [[BIS_fnc_getAngleDelta]]
+
+|p1= angleA: [[Number]] - first angle
+|p2= angleB: [[Number]] - second angle
+
+|r1= [[Number]] - angle delta
+
+|x1= <sqf>private _delta = [90,193] call BIS_fnc_getAngleDelta;//-103</sqf>
+
+|seealso= [[tan]] [[cos]] [[sin]]
+}}

@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= Environment
+
+|eff= global
+
+|descr= Set current or permanent wind vector.
+{{Feature | important | The effect is global only if it is executed on the server. Wind set locally will sync back to server value in a while.}}
+
+|s1= [[setWind]] [x, y, forced]
+
+|p1= x: [[Number]] - easterly component (in m/s, positive = to the east)
+
+|p2= y: [[Number]] - northerly component (in m/s, positive = to the north)
+
+|p4= forced: [[Boolean]] - (Optional, default [[false]]) set to [[true]] to lock the wind to constantly blows in set direction
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setWind [10, 10, true];</sqf>
+
+|seealso= [[wind]] [[setWindDir]] [[gusts]] [[setGusts]]
+}}

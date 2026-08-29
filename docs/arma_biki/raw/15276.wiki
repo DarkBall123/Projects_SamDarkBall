@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Interaction
+
+|descr= Checks if the player has GPS receiver (minimap) opened and visible.
+
+|s1= [[visibleGPS]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>
+if (visibleGPS) then
+{
+	hint "GPS is visible";
+};
+</sqf>
+
+|seealso= [[openGPS]] [[showGPS]] [[shownGPS]] [[visibleWatch]] [[visibleCompass]]
+}}

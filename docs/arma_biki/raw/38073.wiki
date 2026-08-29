@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|arg= global
+
+|gr1= Unit Control
+
+|descr= Returns the leaning factor of the given unit.
+
+|s1= [[getLeaning]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Number]] - leaning factor from -1 to 1
+
+|x1= <sqf>if (getLeaning player < 0) then { systemChat "player is leaning left" };</sqf>
+
+|seealso= [[animationState]] [[unitPos]] [[stance]] [[pose]]
+}}

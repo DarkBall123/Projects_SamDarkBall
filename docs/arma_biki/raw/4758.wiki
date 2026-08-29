@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|arg= global
+
+|gr1= Groups
+
+|gr2= Unit Control
+
+|descr= Return whether a group's leader can issue attack commands to soldiers under his command.
+
+|s1= [[attackEnabled]] name
+
+|p1= name: [[Object]] or [[Group]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (not attackEnabled _soldier) then { _soldier setCombatMode "Careless" };</sqf>
+
+|seealso= [[enableAttack]]
+}}

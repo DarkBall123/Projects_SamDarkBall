@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.60
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Positions
+
+|descr= Returns terrain's {{Link|https://en.wikipedia.org/wiki/Normal_(geometry)|surface normal}} on given position.
+
+|s1= [[surfaceNormal]] position
+
+|p1= position: [[Position#Introduction|Position2D]] or [[Position#Introduction|Position3D]] - when using [[Position#Introduction|Position3D]], Z is ignored
+
+|r1= [[Vector3D]]
+
+|x1= <sqf>_normal = surfaceNormal [300, 500];</sqf>
+
+|x2= <sqf>_normal = surfaceNormal getPosASL player;</sqf>
+
+|seealso= [[setVectorUp]] [[surfaceIsWater]] [[surfaceType]]
+}}

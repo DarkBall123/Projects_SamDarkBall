@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Vehicle Inventory
+
+|descr= Remove weapon from the vehicle cargo space.
+{{Feature|warning|This is unofficial documentation. All Information here is as it exists in the Engine. It might not reflect the reality.}}
+
+|s1= object [[removeWeaponCargo]] [weaponID,creatorID]
+
+|p1= object: [[Object]] - vehicle or ammo box
+
+|p2= weaponID: [[Number]]
+|p3= creatorID: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>rearmTruckOne removeWeaponCargo [19, 1];</sqf>
+
+|seealso= [[removeWeaponAttachmentCargo]] [[weaponAccessoriesCargo]]
+}}

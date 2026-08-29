@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Map and Markers
+
+|arg= global
+
+|eff= global
+
+|descr= Gradual hiding of a marker by setting its alpha to 0.
+
+|s1= [marker, duration] spawn [[BIS_fnc_hideMarker]]
+
+|p1= marker: [[String]] - marker name
+
+|p2= duration: [[Number]] - (Optional, default 1) duration of the hiding
+
+|r1= [[Nothing]]
+
+|x1= <sqf>["BIS_marker",2] spawn BIS_fnc_hideMarker;</sqf>
+
+|exec= spawn
+
+|seealso= [[BIS_fnc_blinkMarker]] [[BIS_fnc_colorMarker]] [[BIS_fnc_moveMarker]]
+}}

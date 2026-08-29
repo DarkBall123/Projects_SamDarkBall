@@ -1,0 +1,9 @@
+{{Feature|obsolete|
+{{hl|CfgRemoteExecFunctions}} is obsolete as originally used with [[BIS_fnc_MP]] which is obsolete and is now left for backward compatibility only.<br>
+Use [[remoteExec]] / [[remoteExecCall]] and [[Arma 3: CfgRemoteExec|CfgRemoteExec]] instead.
+|arma3
+|1.50
+}}
+
+
+{{GameCategory|arma3|Remote Execution}}

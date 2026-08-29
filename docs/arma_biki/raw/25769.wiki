@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.92
+
+|gr1= Math
+
+|descr= Multiplies graph values by the given coefficient. The corresponding lower bound value is used instead if the product is smaller than the bound.
+
+|s1= [[decayGraphValues]] [lowerBoundValues, graphValues, coef]
+
+|p1= lowerBoundValues: [[Array]] of [[Number]]s - lower bound for the new graph
+
+|p2= graphValues: [[Array]] of [[Number]]s - graph values
+
+|p3= coef: [[Number]] - the multiplication coefficient
+
+|r1= [[Array]] of [[Number]]s
+
+|x1= <sqf>decayGraphValues [[1,2,3,4,5], [1,4,9,16,25], 0.3]; // returns [1,2,3,4.8,7.5]</sqf>
+
+|seealso= [[getGraphValues]]
+}}

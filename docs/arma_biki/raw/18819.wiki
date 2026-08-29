@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Missions
+
+|descr= Disables the load/restart button. Currently only for [[BIS_fnc_cinemaBorder]] used within the Prologue and Survive campaigns. Only works in single player.
+
+|s1= call [[BIS_fnc_disableLoading]]
+
+|r1= [[Boolean]] - always [[true]]
+
+|x1= <sqf>call BIS_fnc_disableLoading;</sqf>
+
+|seealso= [[BIS_fnc_cinemaBorder]]
+}}

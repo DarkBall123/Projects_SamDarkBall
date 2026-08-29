@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns grid size based on screen resolution and configs: <syntaxhighlight lang="cpp" inline>uiScaleFactor</syntaxhighlight>, <syntaxhighlight lang="cpp" inline>uiScaleMaxGrids</syntaxhighlight>.
+As mentioned in the name of this command, '''the user interface scale is ignored'''.
+
+|s1= [[pixelGridNoUIScale]]
+
+|r1= [[Number]] - grid size, see [[Arma 3: Pixel Grid System]]
+
+|x1= <sqf>private _gridHeightNoUIScale = pixelH * pixelGridNoUIScale;</sqf>
+
+|seealso= [[pixelGrid]] [[pixelGridBase]] [[pixelH]] [[pixelW]] [[Pixel Grid System]]
+}}

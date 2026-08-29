@@ -1,0 +1,52 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|arg= local
+
+|eff= global
+
+|gr1= Object Manipulation
+
+|descr= Sets the armor (or health for men) state of the vehicle (a value from 0 to 1). 
+
+Works like [[setDamage]], but the other way around: 1 is full health - see {{Link|#Example 2}}.
+
+|s1= vehicleName [[setVehicleArmor]] value
+
+|p1= vehicleName: [[Object]]
+
+|p2= value: [[Number]] - in range 0..1
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player setVehicleArmor 0.5;</sqf>
+
+|x2= <sqf>
+player setVehicleArmor 1;
+// is the same as
+player setDamage 0;
+
+player setVehicleArmor 0;
+// is the same as
+player setDamage 0.97;
+</sqf>
+
+|seealso= [[setDamage]]
+}}

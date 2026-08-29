@@ -1,0 +1,41 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|eff= local
+
+|gr1= System
+
+|descr= Sets various mission options. The options are automatically reset between missions and are saved/restored with the save system.<br>
+Available Options:
+
+* IgnoreNoDamage: [[Boolean]] - (default [[false]]) [[true]] to filter out no change in damage from {{Link|Arma 3: Event Handlers#HandleDamage|HandleDamage}} calls
+* IgnoreFakeHeadHit: [[Boolean]] - (default [[false]]) [[true]] to filter out FakeHeadHit context from {{Link|Arma 3: Event Handlers#HandleDamage|HandleDamage}} calls
+* IgnoreUpsideDownDamage: [[Boolean]] - (default [[false]]) [[true]] to ignore some minor upside down damage accumulation for a helicopter
+* {{GVI|arma3|2.20|size= 0.75}} SnakesCanOpenDoors: [[Boolean]] - (default [[false]]) [[true]] to revert to legacy behaviour when snakes would open doors when entering houses
+* {{GVI|arma3|2.20|size= 0.75}} AIThinkOnlyLocal: [[Boolean]] - (default [[false]]) [[true]] to disable processing targetting data for remote AI units, [[knowsAbout]], [[targets]] and similar commands will cease to work on remote units. For a gain in client performance because they no longer have to calculate all AI units. 
+* {{GVI|arma3|2.24|size= 0.75}} MapSymbolIsHiddenWithTheObject: [[Boolean]] - (default [[true]]) [[true]] to hide map symbol when terrain object is hidden.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideForests: [[Boolean]] - (default [[false]]) [[true]] to hide map symbols for forests.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideRockFormations: [[Boolean]] - (default [[false]]) [[true]] to hide map symbols for rock formations.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideTowns: [[Boolean]] - (default [[false]]) [[true]] to hide map symbols for towns.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideRoads: [[Boolean]] - (default [[false]]) [[true]] to hide map symbols for roads.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideRivers: [[Boolean]] - (default [[false]]) [[true]] to hide map symbols for rivers.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideSigns: [[Boolean]] - (default [[false]]) [[true]] to hide map icons for objects.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideSmallSigns: [[Boolean]] - (default [[false]]) [[true]] to hide map icons for trees, bushes, rocks.
+* {{GVI|arma3|2.24|size= 0.75}} MapHideLocations: [[Boolean]] - (default [[false]]) [[true]] to hide map icons for trees, bushes, rocks.
+
+Providing a empty HashMap will reset all options to defaults.
+
+|s1= [[setMissionOptions]] options
+
+|p1= options: [[HashMap]] - a HashMap containing all the options to be changed
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setMissionOptions createHashMapFromArray [["IgnoreNoDamage", true], ["IgnoreFakeHeadHit", true], ["IgnoreUpsideDownDamage", true]];</sqf>
+
+|x2= <sqf>setMissionOptions createHashMap; // reset options to default</sqf>
+
+|seealso= [[getMissionOptions]] [[getResolution]] [[getAudioOptionVolumes]] [[getSubtitleOptions]]
+}}

@@ -1,0 +1,35 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= RESTRICTED [[Custom_Waypoints|custom waypoint]].
+
+Player must fly in given limits.
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [limits, maxTime, failCode, visualize, warnCode]
+
+|p1= failCode: [[Array]] - flight limits in format [minAlt, maxAlt, minSpeed, maxSpeed]:
+* minAlt: [[Number]] - minimal altitude in meters above ground level (default: -1)
+* maxAlt: [[Number]] - maximal altitude in meters above ground level (default: 60)
+* minSpeed: [[Number]] - minimal speed in km/h (default: -1)
+* maxSpeed: [[Number]] - maximal speed in km/h (default: -1)
+
+|p2= maxTime: [[Number]] - how much time spent outside of the limits will lead to fail (default: -1)
+
+|p3= failCode: [[Code]] - code executed when maxTime is reached (default: {})
+
+|p4= visualize: [[Boolean]] - true to show hint (default: false)
+
+|p5= warnCode: [[Code]] - code executed when unit get out of limits (default: {})
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, objNull, 0, [250, -1, 150, -1], 30, { HSim_RestrictedFlight = false }, true] spawn BIS_fnc_wpFormation;</sqf>
+
+|seealso=
+}}

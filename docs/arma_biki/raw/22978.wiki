@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= GUI Control
+
+|descr= Stored user text value in MFD, limit is 50, user0...user49
+
+|s1= vehicle [[setUserMFDText]] [index, value]
+
+|p1= vehicle: [[Object]] - vehicle with MFD
+
+|p2= index: [[Number]]
+
+|p3= value: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_vehicle setUserMFDText [0, "some text"];</sqf>
+
+|seealso= [[getUserMFDText]] [[setUserMFDValue]] [[getUserMFDValue]]
+}}

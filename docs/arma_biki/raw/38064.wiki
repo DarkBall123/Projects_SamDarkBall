@@ -1,0 +1,33 @@
+{{RV|type=command
+
+|game1= argo
+|version1= 1.00
+
+|serverExec= server
+
+|gr1= Argo
+
+|descr= Sends a server request to the {{Name|bi|short}} cloud service and executes callback code with server's response.
+
+|mp= {{Feature|informative|Only works on dedicated servers and {{Link|Arma 3: Headless Client|headless clients}}; for clients, use [[sendCloudRequestClient]]).}}
+
+|s1= [[sendCloudRequestServer]] [requestName, callback, data, httpMethod]
+
+|p1= requestName: [[String]] - can be anything but "users"
+
+|p2= callback: [[String]] - (Optional, default "") code to be executed on request completion
+
+|p3= data: [[Anything]] - (Optional, default "") JSON data to be sent
+
+|p4= httpMethod: [[String]] - (Optional, default "GET", or "POST" if ''data'' is provided - case-insensitive) can be one of:
+* "POST"
+* "GET"
+* "DELETE"
+* "PUT"
+
+|r1= [[Boolean]] - [[true]] on success, [[false]] otherwise
+
+|x1= <sqf>_result = sendCloudRequestServer ["users/current", "hint 'success'", player];</sqf>
+
+|seealso= [[sendCloudRequestClient]] [[sendAnalyticEvent]]
+}}

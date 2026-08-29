@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Modules
+
+|descr= <pre>/*--------------------------------------------------------------------------------------------------
+
+	3DEN MOD: Hiddes closest terrain object.
+
+--------------------------------------------------------------------------------------------------*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_moduleHideTerrainObjects]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

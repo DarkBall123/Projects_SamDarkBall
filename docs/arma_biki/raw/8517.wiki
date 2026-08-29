@@ -1,0 +1,6 @@
+'''Description:''' n/a - see [[:Category:Command Group: Teams|Command Group: Teams]].
+
+Introduced with {{GameCategory|arma2|link= y}}.
+
+
+[[Category: Data Types]]

@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Eden Editor
+
+|descr= Internal function used for the [[:Category:Eden Editor|Eden Editor]] Edit Terrain Object module.
+
+|s1= [] call [[BIS_fnc_3DENAttributeDoorStates]]
+
+|p1=
+
+|r1=
+
+|x1= -
+
+|seealso= [[Modules]]
+}}

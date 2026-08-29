@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+|arg= local
+|eff= local
+
+|gr1= GUI Control - Controls Table
+
+|descr= Takes array of row indices as a parameter and removes rows with those indices. Indices of remaining rows will be recomputed.
+
+|s1= ctrl [[ctRemoveRows]] [index1, index2, ...]
+
+|p1= ctrl: [[Control]]
+
+|p2= indexN: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control ctRemoveRows [0, 1, 2];</sqf>
+
+|seealso= [[ctAddRow]] [[ctAddHeader]] [[ctClear]] [[ctCurSel]] [[ctSetCurSel]] [[ctRowControls]] [[ctHeaderControls]] [[ctRowCount]] [[ctHeaderCount]] [[ctSetValue]] [[ctValue]] [[ctSetData]] [[ctData]] [[ctFindRowHeader]] [[ctFindHeaderRows]] [[ctRemoveHeaders]] [[ctSetRowTemplate]] [[ctSetHeaderTemplate]]
+}}
+
+{{Note
+|user= 7erra
+|timestamp= 20210102150500
+|text= If you want to remove a row by clicking on a button in the ControlsTable make sure that the code is scheduled. Otherwise the game will crash.
+}}

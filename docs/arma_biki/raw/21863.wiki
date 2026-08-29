@@ -1,0 +1,9 @@
+This error occurs when an incorrect enum(erated) value is provided. 
+
+'''Examples:'''
+<syntaxhighlight lang="cpp">
+_g2 setBehaviour "CARELES"; // "CARELESS" should be used
+
+_newWP setWaypointCombatMode "UNCHANGED"; // "NO CHANGE" should be used
+</syntaxhighlight>
+[[Category:Common Scripting Errors]]

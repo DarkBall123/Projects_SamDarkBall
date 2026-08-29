@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= High Command
+
+|descr= Sets if group icons raise [[onGroupIconClick]], [[onGroupIconOverEnter]] and [[onGroupIconOverLeave]] events.
+
+|s1= [[setGroupIconsSelectable]] selectable
+
+|p1= selectable: [[Boolean]] - setting to [[true]] makes the icon selectable
+
+|r1= [[Nothing]] ([[objNull]] prior to {{arma3}} v1.92)
+
+|x1= <sqf>setGroupIconsSelectable true;</sqf>
+
+|seealso= [[groupIconSelectable]]
+}}

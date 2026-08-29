@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Inventory
+
+|descr= Returns true if given magazine is throwable.
+{{Feature|obsolete|see [[isThrowable]].|arma3|2.18}}
+
+|s1= magazine call [[BIS_fnc_isThrowable]]
+
+|p1= magazine: [[String]] - magazine class name
+
+|r1= [[Boolean]] - [[true]] if throwable
+
+|x1= <sqf>private _isThrowable = "SmokeShellGreen" call BIS_fnc_isThrowable;</sqf>
+
+|seealso= [[isThrowable]] [[magazines]] [[currentThrowable]]
+}}

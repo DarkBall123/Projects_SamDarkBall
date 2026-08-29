@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Remove [[:Category:Eden Editor|Eden Editor]] editing layer.
+{{Feature|informative|[[delete3DENEntities]] seems to be more reliable.}}
+
+|s1= [[remove3DENLayer]] layerID
+
+|p1= layerID : [[Number]] - layer ID as returned by [[add3DENLayer]] command
+|r1= [[Boolean]] - [[true]] if the layer was removed successfully (i.e., correct layer ID was used)
+
+|x1= <sqf>
+private _myLayer = -1 add3DENLayer "Enemy Base";
+remove3DENLayer _myLayer;
+</sqf>
+
+|seealso= [[add3DENLayer]] [[set3DENLayer]] [[get3DENLayerEntities]]
+}}

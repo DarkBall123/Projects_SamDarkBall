@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Systems
+
+|serverExec= server
+
+|descr= Activate addons upon mission start. Doesn't work when the mission is already running.
+
+|s1= [addons] call [[BIS_fnc_activateAddons]]
+
+|p1= addons: [[Array]] of [[String]]s - addon classes from CfgPatches or object classes from CfgVehicles
+
+|r1= [[Array]] of [[String]]s - activated addons
+
+|x1= <sqf>["class_1","class_2"] call BIS_fnc_activateAddons;</sqf>
+
+|seealso= [[activateAddons]] [[unitAddons]] [[activatedAddons]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Missions
+
+|descr= Returns time in seconds until the mission end. Remaining time can be set using [[estimatedTimeLeft]] command or using [[BIS_fnc_countdown]].
+
+|s1= call [[BIS_fnc_missionTimeLeft]]
+
+|r1= [[Number]] - time left
+
+|x1= <sqf>call BIS_fnc_missionTimeLeft;</sqf>
+
+|seealso= [[estimatedTimeLeft]] [[BIS_fnc_countdown]]
+}}

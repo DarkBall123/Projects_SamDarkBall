@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Timeline
+
+|descr= Deletes given timeline and updates.
+<sqf>missionNamespace getVariable "Timelines";</sqf>
+
+|s1= [timeline] call [[BIS_fnc_timeline_deleted]]
+
+|p1= timeline: [[Object]] - the timeline object
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[timeline] call BIS_fnc_timeline_deleted;</sqf>
+
+|seealso= [[BIS_fnc_timeline_cleanup]]
+}}

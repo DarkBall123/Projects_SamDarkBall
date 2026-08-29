@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+|gr1= GUI Control
+
+|descr= Returns [[true]] if Steam overlay is enabled, otherwise [[false]].
+
+|s1= [[isSteamOverlayEnabled]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_overlayEnabled = isSteamOverlayEnabled;</sqf>
+
+|seealso= [[ctrlSetURLOverlayMode]] [[ctrlURLOverlayMode]]
+}}

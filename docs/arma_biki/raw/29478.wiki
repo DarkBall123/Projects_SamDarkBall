@@ -1,0 +1,14 @@
+{{TOC|side}}
+
+Textures available for use with [[setFlagTexture]]. See [[:Category:Command Group: Flags|Command Group: Flags]] for all flag commands.
+
+
+== Flag Textures ==
+
+* "\ca\misc\data\usa_vlajka.pac" (USA)
+* "\ca\misc\data\sever_vlajka.paa" (North Sahrani)
+* "\ca\misc\data\jih_vlajka.paa" (South Sahrani)
+
+
+{{GameCategory|arma1|Reference Lists}}
+[[Category: Flag Textures]]

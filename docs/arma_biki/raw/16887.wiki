@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.36
+
+|arg= local
+|eff= global
+
+|gr1= Unit Control
+
+|descr= Sets whether or not cargo or turret units ''should'' get out of vehicle when in combat. If '''true''', vehicle will stop and units will dismount. Vehicle must be local. The command resets last time unit had reacted to an enemy as well as forcing [[orderGetIn]] [[false]] if [[canUnloadInCombat]] is permitted by config
+
+|s1= vehicle [[setUnloadInCombat]] [allowCargo, allowTurrets]
+
+|p1= vehicle: [[Object]]
+
+|p2= allowCargo: [[Boolean]]
+
+|p3= allowTurrets: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_veh setUnloadInCombat [true, false];</sqf>
+
+|seealso= [[getUnloadInCombat]] [[canUnloadInCombat]] [[allowCrewInImmobile]] [[isAllowedCrewInImmobile]]
+}}

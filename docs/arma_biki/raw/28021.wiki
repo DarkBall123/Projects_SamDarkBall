@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Mission Information
+
+|descr= Returns a list of all layers created in [[:Category:Eden Editor|Eden Editor]]. Designed to be used during a scenario. Default layers (BLUFOR, OPFOR...) are not returned.
+
+|s1= [[getMissionLayers]]
+
+|r1= [[Array]] of [[String]]s - names of layers
+
+|x1= <sqf>getMissionLayers; // ["Electronics","Camp Endurance","UGV Workstation","Comments","Extraction Air","Comments","Extraction Ground","Extraction","test"]</sqf>
+
+|seealso= [[getMissionLayerEntities]]
+}}

@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= ControlPoint
+
+|descr= Set's whether this control point is arrive or leave.
+
+|s1= [controlPoint, isArrive] call [[BIS_fnc_controlPoint_setIsArrive]]
+
+|p1= controlPoint: [[Object]] - the control point
+
+|p2= isArrive: [[Object]] - (Optional, default [[true]]) [[true]] - arrive<br>[[false]] -  leave
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[controlPoint,false] call BIS_fnc_controlPoint_setIsArrive;</sqf>
+
+|seealso= [[BIS_fnc_controlPoint_isArrive]] [[BIS_fnc_controlPoint_compute]] [[BIS_fnc_controlPoint_computeOwnerKey]] [[BIS_fnc_controlPoint_getOwnerKey]]
+}}

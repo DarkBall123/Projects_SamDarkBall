@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.42
+
+|arg= local
+
+|gr1= Object Manipulation
+
+|descr= Sets the given suppression value for the given unit.
+
+|s1= unit [[setSuppression]] value
+
+|p1= unit: [[Object]]
+
+|p2= value: [[Number]] in range 0..1
+
+|r1= [[Nothing]]
+
+|x1= <sqf>unit_1 setSuppression 1;</sqf>
+
+|seealso= [[getSuppression]] [[suppressFor]]
+}}

@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.02
+
+|gr1= Object Manipulation
+
+|descr= Returns the nameSound of a person.
+
+|s1= [[nameSound]] person
+
+|p1= person: [[Object]]
+|r1= [[String]]
+
+|x1= <sqf>nameSound player;</sqf>
+
+|seealso= [[setNameSound]] [[name]] [[setName]]
+}}

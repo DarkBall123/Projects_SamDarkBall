@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.62
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Namespaces
+|gr2= Variables
+
+|descr= Returns the global namespace attached to the active user profile. Use [[setVariable]] and [[getVariable]] to save and load data to and from this [[Namespace]]. A variable can be deleted by setting its value to [[nil]]. By default the variables set in this namespace will exist while the game is running, and variables are saved persistently when the game is closed. Saving can also be forced by using [[saveProfileNamespace]] to prevent data loss on e.g game crash.<br>
+The variables are stored next to the user profile in a file named {{hl|myUsername.vars.GAMENAME}}.
+
+|s1= [[profileNamespace]]
+
+|r1= [[Namespace]]
+
+|x1= <sqf>
+profileNamespace setVariable ["TAG_kills", 10000];
+// somewhere else in the code
+_kills = profileNamespace getVariable ["TAG_kills", 0];
+</sqf>
+
+|seealso= [[saveProfileNamespace]] [[missionNamespace]] [[uiNamespace]] [[parsingNamespace]] [[currentNamespace]] [[localNamespace]] [[allVariables]] [[with]] [[ArmA:_Editing#Forward_Compatibility|Forward Compatibility]]
+}}
+
+{{Note
+|user= Joris
+|timestamp= 20111125173300
+|text= The variables are loaded when the user profile is loaded or changed.
+}}

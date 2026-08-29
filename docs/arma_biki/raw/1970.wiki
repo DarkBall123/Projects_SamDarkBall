@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Mission Information
+
+|descr= Activates the given keyname for the current user profile. The keys are used to unlock missions or campaigns.
+See <syntaxhighlight lang="cpp" inline>keys</syntaxhighlight>, <syntaxhighlight lang="cpp" inline>keysLimit</syntaxhighlight> and <syntaxhighlight lang="cpp" inline>doneKeys</syntaxhighlight> in the [[Description.ext#Mission Keys]] chapter.
+
+|s1= [[activateKey]] keyname
+
+|p1= keyname: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>activateKey "Mission04Key";</sqf>
+
+|seealso= [[deActivateKey]] [[isKeyActive]]
+}}

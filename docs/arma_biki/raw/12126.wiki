@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Creates a headgear item and tries to link it to headgear slot. If slot is occupied with another item, the item in the slot will be replaced.
+
+|s1= unit [[addHeadgear]] item
+
+|p1= unit: [[Object]]
+
+|p2= item: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player addHeadgear "H_HelmetB";</sqf>
+
+|seealso= [[headgear]] [[removeHeadgear]]
+}}

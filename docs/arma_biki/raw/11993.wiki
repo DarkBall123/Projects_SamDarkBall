@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.63
+
+|gr1= Diagnostic
+
+|descr= Log all frames, where section takes longer than the threshold (in seconds).
+{{Feature|informative|Only available in specific builds. See [[Performance Profiling]] for details.}}
+{{Feature|warning|This command is not implemented in '''{{arma3}}''' builds. {{GVI|arma3|2.20}} Use [[diag_captureSlowFrame]] with '''toFile''' parameter instead. Or [[Multiplayer_Server_Commands#Performance_profiling|admin chat commands]] for server side captures. }}
+
+|s1= [[diag_logSlowFrame]] [section, threshold]
+
+|p1= section: [[String]]
+
+|p2= threshold: [[Number]] - duration of frame in seconds
+
+|r1= [[Nothing]]
+
+|x1= <sqf>diag_logSlowFrame ['total', 0.3];</sqf>
+
+|seealso= [[Performance Profiling]] [[diag_captureFrame]] [[diag_captureSlowFrame]] [[diag_captureFrameToFile]] [[Multiplayer_Server_Commands#Performance_Profiling|Admin chat commands]]
+}}

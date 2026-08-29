@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|eff= local
+
+|gr1= System
+
+|gr2= Environment
+
+|descr= Sets the shadows rendering distance.
+
+|s1= [[setShadowDistance]] value
+
+|p1= value: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setShadowDistance 200;</sqf>
+
+|seealso= [[getShadowDistance]] [[isPipEnabled]]
+}}

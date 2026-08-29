@@ -1,0 +1,375 @@
+{{TOC|side}}
+
+== List ==
+=== Faces  ===
+{| class="wikitable sortable mw-collapsible"
+! Class
+! Name
+! Preview
+<!-- EXPORT START ----------------------------------------------------------->
+
+|-
+|
+==== Face1 ====
+| Peter F.
+| [[File:Face_A1_Face1.jpg|100px]]
+
+|-
+|
+==== Face2 ====
+| Sebastian K.
+| [[File:Face_A1_Face2.jpg|100px]]
+
+|-
+|
+==== Face3 ====
+| Markus R.
+| [[File:Face_A1_Face3.jpg|100px]]
+
+|-
+|
+==== Face4 ====
+| Mario Z.
+| [[File:Face_A1_Face4.jpg|100px]]
+
+|-
+|
+==== Face5 ====
+| Peter V.
+| [[File:Face_A1_Face5.jpg|100px]]
+
+|-
+|
+==== Face6 ====
+| Tomas P.
+| [[File:Face_A1_Face6.jpg|100px]]
+
+|-
+|
+==== Face7 ====
+| Lucas S.
+| [[File:Face_A1_Face7.jpg|100px]]
+
+|-
+|
+==== Face8 ====
+| Eduardo S.
+| [[File:Face_A1_Face8.jpg|100px]]
+
+|-
+|
+==== Face9 ====
+| Stanley D.
+| [[File:Face_A1_Face9.jpg|100px]]
+
+|-
+|
+==== Face10 ====
+| Paul G.
+| [[File:Face_A1_Face10.jpg|100px]]
+
+|-
+|
+==== Face11 ====
+| Wenceslas M.
+| [[File:Face_A1_Face11.jpg|100px]]
+
+|-
+|
+==== Face12 ====
+| Ivan B.
+| [[File:Face_A1_Face12.jpg|100px]]
+
+|-
+|
+==== Face13 ====
+| Mario K.
+| [[File:Face_A1_Face13.jpg|100px]]
+
+|-
+|
+==== Face14 ====
+| Chad H.
+| [[File:Face_A1_Face14.jpg|100px]]
+
+|-
+|
+==== Face15 ====
+| Andrew S.
+| [[File:Face_A1_Face15.jpg|100px]]
+
+|-
+|
+==== Face16 ====
+| Stephen D.
+| [[File:Face_A1_Face16.jpg|100px]]
+
+|-
+|
+==== Face17 ====
+| Enricco T.
+| [[File:Face_A1_Face17.jpg|100px]]
+
+|-
+|
+==== Face18 ====
+| Jacob S.
+| [[File:Face_A1_Face18.jpg|100px]]
+
+|-
+|
+==== Face19 ====
+| Vladimir N.
+| [[File:Face_A1_Face19.jpg|100px]]
+
+|-
+|
+==== Face20 ====
+| Jan H.
+| [[File:Face_A1_Face20.jpg|100px]]
+
+|-
+|
+==== Face21 ====
+| Jan P.
+| [[File:Face_A1_Face21.jpg|100px]]
+
+|-
+|
+==== Face22 ====
+| Steve K.
+| [[File:Face_A1_Face22.jpg|100px]]
+
+|-
+|
+==== Face23 ====
+| Mark S.
+| [[File:Face_A1_Face23.jpg|100px]]
+
+|-
+|
+==== Face24 ====
+| Andrey B.
+| [[File:Face_A1_Face24.jpg|100px]]
+
+|-
+|
+==== Face25 ====
+| George M.
+| [[File:Face_A1_Face25.jpg|100px]]
+
+|-
+|
+==== Face26 ====
+| Mike F.
+| [[File:Face_A1_Face26.jpg|100px]]
+
+|-
+|
+==== Face27 ====
+| Geofrey M.
+| [[File:Face_A1_Face27.jpg|100px]]
+
+|-
+|
+==== Face28 ====
+| Chuck W.
+| [[File:Face_A1_Face28.jpg|100px]]
+
+|-
+|
+==== Face29 ====
+| Fredy B.
+| [[File:Face_A1_Face29.jpg|100px]]
+
+|-
+|
+==== Face30 ====
+| Thomas L.
+| [[File:Face_A1_Face30.jpg|100px]]
+
+|-
+|
+==== Face31 ====
+| Paul H.
+| [[File:Face_A1_Face31.jpg|100px]]
+
+|-
+|
+==== Face32 ====
+| Pete G.
+| [[File:Face_A1_Face32.jpg|100px]]
+
+|-
+|
+==== Face33 ====
+| Bruce V.
+| [[File:Face_A1_Face33.jpg|100px]]
+
+|-
+|
+==== Face34 ====
+| Joe K.
+| [[File:Face_A1_Face34.jpg|100px]]
+
+|-
+|
+==== Face35 ====
+| John K.
+| [[File:Face_A1_Face35.jpg|100px]]
+
+|-
+|
+==== Face36 ====
+| Bill G.
+| [[File:Face_A1_Face36.jpg|100px]]
+
+|-
+|
+==== Face37 ====
+| Ken G.
+| [[File:Face_A1_Face37.jpg|100px]]
+
+|-
+|
+==== Face38 ====
+| Chris L.
+| [[File:Face_A1_Face38.jpg|100px]]
+
+|-
+|
+==== Face39 ====
+| Bobby B.
+| [[File:Face_A1_Face39.jpg|100px]]
+
+|-
+|
+==== Face40 ====
+| Dave A.
+| [[File:Face_A1_Face40.jpg|100px]]
+
+|-
+|
+==== Face41 ====
+| Boris A.
+| [[File:Face_A1_Face41.jpg|100px]]
+
+|-
+|
+==== Face42 ====
+| Victor K.
+| [[File:Face_A1_Face42.jpg|100px]]
+
+|-
+|
+==== Face43 ====
+| Francesco P.
+| [[File:Face_A1_Face43.jpg|100px]]
+
+|-
+|
+==== Face44 ====
+| Joachim S.
+| [[File:Face_A1_Face44.jpg|100px]]
+
+|-
+|
+==== Face45 ====
+| Charles D.
+| [[File:Face_A1_Face45.jpg|100px]]
+
+|-
+|
+==== Face46 ====
+| Michael U.
+| [[File:Face_A1_Face46.jpg|100px]]
+
+|-
+|
+==== Face47 ====
+| Adam C.
+| [[File:Face_A1_Face47.jpg|100px]]
+
+|-
+|
+==== Face48 ====
+| Igor M.
+| [[File:Face_A1_Face48.jpg|100px]]
+
+|-
+|
+==== Face49 ====
+| Dymitryi M.
+| [[File:Face_A1_Face49.jpg|100px]]
+
+|-
+|
+==== Face50 ====
+| Kamil V.
+| [[File:Face_A1_Face50.jpg|100px]]
+
+|-
+|
+==== Face51 ====
+| Jan K.
+| [[File:Face_A1_Face51.jpg|100px]]
+
+|-
+|
+==== Face52 ====
+| Earl L.
+| [[File:Face_A1_Face52.jpg|100px]]
+
+|-
+|
+==== Face53 ====
+| Mike L.
+| [[File:Face_A1_Face53.jpg|100px]]
+
+|-
+|
+==== Face54 ====
+| Peter P.
+| [[File:Face_A1_Face54.jpg|100px]]
+
+|-
+|
+==== Face55 ====
+| Daniel D.
+| [[File:Face_A1_Face55.jpg|100px]]
+
+|-
+|
+==== FaceR01 ====
+| George M.
+| [[File:Face_A1_FaceR01.jpg|100px]]
+
+|-
+|
+==== FaceR02 ====
+| Geofrey M.
+| [[File:Face_A1_FaceR02.jpg|100px]]
+
+|-
+|
+==== FaceR03 ====
+| Thomas L.
+| [[File:Face_A1_FaceR03.jpg|100px]]
+
+|-
+|
+==== FaceR04 ====
+| Bruce V.
+| [[File:Face_A1_FaceR04.jpg|100px]]
+
+
+<!-- EXPORT END ----------------------------------------------------------->
+|}
+
+=== Glasses ===
+Not available in [[:Category:ArmA: Armed Assault|{{arma1}}]].
+
+=== Voices ===
+
+[[Category:CfgIdentities]]
+{{GameCategory|arma1|Reference Lists}}

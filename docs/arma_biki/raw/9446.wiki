@@ -1,0 +1,64 @@
+{{TOC|side}}
+{{Wiki|stub}}
+
+== Introduction ==
+'''Simple Support Module (SSM)''' allows the player to have access to a variety of support options.  These include '''Ammo Drop''', '''Units Drop''', '''Airstrike''', '''Mortar''' and '''Artillery'''. 
+
+== Quickstart ==
+To enable the Simple Support Module:
+
+Simply Place the '''SSM''' module on the map (from '''Modules (F7)''' in the Editor).
+
+You can access the available options from within game via the Communications menu (Spacebar -> Communications).  By default you have access to all the available support options.
+
+== Configuration ==
+===  Customizing Support Options ===
+Add this to the init of your player, it will override the default spawning groups. 
+
+'''Example:'''
+
+Spawn a group of Marines by default.
+ 
+  this setvariable ["BIS_SSM_UnitRequestConfigArray",[["Custom Squad",0.5,["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT"]]]];
+
+=== Customized Condition or Expressions ===
+You can use your own condition and own expression, for example for Artillery:
+   BIS_SSM_Artillery_CONDITION = " <your condition> ";
+   BIS_SSM_Artillery_EXPRESSION = { <your code> };
+
+=== Disabling Support Types ===
+You can limit the access to any particular support option by including the following code in the init field of the SSM module on map.
+
+'''Example:'''
+
+Disable all support options for WEST side.
+
+   BIS_SSM_AmmoDrop_AVAILABLE_WEST = false;
+   BIS_SSM_UnitsDrop_AVAILABLE_WEST = false;
+   BIS_SSM_Airstrike_AVAILABLE_WEST = false;
+   BIS_SSM_Mortar_AVAILABLE_WEST = false;
+   BIS_SSM_Artillery_AVAILABLE_WEST = false;
+   BIS_SSM_CeaseFire_AVAILABLE_WEST = false;
+
+CeaseFire includes the "Cancel Support" option.  Replace '''WEST''' with '''EAST''' or '''GUER''' as needed based on player SIDE.
+
+== Usage ==
+=== On Screen Availability Icons ===
+When you have one or more SSM options available you'll see a small beige icon in the lower right of your screen, like these:
+
+[[File:SSMIcons.jpg|SSM Icons]]
+
+Those icons denote, in order from top to bottom:  Artillery, Mortar, Airstrike, Ammo Drop, Units Drop
+
+=== SSM Player Usage ===
+To use one of the options first point your cursor at the location you want your support to arrive.  This includes both attack and support options, so don't look at your feet while ordering a mortar strike!  Once your cursor is pointing where you want it, press '''Spacebar''' then select '''Communications''' to open up the Support Menu.  You'll notice your cursor is now a circle and X icon as shown below.  Scroll down to the type of support you wish to call to that location and select it from the menu.  If you move your cursor over an illegible location, such as the sky, your support options will gray out and be unavailable.
+
+[[File:SSMOptions.jpg|SSM Options]]
+
+Once you click the Request option the delivery will begin.  If you decide you didn't want the support at that time, access the Communication menu again and choose '''Cancel support(s)'''.
+
+=== Airstrike Laser Designation Option ===
+If the caller has Laserdesignator, the module will not drop the bombs, he will use engine logic for dropping AI's own LGBs.
+
+
+{{GameCategory|arma2|Editor Modules}}

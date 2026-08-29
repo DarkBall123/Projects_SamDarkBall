@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Returns current coeficient setting.
+
+|s1= curatorObj [[curatorCoef]] action
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|p2= action: [[String]]
+
+|r1= [[Number]]
+
+|x1= <sqf>curatorModule curatorCoef "Place";</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

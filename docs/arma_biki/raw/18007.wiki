@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Unit Identity
+
+|descr= Locks the identity of a person. This will disable default identity.
+
+|s1= [[lockIdentity]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Boolean]] - [[true]], if it was applied
+
+|x1= <sqf>_success = lockIdentity player;</sqf>
+
+|seealso= [[loadIdentity]] [[setIdentity]]
+}}

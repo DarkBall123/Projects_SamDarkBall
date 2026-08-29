@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Waypoints
+
+|descr= Changes a group's combat mode when the waypoint becomes active.
+
+|s1= waypoint [[setWaypointCombatMode]] mode
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= mode: [[String]] - can be:
+* "NO CHANGE"
+* "BLUE"
+* "GREEN"
+* "WHITE"
+* "YELLOW"
+* "RED"
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp, 2] setWaypointCombatMode "RED";</sqf>
+
+|seealso= [[Combat Modes]] [[setWaypointBehaviour]]
+}}

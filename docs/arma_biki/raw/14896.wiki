@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|arg= local
+
+|descr= Returns [[curatorEditableObjects|Curator Editable Object]] under curator mouse pointer.
+
+|s1= [[curatorMouseOver]]
+
+|r1= [[Array]]
+* [] - when not in curator mode
+* [""] - if no curator editable object under the pointer in curator mode
+* [<nowiki/>[[typeName]], [[curatorEditableObjects|Curator Editable Object]]] - if there is curator editable object under the pointer in curator mode
+
+|x1= <sqf>_mouseOver = curatorMouseOver; // Possible return value: ["OBJECT", 3594ab00# 164218: apc_wheeled_01_cannon_f.p3d]</sqf>
+
+|seealso= [[Arma 3: Curator]] [[curatorEditableObjects]] [[curatorSelected]]
+}}

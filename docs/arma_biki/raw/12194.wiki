@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|eff= local
+
+|gr1= Particles
+
+|descr= Returns current user settings for particles quality (configure->video->general->particles). 0-low, 1-normal, 2-high
+
+|s1= '''particlesQuality'''
+
+|r1= [[Number]]
+
+|x1= <sqf>_currentQuality = particlesQuality;</sqf>
+
+|seealso= [[setParticleCircle]] [[setParticleParams]] [[setParticleRandom]] [[ParticleTemplates]] [[setParticleClass]] [[setParticleFire]]
+}}

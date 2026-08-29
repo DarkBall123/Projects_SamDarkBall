@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.86
+
+|gr1= Warlords
+
+|descr= <pre>/*
+WARLORDS-SPECIFIC FUNCTION
+
+Author: Josef Zemánek
+
+Description: Introduces a synchronized time value for server and clients.
+OBSOLETE NOW AFTER SERVERTIME FIX
+*/</pre>{{Wiki|placeholder}}<!-- Remove this after fill-in -->
+
+|s1= [] call [[BIS_fnc_WLSyncTime]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

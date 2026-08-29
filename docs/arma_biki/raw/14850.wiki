@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|serverExec= server
+
+|gr1= Curator
+
+|descr= Delete all curator edit areas.
+
+|s1= [[removeAllCuratorEditingAreas]] curatorObj
+
+|p1= curatorObj: [[Object]] - curator module.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllCuratorEditingAreas myCurator;</sqf>
+
+|seealso= [[Arma 3: Curator]] [[addCuratorEditingArea]] [[removeCuratorEditingArea]] [[curatorEditingArea]]
+}}

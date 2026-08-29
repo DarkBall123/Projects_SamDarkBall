@@ -1,0 +1,16 @@
+{{TOC|side}}
+
+Textures available for use with [[setFlagTexture]]. See [[:Category:Command Group: Flags|Command Group: Flags]] for all flag commands.
+
+= Flag Textures =
+* "\ca\data\Flag_usmc_co.paa"
+* "\ca\data\Flag_rus_co.paa"
+* "\ca\data\Flag_usa_co.paa"
+* "\ca\data\Flag_napa_co.paa"
+* "\ca\data\Flag_chdkz_co.paa"
+* "\ca\data\Flag_chernarus_co.paa"
+* "\ca\data\FlagHolder_co.paa"
+
+
+{{GameCategory|arma2|Reference Lists}}
+[[Category:Flag Textures]]

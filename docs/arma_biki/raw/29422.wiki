@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= Radio and Chat
+
+|descr= A getter for [[enableRadio]].
+
+|s1= [[radioEnabled]]
+
+|r1= [[Boolean]] - returns [[true]] if radio is enabled
+
+|x1= <sqf>if (radioEnabled) then { enableRadio false };</sqf>
+
+|seealso= [[enableRadio]]
+}}

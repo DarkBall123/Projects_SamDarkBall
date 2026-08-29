@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|eff= local
+
+|gr1= Briefing
+
+|descr= Remove a log record.
+
+|s1= unit [[removeDiaryRecord]] [subject, diaryRecord]
+
+|p1= unit: [[Object]]
+
+|p2= subject: [[String]]
+
+|p3= diaryRecord: [[Diary Record]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+private _diaryRecord = player createDiaryRecord ["Diary", ["Subject", "Text"]];
+// ...
+player removeDiaryRecord ["Diary", _diaryRecord];
+</sqf>
+
+|seealso= [[createDiaryRecord]] [[removeDiarySubject]]
+}}

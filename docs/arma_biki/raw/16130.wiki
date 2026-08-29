@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= Return respawn type defined in [[Description.ext]]. Can return as [[Number]] (e.g 1) or [[String]] (e.g "BIRD").
+
+|s1= type call [[BIS_fnc_missionRespawnType]]
+
+|p1= type: [[Number]] or [[String]] - wanted return value type
+
+|r1= [[Number]] or [[String]] - return type depends on ''type''
+
+|x1= <sqf>private _respawnAsNumber = 0 call BIS_fnc_missionRespawnType;</sqf>
+
+|x2= <sqf>private _respawnAsString = "" call BIS_fnc_missionRespawnType;</sqf>
+
+|seealso= [[Arma 3: Respawn]] [[Arma 3: Respawn]] [[:Category:Function_Group:_Respawn|Respawn Function Group]]
+}}

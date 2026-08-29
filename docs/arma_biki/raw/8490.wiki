@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma2
+|version1= 1.00
+
+|game2= arma2oa
+|version2= 1.50
+
+|game3= tkoh
+|version3= 1.00
+
+|game4= arma3
+|version4= 0.50
+
+|gr1= System
+
+|gr2= Environment
+
+|descr= Returns the rendering distance.
+
+|s1= '''viewDistance'''
+
+|r1= [[Number]]
+
+|x1= <sqf>hint ("my view distance is " + str viewDistance + " meters");</sqf>
+
+|seealso= [[setViewDistance]] [[setDetailMapBlendPars]] [[setTerrainGrid]] [[getObjectViewDistance]] [[setObjectViewDistance]]
+}}

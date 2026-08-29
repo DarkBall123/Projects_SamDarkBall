@@ -1,0 +1,43 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Triggers
+
+|descr= Assigns a static object to the trigger. The activation source is changed to "STATIC".
+
+|s1= triggerName [[triggerAttachObject]] objectId
+
+|p1= triggerName: [[Object]]
+
+|p2= objectId: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_trigger triggerAttachObject 1234;</sqf>
+
+|seealso= [[attachObject]] [[attachTo]] [[attachedObjects]] [[attachedTo]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[lightAttachObject]] [[triggerAttachVehicle]] [[attachedObject]] [[triggerAttachedVehicle]] [[triggerInterval]] [[setTriggerInterval]] [[enableSimulation]] [[simulationEnabled]]
+}}
+
+{{Note
+|user= Killzone_Kid
+|timestamp= 20131031215600
+|text= This command doesn't quite work in {{arma3}}: see {{Link|link= http://feedback.arma3.com/view.php?id=15750|text= this ticket}}<br><br>
+Further investigation reveals that objectId param for this command is some kind of map id and not the id you can see in the editor. This map id could be seen in multiplayer when looking at [[netId]] of the static objects, for example "1:-23984219837", the -23984219837 would be the objectId. Unfortunately it still doesn't work.
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= System
+
+|gr2= Diagnostic
+
+|descr= Returns [[true]] if file patching is enabled otherwise [[false]]
+
+|s1= [[isFilePatchingEnabled]] 
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_state = isFilePatchingEnabled;</sqf>
+
+|seealso= [[Arma 3: Startup Parameters#Developer_Options|-filePatching]]
+}}

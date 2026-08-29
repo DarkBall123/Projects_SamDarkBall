@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.20
+
+|arg= local
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes all magazines from the unit.
+
+|s1= [[removeAllMagazines]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllMagazines player;</sqf>
+
+|seealso= [[removeMagazines]] [[addMagazine]] [[magazines]] [[removeMagazine]] [[removeWeapon]] [[removeMagazinesTurret]] [[removeAllMagazinesTurret]] [[removeMagazineTurret]] [[setVehicleAmmo]]
+}}

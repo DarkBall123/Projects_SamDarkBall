@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Containers
+
+|gr2= Unit Inventory
+
+|arg= global
+
+|descr= nameof vest.
+
+|s1= [[vest]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>_myVest = vest player;</sqf>
+
+|seealso= [[removeVest]] [[addVest]]
+}}

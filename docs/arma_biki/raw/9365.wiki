@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.50
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Containers
+
+|descr= Returns unit's backpack
+
+|s1= [[unitBackpack]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Object]]
+
+|x1= <sqf>private _myBackpack = unitBackpack player;</sqf>
+
+|x2= <sqf>clearMagazineCargo unitBackpack player;</sqf>
+
+|x3= <sqf>player action ["gear", unitBackpack player];</sqf>
+
+|seealso= [[backpackContainer]] [[firstBackpack]] [[backpack]] [[backpackCargo]] [[getBackpackCargo]] [[backpackItems]] [[addBackpack]] [[addBackpackCargo]] [[addBackpackCargoGlobal]] [[removeBackpack]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]] [[clearAllItemsFromBackpack]] [[loadBackpack]] [[backpackSpaceFor]] [[canAddItemToBackpack]] [[addItemToBackpack]] [[removeItemFromBackpack]] [[everyBackpack]]
+}}
+
+{{Note
+|user= ffur2007slx2_5
+|timestamp= 20140429154900
+|text= In {{arma3}} ver 1.16, we can use either [[backpackContainer]] or [[unitBackpack]] at present since both of them enjoy same operand type and return value.
+}}

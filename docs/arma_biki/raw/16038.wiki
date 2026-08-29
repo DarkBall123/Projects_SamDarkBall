@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Event Handlers
+
+|descr= Removes scripted event handler with given name and id.
+Additionally "ScriptedEventHandlerRemoved" scripted EH is called.
+{{Feature|informative|For a list of available scripted event handlers, see [[Arma 3: Scripted Event Handlers]].}}
+
+|s1= [namespace, name, id] call [[BIS_fnc_removeScriptedEventHandler]]
+
+|p1= namespace: [[Namespace]], [[Object]], [[Group]], [[Location]], [[Boolean]], [[Control]] or [[Display]] - namespace in which handler is saved
+
+|p2= name: [[String]] - handler name
+
+|p3= id: [[Number]] - EH id
+
+|r1= [[Boolean]] - [[true]] if removed, [[false]] if didn't exist
+
+|x1= <sqf>[missionNamespace, "event", 2] call BIS_fnc_removeScriptedEventHandler;</sqf>
+
+|seealso= [[BIS_fnc_callScriptedEventHandler]] [[BIS_fnc_addScriptedEventHandler]] [[BIS_fnc_removeAllScriptedEventHandlers]]
+}}

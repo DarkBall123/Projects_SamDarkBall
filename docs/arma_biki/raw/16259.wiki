@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= Creates empty ammo cartridges on position of the module logic. {{Feature|informative|Mainly meant to be used by modules available in [[:Category:Eden Editor|Eden Editor]].}}
+
+|s1= [module] call [[BIS_fnc_moduleEffectsShells]]
+
+|p1= module: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_module] call BIS_fnc_moduleEffectsShells;</sqf>
+
+|seealso= [[Modules]] [[Eden Editor: System]]
+}}

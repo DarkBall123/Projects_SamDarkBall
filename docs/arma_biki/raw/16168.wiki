@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Return a sub-task's parent task. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskName call [[BIS_fnc_taskParent]]
+
+|p1= taskName: [[String]]
+
+|r1= [[String]] - parent task
+
+|x1= <sqf>"BIS_task_01" call BIS_fnc_taskParent;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

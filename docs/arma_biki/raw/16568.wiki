@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|gr1= GUI Control - Object
+
+|descr= Returns model used in 3D-[[Arma: GUI Configuration|Dialog]].
+
+|s1= [[ctrlModel]] control
+
+|p1= control : [[Control]] - 3D control
+
+|r1= [[String]] - model path
+
+|x1= <sqf>_model = ctrlModel _control3D;</sqf>
+
+|seealso= [[ctrlCreate]] [[ctrlDelete]] [[ctrlSetModel]] [[ctrlPosition]] [[ctrlSetPosition]] [[ctrlClassName]] [[displayCtrl]] [[ctrlModelScale]] [[ctrlSetModelScale]] [[ctrlModelDirAndUp]] [[ctrlSetModelDirAndUp]]
+}}

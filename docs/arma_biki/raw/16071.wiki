@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Multiplayer
+
+|serverExec= server
+
+|descr= Adds a set amount of points to the score of a unit ''(MP only)''
+
+|s1= [object, number] call [[BIS_fnc_addScore]]
+
+|p1= [[Object]] - unit to add score to.
+|p2= [[Number]] - number of points (score) to add to unit.
+
+|r1= [[Number]] - score added to unit
+
+|x1= <sqf>[player,20] call BIS_fnc_addScore;</sqf>
+
+|seealso= [[addScore]]
+ 
+}}

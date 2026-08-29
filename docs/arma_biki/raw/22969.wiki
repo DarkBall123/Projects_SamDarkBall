@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= DLC
+
+|descr= Returns an array of the DLC usage times.
+
+|s1= [[getDLCAssetsUsage]]
+
+|r1= [[Array]] - array of DLC usage information, containing DLC items in format:<br>
+[<nowiki/>[name, dlcAppId, sessionTime, totalTime], [name, dlcAppId, sessionTime, totalTime], (…)]<br>
+'''NOTE:''' unused assets won't appear in the result (usage time = 0).
+
+|x1= <sqf>_dlcAssetsUsageInfo = getDLCAssetsUsage;</sqf>
+
+|seealso= [[getDLCs]] [[getObjectDLC]] [[getPersonUsedDLCs]] [[getMissionDLCs]] [[getDLCAssetsUsageByName]] [[getAssetDLCInfo]]
+}}

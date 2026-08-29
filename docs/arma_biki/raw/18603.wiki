@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= Vehicle Loadouts
+
+|descr= Overrides default pylons priorities.
+
+|s1= vehicle [[setPylonsPriority]] priorities
+
+|p1= vehicle: [[Object]]
+
+|p2= priorities: [[Array]] of [[Number]]s
+
+|r1= [[Nothing]]
+
+|x1= <sqf>(vehicle player) setPylonsPriority [0,1,2,3,4,5,5,4,3,2,1,0];</sqf>
+
+|seealso= [[Arma 3: Vehicle Loadouts]] [[getCompatiblePylonMagazines]] [[getPylonMagazines]] [[setAmmoOnPylon]] [[ammoOnPylon]] [[animatePylon]] [[animateBay]] [[setPylonLoadout]]
+}}

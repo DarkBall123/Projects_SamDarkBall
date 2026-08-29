@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= Assignes loiter radius to waypoint
+
+|s1= waypoint [[setWaypointLoiterRadius]] radius
+
+|p1= waypoint: [[Waypoint]]
+|p2= radius: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_grp, 2] setWaypointLoiterRadius 200;</sqf>
+
+|seealso= [[waypoints]] [[deleteWaypoint]] [[copyWaypoints]] [[setCurrentWaypoint]] [[setWaypointBehaviour]] [[setWaypointCombatMode]] [[setWaypointCompletionRadius]] [[setWaypointDescription]] [[setWaypointFormation]] [[setWaypointHousePosition]] [[setWaypointPosition]] [[setWaypointScript]] [[setWaypointSpeed]] [[setWaypointStatements]] [[setWaypointTimeout]] [[setWaypointType]] [[setWaypointVisible]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[waypointLoiterRadius]] [[addWaypoint]] [[setWaypointLoiterType]] [[currentWaypoint]] [[waypointSpeed]] [[setWPPos]]
+}}

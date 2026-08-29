@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.48
+
+|gr1= System
+
+|gr2= Environment
+
+|descr= Gets the values of rendering distances of objects and shadows.
+
+|s1= '''getObjectViewDistance'''
+
+|r1= [[Array]] - in format [objectDistance, shadowDistance]
+
+|x1= <sqf>_arr = getObjectViewDistance;</sqf>
+
+|seealso= [[setObjectViewDistance]] [[setViewDistance]] [[viewDistance]] [[setDetailMapBlendPars]] [[setTerrainGrid]]
+}}

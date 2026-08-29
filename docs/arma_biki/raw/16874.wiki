@@ -1,0 +1,37 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.38
+
+|gr1= GUI Control
+
+|descr= Returns a list of all opened GUI displays.
+
+{{Feature | informative | Other displays could be accessed via [[uiNamespace]] variable which is updated every time a display is opened or closed.
+For example, to access IGUI displays:
+<sqf>private _iguiDisplays = uiNamespace getVariable ["IGUI_displays", []];</sqf>
+
+Other display variables:
+{{Columns|4|
+* {{hl|"3DENDisplaysTemp_displays"}}
+* {{hl|"3DENDisplays_displays"}}
+* {{hl|"BootcampDisplays_displays"}}
+* {{hl|"BootcampTitles_displays"}}
+* {{hl|"CuratorDisplays_displays"}}
+* {{hl|"CuratorTitles_displays"}}
+* {{hl|"GUI_displays"}}
+* {{hl|"IGUI_displays"}}
+* {{hl|"KartDisplays_displays"}}
+* {{hl|"Loading_displays"}}
+}}
+}}
+
+
+|s1= [[allDisplays]]
+
+|r1= [[Array]] of [[Display]]s
+
+|x1= <sqf>private _allDisps = allDisplays;</sqf>
+
+|seealso= [[allControls]] [[findDisplay]] [[controlsGroupCtrl]] [[ctrlCreate]] [[allVariables]] [[allCurators]] [[allGroups]] [[allDead]] [[allDeadMen]]
+}}

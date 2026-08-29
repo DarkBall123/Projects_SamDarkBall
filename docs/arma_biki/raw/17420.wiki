@@ -1,0 +1,17 @@
+{{Tool
+|AUTHOR= [[:Category:Projects|Bohemia Interactive]]
+|VERSION=
+|COMPATIBILITY= [[:Category:Arma_3:_Official_Tools|Arma 3 Tools]]
+|DOWNLOAD= {{Link|link= http://store.steampowered.com/app/233800/|text= Part of Arma 3 Tools package on Steam}}
+|DESCRIPTION= Terrain Processor is an application for making mass changes and additions to Arma terrains edited in Terrain Builder, focused primarily on fast object population of extents of areal or linear topologies. <br><br>
+In brief, the user can use this tool to add thousands of objects to an existing Arma terrain project based on geographic data. The outputs of Terrain Processor need to be imported to Terrain Builder.
+|NOTES=
+|COMMAND=TerrainProcessor.exe
+|OPTIONS=
+|EXAMPLE=
+|LICENSING= [[End User License Agreement for BI's Tools|Bohemia Interactive End User License Agreement]]
+|SEEALSO= [[Terrain Builder]], [[Terrain_Processor:_Introduction|Introduction to Terrain Processor]], [[:Category:Terrain Processor Manual|Terrain Processor, User manual]]
+
+}}
+
+{{GameCategory|arma3|Official Tools}}

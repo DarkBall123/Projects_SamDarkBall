@@ -1,0 +1,26 @@
+{{TOC|side}}
+{{Feature|arma2oa|Only available in {{arma2oa}}.}}
+The '''Jukebox''' plays random [[Arma 2: CfgMusic]].
+
+== Initialization==
+=== Startup ===
+''F7 > Jukebox''
+
+=== Optional parameters ===
+==== Set variables to jukebox logic with desired values ====
+
+*'''trackList = <array>;''' - List of played music tracks
+::Example: ''this setvariable ["trackList",["EP1_Track","EP1_Track01D"]];''
+::Default value: All songs in config
+
+*'''delay = <number>;''' - Delay between songs
+::Example: ''this setvariable ["delay",0];''
+::Default value: 3
+
+=== Alternative startup (without module) ===
+
+ [<trackList>,<delay>] spawn BIS_fnc_music;
+Both params are optional
+
+
+{{GameCategory|arma2|Editor Modules}}

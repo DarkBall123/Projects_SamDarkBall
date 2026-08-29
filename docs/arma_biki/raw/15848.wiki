@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Strings
+
+|descr= Checks if string is localized. Obsolete variant before [[isLocalized]] command was introduced.
+
+|s1= [localizationString] call [[BIS_fnc_isLocalized]]
+
+|p1= localizationString: [[String]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>["STR_someLocalizedString"] call BIS_fnc_isLocalized;</sqf>
+
+|seealso= [[isLocalized]] [[localize]]
+}}

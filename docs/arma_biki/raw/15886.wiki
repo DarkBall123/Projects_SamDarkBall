@@ -1,0 +1,36 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Briefing
+
+|descr= Animate briefing markers.
+
+|s1= [markerName, stepId, delay] call [[BIS_fnc_briefingAnimate]]
+
+|p1= markerName: [[String]] - marker to animate
+
+|p2= stepId: [[Number]] - step ID (steps are invisible markers named {{hl|&lt;''markerName''&gt;_&lt;''stepId''&gt;}})
+
+|p3= delay: [[String]] - commit time (transition duration)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+// given you have 6 markers:
+// - "myMarker"
+// - "myMarker_0"
+// - "myMarker_1"
+// - "myMarker_2"
+// - "myMarker_3"
+// - "myMarker_4"
+for "_i" from 0 to 4 do {
+	private _commit = 1;
+	["myMarker", 5, _commit] call BIS_fnc_briefingAnimate;
+	sleep _commit;
+};
+</sqf>
+
+|seealso= [[BIS_fnc_briefingInit]]
+}}

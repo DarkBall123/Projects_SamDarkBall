@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.57
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Object Detection
+
+|descr= Return a list of all dead units including agents and destroyed vehicles. Dead units may be in vehicles.
+
+|s1= [[allDead]]
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>{ deleteVehicle _x } forEach allDead;</sqf>
+
+|x2= allAlive:
+<sqf>
+_all = allUnits + vehicles;
+{
+	_all pushBack agent _x;
+} forEach (agents - [teamMemberNull]);
+allAlive = _all - allDead;
+</sqf>
+
+|seealso= [[allDeadMen]] [[allUnits]] [[allGroups]] [[playableUnits]] [[switchableUnits]] [[units]] [[vehicles]] [[allCurators]]
+}}
+
+{{Note
+|user= Ebay
+|timestamp= 20170406154000
+|text= This also returns bodies hidden with [[hideBody]] until they are deleted. Tested in A2OA 1.63.131129
+}}

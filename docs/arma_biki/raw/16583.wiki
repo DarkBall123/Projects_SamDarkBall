@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|arg= global
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes backpack from a unit. (even non-local)
+
+|s1= [[removeBackpackGlobal]] unit
+
+|p1= unit: [[Object]] - soldier
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeBackpackGlobal player;</sqf>
+
+|seealso= [[removeBackpack]] [[backpackContainer]] [[firstBackpack]] [[unitBackpack]] [[backpack]] [[backpackCargo]] [[getBackpackCargo]] [[backpackItems]] [[addBackpack]] [[addBackpackCargo]] [[addBackpackCargoGlobal]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]] [[clearAllItemsFromBackpack]] [[loadBackpack]] [[backpackSpaceFor]] [[canAddItemToBackpack]] [[addItemToBackpack]] [[removeItemFromBackpack]] [[everyBackpack]]
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2016-05-08 - 18:00 (UTC)</dd>
+<dt class="note">[[User:Nelis75733126|Nelis75733126]]</dt>
+<dd class="note">
+Because of AG (Arguments Global), you can use this command to remove the backpack from UNITS that are local as well as REMOTE.
+<sqf>removeBackpackGlobal UNIT;</sqf> where UNIT can be a local and/or REMOTE player and/or AI
+</dd>
+
+</dl>

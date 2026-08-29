@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.58
+
+|arg= global
+|eff= global|gr1= Tasks
+
+|descr= Sets task type to given task. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= [id, type] call [[BIS_fnc_taskSetType]]
+
+|p1= id: [[String]] - task ID
+
+|p2= type: [[String]] - {{Link|Arma 3: Task Framework#Task Icons|vanilla}} or {{Link|Description.ext#CfgTaskTypes|custom}} task type; if not defined, empty (no) type is used
+
+|r1= [[String]] - task ID.
+
+|x1= <sqf>["BIS_Task_01","attack"] call BIS_fnc_taskSetType;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

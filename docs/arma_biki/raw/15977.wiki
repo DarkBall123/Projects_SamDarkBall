@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|eff= local
+
+|descr= Displays Group Indicator (to the right of the screen in {{GVI|arma3|1.82}})
+
+|s1= argument call [[BIS_fnc_groupIndicator]]
+
+|p1= argument: [[Array]] - '''case-sensitive''', can be:
+* [] - displays Group Indicator
+* ["Exit"] - closes Group Indicator
+&nbsp;
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[] call BIS_fnc_groupIndicator; // starts group indicator</sqf>
+
+|x2= <sqf>["Exit"] call BIS_fnc_groupIndicator; // closes group indicator</sqf>
+
+|seealso= [[Description.ext#showGroupIndicator|Description.ext showGroupIndicator]] [[Description.ext#showSquadRadar|Description.ext showSquadRadar]]
+}}

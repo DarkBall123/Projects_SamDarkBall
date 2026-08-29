@@ -1,0 +1,7 @@
+'''Description:'''
+Config file entry.
+
+Introduced with Armed Assault, does not refer to Cold War Crisis or Resistance.
+
+
+[[Category: Data Types]]

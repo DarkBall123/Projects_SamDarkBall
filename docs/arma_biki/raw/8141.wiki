@@ -1,0 +1,81 @@
+{{TOC|side}}
+
+'''Function Library''' is pack of script functions available from anywhere in game. 
+
+{{Feature|arma3|This page is mainly '''Arma 2''' related, for '''Arma 3''' visit [[Arma 3: Functions Library]]}}
+
+
+== Initialization ==
+
+=== Paths ===
+
+Editor:
+ Modules (F7) > Function Library
+Data:
+ ca\modules\functions
+ ca\modules_e\functions
+ ca\modules_pmc\functions
+
+=== Startup ===
+
+Place Function manager on map. No additional synchronizing needed.
+
+=== Usage ===
+
+First, you need to check if Functions were already initialized:
+<sqf>waitUntil { !isNil "BIS_fnc_init" };</sqf>
+{{Feature|important|Always check for 'BIS_fnc_init', not specific functions (e.g. 'BIS_fnc_setpitchbank')!
+
+Never set value of 'BIS_fnc_init' in any part of mission! It may lead to breakdown of some modules!}}
+
+After that, you can call any function using following syntax:
+<sqf>_fnc = [params] call TAG_fnc_functionName;</sqf>
+
+
+== In-game functions viewer ==
+
+''See [[BIS_fnc_help]]''
+
+
+== Adding new functions ==
+
+List of functions is defined in config - CfgFunctions. New ones can be also added in [[Description.ext]] file of mission or campaign.
+<syntaxhighlight lang="cpp">
+class cfgFunctions
+{
+	class BIS
+	{
+		class category1
+		{
+			class Test1 		{ description = "Testing file 1" };
+		};
+	};
+
+	class TAG
+	{
+		class category1
+		{
+			class Test2
+			{
+				description = "Testing file 2";
+				file = "test.sqf";
+			};
+		};
+	};
+};
+</syntaxhighlight>
+If 'file' path is not set, system will search for file 'functions\{{Color|green|category}}\fn_{{Color|green|function}}.sqf" (if CfgFunctions is defined in [[Description.ext]]) or 'ca\modules\functions\{{Color|green|category}}\fn_{{Color|green|function}}.sqf" (if CfgFunctions is defined in config.cpp).
+
+Result is:
+* BIS_fnc_Test1 - will load script \functions\category1\test1.sqf from mission or campaign directory
+* TAG_fnc_Test2 - will load script test.sqf
+
+
+== List of official functions ==
+
+* [[:Category:Arma 2: Functions]]
+
+
+[[Category: Functions Library]]
+{{GameCategory|arma2|Editing}}
+{{GameCategory|arma2|Editor Modules}}

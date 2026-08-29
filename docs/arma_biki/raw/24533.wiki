@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Purges user profile from unwanted [[BIS_fnc_diagAAR]] data. If more than 7500 entries are found, the user is [[BIS_fnc_GUImessage|asked]] to delete [[profileNamespace]] variable '''BIS_fnc_diagAAR_data'''.
+
+|s1= call [[BIS_fnc_debugProfile]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_debugProfile;</sqf>
+
+|seealso= [[BIS_fnc_diagAAR]] [[BIS_fnc_GUImessage]]
+}}

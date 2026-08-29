@@ -1,0 +1,37 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= AEROBATICS [[Custom_Waypoints|custom waypoint]].
+
+Player must perform all the required manoeuvres:
+* "hover_turn_360"
+* "hover_bow"
+* "fast_turn_180"
+* "backwards"
+* "strafe"
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [visuals, detectionCode, completionCode]
+
+|p1= visuals: [[Boolean]] - should [[BIS_fnc_dynamicText|dynamic text]] appear on startup and completion
+
+|p2= detectionCode: [[Code]] - code executed once the helicopter is ready ([[speed]] < 10 km/h)
+
+|p3= completionCode: [[Code]] - code executed on manoeuvre's success (under 15s)
+<sqf>
+private ["_helicopter", "_manoeuvreName"];
+_helicopter = _this select 0;
+_manoeuvreName = _this select 1;
+</sqf>
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, { hint "OK, start!" }, { hint "success!" }] spawn BIS_fnc_wpAerobatics;</sqf>
+
+|seealso=
+}}

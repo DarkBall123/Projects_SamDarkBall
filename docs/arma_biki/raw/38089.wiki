@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|arg= local
+
+|eff= global
+
+|gr1= Object Manipulation
+
+|descr= Synchronises hitpoints values and total damage across current network clients as well as JIP.
+Possible uses after executing script commands such as [[setHit]], [[setHitIndex]], [[setHitPointDamage]] or in conjunction with {{Link|Arma 3: Event Handlers#HandleDamage|HandleDamage}} event handler (see {{Link|#Example 2}}).
+
+|mp= Static buildings synchronisation should be executed on the [[isServer|server]] as the server is the authority in building damage and you would want every client in MP to have the same level of damage as the server has.
+
+|s1= [[forceHitPointsDamageSync]] entity
+
+|p1= entity: [[Object]] - entity
+
+|r1= [[Boolean]] - [[true]] if sync was attempted
+
+|x1= <sqf>forceHitPointsDamageSync house1;</sqf>
+
+|x2= <sqf>
+house1 addEventHandler ["HandleDamage", 
+{
+	if (isServer && { _this select 9 == 2 }) then { (_this select 0) spawn { forceHitPointsDamageSync _this; } };
+	if (_this select 7 find "glass" >= 0) then { _this select 2 } else { 0 };
+}];
+</sqf>
+
+|seealso= [[getHit]] [[getHitPointDamage]] [[setHitPointDamage]] [[damage]] [[setDamage]] [[setFuel]] [[setAmmo]] [[getHitIndex]] [[setHitIndex]]
+}}

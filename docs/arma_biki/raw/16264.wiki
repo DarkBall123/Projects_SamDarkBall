@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr=Saves the game. Saving has to be enabled.
+
+|s1= [nil,nil,activated] call [[BIS_fnc_moduleSaveGame]]
+
+|p1= nil: [[Nothing]] - not used
+
+|p2= nil: [[Nothing]] - not used
+
+|p3= activated: [[Boolean]] - (Optional, default [[true]]) when [[true]] game will be saved
+
+|r1= [[Boolean]] - always [[true]]
+
+|x1= <sqf>call BIS_fnc_moduleSaveGame;</sqf>
+
+|seealso= [[saveGame]] [[BIS_fnc_saveGame]]
+}}

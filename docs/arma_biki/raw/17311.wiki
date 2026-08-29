@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.42
+
+|gr1= Leaderboards
+
+|descr= Requests given leaderboard to download friends rows from the given leaderboard
+
+|s1= [[leaderboardRequestRowsFriends]]  boardName
+
+|p1= boardName: [[String]]
+|r1= [[Boolean]]
+
+|x1= <sqf>leaderboardRequestRowsFriends "TT01";</sqf>
+
+|seealso= [[leaderboardDeInit]] [[leaderboardGetRows]] [[leaderboardRequestRowsGlobal]] [[leaderboardRequestRowsGlobalAroundUser]] [[leaderboardsRequestUploadScore]] [[leaderboardsRequestUploadScoreKeepBest]] [[leaderboardState]]
+}}

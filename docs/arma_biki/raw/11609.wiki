@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= RTD
+
+|descr=Set the actual battery charge of a helicopter.
+* 0: no charge
+* 1: fully charged
+
+|s1= helicopterRTD [[setBatteryChargeRTD]] charge
+
+|p1= helicopterRTD: [[Object|ObjectRTD]] - helicopter
+|p2= charge: [[Number]] - battery charge level
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setBatteryChargeRTD 0.5;</sqf>
+
+|seealso= [[batteryChargeRTD]] [[setBatteryRTD]]
+}}

@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Sets oxygen remaining. It has no effect when soldier is not diving.
+
+|s1= unit [[setOxygenRemaining]] value
+
+|p1= unit: [[Object]]
+
+|p2= value: [[Number]] in range 0..1
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+if (!isAbleToBreathe player) then
+{
+	player setOxygenRemaining 0; // drowns player
+};
+</sqf>
+
+|seealso= [[isAbleToBreathe]] [[getOxygenRemaining]]
+}}

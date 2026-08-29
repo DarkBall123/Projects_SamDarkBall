@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= AI Behaviour
+
+|descr= Gets individual unit's [[Combat Modes|combat mode]]. For more information see [[setUnitCombatMode]].
+
+|s1= [[unitCombatMode]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>unitCombatMode _unit;</sqf>
+
+|seealso= [[setUnitCombatMode]] [[setCombatMode]] [[combatMode]]
+}}

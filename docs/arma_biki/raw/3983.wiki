@@ -1,0 +1,663 @@
+{{TOC|side}}
+{{Feature|informative|This article requires further expansion of vehicle weapons/ammo.<br>
+Because it appears that the South Sahrani army use 'west' equipment a separate section was not added.}}
+
+== West ==
+=== Personal Weapons ===
+
+{| class="wikitable"
+! Weapon Classname
+! Muzzle Classname(s)
+! Magazine Classname(s)
+! Ammo Classname(s)
+! [[CfgAmmo_Config_Reference#hit|Hit]]<br>Damage
+! Sights leveling
+|-
+| {{Link|https://en.wikipedia.org/wiki/M16A2|M16A2}}
+| M16A2
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 300 
+|-
+| M16A2GL
+| M16Muzzle<br><br><br><br>M203Muzzle<br><br><br><br><br>
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD<br><br>FlareWhite_M203<br>FlareGreen_M203<br>FlareRed_M203<br>FlareYellow_M203<br>1Rnd_HE_M203
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD<br><br>F_40mm_White<br>F_40mm_Green<br>F_40mm_Red<br>F_40mm_Yellow<br>G_40mm_HE
+| 8<br>8<br>8<br><br>-<br>-<br>-<br>-<br>12
+| 300 
+|-
+| M16A4
+| M16A4
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 300 
+|-
+| M16A4_GL
+| M16Muzzle<br><br><br><br>M203Muzzle<br><br><br><br><br>
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD<br><br>FlareWhite_M203<br>FlareGreen_M203<br>FlareRed_M203<br>FlareYellow_M203<br>1Rnd_HE_M203
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD<br><br>F_40mm_White<br>F_40mm_Green<br>F_40mm_Red<br>F_40mm_Yellow<br>G_40mm_HE
+| 8<br>8<br>8<br><br>-<br>-<br>-<br>-<br>12
+| 300 
+|-
+| M16A4_ACG
+| M16A4_ACG
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 300 
+|-
+| M16A4_ACG_GL
+| M16Muzzle<br><br><br><br>M203Muzzle<br><br><br><br><br>
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD<br><br>FlareWhite_M203<br>FlareGreen_M203<br>FlareRed_M203<br>FlareYellow_M203<br>1Rnd_HE_M203
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD<br><br>F_40mm_White<br>F_40mm_Green<br>F_40mm_Red<br>F_40mm_Yellow<br>G_40mm_HE
+| 8<br>8<br>8<br><br>-<br>-<br>-<br>-<br>12
+| 300 
+|-
+| {{Link|https://en.wikipedia.org/wiki/M4_Carbine|M4}}
+| M4
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 300 
+|-
+| M4GL
+| M4Muzzle<br><br><br><br>M203Muzzle<br><br><br><br><br>
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD<br><br>FlareWhite_M203<br>FlareGreen_M203<br>FlareRed_M203<br>FlareYellow_M203<br>1Rnd_HE_M203
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD<br><br>F_40mm_White<br>F_40mm_Green<br>F_40mm_Red<br>F_40mm_Yellow<br>G_40mm_HE
+| 8<br>8<br>8<br><br>-<br>-<br>-<br>-<br>12
+| 300 
+|-
+| M4AIM
+| M4AIM
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 100 
+|-
+| M4A1SD
+| M4A1SD
+| 30Rnd_556x45_StanagSD<br>30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag
+| B_556x45_SD<br>B_556x45_Ball<br>B_556x45_Ball
+| 8<br>8<br>8
+| 100 
+|-
+| M4SPR
+| M4SPR
+| 20Rnd_556x45_Stanag<br>30Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 120-400 
+|-
+| M4A1
+| M4A1
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8
+| 300 
+|-
+| M4A1GL
+| M4Muzzle<br><br><br><br>M203Muzzle<br><br><br><br><br>
+| 30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD<br><br>FlareWhite_M203<br>FlareGreen_M203<br>FlareRed_M203<br>FlareYellow_M203<br>1Rnd_HE_M203
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD<br><br>F_40mm_White<br>F_40mm_Green<br>F_40mm_Red<br>F_40mm_Yellow<br>G_40mm_HE
+| 8<br>8<br>8<br><br>-<br>-<br>-<br>-<br>12
+| 300 
+|-
+| {{Link|https://en.wikipedia.org/wiki/G36|G36K}}
+| G36K
+| 30Rnd_556x45_G36
+| B_556x45_Ball
+| 8
+| 300 
+|-
+| G36C
+| G36C
+| 30Rnd_556x45_G36
+| B_556x45_Ball
+| 8
+| 300 
+|-
+| G36A
+| G36A
+| 30Rnd_556x45_G36
+| B_556x45_Ball
+| 8
+| 300 
+|-
+| {{Link|https://en.wikipedia.org/wiki/MP5|MP5A5}}
+| MP5A5
+| 30Rnd_9x19_MP5<br>30Rnd_9x19_MP5SD
+| B_9x19_Ball<br>B_9x19_SD
+| 11<br>11
+| 50 
+|-
+| MP5SD
+| MP5SD
+| 30Rnd_9x19_MP5SD<br>30Rnd_9x19_MP5
+| B_9x19_SD<br>B_9x19_Ball
+| 11<br>11
+| 50 
+|-
+| {{Link|https://en.wikipedia.org/wiki/M249|M249}}
+| M249
+| 200Rnd_556x45_M249<br>30Rnd_556x45_Stanag<br>20Rnd_556x45_Stanag<br>30Rnd_556x45_StanagSD
+| B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_Ball<br>B_556x45_SD
+| 8<br>8<br>8<br>8
+| 300 
+|-
+| {{Link|https://en.wikipedia.org/wiki/M240|M240}}
+| M240
+| 100Rnd_762x51_M240
+| B_762x51_Ball
+| 12
+| 300 
+|-
+| {{Link|https://en.wikipedia.org/wiki/M24_SWS|M24}}
+| M24
+| 5Rnd_762x51_M24
+| B_762x51_noTracer
+| 12
+| 300 
+|-
+| {{Link|https://en.wikipedia.org/wiki/XM107/M107_Barrett_rifle|M107}}
+| M107
+| 10Rnd_127x99_M107
+| B_127x99_Ball_noTracer
+| 26
+| 500 
+|-
+| {{Link|https://en.wikipedia.org/wiki/M9_Pistol|M9}}
+| M9
+| 15Rnd_9x19_M9<br>15Rnd_9x19_M9SD
+| B_9x19_Ball<br>B_9x19_SD
+| 11<br>11
+| 50 
+|-
+| M9SD
+| M9SD
+| 15Rnd_9x19_M9SD<br>15Rnd_9x19_M9
+| B_9x19_SD<br>B_9x19_Ball
+| 11<br>11
+| 50 
+|-
+| {{Link|https://en.wikipedia.org/wiki/M136|M136}}
+| M136
+| M136
+| R_M136_AT
+| 470
+| -
+|-
+| {{Link|https://en.wikipedia.org/wiki/FGM-148_Javelin|JAVELIN}}
+| JAVELIN
+| JAVELIN
+| M_Javelin_AT
+| 800
+| -
+|-
+| {{Link|https://en.wikipedia.org/wiki/FIM-92_Stinger|STINGER}}
+| STINGER
+| Stinger
+| M_Stinger_AA
+| 66/45/7
+| -
+|}
+
+== East ==
+=== Personal Weapons ===
+
+{| class="wikitable"
+! Weapon Classname
+! Muzzle Classname(s)
+! Magazine Classname(s)
+! Ammo Classname(s)
+! [[CfgAmmo_Config_Reference#hit|Hit]]<br>Damage
+! Sights leveling
+|-
+| {{Link|https://en.wikipedia.org/wiki/AK74|AK74}}
+| AK74
+| 30Rnd_545x39_AK
+| B_545x39_Ball
+| 8
+| 300
+|-
+| AK74GL
+| AK74Muzzle<br><br>GP25Muzzle<br><br><br><br><br>
+| 30Rnd_545x39_AK<br><br>FlareWhite_GP25<br>FlareGreen_GP25<br>FlareRed_GP25<br>FlareYellow_GP25<br>1Rnd_HE_GP25
+| B_545x39_Ball<br><br>F_40mm_White<br>F_40mm_Green<br>F_40mm_Red<br>F_40mm_Yellow<br>G_30mm_HE
+| 8<br><br>-<br>-<br>-<br>-<br>13
+| 300
+|-
+| AKS74U
+| AKS74U
+| 30Rnd_545x39_AK
+| B_545x39_Ball
+| 8
+| 300
+|-
+| AKS74UN
+| AKS74UN
+| 30Rnd_545x39_AKSD<br>30Rnd_545x39_AK
+| B_545x39_SD<br>B_545x39_Ball
+| 8<br>8
+| 100
+|-
+| AKS74PSO
+| AKS74PSO
+| 30Rnd_545x39_AK
+| B_545x39_Ball
+| 8
+| 200
+|-
+| {{Link|https://en.wikipedia.org/wiki/PK_machine_gun|PK}}
+| PK
+| 100Rnd_762x54_PK
+| B_762x54_Ball
+| 12
+| 300
+|-
+| {{Link|https://en.wikipedia.org/wiki/Snaiperskaya_Vintovka_Dragunova|SVD}}
+| SVD
+| 10Rnd_762x54_SVD
+| B_762x54_noTracer
+| 12
+| 200
+|-
+| {{Link|https://en.wikipedia.org/wiki/Ksvk|KSVK}}
+| KSVK
+| 5Rnd_127x108_KSVK
+| B_127x108_Ball
+| 28
+| 200
+|-
+| {{Link|https://en.wikipedia.org/wiki/Makarov_PM|Makarov}}
+| Makarov
+| 8Rnd_9x18_Makarov<br>8Rnd_9x18_MakarovSD
+| B_9x18_Ball<br>B_9x18_SD
+| 9<br>9
+| 50
+|-
+| MakarovSD
+| MakarovSD
+| 8Rnd_9x18_MakarovSD<br>8Rnd_9x18_Makarov
+| B_9x18_SD<br>B_9x18_Ball
+| 9<br>9
+| 50
+|-
+| {{Link|https://en.wikipedia.org/wiki/RPG-7|RPG7V}}
+| RPG7V
+| PG7V<br>PG7VR
+| R_PG7V_AT<br>R_PG7VR_AT
+| 500<br>600
+| -
+|-
+| {{Link|https://en.wikipedia.org/wiki/9K32_Strela|STRELA}}
+| Strela
+| Strela
+| M_Strela_AA
+| 66/45/7
+| -
+|}
+
+=== Queen's Gambit exclusive ===
+
+{| class="wikitable"
+! Weapon Classname
+! Muzzle Classname(s)
+! Magazine Classname(s)
+! Ammo Classname(s)
+! [[CfgAmmo_Config_Reference#hit|Hit]]<br>Damage
+! Sights leveling
+|-
+|-
+| 6G30
+| 6G30
+| 6Rnd_HE_6G30
+| G_40mm_HE_6G30
+| 15
+| -
+|}
+
+== Universal ==
+=== Personal Weapons ===
+
+{| class="wikitable"
+! Weapon Classname
+! Muzzle Classname(s)
+! Magazine Classname(s)
+! Ammo Classname(s)
+! [[CfgAmmo_Config_Reference#hit|Hit]]<br>Damage
+|-
+| Put
+| PipeBombMuzzle<br>TimeBombMuzzle<br>MineMuzzle<br>MineEMuzzle
+| PipeBomb<br>TimeBomb<br>Mine<br>MineE
+| PipeBomb<br>TimeBomb<br>Mine<br>MineE
+| 1200<br>1200<br>1200<br>1200
+|-
+| Throw
+| SmokeShellRedMuzzle<br>SmokeShellGreenMuzzle<br>SmokeShellMuzzle<br>HandGrenadeTimedMuzzle<br>HandGrenadeMuzzle
+| SmokeShellRed<br>SmokeShellGreen<br>SmokeShell<br>HandGrenadeTimed<br>HandGrenade
+| SmokeShellRed<br>SmokeShellGreen<br>SmokeShell<br>GrenadeHandTimed<br>GrenadeHand
+| -<br>-<br>-<br>20<br>20
+|}
+
+=== Equipment ===
+
+{| class="wikitable"
+! Weapon Classname
+! Magazine Classname
+|-
+| Laserdesignator
+| Laserbatteries
+|-
+| NVGoggles
+| {{n/a}}
+|-
+| Binocular
+| {{n/a}}
+|}
+
+=== Vehicle Weapons ===
+
+{| class="wikitable"
+! Weapon Classnames
+! Magazine Classnames
+! Ammo Classnames
+! [[CfgAmmo_Config_Reference#hit|Hit]]<br>Damage
+! Vehicle Classnames
+|-
+| M134
+| 2000Rnd_762x51_M134
+| B_762x51_Ball
+| 12
+| UH60MG
+|-
+| M134_2
+| 2000Rnd_762x51_M134
+| B_762x51_Ball
+| 12
+| UH60MG
+|-
+| TwinM134
+| 4000Rnd_762x51_M134
+| B_762x51_Ball
+| 28
+| AH6<br>AH6_RACS
+|-
+| M240_veh
+| 1200Rnd_762x51_M240
+| B_762x51_Ball
+| 12
+| M1Abrams
+|-
+| PKT
+| 1500Rnd_762x54_PKT
+| B_762x54_Ball
+| 12
+| BRDM2
+|-
+| PKT
+| 2000Rnd_762x54_PKT
+| B_762x54_Ball
+| 12
+| BMP2<br>T72<br>Mi17_MG
+|-
+| TwinVickers
+| 500Rnd_TwinVickers
+| B_77x56_Ball
+| 14
+| Camel<br>Camel2
+|-
+| M2
+| 100Rnd_127x99_M2
+| B_127x99_Ball
+| 26
+| HMMWV50<br>Truck5tMG<br>Stryker_ICV_M2<br>LandroverMG<br>RHIB<br>RHIB2Turret<br>M1Abrams<br>M113<br>M113_RACS
+|-
+| DSHKM
+| 50Rnd_127x107_DSHKM
+| B_127x107_Ball
+| 28
+| UAZMG<br>T72<br>T72_RACS
+|-
+| AGS30
+| 29Rnd_30mm_AGS30
+| G_30mm_HE
+| 13
+| UAZ_AGS30
+|-
+| MK19
+| 48Rnd_40mm_MK19
+| G_40mm_HE
+| 12
+| HMMWVMK<br>Stryker_ICV_MK19<br>RHIB2Turret
+|-
+| KPVT
+| 500Rnd_145x115_KPVT
+| B_145x115_AP
+| 31
+| BRDM2
+|-
+| M168
+| 2100Rnd_20mm_M168
+| B_20mm_AA
+| 57
+| Vulcan<br>Vulcan_RACS
+|-
+| M197
+| 750Rnd_M197_AH1
+| B_20mm_AP
+| 40
+| AH1W
+|-
+| AZP85
+| 2000Rnd_23mm_AZP85
+| B_23mm_AA
+| 84
+| ZSU
+|-
+| GAU12
+| 300Rnd_25mm_GAU12
+| B_25mm_HE
+| 124
+| AV8B<br>AV8B2
+|-
+| 2A42
+| 230Rnd_30mmAP_2A42<br>230Rnd_30mmHE_2A42<br>250Rnd_30mmAP_2A42<br>250Rnd_30mmHE_2A42
+| B_30mm_AP<br>B_30mm_HE<br>B_30mm_AP<br>B_30mm_HE
+| 79<br>55<br>79<br>55
+| KA50<br>"<br>BMP2<br>"
+|-
+| M256
+| 20Rnd_120mmSABOT_M1A2<br>20Rnd_120mmHE_M1A2
+| Sh_120_SABOT<br>Sh_120_HE
+| 800<br>330
+| M1Abrams<br>"
+|-
+| D81
+| 23Rnd_125mmSABOT_T72<br>22Rnd_125mmHE_T72
+| Sh_125_SABOT<br>Sh_125_HE
+| 650<br>350
+| T72<br>"
+|-
+| FFARLauncher
+| 14Rnd_FFAR<br>
+| R_Hydra_HE<br>
+| 150
+| AH6<br>AH6_RACS
+|-
+| FFARLauncher
+| 38Rnd_FFAR
+| R_Hydra_HE
+| 150
+| AH1W<br>UH60
+|-
+| CamelGrenades
+| 6Rnd_Grenade_Camel
+| G_Camel_HE
+| 20
+| Camel<br>Camel2
+|-
+| 57mmLauncher
+| 96Rnd_57mm
+| R_57mm_HE
+| 150
+| Mi17
+|-
+| 80mmLauncher
+| 40Rnd_80mm
+| R_80mm_HE
+| 210
+| KA50
+|-
+| BombLauncher
+| 6Rnd_GBU12_AV8B
+| Bo_GBU12_LGB
+| 5000
+| AV8B
+|-
+| SidewinderLaucher
+| 4Rnd_Sidewinder_AV8B
+| M_Sidewinder_AA
+| 200
+| AV8B2
+|-
+| R73Launcher<br>S8Launcher<br>GSh301
+| 4Rnd_R73<br>80Rnd_S8T<br>180Rnd_30mm_GSh301
+| M_R73_AA<br>R_S8T_AT<br>B_30mm_HE
+| 50<br>430<br> 55
+| Su34
+|-
+| Ch29Launcher<br>S8Launcher<br>GSh301
+| 4Rnd_Ch29<br>40Rnd_S8T<br>180Rnd_30mm_GSh301
+| M_Ch29_AT<br>R_S8T_AT<br>B_30mm_HE
+| 900<br>430<br> 55
+| Su34B
+|-
+| GAU8<br>MaverickLauncher<br>FFARLauncher
+| 1350Rnd_30mmAP_A10<br>5Rnd_Maverick_A10<br>28Rnd_FFAR
+| B_30mmA10_AP<br>M_Maverick_AT<br>R_Hydra_HE
+| 250<br>800<br>150
+| A10
+|-
+| AT5Launcher
+| 5Rnd_AT5_BRDM2
+| M_AT5_AT
+| 700
+| BRDM2_ATGM
+|-
+| AT5LauncherSingle
+| 8Rnd_AT5_BMP2
+| M_AT5_AT
+| 700
+| BMP2
+|-
+| TOWLauncher
+| 2Rnd_TOW
+| M_TOW_AT
+| 650
+| Stryker_TOW
+|-
+| TOWLauncherSingle
+| 6Rnd_TOW_HMMWV
+| M_TOW_AT
+| 650
+| HMMWVTOW
+|-
+| HellfireLauncher
+| 8Rnd_Hellfire
+| M_Hellfire_AT
+| 850
+| AH1W
+|-
+| VikhrLauncher
+| 12Rnd_Vikhr_KA50
+| M_Vikhr_AT
+| 820
+| KA50
+|-
+| D30
+| 30Rnd_122mmHE_D30
+| Sh_122_HE
+| 340
+| D30
+|-
+| M119
+| 30Rnd_105mmHE_M119
+| Sh_105_HE
+| 210
+| M119
+|-
+| SEARCHLIGHT
+| {{n/a}}
+| {{n/a}}
+| &nbsp;
+| SEARCHLIGHT
+|}
+
+=== Queens Gambit Vehicle Weapons ===
+
+{| class="wikitable"
+! Weapon Classnames
+! Magazine Classnames
+! Ammo Classnames
+! [[CfgAmmo_Config_Reference#hit|Hit]]<br>Damage
+! Vehicle Classnames
+|-
+| M134
+| 2000Rnd_762x51_M134
+| B_762x51_Ball
+| 12
+| UH60MGRACS
+|-
+| M134_2
+| 2000Rnd_762x51_M134
+| B_762x51_Ball
+| 12
+| UH60MGRACS
+|-
+| PK_veh
+| 100Rnd_762x54_PK
+| B_762x54_Ball
+| 12
+| DATSUN_PK1<br>MAA_DATSUN_PK2<br>HILUX_PK1<br>HILUX_PK2
+|-
+| DSHKM
+| 50Rnd_127x107_DSHKM
+| B_127x107_Ball
+| 28
+| DATSUN_DSHKM1<br>DATSUN_DSHKM1<br>HILUX_DSHKM1<br>HILUX_DSHKM1
+|-
+| FFARLauncher
+| 38Rnd_FFAR
+| R_Hydra_HE
+| 150
+| UH60Racs
+|}
+
+=== Miscellaneous Weapons ===
+
+{| class="wikitable"
+! Weapon Classname
+! Magazine Classname
+! Vehicle Classnames
+|-
+| CarHorn
+| {{n/a}}
+| HMMWV<br>UAZ<br>Landrover_Closed<br>Landrover<br>Bus_city<br>tractor<br>hilux1_civil_1_open<br>hilux1_civil_2_covered<br>hilux1_civil_3_open
+|-
+| BikeHorn
+| {{n/a}}
+| {{n/a}}
+|-
+| TruckHorn
+| {{n/a}}
+| Truck5t<br>Truck5tOpen<br>Truck5tRepair<br>Truck5tReammo<br>Truck5tRefuel<br>Ural<br>UralOpen<br>UralCivil<br>UralCivil2
+|-
+| SportCarHorn
+| {{n/a}}
+| Skoda<br>SkodaBlue<br>SkodaRed<br>SkodaGreen<br>datsun1_civil_1_open<br>datsun1_civil_2_covered<br>datsun1_civil_3_open<br>car_hatchback<br>car_sedan
+|}
+
+{{GameCategory|arma1|Reference Lists}}
+[[Category: CfgWeapons]]

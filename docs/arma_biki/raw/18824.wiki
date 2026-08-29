@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Vehicles
+
+|descr= Deletes specific crew member directly from the vehicle.
+
+|s1= [vehicle, crewMember] call [[BIS_fnc_deleteVehicleCrew]]
+
+|p1= vehicle: [[Object]]
+
+|p2= crewMember: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[BIS_tank, gunner BIS_tank] call BIS_fnc_deleteVehicleCrew;</sqf>
+
+|seealso= [[crew]]
+}}

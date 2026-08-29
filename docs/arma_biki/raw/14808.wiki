@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|gr1= Locations
+
+|descr= Add speech to location.
+
+|s1= location [[setSpeech]] speech
+
+|p1= location: [[Location]]
+
+|p2= speech: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_location setSpeech "SomeSpeech";</sqf>
+
+|seealso= [[nearestLocationWithDubbing]]
+}}

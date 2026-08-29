@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|descr= {{Feature|arma3|Internally used '''.fsm'''.}}
+
+|s1=
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.55
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|arg= global
+
+|eff= global
+
+|gr1= Containers
+
+|descr= Removes all magazines from the vehicle cargo space. MP synchronized.
+
+|s1= [[clearMagazineCargoGlobal]]  object
+
+|p1= object: [[Object]] - vehicle or ammo box
+
+|r1= [[Nothing]]
+
+|x1= <sqf>clearMagazineCargoGlobal jeepOne;</sqf>
+
+|seealso= [[clearMagazineCargo]] [[addMagazineCargoGlobal]] [[clearWeaponCargo]] [[clearWeaponCargoGlobal]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]] [[clearItemCargo]] [[clearItemCargoGlobal]]
+}}

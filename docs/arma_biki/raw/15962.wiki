@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Handle effects caused by changing of damage.
+
+|s1= call [[BIS_fnc_damageChanged]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_damageChanged;</sqf>
+
+|seealso= [[BIS_fnc_incapacitatedEffect]] [[BIS_fnc_healing]]
+}}

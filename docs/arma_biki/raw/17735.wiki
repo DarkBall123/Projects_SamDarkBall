@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Get visibility state of [[:Category:Eden Editor|Eden Editor]] lines.
+
+|s1= [[get3DENLinesVisible]]
+
+|r1= [[Array]] with [showMap, showScene]
+* showScene: [[Boolean]] - visibility in the scene
+* showMap : [[Boolean]] - visibility in the map
+
+|x1= <sqf>if (get3DENLinesVisible select 0) then { hint "Lines are visible in the map."; };</sqf>
+
+|seealso= [[set3DENLinesVisible]] [[set3DENIconsVisible]] [[get3DENIconsVisible]] [[set3DENModelsVisible]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Configs
+
+|descr= ''Same function as [[BIS_fnc_returnChildren]]''
+
+|s1= <!-- [] call [[BIS_fnc_subClasses]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_subClasses;</sqf> -->
+
+|seealso=
+}}

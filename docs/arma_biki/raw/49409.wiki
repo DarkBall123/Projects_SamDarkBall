@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.22
+
+|gr1= Interaction
+
+|descr= {{Feature|important|This command is a work in progress and can evolve until release on stable branch.}}
+Getter for [[hideActions]], see also [[shownAction]]. 
+
+|s1= [[hiddenActions]] filter
+
+|p1= filter: [[Array]] - Array of [[Number]]s - actions to check if hidden or [] to check all. See [[shownAction]] for numbers meaning
+
+|r1= [[Array]] - Array of [[Number]]s - actions that are hidden or [] if none is hidden. See [[shownAction]] for numbers meaning
+
+|x1= <sqf>if (hiddenActions [] isEqualTo []) then { hint "No actions have been harmed during script execution" };</sqf>
+|x2= <sqf>if (hiddenActions [91] isEqualTo [91]) then { hint "User actions have been hidden" };</sqf>
+|x3= <sqf>hiddenActions []; // [2] - GetInDriver is hidden</sqf>
+|x4= <sqf>hiddenActions [1, 2, 4]; // [1,4] - from GetInCommander/Driver/Gunner only Commander and Gunner are hidden</sqf>
+
+|seealso= [[hideActions]] [[shownAction]] [[visibleMap]] [[shownGPS]] [[shownWatch]] [[shownCompass]] [[shownUAVFeed]] [[shownHUD]] [[addAction]] [[action]] [[isActionMenuVisible]]
+}}

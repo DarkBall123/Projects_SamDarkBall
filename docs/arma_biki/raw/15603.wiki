@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.26
+
+|gr1= Time
+
+|gr2= Mission Information
+
+|gr3= Environment
+
+|descr= Returns the value set with [[setTimeMultiplier]].
+
+|s1= '''timeMultiplier'''
+
+|r1= [[Number]] - current time multiplier
+
+|x1= <sqf>_multiplier = timeMultiplier;</sqf>
+
+|seealso= [[setTimeMultiplier]] [[skipTime]] [[setAccTime]] [[accTime]] [[time]] [[serverTime]] [[date]] [[dayTime]]
+}}

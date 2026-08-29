@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|eff= local
+
+|gr1= Curator
+
+|descr= Force opens curator interface.
+
+|s1= [[openCuratorInterface]]
+
+|r1= [[Nothing]]
+
+|x1= Open interface:
+<sqf>openCuratorInterface;</sqf>
+
+|x2= Close interface:
+<sqf>findDisplay 312 closeDisplay 2;</sqf>
+
+|x3= Detect if user used "Zeus" key to open curator interface in the absence of event handler for it:
+<sqf>
+findDisplay 46 displayAddEventHandler ["KeyDown", {
+	if (inputAction "CuratorInterface" > 0) then
+	{
+		hint "Curator interface is open";
+	};
+	false
+}];
+</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|branch= diag
+
+|gr1= Diagnostic
+
+|descr= Start recording tool for creating turret aiming limits.
+
+|s1= [[diag_recordTurretLimits]] section
+
+|p1= section: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>diag_recordTurretLimits true;</sqf>
+
+|seealso=
+}}

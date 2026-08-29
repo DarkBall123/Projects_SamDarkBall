@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.48
+
+|arg= global
+
+|eff= local
+
+|gr1= Object Manipulation
+
+|descr= Checks visibility of a given object on the local machine.
+
+|s1= [[isObjectHidden]] object
+
+|p1= object: [[Object]] - object to test
+|r1= [[Boolean]] - [[true]] if hidden, [[false]] if visible
+
+|x1= <sqf>_bobIsHidden = isObjectHidden bob;</sqf>
+
+|seealso= [[hideObject]] [[hideObjectGlobal]] [[deleteCollection]]
+}}

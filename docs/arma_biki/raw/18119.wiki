@@ -1,0 +1,26 @@
+{{RV|type=command
+|game1= arma3
+|version1= 1.58
+
+|eff= global
+
+|arg= local
+
+|gr1= Object Manipulation
+
+|descr= Hides or shows the [[createSimpleObject | simple object]]'s provided selection.
+
+|s1= object [[hideSelection]] [selection, hidden]
+
+|p1= object: [[Object]] - simple object
+
+|p2= selection: [[String]] - selection name
+
+|p3= hidden: [[Boolean]] - [[true]] to hide, [[false]] to show
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_simpleObject hideSelection ["some_selection", true];</sqf>
+
+|seealso= [[createSimpleObject]] [[selectionNames]] [[allLODs]]
+}}

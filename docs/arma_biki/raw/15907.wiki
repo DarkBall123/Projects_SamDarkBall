@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Classic camera script, replaced by the Splendid™ [[BIS_fnc_camera]].
+
+|s1= [target] call [[BIS_fnc_cameraOld]]
+
+|p1= target: [[Object]] - (Optional, default [[cameraOn]])
+
+|r1= [[Script Handle]]
+
+|x1= <sqf>[player] call BIS_fnc_cameraOld; // starts the camera on the player</sqf>
+
+|seealso= [[BIS_fnc_camera]]
+}}

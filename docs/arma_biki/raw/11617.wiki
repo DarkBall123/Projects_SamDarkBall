@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 1.34
+
+|gr1= RTD
+
+|descr= Toggles a helicopter's rotor brake. {{Feature|afm}}
+
+|s1= helicopterRTD [[setRotorBrakeRTD]] enable
+
+|p1= helicopterRTD : [[Object]] - helicopter
+
+|p2= enable: [[Number]] - can be:
+* 0: off
+* 1: on 
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myHelicopterRTD setRotorBrakeRTD 1;</sqf>
+
+|seealso= [[getRotorBrakeRTD]]
+}}

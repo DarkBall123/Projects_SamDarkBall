@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Environment
+
+|descr= Returns the current wind vector (in m/s).
+
+|s1= [[wind]]
+
+|r1= [[Vector3D]] - [x, y, 0]. with wind being only horizontal
+
+|x1= <sqf>_windArray = wind;</sqf>
+
+|seealso= [[setWind]] [[windDir]]
+}}
+
+{{Note
+|user= Ceeeb
+|timestamp= 20080810043800
+|text= In '''OFP 1.96''', wind speed and direction are directly related to [[overcast]].
+}}

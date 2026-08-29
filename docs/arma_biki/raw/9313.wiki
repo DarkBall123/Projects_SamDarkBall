@@ -1,0 +1,30 @@
+{{Feature|UnsupportedDoc}}
+
+= LodEdges =
+ struct
+ {
+    LodEdge   LodEdge1;  //MlodIndex  
+    LodEdge   LodEdge2;  //VertexIndex same Count as any of the VertexTable.Counts (odol7)
+ }
+== LodEdge ==
+ CompressedArray
+ {
+  ulong   nEdges; //always zero for type 53&54 dayz o3ds
+  ushort  Edges[nEdges];
+ };
+
+Every vertex in the vertaxtable is owned only by 1 face.
+
+These tables are used to join vertices. Each face has got 3 (or 4) vertices that are unique for each face
+
+For each VertexIndex there is a lookup into the MlodIndex
+ '''MLOD'''vertexindex = MlodIndex[VertexIndex[Count]];
+
+Note that compression has not been seen in arma. (not large enough)
+
+Related:
+
+[[BIS_File_Formats#3D_Model_File_Formats|Model File Formats]]
+
+[[Category:Real Virtuality File Formats]]
+{{GameCategory|arma1|File Formats}}

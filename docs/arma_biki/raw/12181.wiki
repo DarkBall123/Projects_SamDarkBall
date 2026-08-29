@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= System
+
+|descr= Returns current game language.
+
+|s1= [[language]]
+
+|r1= [[String]] - see [[Stringtable.xml#Supported_Languages|supported languages]] for possible values
+
+|x1= <sqf>_myLanguage = language; // will return "English" if game language is set to English</sqf>
+
+|seealso= [[Stringtable.xml]] [[getTextRaw]] [[localize]] [[isLocalized]] [[diag_localized]] [[BIS_fnc_localize]]
+}}

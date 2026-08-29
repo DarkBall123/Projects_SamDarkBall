@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Radio and Chat
+
+|descr= Returns subtitles settings.
+
+|s1= [[getSubtitleOptions]]
+
+|r1= [[Array]] of [[Boolean]]s - options in format [subtitlesEnabled, radioSubtitlesEnabled]
+
+|x1= <sqf>private _subtitleSettings = getSubtitleOptions;</sqf>
+
+|seealso= [[getAudioOptionVolumes]] [[soundVolume]] [[musicVolume]] [[radioVolume]] [[radioEnabled]] [[shownSubtitles]]
+}}

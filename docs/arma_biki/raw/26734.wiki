@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Effects 
+
+|descr= <pre>/*
+	BIN_fnc_circleSmokeMissile
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_circleSmokeMissile]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_circleSmokeMissile;</sqf> -->
+
+|seealso=
+}}

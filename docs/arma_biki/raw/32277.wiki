@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+
+|arg= local
+
+|descr= Return the turret lock target.
+{{Feature|informative|The command is local to the '''turret''', not the vehicle.}}
+
+|gr1= Camera Control
+
+|s1= vehicle [[lockedCameraTo]] turretPath
+
+|p1= vehicle: [[Object]]
+
+|p2= turretPath: [[Turret Path]]. Use an empty array to select the gunner's turret by default
+
+|r1= Can be one of:
+* [[Nothing]] - not locked
+* [[Object]] - if locked to an object
+* [[Position#PositionASL|PositionASL]] - if locked to a position
+
+|x1= <sqf>vehicle player lockedCameraTo [];</sqf>
+
+|seealso= [[lockCameraTo]]
+}}

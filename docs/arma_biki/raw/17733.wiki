@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Toggle visibility of [[:Category:Eden Editor|Eden Editor]] lines.
+
+|s1= [[set3DENLinesVisible]] [showMap, showScene]
+
+|p1= showScene: [[Boolean]] - visibility in the scene
+
+|p2= showMap : [[Boolean]] - visibility in the map
+
+|r1= [[Nothing]]
+
+|x1= <sqf>set3DENLinesVisible [false, false];// Hide all lines</sqf>
+
+|seealso= [[get3DENLinesVisible]] [[set3DENIconsVisible]] [[get3DENIconsVisible]]
+}}

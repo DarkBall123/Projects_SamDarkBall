@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= GUI Control
+
+|descr= Returns child display of the given display.
+
+|s1= [[displayChild]] display
+
+|p1= display: [[Display]]
+
+|r1= [[Display]]
+
+|x1= <sqf>_display = displayChild findDisplay 313; // display #46</sqf>
+
+|seealso= [[displayParent]] [[findDisplay]] [[displayCtrl]] [[createDisplay]] [[createDialog]] [[dialog]] [[displayNull]] [[ctrlCreate]] [[controlNull]] [[ctrlParent]] [[ctrlParentControlsGroup]] [[focusedCtrl]]
+}}

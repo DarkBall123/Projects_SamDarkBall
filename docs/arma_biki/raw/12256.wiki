@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Object Manipulation
+
+|descr= If unit is diving and doesn't have a rebreather, it returns [[false]].
+Diving means the unit's head is underwater. If unit is underwater and has a rebreather, the command returns [[true]].
+
+|s1= [[isAbleToBreathe]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_canBreath = isAbleToBreathe player;</sqf>
+
+|seealso= [[underwater]]
+}}
+
+{{Note
+|user= Vabene1111
+|timestamp= 20190506194300
+|text= Might return false if player enters a vehicle while underwater.
+}}

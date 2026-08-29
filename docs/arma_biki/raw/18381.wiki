@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|arg= global
+
+|gr1= Pilot Camera
+
+|descr= Returns model space coordinates of the object airplane or helicopter [[A3_Targeting_config_reference#class_pilotCamera|pilotCamera]].
+
+|s1= [[getPilotCameraPosition]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Position#PositionRelative|PositionRelative]] - offset relative to the model centre. Returns [0,0,0] if object has no [[A3_Targeting_config_reference#class_pilotCamera|pilotCamera]].
+
+|x1= <sqf>_pilotCamPos = getPilotCameraPosition vehicle player;</sqf>
+
+|seealso= [[hasPilotCamera]] [[getPilotCameraDirection]] [[getPilotCameraRotation]] [[getPilotCameraTarget]] [[setPilotCameraDirection]] [[setPilotCameraRotation]] [[setPilotCameraTarget]]
+}}

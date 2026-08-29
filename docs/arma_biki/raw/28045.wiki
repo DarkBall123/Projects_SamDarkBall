@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= HashMap
+
+|descr= Retrieves a list of all keys in a [[HashMap]].
+
+|s1= [[keys]] hashMap 
+
+|p1= hashMap : [[HashMap]]
+
+|r1= [[Array]] of [[Anything]] - array of all keys in the HashMap
+
+|x1= <sqf>keys _myHashMap;</sqf>
+
+|seealso= [[HashMap]] [[values]] [[toArray]]
+}}

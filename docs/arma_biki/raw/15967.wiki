@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Flames (texture) postprocess.
+
+|s1= call [[BIS_fnc_flamesEffect]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_flamesEffect;</sqf>
+
+|seealso= [[BIS_fnc_dirtEffect]]
+}}

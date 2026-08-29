@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Briefing
+
+|descr= Enable debriefing score table.
+
+|s1= [[enableDebriefingStats]] [left, top, width, height]
+
+|p1= left: [[Number]]
+
+|p2= top: [[Number]]
+
+|p3= width: [[Number]]
+
+|p4= height: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>enableDebriefingStats [0.1, 0.1, 0.8, 0.8];</sqf>
+
+|seealso= [[disableDebriefingStats]]
+}}

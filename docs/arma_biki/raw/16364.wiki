@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Force curator interface, so user cannot exit it by pressing Zeus key.
+
+|s1= [mode, waitUntil] call [[BIS_fnc_forceCuratorInterface]]
+
+|p1= mode: [[Boolean]] - [[true]] to force
+|p2= waitUntil: [[Boolean]] - (Optional, default [[false]]) - [[true]] to keep trying until the interface is actually opened
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[true, true] call BIS_fnc_forceCuratorInterface;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

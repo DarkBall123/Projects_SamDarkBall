@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Returns main display of current mission/intro/outro. A cleaner alternative to <sqf inline>findDisplay 46</sqf>.
+
+|s1= call [[BIS_fnc_displayMission]]
+
+|r1= [[Display]]
+
+|x1= <sqf>_mainDisplay = call BIS_fnc_displayMission;</sqf>
+
+|seealso= [[findDisplay]]
+}}

@@ -1,0 +1,71 @@
+{{TOC|side}}
+{{GVI|arma2|1.00}}
+
+A [[Namespace]] is a container for [[Variables]].
+Any [[Variables#Scopes|global]] variable is always part of exactly one namespace - another namespace may contain a variable with the same [[Identifier]], but they remain two distinct independent variables.
+Scripts and functions are always executed in the context of some namespace.
+
+The default namespace is the [[missionNamespace]].
+
+
+== Namespaces ==
+
+{| class="wikitable"
+! Game
+! Namespace
+! Description
+! Lifetime
+|-
+| {{GVI|arma2|1.00}}
+| [[missionNamespace]]
+| The global namespace of the mission. Every mission has its own [[missionNamespace]].
+| style="background-color: lightgreen" | Mission duration
+|-
+| {{GVI|arma2|1.00}}
+| [[parsingNamespace]]
+| The global namespace attached to the [[PreProcessor Commands|Config Parser]].
+| style="background-color: lightyellow" | Game session
+|-
+| {{GVI|arma2|1.00}}
+| [[uiNamespace]]
+| The global namespace attached to the user interface.
+| style="background-color: lightyellow" | Game session
+|-
+| {{GVI|tkoh|1.00}}
+| [[profileNamespace]]
+| The global namespace attached to the user profile.
+| style="background-color: lightskyblue" | [[Profile]] lifetime
+|-
+| {{GVI|arma3|2.00}}
+| [[localNamespace]]
+| This namespace is like the [[missionNamespace]], except that its variables can not be sent over network (e.g. with [[publicVariable]]) or serialised.
+| style="background-color: lightgreen" | Mission duration
+|-
+| {{GVI|arma3|2.06}}
+| [[serverNamespace]]
+| The namespace used by [[ArmA: Armed Assault: Server Side Scripting|Server Event Handlers]]. This namespace is only available on servers.
+| style="background-color: lightyellow" | Game session
+|-
+| {{GVI|arma3|2.10}}
+| [[missionProfileNamespace]]
+| This namespace is like [[profileNamespace]] but is also attached to a [[missionName]] or [[Description.ext#missionGroup|missionGroup]]. Automatically loaded before [[Event Scripts#init.sqf|init.sqf]].
+| style="background-color: lightskyblue" | [[Profile]] lifetime
+|}
+
+
+== Serialisation ==
+
+Only the [[missionNamespace]] is serialised, as in only the variables from this namespace are saved when the game is saved (e.g. with [[saveGame]]) and loaded when the game is loaded (e.g. with [[loadGame]]).
+This is also the reason the game will complain that one should use [[disableSerialization]] when storing UI variables in [[missionNamespace]] - UI elements are temporary and therefore exempt from serialisation by default.
+
+
+== Scripting ==
+
+Interacting with namespaces is not difficult:
+* The [[getVariable]] and [[setVariable]] commands can be used to work with variables from different namespaces.
+* The [[with]]-[[do]] construct can be used to switch the context of an entire code block to another namespace.
+* The [[currentNamespace]] command can be used to obtain the namespace which the calling script is running in.
+
+
+[[Category: Data Types]]
+[[Category: Introduced with Arma 2 version 1.00]]

@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Returns headgear of unit.
+
+|s1= [[headgear]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>hint headgear player; //H_HelmetB</sqf>
+
+|seealso= [[addHeadgear]] [[removeHeadgear]] [[goggles]] [[hmd]]
+}}

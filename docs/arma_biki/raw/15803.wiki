@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Returns grid params and stores it into [[uiNamespace]].
+
+|s1= [category, grid] call [[BIS_fnc_GUIgrid]]
+
+|p1= category: [[String]] - (Optional, default "GUI") category name
+
+|p2= grid: [[String]] - (Optional, default "GRID") grid name
+
+|r1= [[Array]] - in format [<nowiki/>[x,y,w,h],gridW,gridH]
+
+|x1= <sqf>call BIS_fnc_GUIgrid; //[-0.452381,0.214286,1.2,1]</sqf>
+
+|seealso= [[BIS_fnc_GUIgridToProfile]]
+}}

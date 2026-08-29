@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= System
+
+|descr= Reload oper map visible in costMap diag tool. Working only in [[Oxygen Viewer|buldozer]].
+
+|s1= [[buldozer_reloadOperMap]] 
+
+|r1= [[Nothing]]
+
+|x1= <sqf>buldozer_reloadOperMap;</sqf>
+
+|seealso= [[buldozer_loadNewRoads]]
+}}

@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Event Handlers
+
+|descr= Adds a Scripted Event Handler and returns its ID. Additionally, the "ScriptedEventHandlerAdded" Scripted EH is called. For the full list of all available Scripted EHs see [[Arma 3: Scripted Event Handlers]].
+
+|s1= [namespace, name, code] call [[BIS_fnc_addScriptedEventHandler]]
+
+|p1= namespace: [[Namespace]], [[Object]], [[Group]], [[Location]], [[Boolean]], [[Control]] or [[Display]] - namespace in which the EH is stored
+
+|p2= name: [[String]] - event name
+
+|p3= code: [[Code]] or [[String]] - the code that is executed when the EH fires. The magic variable [[Magic_Variables#thisScriptedEventHandler|_thisScriptedEventHandler]] can be used to access the event handler ID within the code.
+
+|r1= [[Number]] - the ID of the new Event Handler
+
+|x1= <sqf>[missionNamespace, "event", { hint "Hello World" }] call BIS_fnc_addScriptedEventHandler;</sqf>
+
+|x2= <sqf>[true, "event", { hint "Hello World" }] call BIS_fnc_addScriptedEventHandler;</sqf> 
+Boolean will default to [[missionNamespace]].
+
+|seealso= [[BIS_fnc_callScriptedEventHandler]] [[BIS_fnc_removeScriptedEventHandler]] [[BIS_fnc_removeAllScriptedEventHandlers]]
+}}

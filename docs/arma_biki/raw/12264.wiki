@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Triggers
+
+|descr= Returns the list of triggers synchronized with a given waypoint.
+
+|s1= [[synchronizedTriggers]] waypoint
+
+|p1= waypoint: [[Waypoint]]
+
+|r1= [[Array]] of [[Object]]s - Trigger objects
+
+|x1= <sqf>synchronizedTriggers _someWaypoint;</sqf>
+
+|seealso= [[synchronizeObjectsAdd]] [[synchronizeObjectsRemove]] [[synchronizedWaypoints]]
+}}

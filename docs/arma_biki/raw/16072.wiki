@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Respawn
+
+|descr= <pre>/*
+
+	Description:
+	Increase the respawn time based on a condition
+
+	Parameter(s):
+		0: CODE - Condition, must return BOOL
+		1: NUMBER - delay in seconds which is applied when the condition is true
+		2: STRING - description displayed when the delay is in effect
+
+	Returns:
+	NOTHING
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_setRespawnDelay]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_setRespawnDelay;</sqf> -->
+
+|seealso=
+}}

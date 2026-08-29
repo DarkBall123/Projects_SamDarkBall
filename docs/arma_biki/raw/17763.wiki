@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|arg= global
+
+|gr1= Stamina System
+
+|descr= Check if stamina depletion is enabled.
+
+|s1= [[isStaminaEnabled]]  unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (isStaminaEnabled player) then { hint "You can get exhausted." };</sqf>
+
+|seealso= [[Arma 3: Stamina]]
+}}

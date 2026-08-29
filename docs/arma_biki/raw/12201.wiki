@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|eff= global
+
+|gr1= Unit Inventory
+
+|descr= Removes goggles from unit (diver goggles for example). This command does not remove NVGoggles. Use [[unassignItem]] and [[removeItem]] or just [[unlinkItem]] for latter.
+
+|s1= [[removeGoggles]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeGoggles assaultDiver;</sqf>
+
+|seealso= [[goggles]] [[addGoggles]]
+}}

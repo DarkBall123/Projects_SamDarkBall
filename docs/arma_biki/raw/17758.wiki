@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Camera Control
+
+|descr= Checks whether given post process effect is enabled
+
+|s1= [[ppEffectEnabled]] effect
+
+|p1= effect: [[Number]] - effect handle
+
+|r1= [[Boolean]]
+
+|s2= [[ppEffectEnabled]] effect
+
+|s2since= arma3 2.04
+
+|p21= effect: [[String]] - effect name
+
+|r2= [[Boolean]]
+
+|x1= <sqf>_enabled = ppEffectEnabled _hndl;</sqf>
+|x2= <sqf>_enabled = ppEffectEnabled "DynamicBlur";</sqf>
+
+|seealso= [[Post Process Effects]] [[ppEffectForceInNVG]] [[ppEffectDestroy]] [[ppEffectEnable]] [[ppEffectCreate]] [[ppEffectCommit]] [[ppEffectCommitted]] [[ppEffectAdjust]]
+}}

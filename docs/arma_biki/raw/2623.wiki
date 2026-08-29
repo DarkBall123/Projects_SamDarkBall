@@ -1,0 +1,43 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= GUI Control - ListBox
+
+|descr= Returns [[Array]] of selected rows indices in the given listbox. If listbox is of style LB_MULTI (multi-selection) the array will contain multiple elements, otherwise only a single element. For single selection listbox one can also use [[lbCurSel]]. See also [[lbIsSelected]], [[lbSetSelected]]
+
+|s1= [[lbSelection]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Array]] of [[Number]]s
+
+|x1= <sqf>_indices = lbSelection _control;</sqf>
+
+|seealso= [[lbAdd]] [[lbClear]] [[lbColor]] [[lbCurSel]] [[lbData]] [[lbDelete]] [[lbIsSelected]] [[lbPicture]] [[lbSetColor]] [[lbSetCurSel]] [[lbSetData]] [[lbSetPicture]] [[lbSetSelected]] [[lbSetTooltip]] [[lbSetValue]] [[lbSize]] [[lbSort]] [[lbSortByValue]] [[lbText]] [[lbValue]]
+}}
+
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2020-04-24 - 11:39 (UTC)</dd>
+<dt class="note">[[User:Dscha|Dscha]]</dt>
+<dd class="note">
+With the addition of '''RscListBoxMulti''' (in [[:Category:Introduced with Arma 3 version 1.98|{{arma3}} - 1.98]]), it is possible to get all the selected Rows with [[lbSelection]].
+</dd>
+
+</dl>

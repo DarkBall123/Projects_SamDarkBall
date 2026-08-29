@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Return a task's destination. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskName call [[BIS_fnc_taskDestination]]
+
+|p1= taskName: [[String]]
+
+|r1= [[Object]] or [[Array]] - either position in format [x,y,z], or [object,precision] as used by [[setSimpleTaskTarget]] command. Returns just [[objNull]] if task was not found
+
+|x1= <sqf>"BIS_task_01" call BIS_fnc_taskDestination;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

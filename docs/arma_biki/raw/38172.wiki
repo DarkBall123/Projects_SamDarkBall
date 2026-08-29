@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Unit Inventory
+
+|gr2= Object Manipulation
+
+|descr= Returns primary and secondary weapon holders of a dead unit. If a unit had weapons at the moment of death, primary weapon is dropped into primary weaponholder and secondary weapon is dropped into secondary.
+
+|s1= [[getCorpseWeaponholders]] corpse
+
+|p1= corpse: [[Object]] - dead unit
+
+|r1= [[Array]] of [[Object]]s in format [primaryWeaponHolder, secondaryWeaponHolder]
+
+|x1= <sqf>systemChat str getCorpseWeaponholders cursorObject;</sqf>
+
+|seealso= [[getCorpse]] [[nearSupplies]] [[allDeadMen]]
+}}

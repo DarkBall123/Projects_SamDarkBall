@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|gr1= Unit Control
+
+|descr= Returns the stance of the given unit.
+
+|s1= [[stance]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]] - can be:
+* {{hl|"STAND"}}
+* {{hl|"CROUCH"}}
+* {{hl|"PRONE"}}
+* {{hl|"UNDEFINED"}} (for example, swimming)
+* {{hl|""}} (on non-person [[Object|object]])
+
+|x1= <sqf>if (stance player == "STAND") then { hint "I am standing!" };</sqf>
+
+|seealso= [[animationState]] [[unitPos]] [[pose]] [[getLeaning]]
+}}

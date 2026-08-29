@@ -1,0 +1,47 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.75
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= Unit Identity
+
+|descr= Saves units's identity to [[Objects.sav]] file in campaign directory as entry name.
+
+|s1= unit [[saveIdentity]] name
+
+|p1= unit: [[Object]]
+
+|p2= name: [[String]]
+
+|r1= [[Boolean]] - [[true]] if successful, otherwise [[false]]
+
+|x1= <sqf>_successful = player saveIdentity "playerid";</sqf>
+
+|seealso= [[loadIdentity]]
+}}
+
+<dl class="command_description">
+
+<dt></dt>
+<dd class="notedate">Posted on 2006-08-12 - 17:17</dd>
+<dt class="note">[[User:Str|Str]]</dt>
+<dd class="note">Can be also used in singleplayer missions to save player status before cutscenes and load it to player's double.
+</dl>

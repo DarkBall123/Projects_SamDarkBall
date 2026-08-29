@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Lights
+
+|descr= Detach light from object.
+
+|s1= [[lightDetachObject]] light
+
+|p1= light: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>lightDetachObject _light;</sqf>
+
+|seealso= [[setLightAmbient]] [[setLightBrightness]] [[lightAttachObject]] [[setLightColor]] [[setLightIntensity]] [[setLightAttenuation]] [[setLightUseFlare]] [[setLightFlareSize]] [[setLightFlareMaxDistance]] [[setLightDayLight]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= VR
+
+|descr= Fade Out effect for VR.
+
+|s1= call [[BIS_fnc_VRFadeOut]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_VRFadeOut;</sqf>
+
+|seealso= [[BIS_fnc_VRFadeIn]]
+}}

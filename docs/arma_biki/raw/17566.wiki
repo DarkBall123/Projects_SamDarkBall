@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+|gr2= Event Handlers
+
+|descr= Removes Eden Editor event handler of given type and ID.
+<br><br>
+See the list of all [[Arma_3:_Event_Handlers:_Eden_Editor|Eden Editor Event Handlers]].
+
+|s1= [[remove3DENEventHandler]] [type,id]
+
+|p1= type: [[String]] - name of event handler
+|p2= id: [[Number]] - ID of event handler, returned by [[add3DENEventHandler]]
+|r1= [[Nothing]]
+
+|x1= <sqf>
+eh = add3DENEventHandler ["onUndo",{systemChat "Zip..."}];
+remove3DENEventHandler ["onUndo",eh];
+</sqf>
+
+|seealso= 
+[[add3DENEventHandler]]
+[[removeAll3DENEventHandlers]]
+}}

@@ -1,0 +1,174 @@
+==Air==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|A10||A10||[[File:Ofp a10.jpg|200px]]||50||1||0||1
+|-
+|Cobra||AH1||[[File:Ofp ah1.jpg|200px]]||50||2||0||1
+|-
+|UH60||UH60||[[File:Ofp uh60.jpg|200px]]||60||13||12||1
+|-
+|UH60MG||UH60 with Machinegun||[[File:Ofp uh60mg.jpg|200px]]||60||14||12||1
+|-
+|Mi17||Mi17||[[File:Ofp mi17.jpg|200px]]||50||13||12||0
+|-
+|Mi24||Mi24||[[File:Ofp mi24.jpg|200px]]||100||10||8||1
+|-
+|Cessna||Plane||[[File:Ofp cessna.jpg|200px]]||15||4||3||0
+|-
+|Su25||Su 25<br>(''Patch 1.10'')||[[File:Ofp su25.jpg|200px]]||50||1||0||1
+|-
+|AH64||AH64<br>(''Patch 1.20'')||[[File:Ofp ah64.jpg|200px]]||80||2||0||1
+|-
+|CH47D||CH47D<br>(''Patch 1.20'')||[[File:Ofp ch47.jpg|200px]]||60||26||24||1
+|-
+|A10LGB||A10 (LGB)<br>(''Patch 1.26'')||The same model like A10 only with GBU bombs.||50||1||0||1
+|-
+|OH58||OH58<br>(''Patch 1.30'')||[[File:Ofp oh58.jpg|200px]]||30||2||1||0
+|-
+|Kamov||Ka 50<br>(''Resistance'')||[[File:Ofp kamov.jpg|200px]]||150||1||0||1
+|-
+|JetRanger||Jet Ranger<br>(''Resistance'')||This heli is the civil version (206B) of the OH58.<br>The model crashes the game.||30||3||2||0
+|-
+|JetRangerSilent||Jet Ranger (small)<br>(''Resistance'')||Radio controlled model.<br>Model crashes the game.||30||3||2||0
+|-
+|}
+
+== Armored ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''||'''Commander'''
+|-
+|M1Abrams||M1A1||[[File:Ofp m1a1.jpg|200px]]||900||3||0||1||Y
+|-
+|M60||M60||[[File:Ofp m60 tank.jpg|200px]]||300||3||0||1||Y
+|-
+|M113||M113||[[File:Ofp m113.jpg|200px]]||150||10||8||1||N
+|-
+|BMP||BMP||[[File:Ofp bmp.jpg|200px]]||200||11||8||1||Y
+|-
+|T72||T72||[[File:Ofp t72.jpg|200px]]||400||3||0||1||Y
+|-
+|T80||T80||[[File:Ofp t80.jpg|200px]]||700||3||0||1||Y
+|-
+|ZSU||Shilka||[[File:Ofp shilka.jpg|200px]]||250||3||0||1||Y
+|-
+|T55G||T55||[[File:Ofp t55g.jpg|200px]]||300||3||0||1||Y
+|-
+|BoatW||Mark II PBR||[[File:Ofp mark ii pbr.jpg|200px]]||100||8||6||1||N
+|-
+|BoatE||Boat||[[File:Ofp boat.jpg|200px]]||100||12||10||1||N
+|-
+|CarrierW||LST||[[File:Ofp lst tank.jpg|200px]]||10000||51||50||0||N
+|-
+|M2StaticMG||M2 Machinegun||[[File:Ofp m2 static mg.jpg|200px]]||30||1||0||1||N
+|-
+|M2StaticMGE||M2 Machinegun||[[File:Ofp m2 static mg.jpg|200px]]||30||1||0||1||N
+|-
+|Vulcan||Vulcan<br>(''Patch 1.10'')||[[File:Ofp vulcan.jpg|200px]]||150||2||1||0||N
+|-
+|BMP2||BMP 2<br>(''Patch 1.30'')||[[File:Ofp bmp2.jpg|200px]]||200||9||6||1||Y
+|-
+|Bradley||M2A2<br>(''Patch 1.30'')||[[File:Ofp m2a2.jpg|200px]]||200||9||6||1||Y
+|-
+|BRDM||BRDM<br>(''Patch 1.30'')||[[File:Ofp brdm.jpg|200px]]||90||4||3||0||N
+|-
+|BMPRes||BMPResistance<br>(''Resistance'')||[[File:Ofp bmp res.jpg|200px]]||200||11||8||1||Y
+|-
+|T72Res||T72 (Resistance)<br>(''Resistance'')||[[File:Ofp t72.jpg|200px]]||400||3||0||1||Y
+|-
+|T80Res||T80 (Resistance)<br>(''Resistance'')||[[File:Ofp t80.jpg|200px]]||700||3||0||1||Y
+|-
+|}
+
+== Car ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|Jeep||[[Jeep]]||[[File:Ofp jeep.jpg|200px]]||20||4||3||0
+|-
+|Truck5t||Truck 5t||[[File:Ofp 5t truck.jpg|200px]]||20||15||14||0
+|-
+|Truck5tRich||Truck 5t||[[File:Ofp 5t truck.jpg|200px]]||20||3||2||0
+|-
+|Truck5topen||Truck 5t open||[[File:Ofp 5t truck.jpg|200px]]||20||15||14||0
+|-
+|JeepMG||Jeep with Machinegun ||[[File:Ofp jeep mg.jpg|200px]]||20||3||1||1
+|-
+|GJeep||Jeep||[[File:Ofp jeep2.jpg|200px]]||20||4||3||0
+|-
+|UAZ||[[UAZ]]||[[File:Ofp uaz.jpg|200px]]||20||4||3||0
+|-
+|Ural||[[Ural]]||[[File:Ofp ural.jpg|200px]]||20||15||14||0
+|-
+|UAZG||UAZ (Resistance)||[[File:Ofp uazg.jpg|200px]]||20||4||3||0
+|-
+|TruckV3SG||PV3S||[[File:Ofp pv3s.jpg|200px]]||20||15||14||0
+|-
+|TruckV3SCivil||PV3S (Civil)||[[File:Ofp pv3s.jpg|200px]]||20||4||3||0
+|-
+|SkodaBlue||Skoda (blue)||rowspan="4"|[[File:Ofp skoda.jpg|200px]]||10||4||3||0
+|-
+|Skoda||Skoda
+|-
+|SkodaRed||Skoda (red)
+|-
+|SkodaGreen||Skoda (green)
+|-
+|RapidY||Sportscar||[[File:Ofp sportscar.jpg|200px]]||10||4||3||0
+|-
+|Rapid||Sportscar||-||10||4||3||0
+|-
+|Trabant||Trabant<br>(''Patch 1.10'')||[[File:Ofp trabant.jpg|200px]]||10||4||3||0
+|-
+|HMMWV||HMMWV<br>(''Patch 1.20'')||[[File:Ofp hmmwv.jpg|200px]]||70||4||3||0
+|-
+|JeepPolice||Jeep Police<br>(''Resistance'')||[[File:Ofp jeep police.jpg|200px]]||10||4||3||0
+|-
+|Bus||Bus<br>(''Resistance'')||[[File:Ofp bus.jpg|200px]]||20||28||27||0
+|-
+|Jawa||Motorcycle<br>(''Resistance'')||[[File:Ofp jawa.jpg|200px]]||10||1||1||0
+|-
+|UAZCheat||UAZ<br>(''Resistance'')||[[File:Ofp uaz.jpg|200px]]||10000||4||3||0
+|-
+|Mini||Small Car<br>(''Patch 1.85'')||[[File:Ofp mini.jpg|200px]]||10||4||3||0
+|-
+|Kolo||Bike<br>(''Patch 1.85'')||[[File:Ofp bike.jpg|200px]]||0||1||0||0
+|-
+|Tractor||Tractor||image needed!||30||1||0||0
+|-
+|Scud||Scud||image needed!||40||4||3||0
+|-
+|}
+
+== Support ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|SGUAZG||UAZ (Resistance)||[[File:Ofp uazg.jpg|200px]]||20||4||3||0
+|-
+|TruckV3SGReammo||PV3S Reammo||[[File:Ofp pv3s.jpg|200px]]||20||3||2||0
+|-
+|TruckV3SGRefuel||PV3S Refuel||[[File:Ofp pv3s_refuel.jpg|200px]]||20||3||2||0
+|-
+|TruckV3SGRepair||PV3S Repair||[[File:Ofp pv3s_repair.jpg|200px]]||20||3||2||0
+|-
+|UralReammo||Ural Reammo||[[File:Ofp ural.jpg|200px]]||20||3||2||0
+|-
+|UralRefuel||Ural Refuel||[[File:Ofp ural_refuel.jpg|200px]]||20||3||2||0
+|-
+|UralRepair||Ural Repair||[[File:Ofp ural_repair.jpg|200px]]||20||3||2||0
+|-
+|Truck5tReammo||Truck5t Reammo||[[File:Ofp 5t truck.jpg|200px]]||20||3||2||0
+|-
+|Truck5tRefuel||Truck5t Refuel||[[File:Ofp 5t truck_refuel.jpg|200px]]||20||3||2||0
+|-
+|Truck5tRepair||Truck5t Repair||[[File:Ofp 5t truck_repair.jpg|200px]]||20||3||2||0
+|-
+|M113Ambul||M113 Ambulance||[[File:Ofp m113 ambul.jpg|200px]]||150||4||3||0
+|-
+|BMPAmbul||BMP Ambulance||[[File:Ofp bmp ambul.jpg|200px]]||20||4||3||0
+|-
+|}
+The ammo trucks based on the normal versions. They shows hidden warning signs and an ammo crate on the back.
+
+{{GameCategory|ofp|Reference Lists}}

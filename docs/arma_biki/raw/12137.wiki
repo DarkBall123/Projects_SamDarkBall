@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Broken Commands
+|gr2= Sides
+
+|descr= Return all sites in map.
+{{Feature|warning|This command is considered deprecated and is no longer supported}}
+
+|s1= '''allSites'''
+
+|r1= [[Array]] of [[Object]]s
+
+|x1= <sqf>_allSites = allSites;</sqf>
+
+|seealso= [[deleteSite]] [[createSite]] [[allGroups]] [[allDead]] [[playableUnits]] [[switchableUnits]] [[vehicles]] [[allUnitsUAV]] [[allCurators]] [[allDeadMen]]
+}}
+
+{{Note
+|user= Killzone_Kid
+|timestamp= 20220829214802
+|text= Well, this command is not broken, it just doesn't have anything to return.
+}}

@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Returns DIK code of a given key.
+
+|s1= input call [[BIS_fnc_keyCode]]
+
+|p1= input:
+* [[Number]]: Key code
+* [[String]]: Key name
+* [[Boolean]]: Return key definitions
+
+|x1= <sqf>13 call BIS_fnc_keyCode; // Returns "EQUALS"</sqf>
+
+|x2= <sqf>"EQUALS" call BIS_fnc_keyCode; // returns 13</sqf>
+
+|x3= <sqf>true call BIS_fnc_keyCode; // returns ["ESCAPE",1,"1",2,"2",3,"3",4,"4",5,"5",6,"6",7,"7",8,"8",9,"9",10,"0",11,"MINUS",12,"EQUALS",13...]</sqf>
+
+|r1= [[String]], [[Number]] or [[Array]]
+
+|seealso= [[DIK KeyCodes]]
+}}

@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact
+
+|descr= <pre>/*
+
+	Description:
+		Return if task was added to player.
+		Includes both finished and unfinished tasks.
+
+	Parameter(s):
+		0: STRING - task ID
+
+	Returns:
+		BOOL
+
+	Example:
+		if ("q_schnobble" call BIN_fnc_taskAdded) then {hint "ADDED!";};
+*/</pre>
+
+{{Wiki|placeholder}}
+{{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_taskAdded]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

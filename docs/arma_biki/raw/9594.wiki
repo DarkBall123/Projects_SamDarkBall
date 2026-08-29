@@ -1,0 +1,33 @@
+{{RV|type=function
+
+|game1= arma2oa
+|version1= 1.56
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|eff= local
+
+|gr1= Environment
+
+|descr= Spawns flock of crows circling the area.
+
+|s1= [position, ''areaSize'', ''number'', ''height''] call [[BIS_fnc_crows]]
+
+|p1= position: [[Array]] (in format [[position]]) or [[Object]] (object position) or [[String]] (marker position)
+
+|p2= areaSize ''(Optional)'': [[Number]] - area radius - default: 50
+
+|p3= number ''(Optional)'': [[Number]] of crows - default: areaSize/5
+
+|p4= height ''(Optional)'': [[Number]] - height in which crows flies - default: 30 + random 10
+
+|r1= [[Array]] - list of spawned crows<br><br>
+
+|x1= <sqf>bis_crows = [BIS_scientist, 20, 8, 20] call BIS_fnc_crows;</sqf>
+
+|seealso= [[Functions Library]]
+}}

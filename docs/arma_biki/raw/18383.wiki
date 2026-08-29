@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|arg= local
+
+|gr1= Pilot Camera
+
+|descr= Returns model space vector of the object airplane or helicopter [[A3_Targeting_config_reference#class_pilotCamera|pilotCamera]] .
+
+|s1= [[getPilotCameraDirection]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Vector3D]] - relative to the model centre (In a similar fashion to [[Position#PositionRelative|PositionRelative]]). Returns [0,0,0] if object has no [[A3_Targeting_config_reference#class_pilotCamera|pilotCamera]].
+
+|x1= <sqf>_pilotCamVector = getPilotCameraDirection vehicle player;</sqf>
+
+|seealso= [[hasPilotCamera]] [[getPilotCameraPosition]] [[getPilotCameraRotation]] [[getPilotCameraTarget]] [[setPilotCameraDirection]] [[setPilotCameraRotation]] [[setPilotCameraTarget]]
+}}

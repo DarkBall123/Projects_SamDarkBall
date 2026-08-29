@@ -1,0 +1,18 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.78
+
+|gr1= Sides
+
+|descr= Returns ''Friendly'' side which is friendly to all units.
+{{Feature|warning|This command is not functional and appears to have be replaced by [[sideFriendly]].}}
+
+|s1= [[friendly]]
+
+|r1= [[Side]]
+
+|x1= <sqs>?_side == friendly : hint "Hey buddy!"</sqs>
+
+|seealso= [[sideFriendly]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Interpolation
+
+|descr= ''N/A''
+
+|s1= [] call [[BIS_fnc_bounceInOut]]
+
+|p1= 
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

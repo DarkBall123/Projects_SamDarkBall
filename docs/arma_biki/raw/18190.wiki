@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns grid size based on screen resolution.
+
+|s1= '''pixelGridBase'''
+
+|r1= [[Number]] - grid size, see [[Arma 3: Pixel Grid System]]
+
+|x1= <sqf>_gridBaseHeight = pixelH * pixelGridBase;</sqf>
+
+|seealso= [[pixelGrid]] [[pixelGridNoUIScale]] [[pixelH]] [[pixelW]] [[Pixel Grid System]]
+}}

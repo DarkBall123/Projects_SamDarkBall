@@ -1,0 +1,486 @@
+{{Feature|UnsupportedDoc}}
+{{TOC|side}}
+{{Feature|informative|'''In General''' LZSS compression only applies to data structures that would otherwise exceed 1023 bytes.<br>
+This 'rule' does not apply to:
+* PBOs: anything is arbitrarily compressed or otherwise (dependent on the 'type' in the header)
+* PAXs: Certain types are unconditionally compressed.
+}}
+
+Lev Zimpel (LZ) compression is a form of run length encoding that was first introduced in 1983. Since that time, it has had many variants and 'improvements' and constitutes the base form of many archive file formats such as zip, pkzip, 7Zip, LHarc, gunzip, rar. Each, with (sometimes substantial) variants on the theme.
+
+The most popular variants being:
+* LZH
+* LZW
+* LZSS
+
+BI use an improved version of the original LZ compression known as LZSS: Lempel, Ziv, Storer, and Szymanski Encoding and Decoding
+
+The patent for LZSS can be found {{Link|http://www.patentstorm.us/patents/5701125/description.html|Here}}
+
+Generalised Code (from which bis lzss is based) can be found {{Link|http://dev.gameres.com/Program/Other/LZSS.C|here}}
+
+The patent describes the overall methodology, essentially, an improved-way-of-doing-things over the earlier LZ compression, without specific implementations (of which, there can be many).
+
+The essential modifiable ingredients to LZSS are
+* The number of bits making up a flag to indicate raw data follows, or, a 'pointer'
+* The number of bits in raw data.
+* The number of bits in the pointer for relative offset, versus run length.
+* The size of the 'sliding window' that constitutes the dictionary for compression.
+* The maximum number of characters to match in that dictionary.
+* An agreed 'space filler'.
+
+All of which is implementation dependent.
+
+As it applies to BI, they choose to use LZSS:8bit
+* FlagBits = 8
+* Data = Byte.
+* 12bit offset, 4bit run length. (two bytes)
+* 4096 byte 'sliding window'.
+* 18 character best match.
+* 'space filler' = 0x20
+
+For more on specific methods of implementation visit {{Link|http://michael.dipperstein.com/lzss|here}}
+
+
+== General ==
+
+If the 'bit' in the flag is a 1, it is a raw data byte, otherwise a 2 byte (16bit) 'pointer' follows.
+
+A mixture of 8x raw data bytes and /or 8x pointers follow each flagbyte.
+
+
+The pointer consists of a 4bit run length, and a 12 bit relative offset.
+
+All / most / some / none of offset points into a previously built part of the output. A 4096 byte sliding window. As each byte is progressively added to the output, the window 'slides'.
+
+The 4k sliding window, is, the dictionary for the compression.
+
+It is quite possible before first 4k of output has been constructed, that the offset will refer to a larger value than that actually built.
+
+An 'agreed' value for this phantom buffer is established. In the case of BI's implementation, it is the space character (0x20).
+
+The format of the 'pointer' is unfortunately AAAA LLLL AAAAAAAA, requiring a bit of shift mask fiddling. Very clearly, as originally implemented, this 'format' came from Big Endian machines such as Motorola, giving a far cleaner value of AAAAAAAA AAAA LLLL
+
+As implemented by BI, there is an additional 4 byte checksum at the end of any compressed block. The checksum is simply an unsigned additive spillover of each byte in the built output.
+
+There are in fact two different structures used by BI in implementing LZSS.
+
+* Input (and output) Size is known
+* Only the desired output size is known.
+
+
+== Decompression Code ==
+
+=== Unknown Input Length ===
+
+will return the actual number of input bytes discovered, or -1 on error.
+
+
+note that the decision on whether the data is compressed in the first place is a little arbitrary
+for most (but not all) file formats that use compression. If the resulting output data would be less than 1024 bytes
+that data is NOT compressed
+
+You need to check the individual file type biki 'discover' if the 1024 byte limit is there, or some other value
+
+<syntaxhighlight lang="cpp">
+int ExpandUnknownInputLength(const byte *in, byte *OutBuf,long outlen)
+{
+	byte Flag;
+	byte bits;
+	long Rpos;
+	byte rlen;
+	int Fl=0;
+	ulong CalculatedChecksum = 0;
+	ulong ReadChecksum;
+	int pi = 0;
+	byte data;
+	byte *to, *from;
+
+	while (outlen > 0)
+	{
+		Flag=in[pi++];
+		for (bits=0;bits<8;bits++,Flag>>=1)// up to 8 bytes of data or 8 pointers or
+		{
+			if (Flag&0x01) // raw data
+			{
+				data = in[pi++];
+				CalculatedChecksum += data;
+				OutBuf[Fl++] = data;
+				if (!--outlen) goto finish;
+				continue;
+			}
+			Rpos = in[pi++];
+			rlen = (in[pi] & 0x0F) + 3;
+			Rpos += ((in[pi++]&0xF0) << 4);
+			while (Rpos > Fl) // special case space fill
+			{
+				CalculatedChecksum += 0x20;
+				OutBuf[Fl++] = 0x20;
+				if (!--outlen) goto finish;
+				if (!--rlen) goto stop;
+			}
+			Rpos = Fl-Rpos;
+			from = &OutBuf[Rpos];
+			to = &OutBuf[Fl];
+			Fl += rlen;
+			while (rlen--)
+			{
+				data = *from++;
+				CalculatedChecksum += data;
+				*to ++= data;
+				if (!--outlen) goto finish;
+			}
+			stop: ;
+		}
+	}
+	goto ok;
+	finish:
+	if (Flag&0xFE) return -1; // EXCESS_1BITS;
+	ok:
+	memcpy(&ReadChecksum, &in[pi], sizeof(ReadChecksum));
+	if (ReadChecksum == CalculatedChecksum) return pi + 4;
+	return -1;
+}
+</syntaxhighlight>
+
+=== ExpandPbo ===
+
+input length is always known, making code a little less tedious
+
+known input length currently applies only to pbo's.
+
+note further, that unlike unknown input length compression, the decision to compress or not is ENTIRELY arbitrary.
+
+it is at the whim of the pbo creator, which file types, rather than what size, is compressed.
+
+<syntaxhighlight lang="cpp">
+bool unpack_data(const byte *CompressedBuffer, int PackedSize, byte *DeCompressedBuffer,int DecompressedBufferSize)
+{
+	const byte *CompressedPtr;
+	byte *DecompressedPtr;
+	size_t offset;
+	int tmp, count;
+	unsigned ReadChecksum, CalculatedChecksum;
+	int rpos, rlen;
+	int chunk, size;
+	uchar FlagByte;
+	byte b1, b2;
+
+	if ((PackedSize -= 4) <= 0) return false; // no room for checksum
+	size = 0;
+	DecompressedPtr = DeCompressedBuffer;
+
+	/*
+	* Each data block is preceded by a byte telling us what to do with
+	* the next 8 bytes.
+	*/
+
+	for (offset = 0; offset < PackedSize; )
+	{
+		FlagByte = CompressedBuffer[offset++];// grab the encoding byte
+		for (count = tmp = 1; tmp < 256 && offset < PackedSize ; tmp *= 2, count++)
+		{
+			CompressedPtr = &CompressedBuffer[offset];
+			size = DecompressedPtr - DeCompressedBuffer;
+			if (FlagByte & tmp) // Append the byte to output
+			{
+				*DecompressedPtr++ = *CompressedPtr;
+				offset++;
+			}
+			else
+			{
+				// Read a pointer
+				b1 = *CompressedPtr;
+				b2 = *(CompressedPtr + 1);
+				offset += 2;
+				rpos = size - b1 - 256 * ( b2/16 );
+				rlen = b2 - 16 * (b2 / 16) + 3;
+				if ((rpos + rlen) < 0)
+				{
+					size += rlen;
+					while (rlen--) *DecompressedPtr++ = ' ';
+				}
+				else
+				if ((DeCompressedBuffer + rpos) > DecompressedPtr) return false; // PBO_STS_OUT_OF_BOUNDS;
+				// PAD the file with a block from another place in the file
+				else 
+				if ((rpos + rlen) <= size)
+				{
+					while (rpos < 0)
+					{
+						*DecompressedPtr++ = ' ';
+						rlen--;
+						rpos++;
+					}
+					memcpy(DecompressedPtr, &DeCompressedBuffer[rpos], rlen);
+					DecompressedPtr += rlen;
+					size += rlen;
+				}
+				// PAD the file with the block until size is rpos + rlen
+				else
+				if ((rpos + rlen) > size)
+				{
+					chunk = size - rpos;
+					while (rlen > 0)
+					{
+						if (chunk > rlen) chunk = rlen;
+						if (!chunk) return false; // PBO_STS_CHUNK_ZERO;
+						memcpy(DecompressedPtr, &DeCompressedBuffer[rpos], chunk);
+						DecompressedPtr += chunk;
+						size += chunk;
+						rlen -= chunk;
+					}
+				}
+			}
+		} // while temp
+	} // while offset
+
+	// Last 4 bytes of the packed data is the checksum, unsigned int
+	memcpy(&ReadChecksum, &CompressedBuffer[PackedSize], sizeof(ReadChecksum));
+
+	for (CalculatedChecksum = 0,DecompressedPtr = DeCompressedBuffer; DecompressedPtr < &DeCompressedBuffer[DecompressedBufferSize];) CalculatedChecksum+= *DecompressedPtr++;
+	if (ReadChecksum != CalculatedChecksum) return false; // PBO_STS_CHECKSUM;
+	return true; // PBO_STS_NO_ERROR;
+}
+</syntaxhighlight>
+temporary placeholder for example code for odolv7
+''Lempel-Ziv compression
+
+Note1.
+
+Regardless of method, 4 extra bytes representing the checksum exist at end of the data count.
+
+Note2.
+The compression code is identical to that employed by pbo packed structures. However, unlike pbo's, the size  of the compressed data is unknown, only it is ultimate length. The code below fudges it.
+
+
+==== pascal code ====
+
+<syntaxhighlight lang="pascal">
+function LZBlockRead(var F:file; var outdata:array of byte;szout:integer):byte;
+var
+k, r, pr, pi,po,i,j:integer;
+flags:word;
+buf:array[0..$100e] of byte;
+c:byte;
+crc:integer;
+begin
+po:=0;
+pi:=0;
+flags:=0;
+r:=0;
+for k := 0 to $100F-1 do buf[k] := $20;
+	while (po < szout) do
+	 begin
+		flags:= flags shr 1;
+		if ((flags and $100)= 0) then
+			begin
+			BlockRead(F,c,1); // direct reading from file
+			inc(pi);
+			flags := c or $ff00;
+			end;
+		if (flags and 1)=1 then
+			 begin
+			 if (po >= szout)then break;
+			 BlockRead(F,c,1); // direct reading from file
+			 inc(pi);
+			 outdata[po] := c;
+			 inc(po);
+			 buf[r] := c;
+			 inc(r);
+			 r :=r and $fff;
+			 end
+		else
+			 begin
+			 i:=0;
+			 BlockRead(F,i,1); // direct reading from file
+			 inc(pi);
+			 j:=0;
+			 BlockRead(F,j,1); // direct reading from file
+			 inc(pi);
+			 i :=i or ((j and $f0) shl 4);
+			 j := (j and $0f) + 2;
+			 pr := r;
+			 for k := 0 to j do
+				 begin
+				 c := buf[(pr - i + k) and $fff];
+				 if (po >= szout) then break;
+				 outdata[po]:= c;
+				 inc(po);
+				 buf[r]:= c;
+				 inc(r);
+				 r :=r and $fff;
+			 end;
+		end;
+	end;
+	BlockRead(F,crc,4); // 4 byte checksum.
+	result:= pi;
+end;
+</syntaxhighlight>
+
+==== C code ====
+
+<syntaxhighlight lang="c">
+int Decode(unsigned char *in,unsigned char *out,int szin,int szout)
+{
+		szin = szin > 0? szin: 0x7fffffff;
+		int  i, j, k, r = 0, pr, pi = 0,po = 0;
+		unsigned int  flags = 0;
+		unsigned char buf[0x100F], c;
+		for (i = 0; i < 0x100F; buf[i] = 0x20, i++);
+		while (pi < szin && po < szout)
+		{
+				if (((flags >>= 1) & 256) == 0)
+				{
+						if(pi >= szin)break;
+						c = in[pi++];
+						flags = c | 0xff00;
+				}
+				if (flags & 1)
+				{
+						if(pi >= szin || po >= szout)break;
+						c = in[pi++];
+						out[po++] = c;
+						buf[r++] = c;
+						r &= 0xfff;
+				} else
+				{
+						if(pi + 1 >= szin)break;
+						i = in[pi++];
+						j = in[pi++];
+						i |= (j & 0xf0) << 4;
+						j  = (j & 0x0f) + 2;
+						pr = r;
+						 for (k = 0; k <= j; k++)
+						{
+								c = buf[(pr - i + k) & 0xfff];
+								if(po >= szout)break;
+								out[po++] = c;
+								buf[r++] = c;
+								r &= 0xfff;
+						}
+				}
+		}
+		return pi;// next 4 bytes = checksum
+}
+
+/////// parked lzss example code from odolv4x
+</syntaxhighlight>
+
+=== LZSS ===
+
+{{Feature|informative|The code that follows is written in C# and may or may not be optimal or correct.}}
+
+<syntaxhighlight lang="cpp">
+public bool Expand(int ExpectedSize)
+{
+	byte PacketFlagsByte; //packet flags
+	byte WIPByte;
+	BitVector32 BV;
+	msLZ = new MemoryStream(ExpectedSize);
+	BinaryWriter bwLZ = new BinaryWriter(msLZ);
+	byte[] Buffer = new byte[ExpectedSize + 15];
+	bool[] BitFlags = new bool[8];
+	int i = 0, PointerRef = 0, ndx = 0, CalculatedCRC = 0, ReadCRC = 0, rPos, rLen, CurrentPointerRef = 0, Count = 0;
+	int Bit0 = BitVector32.CreateMask();
+	int Bit1 = BitVector32.CreateMask(Bit0);
+	int Bit2 = BitVector32.CreateMask(Bit1);
+	int Bit3 = BitVector32.CreateMask(Bit2);
+	int Bit4 = BitVector32.CreateMask(Bit3);
+	int Bit5 = BitVector32.CreateMask(Bit4);
+	int Bit6 = BitVector32.CreateMask(Bit5);
+	int Bit7 = BitVector32.CreateMask(Bit6);
+
+
+	PacketFlagsByte = br.ReadByte();
+	do
+	{
+		BV = new BitVector32(PacketFlagsByte);
+		BitFlags[0] = BV[Bit0];
+		BitFlags[1] = BV[Bit1];
+		BitFlags[2] = BV[Bit2];
+		BitFlags[3] = BV[Bit3];
+		BitFlags[4] = BV[Bit4];
+		BitFlags[5] = BV[Bit5];
+		BitFlags[6] = BV[Bit6];
+		BitFlags[7] = BV[Bit7];
+		i = 0;
+		do
+		{
+			if ((int)bwLZ.BaseStream.Position >= ExpectedSize) { break; }
+			if (BitFlags[i++]) //Direct Output
+			{
+				WIPByte = br.ReadByte();
+				bwLZ.Write(WIPByte);
+				Buffer[PointerRef++] = WIPByte;
+				CalculatedCRC += WIPByte;
+			}
+			else //Get from previous 4k
+			{
+				rPos = (int)(br.ReadByte());
+				rLen = (int)(br.ReadByte());
+				rPos |= (rLen & 0xF0) << 4;
+				rLen = (rLen & 0x0F) + 2;
+				CurrentPointerRef = PointerRef;
+				if ((CurrentPointerRef - (rPos + rLen)) > 0)
+				{
+					//Case of wholly within the buffer, partially within the end of the buffer or wholly outside the end of the buffer
+					for (Count = 0; Count <= rLen; Count++)
+					{
+						ndx = (CurrentPointerRef - rPos) + Count;
+							if (ndx < 0)
+							{
+								//Beyond the start of the buffer
+								WIPByte = 0x20;
+							}
+							else
+							{
+								//Within the buffer
+								WIPByte = Buffer[ndx];
+							}
+						//}
+						bwLZ.Write(WIPByte);
+						Buffer[PointerRef++] = WIPByte;
+						CalculatedCRC += WIPByte;
+					}
+				}
+				else
+				{
+					//Case of wholly or partially beyond the start of the buffer.
+					for (Count = 0; Count <= rLen; Count++)
+					{
+						ndx = (CurrentPointerRef - rPos) + Count;
+						if (ndx < 0)
+						{
+							//Beyond the start of the buffer
+							WIPByte = 0x20;
+						}
+						else
+						{
+							//Within the buffer
+							WIPByte = Buffer[ndx];
+						}
+						bwLZ.Write(WIPByte);
+						Buffer[PointerRef++] = WIPByte;
+						CalculatedCRC += WIPByte;
+					}
+				}
+			}
+		}
+		while ((i < 8) & (bwLZ.BaseStream.Position < ExpectedSize));
+		if (bwLZ.BaseStream.Position < ExpectedSize) { PacketFlagsByte = br.ReadByte(); }
+	}
+	while (bwLZ.BaseStream.Position < ExpectedSize);
+	ReadCRC = br.ReadInt32();
+	return (ReadCRC == CalculatedCRC);
+}
+</syntaxhighlight>
+
+
+== See Also ==
+
+* [[BIS File_Formats#3D Model File Formats|Model File Formats]]
+
+
+[[Category:Real Virtuality File Formats]]
+{{GameCategory|arma1|File Formats}}

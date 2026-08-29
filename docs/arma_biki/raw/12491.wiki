@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.74
+
+|gr1= GUI Control - Tree View
+
+|arg= local
+
+|eff= local
+
+|descr= Removes all items from Tree View with given idc.
+
+|s1= [[tvClear]] idc
+
+|p1= idc: [[Number]]
+
+|r1= [[Nothing]]
+
+|s2= [[tvClear]] control
+
+|p21= control: [[Control]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>tvClear 101;</sqf>
+
+|seealso= [[tvAdd]] [[tvCollapse]] [[tvCount]] [[tvCurSel]] [[tvData]] [[tvDelete]] [[tvExpand]] [[tvPicture]] [[tvSetCurSel]] [[tvSetData]] [[tvSetPicture]] [[tvSetValue]] [[tvSort]] [[tvSortByValue]] [[tvText]] [[tvValue]]
+}}

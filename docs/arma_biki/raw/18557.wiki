@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|gr1= Dynamic Simulation
+
+|descr= A getter for [[setDynamicSimulationDistance]].
+
+|s1= [[dynamicSimulationDistance]]  category
+
+|p1= category: [[String]] - can be:
+* {{hl|"Group"}} - Infantry units and groups
+* {{hl|"Vehicle"}} - Vehicles with crew
+* {{hl|"EmptyVehicle"}} - All vehicles without crew
+* {{hl|"Prop"}} - Static objects
+
+|r1= [[Number]] - activation distance
+
+|x1= <sqf>hint str dynamicSimulationDistance "Prop";</sqf>
+
+|seealso= [[Arma 3: Dynamic Simulation]] [[setDynamicSimulationDistance]] [[setDynamicSimulationDistanceCoef]] [[dynamicSimulationDistanceCoef]] 
+}}

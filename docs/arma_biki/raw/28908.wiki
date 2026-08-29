@@ -1,0 +1,6 @@
+'''Description:'''<br>
+A dummy data type to trigger errors.
+
+Introduced with {{arma3}}.
+
+[[Category: Data Types]]

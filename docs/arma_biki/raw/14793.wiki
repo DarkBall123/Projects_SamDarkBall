@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|gr1= Briefing
+
+|descr= Returns the name of the current briefing/scenario name.
+
+|s1= [[briefingName]] 
+
+|r1= [[String]]
+
+|x1= <sqf>_name = briefingName;</sqf>
+
+|seealso= [[missionName]] [[worldName]] [[serverName]] [[worldSize]]
+}}

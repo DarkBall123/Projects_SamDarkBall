@@ -1,0 +1,35 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= IDWMap
+
+|descr= <pre>/*
+		Killzone_Kid
+
+	Description:
+		Should be called from preInit, contains saving/loading functions as well as default initisalization
+
+	Parameter(s):
+		0: STRING - preInit pass through
+
+	Returns:
+		NOTHING
+		
+	Example: 
+		// from preinit script
+		call BIN_fnc_preInitIDWMap
+*/</pre>
+
+{{Wiki|placeholder}}
+{{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_preInitIDWMap]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

@@ -1,0 +1,40 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|arg= global
+
+|gr1= Unit Identity
+
+|descr= Returns the rank of the given unit. Rank can be one of the following:
+* {{hl|"PRIVATE"}}
+* {{hl|"CORPORAL"}}
+* {{hl|"SERGEANT"}}
+* {{hl|"LIEUTENANT"}}
+* {{hl|"CAPTAIN"}}
+* {{hl|"MAJOR"}}
+* {{hl|"COLONEL"}}
+
+|s1= [[rank]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>_rank = rank player;</sqf>
+
+|seealso= [[rankId]] [[rating]] [[addRating]] [[setUnitRank]] [[ArmA: Rating Values|Rating Values]]
+}}

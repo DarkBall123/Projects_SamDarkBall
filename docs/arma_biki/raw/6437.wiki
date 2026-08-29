@@ -1,0 +1,45 @@
+Each hit in a single player game will affect the player's [[rating]].
+If it goes below -2000, he will be considered an enemy, and be attacked by all units.
+
+The breakdown of rating changes for killing enemy or friendly units are listed below:
+
+{| class=wikitable
+|'''Object'''||'''Enemy'''||'''Friendly'''
+|-
+|Urals, UAZ, BRDM2, BMP, HMMVW, LandRover, Stryker, M113, Camel, RHIB||align="right"|200||align="right"|-1400
+|-
+|Soldier||align="right"|200||align="right"|-1400
+|-
+|Sniper, Especas, Saboteur||align="right"|500||align="right"|-3500
+|-
+|Officer, Squad/Team Leader||align="right"|1000||align="right"|-3500
+|-
+|M1Abrams, Vulcan, T72, Shilka, Cobra, Black Hawk, Little Bird, Harrier, A10, KA50, Mi17, Su34||align="right"|1000||align="right"|-7000
+|-
+|Civilian, Ural Civil, Bus, Tractor, Hilux||align="right"|-||align="right"|-400
+|-
+|Civilian Cars, Motorcycle||align="right"|-||align="right"|0
+|}
+
+== Ratings and Ranks ==
+When a unit is assigned a specific [[rank]] (either when placed in the editor, or via the [[setUnitRank]] command), it will automatically receive a certain rating level (even if the unit's previous rating was higher than the new level).
+
+{| class=wikitable
+|'''Rank'''||'''Rating'''
+|-
+|PRIVATE||align="right"|0
+|-
+|CORPORAL||align="right"|500
+|-
+|SERGEANT||align="right"|1500
+|-
+|LIEUTENANT||align="right"|2500
+|-
+|CAPTAIN||align="right"|3500
+|-
+|MAJOR||align="right"|5000
+|-
+|COLONEL||align="right"|7500 
+|}
+
+{{GameCategory|arma1|Reference Lists}}

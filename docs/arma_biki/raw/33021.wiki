@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+|gr1= GUI Control
+
+|descr= Sets 'shadow' property of the control:
+* 0 - no shadow
+* 1 - shadow
+* 2 - outline
+
+|s1= control [[ctrlSetShadow]] shadow
+
+|p1= control: [[Control]]
+|p2= shadow: [[Number]] - shadow value, see description
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_control ctrlSetShadow 1;</sqf>
+
+|seealso= [[ctrlShadow]] [[ctrlCreate]]
+}}

@@ -1,0 +1,42 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Camera Control
+
+|descr= Prepares the camera target to a position or to a target. Needs the call of [[camCommitPrepared]] to be conducted.
+
+|s1= camera [[camPrepareTarget]] position
+
+|p1= camera: [[Object]] - object of type "camera"
+
+|p2= position: [[Position]] - target location
+
+|r1= [[Nothing]]
+
+|s2= camera [[camPrepareTarget]] target
+
+|p21= camera: [[Object]] - object of type "camera"
+
+|p22= target: [[Object]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>_camera camPrepareTarget getPos player;</sqf>
+|x2= <sqf>_camera camPrepareTarget player;</sqf>
+
+|seealso= [[camPreload]] [[camCommitPrepared]] [[camSetTarget]]
+}}

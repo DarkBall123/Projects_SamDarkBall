@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Mission Parameters
+
+|descr= Set side respawn tickets.
+
+|s1= number call [[BIS_fnc_paramRespawnTickets]]
+
+|p1= number: [[Number]] - respawn tickets
+
+|r1= [[Boolean]]
+
+|x1= <sqf>360 call BIS_fnc_paramRespawnTickets;</sqf>
+
+|seealso= [[Mission Parameters]] [[:Category:Function Group: Mission Parameters|Mission Parameters Functions]]
+}}

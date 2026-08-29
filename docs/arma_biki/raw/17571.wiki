@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|arg= global
+
+|eff= local
+
+|gr1= Flags
+
+|descr= Returns texture of the [[Multiplayer Scripting#Locality|local]] instance of the flag. A getter for [[setFlagTexture]]. It will not return flag textures applied using [[forceFlagTexture]], use [[getForcedFlagTexture]] for that.
+
+|s1= [[flagTexture]] flagCarrier
+
+|p1= flagCarrier: [[Object]] - vehicle, unit or flag pole
+
+|r1= [[String]]
+
+|x1= <sqf>_flagTexture = flagTexture _flag1;</sqf>
+
+|seealso= [[setFlagTexture]] [[Arma 3: Flag Textures]]
+}}

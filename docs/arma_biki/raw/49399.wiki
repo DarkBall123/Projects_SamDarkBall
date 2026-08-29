@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.22
+
+|arg= global
+|eff= local
+
+|gr1= Sensors
+
+|descr= Sets target size (see <syntaxhighlight lang="cpp" inline>irTargetSize</syntaxhighlight> and others from vehicle config) override on vehicle.
+{{Feature|informative|Passing an empty array returns the current values without modifying them, so this commands works as both getter and setter.}}
+
+|s1= vehicle [[setTargetSize]] [visualTargetSize, irTargetSize, radarTargetSize]
+
+|p1= vehicle: [[Object]] - a transport vehicle
+
+|p2= visualTargetSize: [[Number]] - 0..2 value, set to -1 to disable override and use config values
+
+|p3= irTargetSize: [[Number]]
+
+|p4= radarTargetSize: [[Number]]
+
+|r1= [[Array]] with previous [visualTargetSize, irTargetSize, radarTargetSize] values
+
+|x1= <sqf>private _previousSizes = vehicle player setTargetSize [0,0,0]; // set</sqf>
+
+|x2= <sqf>private _currentSizes = vehicle player setTargetSize []; // get</sqf>
+
+|seealso= [[getSensorTargets]]
+}}

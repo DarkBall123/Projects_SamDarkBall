@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Conversations
+
+|descr= <pre>/*
+
+	Description:
+	Header function of local mission conversations
+
+	Parameter(s):
+		0: STRING - unique mode
+		1 (Optional): ANY - additional params
+
+	Returns:
+	BOOL
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_missionConversations]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_missionConversations;</sqf> -->
+
+|seealso=
+}}

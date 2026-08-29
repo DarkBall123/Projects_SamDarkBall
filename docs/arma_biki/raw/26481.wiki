@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3 
+|version1= 1.94
+
+|arg= local
+
+|eff= local
+
+|gr1= Contact 
+
+|descr= Initialises CBRN Hose for given unit.
+
+|s1=  [unit] call [[BIN_fnc_CBRNHoseInit]]
+
+|p1= unit: [[Object]] - unit 
+
+|r1= [[Nothing]] 
+
+|x1= <sqf>player call BIN_fnc_CBRNHoseInit;</sqf> 
+
+|seealso= [[Arma 3: CBRN]]
+}}

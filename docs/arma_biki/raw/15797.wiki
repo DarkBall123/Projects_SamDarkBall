@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Returns IDD of given display.
+
+|s1= [config] call [[BIS_fnc_getIDD]]
+
+|p1= config: [[Config]] - config path to display
+
+|r1= [[Number]] - IDD
+
+|x1= <sqf>private _IDD = [configFile >> "display3DENPublishMissionSelectImage"] call BIS_fnc_getIDD;</sqf>
+
+|seealso= [[configFile]] [[findDisplay]] [[createDisplay]]
+}}

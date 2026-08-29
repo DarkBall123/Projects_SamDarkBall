@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= GUI Control
+
+|descr= Returns the parent control of a given child control. If the control is not part of a [[CT_CONTROLS_GROUP]] control then [[controlNull]] is returned. To return parent [[Display]] of the control use [[ctrlParent]].
+
+|s1= [[ctrlParentControlsGroup]] ctrl
+
+|p1= ctrl: [[Control]] - child control
+
+|r1= [[Control]]
+
+|x1= <sqf>
+_ctrlCombo = _ctrl controlsGroupCtrl 100; // control
+ctrlParentControlsGroup _ctrlCombo; // parent control group (_ctrl)
+</sqf>
+
+|seealso= [[controlsGroupCtrl]] [[ctrlParent]] [[displayParent]] [[allControls]] [[allDisplays]]
+}}

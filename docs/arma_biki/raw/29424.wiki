@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= Radio and Chat
+
+|descr= A getter for [[showSubtitles]].
+
+|s1= [[shownSubtitles]]
+
+|r1= [[Boolean]] - returns [[true]] if subtitles are set to show
+
+|x1= <sqf>private _setToShow = shownSubtitles;</sqf>
+
+|seealso= [[showSubtitles]]
+}}

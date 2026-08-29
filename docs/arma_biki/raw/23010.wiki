@@ -1,0 +1,7 @@
+In addition to [[AI Behaviour|behaviour]] and [[Combat Modes|combat modes]], there are other factors they may affect the overall activity of AI. 
+
+== Fleeing ==
+
+* Can be disabled by [[allowFleeing]]. Details in [[fleeing]]
+
+[[Category:AI]]

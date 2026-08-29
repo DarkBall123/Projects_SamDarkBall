@@ -1,0 +1,46 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+|arg= global
+
+|gr1= Unit Control
+
+|descr= Returns the pose of the given unit.
+
+|s1= [[pose]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]] - can be one of:
+{{Columns|3|
+* {{hl|"Dead"}}
+* {{hl|"Weapon"}} (special weapon - AT)
+* {{hl|"BinocLying"}}
+* {{hl|"LyingNoWeapon"}}
+* {{hl|"Lying"}}
+* {{hl|"HandGunLying"}}
+* {{hl|"Crouch"}}
+* {{hl|"HandGunCrouch"}}
+* {{hl|"Combat"}}
+* {{hl|"HandGunStand"}}
+* {{hl|"Stand"}}
+* {{hl|"Swimming"}}
+* {{hl|"BottomSwimming"}}
+* {{hl|"SurfaceSwimming"}}
+* {{hl|"Diving"}}
+* {{hl|"BottomDiving"}}
+* {{hl|"SurfaceDiving"}}
+* {{hl|"NoWeapon"}} (civilian moves)
+* {{hl|"Binoc"}} (binocular pose)
+* {{hl|"BinocStand"}} (binocular pose (weapon on back))
+* {{hl|"Healing"}}
+* {{hl|"Dragged"}}
+* {{hl|"Carrying"}}
+* {{hl|"Freefall"}}
+}}
+
+|x1= <sqf>if (pose player == "SurfaceSwimming") then { hint "How's water?" };</sqf>
+
+|seealso= [[animationState]] [[unitPos]] [[stance]] [[getLeaning]]
+}}

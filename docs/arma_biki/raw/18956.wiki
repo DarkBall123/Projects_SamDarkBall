@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.68
+
+|arg= local
+
+|gr1= Aircraft Carrier
+
+|descr= Aircraft carrier arrest/recovery function for USS Freedom aircraft carrier. If the aircraft exceeds the speed defined in config a wire snap will be simulated.
+
+|s1= [aircraft] call [[BIS_fnc_aircraftTailhook]]
+
+|p1= aircraft: [[Object]] - the aircraft to arrest/recover
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_aircraft] call BIS_fnc_aircraftTailhook;</sqf>
+
+|seealso= [[BIS_fnc_aircraftCatapultLaunch]]
+}}

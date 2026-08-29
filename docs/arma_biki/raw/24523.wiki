@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|serverExec= server
+
+|descr= Sets skill for an entire AI side. The skill will be calculated using a lerp function. Function will take player as multiplier.
+
+|s1= [side,skillMin,skillAimMin,skillMax,skillAimMax] call [[BIS_fnc_EXP_camp_setSkill]]
+
+|p1= side: [[Side]] - side of which AI skill should be changed
+|p2= skillMin: [[Number]] - (Optional, default 0.5) minimal general skill
+|p3= skillAimMin: [[Number]] - (Optional, default 0.3) minimal aiming skill
+|p4= skillMax: [[Number]] - (Optional, default 0.8) maximal general skill
+|p5= skillAimMax: [[Number]] - (Optional, default 0.5) maximal aiming skill
+
+|r1=
+
+|x1=<sqf>[WEST,0.1,0.2,0.7,0.6] call BIS_fnc_EXP_camp_setSkill;</sqf>
+
+|seealso= [[Arma 3: AI Skill]] [[setSkill]] [[skillFinal]] [[BIS_fnc_EXP_camp_dynamicAISkill]]
+}}

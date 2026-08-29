@@ -1,0 +1,63 @@
+{{RV|type=command
+
+|game1= ofp
+|version1=
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|gr1= GUI Control - ListBox
+
+|arg= local
+
+|eff= local
+
+|descr= Sets the color of the item (right) with the given index of the listbox or combobox with id idc of the topmost user [[dialog]] to color.
+
+|s1= [[lbSetColorRight]] [idc, index, color]
+
+|p1= idc: [[Number]] - control id
+
+|p2= index: [[Number]]
+
+|p3= color: [[Color|Color (RGBA)]]
+
+|r1= [[Nothing]]
+
+|s2= control [[lbSetColorRight]] [index, color]
+
+|p21= control: [[Control]]
+
+|p22= index: [[Number]]
+
+|p23= color: [[Color|Color (RGBA)]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>lbSetColorRight [101, 0, [0, 1, 0, 0.5]];</sqf>
+
+|x2= <sqf>_control lbSetColorRight [0, [0, 1, 0, 0.5]];</sqf>
+
+|seealso= [[lbAdd]] [[lbClear]] [[lbColor]] [[lbCurSel]] [[lbData]] [[lbDelete]] [[lbIsSelected]] [[lbPicture]] [[lbSelection]] [[lbSetColor]] [[lbSetCurSel]] [[lbSetData]] [[lbSetPicture]] [[lbSetSelected]] [[lbSetTooltip]] [[lbSetValue]] [[lbSize]] [[lbSort]] [[lbSortByValue]] [[lbText]] [[lbValue]]
+}}
+
+{{Note
+|user= ffur2007slx2_5
+|timestamp= 20140910163000
+|text=More information on the [[CT_LISTBOX]] command family can be found [[CT_LISTBOX#Scripting_Example|here]].
+}}

@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Scripts
+
+|arg= global
+
+|eff= global
+
+|descr= Animates an object being closed, for example a drawer. The counter set by [[BIS_fnc_objectInventoryAnimatedOpen]] gets reset when this function is called.
+
+|s1= [object, animationArray] call [[BIS_fnc_objectInventoryAnimatedClose]]
+
+|p1= object: [[Object]] - object
+
+|p2= animationArray: [[Array]] - an Array in form of:<br>
+0: String - Animation Name<br>
+1: Number - Animation phase
+
+|r1= [[Nothing]]
+
+|seealso= [[BIS_fnc_objectInventoryAnimatedOpen]]
+}}

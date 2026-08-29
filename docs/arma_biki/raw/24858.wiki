@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= KeyframeAnimation
+
+|descr= Used internally by the [[Arma 3: Key Frame Animation]] system. Called when a button is pressed.
+
+|s1= [display, button, shift, ctrl, alt] call [[BIS_fnc_3den_onKeyDown]]
+
+|p1= display: [[Display]] - the display
+
+|p2= button: [[Number]] - key code of the pressed button
+
+|p3= shift: [[Boolean]] - {{Controls|Shift}} key
+
+|p4= ctrl: [[Boolean]] - {{Controls|Ctrl}} key
+
+|p5= alt: [[Boolean]] - {{Controls|Alt}} key
+
+|r1= [[Boolean]] - whether or not to consume the input
+
+|x1= <sqf>findDisplay 313 displayAddEventHandler ["keyDown", { _this call BIS_fnc_3den_onKeyDown }];</sqf>
+
+|seealso= [[Arma 3: Key Frame Animation]]
+}}

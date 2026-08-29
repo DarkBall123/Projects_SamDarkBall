@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.60
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns grid size based on screen resolution, UI size and configs: uiScaleFactor, uiScaleMaxGrids.
+
+|s1= [[pixelGrid]]
+
+|r1= [[Number]] - grid size, see [[Arma 3: Pixel Grid System]]
+
+|x1= <sqf>private _gridHeight = pixelH * pixelGrid;</sqf>
+
+|seealso= [[pixelGridBase]] [[pixelGridNoUIScale]] [[pixelH]] [[pixelW]] [[Pixel Grid System]]
+}}

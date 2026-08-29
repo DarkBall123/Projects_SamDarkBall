@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.06
+
+|gr1= Sides
+
+|descr= Return representative faction of the given side. Faction of the first detected player is used.
+
+|s1= side call [[BIS_fnc_playerSideFaction]]
+
+|p1=side: [[Side]]
+
+|r1= [[String]] - CfgFactionClasses class
+
+|x1= <sqf>west call BIS_fnc_playerSideFaction;</sqf>
+
+|seealso= [[side]]
+}}

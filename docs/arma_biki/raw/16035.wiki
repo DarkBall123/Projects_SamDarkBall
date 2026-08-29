@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Arrays
+
+|descr= Converts config color format to RGBA array of numbers.
+
+|s1= configColor call [[BIS_fnc_colorConfigToRGBA]]
+
+|p1= configColor: [[Array]] - config color
+
+|r1= [[Array]] format [[Color|Color (RGBA)]]
+
+|x1= <sqf>["0.5 + 0.25",0,0,1] call BIS_fnc_colorConfigToRGBA; // returns [0.75,0,0,1]</sqf>
+
+|seealso= [[Color|Color (RGBA)]] [[BIS_fnc_colorRGBtoHTML]] [[BIS_fnc_colorRGBAtoHTML]] [[BIS_fnc_colorRGBAtoTexture]]
+}}

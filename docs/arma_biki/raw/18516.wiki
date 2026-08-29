@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= Sensors
+
+|descr= Sets the AI rule of Radar usage (Emission Control). Automatic means Radar switched on only when in Combat. The command doesn't affect player-controlled vehicles.
+
+|s1= vehicle [[setVehicleRadar]] rule
+
+|p1= vehicle: [[Object]] - an AI-controlled vehicle
+
+|p2= rule: [[Number]] - can be one of the following:
+* 0 - automatic
+* 1 - forced on
+* 2 - forced off
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_vehicle setVehicleRadar 1;</sqf>
+
+|seealso= [[isVehicleRadarOn]] [[vehicleReportRemoteTargets]] [[setVehicleReportRemoteTargets]] [[vehicleReceiveRemoteTargets]] [[setVehicleReceiveRemoteTargets]] [[vehicleReportOwnPosition]] [[setVehicleReportOwnPosition]] [[reportRemoteTarget]] [[confirmSensorTarget]]
+}}

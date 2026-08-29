@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Briefing
+
+|descr= Attach type to the simple task. See [[Arma_3_Tasks_Overhaul#Default_Task_Types:_Actions|Default Task Types]].
+
+|s1= task [[setSimpleTaskType]] taskType
+
+|p1= task: [[Task]]
+
+|p2= taskType: [[String]] - type of task
+
+|r1= [[Nothing]]
+
+|x1= <sqf>(currentTask player) setSimpleTaskType "attack";</sqf>
+
+|seealso= [[taskType]] [[currentTask]] [[setSimpleTaskCustomData]] [[taskCustomData]] [[Arma_3_Tasks_Overhaul#Default_Task_Types:_Actions|Default Task Types]]
+}}

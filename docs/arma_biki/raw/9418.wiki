@@ -1,0 +1,25 @@
+{{GameCategory|arma2|Editor Modules}}
+[[Category:Take On Helicopters: Editor Modules]]
+
+== [[{{arma2oa}}]] ==
+[[File:arma2oa_1.51.gif]]
+
+Module changes colors and brightness with [[ppEffectCreate]] depending on [[overcast]] and [[dayTime | time of day]]. Colors will be desaturated during the night.
+
+=== Initialization===
+==== Startup ====
+''F7 > Environment - Colors''
+
+==== Optional parameters ====
+===== Set variables to module with desired values =====
+
+*'''intensity = <number>;''' - Intensity, range is probably from 0 to 1. Works backwards, 1 is lowest intensity.
+::Example: ''this setvariable ["intensity",0.5];''
+::Default value: 0.8
+
+== [[Take On Helicopters]] ==
+[[File:TKOH_1.00.gif]]
+
+Initializes default world specific post-process effects.
+
+Module executes [[BIS_fnc_ambientPostprocess]] with default params.

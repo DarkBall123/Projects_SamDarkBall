@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Object Manipulation
+
+|descr= Play car alarm effect.
+
+|s1= [mode, car] call [[BIS_fnc_carAlarm]]
+
+|p1= mode: [[String]] - can be one of:
+* "init": add "Hit" and "GetIn" event handler on the car
+* "play": play the alarm effect
+
+|p2= car: [[Object]] - vehicle protected by alarm
+
+|r1= [[Nothing]]
+
+|x1= <sqf>["init", myCar] call BIS_fnc_carAlarm;</sqf>
+
+|seealso= [[Arma_3:_Event_Handlers|Arma 3 Event Handlers]]
+}}

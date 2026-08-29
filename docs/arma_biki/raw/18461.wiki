@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Unit Inventory
+
+|gr2= GUI Control
+
+|descr= Returns ammo count of assigned magazine.
+
+|s1= [[gearIDCAmmoCount]] idc
+
+|p1= idc: [[Number]] - idc of control type CT_ITEMSLOT 103
+
+|r1= [[Number]]
+
+|x1= <sqf>_ammoCount = gearIDCAmmoCount _control;</sqf>
+
+|seealso= [[gearSlotData]] [[gearSlotAmmoCount]]
+}}

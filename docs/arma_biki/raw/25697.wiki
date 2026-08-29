@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.92
+
+|gr1= Weapons
+
+|descr= Returns a guided missile's target position.
+
+|s1= [[missileTargetPos]] munition
+
+|p1= munition: [[Object]]
+
+|r1= [[Position#PositionASL|PositionASL]]
+
+|x1= <sqf>private _targetDistance = vehicle player distance missileTargetPos missile1;</sqf>
+
+|seealso= [[missileTarget]] [[setMissileTargetPos]] [[setMissileTarget]] [[missileState]]
+}}

@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Broken Functions
+
+|gr2= Feedback
+
+|descr= Healing postprocess. Supposed to give healing postprocess effects.
+{{Feature|warning|This function is unfinished, must not and '''cannot''' be used!}}
+
+|s1= call [[BIS_fnc_healing]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_healing; // do NOT use</sqf>
+
+|seealso= [[BIS_fnc_healthEffects]]
+}}

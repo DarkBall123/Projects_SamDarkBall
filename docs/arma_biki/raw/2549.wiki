@@ -1,0 +1,35 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Return the movement precision of the given entity, how is the entity able to be precise when moving to given target.
+{{Feature|informative|See {{Link|CfgVehicles Config Reference#precision}}.}}
+
+|s1= [[precision]] entity
+
+|p1= entity: [[Object]]
+
+|r1= [[Number]] - accuracy in metres
+
+|x1= <sqf>
+// used in formationCDanger.fsm
+if (getPosATL _this distance _dangerPos <= precision _this) then { /* ... */ };
+</sqf>
+
+|seealso= [[visiblePositionASL]]
+}}

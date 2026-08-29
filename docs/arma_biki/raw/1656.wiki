@@ -1,0 +1,73 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.00
+
+|game2= ofpe
+|version2= 1.00
+
+|game3= arma1
+|version3= 1.00
+
+|game4= arma2
+|version4= 1.00
+
+|game5= arma2oa
+|version5= 1.50
+
+|game6= tkoh
+|version6= 1.00
+
+|game7= arma3
+|version7= 0.50
+
+|arg= local
+
+|eff= local
+
+|gr1= Camera Control
+
+|descr= Smoothly conduct the changes that were assigned to a camera within the given time. If the time is set to zero, the changes are done immediately. For {{hl|camPrepareXXX}} commands use [[camCommitPrepared]].
+
+|s1= camera [[camCommit]] time
+
+|p1= camera: [[Object]] - object of type "camera"
+
+|p2= time: [[Number]] - time in seconds during which the changes shall be done
+
+|r1= [[Nothing]]
+
+|x1= [[SQS Syntax]]:
+<sqs>
+; create a camera object
+_cam = "camera" camCreate [5600,4800,10]
+_cam camSetTarget player
+_cam cameraEffect ["internal", "BACK"]
+_cam camCommit 0
+
+; smoothly move the camera to its new position in 6 seconds
+_cam camSetPos [5680,4720,20]
+_cam camCommit 6
+@camCommitted _cam
+
+; proceed
+</sqs>
+
+|x2= [[SQF Syntax]]:
+<sqf>
+private "_cam";
+
+// create a camera object
+_cam = "camera" camCreate [position player select 0, position player select 1, 2];
+_cam camSetTarget player;
+_cam cameraEffect ["internal", "BACK"];
+_cam camCommit 0;
+
+// smoothly move the camera to its new position in 6 seconds
+_cam camSetPos [position player select 0, (position player select 1) + 10, 20];
+_cam camCommit 6;
+waitUntil { camCommitted _cam; };
+</sqf>
+
+|seealso= [[camCommitted]] [[camCommitPrepared]]
+}}

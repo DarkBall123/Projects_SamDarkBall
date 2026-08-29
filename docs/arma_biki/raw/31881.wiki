@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+
+|serverExec= server
+
+|gr1= Unit Inventory
+
+|descr= Sets maximum load limit for a uniform/vest/backpack containers, vehicle cargo, supply boxes and weapon holders. In MP this command should be executed on the server and will persist on given container for JIP.
+{{Feature|informative|Cannot be set on a unit, as unit max load value is static config type}}
+
+|s1= container [[setMaxLoad]] maxLoadValue
+
+|p1= container: [[Object]] - uniform/vest/backpack container, vehicle cargo, supply box, weapon holder 
+
+|p2= maxLoadValue: [[Number]] - max load limit
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_yaMum setMaxLoad _maxLoad;</sqf>
+
+|seealso= [[maxLoad]] [[load]] [[loadAbs]] [[loadBackpack]] [[loadUniform]] [[loadVest]] [[getContainerMaxLoad]]
+}}

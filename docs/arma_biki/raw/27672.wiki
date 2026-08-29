@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= AI Behaviour
+
+|descr= Sets '''unit's''' combat mode (engagement rules). For AI group combat mode see [[setCombatMode]]. Mode may be one of the following: 
+* {{hl|"BLUE"}} : Never fire, keep formation
+* {{hl|"GREEN"}} : Hold fire, keep formation
+* {{hl|"WHITE"}} : Hold fire, engage at will/loose formation
+* {{hl|"YELLOW"}} : Fire at will, keep formation
+* {{hl|"RED"}} : Fire at will, engage at will/loose formation
+See [[Combat Modes]] for more information on combat modes.
+
+|s1= unit [[setUnitCombatMode]] mode
+
+|p1= unit: [[Object]]
+
+|p2= mode: [[String]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_unit setUnitCombatMode "YELLOW";</sqf>
+
+|seealso= [[unitCombatMode]] [[setCombatMode]] [[combatMode]]
+}}

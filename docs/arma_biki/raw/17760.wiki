@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.54
+
+|gr1= Stamina System
+
+|descr= Sets the scheme used for the Stamina system.
+
+|s1= [[setStaminaScheme]] scheme
+
+|p1= scheme: [[String|String Enum]]
+* "Normal"
+* "FastDrain"
+* "Exhausted"
+* "Default"
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setStaminaScheme "Default";</sqf>
+
+|seealso= [[Arma 3: Stamina]]
+}}

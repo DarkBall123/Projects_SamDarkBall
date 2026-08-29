@@ -1,0 +1,3 @@
+#REDIRECT [[arma2.cfg]]
+
+[[Category:Startup Parameters]]

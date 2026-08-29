@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Program Flow
+
+|gr2= Broken Commands
+
+|descr= This command was meant to break the script into debugger, however currently '''it does not do anything''' except displaying and logging the following error: {{hl|Error Debugger breakpoint hit}}.
+
+|s1= [[halt]]
+
+|r1= [[Boolean]] - always returns [[false]]
+
+|x1= <sqf>if (_displayAnError) then {halt};</sqf>
+
+|seealso= [[assert]] [[terminate]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|gr1= Briefing
+
+|descr= A getter for [[setDebriefingText]].
+
+|s1= [[getDebriefingText]] end
+
+|p1= end: [[String]] - end type
+
+|r1= [[Array]] format:
+* [text, title] if old syntax of [[setDebriefingText]] was used)
+* [text, title, subtitle, picture, background] if [[setDebriefingText]]'s alternative syntax was used
+* empty array if [[setDebriefingText]] was not used
+
+|x1= <sqf>private _debriefingTextDeath = getDebriefingText "endDeath";</sqf>
+
+|seealso= [[setDebriefingText]] [[disableDebriefingStats]] [[enableDebriefingStats]] [[endMission]] [[failMission]] [[missionEnd]]
+}}

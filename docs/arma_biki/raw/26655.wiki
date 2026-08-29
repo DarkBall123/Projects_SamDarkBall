@@ -1,0 +1,18 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Missions
+
+|descr= Returns the value of <sqf inline>missionNamespace getVariable ["BIN_enableSaving", true]</sqf>.
+{{Feature|arma3contact}}
+
+|s1= call [[BIN_fnc_savingEnabled]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>call BIN_fnc_savingEnabled == (missionNamespace getVariable ["BIN_enableSaving", true]); // true</sqf>
+
+|seealso= [[BIS_fnc_enableSaving]] [[BIS_fnc_disableSaving]] [[saveGame]] [[loadGame]]
+}}

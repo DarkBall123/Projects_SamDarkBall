@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= <pre>/*
+
+	Description:
+	Label every vilage, town and city in curator interface
+
+	Parameter(s):
+		0: OBJECT - curator module
+
+	Returns:
+	BOOL
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_drawCuratorLocations]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_drawCuratorLocations;</sqf> -->
+
+|seealso=
+}}

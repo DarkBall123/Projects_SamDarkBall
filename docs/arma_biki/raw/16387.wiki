@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Show skull unit for curator when the unit dies.
+
+|s1= [unit] call [[BIS_fnc_drawCuratorDeaths]]
+
+|p1= unit: [[Object]] - unit
+
+|r1= [[Boolean]]
+
+|x1= <sqf>player call BIS_fnc_drawCuratorDeaths;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

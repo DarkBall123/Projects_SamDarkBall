@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|gr1= GUI Control
+
+|descr= Set the provided display to update its [[Procedural Textures#UI On Texture|UI On Texture]] render.
+
+|s1= [[displayUpdate]] display
+
+|p1= display: [[Display]] - the display to update
+
+|r1= [[Nothing]]
+
+|x1= <sqf>displayUpdate _myDisplay;</sqf>
+
+|seealso= [[displayUniqueName]] {{Link|Procedural Textures#UI On Texture}}
+}}

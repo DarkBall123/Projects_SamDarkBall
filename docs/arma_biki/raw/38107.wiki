@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Object Manipulation
+
+|descr= Returns an array of bone names to which the specified selection is attached.
+{{Feature|important|This command is relatively slow because it searches in all vertices of every bone.}}
+
+|s1= object [[getSelectionBones]] [selectionName, LOD]
+
+|p1= object: [[Object]]
+
+|p2= selectionName: [[String]]
+
+|p3= LOD: [[String]] or [[Number]] - can be one of:
+{{Columns|2|
+* {{hl|"Memory"}}
+* {{hl|"Geometry"}}
+* {{hl|"FireGeometry"}}
+* {{hl|"LandContact"}}
+* {{hl|"HitPoints"}}
+* {{hl|"ViewGeometry"}}
+}}
+When [[Number]] is used, command searches for a LOD with the same [[LOD resolutions|LOD resolution]]
+
+|r1= [[Array]] of [[String]]s - array of bone names
+
+|seealso= [[selectionPosition]] [[selectionNames]] [[getBoneNames]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= System
+
+|gr2= Environment
+
+|descr= Gets the shadows rendering distance.
+
+|s1= '''getShadowDistance'''
+
+|r1= [[Number]]
+
+|x1= <sqf>_value = getShadowDistance;</sqf>
+
+|seealso= [[setShadowDistance]] [[isPipEnabled]]
+}}

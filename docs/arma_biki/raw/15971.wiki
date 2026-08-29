@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Red radial postprocess (hit damage, fire damage). Parameters are the same as the first four of [[Arma_3:_Event_Handlers#HandleDamage|HandleDamage EH]].
+
+|s1= [victim, bodyPart, damage, shooter] call [[BIS_fnc_radialRed]]
+
+|p1= victim: [[Object]] - unit who gets damage
+
+|p2= bodyPart: [[String]] - body part which gets damage
+
+|p3= damage: [[Number]] - received damage amount
+
+|p4= shooter: [[Object]] - (Optional, default objNull) requested only if ''bodyPart'' is not empty string
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player addEventHandler ["HandleDamage", { _this call BIS_fnc_radialRed; }];</sqf>
+
+|seealso= [[Arma_3:_Event_Handlers#HandleDamage|HandleDamage EH]] [[BIS_fnc_radialRedOut]]
+}}

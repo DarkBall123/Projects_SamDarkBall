@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.02
+
+|gr1= Unit Identity
+
+|gr2= Sounds
+
+|descr= Returns the pitch of a persons voice.
+
+|s1= [[pitch]] person
+
+|p1= person: [[Object]]
+|r1= [[Number]]
+
+|x1= <sqf>pitch player;</sqf>
+
+|seealso= [[setPitch]]
+}}

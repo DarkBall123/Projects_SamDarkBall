@@ -1,0 +1,24 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Turrets
+
+|descr= Assigns the soldier to turret.
+{{Feature|informative|See [[AI Group Vehicle Management]] for more information.}}
+
+|s1= unit [[assignAsTurret]] [vehicle, turretPath]
+
+|p1= unit: [[Object]]
+
+|p2= vehicle: [[Object]]
+
+|p3= turretPath: [[Turret Path]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>player assignAsTurret [BIS_vehicle, [0,1]];</sqf>
+
+|seealso= [[assignAsCargo]] [[assignAsDriver]] [[assignAsCommander]] [[assignAsGunner]] [[assignAsCargoIndex]] [[assignedVehicleRole]] [[unassignVehicle]] [[turretUnit]] [[moveInTurret]] [[fullCrew]]
+}}

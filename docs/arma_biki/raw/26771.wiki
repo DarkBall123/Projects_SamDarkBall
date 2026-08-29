@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact
+
+|descr= <sqf>
+#define DEBUG
+#define AREA_BUFFER		+200
+#define DEF_RADIUS		500
+#define DEF_RADIUS_OUT	550
+#define AREA_DEF		[position _logic, DEF_RADIUS_OUT, DEF_RADIUS_OUT, 0, false]
+</sqf>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_initSites]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_initSites;</sqf> -->
+
+|seealso=
+}}

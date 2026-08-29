@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Team Switch
+
+|descr= Enable / disable [[Team Switch]]. The default setting is enabled.
+
+|s1= [[enableTeamSwitch]] enable
+
+|p1= enable: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>enableTeamSwitch true;</sqf>
+
+|seealso= [[Team_Switch]] [[onBriefingTeamSwitch]] [[onTeamSwitch]] [[teamSwitch]] [[teamSwitchEnabled]] [[selectPlayer]]
+}}

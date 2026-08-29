@@ -1,0 +1,20 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Ambient
+
+|descr= {{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_ambientBoats]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

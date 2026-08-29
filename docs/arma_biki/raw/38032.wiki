@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Returns the provided entity's layer ID.
+
+|s1= [[get3DENLayer]] edenEntity
+
+|p1= edenEntity: [[Object]]
+
+|r1= [[Number]]
+
+|x1= <sqf>hint format ["Entity %1 is in layer %2", typeOf _entity, get3DENLayer _entity];</sqf>
+
+|seealso= [[create3DENEntity]] [[getMissionLayerEntities]] [[set3DENLayer]]
+}}

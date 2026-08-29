@@ -1,0 +1,35 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= IDWMap
+
+|descr= <pre>/*
+		Killzone_Kid
+
+	Description:
+		Retrieves user measurements data with strengths
+
+	Parameter(s):
+		NONE
+
+	Returns:
+		ARRAY - user measurements in format [x,y,strength] or empty array [] on error
+		
+	Example:
+		call BIN_fnc_getAllMeasurementPoints
+*/</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_allIDWMapMeasurementPoints]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_allIDWMapMeasurementPoints;</sqf> -->
+
+|seealso=
+}}

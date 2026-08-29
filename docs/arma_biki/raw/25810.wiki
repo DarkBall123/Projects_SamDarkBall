@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Briefing
+
+|descr= Set text of a log record.
+
+|s1= unit [[setDiaryRecordText]] [[subject, diaryRecord], [title, text, icon]]
+
+|p1= unit: [[Object]]
+
+|p2= subject: [[String]]
+
+|p3= diaryRecord: [[Diary Record]]
+
+|p4= title: [[String]]
+
+|p5= text: [[String]]
+
+|p6= icon: [[String]] - (Optional) icon to show next to the title. "" to remove.
+|p6since= arma3 2.10
+
+|r1= Nothing
+
+|x1= <sqf>player setDiaryRecordText [["diary", _diaryRec], ["Kill all enemies.", "The enemies are the bad guys. Kill them because you are the good guy."]];</sqf>
+
+|seealso= [[allDiaryRecords]] [[processDiaryLink]] [[createDiaryRecord]] [[createDiarySubject]] [[diarySubjectExists]]
+}}

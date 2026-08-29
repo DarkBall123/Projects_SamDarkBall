@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+
+|arg= global
+
+|eff= global
+
+|gr1= Object Manipulation
+
+|descr= Adds an array of vehicles/units to disposal manager for automatic wreck/body removal. The disposal manager follows wreck/body removal values set in [[Description.ext|description.ext]]
+
+|s1= [[addToRemainsCollector]] remains
+
+|p1= remains: [[Array]] of [[Object]]s - array of vehicles/units
+
+|r1= [[Nothing]]
+
+|x1= <sqf>addToRemainsCollector [unit1, unit2, vehicle1];</sqf>
+
+|seealso= [[removeFromRemainsCollector]] [[isInRemainsCollector]] [[diag_remainsCollector]]
+}}

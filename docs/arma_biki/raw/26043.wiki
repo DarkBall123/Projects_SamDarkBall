@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.96
+
+|gr1= Diagnostic
+
+|gr2= Time
+
+|descr= Returns the duration of the previous frame in seconds
+
+|s1= [[diag_deltaTime]]
+
+|r1= [[Number]]
+
+|x1= <sqf>private _frameTime = diag_deltaTime;</sqf>
+
+|x2= <sqf>private _fps = 1 / diag_deltaTime;</sqf>
+
+|seealso= [[diag_tickTime]] [[diag_fps]] [[diag_fpsMin]] [[diag_frameNo]] [[diag_log]] [[time]]
+}}

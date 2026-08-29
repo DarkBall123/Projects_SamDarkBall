@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Previews selected classes from given container.
+
+|s1= [container, parentClass, distance, startPos] call [[BIS_fnc_diagPreview]]
+
+|p1= container: [[String]] - (Optional, default "CfgVehicles") class container. Can be:
+* "CfgVehicles"
+* "CfgWeapons"
+
+|p2= parentClass: [[String]] - (Optional, default [[typeOf]] [[player]]) parent class of the objects (e.g. "Car" or "Rifle")
+
+|p3= distance: [[Number]] - (Optional, default 10) distance between objects
+
+|p4= startPos: [[Position]] - (Optional, default <sqf inline>getPos player</sqf> or <sqf inline>screenToWorld]] [0.5,0.5]</sqf> in [[:Category:Eden Editor|Eden Editor]]) start position
+
+|r1= [[Array]] - list of created classes
+
+|x1= <sqf>["CfgVehicles", "Car", 15, [0,0,0]] call BIS_fnc_diagPreview;</sqf>
+
+|seealso= [[:Category:Function Group: Diagnostic|Diag functions]]
+}}

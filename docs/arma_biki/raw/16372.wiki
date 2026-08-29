@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Show effects when player pings [[Curator|curator]]. Icon and entity list highlighting is handled by engine
+
+|s1= [module, player] call [[BIS_fnc_curatorPinged]]
+
+|p1= module: [[Object]] - [[Arma 3: Curator]] module
+
+|p2= player: [[Object]] - [[player|Player]] entity
+
+|r1= [[Boolean]]
+
+|x1= <sqf>[module_curator, player] call BIS_fnc_curatorPinged;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

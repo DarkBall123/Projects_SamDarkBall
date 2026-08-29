@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Puzzles
+
+|descr= {{Feature|arma3contact}}
+
+|s1= <!-- [] call [[BIN_fnc_updateGravityPulse]] -->
+
+|r1=
+
+|x1=
+
+|seealso=
+}}

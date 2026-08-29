@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Behavior 
+
+|descr= <pre>#define HISTORY_CAPACITY	5
+#define HIT_DELAY		5
+#define SIZE_COEF		3
+</pre>
+
+{{Wiki|placeholder}} {{Feature|arma3contact}} 
+
+|s1= <!-- [] call [[BIN_fnc_behaviorInit]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_behaviorInit;</sqf> -->
+
+|seealso=
+}}

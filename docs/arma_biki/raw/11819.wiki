@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.62
+
+|game2= tkoh
+|version2= 1.00
+
+|gr1= System
+
+|eff= local
+
+|descr= Applies a specific tone mapping to the game. The tone mapping can be edited with [[setToneMappingParams]].
+{{Feature|arma3|This command is not present in {{arma3}}.}}
+
+|s1= [[setToneMapping]] toneName
+
+|p1= toneName: [[String]] - can be one of:
+* "Arma"
+* "Filmic"
+* "Reinhard"
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setToneMapping "Filmic";</sqf>
+
+|seealso= [[setToneMappingParams]] [[ppEffectAdjust]] [[ppEffectCommit]] [[ppEffectCommitted]] [[ppEffectCreate]] [[ppEffectDestroy]] [[Post Process Effects]]
+}}

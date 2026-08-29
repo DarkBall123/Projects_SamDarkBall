@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Defines custom mission text that is sent to [[Arma 3: Analytics]].
+
+|s1= [[setCustomMissionData]] data
+
+|p1= data: [[Array]] of [[String]]s - A maximum of five strings is allowed, each string with a maximum length of 16 characters
+
+|r1= [[Nothing]]
+
+|x1= <sqf>setCustomMissionData ["someData", "someMoreData"];</sqf>
+
+|seealso= -
+}}

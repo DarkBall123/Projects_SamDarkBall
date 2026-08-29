@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Multiplayer
+
+|descr= Returns the unit's table of scores (infantry kills, soft vehicle kills, armor kills, air kills, deaths, total score) '''in multiplayer''' or an empty array in singleplayer.
+{{Feature|important|This command does not work (returns empty array) if the unit's side has been changed (e.g <sqf inline>[player] joinSilent createGroup east</sqf>).}}
+
+|s1= [[getPlayerScores]] unitName
+
+|p1= unitName: [[Object]]
+
+|r1= [[Array]] with [killsInfantry, killsSoft, killsArmor, killsAir, score]
+* killsInfantry: [[Number]] - number of infantry units killed
+* killsSoft: [[Number]] - number of soft vehicles killed
+* killsArmor: [[Number]] - number of armored vehicles killed
+* killsAir: [[Number]] - number of air vehicles killed
+* score: [[Number]] - total score
+
+|x1= <sqf>
+getPlayerScores BIS_player1;	// e.g [4, 0, 3, 1, 2, 16]
+								// or in SP: []
+</sqf>
+
+|seealso= [[score]] [[addScore]] [[scoreSide]] [[addScoreSide]] [[addPlayerScores]]
+}}

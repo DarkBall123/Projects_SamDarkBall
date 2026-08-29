@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= Eden Editor
+
+|descr= Returns the currently performed editing operation in [[:Category:Eden Editor|Eden Editor]].
+
+|s1= [[current3DENOperation]] 
+
+|r1= [[String]] - operation name. Can be:
+{{Columns|2|
+* {{hl|""}} (no operation)
+* {{hl|"CreateObject"}}
+* {{hl|"CreateMarker"}}
+* {{hl|"CreateTrigger"}}
+* {{hl|"MoveItems"}}
+* {{hl|"RotateItems"}}
+* {{hl|"ScaleItems"}}
+* {{hl|"SyncWith"}}
+* {{hl|"GroupWith"}}
+* {{hl|"SetTriggerOwner"}}
+* {{hl|"AddRandomStart"}}
+}}
+|x1= <sqf>if (current3DENOperation == "MoveItems") then { hint "Moving things are we"; };</sqf>
+
+|seealso= [[do3DENAction]] [[get3DENActionState]]
+}}

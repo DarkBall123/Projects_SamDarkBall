@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Get object [[boundingBoxReal]] max values and store them with [[setVariable]] ["BIS_EGSpectator_objectBBD", [maxWidth, maxLength, maxHeight]] for later calls.
+
+|s1= [object] call [[BIS_fnc_getObjectBBD]]
+
+|p1= object: [[Object]] - object to measure
+
+|r1= [[Array]] to format [maxWidth, maxLength, maxHeight]
+
+|x1= <sqf>[player] call BIS_fnc_getObjectBBD;</sqf>
+
+|x2= <sqf>[vehicle player] call BIS_fnc_getObjectBBD;</sqf>
+
+|seealso= [[boundingBox]] [[boundingBoxReal]] [[sizeOf]]
+}}

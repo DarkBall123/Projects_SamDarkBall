@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.12
+
+|gr1= Object Manipulation
+
+|descr= Returns forced speed set with [[forceSpeed]] or -1 if not set.
+
+|s1= [[getForcedSpeed]] entity
+
+|p1= entity: [[Object]]
+
+|r1= [[Number]] 
+
+|x1= <sqf>_spd = getForcedSpeed _heli;</sqf>
+
+|seealso= [[forceSpeed]] [[getSpeed]] [[forceWalk]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Vehicle in Vehicle Transport
+
+|descr= Despite a misleading name, returns the vehicle that is transporting given vehicle in cargo. If the given vehicle is not in vehicle cargo, [[objNull]] is returned.
+
+|s1= [[isVehicleCargo]] cargo
+
+|p1= cargo: [[Object]] - vehicle in cargo
+
+|r1= [[Object]] - transporting vehicle
+
+|x1= Blackfish with given variable name blackfish, with a vehicle inside called quad
+<sqf>_transportingVehicle = isVehicleCargo quad; //returns blackfish</sqf>
+|x2= Vehicle called quad that is not being transported as cargo
+<sqf>_transportingVehicle = isVehicleCargo quad; //returns objNull</sqf>
+
+|seealso= [[Arma 3: Vehicle in Vehicle Transport| Vehicle in Vehicle Transport]] [[canVehicleCargo]] [[setVehicleCargo]] [[enableVehicleCargo]] [[getVehicleCargo]] [[vehicleCargoEnabled]]
+}}

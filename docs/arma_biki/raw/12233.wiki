@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Returns the name of a unit's handgun (an empty string if there is none).
+
+|s1= [[handgunWeapon]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>hint handgunWeapon player; //"hgun_P07_F"</sqf>
+
+|seealso= [[handgunMagazine]] [[handgunItems]] [[addHandgunItem]] [[removeHandgunItem]] [[removeAllHandgunItems]] [[primaryWeapon]] [[secondaryWeapon]] [[currentWeapon]] [[weapons]]
+}}

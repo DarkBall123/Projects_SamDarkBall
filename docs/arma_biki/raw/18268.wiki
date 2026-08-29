@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= DLC
+
+|descr= Opens a Steam page of the app with given appId. Only works for known appId (game + linked DLCs)
+
+|s1= [[openDLCPage]] dlcID
+
+|p1= dlcID: [[Number]]
+
+|r1= [[Boolean]] - result
+
+|x1= [[openDLCPage]] 288520
+
+|seealso= [[isDLCAvailable]]
+}}

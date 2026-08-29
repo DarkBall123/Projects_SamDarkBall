@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= System
+
+|descr= Returns various mission options
+
+|s1= [[getMissionOptions]]
+
+|r1= [[HashMap]] - Containing the names and values of all options (see [[setMissionOptions]])
+
+|x1= <sqf>
+private _missionOptions = getMissionOptions;
+</sqf>
+
+|seealso= [[setMissionOptions]] [[getResolution]] [[getAudioOptionVolumes]] [[getSubtitleOptions]]
+}}

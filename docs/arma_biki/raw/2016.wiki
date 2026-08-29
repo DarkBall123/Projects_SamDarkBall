@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Camera Control
+
+|descr= Preload all textures and models around given [[Position]] to avoid visual artifacts after camera is moved.
+
+Should be used before any abrupt camera change/cut.
+
+Returns true once all data is ready. See [[camPreload]] for alternative, more flexible camera preloading.
+
+|s1= [[preloadCamera]] position
+
+|p1= position: [[Position]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>waitUntil { preloadCamera markerPos "cam_location_2" };</sqf>
+
+|seealso= [[camPreload]] [[camPreloaded]]
+}}

@@ -1,0 +1,336 @@
+==Tracked==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''||'''Commander'''
+|-
+|M1A1||M1A1 [USMC]||rowspan="2"|[[File:Arma2 m1a1.jpg|200px]]||850||3||0||1||Y
+|-
+|M1A2_TUSK_MG||M1A2 TUSK [USMC]
+|-
+|AAV||AAVP7A1 [USMC]||[[File:Arma2_aav.jpg|200px]]||210||22||19||1||Y
+|-
+|T72_CDF||T-72 [CDF]||rowspan="4"|[[File:Arma2_t72.jpg|200px]]||690||3||0||1||Y
+|-
+|T72_INS||T-72 [ChDKZ]
+|-
+|T72_RU||T-72 [Russia]
+|-
+|T72_Gue||T-72 [NAPA]
+|-
+|T90||T-90  [Russia]||[[File:Arma2_t90.jpg|200px]]||800||3||0||1||Y
+|-
+|BMP2_CDF||BMP-2 [CDF]||rowspan="2"|[[File:Arma2_bmp2.jpg|200px]]||250||10||7||1||Y
+|-
+|BMP2_INS||BMP-2 [ChDKZ]
+|-
+|BMP2_Ambul_CDF||BMP-2  [CDF]||rowspan="2"|[[File:Arma2_bmp_ambul.jpg|200px]]||250||4||3||1||Y
+|-
+|BMP2_Ambul_INS||BMP-2  [ChDKZ]
+|-
+|BMP2_HQ_CDF||BMP-2 (HQ) [CDF]||rowspan="2"|[[File:Arma2_bmp_hq.jpg|200px]]||250||2||0||0||N
+|-
+|BMP2_HQ_INS||BMP-2 (HQ) [ChDKZ]
+|-
+|BMP3||BMP-3 [Russia]||[[File:Arma2_bmp3.jpg|200px]]||300||10||7||1||Y
+|-
+|ZSU_CDF||ZSU-23 Shilka [CDF]||rowspan="2"|[[File:Arma2_shilka.jpg|200px]]||160||3||0||1||Y
+|-
+|ZSU_INS||ZSU-23 Shilka [ChDKZ]
+|-
+|2S6M_Tunguska||2S6M Tunguska [Russia]||[[File:Arma2 tunguska.jpg|200px]]||160||3||0||1||Y
+|-
+|MLRS||M270 MLRS [USMC]||[[File:Arma2 mrls.jpg|200px]]||160||3||0||1||Y
+|-
+|T34||T-34 [NAPA]||[[File:Arma2_t34.jpg|200px]]||300||3||0||1||Y
+|-
+|}
+== Wheeled ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|HMMWV||HMMWV||[[File:Arma2_hmmwv.jpg|200px]]||70||4||3||0
+|-
+|HMMWV_Ambulance||HMMWV (Ambulance)||[[File:Arma2_hmmwv_ambul.jpg|200px]]||70||6||5||0
+|-
+|HMMWV_TOW||HMMWV (TOW)||[[File:Arma2_hmmwv_tow.jpg|200px]]||70||4||3||1
+|-
+|HMMWV_MK19||HMMWV (Mk19)||[[File:Arma2_hmmwv_gw.jpg|200px]]||70||4||3||1
+|-
+|HMMWV_Armored||HMMWV (M240)||[[File:Arma2_hmmwv_m240.jpg|200px]]||70||5||3||1
+|-
+|HMMWV_Avenger||HMMWV Avenger||[[File:Arma2_hmmwv_aa.jpg|200px]]||70||3||1||1
+|-
+|HMMWV_M2||HMMWV (M2)||[[File:Arma2_hmmwv_m2.jpg|200px]]||70||5||3||1
+|-
+|UAZ_CDF||UAZ [CDF]||rowspan="3"|[[File:Arma2_uaz.jpg|200px]]||20||4||3||0
+|-
+|UAZ_INS||UAZ [ChDKZ]
+|-
+|UAZ_RU||UAZ [Russia]
+|-
+|UAZ_AGS30_CDF||UAZ (AGS-30) [CDF]||rowspan="3"|[[File:Arma2_uaz_ags.jpg|200px]]||20||3||1||1
+|-
+|UAZ_AGS30_INS||UAZ (AGS-30) [ChDKZ]
+|-
+|UAZ_AGS30_RU||UAZ (AGS-30) [Russia]
+|-
+|UAZ_MG_CDF||UAZ (DShKM) [CDF]||rowspan="2"|[[File:Arma2_uaz_mg.jpg|200px]]||20||3||1||1
+|-
+|UAZ_MG_INS||UAZ (DShKM) [ChDKZ]
+|-
+|UAZ_SPG9_INS||UAZ (SPG-9) [ChDKZ]||[[File:Arma2_uaz_spg.jpg|200px]]||20||3||1||1
+|-
+|MTVR||MTVR||[[File:Arma2_mtvr.jpg|200px]]||20||13||12||0
+|-
+|MtvrReammo||MTVR (Ammo)||[[File:Arma2_mtvr_ammo.jpg|200px]]||20||13||12||0
+|-
+|MtvrRepair||MTVR (Repair)||[[File:Arma2_mtvr_repair.jpg|200px]]||20||13||12||0
+|-
+|MtvrRefuel||MTVR (Fuel)||[[File:Arma2_mtvr_fuel.jpg|200px]]||20||13||12||0
+|-
+|Ural_CDF||Ural [CDF]||rowspan="2"|[[File:Arma2_ural.jpg|200px]]||20||15||14||0
+|-
+|UralOpen_INS||Ural [ChDKZ]
+|-
+|Ural_CDF||Ural Civil
+|-
+|UralOpen_CDF||Ural (Open) [CDF]||rowspan="3"|[[File:Arma2_ural_open.jpg|200px]]||20||15||14||0
+|-
+|UralOpen_CDF||Ural (Open) [ChDKZ]
+|-
+|UralOpen_CDF||Ural Civil 2
+|-
+|UralReammo_CDF||Ural (Ammunition) [CDF]||rowspan="2"|[[File:Arma2_ural_reammo.jpg|200px]]||20||3||2||0
+|-
+|UralReammo_INS||Ural (Ammunition) [ChDKZ]
+|-
+|UralRefuel_CDF||Ural (Fuel) [CDF]||rowspan="2"|[[File:Arma2_ural_fuel.jpg|200px]]||20||3||2||0
+|-
+|UralRefuel_INS||Ural (Fuel) [ChDKZ]
+|-
+|UralRepair_CDF||Ural (Repair) [CDF]||rowspan="2"|[[File:Arma2_ural_repair.jpg|200px]]||20||3||2||0
+|-
+|UralRepair_INS||Ural (Repair) [ChDKZ]
+|-
+|Ural_ZU23_CDF||Ural (ZU-23) [CDF]||rowspan="2"|[[File:Arma2_ural_zu23.jpg|200px]]||20||3||2||0
+|-
+|Ural_ZU23_INS||Ural (ZU-23) [ChDKZ]
+|-
+|Ural_ZU23_GUE||Ural (ZU-23) [NAPA]
+|-
+|GRAD_CDF||BM21 GRAD [CDF]||rowspan="2"|[[File:Arma2_bm_grad.jpg|200px]]||20||3||2||0
+|-
+|GRAD_INS||BM21 GRAD [ChDKZ]
+|-
+|GRAD_RU||BM21 GRAD [Russia]
+|-
+|Kamaz||Utility Truck||[[File:Arma2_kamaz.jpg|200px]]||20||13||12||0
+|-
+|KamazOpen||Utility Truck (Open)||[[File:Arma2_kamaz_open.jpg|200px]]||20||13||12||0
+|-
+|KamazRepair||Utility Truck (Repair)||[[File:Arma2_kamaz_repair.jpg|200px]]||20||13||12||0
+|-
+|KamazRefuel||Utility Truck (Fuel)||[[File:Arma2_kamaz_fuel.jpg|200px]]||20||13||12||0
+|-
+|KamazReammo||Utility Truck (Ammunition)||[[File:Arma2_kamaz_ammo.jpg|200px]]||20||13||12||0
+|-
+|V3S_GUE||V3S [NAPA]||rowspan="2"|[[File:Arma2_v3s.jpg|200px]]||20||4||3||0
+|-
+|V3S_Civ||V3S (Civil)
+|-
+|BRDM2_ATGM_CDF||BRDM-2 ATGM [CDF]||rowspan="2"|[[File:Arma2_brdm_atgm.jpg|200px]]||120||2||0||1
+|-
+|BRDM2_ATGM_INS||BRDM-2 ATGM [ChDKZ]
+|-
+|BRDM2_CDF||BRDM-2 [CDF]||rowspan="3"|[[File:Arma2_brdm.jpg|200px]]||120||5||3||1
+|-
+|BRDM2_INS||BRDM-2 [ChDKZ]
+|-
+|BRDM2_GUE||BRDM-2 [NAPA]
+|-
+|BRDM2_HQ_Gue||BRDM-2 (HQ) [CDF]||[[File:Arma2_brdm_hq.jpg|200px]]||120||2||0||1
+|-
+|BTR90||BTR-90 [Russia]||[[File:Arma2_btr90.jpg|200px]]||150||2||0||1
+|-
+|BTR90_HQ||BTR-90 (HQ) [Russia]||[[File:Arma2_btr90_hq.jpg|200px]]||150||2||0||1
+|-
+|LAV25||LAV-25 [USMC]||[[File:Arma2_lav25.jpg|200px]]||150||9||6||1
+|-
+|LAV25_HQ||LAV-25 (HQ) [USMC]||[[File:Arma2_lav25_hq.jpg|200px]]||150||9||6||1
+|-
+|GAZ_Vodnik||Vodnik (2xPK) [Russia]||[[File:Arma2_vodnik.jpg|200px]]||100||13||12||1
+|-
+|GAZ_Vodnik_HMG||Vodnik (BPPU) [Russia]||[[File:Arma2_vodnik_hmg.jpg|200px]]||100||13||12||1
+|-
+|GAZ_Vodnik_MedEvac||Vodnik (Ambulance) [Russia]||[[File:Arma2_vodnik_ambul.jpg|200px]]||100||13||12||1
+|-
+|Offroad_DSHKM_Gue||Offroad (DShKM) [NAPA]||rowspan="3"|[[File:Arma2_GUE_offroad.jpg|200px]]||20||3||1||1
+|-
+|Offroad_SPG9_Gue||Offroad (SPG9) [NAPA]
+|-
+|Offroad_DSHKM_Ins||Offroad (DShKM) [ChDKZ]
+|-
+|Pickup_PK_GUE||Pickup (PK) [NAPA]||rowspan="2"|[[File:Arma2_GUE_pickup.jpg|200px]]||20||3||1||1
+|-
+|Pickup_PK_INS||Pickup (PK) [ChDKZ]
+|-
+|SkodaBlue||Car (Blue)||rowspan="4"|[[File:Arma2_skoda_blue.jpg|200px]]||20||4||3||0
+|-
+|Skoda||Car (White)
+|-
+|SkodaGreen||Car (Green)
+|-
+|SkodaRed||Car (Red)
+|-
+|VWGolf||Hatchback||[[File:Arma2_golf.jpg|200px]]||20||4||3||0
+|-
+|car_hatchback||Old hatchback||[[File:Arma2_hatchback.jpg|200px]]||20||4||3||0
+|-
+|car_sedan||Sedan||[[File:Arma2_sedan.jpg|200px]]||20||4||3||0
+|-
+|Lada1||VAZ (Red)||rowspan="2"|[[File:Arma2_lada1.jpg|200px]]||20||4||3||0
+|-
+|Lada2||VAZ (white)
+|-
+|LadaLM||VAZ (militia)||[[File:Arma2_ladaLM.jpg|200px]]||20||4||3||0
+|-
+|datsun1_civil_1_open||Pick-Up||rowspan="3"|[[File:Arma2_pickup.jpg|200px]]||20||2||1||0
+|-
+|datsun1_civil_2_covered||Pick-Up (Covered)
+|-
+|datsun1_civil_3_open||Pick-Up (Tube frame)
+|-
+|hilux1_civil_1_open||Offroad (tan)||rowspan="3"|[[File:Arma2_offroad.jpg|200px]]||20||2||1||0
+|-
+|hilux1_civil_2_covered||Offroad (red)
+|-
+|hilux1_civil_3_open||Offroad (white)
+|-
+|Ikarus||Bus||[[File:Arma2_ikarus.jpg|200px]]||20||24||23||0
+|-
+|MMT_Civ||Mountain bike||rowspan="2"|[[File:Arma2_bike.jpg|200px]]||15||1||0||0
+|-
+|MMT_USMC||Mountain bike [USMC]
+|-
+|M1030||Motorcycle||[[File:Arma2_m1030.jpg|200px]]||50||1||0||0
+|-
+|TT650_Civ||Motorcycle||rowspan="3"|[[File:Arma2_tt650.jpg|200px]]||50||1||0||0
+|-
+|TT650_Ins||Motorcycle [ChDKZ]
+|-
+|TT650_Gue||Motorcycle [NAPA]
+|-
+|TowingTractor||Towing Tractor||[[File:Arma2_tractor2.jpg|200px]]||20||1||0||0
+|-
+|tractor||Tractor||[[File:Arma2_tractor.jpg|200px]]||20||1||0||0
+|-
+|}
+
+== Air ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|Armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|AH1Z||AH-1Z [USMC]||[[File:Arma2_ah1.jpg|200px]]||60||1||0||1
+|-
+|A10||A-10 [USMC]||[[File:Arma2_a10.jpg|200px]]||75||1||0||0
+|-
+|AH64D||AH-64D [USMC]||[[File:Arma2_ah64.jpg|200px]]||60||2||0||1
+|-
+|MH60S||MH-60S [USMC]||[[File:Arma2_mh60.jpg|200px]]||35||15||12||2
+|-
+|F35B||F-35B [USMC]||[[File:Arma2_f35.jpg|200px]]||40||1||0||0
+|-
+|AV8B||AV-8B [USMC]||rowspan="2"|[[File:Arma2_av8.jpg|200px]]||40||1||0||0
+|-
+|AV8B2||AV-8B (GBU) [USMC]
+|-
+|Mi17_CDF||Mi-17 [CDF]||rowspan="5"|[[File:Arma2_mi17.jpg|200px]]||25||18||16||1
+|-
+|Mi17_INS||Mi-8MT [ChDKZ]
+|-
+|Mi17_medevac_CDF||Mi-17-IVA Medevac [CDF]
+|-
+|Mi17_medevac_Ins||Mi-17-IVA Medevac [ChDKZ]
+|-
+|Mi17_medevac_RU||Mi-17-IVA Medevac [Russia]
+|-
+|Mi17_rockets_RU||Mi-8MTV-3 [Russia]||[[File:Arma2 mi8mtv.jpg|200px]]||25||18||16||1
+|-
+|Mi17_Civilian||Mi-17 (Civilian)||[[File:Arma2_mi17_civ.jpg|200px]]||25||17||16||0
+|-
+|Mi24_D||Mi-24D [CDF]||rowspan="3"|[[File:Arma2_mi24.jpg|200px]]||33||10||1||1
+|-
+|Mi24_P||Mi-24P [Russia]
+|-
+|Mi24_V||Mi-24V [Russia]
+|-
+|Ka52||Ka-52||rowspan="2"|[[File:Arma2_ka52.jpg|200px]]||65||2||0||1
+|-
+|Ka52Black||Ka-52 (Black)
+|-
+|Su25_CDF||Su-25 [Russia]||rowspan="3"|[[File:Arma2 su25.jpg|200px]]||75||1||0||0
+|-
+|Su25_INS||Su-25 [ChDKZ]
+|-
+|Su39||Su-39 [Russia] 
+|-
+|Su34||Su-34 [Russia]||[[File:Arma2_su34.jpg|200px]]||60||1||0||0
+|-
+|UH1Y||UH-1Y [USMC]||[[File:Arma2_uh1.jpg|200px]]||30||9||6||2
+|-
+|C130J||C-130J [USMC]||[[File:Arma2_c130.jpg|200px]]||70||26||25||0
+|-
+|MV22||MV-22 [USMC]||[[File:Arma2_mv22.jpg|200px]]||25||25||24||0
+|-
+|MQ9PredatorB||MQ-9 [USMC]||[[File:Arma2_mq9.jpg|200px]]||10||2||0||0
+|-
+|Pchela1T||Pchela-1T [Russia]||[[File:Arma2_pchela.jpg|200px]]||10||1||0||0
+|-
+|Chukar||BQM-74 [USMC]||[[File:Arma2_chukar.jpg|200px]]||10||1||0||0
+|-
+|CruiseMissile1||Cruise Missile [USMC]||rowspan="2"|[[File:Arma2_cruise_missile.jpg|200px]]||0||1||0||0
+|-
+|CruiseMissile2||Cruise Missile 2 [USMC]
+|-
+|BIS_Steerable_Parachute||Steerable parachute||rowspan="9"|[[File:Parachute.jpg|200px]]||0||1||0||0
+|-
+|ParachuteBigEast||Cargo parachute (Large) [Russia]
+|-
+|ParachuteBigWest||Cargo parachute (Large) [USMC]
+|-
+|ParachuteC||Parachute
+|-
+|ParachuteEast||Parachute [Russia]
+|-
+|ParachuteWest||Parachute [USMC]
+|-
+|ParachuteG||Parachute [NAPA]
+|-
+|ParachuteMediumEast||Cargo parachute [Russia]
+|-
+|ParachuteMediumWest||Parachute [USMC]
+|-
+|}
+
+== Water ==
+{| class=wikitable
+|'''Classname'''||'''Full Name'''||'''Image'''||'''[[CfgVehicles_Config_Reference#armor_.28integer.29|armor]]'''||'''Max. Seats'''||'''Cargo Seats'''||'''Gunners'''
+|-
+|Fishing_Boat||Fishing Boat||[[File:Arma2 fishingboat.jpg|200px]]||20||8||7||0
+|-
+|PBX||PBX||[[File:Arma2 pbx.jpg|200px]]||20||4||3||0
+|-
+|RHIB||RHIB||rowspan="2"|[[File:Arma2 rhib.jpg|200px]]||20||12||10||1
+|-
+|RHIB2Turret||RHIB (Mk19)
+|-
+|SeaFox||Water target||[[File:Arma2 seafox.jpg|200px]]||20||1||0||0
+|-
+|Smallboat_1||Small boat||rowspan="2"|[[File:Arma2 smallboat.jpg|200px]]||20||6||5||0
+|-
+|Smallboat_2||Small boat II
+|-
+|Zodiac||CRRC||[[File:Zodiac.jpg|200px]]||20||5||4||0
+|-
+|}
+
+{{GameCategory|arma2|Reference Lists}}

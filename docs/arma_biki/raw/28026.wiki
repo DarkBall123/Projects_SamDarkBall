@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 1.34
+
+|gr1= RTD
+
+|descr= Returns state of automatic start up action. {{Feature|afm}}
+
+|s1= [[isAutoStartUpEnabledRTD]] helicopter
+
+|p1= helicopter: [[Object]]
+
+|r1= [[Boolean]] - returns [[true]] if automatic start up action is enabled.
+
+|x1= <sqf>_state = isAutoStartUpEnabledRTD _myHelicopter;</sqf>
+
+|seealso= [[enableAutoStartUpRTD]]
+}}

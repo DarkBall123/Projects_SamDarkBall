@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= GUI
+
+|descr= Fills the first passed control with game type and version number, and positions both controls according to the game type.
+
+|s1=  [gameTypeVersionControl, modControl] call [[BIS_fnc_versionInfo]]
+
+|p1= gameTypeVersionControl - [[Control]] - Control for indication of game type (Stable/Dev) and version number (RscText)
+
+|p2= modControl - [[Control]] - Control for indication of modded game (RscActiveText)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[_ctrlVersion, _ctrlModded] call BIS_fnc_versionInfo;</sqf>
+
+|seealso= [[productVersion]]
+}}

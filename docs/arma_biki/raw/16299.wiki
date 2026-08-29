@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= Used by the Set Rank module.
+
+|s1= [logic, units, activated] call [[BIS_fnc_moduleRank]]
+
+|p1= logic: [[Object]] - logic
+
+|p2= units: [[Array]] - units to set rank to
+
+|p3= activated: [[Boolean]] - (Optional, default [[true]]) if [[false]] nothing will happen
+
+|r1= [[Boolean]] - always [[true]]
+
+|x1= <sqf>[rankLogic, [player]] call BIS_fnc_moduleRank;</sqf>
+
+|seealso= [[Modules]]
+}}

@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.68
+
+|gr1= Environment
+
+|gr2= Sounds
+
+|descr= Returns status of [[enableEnvironment]] command
+
+|s1= [[environmentEnabled]]
+
+|r1= [[Array]] with [ambientLife, ambientSound, windyCoef]
+* ambientLife: [[Boolean]] 
+* ambientSound: [[Boolean]]
+* {{GVI|arma3|2.12|size= 0.75}} windyCoef: [[Number]] - see [[enableEnvironment]]
+
+|x1= <sqf>private _enabled = environmentEnabled;</sqf>
+
+|seealso= [[enableEnvironment]] [[fadeEnvironment]] [[environmentVolume]] [[initAmbientLife]] [[sideAmbientLife]] [[getAllEnvSoundControllers]] [[getEnvSoundController]] [[setSoundEffect]]
+}}

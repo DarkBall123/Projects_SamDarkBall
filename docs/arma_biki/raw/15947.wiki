@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Effects
+
+|eff= local
+
+|descr= Create underwater plankton particle effect.
+
+|s1= call [[BIS_fnc_effectPlankton]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_effectPlankton;</sqf>
+
+|seealso=
+}}

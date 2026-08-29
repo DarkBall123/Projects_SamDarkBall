@@ -1,0 +1,15 @@
+A variable of type '''Anything''' may be of any [[:Category: Data Types|data types]] '''or''' [[Nothing]].
+
+{{Feature|warning|
+Even though some commands list data type '''Anything''' as possible value, passing [[nil]] ([[Nothing]]) to a command might cause it not to work:
+<sqf>str nil; // while the documentation for str states it takes Anything, nil / Nothing will cause it to not execute.</sqf>
+}}
+
+== See Also ==
+
+* [[nil]]
+* [[isNil]]
+* [[Nothing]]
+
+
+[[Category: Magic Types]]

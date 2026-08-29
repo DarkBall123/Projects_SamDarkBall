@@ -1,0 +1,58 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Ambient
+
+|descr= Feeds params of given animset to [[BIS_fnc_ambientAnim]].
+
+|s1= animType call [[BIS_fnc_ambientAnimGetParams]]
+
+|p1= animType: [[String]] - can be:
+{{Columns|4|
+* "STAND1"
+* "STAND2"
+* "STAND_U1"
+* "STAND_U2"
+* "STAND_U3"
+* "WATCH"
+* "WATCH2"
+* "GUARD"
+* "LISTEN_BRIEFING"
+* "LEAN_ON_TABLE"
+* "LEAN"
+* "SIT_AT_TABLE"
+* "SIT1"
+* "SIT"
+* "SIT3"
+* "SIT_U1"
+* "SIT_U2"
+* "SIT_U3"
+* "SIT_HIGH1"
+* "SIT_HIGH"
+* "SIT_LOW"
+* "SIT_LOW_U"
+* "SIT_SAD1"
+* "SIT_SAD2"
+* "KNEEL"
+* "REPAIR_VEH_PRONE"
+* "REPAIR_VEH_KNEEL"
+* "REPAIR_VEH_STAND"
+* "PRONE_INJURED_U1"
+* "PRONE_INJURED_U2"
+* "PRONE_INJURED"
+* "KNEEL_TREAT"
+* "KNEEL_TREAT2"
+* "BRIEFING"
+* "BRIEFING_POINT_LEFT"
+* "BRIEFING_POINT_RIGHT"
+* "BRIEFING_POINT_TABLE"
+}}
+
+|r1= [[Array]] - animation parameters
+
+|x1= <sqf>private _animParams = "KNEEL" call BIS_fnc_ambientAnimGetParams;</sqf>
+
+|seealso= [[BIS_fnc_ambientAnimCombat]] [[BIS_fnc_ambientAnim]]
+}}

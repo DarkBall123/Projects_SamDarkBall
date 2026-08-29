@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.76
+
+|gr1= Scripts
+
+|descr= Function used inside the IDAP showcase.
+
+|s1= <!-- [] call [[BIS_fnc_firedBombDemine]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_firedBombDemine;</sqf> -->
+
+|seealso=
+}}

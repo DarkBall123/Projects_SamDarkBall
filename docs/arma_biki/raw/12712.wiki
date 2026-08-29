@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.04
+|arg= global
+|eff= global
+
+|gr1= Containers 
+
+|descr= Removes item from soldier's vest.
+
+|s1= unit [[removeItemFromVest]] item
+
+|p1= unit: [[Object]]
+|p2= item: [[String]]
+|r1= [[Nothing]]
+
+|x1= <sqf>player removeItemFromVest "itemWatch";</sqf>
+
+|seealso= [[addItemToVest]] [[removeItemFromUniform]] [[removeItemFromBackpack]] [[removeItemFromPrimaryWeapon]]
+}}

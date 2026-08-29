@@ -1,0 +1,32 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Map and Markers
+
+|descr= <pre>/*
+
+	Description:
+	Imports and marks positions from KLM file.
+
+	Parameter(s):
+	_this: STRING - path to .kml file
+
+	Returns:
+	STRING - config output (also copied to clipboard)
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_keypointsExportFromKML]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_keypointsExportFromKML;</sqf> -->
+
+|seealso=
+}}

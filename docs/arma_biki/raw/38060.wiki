@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= argo
+|version1= 1.00
+
+|gr1= Argo
+
+|descr= Get if the current machine is an official server or is connected to one.
+
+|s1= [[onOfficialServer]]
+
+|r1= [[Boolean]] - [[true]] if the machine is an official server or is connected to one, [[false]] otherwise (e.g disconnected or single player)
+
+|x1= <sqf>
+if (onOfficialServer) then
+{
+	systemChat "I am safe here! Wait, why is this bush crawling towards me";
+};
+</sqf>
+
+|seealso= [[kickPlayer]]
+}}

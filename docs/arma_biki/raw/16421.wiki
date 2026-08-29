@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Sound
+
+|descr= Play mission end music (when it is nearing the end)
+
+|s1= play call [[BIS_fnc_playEndMusic]]
+
+|p1= play: [[Boolean]] - [[true]] to play it, [[false]] to stop playing
+
+|r1= [[Boolean]] - [[true]] when function is done
+
+|x1= <sqf>true call BIS_fnc_playEndMusic;</sqf>
+
+|seealso= [[playMusic]] [[BIS_fnc_endMission]]
+}}

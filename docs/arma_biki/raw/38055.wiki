@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= argo
+|version1= 1.00
+
+|arg= global
+
+|gr1= Argo
+
+|descr= Return the level of the provided player.
+
+|mp= {{Feature|important|Only works in multiplayer (on both server and clients).}}
+
+|s1= [[getPlayerLevel]] unit
+
+|p1= unit: [[Object]] - a player-controlled unit
+
+|r1= [[Number]] - the provided player's level or -1 on error (unreachable servers, not a player, etc)
+
+|x1= <sqf>
+player addEventHandler ["Killed", {
+	_killer = _this select 1;
+	if (getPlayerLevel _killer < getCurrentPlayerLevel) then
+	{
+		hint "oooooooooh!";
+	};
+}];
+</sqf>
+
+|seealso= [[getCurrentPlayerLevel]] [[isPlayerSupporter]]
+}}

@@ -1,0 +1,74 @@
+{{Feature|UnsupportedDoc}}
+== General ==
+''Flashpoint wrp files use two different file formats to contain the data. This document contains information on unbinarised 4WVR format as used by [[OFP: Community Tools | WrpTool]] and [[Visitor 2]]. 
+
+This document does '''not''' discuss the '''binary''' format, [[Wrp File Format - OPRW|OPRW]]. Both file formats can be used directly by the engine, whether the file exists independently in ~\worlds, or, packed inside a pbo (addon). ''
+
+See [[BIS_File_Formats#Island_File_Formats|Island File Formats]] for further info.
+
+"Binarize" tool by BIStudio will convert 4WVR to OPRW if desired.
+
+(some problems exist with 2 versions of binarize)
+
+For a general description of how simple this (or any other) wrp file construct, see [[Wrp_File_Format_-_8WVR|8WVR format]]
+
+=== Conventions ===
+see [[Generic FileFormat Data Types]]
+
+== Structure ==
+
+ 4WVR
+ {
+   WRP4Header          Header
+   CompressedFloats    Elevations  [Ysize][Xsize]; // in centimetres. See below 
+   ushort              TextureIndex[Ysize][Xsize]; //Each 'index' refers to a filename below. Range 1..511
+   char                TextureFilenames[512][32];  //"data\pi.paa\0|data\pi1.paa\0".....
+   Model               Models[...];
+ }
+=== WRP4Header ===
+ WRP4Header
+ {
+ char Signature[4]; //"4WVR"
+ ulong Xsize;       //(=256) cell dimension
+ ulong Ysize;       //(=256) cell dimension
+ }
+
+==== Elevations ====
+Elevations are expressed as an integral of the gridsize.
+
+Since the gridsize for {{ofp}} is a fixed 50 meters, to convert the value into meters:
+
+ RealHeight = Elevations[x][y] * 0.05;
+
+Note that (probably WrpTool) can set a default index of -1 (0xFFFF). The meaning is unclear.
+
+see Talk
+
+==== TextureIndex ====
+Each cell on the map references an texture file (pac/paa) and an elevation for that text at that cell position.
+Since there could be myriads of 'sea' texture (eg), rather than have each cell list it is texture, it references a texture list via an index. In this way, THE texture which is common to many cells (at sometimes differing elevations) is only stored once.
+
+A fixed (and therefore max) table size of 512 texture filenames can be listed. Each is held as an asciiz string inside a fixed 32 byte record. Eg max length of filename is 31 characters. Each 32 byte record can contain garbage after the Asciiz. The first null entry is considered the end of the usable list.
+
+The first entry (effectively index0) is never used. Even though a filename is associated with this entry. it is never accessed.
+
+=== Model ===
+ Model
+ {
+  float  TransformMatrix[4][3]; // see [[Generic FileFormat Data Types]]
+  long   ObjectID;              // unique for every entry
+  asciiz P3DFilename[76];       // "data3d\kasna.p3d"
+ }
+
+The number of models varies from none, to end of file. Each model is 128 bytes in length.
+
+Note that this is in marked contrast to an 8WVR file. In 8WVR, there is always a minimum of one entry. The last (or only) entry in an 8WVR has no filename associated with it.
+
+== FilePaths ==
+
+Despite the impression given (lack of a leading \) All filenames (pac/paa and p3d files) are HARD WIRED to the (virtual) pboRoot\ directory.
+
+The PboRoot\ directory is built in-situ during game load and consists of an index table of all addons from 'anywhere' in the game structure. Eg, the official Addon Directories (plural), the bin\folder, plus any oem addons stated in the command line. 
+
+{{GameCategory|ofp|Modelling}}
+[[Category:Real Virtuality File Formats]]

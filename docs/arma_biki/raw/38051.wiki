@@ -1,0 +1,22 @@
+{{RV|type=command
+
+|game1= argo
+|version1= 1.00
+
+|gr1= Argo
+
+|descr= Get the level of the currently logged client.
+
+|s1= [[getCurrentPlayerLevel]]
+
+|r1= [[Number]] - the current player's level, or -1 if servers are unreachable
+
+|x1= <sqf>
+if (getCurrentPlayerLevel > 9) then
+{
+	hint "Wow, you're good!";
+};
+</sqf>
+
+|seealso= [[getPlayerLevel]] [[isPlayerSupporter]]
+}}

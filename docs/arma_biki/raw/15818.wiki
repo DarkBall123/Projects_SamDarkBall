@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= <pre>#define DIARY_CATEGORY	"BIS_fnc_diaryMaps"
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_diaryMaps]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_diaryMaps;</sqf> -->
+
+|seealso=
+}}

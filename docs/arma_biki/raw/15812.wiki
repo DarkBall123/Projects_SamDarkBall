@@ -1,0 +1,22 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= GUI
+
+|descr= Returns the dynamically composed overview text for Time Trial scenarios.
+
+|s1= class call [[BIS_fnc_overviewTimeTrial]]
+
+|p1= class: [[String]] - scenario class name
+
+|r1= [[String]] - overview (structured text)
+
+|x1= <sqf>"BIS_someTimeTrial" call BIS_fnc_overviewTimeTrial;</sqf>
+
+|seealso= [[BIS_fnc_overviewMission]]
+}}

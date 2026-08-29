@@ -1,0 +1,27 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Broken Functions
+
+|descr= Display error window.
+{{Feature|arma3|Broken in {{arma3}}. Use [[BIS_fnc_error]] instead}}
+
+|s1= [message, otherParameters] call [[BIS_fnc_errorMsg]]
+
+|p1= message: [[String]]
+
+|p2= otherParameters: [[Anything]] - to format [[format]] command
+
+|r1= [[Script Handle]]
+
+|x1= <sqf>["This is an error message"] call BIS_fnc_errorMsg;</sqf>
+
+|x2= <sqf>["This is an error message: player is: %1", player] call BIS_fnc_errorMsg;</sqf>
+
+|seealso= [[BIS_fnc_error]] [[BIS_fnc_logFormat]] [[BIS_fnc_log]] [[BIS_fnc_logFormatServer]]
+}}

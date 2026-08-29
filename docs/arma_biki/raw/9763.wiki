@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma2oa
+|version1= 1.55
+
+|game2= tkoh
+|version2= 1.00
+
+|game3= arma3
+|version3= 0.50
+
+|gr1= Containers
+
+|arg= global
+
+|eff= global
+
+|descr= Removes all weapons from the vehicle cargo space. MP synchronized.
+
+|s1= [[clearWeaponCargoGlobal]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>clearWeaponCargoGlobal jeepOne;</sqf>
+
+|seealso= [[clearWeaponCargo]] [[addWeaponCargo]] [[clearMagazineCargo]] [[clearMagazineCargoGlobal]] [[clearBackpackCargo]] [[clearBackpackCargoGlobal]] [[clearItemCargo]] [[clearItemCargoGlobal]]
+}}

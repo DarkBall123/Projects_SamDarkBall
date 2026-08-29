@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|gr1= Interaction
+
+|descr= Returns array of user text variables used in MFD.
+
+|s1= [[getUserMFDValue]] vehicle
+
+|p1= vehicle: [[Object]] - a vehicle with MFD
+
+|r1= [[Array]] of [[Number]]s
+
+|x1= <sqf>getUserMFDValue vehicle player; // user0 in MFD will return 1</sqf>
+
+|seealso= [[setUserMFDValue]] [[setUserMFDText]] [[getUserMFDText]]
+}}

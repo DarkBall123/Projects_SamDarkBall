@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.08
+|gr1= Mission Information
+
+|descr= Returns the status of autosave request, made when [[saveGame]] command is executed. When request is made, the command immediately returns [[true]]. The engine then handles the saving and when it is done, the command returns [[false]].
+
+|s1= [[isSaving]]
+
+|r1= [[Boolean]] - [[true]] autosave request is made, [[false]] autosave request is processed
+
+|x1= <sqf>
+0 spawn
+{
+	saveGame;
+	waitUntil { !isSaving };
+	systemChat "Game Saving Is Done!";
+};
+</sqf>
+
+|seealso= [[saveGame]] [[enableSaving]] [[loadGame]] [[savingEnabled]]
+}}

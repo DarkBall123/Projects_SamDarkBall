@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Retrieve all attributes and their values from the specified section/category (category is optional).
+
+|s1= section [[get3DENMissionAttributes]] category
+
+|p1= section: [[String]]
+
+|p2= category: [[String]] Category name or {{hl|""}} to return all attributes
+
+|r1= [[Array]]
+
+|x1= <sqf>private _result = "Multiplayer" get3DENMissionAttributes "";</sqf>
+
+|seealso= [[set3DENMissionAttributes]] [[get3DENMissionAttribute]] [[get3DENAttributes]]
+}}

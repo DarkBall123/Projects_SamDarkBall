@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.32
+|arg= global
+
+|gr1= Object Manipulation
+|gr2= Render Time Scope
+
+|descr= Returns an object's rendered [[Position#PositionATL|ATL position]] (z value above ground) in render time scope.
+
+|s1= [[getPosATLVisual]] object
+
+|p1= object: [[Object]]
+
+|r1= [[Position#PositionATL|PositionATL]]
+
+|x1= <sqf>_playerRenderedPosATL = getPosATLVisual player;</sqf>
+
+|seealso= [[getPosVisual]] [[getPosASLVisual]] [[getPosWorldVisual]] [[visiblePositionASL]] [[visiblePosition]] [[position]] [[getPos]] [[getPosATL]] [[getPosASL]] [[getPosASLW]]
+}}

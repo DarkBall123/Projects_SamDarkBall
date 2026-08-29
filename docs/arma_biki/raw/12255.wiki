@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Returns whether the unit is burning.
+This returns true only if unit is damaged by nearby fire, it does '''not''' check whether a fireplace is burning, use [[inflamed]] command for that.
+
+|s1= [[isBurning]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>if (isBurning player) then { player groupChat "I'm burning!!"; };</sqf>
+
+|seealso= [[getBleedingRemaining]] [[setBleedingRemaining]] [[isBleeding]] [[inflamed]]
+}}

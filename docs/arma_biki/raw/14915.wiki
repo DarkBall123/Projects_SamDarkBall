@@ -1,0 +1,38 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.12
+
+|arg= global
+
+|eff= global
+
+|serverExec= server
+
+|gr1= Object Manipulation
+
+|descr= Enable or disable simulation for given entity, globally. Has the same effect as [[enableSimulation]] when used in singleplayer.
+
+|mp= {{Feature|informative|Since {{GVI|arma3|2.06}} the command can also be executed client-side, with a [[Multiplayer_Scripting#Locality|local]] argument.}}
+
+|s1= entity [[enableSimulationGlobal]] enable
+
+|p1= entity: [[Object]]
+
+|p2= enable: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_myObject enableSimulationGlobal false;</sqf>
+
+|x2= <sqf>[_object, false] remoteExec ["enableSimulationGlobal", 2];</sqf>
+
+|seealso= [[enableSimulation]] [[simulationEnabled]] [[enableDynamicSimulationSystem]] [[dynamicSimulationSystemEnabled]] [[enableDynamicSimulation]] [[dynamicSimulationEnabled]] [[setDynamicSimulationDistance]] [[dynamicSimulationDistance]] [[setDynamicSimulationDistanceCoef]] [[dynamicSimulationDistanceCoef]] [[triggerDynamicSimulation]] [[canTriggerDynamicSimulation]]
+}}
+
+{{Note
+|user= Killzone_Kid
+|timestamp= 20141021153300
+|text= Units that have been previously subjected to <sqf inline>enableSimulation false</sqf> or <sqf inline>enableSimulationGlobal false</sqf> may stay unrecognised for a long time even after simulation was re-enabled, returning [[objNull]] as [[cursorTarget]]. Force revealing units with [[reveal]] command usually solves the problem. For example:
+<sqf>player reveal previouslySimDisabledUnit;</sqf>
+}}

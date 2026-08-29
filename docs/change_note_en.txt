@@ -1,0 +1,17 @@
+Main Changes and Improvements
+- Mod optimization has been improved.
+- Added TI versions of the drones (AT and AP).
+- Significantly improved interference/signal loss visual effects (analog image, blackout/flicker, intensity).
+- Updated the FPV interface.
+- Improved video signal calculation logic.
+- Added drone drag-and-drop into inventory.
+- Signal Booster now correctly appears in Zeus.
+- CBA settings now apply immediately without restart.
+- Increased the drone’s maximum speed.
+
+Fixes
+- Fixed jammer signal loss logic (for players and AI, including reconnections).
+- Fixed UI issues when switching views (1st/3rd person).
+- Adjusted loss-of-control behavior in multiplayer.
+- Removed unnecessary distance restrictions for connecting to the drone.
+- Miscellaneous minor fixes and optimizations.

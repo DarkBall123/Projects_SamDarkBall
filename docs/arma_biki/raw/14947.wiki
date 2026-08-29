@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.14
+
+|gr1= Object Manipulation
+
+|descr= Returns a list of objects attached to the given object.
+
+|s1= [[attachedObjects]] obj
+
+|p1= obj: [[Object]] - given object
+
+|r1= [[Array]] of [[Object]]s attached to the given object
+
+|x1= <sqf>
+{ detach _x } forEach attachedObjects player;
+</sqf>
+
+|x2= <sqf>
+if (count attachedObjects player == 0) then
+{
+	hint "There are no objects attached to player";
+};
+</sqf>
+
+|seealso= [[attachObject]] [[attachTo]] [[attachedTo]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[lightAttachObject]] [[triggerAttachVehicle]] [[attachedObject]] [[detach]]
+}}

@@ -1,0 +1,28 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= HOVER [[Custom_Waypoints|custom waypoint]].
+Hover on specific spot.
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [minTime, reset, altDiff, visualize]
+
+|p1= minTime: [[Number]] - what time in seconds must be spent hovering before completion
+
+|p2= reset: [[Boolean]] - reset the timer every time you fail hovering
+
+|p3= altDiff: [[Number]] - how far from the waypoint height must you hover (-1: altitude does not matter, only completionRadius does) (default:&nbsp;-1)
+
+|p4= visualize: [[Boolean]] - true to show hint (default: false)
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, position dude, 10, 10, false, -1, true] spawn BIS_fnc_wpLand;</sqf>
+
+|seealso=
+}}

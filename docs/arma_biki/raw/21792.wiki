@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.42
+
+|gr1= Leaderboards
+
+|descr= Returns the state of the board with the given name.
+
+|s1= [[leaderboardState]] boardname
+
+|p1= boardname: [[String]]
+
+|r1= [[Number]]
+* 0: Busy (async. operation in progress)
+* 1: Async. operation ended with success
+* 2: Async. operation ended with error
+* 3: Invalid board (bad board name, not initialised etc)
+
+|x1= <sqf>leaderboardState "TT01";</sqf>
+
+|seealso= [[leaderboardsRequestUploadScoreKeepBest]] [[leaderboardsRequestUploadScore]]
+}}

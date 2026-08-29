@@ -1,0 +1,24 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Contact
+
+|descr= Converts {{Link|https://en.wikipedia.org/wiki/HSL_and_HSV|HSL colour format}} to RGB.
+{{Feature|arma3contact}}
+
+|s1= [hue, saturation, lightness] call [[BIN_fnc_colorHSLtoRGB]]
+
+|p1= hue: [[Number]] - (Optional, default 0)
+
+|p2= saturation: [[Number]] - (Optional, default 0)
+
+|p3= lightness: [[Number]] - (Optional, default 0)
+
+|r1= [[Array]] of [[Number]]s - to format [{{Color|red|R}}, {{Color|green|G}}, {{Color|blue|B}}]
+
+|x1= <sqf>private _rgb = [0, 100, 50] call BIN_fnc_colorHSLtoRGB;</sqf>
+
+|seealso= [[BIS_fnc_colorRGBtoHTML]]
+}}

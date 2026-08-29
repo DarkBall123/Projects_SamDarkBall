@@ -1,0 +1,130 @@
+{| class="valign-top"
+
+! {{GVI|ofp|1.00}} {{ofp}} Soundtrack
+! {{GVI|ofpr|1.75}} {{ofpr}} Soundtrack
+|-
+|
+
+{| class="wikitable" style="margin: 0 5em; min-width: 30em"
+! Title
+! Classname
+|-
+<!--
+| {{hl|$STOP$}}
+| Silence (stops the music)
+-->
+|-
+| Seventh - Decide
+| {{hl|7thDecide}}
+|-
+| Seventh - I am Gonna Fly
+| {{hl|7thIAmGonaFly}}
+|-
+| Seventh - Lifeless
+| {{hl|7thLifeless}}
+|-
+| Seventh - Overdose
+| {{hl|7thOverdose}}
+|-
+| Main Theme
+| {{hl|Track1}}
+|-
+| Walk
+| {{hl|Track2}}
+|-
+| Slow Blades
+| {{hl|Track3}}
+|-
+| The Fallen
+| {{hl|Track4}}
+|-
+| Secret
+| {{hl|Track5}}
+|-
+| Dark Side
+| {{hl|Track6}}
+|-
+| Heroes
+| {{hl|Track7}}
+|-
+| Ocean
+| {{hl|Track8}}
+|-
+| Decisions
+| {{hl|Track9}}
+|-
+| March Hell
+| {{hl|Track10}}
+|-
+| Hunt
+| {{hl|Track11}}
+|-
+| Casualties Of War
+| {{hl|Track12}}
+|-
+| Suppression
+| {{hl|Track13}}
+|-
+| Soviet Theme
+| {{hl|Track14}}
+|-
+| Armor
+| {{hl|Track15}}
+|-
+| Amen
+| {{hl|Track16}}
+|-
+| Organ Works
+| {{hl|Frost}}
+|}
+
+|
+
+{| class="wikitable" style="margin: 0 5em; min-width: 30em"
+! Title
+! Classname
+|-
+| Seventh - Darken
+| {{hl|7thDarken}}
+|-
+| Seventh - My Life
+| {{hl|7thMyLife}}
+|-
+| Resistance Track 1a
+| {{hl|RTrack1a}}
+|-
+| Resistance Track 1b
+| {{hl|RTrack1b}}
+|-
+| Resistance Track 2
+| {{hl|RTrack2}}
+|-
+| Resistance Track 3
+| {{hl|RTrack3}}
+|-
+| Resistance Track 4
+| {{hl|RTrack4}}
+|-
+| Resistance Track 5
+| {{hl|RTrack5}}
+|-
+| Resistance Track 6
+| {{hl|RTrack6}}
+|-
+| Resistance Track 7
+| {{hl|RTrack7}}
+|-
+| Resistance Track 8
+| {{hl|RTrack8}}
+|-
+| Resistance Track 9
+| {{hl|RTrack9}}
+|-
+| Resistance Track 10
+| {{hl|RTrack10}}
+|}
+
+|}
+
+
+{{GameCategory|ofp|Reference Lists}}

@@ -1,0 +1,16 @@
+{{RV|type=command
+|game1= arma3
+|version1= 1.56
+|arg=
+|gr1= GUI Control - Menu
+
+|descr= Returns current value set in menu entry on given path.
+|s1= [[menuValue]] [idc, path]
+
+|p1= idc: [[Number]]
+|p2= path: [[Tree View Path]]
+|r1= [[Number]]
+
+|x1=
+|seealso= [[menuEnable]] [[menuExpand]] [[menuCollapse]] [[menuSetData]] [[menuSetValue]] [[menuSetCheck]] [[menuSetAction]] [[menuDelete]] [[menuAdd]] [[menuHover]] [[menuURL]] [[menuText]] [[menuSort]] [[menuSize]] [[menuEnabled]] [[menuChecked]] [[menuAction]] [[menuShortcutText]] [[menuShortcut]] [[menuPicture]] [[menuData]] [[menuClear]] [[menuSetPicture]]
+}}

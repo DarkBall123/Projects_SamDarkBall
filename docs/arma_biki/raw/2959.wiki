@@ -1,0 +1,188 @@
+{{Feature|UnsupportedDoc}}
+== General ==
+''Flashpoint wrp files use two different file formats to contain the data. This document contains information on OPRW format as used by WrpEdit, and as supplied in the standard BI Islands of Malden, Nogova and etc. OPRW files are, essentially, binarised.
+
+This document does '''not''' provide information on the better known [[Wrp File Format - 4WVR|4WVR]] format.
+
+See [[BIS_File_Formats#Island_File_Formats|Island File Formats]] for more info''
+
+Several versions of OPRW format exist. 
+
+*Version2: Cold War Crisis. The original.
+*Version3: Resistance.
+*Version17: Elite
+*Version18: General Arma editing.
+*Version20: Arma's sara.pbo (at least)
+
+This document describes ONLY Versions 2 & 3.
+
+The '''only''' difference between these two formats is a 16 byte added map dimension size inserted towards beginning of header. Since all BI islands, including Resistance's [[Nogova]], are 256 x 256 cells square, the information is redundant in terms of the 'official' maps. However this feature has been exploited heavily by map modellers to make some huge territories. Cat Afghansitan, and PMC Vietnam to name but two.
+
+== Conventions ==
+=== Legend ===
+see [[Generic FileFormat Data Types]]
+
+== Structure ==
+
+ OPRWv2_3
+ {
+  WrpHeader  Header;
+  ulong      PackedCellBitFlags[LayerDimensions];
+  byte       PackedCellEnvSoundsp[LayerDimensions];
+  ulong      nPeaks;
+  XYZTriplet Peaks[nPeaks];////see http://en.wikipedia.org/wiki/Maxima_and_minima
+  ushort     PackedCellTextureIndexes[LayerDimensions];
+  ulong      PackedCellExtFlags[LayerDimensions];
+  float      PackedCellElevations[MapDimensions];
+  ulong      nTextures;
+  Texture    Textures[nTextures];        // At least 1
+  ulong      nModels;
+  Model      Models[nModels];            //can be zero
+  Object     Objects{...};               //56 byte records
+  long      EndOfObjects;                //'''always''' -1
+ };
+
+=== WrpHeader ===
+  WrpHeader
+  {
+  char  Signature[4]; //"OPRW"
+  ulong Version;      // 2(cwr) or 3 (Resistance)
+  '''if (Resistance)'''
+  {
+   XYPair  LayerDimensions; // (texture) 256 x 256 eg
+   XYPair  MapDimensions;   // (terrain) ditto
+  }
+ }
+
+This is a fairly common header througout all wrp formats (including WVR types). There are wrinkles to each one, so check the documentation for each.
+
+Official bis {{ofp}} islands are ALL 256 x 256 map and layer dimensions on a 50meter cube 'cell' (the cell also has a height)
+
+=== CellBitFlags ===
+
+ 00000000 00000000 0iiiddgg00RF0Gaa
+* iii incline 0..7
+* dd  damage  0..3
+* Ggg geometry levels 0..7
+* F   forest bit
+* R   roadway bit
+* aa  surfacetype 
+**0: GROUND
+**1: TIDAL
+**2: COASTLINE
+**3: SEA
+
+=== CellEnvSounds ===
+corresponds to Config.cpp CfgEnvSounds class.
+*0 none
+*1 sea
+*2 tree
+*3 meadow
+*4 hill
+*5 rain
+*0ther...
+
+=== Peaks ===
+
+   Ignored. OFP recalculates them at loading-time.
+
+When present, the XYZ co-ordinate of each peak.
+
+These are the 'points of interest'. Ie 'bumps' in the terrain and are shown in visitor and map game as '24', '6' etc on various parts of the island that have 'bumps' (or 'depressions') relative to the general (cell) area.
+
+see http://en.wikipedia.org/wiki/Maxima_and_minima
+
+The coordinates are expressed in meters on the world grid, X and Y have to be divided by the map, or layer resolution to get the map or cell co-ordinate respectively.
+
+In the case of official {{ofp}} islands, both resolutions are 50 meters. All layers, All maps, are 256x256 on 50meter cubes per cell.
+
+
+=== CellTextureIndexes ===
+Each value is index into the Asciiz Textures List.
+
+index = 0 has a corresponding entry in the Textures List, but is not used.
+
+=== CellExtFlags ===
+XXXXabcc
+
+Contains 3 subsections:
+* cc 0-FF Random values (0..255)
+*  b signed 7 -> -8 Random values, depends on texture color
+*  a signed Random value, depends on texture color flag
+
+Ignored. OFP recalculates them at loading-time.
+   
+Section can be filled with zero.
+
+=== CellElevations ===
+
+Values of vertices of 257x257 mesh (cells - 256x256). Last right column, and last top row of this mesh (257x257) contains 0.0 and is not included in this section.
+
+No restriction for min/max values but recommended values: from -50.0 to 1000.0
+
+=== Texture ===
+  Texture
+  {
+   asciiz Filename;
+   byte Color;
+  }
+
+Like all similar formats, there is a minimum of one entry. The 1st entry is a dummy and never accessed but typically contains the string
+
+"data\more_anim.01.pac". 
+
+This is the transparent index value. 
+Most of the other textures have color values.
+
+Although unusual, other entries ''could'' contain empty names. Where encountered, they would never be referenced. 
+=== Model ===
+  Model
+  {
+    asciiz Filename; //"data3d\thing.p3d"
+  }
+
+=== Object ===
+ Object
+ {
+  ulong ObjectID;        // 4 gig of objects
+  ulong ModelIndex;      //The index number to use from the model list above to obtain the filename.
+  float Transform[4][3]; //This is the traditional 9 cell vertex to orient and rotate a model.
+ }
+
+Objects, if any, are indexes into the models named above (if any).
+
+Objects, and the models they refer to, are the way to place buildings, trees, etc on the map.
+
+The ObjectID is a unique value that identifies '''this''' PineTree
+ 
+Transform[4][3];
+
+This is the transform matrix used directly by Microsoft DirectX engines.
+
+In fact, the 'correct' matrix is actually 4 x 4, but the last column always represents 0,0,0,1 thus
+
+ M11,M12 M13 (0.0)
+ M21,M22,M23 (0.0)
+ M31,M32,M33 (0.0)
+ M41,M42,M43 (1.0)
+
+and so is never stored. 
+
+This identical matrix is used for WRP files (both formats) and RTM files.
+
+The last row (M41...) happens to be the position of the object X Z Y co-ordinates, and is often referred to separately.
+
+For further information visit {{Link|http://msdn.microsoft.com/library/default.asp?url{{=}}/library/en-us/directx9_c/directx/graphics/programmingguide/fixedfunction/transforms/transforms.asp|Microsoft}}.
+
+== FILE PACKING ==
+
+In order to conserve space, where, the majority of cells will contain identical information (if not zero, then an awful lot of 'sea' texture). run length packing is used. The algorithm is identical to that used in pbo compression. Principally, a flag byte followed by mixtures of 8 raw bytes and 2byte pointers.
+
+Each of the array[ ][] entries above are packed. They are treated as separate compressed blocks each with their own checksum. Since the desired size is known (256x256), unpacking consists of decoding the file up to that limit then checking the checksum.
+
+The next 'block' ie, the next array is then treated in a similar manner.
+
+For further information on this packing method see [[PBO File Format]]
+
+{{GameCategory|ofp|Modelling}}
+[[Category:Real Virtuality File Formats]]

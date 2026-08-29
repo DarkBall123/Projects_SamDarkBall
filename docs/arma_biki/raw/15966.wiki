@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Init function for feedback system. Declaration of variables, eventhandlers, etc. for in-game effects. Engine use only.
+
+|s1= call [[BIS_fnc_feedbackInit]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_feedbackInit;</sqf>
+
+|seealso= [[Post Process Effects]]
+}}

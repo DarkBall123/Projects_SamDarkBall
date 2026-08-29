@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Broken Functions
+
+|descr= This function does nothing.
+
+|s1= [] call [[BIS_fnc_effectFiredLongSmoke]]
+
+|r1= [[Nothing]]
+
+|x1= -
+
+|seealso= -
+}}

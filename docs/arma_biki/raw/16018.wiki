@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Conversations
+
+|gr2= Broken Functions
+
+|descr= {{Feature|informative|This function is blank and does nothing.}}
+
+|s1= call [[BIS_fnc_missionConversationsLocal]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_missionConversationsLocal;</sqf>
+
+|seealso= [[Conversations]] [[BIS_fnc_missionConversations]]
+}}

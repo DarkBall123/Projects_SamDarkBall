@@ -1,0 +1,51 @@
+{{RV|type=command
+
+|game1= arma1
+|version1= 1.00
+
+|game2= arma2
+|version2= 1.00
+
+|game3= arma2oa
+|version3= 1.50
+
+|game4= tkoh
+|version4= 1.00
+
+|game5= arma3
+|version5= 0.50
+
+|gr1= Unit Control
+
+|descr= Return the current command type (empty string when no command) for the commander of given vehicle (or for a given soldier). Returned value can be one of:
+{{Columns|4|
+* "WAIT"
+* "ATTACK"
+* "HIDE"
+* "MOVE"
+* "HEAL"
+* "REPAIR"
+* "REFUEL"
+* "REARM"
+* "SUPPORT"
+* "JOIN"
+* "GET IN"
+* "FIRE"
+* "GET OUT"
+* "STOP"
+* "EXPECT"
+* "ACTION"
+* "ATTACKFIRE"
+* "Suppress"
+}}
+
+|s1= [[currentCommand]] vehicleName
+
+|p1= vehicleName: [[Object]]
+
+|r1= [[String]]
+
+|x1= <sqf>_command = currentCommand player;</sqf>
+
+|seealso= [[commandFire]] [[commandMove]] [[commandSuppressiveFire]] [[join]]
+}}

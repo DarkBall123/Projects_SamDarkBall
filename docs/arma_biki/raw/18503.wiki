@@ -1,0 +1,30 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.74
+
+|gr1= GUI Control - Tree View
+
+|arg= local
+
+|eff= local
+
+|descr= Collapses all tree items for the given Tree View.
+
+|s1= [[tvCollapseAll]] idc
+
+|p1= idc: [[Number]]
+
+|r1= [[Nothing]]
+
+|s2= [[tvCollapseAll]] control
+
+|p21= control: [[Control]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>tvCollapseAll 101;</sqf>
+|x2= <sqf>tvCollapseAll _ctrl;</sqf>
+
+|seealso= [[tvExpandAll]] [[tvCollapse]] [[tvAdd]] [[tvClear]] [[tvCount]] [[tvCurSel]] [[tvData]] [[tvDelete]] [[tvExpand]] [[tvPicture]] [[tvSetCurSel]] [[tvSetData]] [[tvSetPicture]] [[tvSetValue]] [[tvSort]] [[tvSortByValue]] [[tvText]] [[tvValue]]
+}}

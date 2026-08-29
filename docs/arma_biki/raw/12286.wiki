@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|arg= global
+
+|eff= global
+
+|gr1= Positions
+
+|descr= Sets the object position above sea surface. The pos array uses the [[Position#PositionASLW|PositionASLW]] format.
+
+|s1= obj [[setPosASLW]] pos
+
+|p1= obj: [[Object]]
+
+|p2= pos: [[Position#PositionASLW|PositionASLW]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_diver setPosASLW [(position _diver) select 0, (position _diver) select 1, -10];</sqf>
+
+|seealso= [[getPosASLW]] [[setPosASL]] [[setPosATL]] [[setPos]] [[setPosWorld]]
+}}

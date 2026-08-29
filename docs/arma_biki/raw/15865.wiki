@@ -1,0 +1,34 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|game2= arma3
+|version2= 0.50
+
+|gr1= Radio
+
+|descr= <pre>/*
+
+	Description:
+	Set a specific or random music channel.
+
+	Parameter(s):
+	_this select 0: channel (String)
+	_this select 1: next (Bool)
+	_this select 2: override (Bool)
+
+	Returns:
+	Bool
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_radioSetChannel]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_radioSetChannel;</sqf> -->
+
+|seealso=
+}}

@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Object Manipulation
+
+|descr= Sets for how many seconds injured unit leaves blood trail.
+The unit damage must be >= 0.1 for this command to have an effect, otherwise, the [[getBleedingRemaining]] will return 0 and no blood trail is left behind.
+
+|s1= unit [[setBleedingRemaining]] time
+
+|p1= unit: [[Object]]
+
+|p2= time: [[Number]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>_unit setBleedingRemaining 60;</sqf>
+
+|x2= <sqf>
+player setDamage 0.25;
+player setBleedingRemaining 120;
+</sqf>
+
+|seealso= [[getBleedingRemaining]] [[isBurning]] [[isBleeding]]
+}}

@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.18
+
+|gr1= System
+
+|descr= Returns value of the given stat.<br>
+A list of possible StatNames can be found here: [[Arma 3: Stat Names]]
+
+|s1= [[getStatValue]] name
+
+|p1= name: [[String]]
+
+|r1= [[Number]] - (can return [[Nothing]])
+
+|x1= <sqf>getStatValue "ExpWarlockDown"; // Checks if the "Warlock Down" Achivement was already aquired</sqf>
+
+|seealso= [[setStatValue]] [[Arma 3: Stat Names]]
+}}

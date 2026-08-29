@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.14
+
+|arg= global
+
+|gr1= Unit Inventory
+
+|descr= Returns an array of all backpack names a unit has in its inventory, excluding the one it carries on the back.
+
+|s1= [[backpacks]] unit
+
+|p1= unit: [[Object]]
+
+|r1= [[Array]] of [[String]]s
+
+|x1= <sqf>private _allCarriedBackpackTypes = backpacks player + [backpack player];</sqf>
+
+|seealso= [[backpack]] [[itemsWithMagazines]] [[assignedItems]] [[items]] [[magazines]] [[everyBackpack]] 
+}}

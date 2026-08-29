@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.56
+
+|gr1= GUI Control - Menu
+
+|descr= Expands given menu entry on given path and all its parents so entry is visible.
+
+|s1= [[menuExpand]] [idc, path]
+
+|p1= idc: [[Number]]
+
+|p2= path: [[Tree View Path]]
+
+|r1= [[Nothing]]
+
+|s2= control [[menuExpand]] path
+
+|p21= control: [[Control]]
+
+|p22= path: [[Tree View Path]]
+
+|r2= [[Nothing]]
+
+|x1= <sqf>findDisplay 313 displayCtrl 120 menuExpand [0, 1];</sqf>
+
+|seealso= [[menuCollapse]]
+}}

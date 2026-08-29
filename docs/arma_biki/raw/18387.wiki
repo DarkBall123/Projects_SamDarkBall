@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|arg= local
+
+|gr1= Pilot Camera
+
+|descr= Sets rotation (relative to the centered camera position) of the object airplane or helicopter [[A3_Targeting_config_reference#class_pilotCamera|pilotCamera]] .
+
+|s1= object [[setPilotCameraRotation]] rotation
+
+|p1= object: [[Object]]
+
+|p2= rotation: [[Array]] - [x,y] - format [yaw (turn), pitch (elevation)]. Values are in radians, positive values are left yaw and down pitch from the center.
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setPilotCameraRotation [rad 90, rad 45];</sqf>
+
+|seealso= [[hasPilotCamera]] [[getPilotCameraPosition]] [[getPilotCameraDirection]] [[getPilotCameraRotation]] [[getPilotCameraTarget]] [[setPilotCameraDirection]] [[setPilotCameraTarget]]
+}}

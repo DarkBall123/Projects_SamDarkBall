@@ -1,0 +1,31 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Environment
+
+|descr= Returns the current humidity value. 0 is no humidity and 1 is 100% humidity. Humidity value quickly changes from 0 to 1 when rain starts, then slowly changes from 1 to 0 when rain stops.
+
+|s1= '''humidity'''
+
+|r1= [[Number]] in range 0..1
+
+|x1= <sqf>currentHumidity = humidity;</sqf>
+
+|x2= <sqf>
+skipTime -24;
+86400 setOvercast 1;
+skipTime 24;
+0 spawn {
+	10 setRain 1;
+	sleep 10;
+	10 setRain 0;
+};
+onEachFrame {
+	hintSilent str [round (rain * 10) / 10, round (humidity * 10) / 10];
+};
+</sqf>
+
+|seealso= [[setHumidity]] [[simulSetHumidity]] [[setOvercast]] [[setRain]] [[rain]] [[overcast]] [[fog]] [[wind]] [[waves]]
+}}

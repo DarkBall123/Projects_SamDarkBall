@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.14
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|descr= Returns object the given object is attached to or [[objNull]] if the given object is not attached to anything.
+
+|s1= [[attachedTo]] obj
+
+|p1= obj: [[Object]] - given object
+
+|r1= [[Object]] - object the given object is attached to
+
+|x1= <sqf>
+if (isNull attachedTo _obj1) then
+{
+	hint "_obj1 is not attached to anything.";
+};
+</sqf>
+
+|seealso= [[attachObject]] [[attachTo]] [[attachedObjects]] [[waypointAttachVehicle]] [[waypointAttachedVehicle]] [[lightAttachObject]] [[triggerAttachVehicle]] [[attachedObject]] [[detach]]
+}}

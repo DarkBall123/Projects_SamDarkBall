@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.00
+
+|gr1= GUI Control - Positioning
+
+|descr= Returns position of the mouse on the screen relative to UI Control in UI coordinates. Also works within [[CT_CONTROLS_GROUP]]s. In that case, returned position is relative to the position of the group.
+
+|s1= [[ctrlMousePosition]] control
+
+|p1= control: [[Control]]
+
+|r1= [[Position#Introduction|Position2D]] - x and y UI coordinates of the mouse position
+
+|x1= <sqf>private _mouseRelPos = ctrlMousePosition _ctrl;</sqf>
+
+|seealso= [[ctrlSetMousePosition]] [[setMousePosition]] [[getMousePosition]] [[ctrlMapCursor]]
+}}

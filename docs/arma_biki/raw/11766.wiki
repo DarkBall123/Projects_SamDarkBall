@@ -1,0 +1,101 @@
+{{TOC|side}}
+[[Take On Helicopters: Patches|Patch 3 (1.04)]] for {{GameCategory|tkoh|link= y}} introduces the ability to use Java scripting in the [[Real Virtuality]] engine.
+This documentation will need to be expanded with more details, guides for other IDEs and comparisons to SQF scripting.
+
+
+== Limitations ==
+
+* Classes can only be loaded from mission, campaign and user profile folders.
+
+
+== Setup - Eclipse ==
+
+=== Installation ===
+
+* {{Link|http://www.oracle.com/technetwork/java/javase/downloads|Download}} and install '''Java SE 1.7'''
+* {{Link|http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/indigosr1|Download}} and install '''Eclipse''' (Indigo)
+** You are free to use other IDEs, but this guide deals with Eclipse only
+* {{Link|http://takeonthegame.com/download/beta-patches|Download}} and install the {{Name|tkoh|short}} Beta Patch rev. '''89707''' (or later)
+
+=== Sample mission ===
+
+* Create a new mission in the editor on '''Oil Platform'''
+* Insert a player pilot character
+* Save the mission as ''JavaSample'' (which will create the {{hl|JavaSample.Intro_Island_H}} folder in your user profile's ''Missions'' folder)
+
+=== New IDE project ===
+
+* In Eclipse, create a new ''Java Project'' (''File'' > ''New'')
+** Enter a name (e.g. ''JavaSample'')
+** Untick ''Use default location'', and browse to the mission you've just created
+** Select ''Next''
+* We will want the .java sources and compiled .class files in the root of the mission for now (alternatively you can organize your data using packages)
+** Right-click the default ''src'' folder and select ''Remove from Build Path''
+*** If you want, manually delete the ''src'' folder from your mission folder
+** Select the root ''JavaSample'' folder, right-click, and select ''Use as Source Folder''
+** Set ''Default output folder'' to just ''JavaSample'' (remove ''\bin'')
+* Go to the ''Libraries'' tab
+** Select ''Add External JARs..''
+** Select from your game installation folder: ''JRE\lib\ext\JNIScripting.jar''
+* Select ''Finish''
+
+=== New Java class ===
+
+* Right-click the JavaSample project and create a new ''Class''
+** Enter as ''Name'': ''Sample''
+** ''Superclass'': empty (remove the default ''java.lang.Object'')
+** Select ''Finish''
+* Change the Sample.java file to:<syntaxhighlight lang="java">
+import com.bistudio.JNIScripting.RVEngine;
+
+/**
+ * Sample Java class
+ * @author Bohemia Interactive
+ */
+public class Sample {
+	/**
+	 * Show a hint passed to jCall.
+	 * @param args Method parameters
+	 */
+	public static Object showHint(Object[] args) {
+		if (!(args[0] instanceof String))
+			return null;
+
+		RVEngine.hint((String)args[0]);
+		return null;
+	}
+}
+</syntaxhighlight>
+* Save the file
+
+=== Debugging ===
+
+* Run {{Name|tkoh|short}} with start-up parameter {{hl|-jDebugPort{{=}}8008}} (or another suitable port number)
+* Open the mission in the editor
+** In the player's Initialisation field add: 
+
+<sqf>BIS_Sample = jLoad "Sample"; BIS_Result = BIS_Sample jCall ["showHint", ["Take On World!"]];</sqf>
+
+* In Eclipse, go to the ''Run'' menu and select ''Debug Configurations..''
+** Double-click ''Remote Java Application''
+** Change the port number to the one you launched {{Name|tkoh|short}} with (8008)
+** In the ''Common'' tab, tick to show this configuration in the ''Debug'' favorites menu for ease of use
+** Select ''Apply'' and ''Close''
+* Place a breakpoint on the following line (double-click the grey column on the left):
+
+<syntaxhighlight lang="java">
+RVEngine.hint((String)args[0]);
+</syntaxhighlight>
+
+* Start the debugger from the ''Debug'' favorites menu (by default named ''Sample (1)'')
+* Preview the mission in {{Name|tkoh|short}}
+** It is recommended to run {{Name|tkoh|short}} windowed to make switching between Eclipse and the game easier (-window)
+** Eclipse's debugger will take focus almost immediately to show the breakpoint
+*** If Eclipse does not show the source code it is paused at, make sure the project and {{hl|JNIScripting.jar}} are listed under the ''Source'' tab in the debug configuration (''Source Lookup Path'')
+** Press F8 to resume
+** Return to {{Name|tkoh|short}} to see the hint displayed
+* Welcome to '''Take On Java'''!
+
+
+[[Category:Scripting_Topics|Java Scripting]]
+[[Category:Take_On_Helicopters:_Editing|Java Scripting]]

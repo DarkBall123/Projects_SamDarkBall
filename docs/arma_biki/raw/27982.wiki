@@ -1,0 +1,26 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|branch= diag
+
+|gr1= Diagnostic
+
+|gr2= Config
+
+|descr= Exports given [[Config|config]] into file of given path.
+
+|s1= [[diag_exportConfig]] [path, config]
+
+|p1= path: [[String]] - file path on disc
+
+|p2= config: [[Config]] - the config you would like to export
+
+|r1= [[Nothing]]
+
+|x1= export an [[Arma: All-in-one Config|All-in-One config]]:
+<sqf>diag_exportConfig ["O:/config.cpp", configFile];</sqf>
+
+|seealso= [[configFile]]
+}}

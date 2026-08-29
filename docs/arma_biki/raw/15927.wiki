@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Diagnostic
+
+|descr= Shows a utility tool checking length of weapon info texts.<br>[[File:BIS_fnc_locWeaponInfo screenshot.png|500px]]
+
+|s1= call [[BIS_fnc_locWeaponInfo]]
+
+|r1= [[Boolean]] - [[true]] when done
+
+|x1= <sqf>call BIS_fnc_locWeaponInfo;</sqf>
+
+|seealso= [[BIS_fnc_animViewer]] [[BIS_fnc_configViewer]] [[BIS_fnc_help]]
+}}

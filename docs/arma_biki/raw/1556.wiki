@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.75
+
+|gr1= Sides
+
+|gr2= Broken Commands
+
+|descr= Returns ''Enemy'' side which is hostile to all units.
+{{Feature|warning|This command is not functional and appears to have been replaced by [[sideEnemy]].}}
+
+|s1= [[enemy]] 
+
+|r1= [[Side]]
+
+|x1= <sqs>? _side == enemy : hint "ouch"</sqs>
+
+|seealso= [[sideEnemy]] [[sideFriendly]]
+}}

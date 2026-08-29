@@ -1,0 +1,2 @@
+#REDIRECT [[BIS_File_Formats#3D_Model_File_Formats|Model File Formats]]
+[[Category: File extensions]]

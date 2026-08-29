@@ -1,0 +1,27 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.02
+
+|gr1= Program Flow
+
+|descr= Skips all loop iterations and immediately returns the given value.
+
+|s1= [[breakWith]] return
+
+|p1= return: [[Anything]] - value to be returned when iterations are skipped
+
+|r1= [[Anything]]
+
+|x1= <sqf>
+// stops once _i reaches 5 and outputs 0, 1, 2, 3, 4, END
+systemChat call {
+	for "_i" from 0 to 10 do {
+		if (_i == 5) then { breakWith "END"; };
+		systemChat str _i;
+	};
+};
+</sqf>
+
+|seealso= [[continueWith]] [[break]] [[continue]] [[breakOut]]
+}}

@@ -1,0 +1,66 @@
+{{TOC|side}} {{Feature|arma3|For the {{arma3}} documentation see [[Arma 3: High Command]].}} 
+
+
+== Setup ==
+
+=== Paths ===
+
+Editor:
+ Modules (F7) > High Command - Commander
+ Modules (F7) > High Command - Subordinate
+Data:
+ ca\modules\hc
+
+=== Placement ===
+
+For every new commander, place "High Command - Commander" game logic on map and synchronize it ({{Controls|F5}}) with the commander.
+
+* If you won't add any subordinates, all units on commander's side will be automatically added under his command.
+* If you create at least one subordinate ("High Command - Subordinate" game logic) and link it to Commander logic, automatic assigning will be turned off and all groups linked to Subordinate logic will be added instead.
+* Linking more subordinate logics to Commander logic will add groups to differently colored subgroups.
+* Once in game, press {{Controls|Ctrl|Space}} to change to the Higher Command Interface (See the training mission "High Command" for more information on usage)
+
+[[File:Hc_layout.jpg|500px]]
+
+Every "High Command - Commander" logic is named 'BIS_HC_#', where # is ID starting from 0.
+
+=== Add a Group ===
+
+<sqf>HCO hcSetGroup [_group, ""];</sqf>
+
+'''Where:'''
+* HCO - [[Object#Person|Person]], is the Commander man
+* _group - [[Group]], the group which you want to add
+* Example: <sqf>player hcSetGroup [Razor_team, ""];</sqf>
+
+== Optional Parameters ==
+
+<!--
+*'''addAllGroups = <boolean>;''' - True if you want to add all all groups of same side to someones command (if there are more commanders on one side, first created one will be used).
+:: Example: ''BIS_HC_mainscope setvariable ["addAllGroups",false];''
+:: Default value: true
+-->
+
+*'''radios = <array>;''' - Radio channels reserved for radio triggered waypoints.
+:: Example: <sqf>BIS_HC_1 setVariable ["radios", [1,2,3,4,5,6,7,8,9,0]];</sqf>
+:: Default value: [] - no channel reserved
+
+*'''ChainOfCommand = <boolean>;''' - Enables proper Chain of Command structure (subordinate High Commanders will pass orders below). ''Available since version 1.01''.
+:: Example: <sqf>BIS_HC_0 setVariable ["chainofcommand", true];</sqf>
+:: Default value:  [[false]] (turned off by default for better performance)
+
+
+== Multiplayer Notes ==
+
+# As of {{arma2}} v1.07 and {{arma2oa}} v1.55, in multiplayer the High Command module will only work with group leaders which are synchronized with the high command modules as specified above.<br><!--
+--> If someone joins a mission in a group and is not the group leader which the module is sync'd to, the commander will not be able to issue commands to the group even if there are active players in the group, in game.<br><!--
+--> — [[User:GeneralCarver|GeneralCarver]] 2010-11-27
+# Is 100% AI compatible.
+
+
+== See Also ==
+
+* [[:Category:Command Group: High Command|Command Group: High Command]]
+
+
+{{GameCategory|arma2|Editor Modules}}

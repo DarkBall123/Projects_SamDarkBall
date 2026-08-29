@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.58
+
+|gr1= Waypoints
+
+|descr= Forces the behavior of waypoint, disables AUTOCOMBAT.
+
+|s1= waypoint [[setWaypointForceBehaviour]] state
+
+|p1= waypoint: [[Waypoint]]
+
+|p2= state: [[Boolean]] - force or not
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[grp, 2] setWaypointForceBehaviour true;</sqf>
+
+|seealso= [[waypointForceBehaviour]] [[setWaypointBehaviour]] [[waypointBehaviour]] [[Mission_Editor:_Waypoints#Behaviour|Behaviour Description]]
+}}

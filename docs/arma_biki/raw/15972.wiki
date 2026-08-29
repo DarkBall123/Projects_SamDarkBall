@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Feedback
+
+|descr= Removes red radial postprocess (fire damage) created by [[BIS_fnc_radialRed]].
+
+|s1= call [[BIS_fnc_radialRedOut]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_radialRedOut;</sqf>
+
+|seealso= [[BIS_fnc_radialRed]]
+}}

@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.18
+
+|gr1= Eden Editor
+
+|descr= Ignores all history steps created by executing the given code.
+
+|s1= [[ignore3DENHistory]] code
+
+|p1= code: [[Code]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+ignore3DENHistory {
+	create3DENEntity ["Object", "B_Soldier_F", screenToWorld [0.5, 0.5]]; // no Ctrl+Z available for this operation
+};
+</sqf>
+
+|seealso= [[collect3DENHistory]] [[create3DENEntity]] [[set3DENAttributes]]
+}}

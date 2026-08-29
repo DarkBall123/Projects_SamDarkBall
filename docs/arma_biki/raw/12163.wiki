@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Artillery
+
+|descr= Returns settings from current vehicle weapon manned by player.
+
+|s1= [[getArtilleryComputerSettings]]
+
+|r1= [[Array]] with [fireMode, ammo, zero]
+* fireMode: [[String]] - fire mode's display name
+* ammo: [[String]] - used ammo display name ('''not''' class name)
+* zero: [[Number]] - always 0
+
+|x1= <sqf>hint str getArtilleryComputerSettings; // ["Semi (medium)", "HE Mortar Shells", 0]</sqf>
+
+|seealso= [[shownArtilleryComputer]] [[enableEngineArtillery]] [[commandArtilleryFire]] [[doArtilleryFire]] [[getArtilleryETA]] [[inRangeOfArtillery]] [[getArtilleryAmmo]]
+}}

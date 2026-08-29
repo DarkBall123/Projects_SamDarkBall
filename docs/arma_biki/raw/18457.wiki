@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.22
+
+|gr1= Vehicle Inventory
+
+|gr2= Containers
+
+|gr3= Unit Inventory
+
+|descr= Returns array with all items assigned to the given weapon in given cargo container.
+{{Feature|warning|This is unofficial documentation. All Information here is as it exists in the Engine. It might not reflect the reality.}}
+
+|s1= container [[weaponAccessoriesCargo]] [weaponId, creatorId]
+
+|p1= container: [[Object]] - cargo container
+
+|p2= weaponId: [[Number]]
+
+|p3= creatorId: [[Number]]
+
+|r1= [[Array]] - [silencer, laserpointer/flashlight, optics, bipod]
+
+|x1= -
+
+|seealso= [[weaponAccessories]] [[primaryWeaponItems]] [[handgunItems]] [[secondaryWeaponItems]] [[weaponsItems]] [[weaponsItemsCargo]] [[removeWeaponAttachmentCargo]] [[removeWeaponCargo]]
+}}

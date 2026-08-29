@@ -1,0 +1,29 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 0.76
+
+|gr1= Tasks
+
+|arg= global
+
+|descr= Returns task's state. {{Feature|informative| See [[Arma 3: Task Framework]] for more information.}}
+
+|s1= taskID call [[BIS_fnc_taskState]]
+
+|p1= taskID: [[String]] - ID of the task
+
+|r1= [[String]] - state of the task. Can be:
+* "AUTOASSIGNED"
+* "ASSIGNED"
+* "CREATED"
+* "SUCCEEDED"
+* "FAILED"
+* "CANCELED"
+
+|x1= <sqf>"task_1" call BIS_fnc_taskState;</sqf>
+
+|x2= <sqf>["task_1"] call BIS_fnc_taskState;</sqf>
+
+|seealso=  [[Arma 3: Task Framework]]
+}}

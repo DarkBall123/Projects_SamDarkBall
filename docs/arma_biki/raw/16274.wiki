@@ -1,0 +1,31 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= <pre>/*
+
+	Description:
+	Register or return side HQ speaker
+	
+	Parameter(s):
+		0:
+			OBJECT - register the HQ
+			SIDE - return HQ of the side
+	
+	Returns:
+	OBJECT - the HQ
+*/</pre>
+
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_moduleHQ]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_moduleHQ;</sqf> -->
+
+|seealso=
+}}

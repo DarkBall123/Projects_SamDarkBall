@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= tkoh
+|version1= 1.00
+
+|gr1= Waypoints
+
+|descr= DETACH SLINGLOAD [[Custom_Waypoints|custom waypoint]].
+
+Unload an object which was previously loaded using [[BIS_fnc_wpSlingLoadAttach]].
+
+|exec= spawn
+
+|s1= [[Custom Waypoints#Function|Custom Waypoint arguments]]: [posLimit,limitDir]
+
+|p1= posLimit: [[Number]] - time in seconds it takes to detach the cargo (default: -1)
+
+|p2= limitDir: [[Array]] - direction range in which cargo has to be detached (default: [0,360])
+
+|r1= [[Nothing]]
+
+|x1= <sqf>[player, position dude, 50, 10, [42, 52]] spawn BIS_fnc_wpSlingLoadDetach;</sqf>
+
+|seealso=
+}}

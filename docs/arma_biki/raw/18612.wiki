@@ -1,0 +1,29 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|arg= global
+
+|gr1= Object Manipulation
+
+|gr2= Render Time Scope
+
+|descr= Converts position from object model space to world space in render time scope. For the [[Position#PositionAGL|PositionAGL]] version see [[modelToWorldVisual]].
+{{Feature|important|
+For [[setObjectScale|scaled objects]], the relative position will first be [[vectorMultiply|multiplied]] by the object scale.<br>
+For example, if the object's scale is 2, <sqf inline>_obj modelToWorldVisualWorld [0,1,0]</sqf> will be offset '''2 meters''' from the model center (<sqf inline>[0,0,0]</sqf>).
+}}
+
+|s1= obj [[modelToWorldVisualWorld]] modelPos
+
+|p1= obj: [[Object]]
+
+|p2= modelPos: [[Position#PositionRelative|PositionRelative]] - [x,y,z] offset relative to the model centre
+
+|r1= [[Position#PositionASL|PositionASL]] - translated world position (see [[getPosWorld]])
+
+|x1= <sqf>player modelToWorldVisualWorld [0,1,0];</sqf>
+
+|seealso= [[modelToWorldWorld]] [[modelToWorldVisual]] [[getPosWorldVisual]]
+}}

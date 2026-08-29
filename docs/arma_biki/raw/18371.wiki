@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.64
+
+|gr1= Interaction
+
+|descr= Checks whether the score table is visible.
+
+|s1= [[visibleScoretable]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_visible = visibleScoretable;</sqf>
+
+|seealso= [[showScoretable]] [[shownScoretable]]
+}}

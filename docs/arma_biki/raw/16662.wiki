@@ -1,0 +1,21 @@
+{{RV|type=command
+
+|game1= ofp
+|version1= 1.99
+
+|gr1= Mission Information
+
+|descr= Returns the name of the current map. Name is actually class as defined in config (eg Intro). 
+{{Feature|warning|This command does not exist outside of {{ofp}}/{{arma0}}. Use [[worldName]] in later titles.}}
+
+|s1= [[getWorld]]
+
+|r1= [[String]]
+
+|x1= <sqs>
+; if testing on Everon, getWorld will return "eden"
+hint getWorld
+</sqs>
+
+|seealso= [[worldName]]
+}}

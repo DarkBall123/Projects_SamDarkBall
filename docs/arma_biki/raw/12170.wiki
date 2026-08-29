@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Environment
+
+|descr= Return the current gusts value.
+
+|s1= '''gusts'''
+
+|r1= [[Number]] in range 0..1
+
+|x1= <sqf>_gustsValue = gusts;</sqf>
+
+|seealso= [[setGusts]] [[windStr]] [[wind]]
+}}

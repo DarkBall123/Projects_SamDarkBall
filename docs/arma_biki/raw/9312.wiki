@@ -1,0 +1,20 @@
+{{Feature|UnsupportedDoc}}
+
+= LodProxy =
+  struct
+  {
+    Asciiz          P3dProxyName;        //"\ca\a10\agm65" (.p3d is implied) <<note the leading filename backslash
+    TransformMatrix Transform;           //see [[Generic FileFormat Data Types]]
+    ulong           ProxySequenceId;     //
+    ulong           NamedSelectionIndex; //see [[P3D Named Selections]]
+    //////// ARMA ONLY (ODOLV4x) ///////
+    long            BoneIndex;
+    ulong           SectionIndex;        //see [[P3D_Lod_Sections]]
+  }
+
+Related Pages
+
+[[P3D File Format - ODOLV7]]
+
+[[Category:Real Virtuality File Formats]]
+{{GameCategory|arma1|File Formats}}

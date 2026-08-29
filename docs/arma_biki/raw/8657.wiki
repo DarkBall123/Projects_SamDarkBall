@@ -1,0 +1,223 @@
+{{Feature|arma3|This page is about {{arma2}} and does not apply to {{arma3}}. In {{arma3}}, use [[remoteExec]] or [[remoteExecCall]].}}
+
+
+
+
+{{TOC|side}}
+'''Multiplayer Framework''' (MPF or MPf) is a library that helps MP mission creation, regarding some commands' locality.
+* library of scripts that are performing non-global script commands globally on network
+* using [[publicVariable]] + [[addPublicVariableEventHandler]] (EH that fires for each publicVariabled variable on all clients - excluding calling client) + direct call on calling client
+* easy use: R-commands match function of '''single''' non-global scripting commands (eg. MPF 'rHINT' call is doing 'hint' on clients)
+* allows execution only on client where target object is local ("loc" switch)
+* allows persistent calls - are performed on JIP client even if server processed given MPF call before client connected to game ("per" switch)
+
+{{Feature|important|Do '''not''' overwrite '''RE''' variable in your missions when using MPF. Do not use rHINT, rSIDECHAT etc [[Identifier]]s (see library below)}}
+
+
+== Remote script execution (RE) ==
+
+On all clients is public variable eventhandler that executes scripts that corresponds to less-than-100-percent-multiplayer-working script commands. One script for one commands, no string sending that will be compiled and executed for the sake of clarity and easiness of creating MP-friendly commands from the engine MP-unfriendly ones.
+
+=== Function ===
+
+# Script ''remExWrite.sqf'' is called with parameters that says: '''who executes''', '''upon who''', '''[only where local and/or persistent]''', '''which scripted command''' and '''parameters''' for scripted command on target client follow
+# ''remExWrite.sqf'' writes in public variable ''remExField''
+# Change in ''remExField'' triggers execution of eventhandlers on all clients in the network game (initialized in init.sqf), script ''remExServer.sqf'' interpretes remExField (remExFP resp.)
+# (if wanted) ''remExServer.sqf'' calls script (given as argument) on client that runs even handler
+
+{{Feature|informative|Remote execution executes script also on calling client (if "loc" flag set, or "loc" not set and object is local on caller client)}}
+
+=== Usage ===
+
+==== How-to ====
+* Include functions module in your mission
+* Wait for global variable "BIS_MPF_InitDone" to be defined (and true): <sqf inline>waitUntil { !(isNil "BIS_MPF_InitDone"); };</sqf>
+* In scripts or FSMs call: <sqf inline>_handler = [/*...*/] call RE;</sqf> (syntax - see below; RE stands for remote execution)
+
+==== Format ====
+ [nil_or_caller, nil_or_target_object, "loc", script_to_execute, par0, par1...] [[call]] '''RE''';
+ [nil_or_caller, nil_or_target_object, "per", script_to_execute, par0, par1...] [[call]] '''RE''';
+ [nil_or_caller, nil_or_target_object, "loc" + "per", script_to_execute, par0, par1...] [[call]] '''RE''';
+
+* "loc"...arbitrary parameter - executes remote script only on machine where ''nil_or_target_object'' is local
+* "per"...arbitrary parameter - executes remote script even on JIP client connectiong *after* this RE call was executed in MP game
+* script_to_execute - ''usually'' {{hl|r + uppercase command}} (see [[#Available Commands|available commands]]) e.g for [[hint]]: rHINT
+* RE...remote execution (short for remExWrite.sqf)
+
+==== Examples ====
+Hint on all clients currently connected to the MP game:
+<sqf>[nil, nil, rHINT, "Enjoy the game."] call RE;</sqf>
+
+Hint on all clients currently connected to the MP game + executed also on JIP client just after connection
+<sqf>[nil, nil, "per", rHINT, "Enjoy the game."] call RE;</sqf>
+
+Hint on client where object ''miles'' is local:
+<sqf>[nil, miles, "loc", rHINT, "Miles is local here."] call RE;</sqf>
+
+Hint on client where number 0 from players group is local. If JIP client connects to this slot, he got also his msg displayed:
+<sqf>[nil, (units group player) select 0, "loc" + "per", rHINT, "Hint."] call RE;</sqf>
+
+Multiple parameters
+<sqf>[objNull, BIS_Rodriguez , "per", rKBADDTOPIC, "armstrongs_speech",  "kb\armstrongs_speech.bikb",  ""] call RE;</sqf>
+{{Feature|informative|{{hl|"kb\armstrongs_speech.bikb"}} here becomes <sqf inline>_this select 1</sqf> in '''kbAddTopic.sqf''' library script.}}
+
+
+== Implementation ==
+
+* remExServer
+* remExWrite
+* library 
+* custom library (division to library and custom library introduced in {{arma2}} v1.03)
+
+=== Library + custom Library ===
+
+* library - functionality of single non-global scripting commands
+* custom library - enhanced functionality (eg. new parameters to scripting commands or more scripting commands triggered by one MPF call)
+
+=== Available Commands ===
+
+{| class="wikitable sortable"
+! name
+! [[:Category:Scripting Commands|command]]
+! '''RE''' equivalent
+! Additional Information
+|-
+| addAction || [[addAction]] || rADDACTION ||
+|-
+| addMagazine || [[addMagazine]] || rADDMAGAZINE ||
+|-
+| addMagazineCargo || [[addMagazineCargo]] || rADDMAGAZINECARGO ||
+|-
+| addWeapon || [[addWeapon]] || rADDWEAPON ||
+|-
+| addWeaponCargo || [[addWeaponCargo]] || rADDWEAPONCARGO ||
+|-
+| addWPCur || {{n/a}} || rADDWPCUR || takes object and for his group on his local sets current WP
+|-
+| animate || [[animate]] || rANIMATE ||
+|-
+| callVar || {{n/a}} || rCALLVAR || (1.03) - calls code that is stored in variable on client
+|-
+| clearMagazineCargo || [[clearMagazineCargo]] || rCLEARMAGAZINECARGO ||
+|-
+| clearWeaponCargo || [[clearWeaponCargo]] || rCLEARWEAPONCARGO ||
+|-
+| createDiaryRecord || [[createDiaryRecord]] || rCREATEDIARYRECORD ||
+|-
+| createSimpleTask || [[createSimpleTask]] || rCREATESIMPLETASK ||
+|-
+| createTaskSet || {{n/a}} || rCREATETASKSET ||
+|-
+| debugLog || [[debugLog]] || rDEBUGLOG ||
+|-
+| deleteWP || [[deleteWaypoint]] || rDELETEWP ||
+|-
+| enableSimulation || [[enableSimulation]] || rENABLESIMULATION ||
+|-
+| endMission || [[endMission]] || rENDMISSION ||
+|-
+| execFSM || [[execFSM]] || rEXECFSM ||
+|-
+| execVM || [[execVM]] || rEXECVM ||
+|-
+| fadeMusic || [[fadeMusic]] || rFADEMUSIC ||
+|-
+| fadeSound || [[fadeSound]] || rFADESOUND ||
+|-
+| failMission || [[failMission]] || rFAILMISSION ||
+|-
+| globalChat || [[globalChat]] || rGLOBALCHAT ||
+|-
+| globalRadio || [[globalRadio]] || rGLOBALRADIO ||
+|-
+| groupChat || [[groupChat]] || rGROUPCHAT ||
+|-
+| groupRadio || [[groupRadio]] || rGROUPRADIO ||
+|-
+| hint || [[hint]] || rHINT ||
+|-
+| hintC || [[hintC]] || rHINTC ||
+|-
+| JIPexec || {{n/a}} || rJIPEXEC || custom scripting functions
+|-
+| JIPrequest || {{n/a}} || rJIPREQUEST || requesting JIP (RE persistent commands) from server by executing this via RE (on server) - parameter: logic local on client
+|-
+| kbAddTopic || [[kbAddTopic]] || rKBADDTOPIC ||
+|-
+| kbReact || [[kbReact]] || rKBREACT ||
+|-
+| kbRemoveTopic || [[kbRemoveTopic]] || rKBREMOVETOPIC ||
+|-
+| kbTell || [[kbTell]] || rKBTELL ||
+|-
+| land || [[land]] || rLAND ||
+|-
+| move || [[move]] || rMOVE ||
+|-
+| moveIn || {{n/a}} || rMOVEIN || can replace [[moveInDriver]], [[moveInGunner]], [[moveInCommander]], [[moveInCargo]]
+|-
+| playAction || [[playAction]] || rPLAYACTION ||
+|-
+| playActionNow || [[playActionNow]] || rPLAYACTIONNOW ||
+|-
+| playMove || [[playMove]] || rPLAYMOVE ||
+|-
+| playMoveNow || [[playMoveNow]] || rPLAYMOVENOW ||
+|-
+| playMusic || [[playMusic]] || rPLAYMUSIC ||
+|-
+| playSound || [[playSound]] || rPLAYSOUND ||
+|-
+| removeAction || [[removeAction]] || rREMOVEACTION ||
+|-
+| removeAllWeapons || [[removeAllWeapons]] ||rREMOVEALLWEAPONS ||
+|-
+| say || [[say]] || rSAY ||
+|-
+| setCaptive || [[setCaptive]] || rSETCAPTIVE ||
+|-
+| setCurrentTask || [[setCurrentTask]] || rSETCURRENTTASK ||
+|-
+| setCurrentTaskArrays || {{n/a}} || rSETCURRENTTASKARRAYS ||
+|-
+| setDate || [[setDate]] || rSETDATE ||
+|-
+| setDir || [[setDir]] || rSETDIR || '''caution:''' often gets overwritten by the server, tied to [[setPos]]
+|-
+| setObjectTexture || [[setObjectTexture]] || rSETOBJECTEXTURE ||
+|-
+| setSimpleTaskDescription || [[setSimpleTaskDescription]] || rSETSIMPLETASKDESCRIPTION ||
+|-
+| setSimpleTaskDestination || [[setSimpleTaskDestination]] || rSETSIMPLETASKDESTINATION ||
+|-
+| setTaskState || [[setTaskState]] || rSETTASKSTATE ||
+|-
+| setWPdesc || [[setWaypointDescription]] || rSETWPDESC ||
+|-
+| setWPtype || [[setWaypointType]] || rSETWPTYPE ||
+|-
+| showCommandingMenu || [[showCommandingMenu]] || rSHOWCOMMANDINGMENU ||
+|-
+| sideChat || [[sideChat]] || rSIDECHAT ||
+|-
+| sideRadio || [[sideRadio]] || rSIDERADIO ||
+|-
+| skipTime || [[skipTime]] || rSKIPTIME || bad
+|-
+| spawn || [[spawn]] || rSPAWN ||
+|-
+| switchAction || [[switchAction]] || rSWITCHACTION ||
+|-
+| switchCamera || [[switchCamera]] || rSWITCHCAMERA ||
+|-
+| switchMove || [[switchMove]] || rSWITCHMOVE ||
+|-
+| taskHint || [[taskHint]] || rTASKHINT ||
+|-
+| titleCut || [[titleCut]] || rTITLECUT ||
+|-
+| titleText || [[titleText]] || rTITLETEXT ||
+|}
+
+
+{{GameCategory|arma2|Editor Modules}}

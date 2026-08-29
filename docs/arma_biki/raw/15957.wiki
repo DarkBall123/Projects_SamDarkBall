@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Effects
+
+|descr= ''N/A''
+
+|s1= <!-- [] call [[BIS_fnc_effectKilledAirDestructionStage2]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_effectKilledAirDestructionStage2;</sqf> -->
+
+|seealso=
+}}

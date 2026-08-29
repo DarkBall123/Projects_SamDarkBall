@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.34
+
+|gr1= Vehicles
+
+|descr= Update Firing From Vehicle feature depending on condition defined in turret's config.
+
+|s1= vehicle call [[BIS_fnc_ffvUpdate]]
+
+|p1= vehicle: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>
+if (local _vehicle) then
+{
+	_vehicle animate ["Door_1", 1];
+	_vehicle call BIS_fnc_ffvUpdate;
+};
+</sqf>
+
+|seealso=
+}}

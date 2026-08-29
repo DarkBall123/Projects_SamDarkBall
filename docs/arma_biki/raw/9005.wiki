@@ -1,0 +1,75 @@
+{{TOC|side}}
+'''Zone Restriction (Zora)''' module defines a kill zone around the playable one to avoid player(s) to flee from the battlefield.
+This only works for player unit.<br>
+A border is created where enemy patrols can be spawned, hunting the player while in this danger zone.
+
+
+== Initialization ==
+
+=== Paths ===
+
+Editor:
+ Modules (F7) > Zone Restriction
+Data:
+ ca\modules\zora
+
+=== Editor setup ===
+
+# Insert sensor(s) named BIS_Zora_x - x as a number, starting from 0, numbers must follow, e.g BIS_Zora_0, BIS_Zora_1, etc.
+The sensors are used to define the combat area.
+
+=== Optional parameters for module init ===
+
+Set variables in init of Zone Restriction module with desired values:
+
+* '''bordersize = <number>;''' - set the border size, between the "normal" area and the immediate death area
+:: Example: <sqf inline>this setvariable ["bordersize", 250];</sqf>
+:: Default value: 1000m
+
+* '''factionlist = <array>;''' - list of factions that can patrol in the border
+:: Example: <sqf inline>this setvariable ["factionlist", ["USMC", "CDF", "GUE"]];</sqf>
+:: Default value: ["GUE"]
+
+* '''maxgroups = <number>;''' - maximum number of groups at once chasing players in the border
+:: Example: <sqf inline>this setvariable ["maxgroups", 8];</sqf>
+:: Default value: 3 ; minimum 1, else, will be reset to default
+
+* '''debug = <bool>;''' - show restricted zone by markers on map, and patrols going after players in the border
+:: Example: <sqf inline>this setVariable ["debug", true];</sqf>
+:: Default value: false
+
+Set global variables with desired values:
+
+* '''BIS_Zora_Pause = <bool>;''' - pause the detection
+:: Example: <sqf inline>BIS_Zora_Pause = true;</sqf>
+:: Default value: false
+
+
+== Behaviour ==
+
+* Patrols will hunt down players in border given the formula <sqf inline>[posx - 50 + (random 100), posy - 50 + (random 100), 0]</sqf>
+* Patrols will retreat after some time if the player left the border (either killed or gone back in safe zone)
+* Patrols will disappear (instantly) once defeated / retreated
+
+* You will have to place on the map at least one unit of the faction you will create with this module, or [[setFriend]] their side, so the created patrols attack their enemies
+
+=== Known bugs ===
+
+* Disembarking from a vehicle you embarked in the border will make you killed as if you left the combat area (even if disembarking in safe zone)
+* Disembarking from a vehicle you started in will make you killed as if you left the combat area
+
+A quick fix-up (you will be able to travel everywhere in a vehicle, but will get shot if you disembark / will get hunted down if in border) :
+<sqf>
+// anti Zora bug
+while { true } do
+{
+	if ({ vehicle _x != _x } count units group player == 0) then { BIS_Zora_Pause = false };
+	waitUntil { { vehicle _x != _x } count units group player > 0 };
+	BIS_Zora_Pause = true;
+	waitUntil { { vehicle _x != _x } count units group player == 0 };
+	sleep 1;
+};
+</sqf>
+
+
+{{GameCategory|arma2|Editor Modules}}

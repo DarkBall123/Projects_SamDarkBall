@@ -1,0 +1,28 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.06
+
+|eff= local
+
+|gr1= Event Handlers
+
+|descr= Removes all UserAction event handlers of the given type which were added by [[addUserActionEventHandler]].
+
+{{Feature|important|This command also resets the Event Handler creation index to 0.}}
+
+|s1= [[removeAllUserActionEventHandlers]] [keyName, eventType]
+
+|p1= keyName: [[String]] - see [[inputAction/actions]]
+
+|p2= eventType: [[String]] - event name; see [[Arma 3: Event Handlers#UserAction Event Handlers|UserAction Event Handlers]]. Can be one of:
+* "Activate"
+* "Deactivate"
+* "Analog"
+
+|r1= [[Nothing]]
+
+|x1= <sqf>removeAllUserActionEventHandlers ["Reload", "Activate"];</sqf>
+
+|seealso= [[addUserActionEventHandler]] [[removeUserActionEventHandler]] [[Arma 3: Event Handlers#UserAction Event Handlers|UserAction Event Handlers]]
+}}

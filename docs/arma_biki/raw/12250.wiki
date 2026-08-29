@@ -1,0 +1,34 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Lights
+
+|arg= local
+
+|eff= local
+
+|descr= Sets if light has flare.
+
+|s1= light [[setLightUseFlare]] bool
+
+|p1= light: [[Object]]
+
+|p2= bool: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>myLight setLightUseFlare true;</sqf>
+
+|seealso= [[setLightAmbient]] [[setLightColor]] [[lightAttachObject]] [[lightDetachObject]] [[setLightIntensity]] [[setLightAttenuation]] [[setLightBrightness]] [[setLightFlareSize]] [[setLightFlareMaxDistance]] [[setLightDayLight]]
+}}
+
+{{Note
+|user= ffur2007slx2_5
+|timestamp= 20140325185000
+|text= <nowiki/>
+# In {{arma3}} ver 1.14 flare color can be changed via [[setLightColor]].
+# Flare won't have visual presentation in daytime.
+# [[setLightUseFlare]] needs to be used together with [[setLightFlareSize]] and [[setLightFlareMaxDistance]] so that a flare can be seen.
+}}

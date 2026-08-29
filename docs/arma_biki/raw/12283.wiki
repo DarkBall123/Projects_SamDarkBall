@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= Locations
+
+|descr= Returns short name of location. For config class name, see [[configName]]
+
+|s1= [[className]] location
+
+|p1= location: [[Location]]
+
+|r1= [[String]]
+
+|x1= <sqf>_shortName = className myLocation;</sqf>
+
+|seealso= [[setText]] [[createLocation]] [[deleteLocation]] [[drawLocation]] [[locationPosition]] [[locationNull]] [[nearestLocation]] [[nearestLocations]] [[nearestLocationWithDubbing]] [[name]]
+}}

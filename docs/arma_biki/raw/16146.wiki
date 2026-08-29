@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Sides
+
+|descr= Returns sides hostile to the given [[Side|side]] / [[Object|object]].
+
+|s1= input call [[BIS_fnc_enemySides]]
+
+|p1= input: [[Object]] or [[Side]] - side or object whose hostile sides should be returned
+
+|r1= [[Array]] containing all hostile sides of given side or object
+
+|x1= <sqf>player call BIS_fnc_enemySides;</sqf>
+
+|seealso= [[side]] [[countSide]] {{Link|CfgVehicles Config Reference#side}} [[Side]] [[playerSide]] [[west]] [[east]] [[resistance]] [[civilian]] [[sideLogic]] [[sideFriendly]] [[sideEnemy]] [[sideUnknown]] [[sideEmpty]] [[sideAmbientLife]] [[Side Relations]]
+}}

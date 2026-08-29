@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3 
+|version1= 1.94
+
+|gr1= Cargo Platform 
+
+|descr= Adjust Military Cargo Platform legs length in [[:Category:Eden Editor|Eden Editor]].
+
+|s1= [object] call [[BIN_fnc_cargoPlatform_01_adjust]]
+
+|p1= object: [[Object]] - cargo platform 
+
+|r1= [[Nothing]]
+
+|x1= <sqf>platform call BIN_fnc_cargoPlatform_01_adjust;</sqf> 
+
+|seealso= [[BIN_fnc_cargoPlatform_01_destruction]] [[BIN_fnc_cargoPlatform_01_update]]
+}}

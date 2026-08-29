@@ -1,0 +1,25 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 2.10
+
+|gr1= Namespaces
+|gr2= Variables
+
+|arg=
+
+|eff=
+
+|serverExec=
+
+
+|descr= This namespace has the same lifetime as [[profileNamespace]] but is also connected to the mission it is saved from. See [[saveMissionProfileNamespace]] for more details.
+
+|s1= [[missionProfileNamespace]]
+
+|r1= [[Namespace]] - namespace
+
+|x1= <sqf>private _currentMissionProfileNamespace = missionProfileNamespace;</sqf>
+
+|seealso= [[missionNamespace]] [[profileNamespace]] [[saveMissionProfileNamespace]] [[isMissionProfileNamespaceLoaded]]
+}}

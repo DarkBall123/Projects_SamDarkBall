@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Vehicles
+
+|descr= Workaround fix for ATGM/SAM launch positions
+
+|s1= [vehicle, projectile, selection, projectileType] call [[BIS_fnc_missileLaunchPositionFix]]
+
+|p1= vehicle: [[Object]] - vehicle
+
+|p2= projectile: [[Object]] - projectile
+
+|p3= selection: [[Object]] - selection to adjust the missile's position to
+
+|p4= projectileType: [[Object]] - type of projectile that should be adjusted
+
+|r1= [[Boolean]] - returns [[true]] if successful
+
+|x1= <sqf>[_vehicle,_missile,"missile_move","MissileBase"] call BIS_fnc_missileLaunchPositionFix;</sqf>
+
+|seealso= [[missileTarget]] [[missileTargetPos]]
+}}

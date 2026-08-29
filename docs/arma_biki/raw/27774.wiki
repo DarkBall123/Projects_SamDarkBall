@@ -1,0 +1,19 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.26
+
+|gr1= System
+
+|descr= Enables road diagnostics in buldozer.
+
+|s1= [[buldozer_enableRoadDiag]] enable
+
+|p1= enable: [[Boolean]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>buldozer_enableRoadDiag true;</sqf>
+
+|seealso= [[buldozer_loadNewRoads]] [[buldozer_isEnabledRoadDiag]]
+}}

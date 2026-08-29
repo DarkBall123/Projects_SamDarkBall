@@ -1,0 +1,30 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.78
+
+|gr1= Map and Markers
+
+|descr= Map will zoom on the given area. Function always takes the longer side of the area to zoom on.
+
+|s1= [area, center, time, handler, forceCam] call [[BIS_fnc_zoomOnArea]]
+
+|p1= area: [[Array]] - area to zoom on
+
+|p2= center: [[Array]] - coordinates of the center
+
+|p3= time: [[Number]] - (Optional, default 1) time of the zoom operation
+
+|p4= handler: [[Control]] - (Optional, default [[nil]]) handler to the map display control (you can pass one if already exists, if not, handler is created)
+
+|p5= forceCam: [[Boolean]] - (Optional, default [[false]]) whether to force the camera in position after the zoom.
+
+|r1= [[Number]] - zoom level
+
+|x1= <sqf>
+openMap true;
+[markerSize "BIS_areaMarker", markerPos "BIS_areaMarker", 5] call BIS_fnc_zoomOnArea;
+</sqf>
+
+|seealso= [[BIS_fnc_zoomLock]] [[BIS_fnc_zoomUnlock]]
+}}

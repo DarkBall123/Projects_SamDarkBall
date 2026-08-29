@@ -1,0 +1,23 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.70
+
+|arg= local
+
+|gr1= Object Manipulation
+
+|descr= Sets a wanted throttle position - works only on [[player]]'s vehicle.
+
+|s1= airplane [[setAirplaneThrottle]] value
+
+|p1= airplane: [[Object]]
+
+|p2= value: [[Number]] - wanted throttle
+
+|r1= [[Nothing]]
+
+|x1= <sqf>vehicle player setAirplaneThrottle 0.5;</sqf>
+
+|seealso= [[airplaneThrottle]]
+}}

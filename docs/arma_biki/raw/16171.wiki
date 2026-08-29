@@ -1,0 +1,26 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|arg= global
+|eff= global
+
+|descr= Set a task to current. Identical to assigning a task. {{Feature|informative| See [[Arma 3: Task Framework]].}}
+
+|s1= taskName call [[BIS_fnc_taskSetCurrent]]
+
+|p1= taskName: [[String]]
+
+|p2= showNotification: [[Boolean]] - (Optional, default true) true to show notification, false to disable it
+
+|r1= [[Boolean]]
+
+|x1= <sqf>"BIS_task_01" call BIS_fnc_taskSetCurrent;</sqf>
+
+|x2= <sqf>["BIS_task_01", false] call BIS_fnc_taskSetCurrent; //Assign without notificiation</sqf>
+
+|seealso= [[Arma 3: Task Framework]]
+}}

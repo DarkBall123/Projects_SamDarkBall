@@ -1,0 +1,21 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|eff= local
+
+|descr= Plays a video with [[BIS_fnc_EXP_camp_setCinematicMode]] enabled.
+
+|s1= [videoPath] call [[BIS_fnc_EXP_camp_playTimelineVideo]]
+
+|p1= videoPath: [[String]] - path to video
+
+|r1= [[Nothing]]
+
+|x1= <sqf>"someVideoPath" call BIS_fnc_EXP_camp_playTimelineVideo;</sqf>
+
+|seealso= [[BIS_fnc_playVideo]]
+}}

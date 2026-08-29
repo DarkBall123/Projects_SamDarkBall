@@ -1,0 +1,214 @@
+==WEST==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SoldierWB||Soldier||[[File:Ofp_soldierwb.jpg|100px]]
+|-
+|SoldierW||-||[[File:Ofp_soldierwb.jpg|100px]]
+|-
+|SoldierWNOG||-||[[File:Ofp_soldierwb.jpg|100px]]
+|-
+|SoldierEFakeW||Soldier (west uniform)||[[File:Ofp_soldierwb.jpg|100px]]
+|-
+|SoldierWCaptive||Captive||[[File:Ofp_soldierwcaptive.jpg|100px]]
+|-
+|SoldierWG||Grenadier||[[File:Ofp_soldierwg.jpg|100px]]
+|-
+|SoldierWMiner||Miner||[[File:Ofp_soldierwb.jpg|100px]]
+|-
+|SoldierWMedic||Medic||[[File:Ofp_soldierwmedic.jpg|100px]]
+|-
+|SoldierWMG||Machinegunner||[[File:Ofp_soldierwmg.jpg|100px]]
+|-
+|SoldierWLAW||LAW Soldier||[[File:Ofp_soldierwlaw.jpg|100px]]
+|-
+|SoldierWAT||AT Soldier||[[File:Ofp_soldierwat.jpg|100px]]
+|-
+|SoldierWAA||AA Soldier||[[File:Ofp_soldierwaa.jpg|100px]]
+|-
+|SoldierWCrew||Crew||[[File:Ofp_soldierwcrew.jpg|100px]]
+|-
+|SoldierWPilot||Pilot||[[File:Ofp_soldierwpilot.jpg|100px]]
+|-
+|SoldierWPilotHG||Pilot (Handgun)<br>(Patch 1.85)||[[File:Ofp_soldierwpilot.jpg|100px]]
+|-
+|SoldierWSniper||Sniper||[[File:Ofp_soldierwsniper.jpg|100px]]
+|-
+|SoldierWLAWSniper||LAW Sniper||[[File:Ofp_soldierwsniper.jpg|100px]]
+|-
+|SoldierWSaboteurPipe||Saboteur||[[File:Ofp_soldierwaboteur.jpg|100px]]
+|-
+|SoldierWSaboteurCheat||Saboteur (Cheat!)||[[File:Ofp_soldierwaboteur.jpg|100px]]
+|-
+|SoldierWSaboteurDay||Saboteur (Day)||[[File:Ofp_soldierwaboteurday.jpg|100px]]
+|-
+|SoldierWSaboteurPipeHG||Saboteur (Handgun)<br>(Resistance)||[[File:Ofp_soldierwaboteur.jpg|100px]]
+|-
+|SoldierWSaboteurXMS||Saboteur (XMS)<br>(''Patch 1.30'')||[[File:Ofp_soldierwaboteurdayxms.jpg|100px]]
+|-
+|SoldierWSaboteurPipeHGS||Saboteur (GlockS)<br>(''Patch 1.85'')||[[File:Ofp_soldierwaboteur.jpg|100px]]
+|-
+|SoldierWSaboteurLaser||Saboteur (Laser)<br>(''Patch 1.46'')||[[File:Ofp_soldierwaboteurdaylgb.jpg|100px]]
+|-
+|OfficerW||Officer||[[File:Ofp_officerw.jpg|100px]]
+|-
+|OfficerWNight||Officer (Night)||[[File:Ofp_officerwnight.jpg|100px]]
+|-
+|OfficerWHG||Officer (Handgun)<br>(''Resistance'')||[[File:Ofp_officerw.jpg|100px]]
+|-
+|SoldierWXMS||Soldier (XMS)<br>(''Patch 1.30'')||[[File:Ofp_soldierwxms.jpg|100px]]
+|-
+|SoldierWG36a||Soldier (G36)<br>(''Patch 1.30'')||[[File:Ofp_soldierwg36a.jpg|100px]]
+|-
+|SoldierWSteyr||Soldier (Steyr)<br>(''Patch 1.30'')||[[File:Ofp_soldierwsteyr.jpg|100px]]
+|-
+|HeavyGW||Heavy Grenadier<br>(''Patch 1.10'')||[[File:Ofp_heavygw.jpg|100px]]
+|-
+|}
+
+== EAST ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SoldierEB||Soldier||[[File:Ofp_soldiereb.jpg|100px]]
+|-
+|SoldierE||-||[[File:Ofp_soldiereb.jpg|100px]]
+|-
+|SoldierENOG||-||[[File:Ofp_soldiereb.jpg|100px]]
+|-
+|SoldierWFakeE||Soldier (east uniform)||[[File:Ofp_soldiereb.jpg|100px]]
+|-
+|SoldierEG||Grenadier||[[File:Ofp_soldiereg.jpg|100px]]
+|-
+|SoldierEMedic||Medic||[[File:Ofp_soldieremedic.jpg|100px]]
+|-
+|SoldierEMiner||Engineer||[[File:Ofp_soldiereb.jpg|100px]]
+|-
+|SoldierEMG||Machinegunner||[[File:Ofp_soldieremg.jpg|100px]]
+|-
+|SoldierELAW||LAW Soldier||[[File:Ofp_soldierelaw.jpg|100px]]
+|-
+|SoldierEAT||AT Soldier||[[File:Ofp_soldiereat.jpg|100px]]
+|-
+|SoldierEAA||AA Soldier||[[File:Ofp_soldiereaa.jpg|100px]]
+|-
+|SoldierECrew||Crew||[[File:Ofp_soldierecrew.jpg|100px]]
+|-
+|SoldierEPilot||Pilot||[[File:Ofp_soldierepilot.jpg|100px]]
+|-
+|SoldierESniper||Sniper||[[File:Ofp_soldieresniper.jpg|100px]]
+|-
+|SoldierESaboteurPipe||Speznaz||[[File:Ofp_soldieresaboteur.jpg|100px]]
+|-
+|SoldierESaboteurCheat||Speznaz (Cheat!)||[[File:Ofp_soldieresaboteur.jpg|100px]]
+|-
+|SoldierESaboteurBizon||Speznaz (Bizon)<br>(''Patch 1.30'')||[[File:Ofp_soldieresaboteur.jpg|100px]]
+|-
+|SoldierESaboteurPipeHG||Speznaz (Handgun)<br>''Resistance'')||[[File:Ofp_soldieresaboteur.jpg|100px]]
+|-
+|OfficerE||Officer||[[File:Ofp_officere.jpg|100px]]
+|-
+|OfficerECheat||Officer (Cheat!)||[[File:Ofp_officere.jpg|100px]]
+|-
+|OfficerENight||Officer (Night)||[[File:Ofp_officerenight.jpg|100px]]
+|-
+|OfficerWHG||Officer (Handgun)<br>(''Resistance'')||[[File:Ofp_officere.jpg|100px]]
+|-
+|HeavyGrenadier||Heavy Grenadier<br>(''Patch 1.10'')||[[File:Ofp_heavygrenadier.jpg|100px]]
+|-
+|SoldierGFakeE||Soldier (east uniform)||[[File:Ofp_soldiereb.jpg|100px]]
+|-
+|GeneralE||General||[[File:Ofp generale.jpg|100px]]
+|-
+|Angelina||Angelina||[[File:Ofp angelina 01.jpg|100px]]
+|-
+|}
+
+== GUERILLA ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|SoldierGB||Soldier||[[File:Ofp_soldiergb.jpg|100px]]
+|-
+|SoldierGNOG||-||[[File:Ofp_soldiergb.jpg|100px]]
+|-
+|SoldierGCheat||Soldier (Cheat!)||[[File:Ofp_soldiergb.jpg|100px]]
+|-
+|SoldierGG||Grenadier||[[File:Ofp_soldiergg.jpg|100px]]
+|-
+|SoldierGMedic||Medic||[[File:Ofp_soldiergmedic.jpg|100px]]
+|-
+|SoldierGMG||Machinegunner||[[File:Ofp_soldiergmg.jpg|100px]]
+|-
+|SoldierGLAW||LAW Soldier||[[File:Ofp_soldierglaw.jpg|100px]]
+|-
+|SoldierGAT||AT Soldier||[[File:Ofp_soldiergat.jpg|100px]]
+|-
+|SoldierGAA||AA Soldier||[[File:Ofp_soldiergaa.jpg|100px]]
+|-
+|SoldierGCrew||Crew||[[File:Ofp_soldiergcrew.jpg|100px]]
+|-
+|SoldierGPilot||Pilot||[[File:Ofp_soldiergpilot.jpg|100px]]
+|-
+|SoldierGSniper||Soldier (Handgun)<br>(''Patch 1.85'')||[[File:Ofp_soldiergsniper.jpg|100px]]
+|-
+|OfficerG||Officer||[[File:Ofp_officerg.jpg|100px]]
+|-
+|OfficerGCheat||Officer (Cheat!)||[[File:Ofp_officerg.jpg|100px]]
+|-
+|OfficerGNight||Officer (Night)||[[File:Ofp_officergnight.jpg|100px]]
+|-
+|OfficerGHG||Officer (Handgun)<br>(''Resistance'')||[[File:Ofp_officerg.jpg|100px]]
+|-
+|Hunter||Soldier<br>(''Patch 1.46'')||[[File:Ofp_hunter.jpg|100px]]
+|-
+|}
+== CIVILIANS ==
+{| class="wikitable"
+|'''Classname'''||'''Full Name'''||'''Screens'''
+|-
+|Civilian||Man||[[File:Ofp_man.jpg|100px]]
+|-
+|Civilian2||Man 2||[[File:Ofp_man2.jpg|100px]]
+|-
+|Civilian3||Man 3||[[File:Ofp_man3.jpg|100px]]
+|-
+|Civilian4||Man 4<br>(''Resistance'')||[[File:Ofp_man4.jpg|100px]]
+|-
+|Civilian5||Man 5<br>(''Resistance'')||[[File:Ofp_man5.jpg|100px]]
+|-
+|Civilian6||Man 6<br>(''Resistance'')||[[File:Ofp_man6.jpg|100px]]
+|-
+|Civilian7||Man 7<br>(''Resistance'')||[[File:Ofp_man7.jpg|100px]]
+|-
+|Civilian8||Man (Police - Scorpion)<br>(''Resistance'')||[[File:Ofp_policemanSa61.jpg|100px]]
+|-
+|Civilian9||Man 8<br>(''Resistance'')||[[File:Ofp_man8.jpg|100px]]
+|-
+|Civilian10||Man 9<br>(''Resistance'')||[[File:Ofp_man9.jpg|100px]]
+|-
+|Civilian11||Man (Police - CZ75)<br>(''Resistance'')||[[File:Ofp_policemancz75.jpg|100px]]
+|-
+|Woman1||Woman 1<br>(''Resistance'')||[[File:Ofp_woman1.jpg|100px]]
+|-
+|Woman2||Woman 2<br>(''Resistance'')||[[File:Ofp_woman2.jpg|100px]]
+|-
+|Woman3||Woman 3<br>(''Resistance'')||[[File:Ofp_woman3.jpg|100px]]
+|-
+|Woman4||Woman 4<br>(''Resistance'')||[[File:Ofp_woman4.jpg|100px]]
+|-
+|Woman5||Woman 5<br>(''Resistance'')||[[File:Ofp_woman5.jpg|100px]]
+|-
+|SoldierGFakeC||Man||
+|-
+|SoldierGFakeC2||Man 2 [AK74]||
+|-
+|SoldierGFakeC3||Man 4 [AK74]<br>(''Resistance'')||
+|-
+|}
+== See also ==
+* [[ArmA: Infantry]]
+* [[Arma 2: Infantry]]
+* [[Arma 2 OA: Infantry]]
+
+{{GameCategory|ofp|Reference Lists}}

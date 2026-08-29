@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Object Manipulation
+
+|descr= Neutralize an object by intrinsic means:
+* soldiers are blown up by mine
+*  vehicles are shelled by artillery
+*  air units are hit by AA missile
+*  underwater units are simply killed.
+
+{{Feature|informative|[[allowDamage]] will '''not''' prevent the unit getting killed.}}
+
+|s1= object call [[BIS_fnc_neutralizeUnit]]
+
+|p1= object: [[Object]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>cursorTarget call BIS_fnc_neutralizeUnit;</sqf>
+
+|seealso= [[setDamage]] [[allowDamage]]
+}}

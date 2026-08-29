@@ -1,0 +1,25 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.62
+
+|gr1= Campaign
+
+|descr= Display a checklist of players that don't meet the given condition, thus preventing mission progress.
+
+|mp= Should only be excuted on the server.
+
+|s1= [conditionProceed, conditionPlayer, code] call [[BIS_fnc_EXP_camp_playerChecklist]]
+
+|p1= conditionProceed: [[Code]] - (Optional, default {true}) general condition that must be met to proceed. Will not list player names.
+
+|p2= conditionPlayer: [[Code]] - (Optional, default {true}) condition that must be met by each player. Use '''_player''' to reference the player unit.
+
+|p3= code: [[Code]] - (Optional, default {}) code to be executed when all players meet the defined condition.
+
+|r1= [[Boolean]] - [[true]] if successful, [[false]] if not
+
+|x1= <sqf>[{count allPlayers == 4}] call BIS_fnc_EXP_camp_playerChecklist;</sqf>
+
+|seealso=
+}}

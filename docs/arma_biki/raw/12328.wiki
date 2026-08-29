@@ -1,0 +1,20 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.50
+
+|gr1= GUI Control
+
+|descr= Returns control IDC.
+
+|s1= [[ctrlIDC]]  control
+
+|p1= control: [[Control]]
+
+|r1= [[Number]]
+
+|x1= <sqf>ctrlIDC _ctrl;</sqf>
+|x2= <sqf>ctrlIDC controlNull; // returns -1</sqf>
+
+|seealso= [[allControls]] [[allDisplays]] [[controlsGroupCtrl]] [[ctrlDelete]] [[ctrlModel]] [[ctrlSetModel]] [[ctrlPosition]] [[ctrlSetPosition]] [[ctrlClassName]] [[ctrlModelScale]] [[ctrlSetModelScale]] [[ctrlModelDirAndUp]] [[ctrlSetModelDirAndUp]] [[displayParent]]
+}}

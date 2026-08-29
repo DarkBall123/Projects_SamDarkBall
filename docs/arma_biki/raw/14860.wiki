@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 1.16
+
+|gr1= Curator
+
+|descr= Returns true if compass is shown.
+
+|s1= [[shownCuratorCompass]]
+
+|r1= [[Boolean]]
+
+|x1= <sqf>_isShown = shownCuratorCompass;</sqf>
+
+|seealso= [[Arma 3: Curator]]
+}}

@@ -1,0 +1,36 @@
+{{RV|type=command
+
+|game1= ofpe
+|version1= 1.00
+
+|game2= arma1
+|version2= 1.00
+
+|game3= arma2
+|version3= 1.00
+
+|game4= arma2oa
+|version4= 1.50
+
+|game5= tkoh
+|version5= 1.00
+
+|game6= arma3
+|version6= 0.50
+
+|gr1= Groups
+
+|arg= local
+
+|descr= Unassigns the unit (in the case of a vehicle its commander unit) from his team. This is equal to unit [[assignTeam]] "MAIN".
+
+|s1= [[unassignTeam]] vehicleName
+
+|p1= vehicleName: [[Object]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>unassignTeam _soldier2;</sqf>
+
+|seealso= [[assignTeam]] [[dissolveTeam]]
+}}

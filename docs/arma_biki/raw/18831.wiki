@@ -1,0 +1,17 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Mission Parameters
+
+|descr= Grabs server param into global variable. ('''bis_reviveParam_duration''')
+
+|s1= call [[BIS_fnc_paramReviveDuration]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_paramReviveDuration;</sqf>
+
+|seealso= [[Mission Parameters]] [[:Category:Function Group: Mission Parameters|Mission Parameters Functions]]
+}}

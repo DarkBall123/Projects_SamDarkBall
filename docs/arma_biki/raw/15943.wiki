@@ -1,0 +1,33 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.08
+
+|gr1= Diagnostic
+
+|descr= Imports CfgVehicles image links from the Community Wiki ({{Link|https://community.bistudio.com/|https://community.bistudio.com/}}).
+# Run the script. It will copy a text into clipboard
+# Open your [[Special:MyPage/Sandbox|Sandbox]] and paste the text into edit field
+# '''Preview''' the page (do not save it)
+# Copy the resulting text and use it in your scripts
+
+Result is in the following format:
+<sqf>
+_imagesCfgVehicles = [
+	"papercar","https://community.bistudio.com/wikidata/images/8/85/Arma3_CfgVehicles_PaperCar.jpg",
+	"firesectortarget","",
+	"building","",
+	// etc
+];
+</sqf>
+
+{{Feature|important|Be wary that this function is '''CPU-demanding''' and may lock your computer for 5-10 seconds.}}
+
+|s1= call [[BIS_fnc_importImageLinks]]
+
+|r1= [[Boolean]] - [[true]] when done
+
+|x1= <sqf>call BIS_fnc_importImageLinks;</sqf>
+
+|seealso= [[Special:Upload|Upload a File on the Wiki]]
+}}

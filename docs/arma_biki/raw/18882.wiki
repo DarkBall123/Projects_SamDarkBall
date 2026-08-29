@@ -1,0 +1,18 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Modules
+
+|descr= <pre>// Debug log
+{{Wiki|placeholder}}
+
+|s1= <!-- [] call [[BIS_fnc_moduleMPTypeGroundSupport]] -->
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIS_fnc_moduleMPTypeGroundSupport;</sqf> -->
+
+|seealso=
+}}

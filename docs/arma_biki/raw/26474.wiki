@@ -1,0 +1,23 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.94
+
+|gr1= Decon Shower 
+
+|descr= <pre>/*
+	BIN_fnc_deconShowerAnimStop
+	Delete all sound sources attachted to decon shower in case it is destroyed or deleted
+*/</pre>
+{{Wiki|placeholder}} 
+
+|s1= <!-- [] call [[BIN_fnc_deconShowerAnimStop]] -->
+
+|p1=
+
+|r1=
+
+|x1= <!-- <sqf>[] call BIN_fnc_deconShowerAnimStop;</sqf> -->
+
+|seealso=
+}}

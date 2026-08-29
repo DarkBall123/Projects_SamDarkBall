@@ -1,0 +1,2 @@
+#REDIRECT [[SQF Syntax]]
+[[Category: File extensions]]

@@ -1,0 +1,36 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Math
+
+|descr= Clamps provided value within min..max range.
+{{Feature|informative|This function is for readability; for performance, directly use [[min]] and [[max]].}}
+
+|s1= [value, min, max] call [[BIS_fnc_clamp]]
+
+|p1= value: [[Number]] - value to be clamped
+
+|p2= min: [[Number]] - (Optional, default 0) lower limit
+
+|p3= max: [[Number]] - (Optional, default 0) upper limit
+
+|r1= [[Number]] - the clamped value
+
+|x1= <sqf notrim>
+ [5, 0, 10] call BIS_fnc_clamp;	// returns 5
+ [0, 0, 10] call BIS_fnc_clamp;	// returns 0
+[10, 0, 10] call BIS_fnc_clamp;	// returns 10
+[-5, 0, 10] call BIS_fnc_clamp;	// returns 0
+[15, 0, 10] call BIS_fnc_clamp;	// returns 10
+ [5, 10, 3] call BIS_fnc_clamp;	// returns 10
+</sqf>
+
+|x2= <sqf>
+[5, 0, 10] call BIS_fnc_clamp;	// 0.0098 ms
+0 max 5 min 10;					// 0.0011 ms - about 10x faster
+</sqf>
+
+|seealso= [[min]] [[max]]
+}}

@@ -1,0 +1,19 @@
+{{RV|type=function
+
+|game1= arma3
+|version1= 1.00
+
+|gr1= Tasks
+
+|gr2= Broken Functions
+
+|descr= {{Feature|informative|This function is blank and does nothing.}}
+
+|s1= call [[BIS_fnc_missionTasksLocal]]
+
+|r1= [[Nothing]]
+
+|x1= <sqf>call BIS_fnc_missionTasksLocal;</sqf>
+
+|seealso= [[Arma 3: Task Framework]] [[BIS_fnc_missionTasks]]
+}}

@@ -1,0 +1,17 @@
+{{RV|type=command
+
+|game1= arma3
+|version1= 0.70
+
+|gr1= System
+
+|descr= Returns the status of STREAM FRIENDLY UI setting in UI (OPTIONS >> GAME >> GENERAL >> STREAM FRIENDLY UI).
+
+|s1= '''isStreamFriendlyUIEnabled'''
+
+|r1= [[Boolean]]
+
+|x1= <sqf>hint str isStreamFriendlyUIEnabled;</sqf>
+
+|seealso= [[isInstructorFigureEnabled]] [[isTutHintsEnabled]]
+}}
