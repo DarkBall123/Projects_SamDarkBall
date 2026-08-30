@@ -1,0 +1,118 @@
+onLoadName = "Операция: Возвращение";
+briefingName = "Операция: Возвращение";
+overviewPicture = "preview_mission.paa";
+loadScreen = "preview_mission.paa";
+respawn = 3;
+respawnDelay = 30;
+respawnOnStart = -1;
+respawnTemplates[] = { "MenuPosition" };
+respawnTemplatesEast[] = { "MenuPosition" };
+
+class CfgFunctions
+{
+    class DZ
+    {
+        class grid
+        {
+            file = "functions";
+
+            class applyOriginalLoadout {};
+            class buildSectorGrid {};
+            class applySavedLoadout {};
+            class canSpawnVehicleType {};
+            class clientInit { postInit = 1; };
+            class controlParams { preInit = 1; };
+            class flushSavedLoadouts {};
+            class getUrbanCells {};
+            class handleStateUpdate {};
+            class handleZonesPFH {};
+            class initRespawnMarkers {};
+            class initSectorVisualState {};
+            class initServer { preInit = 0; };
+            class requestSavedLoadout {};
+            class savePlayerLoadout {};
+            class isForbiddenSpawnPos {};
+            class isLandSector {};
+            class processTriggerZones {};
+            class prepareSpawnedUnit {};
+            class publishSectorState {};
+            class renderSectorState {};
+            class resolveSpawnGroupDef {};
+            class selectSpawnProfile {};
+            class setSectorVisualState {};
+            class spawnCheckpoint {};
+            class spawnCounterattackForce {};
+            class spawnForZone {};
+            class startAmbientSound {};
+            class storeOriginalLoadout {};
+            class manualSaveProgress {};
+            class showHint {};
+            class sideMessage {};
+            class requestTransport {};
+            class setKshmDeployed {};
+            class getMissionDefinitions {};
+            class getMissionDefinition {};
+            class prepareMissionState {};
+            class addMissionAssets {};
+            class selectRandomMission {};
+            class startRandomMission {};
+            class startMissionScheduler {};
+            class missionSchedulerTick {};
+            class startMission {};
+            class requestMissionStatus {};
+            class initEwJammer {};
+            class updateEwJammers {};
+            class initHqLaptop {};
+            class initKshmVehicle {};
+            class initTransportMenu {};
+            class initMissionSystem {};
+            class missionUi {};
+            class endMission {};
+            class startInterdictionMission {};
+            class spawnForest {};
+        };
+    };
+};
+
+class CfgSounds
+{
+    class DZ_SoundAmbience
+    {
+        name = "DZ_SoundAmbience";
+        sound[] = { "sound\ambience.ogg", 0.8, 1 };
+        titles[] = {};
+    };
+};
+
+#include "scripts\Discord.cpp"
+
+class CfgRemoteExec {
+    class Functions {
+        mode = 1;
+        jip = 0;
+        class DZ_fnc_applySavedLoadout {
+            allowedTargets = 0;
+        };
+        class DZ_fnc_requestSavedLoadout {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_requestMissionStatus {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_requestTransport {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_setKshmDeployed {
+            allowedTargets = 2;
+        };
+        class DZ_fnc_showHint {
+            allowedTargets = 0;
+        };
+        class DZ_fnc_sideMessage {
+            allowedTargets = 0;
+        };
+        class DZ_fnc_startMission {
+            allowedTargets = 2;
+        };
+    };
+};
