@@ -3,8 +3,10 @@ params ["_display"];
 
 private _list = _display getVariable ["DB_UIEditor_Tree", controlNull];
 private _nodes = _display getVariable ["DB_UIEditor_Nodes", []];
-private _selected = _display getVariable ["DB_UIEditor_Selected", -1];
+private _selection = _display getVariable ["DB_UIEditor_Selection", []];
+private _primary = if (_selection isEqualTo []) then {-1} else {_selection # ((count _selection) - 1)};
 
+_display setVariable ["DB_UIEditor_Refreshing", true];
 lbClear _list;
 
 {
@@ -27,15 +29,18 @@ lbClear _list;
         _indent = _indent + "    ";
     };
 
-    private _index = _list lbAdd format ["%1%2  [%3]", _indent, _name, _class];
+    private _mark = ["[ ]", "[x]"] select (_id in _selection);
+    private _index = _list lbAdd format ["%1 %2%3  %4", _mark, _indent, _name, _class];
     _list lbSetData [_index, str _id];
 
-    if (_id == _selected) then {
+    if (_id == _primary) then {
         _list lbSetCurSel _index;
     };
 } forEach _nodes;
 
-if (_selected < 0) then {
+_display setVariable ["DB_UIEditor_Refreshing", false];
+
+if (_selection isEqualTo []) then {
     private _typeLabel = _display getVariable ["DB_UIEditor_TypeLabel", controlNull];
     _typeLabel ctrlSetText "Nothing selected";
 };

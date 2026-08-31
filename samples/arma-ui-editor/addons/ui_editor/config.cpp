@@ -18,7 +18,15 @@ class CfgFunctions {
             class uiEditorAdd {};
             class uiEditorApply {};
             class uiEditorBuild {};
+            class uiEditorCreateControl {};
+            class uiEditorDrawGrid {};
             class uiEditorExport {};
+            class uiEditorGroup {};
+            class uiEditorOverlay {};
+            class uiEditorParent {};
+            class uiEditorPointerDown {};
+            class uiEditorPointerMove {};
+            class uiEditorPointerUp {};
             class uiEditorPosition {};
             class uiEditorRefresh {};
             class uiEditorSelect {};

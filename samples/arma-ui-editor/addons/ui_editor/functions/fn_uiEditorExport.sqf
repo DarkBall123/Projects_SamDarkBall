@@ -134,6 +134,13 @@ _writeChildren = {
             } else {
                 ctrlPosition _control
             };
+
+            if (_nodeParentId < 0) then {
+                private _canvasPosition = ctrlPosition (_display getVariable ["DB_UIEditor_CanvasControl", controlNull]);
+                _position set [0, (_position # 0) + (_canvasPosition # 0)];
+                _position set [1, (_position # 1) + (_canvasPosition # 1)];
+            };
+
             private _gridPosition = [_position, _grid, _nodeParentId >= 0] call DB_fnc_uiEditorPosition;
 
             _lines pushBack format ["%1class Control_%2: %3", _indent, _id, _class];

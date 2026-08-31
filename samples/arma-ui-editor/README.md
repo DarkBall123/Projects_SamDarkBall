@@ -22,7 +22,10 @@ From the debug console you can open it directly:
 ## Included
 
 - Common text, image, input, button, list, tree, slider, progress, map, and group controls.
-- Root controls and controls nested inside a selected `ControlsGroup`.
+- Drag controls directly on the canvas and resize from the green lower-right handle.
+- Hold `Ctrl` while clicking controls to select several, then use `Group` or `Ungroup`.
+- Snap movement and resizing to 4, 8, or 16 PixelGrid units.
+- Root controls and controls nested inside a real `ControlsGroup`.
 - SafeZone, PixelGrid + SafeZone, PixelGrid, GUI_GRID, and absolute coordinate views.
 - Editable text and `x/y/w/h` values.
 - Config output that can be selected and copied with `Ctrl+C`.
