@@ -1,0 +1,28 @@
+name = "DB UI Editor Sample"
+prefix = "db"
+mainprefix = "z"
+author = "DarkBall"
+
+[files]
+include = [
+    "mod.cpp",
+]
+
+exclude = [
+    "**/.DS_Store",
+    "**/*.bak",
+    "**/*.tmp",
+]
+
+[version]
+major = 0
+minor = 1
+patch = 0
+git_hash = 0
+
+[hemtt.build]
+pdrive = "disallow"
+
+[hemtt.launch.default]
+binarize = false
+file_patching = true
